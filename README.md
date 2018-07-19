@@ -79,5 +79,5 @@ Copyright (C) 2003-2018 E.R.P. Consultores y Asociados, C.A. All Rights Reserved
 Código disponible con licencia [GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt).
 
 ## Contacto
- - Yamel Senih ysenih@erpya.com E.R.P. Consultores y Asociuados, C.A.
- - Carlos Parada cparada@erpya.com E.R.P. Consultores y Asociuados, C.A.
+ - Yamel Senih ysenih@erpya.com E.R.P. Consultores y Asociados, C.A.
+ - Carlos Parada cparada@erpya.com E.R.P. Consultores y Asociados, C.A.
