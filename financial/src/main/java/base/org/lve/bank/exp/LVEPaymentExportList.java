@@ -303,4 +303,17 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 		return null;
 	}
 	
+	/**
+	 * Validate if is numeric
+	 * @param value
+	 * @return
+	 */
+	public boolean isNumeric(String value) {
+		if(Util.isEmpty(value)) {
+			return false;
+		}
+		//	
+		return value.matches("[+-]?\\d*(\\.\\d+)?")
+	}
+	
 }

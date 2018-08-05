@@ -54,6 +54,11 @@ public class Banesco extends LVEPaymentExportList {
 	/**	Payment Quantity	*/
 	private int paymentQty = 0;
 	
+	public final static char CR  = (char) 0x0D;
+	public final static char LF  = (char) 0x0A; 
+
+	public final static String CRLF  = "" + CR + LF; 
+	
 	
 	@Override
 	public int exportToFile(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
@@ -105,7 +110,7 @@ public class Banesco extends LVEPaymentExportList {
 			registerType = "01";
 			header = new StringBuffer();
 			//	Header
-			header.append(Env.NL)							//	New Line
+			header.append(CRLF)							//	New Line
 				.append(registerType)						//  Type Register
 				.append(transactionType)					//	Type Transaction
 				.append(descriptionCode)					//  Description Code
@@ -144,7 +149,7 @@ public class Banesco extends LVEPaymentExportList {
 			String bankCodeOrder = rightPadding("BANESCO", 11, " ");
 			String payDate = shortFormat.format(paySelection.getPayDate());
 			//	Debt Note
-			header.append(Env.NL)										//	New Line
+			header.append(CRLF)											//	New Line
 				.append(registerType)									//  Type Register
 				.append(debtReferenceNo)								//	Reference Number
 				.append(orgTaxId)										//  Organization Tax ID
@@ -206,17 +211,17 @@ public class Banesco extends LVEPaymentExportList {
 							}
 							bPPhone = rightPadding(bPPhone, 25, " ", true);
 							//	Contact Tax Id
-							String bPTaxIdContact = rightPadding("", 17, " ");
+							String bPTaxIdContact = rightPadding(processValue(bpContact.getValue()), 17, " ", true);
 							//	Contact Name
-							String bPContactName = rightPadding("", 35, " ");
+							String bPContactName = rightPadding(processValue(bpContact.getName()), 35, " ", true);
 							//	SettlorQualifier
-							String settlorQualifier = rightPadding("", 1, " ");
+							String settlorQualifier = rightPadding("", 1, " ", true);
 							//	Employee
-							String cardEmployee = rightPadding("", 30, " ");
+							String cardEmployee = rightPadding("", 30, " ", true);
 							//	Payroll Type
-							String payrollType = rightPadding("", 2, " ");
+							String payrollType = rightPadding("", 2, " ", true);
 							//	Contact Location
-							String contactLocation = rightPadding("", 21, " ");
+							String contactLocation = rightPadding("", 21, " ", true);
 							if(Optional.ofNullable(bPAccountNo).isPresent()) {
 								bPAccountNo = leftPadding(bPAccountNo, 20, "0", true);
 								bPAccountNo = rightPadding(bPAccountNo, 30, " ", true);
@@ -246,7 +251,7 @@ public class Banesco extends LVEPaymentExportList {
 							}
 							//	Write Credit Register
 							StringBuffer line = new StringBuffer();
-							line.append(Env.NL)						//	New Line
+							line.append(CRLF)						//	New Line
 								.append(lineRegisterType)			//	Type Register	
 								.append(documentNo)					//	Document Number
 								.append(amountAsString)				// 	Payment Amount
@@ -281,11 +286,11 @@ public class Banesco extends LVEPaymentExportList {
 			String countCredit = leftPadding("" + getPaymentQty(), 15, "0");
 			//	Write Totals
 			StringBuffer footer = new StringBuffer();
-			footer.append(Env.NL)					//	New Line
+			footer.append(CRLF)						//	New Line
 				.append(registerType)				//  Type Register
 				.append(countDebit)					//	Count Debt
 				.append(countCredit)				//  Count Credit
-				.append(totalAmtAsString);					//  Total Amount
+				.append(totalAmtAsString);			//  Total Amount
 			writeLine(footer.toString());
 			//	
 			closeFileWriter();

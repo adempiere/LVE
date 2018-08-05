@@ -162,6 +162,9 @@ public class BFC extends LVEPaymentExportList {
 								personType = bPTaxId.substring(0, 1);
 								bPTaxId = bPTaxId.replaceAll("\\D+","");
 								bPTaxId = leftPadding(bPTaxId, 10, "0", true);
+								if(isNumeric(personType)) {
+									personType = "V";
+								}
 							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@BPTaxID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
@@ -218,7 +221,7 @@ public class BFC extends LVEPaymentExportList {
 			});
 			//	Totals Register
 			//	Constant
-			String constant = leftPadding("1", 6, "9");
+			String constant = leftPadding("1", 6, "0");
 			//	Client Name
 			String clientName = processValue(client.getName());
 			clientName = clientName.substring(0, clientName.length() >= 40? 40: clientName.length());
@@ -230,14 +233,14 @@ public class BFC extends LVEPaymentExportList {
 			if(totalAmtAsString.length() > 15) {
 				addError(Msg.parseTranslation(Env.getCtx(), "@PayAmt@ > @Valid@"));
 			} else {
-				totalAmtAsString = rightPadding(totalAmtAsString, 15, "0", true);
+				totalAmtAsString = leftPadding(totalAmtAsString, 15, "0", true);
 			}
 			//	Debts Quantity
 			String countDebts = leftPadding("" + checks.size(), 6, "0");
 			//	Credits Quantity
 			String countCredits = leftPadding("" + checks.size(), 6, "0");
 			//	Constant
-			String constant2 = leftPadding("1", 76, "0");
+			String constant2 = leftPadding("", 76, "0");
 			//	Write Totals
 			StringBuffer footer = new StringBuffer();
 			footer.append(Env.NL)				//	New Line

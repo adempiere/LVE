@@ -78,7 +78,7 @@ public class Bancaribe extends LVEPaymentExportList {
 							//	Process Account Name
 							String bpaName = processValue(bpAccount.getA_Name());
 							if(Optional.ofNullable(bpaName).isPresent()) {
-								bpaName = leftPadding(bpaName, 30, " ", true);
+								bpaName = rightPadding(bpaName, 30, " ", true);
 							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@A_Name@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
