@@ -221,7 +221,7 @@ public class BFC extends LVEPaymentExportList {
 			});
 			//	Totals Register
 			//	Constant
-			String constant = leftPadding("1", 6, "0");
+			String constant = leftPadding("1", 6, "9");
 			//	Client Name
 			String clientName = processValue(client.getName());
 			clientName = clientName.substring(0, clientName.length() >= 40? 40: clientName.length());

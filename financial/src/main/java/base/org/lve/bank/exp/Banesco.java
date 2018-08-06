@@ -18,6 +18,7 @@
 package org.lve.bank.exp;
 
 import java.io.File;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Optional;
@@ -329,5 +330,112 @@ public class Banesco extends LVEPaymentExportList {
 		}
 		//	
 		return value.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ$,;*/]", "");
+	}
+	
+	@Override
+	public int exportToFileAsEnrollment(MBankAccount bankAccount, List<MBPBankAccount> bPartnerAccountList,
+			boolean isEnroll, File file, StringBuffer error) {
+		MOrgInfo orgInfo = MOrgInfo.get(bankAccount.getCtx(), bankAccount.getAD_Org_ID(), bankAccount.get_TrxName());
+		MClient client = MClient.get(orgInfo.getCtx(), orgInfo.getAD_Client_ID());
+		MBank bank = MBank.get(bankAccount.getCtx(), bankAccount.getC_Bank_ID());
+		//	Process Organization Tax ID
+		String clientName = processValue(client.getName());
+		clientName = rightPadding(clientName, 35, " ", true);
+		String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
+		orgTaxId = rightPadding(orgTaxId, 17, " ").toUpperCase();
+		SimpleDateFormat shortFormat = new SimpleDateFormat(HEADER_DATE_FORMAT);
+		String documentNo = "AFIL" + shortFormat.format(new Time(System.currentTimeMillis()));
+		documentNo = rightPadding(documentNo, 30, " ", true);
+		// 	Control Register
+		StringBuffer header = new StringBuffer();
+		//	
+		header.append(clientName)		//	Client Name
+			.append(orgTaxId)			//	Tax ID
+			.append(documentNo);		//	Document No
+		//	Write Line
+		writeLine(header.toString());
+		//	Load Line
+		s_log.fine("Iterate Payments");
+		bPartnerAccountList.stream()
+				.filter(bPartnerAccount -> bPartnerAccount != null)
+				.forEach(bPartnerAccount -> {
+					//  BPartner Info
+					MBPartner bpartner = MBPartner.get(bPartnerAccount.getCtx(), bPartnerAccount.getC_BPartner_ID());
+					MBank bpBank = MBank.get(Env.getCtx(), bPartnerAccount.getC_Bank_ID());
+					boolean isSameBank = false;
+					if (!Util.isEmpty(bank.getSwiftCode())
+							&& !Util.isEmpty(bpBank.getSwiftCode())
+							&& bank.getSwiftCode().equals(bpBank.getSwiftCode())) {
+						isSameBank = true;
+					}
+					String transactionType = "";
+					//	Validate Transaction
+					if(isEnroll) {
+						if(isSameBank) {
+							transactionType = "051";
+						} else {
+							transactionType = "052";
+						}
+					} else {
+						if(isSameBank) {
+							transactionType = "071";
+						} else {
+							transactionType = "072";
+						}
+					}
+					//	Reference No
+					String referenceNo = rightPadding("", 30, " ", true);
+					//	Person Type
+					String bPTaxId = bPartnerAccount.getA_Ident_SSN();
+					//	Process Person Type
+					String personType = "";
+					String firstChar = "";
+					if(!Util.isEmpty(bPTaxId)){
+						bPTaxId = bPTaxId.replace("-", "").trim();
+						firstChar = bPTaxId.substring(0, 1);
+						bPTaxId = bPTaxId.replaceAll("\\D+","");
+						bPTaxId = leftPadding(bPTaxId, 11, "0", true);
+						bPTaxId = firstChar + bPTaxId;
+						bPTaxId = rightPadding(bPTaxId, 12, "0", true);
+						if(isNumeric(firstChar)) {
+							addError(Msg.parseTranslation(Env.getCtx(), "@PersonType@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()) + " - " + bPartnerAccount.getA_Ident_SSN());
+						} else { 
+							if(firstChar.equals("V")
+									|| firstChar.equals("E")) {
+								personType = "N";
+							} else {
+								personType = "J";
+							}
+						}
+					} else {
+						addError(Msg.parseTranslation(Env.getCtx(), "@BPTaxID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
+					}
+					//	Account No
+					String bPAccountNo = processValue(bPartnerAccount.getAccountNo());
+					bPAccountNo = rightPadding(bPAccountNo, 20, "0", true);
+					//	Process Account Name
+					String bPName = processValue(bPartnerAccount.getA_Name());
+					if(Optional.ofNullable(bPName).isPresent()) {
+						bPName = rightPadding(bPName, 35, " ", true);
+					} else {
+						addError(Msg.parseTranslation(Env.getCtx(), "@A_Name@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
+					}
+					//	Status
+					String transactionStatus = "000";					
+					//	Write Credit Register
+					StringBuffer line = new StringBuffer();
+					line.append(CRLF)						//	New Line
+						.append(transactionType)			//	Transaction Type
+						.append(referenceNo)				//	Reference No
+						.append(personType)					// 	Person Type
+						.append(bPTaxId)					//	Fist char of Tax ID
+						.append(bPAccountNo)				//  BP Bank Account
+						.append(bPName)						//	BP Name
+						.append(transactionStatus); 		//	Transaction Status
+					s_log.fine("Write Line");
+					writeLine(line.toString());
+		});
+		//	Exported payments
+		return getExportedPayments();
 	}
 }
