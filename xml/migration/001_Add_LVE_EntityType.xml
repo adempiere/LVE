@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="D" Name="Add LVE Contribution Entity Type #3" ReleaseNo="3.9.1" SeqNo="1">
+    <Comments>See: https://github.com/adempiere/LVE/issues/3</Comments>
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="882" Action="I" Record_ID="50043" Table="AD_EntityType">
+        <Data AD_Column_ID="15600" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="15607" Column="Processing">false</Data>
+        <Data AD_Column_ID="15598" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="15592" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="15595" Column="AD_EntityType_ID">50043</Data>
+        <Data AD_Column_ID="15599" Column="Updated">2018-08-06 22:20:14.6</Data>
+        <Data AD_Column_ID="15596" Column="IsActive">true</Data>
+        <Data AD_Column_ID="15593" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="15594" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="15597" Column="Created">2018-08-06 22:20:14.6</Data>
+        <Data AD_Column_ID="15605" Column="ModelPackage">org.erpya.lve.model</Data>
+        <Data AD_Column_ID="15602" Column="Description">Localización para Venezuela Soportada por ERP Consultores y Asociados, C.A</Data>
+        <Data AD_Column_ID="15606" Column="Classpath" isNewNull="true"/>
+        <Data AD_Column_ID="15604" Column="Version" isNewNull="true"/>
+        <Data AD_Column_ID="15603" Column="Help">License GPL2 or later, Developer Yamel Senih &amp; Carlos Parada, Sponsor ERP Consultores y Asociados, C.A www.erpya.com</Data>
+        <Data AD_Column_ID="15601" Column="Name">Localización Venezuela</Data>
+        <Data AD_Column_ID="84318" Column="UUID" isNewNull="true"/>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
