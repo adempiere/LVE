@@ -84,7 +84,7 @@ public class BOD extends LVEPaymentExportList {
 			if(!Util.isEmpty(orgTaxId)){
 				orgTaxId = orgTaxId.replace("-", "").trim();
 				personType = orgTaxId.substring(0, 1);
-				orgTaxId = orgTaxId.replaceAll("\\D+","");
+				orgTaxId = getNumericOnly(orgTaxId);
 				orgTaxId = leftPadding(orgTaxId, 9, "0", true);
 			} else {
 				addError(Msg.parseTranslation(Env.getCtx(), "@TaxID@ @NotFound@"));
@@ -99,7 +99,8 @@ public class BOD extends LVEPaymentExportList {
 			}
 			//	Fields of Debt Register
 			String paymentRequestNo = processValue(paySelection.getDocumentNo());
-			paymentRequestNo = rightPadding(paymentRequestNo, 9, " ", true);
+			paymentRequestNo = getNumericOnly(paymentRequestNo);
+			paymentRequestNo = leftPadding(paymentRequestNo, 9, "0", true);
 			//	Document Date
 			String paymentRequestDate = dateFormat.format(paySelection.getPayDate());
 			//	Payment Quantity
@@ -151,7 +152,7 @@ public class BOD extends LVEPaymentExportList {
 							if(!Util.isEmpty(bPTaxId)){
 								bPTaxId = bPTaxId.replace("-", "").trim();
 								bPPersonType = bPTaxId.substring(0, 1);
-								bPTaxId = bPTaxId.replaceAll("\\D+","");
+								bPTaxId = getNumericOnly(bPTaxId);
 								bPTaxId = leftPadding(bPTaxId, 9, "0", true);
 							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@BPTaxID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
@@ -165,7 +166,8 @@ public class BOD extends LVEPaymentExportList {
 							}
 							//	Process Document No
 							String documentNo = processValue(payselectionCheck.getDocumentNo());
-							documentNo = rightPadding(documentNo, 9, " ", true);
+							documentNo = getNumericOnly(documentNo);
+							documentNo = leftPadding(documentNo, 9, "0", true);
 							//	Description (Can be filled with document reference)
 							String lineDescription = rightPadding("", 30, " ", true);
 							//	Payment Type

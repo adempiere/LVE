@@ -188,7 +188,7 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 		MBankAccount bankAccount = MBankAccount.get(Env.getCtx(), paymentSelection.getC_BankAccount_ID());
 		MBank bank = MBank.get(Env.getCtx(), bankAccount.getC_Bank_ID());
 		String fileName = getFileName(file, bank.getName(), paymentSelection.getDocumentNo());
-		openFileWriter(file, fileName);
+		openFileWriter(fileName);
 	}
 	
 	/**
@@ -206,7 +206,7 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 		MPaymentBatch paymentBatch = (MPaymentBatch) firstPayment.getC_PaymentBatch();
 		MBank bank = MBank.get(Env.getCtx(), bankAccount.getC_Bank_ID());
 		String fileName = getFileName(file, bank.getName(), paymentBatch.getDocumentNo() + suffix);
-		openFileWriter(file, fileName);
+		openFileWriter(fileName);
 	}
 	
 	/**
@@ -217,7 +217,7 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 	 */
 	public void openFileWriter(File file, String bankName, String documentNo) {
 		String fileName = getFileName(file, bankName, documentNo);
-		openFileWriter(file, fileName);
+		openFileWriter(fileName);
 	}
 	
 	/**
@@ -225,10 +225,8 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 	 * @param file
 	 * @param newName
 	 */
-	public void openFileWriter(File file, String newName) {
-		String fileName = getParentFileName(file);
-		fileName = fileName + File.separator + newName;
-		File newFile = new File(fileName);
+	public void openFileWriter(String newName) {
+		File newFile = new File(newName);
 		deleteIfExist(newFile);
 		openFileWriter(newFile);
 	}
@@ -314,6 +312,18 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 		}
 		//	
 		return value.matches("[+-]?\\d*(\\.\\d+)?");
+	}
+	
+	/**
+	 * replace all character distinct of number
+	 * @param value
+	 * @return
+	 */
+	public String getNumericOnly(String value) {
+		if(Util.isEmpty(value)) {
+			return value;
+		}
+		return value.replaceAll("\\D+","");
 	}
 	
 }
