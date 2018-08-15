@@ -74,8 +74,8 @@ public class Exterior extends LVEPaymentExportList {
 			if(!Util.isEmpty(orgTaxId)){
 				orgTaxId = orgTaxId.replace("-", "").trim();
 				personType = orgTaxId.substring(0, 1);
-				orgTaxId = orgTaxId.replaceAll("\\D+","");
-				orgTaxId = rightPadding(orgTaxId, 9, " ", true);
+				orgTaxId = getNumericOnly(orgTaxId);
+				orgTaxId = rightPadding(orgTaxId, 9, "0", true);
 			} else {
 				addError(Msg.parseTranslation(Env.getCtx(), "@TaxID@ @NotFound@"));
 			}
@@ -121,7 +121,7 @@ public class Exterior extends LVEPaymentExportList {
 							//	Process Account Name
 							String bPName = processValue(bpAccount.getA_Name());
 							if(Optional.ofNullable(bPName).isPresent()) {
-								bPName = rightPadding(bPName, 50, " ", true);
+								bPName = rightPadding(bPName, 60, " ", true);
 							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@A_Name@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
@@ -153,10 +153,10 @@ public class Exterior extends LVEPaymentExportList {
 							if(!Util.isEmpty(bpAccount.getA_EMail())) {
 								bPEmail = bpAccount.getA_EMail();
 							}
-							bPEmail = rightPadding(bPEmail, 50, " ", true);
+							bPEmail = rightPadding(bPEmail, 60, " ", true);
 							//	Reference No
 							String debtReferenceNo = processValue(paySelection.getDocumentNo());
-							debtReferenceNo = debtReferenceNo.replaceAll("\\D+","");
+							debtReferenceNo = getNumericOnly(debtReferenceNo);
 							debtReferenceNo = leftPadding(debtReferenceNo, 8, "0", true);
 							//	Process Person Type
 							String bPPersonType = "";
@@ -164,8 +164,8 @@ public class Exterior extends LVEPaymentExportList {
 							if(!Util.isEmpty(bPTaxId)){
 								bPTaxId = bPTaxId.replace("-", "").trim();
 								bPPersonType = bPTaxId.substring(0, 1);
-								bPTaxId = bPTaxId.replaceAll("\\D+","");
-								bPTaxId = leftPadding(bPTaxId, 10, "0", true);
+								bPTaxId = getNumericOnly(bPTaxId);
+								bPTaxId = leftPadding(bPTaxId, 9, "0", true);
 							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@BPTaxID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
@@ -200,42 +200,6 @@ public class Exterior extends LVEPaymentExportList {
 			}
 		}
 		return getExportedPayments();
-	}
-	
-	/**
-	 * Get Detail
-	 **/
-	private String getDetail(MPaySelectionCheck check) {
-		StringBuffer detail = new StringBuffer();
-		for(MPaySelectionLine paySelectionLine : check.getPaySelectionLinesAsList(false)) {
-			String documentNo = null;
-			MPaySelection paymentSelection = (MPaySelection) paySelectionLine.getC_PaySelection();
-			//	Validate for fill
-			if(paySelectionLine.getC_Invoice_ID() != 0) {
-				MInvoice invoice = (MInvoice) paySelectionLine.getC_Invoice();
-				documentNo = invoice.getDocumentNo();
-			} else if(paySelectionLine.getC_Order_ID() != 0) {
-				MOrder order = (MOrder) paySelectionLine.getC_Order();
-				documentNo = order.getDocumentNo();
-			} else if(paySelectionLine.getHR_Movement_ID() != 0) {
-				MHRMovement movement = (MHRMovement) paySelectionLine.getHR_Movement();
-				MHRProcess payrollProcess = (MHRProcess) movement.getHR_Process();
-				documentNo = payrollProcess.getDocumentNo();
-			} else {
-				documentNo = "SP-" +  paymentSelection.getDocumentNo();
-			}
-			//	Get Default ISO Code
-			if(Util.isEmpty(documentNo)) {
-				continue;
-			}
-			//	Add
-			if(detail.length() > 0) {
-				detail.append("-");
-			}
-			detail.append(documentNo);
-		}
-		//	
-		return detail.toString();
 	}
 	
 	@Override

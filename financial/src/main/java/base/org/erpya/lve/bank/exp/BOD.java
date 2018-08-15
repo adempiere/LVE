@@ -134,10 +134,10 @@ public class BOD extends LVEPaymentExportList {
 			s_log.fine("Iterate Payments");
 			checks.stream()
 					.filter(paySelectionCheck -> paySelectionCheck != null)
-					.forEach(payselectionCheck -> {
+					.forEach(paySelectionCheck -> {
 						//  BPartner Info
-						MBPartner bpartner = MBPartner.get(payselectionCheck.getCtx(), payselectionCheck.getC_BPartner_ID());
-						MBPBankAccount bpAccount = getBPAccountInfo(payselectionCheck, true);
+						MBPartner bpartner = MBPartner.get(paySelectionCheck.getCtx(), paySelectionCheck.getC_BPartner_ID());
+						MBPBankAccount bpAccount = getBPAccountInfo(paySelectionCheck, true);
 						if(bpAccount != null) {
 							MUser bpContact = null;
 							if(bpAccount.getAD_User_ID() != 0) {
@@ -165,11 +165,12 @@ public class BOD extends LVEPaymentExportList {
 								addError(Msg.parseTranslation(Env.getCtx(), "@A_Name@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
 							//	Process Document No
-							String documentNo = processValue(payselectionCheck.getDocumentNo());
+							String documentNo = processValue(paySelectionCheck.getDocumentNo());
 							documentNo = getNumericOnly(documentNo);
 							documentNo = leftPadding(documentNo, 9, "0", true);
 							//	Description (Can be filled with document reference)
-							String lineDescription = rightPadding("", 30, " ", true);
+							String lineDescription = processValue(getDetail(paySelectionCheck));
+							lineDescription = rightPadding(lineDescription, 30, " ", true);
 							//	Payment Type
 							String paymentType = "CTA";
 							if (!Util.isEmpty(bank.getSwiftCode())
@@ -192,7 +193,7 @@ public class BOD extends LVEPaymentExportList {
 							bPRoutingNo = processValue(bpBank.getRoutingNo());
 							bPRoutingNo = leftPadding(bPRoutingNo, 4, "0", true);
 							//	Payment Amount
-							String amountAsString = String.format("%.2f", payselectionCheck.getPayAmt().abs()).replace(".", "").replace(",", "");
+							String amountAsString = String.format("%.2f", paySelectionCheck.getPayAmt().abs()).replace(".", "").replace(",", "");
 							if(amountAsString.length() > 17) {
 								addError(Msg.parseTranslation(Env.getCtx(), "@PayAmt@ @Invalid@"));
 							}
@@ -239,7 +240,7 @@ public class BOD extends LVEPaymentExportList {
 							s_log.fine("Write Line");
 							writeLine(line.toString());
 							//	Write detail of payment
-							writeDetail(payselectionCheck);
+							writeDetail(paySelectionCheck);
 						} else {
 							addError(Msg.parseTranslation(Env.getCtx(), "@C_BP_BankAccount_ID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 						}

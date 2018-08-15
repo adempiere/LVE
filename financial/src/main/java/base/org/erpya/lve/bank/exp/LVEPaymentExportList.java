@@ -25,13 +25,18 @@ import org.compiere.model.MBPBankAccount;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MBank;
 import org.compiere.model.MBankAccount;
+import org.compiere.model.MInvoice;
+import org.compiere.model.MOrder;
 import org.compiere.model.MPaySelection;
 import org.compiere.model.MPaySelectionCheck;
+import org.compiere.model.MPaySelectionLine;
 import org.compiere.model.MPayment;
 import org.compiere.model.MPaymentBatch;
 import org.compiere.util.Env;
 import org.compiere.util.PaymentExportList;
 import org.compiere.util.Util;
+import org.eevolution.model.MHRMovement;
+import org.eevolution.model.MHRProcess;
 
 /**
  * This class is used like a parent class for make helper method used on 
@@ -324,6 +329,42 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 			return value;
 		}
 		return value.replaceAll("\\D+","");
+	}
+	
+	/**
+	 * Get Detail
+	 **/
+	public String getDetail(MPaySelectionCheck check) {
+		StringBuffer detail = new StringBuffer();
+		for(MPaySelectionLine paySelectionLine : check.getPaySelectionLinesAsList(false)) {
+			String documentNo = null;
+			MPaySelection paymentSelection = (MPaySelection) paySelectionLine.getC_PaySelection();
+			//	Validate for fill
+			if(paySelectionLine.getC_Invoice_ID() != 0) {
+				MInvoice invoice = (MInvoice) paySelectionLine.getC_Invoice();
+				documentNo = invoice.getDocumentNo();
+			} else if(paySelectionLine.getC_Order_ID() != 0) {
+				MOrder order = (MOrder) paySelectionLine.getC_Order();
+				documentNo = order.getDocumentNo();
+			} else if(paySelectionLine.getHR_Movement_ID() != 0) {
+				MHRMovement movement = (MHRMovement) paySelectionLine.getHR_Movement();
+				MHRProcess payrollProcess = (MHRProcess) movement.getHR_Process();
+				documentNo = payrollProcess.getDocumentNo();
+			} else {
+				documentNo = "SP-" +  paymentSelection.getDocumentNo();
+			}
+			//	Get Default ISO Code
+			if(Util.isEmpty(documentNo)) {
+				continue;
+			}
+			//	Add
+			if(detail.length() > 0) {
+				detail.append("-");
+			}
+			detail.append(documentNo);
+		}
+		//	
+		return detail.toString();
 	}
 	
 }
