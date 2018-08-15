@@ -45,7 +45,7 @@ public class Provincial extends LVEPaymentExportList {
 	/** Logger								*/
 	static private CLogger	s_log = CLogger.getCLogger (Provincial.class);
 	/**	separator	*/
-	private final String SEPARATOR = "/";
+	private final String SEPARATOR = " ";
 	
 	@Override
 	public int exportToFile(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
