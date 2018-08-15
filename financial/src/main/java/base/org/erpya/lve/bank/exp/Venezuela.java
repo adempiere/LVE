@@ -176,7 +176,7 @@ public class Venezuela extends LVEPaymentExportList {
 					}
 					//	Swift Code
 					String bPSwiftCode = bpBank.getSwiftCode();
-					bPSwiftCode = rightPadding(bPSwiftCode, 12, " ", true);
+					bPSwiftCode = rightPadding(bPSwiftCode, 10, " ", true);
 					//	
 					line.append(Env.NL)			//	New Line
 						.append(constant)		//	Sequence (Constant)
