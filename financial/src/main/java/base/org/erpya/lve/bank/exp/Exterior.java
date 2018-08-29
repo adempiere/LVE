@@ -26,18 +26,13 @@ import org.compiere.model.MBPBankAccount;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MBank;
 import org.compiere.model.MBankAccount;
-import org.compiere.model.MInvoice;
-import org.compiere.model.MOrder;
 import org.compiere.model.MOrgInfo;
 import org.compiere.model.MPaySelection;
 import org.compiere.model.MPaySelectionCheck;
-import org.compiere.model.MPaySelectionLine;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Msg;
 import org.compiere.util.Util;
-import org.eevolution.model.MHRMovement;
-import org.eevolution.model.MHRProcess;
 
 /**
  * 	Implementation for Export Payment from Exterior bank
@@ -121,7 +116,7 @@ public class Exterior extends LVEPaymentExportList {
 							//	Process Account Name
 							String bPName = processValue(bpAccount.getA_Name());
 							if(Optional.ofNullable(bPName).isPresent()) {
-								bPName = rightPadding(bPName, 60, " ", true);
+								bPName = rightPadding(bPName, 50, " ", true);
 							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@A_Name@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
@@ -153,7 +148,7 @@ public class Exterior extends LVEPaymentExportList {
 							if(!Util.isEmpty(bpAccount.getA_EMail())) {
 								bPEmail = bpAccount.getA_EMail();
 							}
-							bPEmail = rightPadding(bPEmail, 60, " ", true);
+							bPEmail = rightPadding(bPEmail, 50, " ", true);
 							//	Reference No
 							String debtReferenceNo = processValue(paySelection.getDocumentNo());
 							debtReferenceNo = getNumericOnly(debtReferenceNo);
