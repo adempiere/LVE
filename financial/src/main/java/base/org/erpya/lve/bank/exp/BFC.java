@@ -144,7 +144,8 @@ public class BFC extends LVEPaymentExportList {
 							String constant = leftPadding("", 1, " ");
 							//	Account Type
 							String vendorAccountType = "CC";
-							if(bpAccount.getBankAccountType().equals(MBankAccount.BANKACCOUNTTYPE_Savings)) {
+							if(!Util.isEmpty(bpAccount.getBankAccountType())
+									&& bpAccount.getBankAccountType().equals(MBankAccount.BANKACCOUNTTYPE_Savings)) {
 								vendorAccountType = "CA";
 							}
 							//	Process Business Partner Account No

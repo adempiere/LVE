@@ -19,7 +19,6 @@ package org.erpya.lve.bank.exp;
 
 import java.io.File;
 import java.util.List;
-import java.util.Optional;
 
 import org.compiere.model.MBPBankAccount;
 import org.compiere.model.MBPartner;
@@ -115,9 +114,11 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 			if(isMandatory
 					&& !Util.isEmpty(mandatoryMessage)) {
 				addError(mandatoryMessage);
+				//	
+				return null;
 			}
 			//	Return void text
-			return text;
+			text = "";
 		}
 		String processedText = text;
 		//	Process it
@@ -275,35 +276,6 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 				.append(extension);
 		//	Return
 		return pathName.toString().replace(" ", "_");
-	}
-	
-	/**
-	 * Get business partner account information as PO
-	 * @param payment
-	 * @param defaultWhenNull if payment selection account is null try get a account of bp
-	 * @return
-	 */
-	public MBPBankAccount getBPAccountInfo(MPayment payment, boolean defaultWhenNull) {
-		if(payment.getC_BP_BankAccount_ID() != 0) {
-			return (MBPBankAccount) payment.getC_BP_BankAccount();
-		}
-		//	Get any bp account
-		if(defaultWhenNull) {
-			List<MBPBankAccount> bpAccountList = MBPBankAccount.getByPartner(Env.getCtx(), payment.getC_BPartner_ID());
-			if(bpAccountList == null
-					|| bpAccountList.size() == 0) {
-				return null;
-			}
-			//	Get 
-			Optional<MBPBankAccount> first = bpAccountList.stream().filter(account -> account.isACH()).findFirst();
-			if(first.isPresent()) {
-				return first.get();
-			} else {
-				bpAccountList.get(0);
-			}
-		}
-		//	default
-		return null;
 	}
 	
 	/**
