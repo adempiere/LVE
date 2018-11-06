@@ -205,16 +205,24 @@ public class Banesco extends LVEPaymentExportList {
 							bPEmail = rightPadding(bPEmail, 70, " ", true);
 							//	Phone
 							String bPPhone = "";
+							String bPTaxIdContact = "";
+							String bPContactName = "";
 							if(Optional.ofNullable(bpContact).isPresent()) {
 								if(!Util.isEmpty(bpContact.getPhone())) {
 									bPPhone = processValue(bpContact.getPhone());
 								}
+								if(!Util.isEmpty(bpContact.getValue())) {
+									bPTaxIdContact = processValue(bpContact.getValue());
+								}
+								if(!Util.isEmpty(bpContact.getName())) {
+									bPContactName = processValue(bpContact.getName());
+								}
 							}
 							bPPhone = rightPadding(bPPhone, 25, " ", true);
 							//	Contact Tax Id
-							String bPTaxIdContact = rightPadding(processValue(bpContact.getValue()), 17, " ", true);
+							bPTaxIdContact = rightPadding(processValue(bPTaxIdContact), 17, " ", true);
 							//	Contact Name
-							String bPContactName = rightPadding(processValue(bpContact.getName()), 35, " ", true);
+							bPContactName = rightPadding(processValue(bPContactName), 35, " ", true);
 							//	SettlorQualifier
 							String settlorQualifier = rightPadding("", 1, " ", true);
 							//	Employee
