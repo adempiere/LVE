@@ -32,6 +32,7 @@ import org.compiere.model.MPaySelectionCheck;
 import org.compiere.model.MPaySelectionLine;
 import org.compiere.model.MPayment;
 import org.compiere.model.MPaymentBatch;
+import org.compiere.util.DB;
 import org.compiere.util.Env;
 import org.compiere.util.PaymentExportList;
 import org.compiere.util.Util;
@@ -182,6 +183,47 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 	 */
 	public int exportToFileAsPayroll(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
 		return 0;
+	}
+	
+	/**
+	 * Export to file as AP
+	 * @param checks
+	 * @param file
+	 * @param error
+	 * @return
+	 */
+	public int exportToFileAsAccountPayable(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
+		return 0;
+	}
+	
+	/**
+	 * Export to file from type: AP Payment, Payroll, Enrollment
+	 * @param checks
+	 * @param file
+	 * @param error
+	 * @return
+	 */
+	@Override
+	public int exportToFile(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
+		//	Validate
+		if (checks == null || checks.size() == 0) {
+			return 0;
+		}
+		//	Validate if is from payroll
+		MPaySelectionCheck check = checks.get(0);
+		int payselectionlineId = DB.getSQLValue(check.get_TrxName(), "SELECT C_PaySelectionLine_ID "
+				+ "FROM C_PaySelectionLine "
+				+ "WHERE C_PaySelectionCheck_ID = ?", check.getC_PaySelectionCheck_ID());
+		if(payselectionlineId > 0) {
+			MPaySelectionLine line = new MPaySelectionLine(check.getCtx(), payselectionlineId, check.get_TrxName());
+			if(line.getHR_Movement_ID() > 0) {
+				return exportToFileAsPayroll(checks, file, error);
+			} else {
+				return exportToFileAsAccountPayable(checks, file, error);
+			}
+		}
+		//	Default
+		return exportToFileAsAccountPayable(checks, file, error);
 	}
 	
 	/**

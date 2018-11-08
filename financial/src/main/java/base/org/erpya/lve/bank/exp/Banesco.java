@@ -63,7 +63,24 @@ public class Banesco extends LVEPaymentExportList {
 	
 	
 	@Override
-	public int exportToFile(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
+	public int exportToFileAsAccountPayable(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
+		return export(checks, file, error, "SCV");
+	}
+	
+	@Override
+	public int exportToFileAsPayroll(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
+		return export(checks, file, error, "SAL");
+	}
+	
+	/**
+	 * Export To file helper method
+	 * @param checks
+	 * @param file
+	 * @param error
+	 * @param transactionType
+	 * @return
+	 */
+	private int export(List<MPaySelectionCheck> checks, File file, StringBuffer error, String transactionType) {
 		if (checks == null || checks.size() == 0)
 			return 0;
 		//	
@@ -102,8 +119,6 @@ public class Banesco extends LVEPaymentExportList {
 			//	Write Line
 			writeLine(header.toString());
 			//	Set Value Type Register for Header Register
-			//	Fields of Header Register 
-			String transactionType = "SCV";
 			//	Can be used for identify payments
 			String descriptionCode = rightPadding("", 32, " ");
 			String paymentRequestCondition = rightPadding("9", 3, " ");
