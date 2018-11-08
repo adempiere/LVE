@@ -19,7 +19,6 @@ package org.erpya.lve.bank.exp;
 
 import java.io.File;
 import java.util.List;
-import java.util.Optional;
 
 import org.compiere.model.MBPBankAccount;
 import org.compiere.model.MBPartner;
@@ -47,95 +46,6 @@ import org.eevolution.model.MHRProcess;
  * 		@see FR [ 1 ] Initial commit</a>
  */
 public abstract class LVEPaymentExportList extends PaymentExportList {
-	
-	/**
-	 * Left padding optional fixed length
-	 * @param text
-	 * @param length
-	 * @param padding
-	 * @param isFixedLength
-	 * @return
-	 */
-	public String leftPadding(String text, int length, String padding, boolean isFixedLength) {
-		return leftPadding(text, length, padding, isFixedLength, false, null);
-	}
-	
-	/**
-	 * Right padding optional fixed length
-	 * @param text
-	 * @param length
-	 * @param padding
-	 * @param isFixedLength
-	 * @return
-	 */
-	public String rightPadding(String text, int length, String padding, boolean isFixedLength) {
-		return rightPadding(text, length, padding, isFixedLength, false, null);
-	}
-	
-	/**
-	 * Left padding, it also cut text if it is necessary
-	 * @param text
-	 * @param length
-	 * @param padding
-	 * @param isFixedLength
-	 * @param isMandatory
-	 * @param mandatoryMessage
-	 * @return
-	 */
-	public String leftPadding(String text, int length, String padding, boolean isFixedLength, boolean isMandatory, String mandatoryMessage) {
-		return addPadding(text, length, padding, isFixedLength, isMandatory, mandatoryMessage, true);
-	}
-	
-	/**
-	 * Right padding, it also cut text if it is necessary
-	 * @param text
-	 * @param length
-	 * @param padding
-	 * @param isFixedLength
-	 * @param isMandatory
-	 * @param mandatoryMessage
-	 * @return
-	 */
-	public String rightPadding(String text, int length, String padding, boolean isFixedLength, boolean isMandatory, String mandatoryMessage) {
-		return addPadding(text, length, padding, isFixedLength, isMandatory, mandatoryMessage, false);
-	}
-	
-	/**
-	 * Add Padding, for using internal
-	 * @param text
-	 * @param length
-	 * @param padding
-	 * @param isFixedLength
-	 * @param isMandatory
-	 * @param mandatoryMessage
-	 * @param isLeft
-	 * @return
-	 */
-	private String addPadding(String text, int length, String padding, boolean isFixedLength, boolean isMandatory, String mandatoryMessage, boolean isLeft) {
-		if(Util.isEmpty(text)) {
-			if(isMandatory
-					&& !Util.isEmpty(mandatoryMessage)) {
-				addError(mandatoryMessage);
-				//	
-				return null;
-			}
-			//	Return void text
-			text = "";
-		}
-		String processedText = text;
-		//	Process it
-		if(isFixedLength) {
-			processedText = processedText.substring(0, processedText.length() >= length? length: processedText.length());
-		}
-		//	For padding 
-		if(isLeft) {
-			processedText = leftPadding(processedText, length, padding);
-		} else {
-			processedText = rightPadding(processedText, length, padding);
-		}
-		//	Return
-		return processedText;
-	}
 
 	/**
 	 * Used for verification
@@ -319,35 +229,6 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 				.append(extension);
 		//	Return
 		return pathName.toString().replace(" ", "_");
-	}
-	
-	/**
-	 * Get business partner account information as PO
-	 * @param payment
-	 * @param defaultWhenNull if payment selection account is null try get a account of bp
-	 * @return
-	 */
-	public MBPBankAccount getBPAccountInfo(MPayment payment, boolean defaultWhenNull) {
-		if(payment.getC_BP_BankAccount_ID() != 0) {
-			return (MBPBankAccount) payment.getC_BP_BankAccount();
-		}
-		//	Get any bp account
-		if(defaultWhenNull) {
-			List<MBPBankAccount> bpAccountList = MBPBankAccount.getByPartner(Env.getCtx(), payment.getC_BPartner_ID());
-			if(bpAccountList == null
-					|| bpAccountList.size() == 0) {
-				return null;
-			}
-			//	Get 
-			Optional<MBPBankAccount> first = bpAccountList.stream().filter(account -> account.isACH()).findFirst();
-			if(first.isPresent()) {
-				return first.get();
-			} else {
-				bpAccountList.get(0);
-			}
-		}
-		//	default
-		return null;
 	}
 	
 	/**
