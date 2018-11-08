@@ -18,6 +18,7 @@
 package org.erpya.lve.bank.exp;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -87,6 +88,7 @@ public class Banesco extends LVEPaymentExportList {
 			String versionStandardEDIFACT ="D  95B";
 			String documentType = "PAYMUL";
 			String production = "P";
+			BigDecimal totalPaymentAmount = getTotalPaymentAmount(checks);
 			//	End Fields 
 			// 	Control Register
 			StringBuffer header = new StringBuffer();
@@ -134,10 +136,10 @@ public class Banesco extends LVEPaymentExportList {
 			String clientName = processValue(client.getName());
 			clientName = rightPadding(clientName, 35, " ", true);
 			//	Payment Amount
-			String totalAmtAsString = String.format("%.2f", paySelection.getTotalAmt().abs()).replace(".", "").replace(",", "");
-			totalAmtAsString = rightPadding(totalAmtAsString, 15, "0");
+			String totalAmtAsString = String.format("%.2f", totalPaymentAmount).replace(".", "").replace(",", "");
+			totalAmtAsString = leftPadding(totalAmtAsString, 15, "0");
 			if(totalAmtAsString.length() <= 15) {
-				totalAmtAsString = rightPadding(totalAmtAsString, 15, "0", true);
+				totalAmtAsString = leftPadding(totalAmtAsString, 15, "0", true);
 			} else {
 				addError(Msg.parseTranslation(Env.getCtx(), "@PayAmt@ > @Invalid@"));
 			}
@@ -337,7 +339,7 @@ public class Banesco extends LVEPaymentExportList {
 			return value;
 		}
 		//	
-		return value.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ$,;*/]", "");
+		return value.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ$,;*/-]", "");
 	}
 	
 	@Override
@@ -445,5 +447,19 @@ public class Banesco extends LVEPaymentExportList {
 		});
 		//	Exported payments
 		return getExportedPayments();
+	}
+	
+	/**
+	 * Get total Payment Amount
+	 * @param checks
+	 * @return
+	 */
+	private BigDecimal getTotalPaymentAmount(List<MPaySelectionCheck> checks) {
+		BigDecimal totalPaymentamount = Env.ZERO;
+		for(MPaySelectionCheck check : checks) {
+			totalPaymentamount = totalPaymentamount.add(check.getPayAmt().abs());
+		}
+		//	Return
+		return totalPaymentamount;
 	}
 }
