@@ -76,7 +76,7 @@ Para poder configurar e instalar la localización se requiere:
 
 ## Licencia
 Copyright (C) 2003-2018 E.R.P. Consultores y Asociados, C.A. All Rights Reserved.
-Código disponible con licencia [GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt).
+Código disponible con licencia GNU/GPLv3.
 
 ## Contacto
  - Yamel Senih ysenih@erpya.com E.R.P. Consultores y Asociados, C.A.
