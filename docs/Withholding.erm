@@ -10,9 +10,9 @@
 		<right_margin>30</right_margin>
 	</page_setting>
 	<category_index>0</category_index>
-	<zoom>0.8</zoom>
-	<x>900</x>
-	<y>88</y>
+	<zoom>0.75</zoom>
+	<x>737</x>
+	<y>56</y>
 	<default_color>
 		<r>144</r>
 		<g>238</g>
@@ -89,7 +89,7 @@
 				<is_open_after_saved>true</is_open_after_saved>
 			</export_html_setting>
 			<export_image_setting>
-				<output_file_path></output_file_path>
+				<output_file_path>docs/Withholding.png</output_file_path>
 				<category_dir_path></category_dir_path>
 				<with_category_image>true</with_category_image>
 				<is_open_after_saved>true</is_open_after_saved>
@@ -184,7 +184,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2013-07-26 14:33:25</creation_date>
-			<updated_date>2019-01-14 13:53:05</updated_date>
+			<updated_date>2019-01-14 15:15:22</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>
@@ -1013,28 +1013,6 @@
 			<connections>
 				<relation>
 					<id>0</id>
-					<source>7</source>
-					<target>4</target>
-						<source_xp>-1</source_xp>
-						<source_yp>-1</source_yp>
-						<target_xp>-1</target_xp>
-						<target_yp>-1</target_yp>
-						<color>
-							<r>0</r>
-							<g>0</g>
-							<b>0</b>
-						</color>
-					<child_cardinality>1..n</child_cardinality>
-					<parent_cardinality>1</parent_cardinality>
-					<reference_for_pk>true</reference_for_pk>
-					<name>fk_cust_retentionrelation_cust_retentiontype</name>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>CASCADE</on_update_action>
-					<referenced_column>null</referenced_column>
-					<referenced_complex_unique_key>null</referenced_complex_unique_key>
-				</relation>
-				<relation>
-					<id>1</id>
 					<source>1</source>
 					<target>4</target>
 						<source_xp>-1</source_xp>
@@ -1052,6 +1030,28 @@
 					<name></name>
 					<on_delete_action>RESTRICT</on_delete_action>
 					<on_update_action>RESTRICT</on_update_action>
+					<referenced_column>null</referenced_column>
+					<referenced_complex_unique_key>null</referenced_complex_unique_key>
+				</relation>
+				<relation>
+					<id>1</id>
+					<source>7</source>
+					<target>4</target>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
+						<target_xp>-1</target_xp>
+						<target_yp>-1</target_yp>
+						<color>
+							<r>0</r>
+							<g>0</g>
+							<b>0</b>
+						</color>
+					<child_cardinality>1..n</child_cardinality>
+					<parent_cardinality>1</parent_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<name>fk_cust_retentionrelation_cust_retentiontype</name>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>CASCADE</on_update_action>
 					<referenced_column>null</referenced_column>
 					<referenced_complex_unique_key>null</referenced_complex_unique_key>
 				</relation>
@@ -1099,7 +1099,7 @@
 				<normal_column>
 					<id>8</id>
 					<referenced_column>17</referenced_column>
-					<relation>0</relation>
+					<relation>1</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1133,7 +1133,7 @@
 				<normal_column>
 					<id>9</id>
 					<referenced_column>1</referenced_column>
-					<relation>1</relation>
+					<relation>0</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2290,7 +2290,7 @@
 							<b>0</b>
 						</color>
 					<child_cardinality>1..n</child_cardinality>
-					<parent_cardinality>0..1</parent_cardinality>
+					<parent_cardinality>1</parent_cardinality>
 					<reference_for_pk>true</reference_for_pk>
 					<name></name>
 					<on_delete_action>RESTRICT</on_delete_action>
@@ -2312,7 +2312,7 @@
 							<b>0</b>
 						</color>
 					<child_cardinality>1..n</child_cardinality>
-					<parent_cardinality>1</parent_cardinality>
+					<parent_cardinality>0..1</parent_cardinality>
 					<reference_for_pk>true</reference_for_pk>
 					<name></name>
 					<on_delete_action>RESTRICT</on_delete_action>
@@ -2334,7 +2334,7 @@
 							<b>0</b>
 						</color>
 					<child_cardinality>1..n</child_cardinality>
-					<parent_cardinality>0..1</parent_cardinality>
+					<parent_cardinality>1</parent_cardinality>
 					<reference_for_pk>true</reference_for_pk>
 					<name></name>
 					<on_delete_action>RESTRICT</on_delete_action>
@@ -2356,7 +2356,7 @@
 							<b>0</b>
 						</color>
 					<child_cardinality>1..n</child_cardinality>
-					<parent_cardinality>1</parent_cardinality>
+					<parent_cardinality>0..1</parent_cardinality>
 					<reference_for_pk>true</reference_for_pk>
 					<name></name>
 					<on_delete_action>RESTRICT</on_delete_action>
@@ -2430,7 +2430,7 @@
 				<normal_column>
 					<id>33</id>
 					<referenced_column>23</referenced_column>
-					<relation>9</relation>
+					<relation>8</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2464,7 +2464,7 @@
 				<normal_column>
 					<id>34</id>
 					<referenced_column>24</referenced_column>
-					<relation>11</relation>
+					<relation>10</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2498,7 +2498,7 @@
 				<normal_column>
 					<id>35</id>
 					<referenced_column>23</referenced_column>
-					<relation>8</relation>
+					<relation>9</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name>SourceInvoice_ID</logical_name>
@@ -2532,7 +2532,7 @@
 				<normal_column>
 					<id>36</id>
 					<referenced_column>24</referenced_column>
-					<relation>10</relation>
+					<relation>11</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name>SourceInvoiceLine_ID</logical_name>
