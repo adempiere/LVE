@@ -9,6 +9,7 @@ Esta localización permite lo siguiente:
     - XML de I.S.L.R.
     - TXT de I.V.A.
     - TXT de Retenciones Municipales.
+  - ![Diagrama ER de Retenciones](docs/Withholding.png)
   - Generar IGTF de manera automática.
   - Calcular el Descuento de impuesto según decreto de descuento de impuesto a cliente
   - Imprimir con Impresora fiscal: Soportado para las impresoras The Factory HKA
