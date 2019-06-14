@@ -21,12 +21,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.compiere.model.I_C_Invoice;
+import org.compiere.model.MBPartner;
 import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceTax;
 import org.compiere.model.MTax;
 import org.compiere.util.Env;
-import org.spin.model.I_WH_Allocation;
+import org.compiere.util.Util;
+import org.spin.model.I_WH_Withholding;
 import org.spin.model.MWHSetting;
 import org.spin.util.AbstractWithholdingSetting;
 
@@ -43,29 +45,38 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 	private MInvoice invoice;
 	/**	Taxes	*/
 	private List<MInvoiceTax> taxes;
-	/**	Atttribute	*/
+	/**	Attribute	*/
 	private final String WITHHOLDING_APPLIED = "IsWithholdingApplied";
+	private final String PERSON_TYPE = "PersonType";
 	@Override
 	public boolean isValid() {
 		boolean isValid = true;
 		//	Validate Document
 		if(getDocument().get_Table_ID() != I_C_Invoice.Table_ID) {
-			addMessage("@C_Invoice_ID@ @NotFound@");
+			addLog("@C_Invoice_ID@ @NotFound@");
 			isValid = false;
 		}
 		invoice = (MInvoice) getDocument();
+		//	Add reference
+		setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
 		if(invoice.isReversal()) {
-			addMessage("@C_Invoice_ID@ @Voided@");
+			addLog("@C_Invoice_ID@ @Voided@");
 			isValid = false;
 		}
 		MDocType documentType = MDocType.get(getCtx(), invoice.getC_DocTypeTarget_ID());
 		if(documentType == null) {
-			addMessage("@C_DocType_ID@ @NotFound@");
+			addLog("@C_DocType_ID@ @NotFound@");
 			isValid = false;
 		}
 		//	Validate AP only
 		if(!documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)) {
-			addMessage("@APDocumentRequired@");
+			addLog("@APDocumentRequired@");
+			isValid = false;
+		}
+		//	Validate Person Type
+		MBPartner businessPartner = (MBPartner) invoice.getC_BPartner();
+		if(Util.isEmpty(businessPartner.get_ValueAsString(PERSON_TYPE))) {
+			addLog("@" + PERSON_TYPE + "@ @NotFound@ @C_BPartner_ID@ " + businessPartner.getValue() + " - " + businessPartner.getName());
 			isValid = false;
 		}
 		//	Validate if it have taxes
@@ -76,7 +87,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 					&& invoiceTax.getTaxAmt().compareTo(Env.ZERO) > 0)
 			.collect(Collectors.toList());
 		if(taxes.size() == 0) {
-			addMessage("@NoTaxesForWithholding@");
+			addLog("@NoTaxesForWithholding@");
 			isValid = false;
 		}
 		//	
@@ -94,8 +105,6 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			MTax tax = MTax.get(getCtx(), invoiceTax.getC_Tax_ID());
 			addDescription(tax.getName() + " @Processed@");
 		});
-		//	Add reference
-		setReturnValue(I_WH_Allocation.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
 		return null;
 	}
 }
