@@ -2,7 +2,7 @@
 
 Esta localización permite lo siguiente:
   - Generar Retenciones a proveedores:
-    - I.V.A. [Con base en Gaceta Oficial 40720](http://declaraciones.seniat.gob.ve/portal/page/portal/MANEJADOR_CONTENIDO_SENIAT/01NOTICIAS/00IMAGENES/GACETAOFICIAL40720.pdf)
+    - I.V.A. [Con base en Gaceta Oficial 40720 (SNAT/2015/0049)](http://declaraciones.seniat.gob.ve/portal/page/portal/MANEJADOR_CONTENIDO_SENIAT/01NOTICIAS/00IMAGENES/GACETAOFICIAL40720.pdf)
     - I.S.L.R.
     - Municipal
   - Declarar Retenciones:

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Agregar Numero de Cliente para Banco #4" ReleaseNo="3.9.1" SeqNo="3">
+  <Migration EntityType="D" Name="Agregar Numero de Cliente para Banco #4" ReleaseNo="3.9.1" SeqNo="31000000">
     <Comments>See: https://github.com/adempiere/LVE/issues/4</Comments>
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="60134" Table="AD_Element">
@@ -46,7 +46,7 @@
         <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="2638" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID">60134</Data>
         <Data AD_Column_ID="84317" Column="UUID" isNewNull="true"/>
       </PO>
@@ -120,7 +120,7 @@
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2018-08-14 17:25:10.54</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="12953" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -158,7 +158,7 @@
         <Data AD_Column_ID="5387" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="5388" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="5385" Column="AD_FieldGroup_ID">50081</Data>
-        <Data AD_Column_ID="5386" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="5386" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84322" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -283,7 +283,7 @@
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88830</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>

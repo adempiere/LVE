@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="ADempiere Seed" ReleaseNo="3.9.3" SeqNo="4">
+  <Migration EntityType="LVE" Name="ADempiere Seed" ReleaseNo="3.9.3" SeqNo="51000000">
     <Comments>UUID from functionality</Comments>
     <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
       <SQLStatement>UPDATE AD_Browse SET UUID = '98043290-128f-11e9-84ce-63ff40f7fa11' WHERE AD_Browse_ID = 50104;</SQLStatement>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add standard LVE values #2" ReleaseNo="3.9.1" SeqNo="2">
+  <Migration EntityType="D" Name="Add standard LVE values #2" ReleaseNo="3.9.1" SeqNo="21000000">
     <Comments>See: https://github.com/adempiere/LVE/issues/2</Comments>
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="100" Action="I" Record_ID="54283" Table="AD_Table">
@@ -11168,7 +11168,7 @@ CREATE UNIQUE INDEX UK_LVE_ListValue ON LVE_List (AD_Client_ID,Value);</SQLState
         <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="2638" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID">59622</Data>
         <Data AD_Column_ID="84317" Column="UUID" isNewNull="true"/>
       </PO>
@@ -13430,7 +13430,7 @@ and p.C_Payment_ID = @C_Payment_ID@
         <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="2638" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID">59623</Data>
         <Data AD_Column_ID="84317" Column="UUID" isNewNull="true"/>
       </PO>
@@ -13531,7 +13531,7 @@ and p.C_Payment_ID = @C_Payment_ID@
         <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="2638" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID">59620</Data>
         <Data AD_Column_ID="84317" Column="UUID" isNewNull="true"/>
       </PO>
@@ -13632,7 +13632,7 @@ and p.C_Payment_ID = @C_Payment_ID@
         <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="2638" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID">59621</Data>
         <Data AD_Column_ID="84317" Column="UUID" isNewNull="true"/>
       </PO>
@@ -18002,7 +18002,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1194" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="1195" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="245" Column="AD_Menu_ID">54336</Data>
-        <Data AD_Column_ID="246" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="246" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84345" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -18103,7 +18103,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88397</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -18171,7 +18171,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88398</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -18234,7 +18234,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88399</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -18267,7 +18267,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="5387" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="5388" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="5385" Column="AD_FieldGroup_ID">50079</Data>
-        <Data AD_Column_ID="5386" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="5386" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84322" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -18543,7 +18543,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88400</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
         <Data AD_Column_ID="288" Column="Help" isNewNull="true"/>
         <Data AD_Column_ID="674" Column="Updated">2018-08-08 01:16:12.265</Data>
@@ -18615,7 +18615,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88401</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -18663,7 +18663,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="2638" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID">60105</Data>
         <Data AD_Column_ID="84317" Column="UUID" isNewNull="true"/>
       </PO>
@@ -18727,7 +18727,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="2638" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID">60106</Data>
         <Data AD_Column_ID="84317" Column="UUID" isNewNull="true"/>
       </PO>
@@ -18816,7 +18816,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2018-08-08 01:42:09.764</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="12953" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -18884,7 +18884,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2018-08-08 01:42:37.141</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="12953" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -18952,7 +18952,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88402</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -19015,7 +19015,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88403</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -19158,7 +19158,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2018-08-08 09:24:49.468</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="12953" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -19211,7 +19211,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="2638" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID">60107</Data>
         <Data AD_Column_ID="84317" Column="UUID" isNewNull="true"/>
       </PO>
@@ -19284,7 +19284,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2018-08-08 09:26:53.163</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="12953" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -19362,7 +19362,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88404</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -19425,7 +19425,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88405</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -19488,7 +19488,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88406</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -19551,7 +19551,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88407</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -19599,7 +19599,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="5387" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="5388" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="5385" Column="AD_FieldGroup_ID">50080</Data>
-        <Data AD_Column_ID="5386" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="5386" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84322" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -20645,7 +20645,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="2638" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID">60108</Data>
         <Data AD_Column_ID="84317" Column="UUID" isNewNull="true"/>
       </PO>
@@ -20754,7 +20754,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2018-08-08 10:54:16.533</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="12953" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -20827,7 +20827,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2018-08-08 10:55:09.144</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="12953" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -20895,7 +20895,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88408</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -21073,7 +21073,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88409</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -21211,7 +21211,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88410</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -21374,7 +21374,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88411</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -21518,7 +21518,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="2638" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID">60109</Data>
         <Data AD_Column_ID="84317" Column="UUID" isNewNull="true"/>
       </PO>
@@ -21597,7 +21597,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2018-08-08 11:07:55.118</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="12953" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -21670,7 +21670,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">88412</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -21815,7 +21815,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">56440</Data>
-        <Data AD_Column_ID="2832" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84386" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -21869,7 +21869,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">56441</Data>
-        <Data AD_Column_ID="2832" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84386" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -21923,7 +21923,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">56442</Data>
-        <Data AD_Column_ID="2832" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84386" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>
@@ -21977,7 +21977,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">56443</Data>
-        <Data AD_Column_ID="2832" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84386" Column="UUID" isNewNull="true"/>
       </PO>
     </Step>

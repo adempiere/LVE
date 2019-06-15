@@ -21,24 +21,24 @@ import java.sql.Timestamp;
 import org.compiere.model.*;
 import org.compiere.util.KeyNamePair;
 
-/** Generated Interface for LVE_List
+/** Generated Interface for LVE_WithholdingTax
  *  @author Adempiere (generated) 
  *  @version Release 3.9.2
  */
-public interface I_LVE_List 
+public interface I_LVE_WithholdingTax 
 {
 
-    /** TableName=LVE_List */
-    public static final String Table_Name = "LVE_List";
+    /** TableName=LVE_WithholdingTax */
+    public static final String Table_Name = "LVE_WithholdingTax";
 
-    /** AD_Table_ID=54284 */
+    /** AD_Table_ID=54653 */
     public static final int Table_ID = MTable.getTable_ID(Table_Name);
 
     KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** AccessLevel = 6 - System - Client 
+    /** AccessLevel = 3 - Client - Org 
      */
-    BigDecimal accessLevel = BigDecimal.valueOf(6);
+    BigDecimal accessLevel = BigDecimal.valueOf(3);
 
     /** Load Meta Data */
 
@@ -79,6 +79,21 @@ public interface I_LVE_List
 	  */
 	public int getCreatedBy();
 
+    /** Column name DefaultWithholdingRate_ID */
+    public static final String COLUMNNAME_DefaultWithholdingRate_ID = "DefaultWithholdingRate_ID";
+
+	/** Set Default Withholding Rate.
+	  * Default Withholding Rate
+	  */
+	public void setDefaultWithholdingRate_ID (int DefaultWithholdingRate_ID);
+
+	/** Get Default Withholding Rate.
+	  * Default Withholding Rate
+	  */
+	public int getDefaultWithholdingRate_ID();
+
+	public org.erpya.lve.model.I_LVE_List getDefaultWithholdingRate() throws RuntimeException;
+
     /** Column name Description */
     public static final String COLUMNNAME_Description = "Description";
 
@@ -105,25 +120,31 @@ public interface I_LVE_List
 	  */
 	public boolean isActive();
 
-    /** Column name LVE_List_ID */
-    public static final String COLUMNNAME_LVE_List_ID = "LVE_List_ID";
+    /** Column name IsClientExcluded */
+    public static final String COLUMNNAME_IsClientExcluded = "IsClientExcluded";
 
-	/** Set List	  */
-	public void setLVE_List_ID (int LVE_List_ID);
+	/** Set Client Excluded.
+	  * Client Excluded for Withholding
+	  */
+	public void setIsClientExcluded (boolean IsClientExcluded);
 
-	/** Get List	  */
-	public int getLVE_List_ID();
+	/** Get Client Excluded.
+	  * Client Excluded for Withholding
+	  */
+	public boolean isClientExcluded();
 
-    /** Column name LVE_ListType_ID */
-    public static final String COLUMNNAME_LVE_ListType_ID = "LVE_ListType_ID";
+    /** Column name LVE_WithholdingTax_ID */
+    public static final String COLUMNNAME_LVE_WithholdingTax_ID = "LVE_WithholdingTax_ID";
 
-	/** Set List Type (Dynamic List)	  */
-	public void setLVE_ListType_ID (int LVE_ListType_ID);
+	/** Set Withholding Tax for Venezuela.
+	  * Withholding Tax Maintaining for Venezuela
+	  */
+	public void setLVE_WithholdingTax_ID (int LVE_WithholdingTax_ID);
 
-	/** Get List Type (Dynamic List)	  */
-	public int getLVE_ListType_ID();
-
-	public org.erpya.lve.model.I_LVE_ListType getLVE_ListType() throws RuntimeException;
+	/** Get Withholding Tax for Venezuela.
+	  * Withholding Tax Maintaining for Venezuela
+	  */
+	public int getLVE_WithholdingTax_ID();
 
     /** Column name Name */
     public static final String COLUMNNAME_Name = "Name";
@@ -167,16 +188,18 @@ public interface I_LVE_List
 	  */
 	public String getUUID();
 
-    /** Column name Value */
-    public static final String COLUMNNAME_Value = "Value";
+    /** Column name WithholdingRateType_ID */
+    public static final String COLUMNNAME_WithholdingRateType_ID = "WithholdingRateType_ID";
 
-	/** Set Search Key.
-	  * Search key for the record in the format required - must be unique
+	/** Set Withholding Rate Type.
+	  * Withholding Rate Type for handle Withholding Tax Rate
 	  */
-	public void setValue (String Value);
+	public void setWithholdingRateType_ID (int WithholdingRateType_ID);
 
-	/** Get Search Key.
-	  * Search key for the record in the format required - must be unique
+	/** Get Withholding Rate Type.
+	  * Withholding Rate Type for handle Withholding Tax Rate
 	  */
-	public String getValue();
+	public int getWithholdingRateType_ID();
+
+	public org.erpya.lve.model.I_LVE_ListType getWithholdingRateType() throws RuntimeException;
 }

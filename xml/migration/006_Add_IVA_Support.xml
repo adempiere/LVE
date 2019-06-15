@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Agregar Retención de IVA" ReleaseNo="3.9.3" SeqNo="5">
+  <Migration EntityType="D" Name="Agregar Retención de IVA" ReleaseNo="3.9.3" SeqNo="61000000">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61069" Table="AD_Element">
         <Data AD_Column_ID="2600" Column="Updated">2019-06-13 18:07:29.907</Data>
         <Data AD_Column_ID="2597" Column="IsActive">true</Data>
-        <Data AD_Column_ID="2603" Column="Name">Withholding Applied</Data>
-        <Data AD_Column_ID="2604" Column="Description">Withholding Applied for this record</Data>
+        <Data AD_Column_ID="2603" Column="Name">Withholding Tax Applied</Data>
+        <Data AD_Column_ID="2604" Column="Description">Withholding Tax Applied for this record</Data>
         <Data AD_Column_ID="2598" Column="Created">2019-06-13 18:07:29.907</Data>
-        <Data AD_Column_ID="2602" Column="ColumnName">IsWithholdingApplied</Data>
+        <Data AD_Column_ID="2602" Column="ColumnName">IsWithholdingTaxApplied</Data>
         <Data AD_Column_ID="2605" Column="Help" isNewNull="true"/>
         <Data AD_Column_ID="6284" Column="PO_Help" isNewNull="true"/>
         <Data AD_Column_ID="6285" Column="PO_Name" isNewNull="true"/>
-        <Data AD_Column_ID="4299" Column="PrintName">Withholding Applied</Data>
+        <Data AD_Column_ID="4299" Column="PrintName">Withholding Tax Applied</Data>
         <Data AD_Column_ID="6286" Column="PO_PrintName" isNewNull="true"/>
         <Data AD_Column_ID="6283" Column="PO_Description" isNewNull="true"/>
         <Data AD_Column_ID="58589" Column="FieldLength">1</Data>
@@ -36,10 +36,10 @@
         <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="6450" Column="PO_Name" isNewNull="true"/>
         <Data AD_Column_ID="2648" Column="Help" isNewNull="true"/>
-        <Data AD_Column_ID="2646" Column="Name">Withholding Applied</Data>
-        <Data AD_Column_ID="2647" Column="Description">Withholding Applied for this record</Data>
+        <Data AD_Column_ID="2646" Column="Name">Withholding Tax Applied</Data>
+        <Data AD_Column_ID="2647" Column="Description">Withholding Tax Applied for this record</Data>
         <Data AD_Column_ID="2649" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="4300" Column="PrintName">Withholding Applied</Data>
+        <Data AD_Column_ID="4300" Column="PrintName">Withholding Tax Applied</Data>
         <Data AD_Column_ID="6451" Column="PO_PrintName" isNewNull="true"/>
         <Data AD_Column_ID="6448" Column="PO_Description" isNewNull="true"/>
         <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
@@ -54,15 +54,15 @@
       <PO AD_Table_ID="277" Action="U" Record_ID="0" Table="AD_Element_Trl">
         <Data AD_Column_ID="2638" Column="AD_Language" oldValue="es_MX">es_MX</Data>
         <Data AD_Column_ID="2648" Column="Help" isOldNull="true">Indica que el registro puede ser usado para retener</Data>
-        <Data AD_Column_ID="2646" Column="Name" oldValue="Withholding Applied">Retención Aplicada</Data>
-        <Data AD_Column_ID="2647" Column="Description" oldValue="Withholding Applied for this record">Retención Aplicada para este registro</Data>
-        <Data AD_Column_ID="4300" Column="PrintName" oldValue="Withholding Applied">Retención Aplicada</Data>
+        <Data AD_Column_ID="2646" Column="Name" oldValue="Withholding Tax Applied">Retención Aplicada</Data>
+        <Data AD_Column_ID="2647" Column="Description" oldValue="Withholding Tax Applied for this record">Retención Aplicada para este registro</Data>
+        <Data AD_Column_ID="4300" Column="PrintName" oldValue="Withholding Tax Applied">Retención Aplicada</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID" oldValue="61069">61069</Data>
       </PO>
     </Step>
     <Step SeqNo="40" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="93685" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">Withholding Applied for this record</Data>
+        <Data AD_Column_ID="112" Column="Description">Withholding Tax Applied for this record</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-06-13 18:08:22.879</Data>
@@ -71,7 +71,7 @@
         <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
         <Data AD_Column_ID="109" Column="AD_Column_ID">93685</Data>
         <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
-        <Data AD_Column_ID="111" Column="Name">Withholding Applied</Data>
+        <Data AD_Column_ID="111" Column="Name">Withholding Tax Applied</Data>
         <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
         <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="117" Column="DefaultValue">N</Data>
@@ -85,7 +85,7 @@
         <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
         <Data AD_Column_ID="110" Column="Version">0</Data>
         <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
-        <Data AD_Column_ID="116" Column="ColumnName">IsWithholdingApplied</Data>
+        <Data AD_Column_ID="116" Column="ColumnName">IsWithholdingTaxApplied</Data>
         <Data AD_Column_ID="113" Column="Help" isNewNull="true"/>
         <Data AD_Column_ID="3360" Column="IsUpdateable">true</Data>
         <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
@@ -120,7 +120,7 @@
         <Data AD_Column_ID="12952" Column="Updated">2019-06-13 18:08:24.419</Data>
         <Data AD_Column_ID="12955" Column="AD_Column_ID">93685</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="12957" Column="Name">Withholding Applied</Data>
+        <Data AD_Column_ID="12957" Column="Name">Withholding Tax Applied</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
@@ -171,7 +171,7 @@
     </Step>
     <Step SeqNo="90" StepType="AD">
       <PO AD_Table_ID="107" Action="I" Record_ID="94789" Table="AD_Field">
-        <Data AD_Column_ID="168" Column="Name">Withholding Applied</Data>
+        <Data AD_Column_ID="168" Column="Name">Withholding Tax Applied</Data>
         <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
         <Data AD_Column_ID="579" Column="Created">2019-06-13 18:11:29.93</Data>
         <Data AD_Column_ID="78493" Column="IsQuickEntry">false</Data>
@@ -182,7 +182,7 @@
         <Data AD_Column_ID="90940" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="59703" Column="IsEmbedded">false</Data>
         <Data AD_Column_ID="74868" Column="IsAllowCopy">true</Data>
-        <Data AD_Column_ID="169" Column="Description">Withholding Applied for this record</Data>
+        <Data AD_Column_ID="169" Column="Description">Withholding Tax Applied for this record</Data>
         <Data AD_Column_ID="176" Column="IsDisplayed">true</Data>
         <Data AD_Column_ID="185" Column="IsFieldOnly">false</Data>
         <Data AD_Column_ID="182" Column="SortNo">0</Data>
@@ -224,8 +224,8 @@
         <Data AD_Column_ID="674" Column="Updated">2019-06-13 18:11:31.024</Data>
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="289" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="287" Column="Description">Withholding Applied for this record</Data>
-        <Data AD_Column_ID="286" Column="Name">Withholding Applied</Data>
+        <Data AD_Column_ID="287" Column="Description">Withholding Tax Applied for this record</Data>
+        <Data AD_Column_ID="286" Column="Name">Withholding Tax Applied</Data>
         <Data AD_Column_ID="288" Column="Help" isNewNull="true"/>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">94789</Data>

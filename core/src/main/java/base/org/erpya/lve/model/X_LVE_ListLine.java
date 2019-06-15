@@ -26,14 +26,14 @@ import org.compiere.util.KeyNamePair;
 
 /** Generated Model for LVE_ListLine
  *  @author Adempiere (generated) 
- *  @version Release 3.9.0 - $Id$ */
+ *  @version Release 3.9.2 - $Id$ */
 public class X_LVE_ListLine extends PO implements I_LVE_ListLine, I_Persistent 
 {
 
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20180808L;
+	private static final long serialVersionUID = 20190615L;
 
     /** Standard Constructor */
     public X_LVE_ListLine (Properties ctx, int LVE_ListLine_ID, String trxName)
@@ -316,4 +316,21 @@ public class X_LVE_ListLine extends PO implements I_LVE_ListLine, I_Persistent
     {
         return new KeyNamePair(get_ID(), getName());
     }
+
+	/** Set Immutable Universally Unique Identifier.
+		@param UUID 
+		Immutable Universally Unique Identifier
+	  */
+	public void setUUID (String UUID)
+	{
+		set_Value (COLUMNNAME_UUID, UUID);
+	}
+
+	/** Get Immutable Universally Unique Identifier.
+		@return Immutable Universally Unique Identifier
+	  */
+	public String getUUID () 
+	{
+		return (String)get_Value(COLUMNNAME_UUID);
+	}
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="D" Name="Cambios de Unidad Tributaria" ReleaseNo="" SeqNo="81000010">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="107" Action="U" Record_ID="94819" Table="AD_Field">
+        <Data AD_Column_ID="53265" Column="DefaultValue" isOldNull="true">@SQL=SELECT MAX(l.LVE_List_ID) DefaultValue FROM LVE_List l WHERE EXISTS(SELECT 1 FROM AD_ClientInfo c WHERE c.AD_Client_ID = @#AD_Client_ID@ AND c.TributeUnitType_ID = l.LVE_ListType_ID)</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="106" Action="U" Record_ID="54821" Table="AD_Tab">
+        <Data AD_Column_ID="2741" Column="WhereClause" oldValue="EXISTS(SELECT 1 FROM AD_ClientInfo ci INNER JOIN LVE_List l ON(l.LVE_ListType_ID = ci.LVE_ListType_ID) WHERE ci.AD_Client_ID = @#AD_Client_ID@ AND LVE_ListVersion.LVE_List_ID = l.LVE_List_ID)">EXISTS(SELECT 1 FROM AD_ClientInfo ci INNER JOIN LVE_List l ON(l.LVE_ListType_ID = ci.TributeUnitType_ID) WHERE ci.AD_Client_ID = @#AD_Client_ID@ AND LVE_ListVersion.LVE_List_ID = l.LVE_List_ID)</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="108" Action="U" Record_ID="52703" Table="AD_Val_Rule">
+        <Data AD_Column_ID="193" Column="Code" oldValue="EXISTS(SELECT 1 FROM LVE_WithholdingTax wt WHERE wt.LVE_ListType_ID = LVE_List.LVE_ListType_ID AND wt.AD_Client_ID = @#AD_Client_ID@)">EXISTS(SELECT 1 FROM LVE_WithholdingTax wt WHERE wt.WithholdingRateType_ID = LVE_List.LVE_ListType_ID AND wt.AD_Client_ID = @#AD_Client_ID@)</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="108" Action="I" Record_ID="52704" Table="AD_Val_Rule">
+        <Data AD_Column_ID="583" Column="IsActive">true</Data>
+        <Data AD_Column_ID="192" Column="Type">S</Data>
+        <Data AD_Column_ID="193" Column="Code">LVE_List.LVE_ListType_ID = @WithholdingRateType_ID@</Data>
+        <Data AD_Column_ID="586" Column="Updated">2019-06-15 13:52:14.689</Data>
+        <Data AD_Column_ID="584" Column="Created">2019-06-15 13:52:14.689</Data>
+        <Data AD_Column_ID="188" Column="Name">LVE_List only of Withholding Rate Type</Data>
+        <Data AD_Column_ID="189" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="387" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="388" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="187" Column="AD_Val_Rule_ID">52704</Data>
+        <Data AD_Column_ID="7715" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="587" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="585" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="84460" Column="UUID">8050bdde-8f9a-11e9-bdf3-0fb6abd28f93</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="93717" Table="AD_Column">
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" oldValue="52703">52704</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>

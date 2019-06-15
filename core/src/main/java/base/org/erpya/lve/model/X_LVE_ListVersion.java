@@ -17,22 +17,24 @@
 /** Generated Model - DO NOT CHANGE */
 package org.erpya.lve.model;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 import org.compiere.model.*;
+import org.compiere.util.Env;
 import org.compiere.util.KeyNamePair;
 
 /** Generated Model for LVE_ListVersion
  *  @author Adempiere (generated) 
- *  @version Release 3.9.0 - $Id$ */
+ *  @version Release 3.9.2 - $Id$ */
 public class X_LVE_ListVersion extends PO implements I_LVE_ListVersion, I_Persistent 
 {
 
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20180808L;
+	private static final long serialVersionUID = 20190615L;
 
     /** Standard Constructor */
     public X_LVE_ListVersion (Properties ctx, int LVE_ListVersion_ID, String trxName)
@@ -44,7 +46,6 @@ public class X_LVE_ListVersion extends PO implements I_LVE_ListVersion, I_Persis
 			setLVE_ListVersion_ID (0);
 			setName (null);
 			setValidFrom (new Timestamp( System.currentTimeMillis() ));
-			setValidTo (new Timestamp( System.currentTimeMillis() ));
         } */
     }
 
@@ -75,6 +76,26 @@ public class X_LVE_ListVersion extends PO implements I_LVE_ListVersion, I_Persis
         .append(get_ID()).append("]");
       return sb.toString();
     }
+
+	/** Set Amount.
+		@param Amount 
+		Amount in a defined currency
+	  */
+	public void setAmount (BigDecimal Amount)
+	{
+		set_Value (COLUMNNAME_Amount, Amount);
+	}
+
+	/** Get Amount.
+		@return Amount in a defined currency
+	  */
+	public BigDecimal getAmount () 
+	{
+		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_Amount);
+		if (bd == null)
+			 return Env.ZERO;
+		return bd;
+	}
 
 	/** Set Description.
 		@param Description 
@@ -162,6 +183,23 @@ public class X_LVE_ListVersion extends PO implements I_LVE_ListVersion, I_Persis
     {
         return new KeyNamePair(get_ID(), getName());
     }
+
+	/** Set Immutable Universally Unique Identifier.
+		@param UUID 
+		Immutable Universally Unique Identifier
+	  */
+	public void setUUID (String UUID)
+	{
+		set_Value (COLUMNNAME_UUID, UUID);
+	}
+
+	/** Get Immutable Universally Unique Identifier.
+		@return Immutable Universally Unique Identifier
+	  */
+	public String getUUID () 
+	{
+		return (String)get_Value(COLUMNNAME_UUID);
+	}
 
 	/** Set Valid from.
 		@param ValidFrom 

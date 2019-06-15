@@ -18,9 +18,12 @@ package org.erpya.lve.model;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import org.compiere.model.Query;
 import org.compiere.util.CCache;
 import org.compiere.util.DB;
 import org.compiere.util.Env;
@@ -48,7 +51,8 @@ public class MLVEList extends X_LVE_List {
 
 	/**	Cache						*/
 	private static CCache<Integer, MLVEList> cache = new CCache<Integer, MLVEList>(Table_Name, 40, 5);	//	5 minutes
-	
+	/**	List version with Valid From	*/
+	private CCache<String, MLVEListVersion> listVersionCache = new CCache<String, MLVEListVersion>(I_LVE_ListVersion.Table_Name + "_ValidFrom", 40, 5);	//	5 minutes
 	/**
 	 * 	Get MLVEList from Cache
 	 *	@param ctx context
@@ -90,7 +94,7 @@ public class MLVEList extends X_LVE_List {
 	 * @param columnParam Number of column to return (1.......8)
 	 * @return The amount corresponding to the designated column 'column'
 	 */
-	public static BigDecimal getList(int clientId, String listSearchKey,Timestamp from, BigDecimal amount, String columnParam) {
+	public static BigDecimal getList(int clientId, String listSearchKey, Timestamp from, BigDecimal amount, String columnParam) {
 		BigDecimal value = Env.ZERO;
 		ArrayList<Object> params = new ArrayList<Object>();
 		String sqlList = "SELECT " + columnParam +
@@ -110,6 +114,53 @@ public class MLVEList extends X_LVE_List {
 		value = DB.getSQLValueBDEx(null,sqlList,params);
 		return value;
 	} // getList
+	
+	/**
+	 * get Version Rate from Valid From
+	 * @param listSearchKey
+	 * @param validFrom
+	 * @return
+	 */
+	public BigDecimal getListVersionAmount(Timestamp validFrom) {
+		MLVEListVersion version = getValidVersionInstance(validFrom);
+		if(version == null) {
+			return Env.ZERO;
+		}
+		//	Default
+		return version.getAmount();
+	}
+	
+	/**
+	 * Get Valid Rate Instance of List Version
+	 * @param validFrom
+	 * @return
+	 */
+	public MLVEListVersion getValidVersionInstance(Timestamp validFrom) {
+		SimpleDateFormat format = (SimpleDateFormat)DateFormat.getInstance();
+		format.applyPattern("yyyyMMdd");
+		String key = getLVE_List_ID() + "|" + format.format(validFrom);
+		MLVEListVersion listVersion = listVersionCache.get(key);
+		if(listVersion == null) {
+			ArrayList<Object> params = new ArrayList<Object>();
+			StringBuffer whereClause = new StringBuffer(MLVEListVersion.COLUMNNAME_LVE_List_ID + " = ?");
+			params.add(getLVE_List_ID());
+			// check ValidFrom
+			whereClause.append(" AND ").append(MLVEListVersion.COLUMNNAME_ValidFrom + "<=?");
+			params.add(validFrom);
+			//check client
+			listVersion = new Query(getCtx(), MLVEListVersion.Table_Name, whereClause.toString(), null)
+					.setParameters(params)
+					.setOrderBy(MLVEListVersion.COLUMNNAME_ValidFrom + " DESC")
+					.setClient_ID()
+					.setOnlyActiveRecords(true)
+					.first();
+			if(listVersion != null) {
+				listVersionCache.put(key, listVersion);
+			}
+		}
+		//	
+		return listVersion;
+	}
 	
 	@Override
 	public String toString() {
