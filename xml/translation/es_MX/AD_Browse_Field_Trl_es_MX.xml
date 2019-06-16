@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--ADempiere(r) Release 3.9.2_2019-05-03 -Smart Suite ERP,CRM and SCM- (c) 1999-2019 ADempiere(r); Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_MX" table="AD_Browse_Field">
+ <row id="50804" trl="Y">
+  <value column="Name" original="QtyToDeliver">QtyToDeliver</value>
+  <value column="Description" original="Qty to Deliver">Qty to Deliver</value>
+  <value column="Help" original="Qty to Deliver">Qty to Deliver</value>
+  <value column="UUID" original="8ac56948-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50880" trl="Y">
+  <value column="Name" original="Process Now">Process Now</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8aafe910-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50881" trl="Y">
+  <value column="Name" original="Created By">Created By</value>
+  <value column="Description" original="User who created this records">User who created this records</value>
+  <value column="Help" original="The Created By field indicates the user who created this record.">The Created By field indicates the user who created this record.</value>
+  <value column="UUID" original="8ab087bc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50882" trl="Y">
+  <value column="Name" original="Processed">Processed</value>
+  <value column="Description" original="The document has been processed">The document has been processed</value>
+  <value column="Help" original="The Processed checkbox indicates that a document has been processed.">The Processed checkbox indicates that a document has been processed.</value>
+  <value column="UUID" original="8ab0885c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50883" trl="Y">
+  <value column="Name" original="Updated By">Updated By</value>
+  <value column="Description" original="User who updated this records">User who updated this records</value>
+  <value column="Help" original="The Updated By field indicates the user who updated this record.">The Updated By field indicates the user who updated this record.</value>
+  <value column="UUID" original="8ab088c0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50884" trl="Y">
+  <value column="Name" original="Period No">Period No</value>
+  <value column="Description" original="Unique Period Number">Unique Period Number</value>
+  <value column="Help" original="The Period No identifies a specific period for this year. Each period is defined by a start and end date.  Date ranges for a calendar and year cannot overlap.">The Period No identifies a specific period for this year. Each period is defined by a start and end date.  Date ranges for a calendar and year cannot overlap.</value>
+  <value column="UUID" original="8ab08adc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50885" trl="Y">
+  <value column="Name" original="Updated">Updated</value>
+  <value column="Description" original="Date this record was updated">Date this record was updated</value>
+  <value column="Help" original="The Updated field indicates the date that this record was updated.">The Updated field indicates the date that this record was updated.</value>
+  <value column="UUID" original="8ab08ba4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50886" trl="Y">
+  <value column="Name" original="Updated By">Updated By</value>
+  <value column="Description" original="User who updated this records">User who updated this records</value>
+  <value column="Help" original="The Updated By field indicates the user who updated this record.">The Updated By field indicates the user who updated this record.</value>
+  <value column="UUID" original="8ab08c12-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50887" trl="Y">
+  <value column="Name" original="Organization">Organization</value>
+  <value column="Description" original="Organizational entity within client">Organizational entity within client</value>
+  <value column="Help" original="An organization is a unit of your client or legal entity - examples are store, department. You can share data between organizations.">An organization is a unit of your client or legal entity - examples are store, department. You can share data between organizations.</value>
+  <value column="UUID" original="8ab08c76-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50889" trl="Y">
+  <value column="Name" original="Created">Created</value>
+  <value column="Description" original="Date this record was created">Date this record was created</value>
+  <value column="Help" original="The Created field indicates the date that this record was created.">The Created field indicates the date that this record was created.</value>
+  <value column="UUID" original="8ab08dca-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50890" trl="Y">
+  <value column="Name" original="Created By">Created By</value>
+  <value column="Description" original="User who created this records">User who created this records</value>
+  <value column="Help" original="The Created By field indicates the user who created this record.">The Created By field indicates the user who created this record.</value>
+  <value column="UUID" original="8ab08e2e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50891" trl="Y">
+  <value column="Name" original="Created">Created</value>
+  <value column="Description" original="Date this record was created">Date this record was created</value>
+  <value column="Help" original="The Created field indicates the date that this record was created.">The Created field indicates the date that this record was created.</value>
+  <value column="UUID" original="8ab08e92-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50895" trl="Y">
+  <value column="Name" original="Client">Client</value>
+  <value column="Description" original="Client/Tenant for this installation.">Client/Tenant for this installation.</value>
+  <value column="Help" original="A Client is a company or a legal entity. You cannot share data between Clients. Tenant is a synonym for Client.">A Client is a company or a legal entity. You cannot share data between Clients. Tenant is a synonym for Client.</value>
+  <value column="UUID" original="8ab08eec-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50896" trl="Y">
+  <value column="Name" original="Created">Created</value>
+  <value column="Description" original="Date this record was created">Date this record was created</value>
+  <value column="Help" original="The Created field indicates the date that this record was created.">The Created field indicates the date that this record was created.</value>
+  <value column="UUID" original="8ab08f50-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50897" trl="Y">
+  <value column="Name" original="Organization">Organization</value>
+  <value column="Description" original="Organizational entity within client">Organizational entity within client</value>
+  <value column="Help" original="An organization is a unit of your client or legal entity - examples are store, department. You can share data between organizations.">An organization is a unit of your client or legal entity - examples are store, department. You can share data between organizations.</value>
+  <value column="UUID" original="8ab08faa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50898" trl="Y">
+  <value column="Name" original="Created By">Created By</value>
+  <value column="Description" original="User who created this records">User who created this records</value>
+  <value column="Help" original="The Created By field indicates the user who created this record.">The Created By field indicates the user who created this record.</value>
+  <value column="UUID" original="8ab09004-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50899" trl="Y">
+  <value column="Name" original="Forecast Run Detail">Forecast Run Detail</value>
+  <value column="Description" original="Contains the forecasting calculation results based on forecast definition.">Contains the forecasting calculation results based on forecast definition.</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab0909a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50900" trl="Y">
+  <value column="Name" original="Active">Active</value>
+  <value column="Description" original="The record is active in the system">The record is active in the system</value>
+  <value column="Help" original="There are two methods of making records unavailable in the system: One is to delete the record, the other is to de-activate the record. A de-activated record is not available for selection, but available for reports.&#10;There are two reasons for de-activating and not deleting records:&#10;(1) The system requires the record for audit purposes.&#10;(2) The record is referenced by other records. E.g., you cannot delete a Business Partner, if there are invoices for this partner record existing. You de-activate the Business Partner and prevent that this record is used for future entries.">There are two methods of making records unavailable in the system: One is to delete the record, the other is to de-activate the record. A de-activated record is not available for selection, but available for reports.
+There are two reasons for de-activating and not deleting records:
+(1) The system requires the record for audit purposes.
+(2) The record is referenced by other records. E.g., you cannot delete a Business Partner, if there are invoices for this partner record existing. You de-activate the Business Partner and prevent that this record is used for future entries.</value>
+  <value column="UUID" original="8ab090fe-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50901" trl="Y">
+  <value column="Name" original="Warehouse">Warehouse</value>
+  <value column="Description" original="Storage Warehouse and Service Point">Storage Warehouse and Service Point</value>
+  <value column="Help" original="The Warehouse identifies a unique Warehouse where products are stored or Services are provided.">The Warehouse identifies a unique Warehouse where products are stored or Services are provided.</value>
+  <value column="UUID" original="8ab09162-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50902" trl="Y">
+  <value column="Name" original="Forecast Definition Line">Forecast Definition Line</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab091bc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50903" trl="Y">
+  <value column="Name" original="Forecast Run Master">Forecast Run Master</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab09220-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50904" trl="Y">
+  <value column="Name" original="Forecast Run">Forecast Run</value>
+  <value column="Description" original="Create the forecast simulation based on the forecast definition">Create the forecast simulation based on the forecast definition</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab0927a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50905" trl="Y">
+  <value column="Name" original="Updated">Updated</value>
+  <value column="Description" original="Date this record was updated">Date this record was updated</value>
+  <value column="Help" original="The Updated field indicates the date that this record was updated.">The Updated field indicates the date that this record was updated.</value>
+  <value column="UUID" original="8ab092d4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50906" trl="Y">
+  <value column="Name" original="Updated By">Updated By</value>
+  <value column="Description" original="User who updated this records">User who updated this records</value>
+  <value column="Help" original="The Updated By field indicates the user who updated this record.">The Updated By field indicates the user who updated this record.</value>
+  <value column="UUID" original="8ab09338-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50907" trl="Y">
+  <value column="Name" original="Client">Client</value>
+  <value column="Description" original="Client/Tenant for this installation.">Client/Tenant for this installation.</value>
+  <value column="Help" original="A Client is a company or a legal entity. You cannot share data between Clients. Tenant is a synonym for Client.">A Client is a company or a legal entity. You cannot share data between Clients. Tenant is a synonym for Client.</value>
+  <value column="UUID" original="8ab093c4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50908" trl="Y">
+  <value column="Name" original="Active">Active</value>
+  <value column="Description" original="The record is active in the system">The record is active in the system</value>
+  <value column="Help" original="There are two methods of making records unavailable in the system: One is to delete the record, the other is to de-activate the record. A de-activated record is not available for selection, but available for reports.&#10;There are two reasons for de-activating and not deleting records:&#10;(1) The system requires the record for audit purposes.&#10;(2) The record is referenced by other records. E.g., you cannot delete a Business Partner, if there are invoices for this partner record existing. You de-activate the Business Partner and prevent that this record is used for future entries.">There are two methods of making records unavailable in the system: One is to delete the record, the other is to de-activate the record. A de-activated record is not available for selection, but available for reports.
+There are two reasons for de-activating and not deleting records:
+(1) The system requires the record for audit purposes.
+(2) The record is referenced by other records. E.g., you cannot delete a Business Partner, if there are invoices for this partner record existing. You de-activate the Business Partner and prevent that this record is used for future entries.</value>
+  <value column="UUID" original="8ab094f0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50909" trl="Y">
+  <value column="Name" original="Client">Client</value>
+  <value column="Description" original="Client/Tenant for this installation.">Client/Tenant for this installation.</value>
+  <value column="Help" original="A Client is a company or a legal entity. You cannot share data between Clients. Tenant is a synonym for Client.">A Client is a company or a legal entity. You cannot share data between Clients. Tenant is a synonym for Client.</value>
+  <value column="UUID" original="8ab0975c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50910" trl="Y">
+  <value column="Name" original="Forecast Run Result">Forecast Run Result</value>
+  <value column="Description" original="Containts  the forecast calculation results.">Containts  the forecast calculation results.</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab000bc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50911" trl="Y">
+  <value column="Name" original="Forecast Run">Forecast Run</value>
+  <value column="Description" original="Create the forecast simulation based on the forecast definition">Create the forecast simulation based on the forecast definition</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab097c0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50912" trl="Y">
+  <value column="Name" original="Abnormal Quantity">Abnormal Quantity</value>
+  <value column="Description" original="Abnormal Demand Quantity">Abnormal Demand Quantity</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab0981a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50913" trl="Y">
+  <value column="Name" original="Calculated Quantity">Calculated Quantity</value>
+  <value column="Description" original="Calculated Quantity">Calculated Quantity</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab098ba-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50915" trl="Y">
+  <value column="Name" original="Past Period">Operational Period</value>
+  <value column="Description" original="Forecast Definition Periods.">Forecast Definition Periods.</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab0a314-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50922" trl="Y">
+  <value column="Name" original="Forecast Definition">Forecast Definition</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab09914-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50923" trl="Y">
+  <value column="Name" original="Forecast Run">Forecast Run</value>
+  <value column="Description" original="Create the forecast simulation based on the forecast definition">Create the forecast simulation based on the forecast definition</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab09978-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50924" trl="Y">
+  <value column="Name" original="Calculated Quantity">Calculated Quantity</value>
+  <value column="Description" original="Calculated Quantity">Calculated Quantity</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab09d88-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50925" trl="Y">
+  <value column="Name" original="Client">Client</value>
+  <value column="Description" original="Client/Tenant for this installation.">Client/Tenant for this installation.</value>
+  <value column="Help" original="A Client is a company or a legal entity. You cannot share data between Clients. Tenant is a synonym for Client.">A Client is a company or a legal entity. You cannot share data between Clients. Tenant is a synonym for Client.</value>
+  <value column="UUID" original="8ab09e0a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50926" trl="Y">
+  <value column="Name" original="Organization">Organization</value>
+  <value column="Description" original="Organizational entity within client">Organizational entity within client</value>
+  <value column="Help" original="An organization is a unit of your client or legal entity - examples are store, department. You can share data between organizations.">An organization is a unit of your client or legal entity - examples are store, department. You can share data between organizations.</value>
+  <value column="UUID" original="8ab09e64-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50927" trl="Y">
+  <value column="Name" original="Created">Created</value>
+  <value column="Description" original="Date this record was created">Date this record was created</value>
+  <value column="Help" original="The Created field indicates the date that this record was created.">The Created field indicates the date that this record was created.</value>
+  <value column="UUID" original="8ab09f22-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50928" trl="Y">
+  <value column="Name" original="Created By">Created By</value>
+  <value column="Description" original="User who created this records">User who created this records</value>
+  <value column="Help" original="The Created By field indicates the user who created this record.">The Created By field indicates the user who created this record.</value>
+  <value column="UUID" original="8ab09f7c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50929" trl="Y">
+  <value column="Name" original="Active">Active</value>
+  <value column="Description" original="The record is active in the system">The record is active in the system</value>
+  <value column="Help" original="There are two methods of making records unavailable in the system: One is to delete the record, the other is to de-activate the record. A de-activated record is not available for selection, but available for reports.&#10;There are two reasons for de-activating and not deleting records:&#10;(1) The system requires the record for audit purposes.&#10;(2) The record is referenced by other records. E.g., you cannot delete a Business Partner, if there are invoices for this partner record existing. You de-activate the Business Partner and prevent that this record is used for future entries.">There are two methods of making records unavailable in the system: One is to delete the record, the other is to de-activate the record. A de-activated record is not available for selection, but available for reports.
+There are two reasons for de-activating and not deleting records:
+(1) The system requires the record for audit purposes.
+(2) The record is referenced by other records. E.g., you cannot delete a Business Partner, if there are invoices for this partner record existing. You de-activate the Business Partner and prevent that this record is used for future entries.</value>
+  <value column="UUID" original="8ab09fe0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50936" trl="Y">
+  <value column="Name" original="Forecast Run Master">Forecast Run Master</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab0a06c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50937" trl="Y">
+  <value column="Name" original="Quantity Plan">Quantity Plan</value>
+  <value column="Description" original="Planned Quantity">Planned Quantity</value>
+  <value column="Help" original="Planned Quantity">Planned Quantity</value>
+  <value column="UUID" original="8ab0a0d0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50938" trl="Y">
+  <value column="Name" original="Updated">Updated</value>
+  <value column="Description" original="Date this record was updated">Date this record was updated</value>
+  <value column="Help" original="The Updated field indicates the date that this record was updated.">The Updated field indicates the date that this record was updated.</value>
+  <value column="UUID" original="8ab0a940-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50939" trl="Y">
+  <value column="Name" original="Updated By">Updated By</value>
+  <value column="Description" original="User who updated this records">User who updated this records</value>
+  <value column="Help" original="The Updated By field indicates the user who updated this record.">The Updated By field indicates the user who updated this record.</value>
+  <value column="UUID" original="8ab0aaee-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50940" trl="Y">
+  <value column="Name" original="Active">Active</value>
+  <value column="Description" original="The record is active in the system">The record is active in the system</value>
+  <value column="Help" original="There are two methods of making records unavailable in the system: One is to delete the record, the other is to de-activate the record. A de-activated record is not available for selection, but available for reports.&#10;There are two reasons for de-activating and not deleting records:&#10;(1) The system requires the record for audit purposes.&#10;(2) The record is referenced by other records. E.g., you cannot delete a Business Partner, if there are invoices for this partner record existing. You de-activate the Business Partner and prevent that this record is used for future entries.">There are two methods of making records unavailable in the system: One is to delete the record, the other is to de-activate the record. A de-activated record is not available for selection, but available for reports.
+There are two reasons for de-activating and not deleting records:
+(1) The system requires the record for audit purposes.
+(2) The record is referenced by other records. E.g., you cannot delete a Business Partner, if there are invoices for this partner record existing. You de-activate the Business Partner and prevent that this record is used for future entries.</value>
+  <value column="UUID" original="8ab0ab70-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50941" trl="Y">
+  <value column="Name" original="Updated">Updated</value>
+  <value column="Description" original="Date this record was updated">Date this record was updated</value>
+  <value column="Help" original="The Updated field indicates the date that this record was updated.">The Updated field indicates the date that this record was updated.</value>
+  <value column="UUID" original="8ab0aca6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50942" trl="Y">
+  <value column="Name" original="Period No">Period No</value>
+  <value column="Description" original="Unique Period Number">Unique Period Number</value>
+  <value column="Help" original="The Period No identifies a specific period for this year. Each period is defined by a start and end date.  Date ranges for a calendar and year cannot overlap.">The Period No identifies a specific period for this year. Each period is defined by a start and end date.  Date ranges for a calendar and year cannot overlap.</value>
+  <value column="UUID" original="8ab0ae36-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50943" trl="Y">
+  <value column="Name" original="Forecast Run Master">Forecast Run Master</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab0aeae-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51653" trl="N">
+  <value column="Name" original="Company Agent">Company Agent</value>
+  <value column="Description" original="Company Agent">Company Agent</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab79e8a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51964" trl="Y">
+  <value column="Name" original="Start Schedule">Start Schedule</value>
+  <value column="Description" original="Scheduled start date for this Order">Scheduled start date for this Order</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab22586-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51965" trl="Y">
+  <value column="Name" original="Finish Schedule">Finish Schedule</value>
+  <value column="Description" original="Scheduled Finish date for this Order">Scheduled Finish date for this Order</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab2261c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51988" trl="Y">
+  <value column="Name" original="Work Center">Work Center</value>
+  <value column="Description" original="Work Center">Work Center</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab23044-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51992" trl="Y">
+  <value column="Name" original="Milestone">Milestone</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab23166-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51993" trl="Y">
+  <value column="Name" original="S. T. Real">S. T. Real</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab231c0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51996" trl="Y">
+  <value column="Name" original="S. T. Req.">S. T. Req.</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab2324c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="52159" trl="Y">
+  <value column="Name" original="Status">Status</value>
+  <value column="Description" original="The current status of the document">The current status of the document</value>
+  <value column="Help" original="The Document Status indicates the status of a document at this time.  If you want to change the document status, use the Document Action field">The Document Status indicates the status of a document at this time.  If you want to change the document status, use the Document Action field</value>
+  <value column="UUID" original="8ab29200-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="52160" trl="Y">
+  <value column="Name" original="Duration Req.">Duration Req.</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab29264-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="52161" trl="Y">
+  <value column="Name" original="Activity Value">Activity Value</value>
+  <value column="Description" original="Search key for the record in the format required - must be unique">Search key for the record in the format required - must be unique</value>
+  <value column="Help" original="A search key allows you a fast method of finding a particular record.&#10;If you leave the search key empty, the system automatically creates a numeric number.  The document sequence used for this fallback number is defined in the &quot;Maintain Sequence&quot; window with the name &quot;DocumentNo_&lt;TableName&gt;&quot;, where TableName is the actual name of the table (e.g. C_Order)."><![CDATA[A search key allows you a fast method of finding a particular record.
+If you leave the search key empty, the system automatically creates a numeric number.  The document sequence used for this fallback number is defined in the "Maintain Sequence" window with the name "DocumentNo_<TableName>", where TableName is the actual name of the table (e.g. C_Order).]]></value>
+  <value column="UUID" original="8ab29336-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="52367" trl="Y">
+  <value column="Name" original="Subcontracting">Subcontracting</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab30898-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="52892" trl="Y">
+  <value column="Name" original="Work Center">Work Center</value>
+  <value column="Description" original="Work Center">Work Center</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ab4115c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53245" trl="Y">
+  <value column="Name" original="Work Center Key">Work Center Key</value>
+  <value column="Description" original="Search key for the record in the format required - must be unique">Search key for the record in the format required - must be unique</value>
+  <value column="Help" original="A search key allows you a fast method of finding a particular record.&#10;If you leave the search key empty, the system automatically creates a numeric number.  The document sequence used for this fallback number is defined in the &quot;Maintain Sequence&quot; window with the name &quot;DocumentNo_&lt;TableName&gt;&quot;, where TableName is the actual name of the table (e.g. C_Order)."><![CDATA[A search key allows you a fast method of finding a particular record.
+If you leave the search key empty, the system automatically creates a numeric number.  The document sequence used for this fallback number is defined in the "Maintain Sequence" window with the name "DocumentNo_<TableName>", where TableName is the actual name of the table (e.g. C_Order).]]></value>
+  <value column="UUID" original="8ab4d420-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53477" trl="Y">
+  <value column="Name" original="User/Contact">User/Contact</value>
+  <value column="Description" original="User within the system - Internal or Business Partner Contact">User within the system - Internal or Business Partner Contact</value>
+  <value column="Help" original="The User identifies a unique user in the system. This could be an internal user or a business partner contact">The User identifies a unique user in the system. This could be an internal user or a business partner contact</value>
+  <value column="UUID" original="8ab4e55a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53488" trl="Y">
+  <value column="Name" original="Supervisor">Supervisor</value>
+  <value column="Description" original="Supervisor for this user/organization - used for escalation and approval">Supervisor for this user/organization - used for escalation and approval</value>
+  <value column="Help" original="The Supervisor indicates who will be used for forwarding and escalating issues for this user - or for approvals.">The Supervisor indicates who will be used for forwarding and escalating issues for this user - or for approvals.</value>
+  <value column="UUID" original="8ab4ef0a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54103" trl="Y">
+  <value column="Name" original="Employee Name">Nombre</value>
+  <value column="Description" original="Alphanumeric identifier of the entity">Identificador alfanumérico de la entidad.</value>
+  <value column="Help" original="The name of an entity (record) is used as an default search option in addition to the search key. The name is up to 60 characters in length.">El nombre de una entidad (registro) se usa como una opción de búsqueda predeterminada adicional al código. El nombre es de hasta 60 caracteres de longitud.</value>
+  <value column="UUID" original="8ac79966-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54198" trl="Y">
+  <value column="Name" original="Payroll Name">Nombre</value>
+  <value column="Description" original="Alphanumeric identifier of the entity">Identificador alfanumérico de la entidad.</value>
+  <value column="Help" original="The name of an entity (record) is used as an default search option in addition to the search key. The name is up to 60 characters in length.">El nombre de una entidad (registro) se usa como una opción de búsqueda predeterminada adicional al código. El nombre es de hasta 60 caracteres de longitud.</value>
+  <value column="UUID" original="8ac79902-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55468" trl="Y">
+  <value column="Name" original="Pay Amt">Pay Amt</value>
+  <value column="Description" original="Amount being paid">Amount being paid</value>
+  <value column="Help" original="Indicates the amount this payment is for.  The payment amount can be for single or multiple invoices or a partial payment for an invoice.">Indicates the amount this payment is for.  The payment amount can be for single or multiple invoices or a partial payment for an invoice.</value>
+  <value column="UUID" original="8ac647b4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55579" trl="Y">
+  <value column="Name" original="Tender Type">Tender Type</value>
+  <value column="Description" original="Tender Type">Tender Type</value>
+  <value column="Help" original="The Reference List field indicates a list of reference values from a database tables.  Reference lists populate drop down list boxes in data entry screens">The Reference List field indicates a list of reference values from a database tables.  Reference lists populate drop down list boxes in data entry screens</value>
+  <value column="UUID" original="8ac68d82-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55770" trl="Y">
+  <value column="Name" original="Company Agent">Sales Representative</value>
+  <value column="Description" original="Company Agent">Sales Representative or Company Agent</value>
+  <value column="Help" original="The Sales Representative indicates the Sales Rep for this Region.  Any Sales Rep must be a valid internal user.">The Sales Representative indicates the Sales Rep for this Region.  Any Sales Rep must be a valid internal user.</value>
+  <value column="UUID" original="8ac715ae-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55923" trl="Y">
+  <value column="Name" original="Payment Number">Payment Number</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ac76694-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55977" trl="Y">
+  <value column="Name" original="Payment Number">Payment Number</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ac77bde-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="56124" trl="Y">
+  <value column="Name" original="Category Name">Name</value>
+  <value column="Description" original="Alphanumeric identifier of the entity">Alphanumeric identifier of the entity</value>
+  <value column="Help" original="The name of an entity (record) is used as an default search option in addition to the search key. The name is up to 60 characters in length.">The name of an entity (record) is used as an default search option in addition to the search key. The name is up to 60 characters in length.</value>
+  <value column="UUID" original="8ac7989e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="59995" trl="Y">
+  <value column="Name" original="Project Name">Nombre del Proyecto</value>
+  <value column="Description" original="Alphanumeric identifier of the entity">Alphanumeric identifier of the entity</value>
+  <value column="Help" original="The name of an entity (record) is used as an default search option in addition to the search key. The name is up to 60 characters in length.">The name of an entity (record) is used as an default search option in addition to the search key. The name is up to 60 characters in length.</value>
+  <value column="UUID" original="8ad7221e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="60142" trl="Y">
+  <value column="Name" original="Task Name">Nombre de la Tarea</value>
+  <value column="Description" original="Alphanumeric identifier of the entity">Alphanumeric identifier of the entity</value>
+  <value column="Help" original="The name of an entity (record) is used as an default search option in addition to the search key. The name is up to 60 characters in length.">The name of an entity (record) is used as an default search option in addition to the search key. The name is up to 60 characters in length.</value>
+  <value column="UUID" original="8ad7c1d8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="60351" trl="N">
+  <value column="Name" original="Responsible">Responsable</value>
+  <value column="Description" original="Responsible">Responsable</value>
+  <value column="Help" original="Having an obligation to do something, or having control over or care for someone, as part of one's job or role.">Tiene la obligación de hacer algo, o tener control o cuidar a alguien, como parte de su trabajo o rol.</value>
+  <value column="UUID" original="8ad821aa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="60419" trl="N">
+  <value column="Name" original="Responsible">Responsible</value>
+  <value column="Description" original="Responsible">Responsible</value>
+  <value column="Help" original="Having an obligation to do something, or having control over or care for someone, as part of one's job or role.">Having an obligation to do something, or having control over or care for someone, as part of one's job or role.</value>
+  <value column="UUID" original="8ad87b00-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="60916" trl="N">
+  <value column="Name" original="Payment Number">Payment Number</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8adc2b92-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+</adempiereTrl>

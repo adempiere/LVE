@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--ADempiere(r) Release 3.9.2_2019-05-03 -Smart Suite ERP,CRM and SCM- (c) 1999-2019 ADempiere(r); Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_VE" table="AD_Process_Para">
+ <row id="227" trl="Y">
+  <value column="Name" original="Delete existing Accounting Entries">Borrar entradas existentes de contabilidad</value>
+  <value column="Description" original="The selected accounting entries will be deleted!  DANGEROUS !!!">Las entradas contables seleccionadas van a ser borradas! PELIGROSO !!!</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43470fe-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="233" trl="Y">
+  <value column="Name" original="Pricelist Version">Versión de Lista de Precios</value>
+  <value column="Description" original="Only used if Price List is used to set future/standard cost price">Only used if Price List is used to set future cost price</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a4330e08-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="302" trl="Y">
+  <value column="Name" original="Overwrite Payment Rule">Sobreescribir Regla de Pago</value>
+  <value column="Description" original="Overwrite how to pay the invoice">Sobreescribe como se paga la factura</value>
+  <value column="Help" original="The Payment Rule indicates how the incoice will be settled - you can overwrite the value from the invoice.">La regla de pago indica el método como la factura será pagada - puede sobreescribir el valor de la factura.</value>
+  <value column="UUID" original="a43406dc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="315" trl="Y">
+  <value column="Name" original="From User">Desde Usuario</value>
+  <value column="Description" original="Send EMail from user">Envia EMail desde un usuario.</value>
+  <value column="Help" original="The email is sent from the user selected - otherwise it is sent from the request email address of the client">El email es enviado desde un usuario especifico - de otra manera este es enviado desde una petición de dirección de email del cliente</value>
+  <value column="UUID" original="a4340e7a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="452" trl="Y">
+  <value column="Name" original="Maintenance Mode">Modo Mantenimiento</value>
+  <value column="Description" original="Language Maintenance Mode">Modo Mantenimiento Lenguaje</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a439b76c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="467" trl="Y">
+  <value column="Name" original="Existing Organization">Organización Existente</value>
+  <value column="Description" original="Organizational entity within client - set to empty if you want to create a new organization">Organizational entity within client - set to empty if you want to create a new organization</value>
+  <value column="Help" original="An organization is a unit of your client or legal entity - examples are store, department. You can share data between organizations.">An organization is a unit of your client or legal entity - examples are store, department. You can share data between organizations.</value>
+  <value column="UUID" original="a439b9ce-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="469" trl="Y">
+  <value column="Name" original="Limit Access to Role">Limit Access to Role</value>
+  <value column="Description" original="If no Role is selected, grant access to all (non-manual) roles of the Client">If no Role is selected, grant access to all (non-manual) roles of the Client</value>
+  <value column="Help" original="The Role determines security and access a user who has this Role will have in the System.">The Role determines security and access a user who has this Role will have in the System.</value>
+  <value column="UUID" original="a439b2b2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="493" trl="Y">
+  <value column="Name" original="New User/Contact">New User/Contact</value>
+  <value column="Description" original="User within the system - Internal or Business Partner Contact">User within the system - Internal or Business Partner Contact</value>
+  <value column="Help" original="The User identifies a unique user in the system. This could be an internal user or a business partner contact">The User identifies a unique user in the system. This could be an internal user or a business partner contact</value>
+  <value column="UUID" original="a433aa02-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="494" trl="Y">
+  <value column="Name" original="New Workflow Responsible">New Workflow Responsible</value>
+  <value column="Description" original="Responsible for Workflow Execution">Responsible for Workflow Execution</value>
+  <value column="Help" original="The ultimate responsibility for a workflow is with an actual user. The Workflow Responsible allows to define ways to find that actual User.">The ultimate responsibility for a workflow is with an actual user. The Workflow Responsible allows to define ways to find that actual User.</value>
+  <value column="UUID" original="a433aab6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="496" trl="Y">
+  <value column="Name" original="New User/Contact">New User/Contact</value>
+  <value column="Description" original="User within the system - Internal or Business Partner Contact">User within the system - Internal or Business Partner Contact</value>
+  <value column="Help" original="The User identifies a unique user in the system. This could be an internal user or a business partner contact">The User identifies a unique user in the system. This could be an internal user or a business partner contact</value>
+  <value column="UUID" original="a433acaa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="497" trl="Y">
+  <value column="Name" original="New Workflow Responsible">New Workflow Responsible</value>
+  <value column="Description" original="Responsible for Workflow Execution">Responsible for Workflow Execution</value>
+  <value column="Help" original="The ultimate responsibility for a workflow is with an actual user. The Workflow Responsible allows to define ways to find that actual User.">The ultimate responsibility for a workflow is with an actual user. The Workflow Responsible allows to define ways to find that actual User.</value>
+  <value column="UUID" original="a433ad54-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="523" trl="Y">
+  <value column="Name" original="Default Sales Rep">Default Sales Rep</value>
+  <value column="Description" original="If not defined on Business Partner Level">If not defined on Business Partner Level</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a434673a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="524" trl="Y">
+  <value column="Name" original="Dunning Currency">Dunning Currency</value>
+  <value column="Description" original="Currency to create Dunning Letters">Currency to create Dunning Letters</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43467c6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50001" trl="Y">
+  <value column="Name" original="Role To">Rol Hacia</value>
+  <value column="Description" original="Responsibility Role">Rol de responsabilidad</value>
+  <value column="Help" original="The Role determines security and access a user who has this Role will have in the System.">El Rol determina la seguridad y acceso del usuario que posee este Rol</value>
+  <value column="UUID" original="a43ca3dc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50002" trl="Y">
+  <value column="Name" original="Role From">Rol Desde</value>
+  <value column="Description" original="Responsibility Role">Rol de responsabilidad</value>
+  <value column="Help" original="The Role determines security and access a user who has this Role will have in the System.">El Rol determina la seguridad y acceso del usuario que posee este Rol</value>
+  <value column="UUID" original="a439bb54-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50019" trl="Y">
+  <value column="Name" original="Shipment Date">Fecha Entrega</value>
+  <value column="Description" original="Date printed on shipment">Fecha impresa en la entrega</value>
+  <value column="Help" original="The Shipment Date indicates the date printed on the shipment.">La fecha de entrega indica la fecha impresa en el envio.</value>
+  <value column="UUID" original="a439fbaa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53011" trl="Y">
+  <value column="Name" original="Print Unprocessed Entries Only">Imprimir unicamente Entradas no procesadas</value>
+  <value column="Description" original="Print the unprocessed (unprinted) entries of the dunning run only.">Imprime las entradas no procesadas (No impresas) de un cobro.</value>
+  <value column="Help" original="Print the unprocessed (unprinted) entries of the dunning run only. This allows you to reprint only certain dunning entries.">Imprime las entradas no procesadas (No impresas) de un cobro. Esto permite re imprimir solo ciertas entradas de cobro.</value>
+  <value column="UUID" original="a439fcea-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53025" trl="Y">
+  <value column="Name" original="Purchase Price List Version">Versión Lista Precios Compra</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a3bd8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53030" trl="Y">
+  <value column="Name" original="New Product">Nuevo Producto</value>
+  <value column="Description" original="Product to be converted to (must have UOM Conversion defined to From Product)"/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43bdc86-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53032" trl="Y">
+  <value column="Name" original="Action">Acción</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a9b8c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53066" trl="Y">
+  <value column="Name" original="Is Print Pack &amp; Tools List">Imprime Lista de Empaques y Herramientas</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a439d3d2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53068" trl="Y">
+  <value column="Name" original="Is Print Pick List">Imprime Lista de Recogida</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a433afd4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53069" trl="Y">
+  <value column="Name" original="Is Print Workflow">Imprime Flujo Trabajo</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a4340b5a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53127" trl="Y">
+  <value column="Name" original="Generate Fields">Genera Campos</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a96aa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53131" trl="Y">
+  <value column="Name" original="Scripts Path">Ruta Scripts</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a98d0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53142" trl="Y">
+  <value column="Name" original="Includes only the Tabs that Insert records">Incluye únicamente las pestañas que insertan registros</value>
+  <value column="Description" original="Generated Export Format for the Tabs with Insert Record is Yes">El formato de exportación se genera únicamente para las pestañas que permiten inserción de registros</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a46d2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53143" trl="Y">
+  <value column="Name" original="Includes only the mandatory columns">Incluye únicamente las columnas obligatorias</value>
+  <value column="Description" original="Generated an Export Format Line  if the column is mandatory ">Genera una línea de formato de exportación si la columna es obligatoria</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a4768-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53149" trl="Y">
+  <value column="Name" original="Synchronize with DRP">Cálculo DRP Requerido</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43b18b4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53219" trl="Y">
+  <value column="Name" original="Based in DRP Demand">Basado en Demanda DRP</value>
+  <value column="Description" original="Based in DRP Demand">Basado en Demanda DRP</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a4f6a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53232" trl="Y">
+  <value column="Name" original="Bank Account From">Cuenta Bancaria Desde</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a5c8a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53233" trl="Y">
+  <value column="Name" original="Bank Account To">Cuenta Bancaria Hacia</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a5d2a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53243" trl="Y">
+  <value column="Name" original="Valid from">Válido Desde</value>
+  <value column="Description" original="Valid from including this date (first day)">Válido desde incluyendo esta fecha (primer día)</value>
+  <value column="Help" original="The Valid From date indicates the first day of a date range">La fecha Válido Desde indica el primer día de un rango de fechas</value>
+  <value column="UUID" original="a43a65c2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53246" trl="Y">
+  <value column="Name" original="Bank Account From">Bank Account From</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a6856-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53263" trl="Y">
+  <value column="Name" original="Account Date">Fecha Contable</value>
+  <value column="Description" original="Optional account date range">Rango de fechas contables opcional</value>
+  <value column="Help" original="Only documents within this date range which are also in open periods will be reset.">Solo los documentos dentro de este rango de fechas que estén en períodos abiertos serán reiniciados.</value>
+  <value column="UUID" original="a43a7288-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53282" trl="Y">
+  <value column="Name" original="Client Name">Client Name</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a8340-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53284" trl="Y">
+  <value column="Name" original="Administrative User Name">Administrative User Name</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a904c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53285" trl="Y">
+  <value column="Name" original="Normal User Name">Normal User Name</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a9380-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53289" trl="Y">
+  <value column="Name" original="City Name">City Name</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a9272-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53291" trl="Y">
+  <value column="Name" original="BP Accounting">BP Accounting</value>
+  <value column="Description" original="Use BP accounting dimension">Use BP accounting dimension</value>
+  <value column="Help" original="Define if this client will use business partner accounting dimension.  This can be changed later in Accounting Schema window of the client.">Define if this client will use business partner accounting dimension.  This can be changed later in Accounting Schema window of the client.</value>
+  <value column="UUID" original="a43a867e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53292" trl="Y">
+  <value column="Name" original="Product Accounting">Product Accounting</value>
+  <value column="Description" original="Use Product accounting dimension">Use Product accounting dimension</value>
+  <value column="Help" original="Define if this client will use product accounting dimension.  This can be changed later in Accounting Schema window of the client.">Define if this client will use product accounting dimension.  This can be changed later in Accounting Schema window of the client.</value>
+  <value column="UUID" original="a43a8700-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53293" trl="Y">
+  <value column="Name" original="Project Accounting">Project Accounting</value>
+  <value column="Description" original="Use Project accounting dimension">Use Project accounting dimension</value>
+  <value column="Help" original="Define if this client will use project accounting dimension.  This can be changed later in Accounting Schema window of the client.">Define if this client will use project accounting dimension.  This can be changed later in Accounting Schema window of the client.</value>
+  <value column="UUID" original="a43a8782-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53294" trl="Y">
+  <value column="Name" original="Campaign Accounting">Campaign Accounting</value>
+  <value column="Description" original="Use Campaign accounting dimension">Use Campaign accounting dimension</value>
+  <value column="Help" original="Define if this client will use campaign accounting dimension.  This can be changed later in Accounting Schema window of the client.">Define if this client will use campaign accounting dimension.  This can be changed later in Accounting Schema window of the client.</value>
+  <value column="UUID" original="a43a88a4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53295" trl="Y">
+  <value column="Name" original="Sales Region Accounting">Sales Region Accounting</value>
+  <value column="Description" original="Use Sales Region accounting dimension">Use Sales Region accounting dimension</value>
+  <value column="Help" original="Define if this client will use sales region accounting dimension.  This can be changed later in Accounting Schema window of the client.">Define if this client will use sales region accounting dimension.  This can be changed later in Accounting Schema window of the client.</value>
+  <value column="UUID" original="a43a8980-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53296" trl="Y">
+  <value column="Name" original="Chart of Accounts File">Chart of Accounts File</value>
+  <value column="Description" original="Location of the chart of accounts to be used with this client.  At this stage just the default accounts will be created."/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a90d8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53314" trl="Y">
+  <value column="Name" original="Full rebuild">Recálculo completo</value>
+  <value column="Description" original="Delete all existing summary data and recalculate.">Borrar todos los datos acumulados y recalcular.</value>
+  <value column="Help" original="If not selected, only those periods with recently posted accounting facts will be recalculated.">Si no fueron seleccionados, solamente los períodos recientemente posteados serán recalculados.</value>
+  <value column="UUID" original="a43a9402-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53316" trl="Y">
+  <value column="Name" original="Force">Forzar</value>
+  <value column="Description" original="Force rebuild of cube even if locked.">Forzar el recálculo del cubo aún cuando bloqueado.</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43a9510-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53325" trl="Y">
+  <value column="Name" original="Is Create Supply">IsCreateSupply</value>
+  <value column="Description" original="Create supply for product not available">Create supply for product not available</value>
+  <value column="Help" original="Allow create Manufacturing Order or Requisition Material for product not available">Allow create Manufacturing Order or Requisition Material for product not available</value>
+  <value column="UUID" original="a43c33c0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53326" trl="Y">
+  <value column="Name" original="Is Print Pick List">IsPrintPickList</value>
+  <value column="Description" original="Indicate if a Pick List is print">Indicate if a Pick List is print</value>
+  <value column="Help" original="When you select this checkbox a Pick list is printed">When you select this checkbox a Pick list is printed</value>
+  <value column="UUID" original="a43c3776-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53328" trl="Y">
+  <value column="Name" original="Outbound Locator">Ubicación</value>
+  <value column="Description" original="Warehouse Locator">Ubicación de Almacén</value>
+  <value column="Help" original="The Locator indicates where in a Warehouse a product is located to pick.">El ID de la ubicación indica en que parte del almacén se localiza el producto</value>
+  <value column="UUID" original="a43c3500-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53338" trl="Y">
+  <value column="Name" original="Outbound Locator">Ubicación de Salida</value>
+  <value column="Description" original="Warehouse Locator">Ubicación de Salida</value>
+  <value column="Help" original="The Locator indicates where in a Warehouse a product is located.">El ID de la ubicación indica en que parte del almacén se localiza el producto</value>
+  <value column="UUID" original="a43cf67a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53690" trl="Y">
+  <value column="Name" original="Forecast Action Type">Forecast Action Type</value>
+  <value column="Description" original="Forecast is replaced or combined">Forecast is replaced or combined</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43ae7ea-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53691" trl="Y">
+  <value column="Name" original="Forecast Load Type">Forecast Load Type</value>
+  <value column="Description" original="Load Type indicated that period date is use to create the forecast line.">Load Type indicated that period date is use to create the forecast line.</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43ae88a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53699" trl="Y">
+  <value column="Name" original="Base Period Definition">Base Period Definition</value>
+  <value column="Description" original="Period Definition, allows to define time cycles for the Operational Calendar">Period Definition, allows to define time cycles for the Operational Calendar</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43aef06-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53700" trl="Y">
+  <value column="Name" original="Target Period Definition">Target Period Definition</value>
+  <value column="Description" original="Period Definition, allows to define time cycles for the Operational Calendar">Period Definition, allows to define time cycles for the Operational Calendar</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43aefa6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53753" trl="Y">
+  <value column="Name" original="Synchronize with DRP">Is DRP Required</value>
+  <value column="Description" original="">Is DRP Required</value>
+  <value column="Help" original="If the DRP Required checkbox is ticked, this means it has been a change in some element which affect the material plan  for this product, i.e Network Distribution, Orders, Inventory, MPS, etc. and therefore  you need to executed again DRP to adjust the Planned Orders to the new conditions and to get the updated action messages.">If the DRP Required checkbox is ticked, this means it has been a change in some element which affect the material plan  for this product, i.e Network Distribution, Orders, Inventory, MPS, etc. and therefore  you need to executed again DRP to adjust the Planned Orders to the new conditions and to get the updated action messages.</value>
+  <value column="UUID" original="a43b3600-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53757" trl="Y">
+  <value column="Name" original="Synchronize with DRP">Synchronize with DRP</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43b2dea-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53763" trl="Y">
+  <value column="Name" original="Calculate Low Level">Calculate Low Level</value>
+  <value column="Description" original="The Low Level is used to calculate the material plan and determines if a net requirement should be exploited">The Low Level is used to calculate the material plan and determines if a net requirement should be exploited</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43b324a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53772" trl="Y">
+  <value column="Name" original="Resource (Plant)">Resource</value>
+  <value column="Description" original="Resource">Resource</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43c11e2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53784" trl="Y">
+  <value column="Name" original="Resource (Plant)">Resource</value>
+  <value column="Description" original="Resource">Resource</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43c222c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53787" trl="Y">
+  <value column="Name" original="Warehouse in Transit">Warehouse</value>
+  <value column="Description" original="Storage Warehouse and Service Point">Storage Warehouse and Service Point</value>
+  <value column="Help" original="The Warehouse identifies a unique Warehouse where products are stored or Services are provided.">The Warehouse identifies a unique Warehouse where products are stored or Services are provided.</value>
+  <value column="UUID" original="a43c1fc0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53790" trl="Y">
+  <value column="Name" original="Warehouse In Transit">Warehouse</value>
+  <value column="Description" original="Storage Warehouse and Service Point">Storage Warehouse and Service Point</value>
+  <value column="Help" original="The Warehouse identifies a unique Warehouse where products are stored or Services are provided.">The Warehouse identifies a unique Warehouse where products are stored or Services are provided.</value>
+  <value column="UUID" original="a43c1cb4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54912" trl="Y">
+  <value column="Name" original="Date">Fecha</value>
+  <value column="Description" original="Horizon Date for Replenish Plan Calculations.">Fecha para el Cálculo de Reabastecimiento</value>
+  <value column="Help" original="Date Range (Horizone) for Replenish Plan Calculations.">Rango de Fecha (Horizonte) Para el Cálculo de Reabastecimiento</value>
+  <value column="UUID" original="a43c862c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55123" trl="Y">
+  <value column="Name" original="Is Show Retained Earnings">Despliega ganancias retenidas</value>
+  <value column="Description" original="Is Show Retained Earnings">Despliega ganancias retenidas</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43c9b94-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55293" trl="Y">
+  <value column="Name" original="Resource Plant">Resource Plant</value>
+  <value column="Description" original="Resource Plant">Resource Plant</value>
+  <value column="Help" original="Defines the Plant to calculate standard cost of Workflow manufacturing">Defines the Plant to calculate standard cost of Workflow manufacturing</value>
+  <value column="UUID" original="a43bbc24-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55294" trl="Y">
+  <value column="Name" original="Resource Plant">Resource Plant</value>
+  <value column="Description" original="Resource Plant">Resource Plant</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43c709c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55481" trl="Y">
+  <value column="Name" original="Receipt all in inbound location">Receipt all in inbound location</value>
+  <value column="Description" original="Warehouse Locator">Warehouse Locator</value>
+  <value column="Help" original="The Locator indicates where in a Warehouse a product is located.">The Locator indicates where in a Warehouse a product is located.</value>
+  <value column="UUID" original="a43c081e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55539" trl="Y">
+  <value column="Name" original="Create Planned Order Document Type">Create Planned Order Document Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43c777c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55540" trl="Y">
+  <value column="Name" original="Create Manufacturing Order Document Type">Create Manufacturing Order Document Type</value>
+  <value column="Description" original="This is a Confirmed Manufacturing Order">This is a Confirmed Manufacturing Order</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43c7984-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55541" trl="Y">
+  <value column="Name" original="Create Replenish Plan Requisition Document Type">Create Replenish Plan Requisition Document Type</value>
+  <value column="Description" original="Create Replenish Plan Requisition Document Type">Create Replenish Plan Requisition Document Type</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43c78d0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55542" trl="Y">
+  <value column="Name" original="Create Purchase Order Document Type">Create Purchase Order Document Type</value>
+  <value column="Description" original="Create Purchase Order Document Type">Create Purchase Order Document Type</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43c7a24-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55617" trl="N">
+  <value column="Name" original="Is Generate UUID for all records">Is Generate UUID for all records</value>
+  <value column="Description" original="UUID for all records are generated.">UUID for all records are generated.</value>
+  <value column="Help" original="The process generates the UUID for all records">The process generates the UUID for all records</value>
+  <value column="UUID" original="a43d0052-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55691" trl="Y">
+  <value column="Name" original="Shipment Date">Shipment Date</value>
+  <value column="Description" original="Date printed on shipment">Date printed on shipment</value>
+  <value column="Help" original="The Shipment Date indicates the date printed on the shipment.">The Shipment Date indicates the date printed on the shipment.</value>
+  <value column="UUID" original="a43c9c3e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55703" trl="Y">
+  <value column="Name" original="Is Created Business Partner">Is Created Business Partner</value>
+  <value column="Description" original="Create Business Partner from employee data">Create Business Partner from employee data</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a43c7308-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+</adempiereTrl>

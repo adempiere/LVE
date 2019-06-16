@@ -1,0 +1,3592 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--ADempiere(r) Release 3.9.2_2019-05-03 -Smart Suite ERP,CRM and SCM- (c) 1999-2019 ADempiere(r); Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_MX" table="AD_Reference">
+ <row id="1" trl="Y">
+  <value column="Name" original="AD_Reference Data Types">AD_Reference Data Types</value>
+  <value column="Description" original="Data Type selection">Selección de tipo de datos</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d55b2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="2" trl="Y">
+  <value column="Name" original="AD_Reference Validation Types">AD_Reference Validation Types</value>
+  <value column="Description" original="Reference Validation Type list">Lista de tipo de validación de referencia</value>
+  <value column="Help" original="e.g. I - Independent ">(ej: I - Independiente)</value>
+  <value column="UUID" original="a47d5738-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="3" trl="Y">
+  <value column="Name" original="AD_Column ColumName">AD_Column ColumName</value>
+  <value column="Description" original="Column selection">Selección de Columna</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d58aa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="4" trl="Y">
+  <value column="Name" original="AD_Reference Values">AD_Reference Values</value>
+  <value column="Description" original="Reference (List and Table) selection">Selección de Referencia (Lista y Tabla)</value>
+  <value column="Help" original="(not DataType and Independent)">(no Tipo de Datos e Independiente)</value>
+  <value column="UUID" original="a47d59c2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="5" trl="Y">
+  <value column="Name" original="AD_Table Access Levels">AD_Table Access Levels</value>
+  <value column="Description" original="Table Access and Sharing Level list">Lista de nivel de acceso y de compartir</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d5b5c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="10" trl="Y">
+  <value column="Name" original="String">Cadena</value>
+  <value column="Description" original="Character String">Cadena de Caracteres</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e9486-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="11" trl="Y">
+  <value column="Name" original="Integer">Entero</value>
+  <value column="Description" original="10 Digit numeric">Numérico de 10 dígitos</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d80aa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="12" trl="Y">
+  <value column="Name" original="Amount">Monto</value>
+  <value column="Description" original="Number with 4 decimals">Número con 4 decimales</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e78ca-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="13" trl="Y">
+  <value column="Name" original="ID">ID</value>
+  <value column="Description" original="10 Digit Identifier">Identificador de 10 Dígitos</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ec136-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="14" trl="Y">
+  <value column="Name" original="Text">Texto</value>
+  <value column="Description" original="Character String up to 2000 characters">Cadena de caracteres de hasta 2000</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6150-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="15" trl="Y">
+  <value column="Name" original="Date">Fecha</value>
+  <value column="Description" original="Date mm/dd/yyyy">Fecha mm/dd/aaaa</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d8316-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="16" trl="Y">
+  <value column="Name" original="Date+Time">Fecha+Hora</value>
+  <value column="Description" original="Date with time">Fecha con hora</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e921a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="17" trl="Y">
+  <value column="Name" original="List">Lista</value>
+  <value column="Description" original="Reference List">Lista de Referencia</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d899c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="18" trl="Y">
+  <value column="Name" original="Table">Tabla</value>
+  <value column="Description" original="Table List">Lista de Tablas</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e9292-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="19" trl="Y">
+  <value column="Name" original="Table Direct">Tabla Directa</value>
+  <value column="Description" original="Direct Table Access">Acceso directo de tabla</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e9166-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="20" trl="Y">
+  <value column="Name" original="Yes-No">Si/No</value>
+  <value column="Description" original="CheckBox">Cuadro de Verificación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d88fc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="21" trl="Y">
+  <value column="Name" original="Location (Address)">Localización (Dirección)</value>
+  <value column="Description" original="Location/Address">Localización/Dirección</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d76d2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="22" trl="Y">
+  <value column="Name" original="Number">Número</value>
+  <value column="Description" original="Float Number">Número Flotante</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d842e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="23" trl="Y">
+  <value column="Name" original="Binary">Binario</value>
+  <value column="Description" original="Binary Data">Datos Binarios</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d5db4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="24" trl="Y">
+  <value column="Name" original="Time">Hora</value>
+  <value column="Description" original="Time">Hora</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d5f30-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="25" trl="Y">
+  <value column="Name" original="Account">Combinación Contable</value>
+  <value column="Description" original="Account Element">Elemento Contable</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dde42-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="26" trl="Y">
+  <value column="Name" original="RowID">RowID</value>
+  <value column="Description" original="Row ID Data Type">Tipo de Datos de ID de fila</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dc650-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="27" trl="Y">
+  <value column="Name" original="Color">Color</value>
+  <value column="Description" original="Color element">Elemento de Color</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dc6dc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="28" trl="Y">
+  <value column="Name" original="Button">Botón</value>
+  <value column="Description" original="Command Button - starts a process">Botón de Comando - Comienza un proceso</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ec1c2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="29" trl="Y">
+  <value column="Name" original="Quantity">Cantidad</value>
+  <value column="Description" original="Quantity data type">Tipo de datos de cantidad</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de93c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="30" trl="Y">
+  <value column="Name" original="Search">Búsqueda</value>
+  <value column="Description" original="Search Field">Campo de Búsqueda</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e75d2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="31" trl="Y">
+  <value column="Name" original="Locator (WH)">Ubicación (Almacén)</value>
+  <value column="Description" original="Warehouse Locator Data type">Tipo de datos de ubicación en almacén</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ddfbe-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="32" trl="Y">
+  <value column="Name" original="Image">Imagen</value>
+  <value column="Description" original="Binary Image Data">Datos Binarios de Imagen</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dc75e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="33" trl="Y">
+  <value column="Name" original="Assignment">Asignación Recurso</value>
+  <value column="Description" original="Resource Assignment">Asignación de Recursos</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df530-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="34" trl="Y">
+  <value column="Name" original="Memo">Memo</value>
+  <value column="Description" original="Large Text Editor - Character String up to 2000 characters">Texto largo - Cadena de hasta 2000 caracteres</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d379e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="35" trl="Y">
+  <value column="Name" original="Product Attribute">Atributo de Producto</value>
+  <value column="Description" original="Product Attribute">Atributo de Producto</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d3bae-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="36" trl="Y">
+  <value column="Name" original="Text Long">Texto Largo</value>
+  <value column="Description" original="Text (Long) - Text &gt; 2000 characters"><![CDATA[Texto (Largo) - Texto > 2000 caracteres]]></value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d470c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="37" trl="Y">
+  <value column="Name" original="Costs+Prices">Costos+Precios</value>
+  <value column="Description" original="Costs + Prices (minimum currency precision but if exists more)">Costos + Precios (mínima precisión de moneda, pero si existe mas)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e57f0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="38" trl="Y">
+  <value column="Name" original="FilePath">Ruta de Archivo</value>
+  <value column="Description" original="Local File Path">Ruta de Archivo Local</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dacc4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="39" trl="Y">
+  <value column="Name" original="FileName">Nombre de Archivo</value>
+  <value column="Description" original="Local File">Archivo Local</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dad3c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="40" trl="Y">
+  <value column="Name" original="URL">URL</value>
+  <value column="Description" original="URL">URL</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db228-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="42" trl="Y">
+  <value column="Name" original="Printer Name">Nombre de la impresora</value>
+  <value column="Description" original="">Nombre de la impresora</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dadbe-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="100" trl="Y">
+  <value column="Name" original="AD_Validation Rules Parent">AD_Validation Rules Parent</value>
+  <value column="Description" original="Validation rule Parent selection">Selección Maestra de Regla de Validación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d5fd0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="101" trl="Y">
+  <value column="Name" original="AD_Validation Rule Types">AD_Validation Rule Types</value>
+  <value column="Description" original="Validation Rule Type list">Lista de Tipos de Reglas de Validación</value>
+  <value column="Help" original="e.g. S - SQL">ej: S-SQL</value>
+  <value column="UUID" original="a47cd862-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="102" trl="Y">
+  <value column="Name" original="AD_Message">AD_Message</value>
+  <value column="Description" original="Message selection">Selección de Mensajes</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d36c2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="103" trl="Y">
+  <value column="Name" original="AD_Message Type">AD_Message Type</value>
+  <value column="Description" original="Message Type list">Lista de Tipo de Mensajes</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cd970-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="104" trl="Y">
+  <value column="Name" original="AD_Menu Action">AD_Menu Action</value>
+  <value column="Description" original="Menu Action list">Lista de acción de Menú</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cead2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="105" trl="Y">
+  <value column="Name" original="AD_Menu Parent">AD_Menu Parent</value>
+  <value column="Description" original="Menu Parent selection">Selección Maestra de Menú</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ceb68-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="106" trl="Y">
+  <value column="Name" original="AD_Language">AD_Language</value>
+  <value column="Description" original="Language selection">Selección de Lenguaje</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cebf4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="108" trl="Y">
+  <value column="Name" original="AD_Window Types">AD_Window Types</value>
+  <value column="Description" original="Window Type list">Lista de Tipo de Ventana</value>
+  <value column="Help" original="e.g. M = Multi/Single (one uppercase character)">e.g. M=Multi/Sencillo (un caracter mayúsculo)</value>
+  <value column="UUID" original="a47cf040-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="109" trl="Y">
+  <value column="Name" original="AD_WF_Next Nodes">AD_WF_Next Nodes</value>
+  <value column="Description" original="Next workflow node selection">Selección del próximo nodo del flujo de trabajo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cf0cc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="110" trl="Y">
+  <value column="Name" original="AD_User">AD_User</value>
+  <value column="Description" original="User selection">Selección de Usuario</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e93aa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="111" trl="Y">
+  <value column="Name" original="C_Conversion_Rate Types">C_Conversion_Rate Types</value>
+  <value column="Description" original="Conversion Rate Type list">Lista de tipos de tasas de cambio</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cf14e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="112" trl="Y">
+  <value column="Name" original="C_Currencies">C_Currencies</value>
+  <value column="Description" original="Currencies with dynamic exchange rate selection">Selección de monedas con tasas de cambio dinámicas</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cf1d0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="113" trl="Y">
+  <value column="Name" original="AD_Org Parent">AD_Org Parent</value>
+  <value column="Description" original="Organization Parent selection">Selección de organización padre</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cf252-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="114" trl="Y">
+  <value column="Name" original="C_UOM">C_UOM</value>
+  <value column="Description" original="Unit of Measure selection">Selección de Unidad de Medida</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cf478-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="115" trl="Y">
+  <value column="Name" original="C_Period Type">C_Period Type</value>
+  <value column="Description" original="Period Type list">Lista de tipos de Período</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cf766-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="116" trl="Y">
+  <value column="Name" original="C_Element Type">C_Element Type</value>
+  <value column="Description" original="Account Element Types">Tipos de elementos contables</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cf806-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="117" trl="Y">
+  <value column="Name" original="C_ElementValue AccountType">C_ElementValue AccountType</value>
+  <value column="Description" original="Account Type list">Lista de tipos de cuenta</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cf892-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="118" trl="Y">
+  <value column="Name" original="C_ElementValue Account Sign">C_ElementValue Account Sign</value>
+  <value column="Description" original="Account Sign list">Lista de signos de cuenta</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cf91e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="120" trl="Y">
+  <value column="Name" original="AD_TreeType Type">AD_TreeType Type</value>
+  <value column="Description" original="Tree Type list">Lista de tipos de árboles</value>
+  <value column="Help" original="Determines which element to use as the base for the information">Determina cual elemento usar como base para la información</value>
+  <value column="UUID" original="a47cf9a0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="121" trl="Y">
+  <value column="Name" original="X12DE98 Entity Identifier Code">X12DE98 Entity Identifier Code</value>
+  <value column="Description" original="X12DE98 Entity Identifier Code list">Lista de códigos de identificación de entidades X12DE98</value>
+  <value column="Help" original="Identify organizational entity physical location property or individual list">Identifica la localización de una propiedad física de la entidad organizacional o de una lista individual</value>
+  <value column="UUID" original="a47cfa2c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="122" trl="Y">
+  <value column="Name" original="C_AcctSchema Costing Method">C_AcctSchema Costing Method</value>
+  <value column="Description" original="Costing Method list">Lista de Métodos de Costeo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d079c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="123" trl="Y">
+  <value column="Name" original="C_AcctSchema GAAP">C_AcctSchema GAAP</value>
+  <value column="Description" original="General Accepted Accounting Principle list">Lista de Principios de contabilidad generalmente aceptados</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d088c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="124" trl="Y">
+  <value column="Name" original="C_BPartner Parent">C_BPartner Parent</value>
+  <value column="Description" original="Business Partner Parent selection">Selección de Tercero Padre</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d092c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="125" trl="Y">
+  <value column="Name" original="_Posting Type">_Posting Type</value>
+  <value column="Description" original="Posting Type (Actual Budget etc.) list">Lista de tipo de registro (real; presupuestada; etc.)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d3848-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="126" trl="Y">
+  <value column="Name" original="AD_Table Replication Type">AD_Table Replication Type</value>
+  <value column="Description" original="Replication Type">Lista de estrategia de Replicación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d09ea-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="128" trl="Y">
+  <value column="Name" original="AD_Sequence for Documents">AD_Sequence for Documents</value>
+  <value column="Description" original="Sequence for Document selection">Selección de secuencia para documento</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d157a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="129" trl="Y">
+  <value column="Name" original="AD_Client">AD_Client</value>
+  <value column="Description" original="Client selection">Selección de Cliente</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d38fc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="130" trl="Y">
+  <value column="Name" original="AD_Org (Trx)">AD_Org (Trx)</value>
+  <value column="Description" original="Organization selection, no summary, no 0">Selección de Organización; no resumen; no 0</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d3cbc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="131" trl="Y">
+  <value column="Name" original="_Document Status">_Document Status</value>
+  <value column="Description" original="Document Status list">Lista de estado de Documentos</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d3dc0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="132" trl="Y">
+  <value column="Name" original="Account_ID (Trx)">Account_ID (Trx)</value>
+  <value column="Description" original="Account selection based on Client">Selección de Cuenta</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d16b0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="133" trl="Y">
+  <value column="Name" original="C_Location">C_Location</value>
+  <value column="Description" original="Location selection">Selección de Localización</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d17be-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="134" trl="Y">
+  <value column="Name" original="Account_ID - User1">Account_ID - User1</value>
+  <value column="Description" original="User1 selection based on Client">Selección de Usuario1</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d3c3a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="135" trl="Y">
+  <value column="Name" original="_Document Action">_Document Action</value>
+  <value column="Description" original="Document action list">Lista de acción en Documentos</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d3e42-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="136" trl="Y">
+  <value column="Name" original="C_AcctSchema">C_AcctSchema</value>
+  <value column="Description" original="Accounting Schema selection">Selección de esquema contable</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d3988-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="137" trl="Y">
+  <value column="Name" original="Account_ID - User2">Account_ID - User2</value>
+  <value column="Description" original="User2 selection based on Client">Selección Usuario 2</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e76cc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="138" trl="Y">
+  <value column="Name" original="C_BPartner (Trx)">C_BPartner (Trx)</value>
+  <value column="Description" original="Business Partner selection (no Summary)">Selección de Terceros (no resumen)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e71ea-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="141" trl="Y">
+  <value column="Name" original="C_Project (No summary)">C_Project (No summary)</value>
+  <value column="Description" original="Project selection">Selección de Proyecto</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d2204-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="142" trl="Y">
+  <value column="Name" original="C_Activity (No summary)">C_Activity (No summary)</value>
+  <value column="Description" original="Activity selection">Selección de Actividad</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d7fe2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="143" trl="Y">
+  <value column="Name" original="C_Campaign (No summary)">C_Campaign (No summary)</value>
+  <value column="Description" original="Campaign selection">Selección de Campaña</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6056-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="144" trl="Y">
+  <value column="Name" original="C_Sales Region (No summary)">C_Sales Region (No summary)</value>
+  <value column="Description" original="Sales Region selection (No summary)">Selección de Región de Ventas</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d7c40-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="145" trl="Y">
+  <value column="Name" original="C_Element">C_Element</value>
+  <value column="Description" original="Element selection">Selección de Elemento</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d7d76-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="148" trl="Y">
+  <value column="Name" original="C_DocType SubTypeSO">C_DocType SubTypeSO</value>
+  <value column="Description" original="Order Types list">Lista de Tipos de Ordenes</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d7e20-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="149" trl="Y">
+  <value column="Name" original="C_Payment CreditCard Type">C_Payment CreditCard Type</value>
+  <value column="Description" original="C_Payment Credit Card Type list">Lista de tipo de pagos con tarjeta de crédito</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d8280-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="150" trl="Y">
+  <value column="Name" original="C_Order InvoiceRule">C_Order InvoiceRule</value>
+  <value column="Description" original="Invoicing Rules list">Lista de Reglas de Facturación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db958-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="151" trl="Y">
+  <value column="Name" original="C_Order DeliveryRule">C_Order DeliveryRule</value>
+  <value column="Description" original="Delivery Rules list">Lista de Reglas de Envío</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7848-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="152" trl="Y">
+  <value column="Name" original="C_Order DeliveryViaRule">C_Order DeliveryViaRule</value>
+  <value column="Description" original="Delivery via Rule list">Lista de Reglas de vías de envío</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dbb42-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="153" trl="Y">
+  <value column="Name" original="C_Order FreightCostRule">C_Order FreightCostRule</value>
+  <value column="Description" original="Freight cost Rule list">Lista de reglas de costo de envío</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dba7a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="154" trl="Y">
+  <value column="Name" original="_PriorityRule">_PriorityRule</value>
+  <value column="Description" original="Priority scale list">Lista de escala de prioridad</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db9f8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="155" trl="Y">
+  <value column="Name" original="M_DiscountPriceList RoundingRule">M_DiscountPriceList RoundingRule</value>
+  <value column="Description" original="Price Rounding Rule list">Lista de reglas de redondeo de precio</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d90ae-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="156" trl="Y">
+  <value column="Name" original="C_Country">C_Country</value>
+  <value column="Description" original="Country selection">Selección de País</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d9144-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="157" trl="Y">
+  <value column="Name" original="C_Region">C_Region</value>
+  <value column="Description" original="Region selection">Selección de Región</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d91c6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="158" trl="Y">
+  <value column="Name" original="C_Tax">C_Tax</value>
+  <value column="Description" original="Tax selection">Selección de Impuesto</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d9248-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="159" trl="Y">
+  <value column="Name" original="C_BPartner Location">C_BPartner Location</value>
+  <value column="Description" original="Locations of a Business Partner">Direcciones de un tercero</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db2c8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="161" trl="Y">
+  <value column="Name" original="M_Product Parent">M_Product Parent</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d92ca-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="162" trl="Y">
+  <value column="Name" original="M_Product (no summary)">M_Product (no summary)</value>
+  <value column="Description" original="Product selection no summary">Selección de Producto; no resumen</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db124-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="163" trl="Y">
+  <value column="Name" original="M_Product Category ">M_Product Category </value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6254-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="164" trl="Y">
+  <value column="Name" original="M_Replenish Type">M_Replenish Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de6d0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="166" trl="Y">
+  <value column="Name" original="M_PriceList">M_PriceList</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de748-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="167" trl="Y">
+  <value column="Name" original="Weekdays">Weekdays</value>
+  <value column="Description" original="List of days"/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de9b4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="168" trl="Y">
+  <value column="Name" original="C_InvoiceSchedule InvoiceFrequency">C_InvoiceSchedule InvoiceFrequency</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dea36-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="169" trl="Y">
+  <value column="Name" original="C_Project Parent">C_Project Parent</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47deaae-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="170" trl="Y">
+  <value column="Name" original="C_DocType">C_DocType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e1330-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="171" trl="Y">
+  <value column="Name" original="M_Product (stocked)">M_Product (stocked)</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0804-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="172" trl="Y">
+  <value column="Name" original="C_DocType SO">C_DocType SO</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47deb26-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="173" trl="Y">
+  <value column="Name" original="C_BPartner Customers">C_BPartner Customers</value>
+  <value column="Description" original="Customer selection">Selección de Cliente</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7172-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="174" trl="Y">
+  <value column="Name" original="AD_Workflow">AD_Workflow</value>
+  <value column="Description" original="Workflows">Flujo de Trabajo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47decac-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="175" trl="Y">
+  <value column="Name" original="C_ValidCombination">C_ValidCombination</value>
+  <value column="Description" original="Valid Account combinations">Combinaciones de Cuenta Válida</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6682-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="176" trl="Y">
+  <value column="Name" original="C_PeriodControl Action">C_PeriodControl Action</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ded2e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="177" trl="Y">
+  <value column="Name" original="C_PeriodControl Status">C_PeriodControl Status</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47def04-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="178" trl="Y">
+  <value column="Name" original="GL_Budget Status">GL_Budget Status</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47defc2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="179" trl="Y">
+  <value column="Name" original="C_SalesRegion Parent">C_SalesRegion Parent</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df044-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="180" trl="Y">
+  <value column="Name" original="_ErrorType">_ErrorType</value>
+  <value column="Description" original="List of type of errors">Lista de tipo de errores</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df0c6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="181" trl="Y">
+  <value column="Name" original="C_AcctSchema ElementType">C_AcctSchema ElementType</value>
+  <value column="Description" original="Element Types for Accounting Elements">Tipos de elementos para elementos contables</value>
+  <value column="Help" original="Hardcoded Element Types">Tipos de elementos definidos en forma fija</value>
+  <value column="UUID" original="a47df13e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="182" trl="Y">
+  <value column="Name" original="C_ElementValue (all)">C_ElementValue (all)</value>
+  <value column="Description" original="Element Values">Valores de elemento sin elementos de resumen</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df1ca-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="183" trl="Y">
+  <value column="Name" original="C_DocType DocBaseType">C_DocType DocBaseType</value>
+  <value column="Description" original="Base Document Types">Tipos de documento base</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e726c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="184" trl="Y">
+  <value column="Name" original="AD_Tree">AD_Tree</value>
+  <value column="Description" original="Tree selection">Selección de árbol</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df24c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="188" trl="Y">
+  <value column="Name" original="M_PriceList Version">M_PriceList Version</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df2c4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="189" trl="Y">
+  <value column="Name" original="M_Transaction Movement Type">M_Transaction Movement Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0782-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="190" trl="Y">
+  <value column="Name" original="AD_User - SalesRep">AD_User - SalesRep</value>
+  <value column="Description" original="Sales Representative">Representante de Ventas</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e14c0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="191" trl="Y">
+  <value column="Name" original="M_Locator">M_Locator</value>
+  <value column="Description" original="Warehouse Locator">Ubicación Almacén</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e067e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="192" trl="Y">
+  <value column="Name" original="C_BPartner Vendors">C_BPartner Vendors</value>
+  <value column="Description" original="Vendor selection">Selección de Proveedor</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0886-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="193" trl="Y">
+  <value column="Name" original="C_BankAccount for Credit Card">C_BankAccount for Credit Card</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df346-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="194" trl="Y">
+  <value column="Name" original="M_DiscountPriceList Base">M_DiscountPriceList Base</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df3be-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="195" trl="Y">
+  <value column="Name" original="_Payment Rule">_Payment Rule</value>
+  <value column="Description" original="In &amp; Out Payment Options">Opciones de pago a/de</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0606-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="196" trl="Y">
+  <value column="Name" original="C_RevenueRecognition Frequency">C_RevenueRecognition Frequency</value>
+  <value column="Description" original="Frequency of Revenue Recognition">Frecuencia de Reconocimiento de Ingresos</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df440-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="197" trl="Y">
+  <value column="Name" original="M_Warehouse of Client">M_Warehouse of Client</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0700-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="198" trl="Y">
+  <value column="Name" original="M_Inventory ReportType">M_Inventory ReportType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df4b8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="199" trl="Y">
+  <value column="Name" original="M_PriceList_Version for Client">M_PriceList_Version for Client</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dfb7a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="200" trl="Y">
+  <value column="Name" original="C_Charge">C_Charge</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e143e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="201" trl="Y">
+  <value column="Name" original="C_BP_EDI EDI Type">C_BP_EDI EDI Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dfbf2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="202" trl="Y">
+  <value column="Name" original="M_EDI Status">M_EDI Status</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dfc6a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="203" trl="Y">
+  <value column="Name" original="M_EDI Trx Type">M_EDI Trx Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dfce2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="204" trl="Y">
+  <value column="Name" original="AD_Find AndOr">AD_Find AndOr</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dfd64-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="205" trl="Y">
+  <value column="Name" original="AD_Find Operation">AD_Find Operation</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd488-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="206" trl="Y">
+  <value column="Name" original="AD_Table Posting">AD_Table Posting</value>
+  <value column="Description" original="Posting Tables">Tablas de Registro</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd50a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="207" trl="Y">
+  <value column="Name" original="GL Category Type">GL Category Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de0b8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="208" trl="Y">
+  <value column="Name" original="AD_ImpFormat Type">AD_ImpFormat Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd582-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="209" trl="Y">
+  <value column="Name" original="AD_ImpFormat FormatType">AD_ImpFormat FormatType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd5fa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="210" trl="Y">
+  <value column="Name" original="AD_ImpFormat_Row Type">AD_ImpFormat_Row Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd67c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="211" trl="Y">
+  <value column="Name" original="M_Product BOM (stocked)">M_Product BOM (stocked)</value>
+  <value column="Description" original="Products that are BOMs and stocked">Productos que son LDP y se almacenan</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ddf3c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="212" trl="Y">
+  <value column="Name" original="M_InventoryCount QtyRange">M_InventoryCount QtyRange</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd6f4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="213" trl="Y">
+  <value column="Name" original="C_Payment AVS">C_Payment AVS</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de7c0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="214" trl="Y">
+  <value column="Name" original="C_Payment Tender Type">C_Payment Tender Type</value>
+  <value column="Description" original="Direct Debit/Deposit - Check - CC"/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de8ba-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="215" trl="Y">
+  <value column="Name" original="C_Payment Trx Type">C_Payment Trx Type</value>
+  <value column="Description" original="CC Trx Type"/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de842-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="216" trl="Y">
+  <value column="Name" original="C_Bank Account Type">C_Bank Account Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd76c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="217" trl="Y">
+  <value column="Name" original="C_Cash Trx Type">C_Cash Trx Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd7ee-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="218" trl="Y">
+  <value column="Name" original="R_Request Request Type">R_Request Request Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd866-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="219" trl="Y">
+  <value column="Name" original="R_Request Next Action">R_Request Next Action</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd8f2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="221" trl="Y">
+  <value column="Name" original="_Frequency Type">_Frequency Type</value>
+  <value column="Description" original="Processor Frequency Type"/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd96a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="222" trl="Y">
+  <value column="Name" original="R_Request Due Type">R_Request Due Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd9ec-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="223" trl="Y">
+  <value column="Name" original="C_BPartner Vendors Active">Proveedores activos</value>
+  <value column="Description" original="Vendor selection">Selección de Proveedor</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e61d2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="224" trl="Y">
+  <value column="Name" original="C_Commission DocBasis">C_Commission DocBasis</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dda64-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="225" trl="Y">
+  <value column="Name" original="C_Commission Frequency">C_Commission Frequency</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ddadc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="226" trl="Y">
+  <value column="Name" original="AD_Role User Level">AD_Role User Level</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ddb5e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="227" trl="Y">
+  <value column="Name" original="C_PaymentTerm">C_PaymentTerm</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ddbd6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="228" trl="Y">
+  <value column="Name" original="PA_Goal">PA_Goal</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ddc4e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="229" trl="Y">
+  <value column="Name" original="PA_Achievement Parent">PA_Achievement Parent</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ddcd0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="230" trl="Y">
+  <value column="Name" original="PA_Goal Parent">PA_Goal Parent</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ddd48-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="231" trl="Y">
+  <value column="Name" original="PA_Measure Type">PA_Measure Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dddca-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="232" trl="Y">
+  <value column="Name" original="C_BPartner Vendor or SalesRep">C_BPartner Vendor or SalesRep</value>
+  <value column="Description" original="Vendor or SalesRep selection">Selección del Proveedor o del Representante</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ddec4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="233" trl="Y">
+  <value column="Name" original="C_Period (Open)">C_Period (Open)</value>
+  <value column="Description" original="Periods Sorted by Date">Períodos ordenados por fecha</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de036-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="234" trl="Y">
+  <value column="Name" original="_Posted Status">_Posted Status</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e13bc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="235" trl="Y">
+  <value column="Name" original="PA_Report AmountType (deprecated)">PA_Report AmountType (deprecated)</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de130-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="236" trl="Y">
+  <value column="Name" original="PA_Report CalculationType">PA_Report CalculationType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de1b2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="237" trl="Y">
+  <value column="Name" original="PA_Report ColumnType">PA_Report ColumnType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de22a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="238" trl="Y">
+  <value column="Name" original="PA_Report CurrencyType">PA_Report CurrencyType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de2ac-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="239" trl="Y">
+  <value column="Name" original="PA_ReportColumn">PA_ReportColumn</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de4be-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="240" trl="Y">
+  <value column="Name" original="PA_ReportLine">PA_ReportLine</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de554-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="241" trl="Y">
+  <value column="Name" original="PA_Report LineType">PA_Report LineType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e120e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="242" trl="Y">
+  <value column="Name" original="PA_ReportLine Parent">PA_ReportLine Parent</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d75c4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="243" trl="Y">
+  <value column="Name" original="AD_Color Type">AD_Color Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db610-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="244" trl="Y">
+  <value column="Name" original="AD_Column Key ColumnNames">AD_Column Key ColumnNames</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de5cc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="245" trl="Y">
+  <value column="Name" original="_Entity Type">_Entity Type</value>
+  <value column="Description" original="Entity Type (Dictionary, ..)">Tipo de Entidad (Diccionario;...)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d3a14-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="246" trl="Y">
+  <value column="Name" original="M_Discount CumulativeLevel">M_Discount CumulativeLevel</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d3ec4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="247" trl="Y">
+  <value column="Name" original="M_Discount Type">M_Discount Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d4086-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="248" trl="Y">
+  <value column="Name" original="AD_Color StartPoint">AD_Color StartPoint</value>
+  <value column="Description" original="Nord-West-.."/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d4298-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="249" trl="Y">
+  <value column="Name" original="M_DiscountSchema">M_DiscountSchema</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d43c4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="250" trl="Y">
+  <value column="Name" original="CostUpdate Source">CostUpdate Source</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d4464-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="251" trl="Y">
+  <value column="Name" original="AD_Column Name">AD_Column Name</value>
+  <value column="Description" original="Column selection">Selección de Columna</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d540e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="252" trl="Y">
+  <value column="Name" original="C_BPartner Employee">C_BPartner Employee</value>
+  <value column="Description" original="Business Partners who are Employee">Terceros que son empleados</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df62a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="253" trl="Y">
+  <value column="Name" original="AD_Print Field Alignment">AD_Print Field Alignment</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df6ac-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="254" trl="Y">
+  <value column="Name" original="AD_Print Line Alignment">AD_Print Line Alignment</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df724-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="255" trl="Y">
+  <value column="Name" original="AD_Print Format Type">AD_Print Format Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df79c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="256" trl="Y">
+  <value column="Name" original="AD_Print Area">AD_Print Area</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df81e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="257" trl="Y">
+  <value column="Name" original="AD_Column Integer">AD_Column Integer</value>
+  <value column="Description" original="Integer Type only (Name)">Solo tipo enteros (Nombre)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df896-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="258" trl="Y">
+  <value column="Name" original="AD_Column YesNo">AD_Column YesNo</value>
+  <value column="Description" original="Coluns YesNo (Name)">Columna Si/No (Nombre)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df90e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="259" trl="Y">
+  <value column="Name" original="AD_PrintFormat">AD_PrintFormat</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df990-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="261" trl="Y">
+  <value column="Name" original="AD_PrintFormat Invoice">AD_PrintFormat Invoice</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dfa08-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="262" trl="Y">
+  <value column="Name" original="AD_PrintFormat Order">AD_PrintFormat Order</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dfa80-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="263" trl="Y">
+  <value column="Name" original="AD_PrintFormat Shipment">AD_PrintFormat Shipment</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dfb02-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="264" trl="Y">
+  <value column="Name" original="AD_PrintFormatItem">AD_PrintFormatItem</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d7ec0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="265" trl="Y">
+  <value column="Name" original="AD_Print Graph Type">AD_Print Graph Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d7f56-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="266" trl="Y">
+  <value column="Name" original="AD_PrintColor">AD_PrintColor</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d81d6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="267" trl="Y">
+  <value column="Name" original="AD_PrintFont">AD_PrintFont</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dbbce-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="268" trl="Y">
+  <value column="Name" original="AD_PrintFormat Check">AD_PrintFormat Check</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d8fd2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="269" trl="Y">
+  <value column="Name" original="AD_PrintFormat Not TableBased">AD_PrintFormat Not TableBased</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d858c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="270" trl="Y">
+  <value column="Name" original="M_Product_ProductType">M_Product_ProductType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d8d7a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="271" trl="Y">
+  <value column="Name" original="C_OrderLine">C_OrderLine</value>
+  <value column="Description" original="Order Line">Línea de la Orden</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d8a1e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="272" trl="Y">
+  <value column="Name" original="I_ElementValue Column">I_ElementValue Column</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d8744-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="274" trl="Y">
+  <value column="Name" original="R_MailText">R_MailText</value>
+  <value column="Description" original="Mail Text">Texto de Correo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d880c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="275" trl="Y">
+  <value column="Name" original="C_Period (all)">C_Period (all)</value>
+  <value column="Description" original="Periods Sorted by Date">Períodos ordenados por fecha</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db34a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="276" trl="Y">
+  <value column="Name" original="AD_Org (all)">AD_Org (all)</value>
+  <value column="Description" original="Organization selection">Selección de organización</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db1a6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="277" trl="Y">
+  <value column="Name" original="C_BPartner Employee w Address">C_BPartner Employee w Address</value>
+  <value column="Description" original="Business Partners who are Employee and have addresses">Terceros que son empleados y tienen dirección</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d10e8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="278" trl="Y">
+  <value column="Name" original="AD_Tab">AD_Tab</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d12aa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="279" trl="Y">
+  <value column="Name" original="M_Product BOM Product TypeX">M_Product BOM Product TypeX</value>
+  <value column="Description" original="Old"/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d13ea-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="280" trl="Y">
+  <value column="Name" original="AD_Print Label Line Type">AD_Print Label Line Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cda10-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="282" trl="Y">
+  <value column="Name" original="C_Recurring Type">C_Recurring Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ce7c6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="283" trl="Y">
+  <value column="Name" original="C_Recurring Frequency">C_Recurring Frequency</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cdaa6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="284" trl="Y">
+  <value column="Name" original="AD_Window">AD_Window</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ce8b6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="285" trl="Y">
+  <value column="Name" original="K_Entry Related">K_Entry Related</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ce956-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="286" trl="Y">
+  <value column="Name" original="AD_User - Internal">AD_User - Internal</value>
+  <value column="Description" original="Employee or SalesRep">Empleado o representante de ventas</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d3b2c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="287" trl="Y">
+  <value column="Name" original="C_Tax SPPOType">C_Tax SPPOType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d44f0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="288" trl="Y">
+  <value column="Name" original="C_ProjectCategory Category Base">C_ProjectType Category</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eaaac-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="289" trl="Y">
+  <value column="Name" original="C_BPartner SOCreditStatus">C_BPartner SOCreditStatus</value>
+  <value column="Description" original="Sales Credit Status">Estado de crédito de ventas</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d457c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="290" trl="Y">
+  <value column="Name" original="C_Order">C_Order</value>
+  <value column="Description" original="Order">Orden</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d4608-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="291" trl="Y">
+  <value column="Name" original="AD_Field ObscureType">AD_Field ObscureType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d468a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="292" trl="Y">
+  <value column="Name" original="M_Inventory Type">M_Inventory Type</value>
+  <value column="Description" original="Inventory Type (Difference - Charge)">Tipo de inventario (diferencia - cargo)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d5350-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="293" trl="Y">
+  <value column="Name" original="AD_Table_Access RuleType">AD_Table_Access RuleType</value>
+  <value column="Description" original="AccessRuleType">Tipo regla de acceso</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d4798-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="294" trl="Y">
+  <value column="Name" original="M_TransactionAllocation Type">M_TransactionAllocation Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d481a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="295" trl="Y">
+  <value column="Name" original="M_InOutLine">M_InOutLine</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d489c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="296" trl="Y">
+  <value column="Name" original="M_InventoryLine">M_InventoryLine</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d4b26-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="297" trl="Y">
+  <value column="Name" original="M_ProductionLine">M_ProductionLine</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d4cb6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="298" trl="Y">
+  <value column="Name" original="M_Transaction">M_Transaction</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d4ed2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="299" trl="Y">
+  <value column="Name" original="WF_DurationUnit">WF_DurationUnit</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dfddc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="300" trl="Y">
+  <value column="Name" original="WF_Transition Type">WF_Transition Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dfe54-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="301" trl="Y">
+  <value column="Name" original="WF_Join_Split">WF_Join_Split</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dfed6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="302" trl="Y">
+  <value column="Name" original="WF_Action">WF_Action</value>
+  <value column="Description" original="Superset of Menu Action">Conjunto de acciones de menú</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dff4e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="303" trl="Y">
+  <value column="Name" original="WF_Start-Finish Mode">WF_Start-Finish Mode</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0228-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="304" trl="Y">
+  <value column="Name" original="WF_Participant Type">WF_Participant Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e03fe-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="305" trl="Y">
+  <value column="Name" original="WF_Instance State">WF_Instance State</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e048a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="306" trl="Y">
+  <value column="Name" original="WF_EventType">WF_EventType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e050c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="307" trl="Y">
+  <value column="Name" original="WF_SubFlow Execution">WF_SubFlow Execution</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0584-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="308" trl="Y">
+  <value column="Name" original="WF_LoopType">WF_LoopType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e08fe-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="310" trl="Y">
+  <value column="Name" original="_PublishStatus">_PublishStatus</value>
+  <value column="Description" original="Publication Status">Estado de publicación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd2b2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="311" trl="Y">
+  <value column="Name" original="AD_Language Maintenance">AD_Language Maintenance</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0980-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="312" trl="Y">
+  <value column="Name" original="AD_PrintTableFormat Stroke">AD_PrintTableFormat Stroke</value>
+  <value column="Description" original="Stroke Type">Tipo de énfasis</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0a02-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="313" trl="Y">
+  <value column="Name" original="M_RelatedProduct Type">M_RelatedProduct Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0a84-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="314" trl="Y">
+  <value column="Name" original="C_RfQ QuoteType">C_RfQ QuoteType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0afc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="315" trl="Y">
+  <value column="Name" original="B_TopicType AuctionType">B_TopicType AuctionType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0b7e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="316" trl="Y">
+  <value column="Name" original="AD_User - Supervisor">AD_User - Supervisor</value>
+  <value column="Description" original="Employee or SalesRep - or System">Empleado o representante de ventas - o System</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0bf6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="318" trl="Y">
+  <value column="Name" original="AD_Scheduler Type">AD_Scheduler Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e0c78-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="319" trl="Y">
+  <value column="Name" original="_YesNo">_YesNo</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7654-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="320" trl="Y">
+  <value column="Name" original="M_InOutConfirm Type">M_InOutConfirm Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cf676-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="321" trl="Y">
+  <value column="Name" original="C_DocType RMA">C_DocType RMA</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d5d0a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="322" trl="Y">
+  <value column="Name" original="AD_Org (all but 0)">AD_Org (all but 0)</value>
+  <value column="Description" original="Organization selection">Selección de organización</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d207e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="323" trl="Y">
+  <value column="Name" original="C_Allocation">C_Allocation</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47df5b2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="324" trl="Y">
+  <value column="Name" original="M_AttributeSet MandatoryType">M_AttributeSet MandatoryType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e1024-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="325" trl="Y">
+  <value column="Name" original="M_DiscountSchema not PL">M_DiscountSchema not PL</value>
+  <value column="Description" original="Not Price List Discount Schema">Esquema de descuentos no lista de precios</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47daee0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="326" trl="Y">
+  <value column="Name" original="M_Attribute Value Type">M_Attribute Value Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e1146-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="327" trl="Y">
+  <value column="Name" original="AD_Language System">AD_Language System</value>
+  <value column="Description" original="Language selection">Selección de Lenguaje</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd348-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="328" trl="Y">
+  <value column="Name" original="AD_Workflow Type">AD_Workflow Type</value>
+  <value column="Description" original="Workflow Type">Tipo de Flujo de Trabajo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d239e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="329" trl="Y">
+  <value column="Name" original="M_Replenishment Create">M_Replenishment Create</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d2484-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="330" trl="Y">
+  <value column="Name" original="AD_Role PreferenceType">AD_Role PreferenceType</value>
+  <value column="Description" original="Preference Type">Tipo de Preferencia</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d317c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="331" trl="Y">
+  <value column="Name" original="Account_ID">Account_ID</value>
+  <value column="Description" original="Account selection based on Client">Account selection</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d32ee-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="332" trl="Y">
+  <value column="Name" original="APAR">APAR</value>
+  <value column="Description" original="AP and/or AR">CxP y/o CxC</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d34d8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="333" trl="Y">
+  <value column="Name" original="AD_PrintFormatItem ShapeType">AD_PrintFormatItem ShapeType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d936a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="334" trl="Y">
+  <value column="Name" original="AD_Client AutoArchive">AD_Client AutoArchive</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d9504-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="335" trl="Y">
+  <value column="Name" original="_MMPolicy">_MMPolicy</value>
+  <value column="Description" original="Material Movement Policy">Política de rotación de material</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dae40-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="336" trl="Y">
+  <value column="Name" original="C_Invoice">C_Invoice</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d95ae-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="337" trl="Y">
+  <value column="Name" original="M_InOut">M_InOut</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d96d0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="338" trl="Y">
+  <value column="Name" original="M_CostElement Type">M_CostElement Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47daf6c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="339" trl="Y">
+  <value column="Name" original="C_LandedCost Distribution">C_LandedCost Distribution</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dafe4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="340" trl="Y">
+  <value column="Name" original="R_Request Confidential">R_Request Confidential</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d975c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="341" trl="Y">
+  <value column="Name" original="R_Request">R_Request</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d9a04-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="342" trl="Y">
+  <value column="Name" original="W_MailMsg Type">W_MailMsg Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d9b58-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="343" trl="Y">
+  <value column="Name" original="C_Payment">C_Payment</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e774e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="344" trl="Y">
+  <value column="Name" original="AD_User NotificationType">AD_User NotificationType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da2ce-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="345" trl="Y">
+  <value column="Name" original="R_Status">R_Status</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da350-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="346" trl="Y">
+  <value column="Name" original="C_Remuneration Type">C_Remuneration Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db8d6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="347" trl="Y">
+  <value column="Name" original="M_BOM Type">M_BOM Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dbc50-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="348" trl="Y">
+  <value column="Name" original="M_BOM Use">M_BOM Use</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dbcd2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="349" trl="Y">
+  <value column="Name" original="M_BOMProduct Type">M_BOMProduct Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dbd4a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="350" trl="Y">
+  <value column="Name" original="C_BP_Group PriorityBase">C_BP_Group PriorityBase</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db584-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="351" trl="Y">
+  <value column="Name" original="M_ChangeNotice">M_ChangeNotice</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da3d2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="352" trl="Y">
+  <value column="Name" original="C_ConversionType">C_ConversionType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da47c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="353" trl="Y">
+  <value column="Name" original="C_BPartner SalesRep">C_BPartner SalesRep</value>
+  <value column="Description" original="BP SalesRep selection">Selección de tercero representante de ventas</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db408-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="354" trl="Y">
+  <value column="Name" original="AD_Column Encrypted">AD_Column Encrypted</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da4fe-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="355" trl="Y">
+  <value column="Name" original="C_AcctSchema CostingLevel">C_AcctSchema CostingLevel</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da59e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="356" trl="Y">
+  <value column="Name" original="C_Greeting">C_Greeting</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db4f8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="358" trl="Y">
+  <value column="Name" original="AD_User BP AccessType">AD_User BP AccessType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db6b0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="359" trl="Y">
+  <value column="Name" original="C_AcctSchema CommitmentType">C_AcctSchema CommitmentType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da6a2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="360" trl="Y">
+  <value column="Name" original="C_Invoice MatchRequirement">C_Invoice MatchRequirement</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd3fc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="361" trl="Y">
+  <value column="Name" original="GL_BudgetControl Scope">GL_BudgetControl Scope</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da788-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="362" trl="Y">
+  <value column="Name" original="C_ElementValue (trx)">C_ElementValue (trx)</value>
+  <value column="Description" original="Element Values">Valores de Elemento</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db732-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="363" trl="Y">
+  <value column="Name" original="AD_WF_Node EMailRecipient">AD_WF_Node EMailRecipient</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da620-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="364" trl="Y">
+  <value column="Name" original="AD_User ConnectionProfile">AD_User ConnectionProfile</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da878-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="365" trl="Y">
+  <value column="Name" original="AD_Client ShareType">AD_Client ShareType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da922-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="366" trl="Y">
+  <value column="Name" original="R_Request TaskStatus">R_Request TaskStatus</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da9a4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="367" trl="Y">
+  <value column="Name" original="PA_Goal Scope">PA_Goal Scope</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47daa26-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="368" trl="Y">
+  <value column="Name" original="PA_Goal Restriction Type">PA_Goal Restriction Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47daa9e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="369" trl="Y">
+  <value column="Name" original="PA_Measure DataType">PA_Measure DataType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dbdcc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="370" trl="Y">
+  <value column="Name" original="PA_Benschmark Accumulation Type">PA_Benschmark Accumulation Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dbe6c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="371" trl="Y">
+  <value column="Name" original="PA_Ratio">PA_Ratio</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dc358-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="372" trl="Y">
+  <value column="Name" original="PA_Ratio ElementType">PA_Ratio ElementType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dc574-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="373" trl="Y">
+  <value column="Name" original="PA_Ratio Operand">PA_Ratio Operand</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd118-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="374" trl="Y">
+  <value column="Name" original="AD_System Status">AD_System Status</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db098-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="375" trl="Y">
+  <value column="Name" original="AD_PrintPaper Units">AD_PrintPaper Units</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dab20-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="376" trl="Y">
+  <value column="Name" original="M_Inventory CountSet">M_Inventory CountSet</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dabb6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="377" trl="Y">
+  <value column="Name" original="AD_PrintFormatItem BarcodeType">AD_PrintFormatItem BarcodeType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dac42-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="383" trl="Y">
+  <value column="Name" original="C_Project InvoiceRule">C_Project InvoiceRule</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db7dc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="384" trl="Y">
+  <value column="Name" original="C_Project LineLevel">C_Project LineLevel</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47db85e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="385" trl="Y">
+  <value column="Name" original="CM_Container Type">CM_Container Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ceca8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="386" trl="Y">
+  <value column="Name" original="CM_Container">CM_Container</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ced34-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="387" trl="Y">
+  <value column="Name" original="CM_CStage">CM_CStage</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cedb6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="388" trl="Y">
+  <value column="Name" original="CM_Media Media Type">CM_Media Media Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cefbe-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="389" trl="Y">
+  <value column="Name" original="_EntityTypeNew">_EntityTypeNew</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d3d34-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="390" trl="Y">
+  <value column="Name" original="CM_WebAccessLog Type">CM_WebAccessLog Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cee38-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="391" trl="Y">
+  <value column="Name" original="K_IndexLog QuerySource">K_IndexLog QuerySource</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ceeba-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="392" trl="Y">
+  <value column="Name" original="C_AcctSchema TaxCorrectionType">C_AcctSchema TaxCorrectionType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cef3c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="393" trl="Y">
+  <value column="Name" original="C_BPartner BPBankAcctUse">C_BPartner BPBankAcctUse</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dcb8c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="394" trl="Y">
+  <value column="Name" original="C_Invoice InvoiceCollectionType">C_Invoice InvoiceCollectionType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dc7fe-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="395" trl="Y">
+  <value column="Name" original="CM_Chat ModerationType">CM_Chat ModerationType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dc920-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="396" trl="Y">
+  <value column="Name" original="CM_ChatEntry ModeratorStatus">CM_ChatEntry ModeratorStatus</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dc9ac-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="397" trl="Y">
+  <value column="Name" original="CM_WikiToken Type">CM_WikiToken Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dca7e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="398" trl="Y">
+  <value column="Name" original="CM_Chat EntryType">CM_Chat EntryType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dcb0a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="399" trl="Y">
+  <value column="Name" original="CM_ChatEntry">CM_ChatEntry</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dc880-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="400" trl="Y">
+  <value column="Name" original="AD_Process_JasperReports">AD_Process_JasperReports</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47de64e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50001" trl="Y">
+  <value column="Name" original="AD_Package_Type">AD_Package_Type</value>
+  <value column="Description" original="Defines the type of packages available">Define los tipos de paquetes disponibles</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dcc0e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50002" trl="Y">
+  <value column="Name" original="Package_Releases">Package_Releases</value>
+  <value column="Description" original="List of Package Releases">Lista de versionse de paquetes</value>
+  <value column="Help" original="Indicates what release the package is for.  Entering no specific release indicates the package is for all releases.">Indica para qué versión es este paquete.</value>
+  <value column="UUID" original="a47dcccc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50003" trl="Y">
+  <value column="Name" original="AD_Package_Exp_DB">AD_Package_Exp_DB</value>
+  <value column="Description" original="List of database types">Lista de tipos de bases de datos</value>
+  <value column="Help" original="This is a list of database types used by the inbound packaging processing to determine if the sql statement is fired.">Esta es la lista de tipos de bases de datos usado para que los paquetes entrantes determines el comando sql a ejecutar.</value>
+  <value column="UUID" original="a47dce34-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50004" trl="Y">
+  <value column="Name" original="AD_Package_Build_Type">AD_Package_Build_Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dcfce-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50005" trl="Y">
+  <value column="Name" original="AD_Package_Source_Type">AD_Package_Source_Type</value>
+  <value column="Description" original="List of package source types">Lista de tipos de fuentes de paquete</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dd08c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50007" trl="Y">
+  <value column="Name" original="ShowHelp List">ShowHelp List</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d3a96-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="52000" trl="Y">
+  <value column="Name" original="U_WebMenu_ID">U_WebMenu_ID</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47deb9e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="52001" trl="Y">
+  <value column="Name" original="C_Bank">C_Bank</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e27a8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="52002" trl="Y">
+  <value column="Name" original="_TransferType">_TransferType</value>
+  <value column="Description" original="Where money should be transfered to">Hacia donde el dinero debe ser transferido</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e2618-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="52004" trl="Y">
+  <value column="Name" original="C_CashBook">C_CashBook</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e2708-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53000" trl="Y">
+  <value column="Name" original="AD_FieldGroup">AD_FieldGroup</value>
+  <value column="Description" original="Field Group Type">Tipo de grupos de campo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47dec2a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53222" trl="Y">
+  <value column="Name" original="AD_SysConfig ConfigurationLevel">AD_SysConfig ConfigurationLevel</value>
+  <value column="Description" original="Configuration Level">Nivel de Configuración</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d9c16-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53223" trl="Y">
+  <value column="Name" original="S_Resource MFG Type">S_Resource MFG Type</value>
+  <value column="Description" original="Manufacturing Resource Type">Tipo de recurso de manufactura</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d790c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53224" trl="Y">
+  <value column="Name" original="PP_Process Type">PP_Process Type</value>
+  <value column="Description" original="Process Type">Tipo de Proceso</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d6052-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53225" trl="Y">
+  <value column="Name" original="PP_ComponentType">PP_ComponentType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d6192-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53226" trl="Y">
+  <value column="Name" original="PP_Product_BOM IssueMethod">PP_Product_BOM IssueMethod</value>
+  <value column="Description" original="Issue Method">Método de Asunto</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d6228-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53227" trl="Y">
+  <value column="Name" original="PP_Product_BOM Component Change">PP_Product_BOM Component Change</value>
+  <value column="Description" original="Component Change">Cambio de Componente</value>
+  <value column="Help" original="Component Change">Cambio de Componente</value>
+  <value column="UUID" original="a47d62b4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53228" trl="Y">
+  <value column="Name" original="PP_Product_Planning Order Policy">PP_Product_Planning Order Policy</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d652a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53229" trl="Y">
+  <value column="Name" original="_MRP Order Type">_MRP Order Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d814a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53230" trl="Y">
+  <value column="Name" original="_MRP Type">_MRP Type</value>
+  <value column="Description" original="MRP type can be a Demand or Supply">Tipo MRP puede ser Demanda u Oferta</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d7754-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53231" trl="Y">
+  <value column="Name" original="CRM Schedule">CRM Schedule</value>
+  <value column="Description" original=""/>
+  <value column="Help" original="Forward and Backward Scheduling">Programación hacia adelante o hacia atrás</value>
+  <value column="UUID" original="a47d65fc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53232" trl="Y">
+  <value column="Name" original="PP_Order_Node">PP_Order_Node</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d691c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53233" trl="Y">
+  <value column="Name" original="C_DocType MFG">C_DocType MFG</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d7646-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53234" trl="Y">
+  <value column="Name" original="ASP_Status">ASP_Status</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d9d10-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53235" trl="Y">
+  <value column="Name" original="AD_Rule_RuleType">AD_Rule_RuleType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d9db0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53236" trl="Y">
+  <value column="Name" original="AD_Rule_EventType">AD_Rule_EventType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da04e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53237" trl="Y">
+  <value column="Name" original="EventModelValidator">EventModelValidator</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da0ee-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53238" trl="Y">
+  <value column="Name" original="EventChangeLog">EventChangeLog</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da17a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53239" trl="Y">
+  <value column="Name" original="MigrationScriptStatus">MigrationScriptStatus</value>
+  <value column="Description" original="Migration Script Status">Estado de Script de Migración</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47da238-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53240" trl="Y">
+  <value column="Name" original="C_TaxBase">C_TaxBase</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d69ee-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53241" trl="Y">
+  <value column="Name" original="EXP_Line_Type">EXP_Line_Type</value>
+  <value column="Description" original="List with Export Line types">Lista con tipos de líneas de exportación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d6aca-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53242" trl="Y">
+  <value column="Name" original="EXP_Format">EXP_Format</value>
+  <value column="Description" original="Embedded Export Format">Formato embebido de exportación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d6b6a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53243" trl="Y">
+  <value column="Name" original="HR ColumnType">HR ColumnType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d79e8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53244" trl="Y">
+  <value column="Name" original="HR Job">HR Job</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d6c50-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53245" trl="Y">
+  <value column="Name" original="HR Type">HR Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d6dae-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53246" trl="Y">
+  <value column="Name" original="HR Table">HR Table</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d6f16-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53249" trl="Y">
+  <value column="Name" original="M_Inventory">M_Inventory</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d70ba-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53250" trl="Y">
+  <value column="Name" original="GL_Journal">GL_Journal</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d729a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53251" trl="Y">
+  <value column="Name" original="GL_JournalBatch">GL_JournalBatch</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d740c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53252" trl="Y">
+  <value column="Name" original="M_Movement">M_Movement</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d74b6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53253" trl="Y">
+  <value column="Name" original="HR_Process">HR_Process</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d7b78-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53254" trl="Y">
+  <value column="Name" original="PP_Cost_Collector">PP_Cost_Collector</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47d7542-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53255" trl="Y">
+  <value column="Name" original="A_Table_Rate_Type">A_Table_Rate_Type</value>
+  <value column="Description" original="List that contains type of rate">Lista que contiene los tipos de tasas</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47cc3c2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53256" trl="Y">
+  <value column="Name" original="A_Depreciation_Manual_Period">A_Depreciation_Manual_Period</value>
+  <value column="Description" original="List available periods for calculating manual depreciation expense">Lista los períodos disponibles para el cálculo manual de gastos de depreciación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e36a8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53257" trl="Y">
+  <value column="Name" original="A_Entry_Type">A_Entry_Type</value>
+  <value column="Description" original="Entry Types for Fixed Assets">Tipos de entrada para activos fijos</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3cfc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53258" trl="Y">
+  <value column="Name" original="A_Asset_ID">A_Asset_ID</value>
+  <value column="Description" original="Asset ID">ID del Activo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e35a4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53259" trl="Y">
+  <value column="Name" original="A_Reval_Method_Type">A_Reval_Method_Type</value>
+  <value column="Description" original="List of Revaluation Types">Lista de tipos de revaluación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e37a2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53260" trl="Y">
+  <value column="Name" original="A_Reval_Multiplier">A_Reval_Multiplier</value>
+  <value column="Description" original="Revaluation Multiplier Type">Tipo de multiplicador de revaluación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e12a4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53261" trl="Y">
+  <value column="Name" original="A_Reval_Effectivity">A_Reval_Effectivity</value>
+  <value column="Description" original="Sets the date as to when the revaluation will be based on">Fija la fecha en la que la revaluación estará basada</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e1542-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53262" trl="Y">
+  <value column="Name" original="A_Reval_Code">A_Reval_Code</value>
+  <value column="Description" original="Lookup Valid Revaluation Codes">Búsqueda de códigos de revaluación válidos</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e15c4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53263" trl="Y">
+  <value column="Name" original="A_Split_Type">A_Split_Type</value>
+  <value column="Description" original="Split Type">Tipo de División</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e1646-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53264" trl="Y">
+  <value column="Name" original="A_Depreciation_Type">A_Depreciation_Type</value>
+  <value column="Description" original="Depreciation Type selection">Selección de tipo de depreciación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3626-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53265" trl="Y">
+  <value column="Name" original="A_Depreciation_Table_Codes">A_Depreciation_Table_Codes</value>
+  <value column="Description" original="List of depreciation table codes">Lista de códigos de tablas de depreciación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3720-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53266" trl="Y">
+  <value column="Name" original="A_Depreciation_Calc_Type">A_Depreciation_Calc_Type</value>
+  <value column="Description" original="Depreciation Calculation Type selection">Selección del tipo de cálculo de depreciación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e16c8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53267" trl="Y">
+  <value column="Name" original="A_ConventionType">A_ConventionType</value>
+  <value column="Description" original="Display mid year convention types">Despliega tipos de convención de medio año</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3824-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53268" trl="Y">
+  <value column="Name" original="A_Asset_Spread">A_Asset_Spread</value>
+  <value column="Description" original="Depreciation Type Spread">Tipo de propagación de depreciación</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e389c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53269" trl="Y">
+  <value column="Name" original="A_Disposed_Reason">A_Disposed_Reason</value>
+  <value column="Description" original="Reason for Disposal">Razón para dar de baja</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3a9a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53270" trl="Y">
+  <value column="Name" original="A_Disposal_Method">A_Disposal_Method</value>
+  <value column="Description" original="Method of Disposals">Métodos de dar de baja</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3b12-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53271" trl="Y">
+  <value column="Name" original="A_Finance_Method">A_Finance_Method</value>
+  <value column="Description" original="Financing Methods">Métodos financieros</value>
+  <value column="Help" original="List of financing methods for assets">Lista de métodos financieros para activos</value>
+  <value column="UUID" original="a47e3c84-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53272" trl="Y">
+  <value column="Name" original="A_Payment_Due">A_Payment_Due</value>
+  <value column="Description" original="Payment due every">Vencimiento de pagos cada</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3c0c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53273" trl="Y">
+  <value column="Name" original="A_Update_Type">A_Update_Type</value>
+  <value column="Description" original="Update Type">Tipo Actualización</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3b8a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53274" trl="Y">
+  <value column="Name" original="DocumentNo Invoice Vendor">DocumentNo Invoice Vendor</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e391e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53275" trl="Y">
+  <value column="Name" original="C_Invoice (Vendor)">C_Invoice (Vendor)</value>
+  <value column="Description" original="Vendor Invoices">Facturas Proveedor</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e1754-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53276" trl="Y">
+  <value column="Name" original="A_SourceType">A_SourceType</value>
+  <value column="Description" original="Entry Source Types">Tipos de Fuente de Entrada</value>
+  <value column="Help" original="Listing of entry source types">Lista de tipos de fuente de entrada</value>
+  <value column="UUID" original="a47e3996-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53277" trl="Y">
+  <value column="Name" original="A_CapvsExp">A_CapvsExp</value>
+  <value column="Description" original="Capital vs Expense">Capital vs Gasto</value>
+  <value column="Help" original="Inidcates if charge is capital or expense">Indica si el cargo es capital o gasto</value>
+  <value column="UUID" original="a47e3a18-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53278" trl="Y">
+  <value column="Name" original="C_ValidCombination (Assets)">C_ValidCombination (Assets)</value>
+  <value column="Description" original="Valid Account combinations">Combinaciones contables válidas</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e17d6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53280" trl="Y">
+  <value column="Name" original="PA_ReportSource ElementType">PA_ReportSource ElementType</value>
+  <value column="Description" original="Element Types for Accounting Elements - equal to C_AcctSchema ElementType plus Combination">Tipos de elementos para elementos contables - igual a C_AcctSchema ElementType mas Combinación</value>
+  <value column="Help" original="Hardcoded Element Types">Tipos de elementos definidos en forma fija</value>
+  <value column="UUID" original="a47e184e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53281" trl="Y">
+  <value column="Name" original="AD_PrintFormat Manufacturing Order">AD_PrintFormat Manufacturing Order</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e1c7c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53282" trl="Y">
+  <value column="Name" original="AD_PrintFormat Distribution Order">AD_PrintFormat Distribution Order</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e1d94-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53283" trl="Y">
+  <value column="Name" original="C_BankAccount">C_BankAccount</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e426a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53284" trl="Y">
+  <value column="Name" original="M_MovementLine">M_MovementLine</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e2082-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53285" trl="Y">
+  <value column="Name" original="Scaling Factors">Scaling Factors</value>
+  <value column="Description" original="Factors for scaling the results of financial reports.">Factores de escalamiento para los resultados de reportes financieros</value>
+  <value column="Help" original="Currently supported: thousand, million.">Actualmente soportados: mil, millón</value>
+  <value column="UUID" original="a47e23de-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53287" trl="Y">
+  <value column="Name" original="PP_CostCollectorType Transaction Manufacturing Management">PP_CostCollectorType Transaction Manufacturing Management</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e2834-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53288" trl="Y">
+  <value column="Name" original="WS Parameter Type">WS Parameter Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6808-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53289" trl="Y">
+  <value column="Name" original="C_DocType MFG Cost Collector">C_DocType MFG Cost Collector</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e28c0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53290" trl="Y">
+  <value column="Name" original="AD_Table TableName">AD_Table TableName</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e2a14-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53291" trl="Y">
+  <value column="Name" original="SearchType">SearchType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e2af0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53292" trl="Y">
+  <value column="Name" original="AD_SearchDefinition_DataType">AD_SearchDefinition_DataType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e2cb2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53294" trl="Y">
+  <value column="Name" original="M_PromotionDistribution Operation">M_PromotionDistribution Operation</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e2eec-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53295" trl="Y">
+  <value column="Name" original="M_PromotionDistrition Type">M_PromotionDistrition Type</value>
+  <value column="Description" original="Type of quantity distribution">Tipo de cantidad de distribución</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e2f78-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53296" trl="Y">
+  <value column="Name" original="M_PromotionDistribution Sorting">M_PromotionDistribution Sorting</value>
+  <value column="Description" original="Quantity distribution sorting direction">Dirección de ordenamiento cantidad de distribución</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e2ffa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53297" trl="Y">
+  <value column="Name" original="M_PromotionDistribution">M_PromotionDistribution</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e328e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53298" trl="Y">
+  <value column="Name" original="M_PromotionReward Type">M_PromotionReward Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3324-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53299" trl="Y">
+  <value column="Name" original="PA_ReportCube">PA_ReportCube</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e34a0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53306" trl="Y">
+  <value column="Name" original="M_RMA">M_RMA</value>
+  <value column="Description" original="RMA">Autorización Devolución</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e2dca-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53307" trl="Y">
+  <value column="Name" original="M_RMALine">M_RMALine</value>
+  <value column="Description" original="RMA Line">Línea Autorización Devolución</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e2e6a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53311" trl="Y">
+  <value column="Name" original="AD_Migration Status">AD_Migration Status</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e4e22-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53312" trl="Y">
+  <value column="Name" original="AD_Migration Apply/Rollback">AD_Migration Apply/Rollback</value>
+  <value column="Description" original="Apply or Rollback migration">Apply or Rollback migration</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e4ea4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53313" trl="Y">
+  <value column="Name" original="Migration step type">Migration step type</value>
+  <value column="Description" original="Type of migration step">Type of migration step</value>
+  <value column="Help" original="Either Application Dictionary change or SQL statement.">Either Application Dictionary change or SQL statement.</value>
+  <value column="UUID" original="a47e4f1c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53315" trl="Y">
+  <value column="Name" original="PA_Goal ChartType">PA_Goal ChartType</value>
+  <value column="Description" original="Chart Type">Tipo Cuadro</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e33a6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53316" trl="Y">
+  <value column="Name" original="PA_DashboardContent GoalDisplay">PA_DashboardContent GoalDisplay</value>
+  <value column="Description" original="Type of goal display on dashboard">Tipo de objetivo a desplegar en el tablero</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3428-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53317" trl="Y">
+  <value column="Name" original="AD_Role">AD_Role</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e4742-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53319" trl="Y">
+  <value column="Name" original="AD_Workflow_Manufacturing">AD_Workflow_Manufacturing</value>
+  <value column="Description" original="Manufacturing Workflows">Flujos de trabajo de manufactura</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3522-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53320" trl="Y">
+  <value column="Name" original="S_Resource_Manufacturing">S_Resource_Manufacturing</value>
+  <value column="Description" original="Manufacturing Resources">Recursos de Manufactura</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e42e2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53321" trl="Y">
+  <value column="Name" original="WM_InOutBound InOutboundType">WM_InOutBound InOutboundType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5872-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53322" trl="Y">
+  <value column="Name" original="WM_InOutBound Inbound &amp; Outbound Rule"><![CDATA[WM_InOutBound Inbound & Outbound Rule]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e58f4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53323" trl="Y">
+  <value column="Name" original="UOM Type">UOM Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3d7e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53324" trl="Y">
+  <value column="Name" original="C_DocType Outbound">C_DocType Outbound</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5976-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53325" trl="Y">
+  <value column="Name" original="C_DocType Distribution Order">C_DocType Distribution Order</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e59f8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53326" trl="Y">
+  <value column="Name" original="WM_InOutBound Draft Status">WM_InOutBound Draft Status</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5a70-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53327" trl="Y">
+  <value column="Name" original="PA_Report Period Type">PA_Report Period Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3e78-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53328" trl="Y">
+  <value column="Name" original="PA_Report Amount Type">PA_Report Amount Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3ef0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53330" trl="Y">
+  <value column="Name" original="AD_Reference Table">AD_Reference Table</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3fea-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53331" trl="Y">
+  <value column="Name" original="AD_RelationType Role">AD_RelationType Role</value>
+  <value column="Description" original="Defines the possible &quot;roles&quot; a the records of a relation can have">Defines the possible "roles" a the records of a relation can have</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e406c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53332" trl="Y">
+  <value column="Name" original="AD_RelationType Type">AD_RelationType Type</value>
+  <value column="Description" original="&quot;Type&quot; of a relation type">"Type" of a relation type</value>
+  <value column="Help" original="For now we only have implicit realtion types, i.e. the record pairs are defined by the rule itself. In future we would like to have explicit type also. An explizit type just defines a template, the actual pairs can be added by a user or by the system itself.">For now we only have implicit realtion types, i.e. the record pairs are defined by the rule itself. In future we would like to have explicit type also. An explizit type just defines a template, the actual pairs can be added by a user or by the system itself.</value>
+  <value column="UUID" original="a47e40ee-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53333" trl="Y">
+  <value column="Name" original="RelType C_Order (Sales) &lt;= C_Invoice_ID (Customer)"><![CDATA[RelType C_Invoice_ID->C_Order]]></value>
+  <value column="Description" original="Finds C_Order_IDs for a given C_Invoice_ID">Finds C_OrderIDs for a given C_Invoice_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e4166-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53334" trl="Y">
+  <value column="Name" original="RelType C_Invoice (Customer) &lt;= C_Order_ID (Sales)"><![CDATA[RelType C_Order_ID->C_Invoice]]></value>
+  <value column="Description" original="Finds C_Invoice_IDs for a given C_C_Order_ID"/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e4364-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53335" trl="Y">
+  <value column="Name" original="C_BPartner -Active,Manufacturer, Non summary">C_BPartner -Active,Manufacturer, Non summary</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3df6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53336" trl="Y">
+  <value column="Name" original="Account_ID - User3">Account_ID - User3</value>
+  <value column="Description" original="User3 selection based on Client">User3 selection based on Client</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7456-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53337" trl="Y">
+  <value column="Name" original="Account_ID - User4">Account_ID - User4</value>
+  <value column="Description" original="User4 selection based on Client">User3 selection based on Client</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e74d8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53343" trl="Y">
+  <value column="Name" original="M_DiscountSchema PL">M_DiscountSchema PL</value>
+  <value column="Description" original="Price List Discount Schema">Price List Discount Schema</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e3f72-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53345" trl="Y">
+  <value column="Name" original="RelType M_InOut (Shipment) &lt;= C_Invoice_ID (Customer)"><![CDATA[RelType C_Invoice_ID->M_InOut]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e43e6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53347" trl="Y">
+  <value column="Name" original="RelType M_InOut (Shipment) &lt;=  C_Order_ID"><![CDATA[RelType C_Order->M_InOut]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e445e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53348" trl="Y">
+  <value column="Name" original="RelType C_Invoice (Customer) &lt;= M_InOut_ID (Shipment)"><![CDATA[RelType M_InOut_ID->C_Invoice]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e44e0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53349" trl="Y">
+  <value column="Name" original="RelType C_Order (Sales) &lt;=  M_InOut_ID (Shipment)"><![CDATA[RelType M_InOut_ID->C_Order]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e4558-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53350" trl="Y">
+  <value column="Name" original="C_POSKeyLayout">C_POSKeyLayout</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e60d8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53351" trl="Y">
+  <value column="Name" original="POSKeyLayoutType">POSKeyLayoutType</value>
+  <value column="Description" original="POS Key layout types">POS Key layout types</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e48a0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53352" trl="Y">
+  <value column="Name" original="RelType C_BPartner &lt;= Vendor/Customer Return"><![CDATA[RelType C_BPartner_ID->Customer_RMA]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e45d0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53353" trl="Y">
+  <value column="Name" original="RelType Customer Return &lt;= C_BPartner_ID"><![CDATA[RelType Customer_RMA->C_BPartner_ID]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e4652-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53354" trl="Y">
+  <value column="Name" original="RelType Vendor Return &lt;= C_BPartner_ID"><![CDATA[RelType Vendor_RMA <= C_BPartner_ID]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e46ca-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53357" trl="Y">
+  <value column="Name" original="A_Asset_Group">A_Asset_Group</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5eda-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53358" trl="Y">
+  <value column="Name" original="A_Asset_Class (all)">A_Asset_Class (all)</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5f5c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53359" trl="Y">
+  <value column="Name" original="A_Asset Status">A_Asset Status</value>
+  <value column="Description" original="Asset Status">Asset Status</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5fd4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53360" trl="Y">
+  <value column="Name" original="A_Asset Actions">A_Asset Actions</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e41e8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53361" trl="Y">
+  <value column="Name" original="A_Tip_Finantare">A_Tip_Finantare</value>
+  <value column="Description" original="Tip finantare investitii">Tip finantare investitii</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6358-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53362" trl="Y">
+  <value column="Name" original="A_Depreciation_Method">A_Depreciation_Method</value>
+  <value column="Description" original="Depreciation Calculation Method">Depreciation Calculation Method</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e64fc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53363" trl="Y">
+  <value column="Name" original="M_MatchInv for Asset Addition">M_MatchInv for Asset Addition</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6588-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53364" trl="Y">
+  <value column="Name" original="A_Activation_Method">A_Activation_Method</value>
+  <value column="Description" original="Activation Methods">Activation Methods</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e660a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53365" trl="Y">
+  <value column="Name" original="Yes-No-Unknown">Yes-No-Unknown</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6704-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53366" trl="Y">
+  <value column="Name" original="C_Period - all, acct, sysdate, desc">C_Period - all, acct, sysdate, desc</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6786-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53370" trl="Y">
+  <value column="Name" original="Chart">Chart</value>
+  <value column="Description" original="Chart">Chart</value>
+  <value column="Help" original="A chart provides a graphical display of information.">A chart provides a graphical display of information.</value>
+  <value column="UUID" original="a47e4b98-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53371" trl="Y">
+  <value column="Name" original="Reconciliation Type">Reconciliation Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5502-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53372" trl="Y">
+  <value column="Name" original="Reconciliation Rules">Reconciliation Rules</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e55fc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53375" trl="Y">
+  <value column="Name" original="ChartOrientation">ChartOrientation</value>
+  <value column="Description" original="Chart Orientation">Chart Orientation</value>
+  <value column="Help" original="Horizontal or vertical">Horizontal or vertical</value>
+  <value column="UUID" original="a47e4c24-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53376" trl="Y">
+  <value column="Name" original="TimeUnit">TimeUnit</value>
+  <value column="Description" original="Time units for charting.">Time units for charting.</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e4ca6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53377" trl="Y">
+  <value column="Name" original="ChartType">ChartType</value>
+  <value column="Description" original="Chart Type">Chart Type</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e4d28-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53410" trl="Y">
+  <value column="Name" original="PriceOverrideType">PriceOverrideType</value>
+  <value column="Description" original="Price Override Type">Price Override Type</value>
+  <value column="Help" original="Fixed price or discount off list">Fixed price or discount off list</value>
+  <value column="UUID" original="a47e49ea-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53412" trl="Y">
+  <value column="Name" original="M_Replenishment Production Create ">M_Replenishment Production Create </value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e495e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53415" trl="Y">
+  <value column="Name" original="Lead Source">Lead Source</value>
+  <value column="Description" original="Lead Source">Lead Source</value>
+  <value column="Help" original="The source of a lead">The source of a lead</value>
+  <value column="UUID" original="a47e6880-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53416" trl="Y">
+  <value column="Name" original="Lead Status">Lead Status</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6902-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53417" trl="Y">
+  <value column="Name" original="C_Order for opportunity">C_Order for opportunity</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6984-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53423" trl="Y">
+  <value column="Name" original="C_ContactActivity Type">C_ContactActivity Type</value>
+  <value column="Description" original="Contact Activity Types">Contact Activity Types</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e69fc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53424" trl="Y">
+  <value column="Name" original="C_SalesStage">C_SalesStage</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47deda6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53425" trl="Y">
+  <value column="Name" original="Print Document">Documento a imprimir</value>
+  <value column="Description" original="">Documento a imprimir</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e9b5c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53431" trl="Y">
+  <value column="Name" original="M_Product_Classification Parent">M_Product Classification Parent</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e530e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53432" trl="Y">
+  <value column="Name" original="M_Product_Class Parent">M_Product Class Parent</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5214-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53433" trl="Y">
+  <value column="Name" original="M_Product_Group Parent">M_Product Group Parent</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5296-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53434" trl="Y">
+  <value column="Name" original="M_Product_Classification Value">M_Product Classification Value</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e511a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53435" trl="Y">
+  <value column="Name" original="M_Product_Class Value">M_Product_Class Value</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e50a2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53436" trl="Y">
+  <value column="Name" original="M_Product_Group Value">M_Product_Group Value</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e519c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53437" trl="Y">
+  <value column="Name" original="AD_View_Column">AD_View_Column</value>
+  <value column="Description" original="View Column selection">View Column selection</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e4da0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53438" trl="Y">
+  <value column="Name" original="PP_DefinitionPeriod">PP_DefinitionPeriod</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5584-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53439" trl="Y">
+  <value column="Name" original="PP_Forecast Action Type">PP_Forecast Action Type</value>
+  <value column="Description" original="Forecast Action Type List containt the option if the forecast is replaced or combined">Forecast Action Type List containt the option if the forecast is replaced or combined</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5386-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53440" trl="Y">
+  <value column="Name" original="PP_Forecast Load Type">PP_Forecast Load Type</value>
+  <value column="Description" original="List Forecast Load Type indicated that period date is use to create the forecast line.">List Forecast Load Type indicated that period date is use to create the forecast line.</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5020-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53458" trl="Y">
+  <value column="Name" original="AD_Message MRP &amp; DRP"><![CDATA[AD_Message MRP & DRP]]></value>
+  <value column="Description" original="Message selection MRP &amp; DRP"><![CDATA[Message selection MRP & DRP]]></value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5ae8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53459" trl="Y">
+  <value column="Name" original="PP_MRP">PP_MRP</value>
+  <value column="Description" original="Material Requirement Planning">Material Requirement Planning</value>
+  <value column="Help" original="Material Requirement Planning">Material Requirement Planning</value>
+  <value column="UUID" original="a47e5c64-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53460" trl="Y">
+  <value column="Name" original="PP_MRP Document No">PP_MRP Document No</value>
+  <value column="Description" original="Material Requirement Planning">Material Requirement Planning</value>
+  <value column="Help" original="Material Requirement Planning">Material Requirement Planning</value>
+  <value column="UUID" original="a47e5d68-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53562" trl="Y">
+  <value column="Name" original="Aisle (X)">Aisle (X)</value>
+  <value column="Description" original="Warehouse locator Aisle (X)">Warehouse locator Aisle (X)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e755a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53564" trl="Y">
+  <value column="Name" original="_ReportStyle">_ReportStyle</value>
+  <value column="Description" original="The styles for a report are defined">The styles for a report are defined</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5408-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53572" trl="Y">
+  <value column="Name" original="PA_DashBoard">PA_DashBoard</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e567e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53573" trl="Y">
+  <value column="Name" original="AD_Zoom_Win">AD_Zoom_Win</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e548a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53574" trl="Y">
+  <value column="Name" original="Event List">Event List</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e56f6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53588" trl="Y">
+  <value column="Name" original="AD_Browse_Fields">PA_Dashboard_Fields</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5778-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53598" trl="Y">
+  <value column="Name" original="C_ValidCombination (with Alias defined)">C_ValidCombination (with Alias defined)</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6b46-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53607" trl="Y">
+  <value column="Name" original="HR_LeaveType Leave Repeated Type">HR_LeaveType Leave Repeated Type</value>
+  <value column="Description" original="Leave Repeated Type">Leave Repeated Type</value>
+  <value column="Help" original="Leave Repeated Type">Leave Repeated Type</value>
+  <value column="UUID" original="a47e6c04-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53608" trl="Y">
+  <value column="Name" original="HR_LeaveType Credit Time">HR_LeaveType Credit Time</value>
+  <value column="Description" original="Leave Type Credit Time">Leave Type Credit Time</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5e58-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53609" trl="Y">
+  <value column="Name" original="HR_LeaveType Adjacent Holidays Type">HR_LeaveType Adjacent Holidays Type</value>
+  <value column="Description" original="Adjacent Holidays Type">Adjacent Holidays Type</value>
+  <value column="Help" original="Adjacent Holidays Type">Adjacent Holidays Type</value>
+  <value column="UUID" original="a47e6c86-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53610" trl="Y">
+  <value column="Name" original="HR_LeaveReason Types Of the reasons">HR_LeaveReason Types Of the reasons</value>
+  <value column="Description" original="Types Of the reasons">Types Of the reasons</value>
+  <value column="Help" original="Types Of the reasons">Types Of the reasons</value>
+  <value column="UUID" original="a47e6d08-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53611" trl="Y">
+  <value column="Name" original="C_BPartner Of Type  Department Managers">C_BPartner Of Type  Department Managers</value>
+  <value column="Description" original="BPartners Of Type  Department Managers">BPartners Of Type  Department Managers</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6d80-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53612" trl="Y">
+  <value column="Name" original="Gender">Gender</value>
+  <value column="Description" original="Gender">Gender</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e62cc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53613" trl="Y">
+  <value column="Name" original="C_Country Nationality">C_Country Nationality</value>
+  <value column="Description" original="Nationality">Nationality</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e818a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53614" trl="Y">
+  <value column="Name" original="Marital Status">Marital Status</value>
+  <value column="Description" original="Marital Status">Marital Status</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e8112-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53615" trl="Y">
+  <value column="Name" original="HR_Race Race">HR_Race Race</value>
+  <value column="Description" original="Race">Race</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6e02-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53616" trl="Y">
+  <value column="Name" original="C_BPartner Blood Group">C_BPartner Blood Group</value>
+  <value column="Description" original="Blood Group">Blood Group</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e820c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53617" trl="Y">
+  <value column="Name" original="HR_Employee Status &amp; ESI Response Code"><![CDATA[HR_Employee Status & ESI Response Code]]></value>
+  <value column="Description" original="Employee Status &amp; ESI Response Code"><![CDATA[Employee Status & ESI Response Code]]></value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7ba4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53618" trl="Y">
+  <value column="Name" original="HR_Education Year Of Passing">HR_Education Year Of Passing</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5b6a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53619" trl="Y">
+  <value column="Name" original="C_BPartner_Location Contact Type">C_BPartner_Location Contact Type</value>
+  <value column="Description" original="C_BPartner_Location">C_BPartner_Location</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5bec-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53620" trl="Y">
+  <value column="Name" original="HR_EmployeeInsurance Payment Frequency">HR_EmployeeInsurance Payment Frequency</value>
+  <value column="Description" original="Payment Frequency">Payment Frequency</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5ce6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53621" trl="Y">
+  <value column="Name" original="HR_EmployeeType Wage Level">HR_EmployeeType Wage Level</value>
+  <value column="Description" original="Wage Level">Wage Level</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6e7a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53622" trl="Y">
+  <value column="Name" original="HR_JobApplication Identity Proof">HR_JobApplication Identity Proof</value>
+  <value column="Description" original="Identity Proof">Identity Proof</value>
+  <value column="Help" original="Identity Proof">Identity Proof</value>
+  <value column="UUID" original="a47e6efc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53623" trl="Y">
+  <value column="Name" original="HR_Application Status">HR_Application Status</value>
+  <value column="Description" original="Status Of The Application">Status Of The Application</value>
+  <value column="Help" original="Applied&#10;- Shortlisted&#10;- Rejected&#10;- Interview (In-progress)&#10;- Offered&#10;- Offer Accepted&#10;- Joined&#10;">Applied
+- Shortlisted
+- Rejected
+- Interview (In-progress)
+- Offered
+- Offer Accepted
+- Joined
+</value>
+  <value column="UUID" original="a47e6f74-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53624" trl="Y">
+  <value column="Name" original="C_BPartner Employee Display Code">C_BPartner Employee Display Code</value>
+  <value column="Description" original="Dispalay Code">Dispalay Code</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e6ff6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53625" trl="Y">
+  <value column="Name" original="Inter View Rating / Score">Inter View Rating / Score</value>
+  <value column="Description" original="Inter View Rating / Score">Inter View Rating / Score</value>
+  <value column="Help" original="Inter View Rating / Score">Inter View Rating / Score</value>
+  <value column="UUID" original="a47e706e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53629" trl="Y">
+  <value column="Name" original="HR_LeaveTypeCombination Valid leave type for an leave">HR_LeaveTypeCombination Valid leave type for an leave</value>
+  <value column="Description" original="Valid leave type for an leave">Valid leave type for an leave</value>
+  <value column="Help" original="Valid leave type for an leave">Valid leave type for an leave</value>
+  <value column="UUID" original="a47e70f0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53670" trl="Y">
+  <value column="Name" original="FilePathOrName">Nombre o ruta del archivo</value>
+  <value column="Description" original="Local File Path or Name">Nombre o ruta del archivo</value>
+  <value column="Help" original="Selects a path or a single file.">Selecciona una ruta o un archivo.</value>
+  <value column="UUID" original="a47e4f9e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53688" trl="Y">
+  <value column="Name" original="_Document Action Import budget">_Document Action Import budget</value>
+  <value column="Description" original="Document action list">Document action list</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e5de0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53691" trl="Y">
+  <value column="Name" original="header print format">header print format</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7fa0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53767" trl="Y">
+  <value column="Name" original="ReportType">ReportType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e809a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53782" trl="Y">
+  <value column="Name" original="M_Production_ReplenishPlan">M_Production_ReplenishPlan</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7c26-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53783" trl="Y">
+  <value column="Name" original="C_Order_ReplenishPlan">C_Order_ReplenishPlan</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7366-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53793" trl="Y">
+  <value column="Name" original="PA_ReportLine Line Stroke Type">PA_ReportLine Line Stroke Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e8018-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53800" trl="Y">
+  <value column="Name" original="M_Production">M_Production</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e77c6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53805" trl="Y">
+  <value column="Name" original="C_PaySelectionLine">C_PaySelectionLine</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e72e4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53808" trl="Y">
+  <value column="Name" original="CreateFromType List">CreateFromType List</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7b2c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53835" trl="Y">
+  <value column="Name" original="EncryptionType List">EncryptionType List</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7942-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53836" trl="Y">
+  <value column="Name" original="AuthMechanisms List">AuthMechanisms List</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7a3c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53837" trl="Y">
+  <value column="Name" original="Protocol List">Protocol List</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7ab4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53843" trl="Y">
+  <value column="Name" original="DD_Order">DD_Order</value>
+  <value column="Description" original="Distribution Order">Distribution Order</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e73de-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53856" trl="Y">
+  <value column="Name" original="RelType M_ProductionBatch &lt;= M_Production"><![CDATA[RelType M_ProductionBatch <= M_Production]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7c9e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53857" trl="Y">
+  <value column="Name" original="RelType M_Production &lt;= M_ProductionBatch"><![CDATA[RelType M_Production <= M_ProductionBatch]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7d16-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53858" trl="Y">
+  <value column="Name" original="RelType M_ProductionBatch &lt;= M_Movement"><![CDATA[RelType M_ProductionBatch <= M_Movement]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7e9c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53859" trl="Y">
+  <value column="Name" original="RelType M_Movement &lt;= M_ProductionBatch"><![CDATA[RelType M_Movement <= M_ProductionBatch]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e7f28-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53871" trl="Y">
+  <value column="Name" original="HR_Movement">HR_Movement</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e8284-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53875" trl="Y">
+  <value column="Name" original="M_MovementConfirm">M_MovementConfirm</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e8658-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53876" trl="Y">
+  <value column="Name" original="M_MovementLineConfirm">M_MovementLineConfirm</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e87b6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53887" trl="Y">
+  <value column="Name" original="HR_Concept reference">HR_Concept reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e8b80-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53900" trl="Y">
+  <value column="Name" original="DD_LicenseType Transport License Type">DD_LicenseType Transport License Type</value>
+  <value column="Description" original="Transport License Type">Transport License Type</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e8d10-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53901" trl="Y">
+  <value column="Name" original="DD_TransportUnitType Transport Mode">DD_TransportUnitType Transport Mode</value>
+  <value column="Description" original="The modes of transport supported">The modes of transport supported</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e8e14-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53902" trl="Y">
+  <value column="Name" original="DD_TransportUnitType Transport Physical Type">DD_TransportUnitType Tipo Transporte Fisico</value>
+  <value column="Description" original=" physical type of the transport unit into a part that carries the load, a mover, and other load bearing elements">El tipo físico de la unidad de transporte en una parte que lleva la carga, un elemento móvil y otros elementos de soporte de carga</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e8f04-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53903" trl="Y">
+  <value column="Name" original="DD_TransportUnit Transport Unit Status">DD_TransportUnit Transport Unit Status</value>
+  <value column="Description" original="Transport unit status">Transport unit status</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e901c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53904" trl="Y">
+  <value column="Name" original="DD_Driver Driver Status">DD_Driver Driver Status</value>
+  <value column="Description" original="Driver Status">Driver Status</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e9558-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53905" trl="Y">
+  <value column="Name" original="DD_VehicleType Vehicle Type">DD_VehicleType Tipo de Vehículo</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e96de-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53906" trl="Y">
+  <value column="Name" original="DD_Vehicle Vehicle Status">DD_Vehicle Vehicle Status</value>
+  <value column="Description" original="Vehicle Status">Vehicle Status</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e9882-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53921" trl="Y">
+  <value column="Name" original="RelType C_Payment -&gt; C_PaySelection"><![CDATA[RelType C_Payment -> C_PaySelection]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e9e5e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53922" trl="Y">
+  <value column="Name" original="RelType C_PaySelection -&gt; C_Payment"><![CDATA[RelType C_PaySelection -> C_Payment]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47e9fc6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53923" trl="Y">
+  <value column="Name" original="RelType C_Payment -&gt; C_PaymentBatch"><![CDATA[RelType C_Payment -> C_PaymentBatch]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea08e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53924" trl="Y">
+  <value column="Name" original="RelType C_PaymentBatch -&gt; C_Payment"><![CDATA[RelType C_PaymentBatch -> C_Payment]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea11a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53925" trl="Y">
+  <value column="Name" original="RelType C_PaySelection -&gt; C_PaymentBatch"><![CDATA[RelType C_PaySelection -> C_PaymentBatch]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea192-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53926" trl="Y">
+  <value column="Name" original="RelType C_PaymentBatch -&gt; C_PaySelection"><![CDATA[RelType C_PaymentBatch -> C_PaySelection]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea214-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53927" trl="Y">
+  <value column="Name" original="RelType C_PaySelection -&gt; C_PaySelection (Payment Request)"><![CDATA[RelType C_PaySelection -> C_PaySelection (Payment Request)]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea28c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53928" trl="Y">
+  <value column="Name" original="RelType C_PaySelection (Payment Request) -&gt; C_PaySelection"><![CDATA[RelType C_PaySelection (Payment Request) -> C_PaySelection]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea37c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53929" trl="Y">
+  <value column="Name" original="C_City Reference">C_City Reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea516-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53930" trl="N">
+  <value column="Name" original="M_ReplenishPlanLine RecordType">M_ReplenishPlanLine RecordType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea5c0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53931" trl="N">
+  <value column="Name" original="M_MatchInv">M_MatchInv</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea656-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53932" trl="N">
+  <value column="Name" original="M_MatchPO">M_MatchPO</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea6ce-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53933" trl="N">
+  <value column="Name" original="C_InvoiceLine">C_InvoiceLine</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea750-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53934" trl="N">
+  <value column="Name" original="GL_JournalLine">GL_JournalLine</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea7c8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53935" trl="N">
+  <value column="Name" original="C_AllocationLine">C_AllocationLine</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea840-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53938" trl="N">
+  <value column="Name" original="RelType C_Payment (FBTT) =&gt; C_Payment (Origin)"><![CDATA[RelType C_Payment (Origin) => C_Payment (FBTT)]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="c40e0708-128f-11e9-adf1-e701c411ccab"/>
+ </row>
+ <row id="53939" trl="N">
+  <value column="Name" original="AD_Table Name">AD_Table Name</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ea8c2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53940" trl="N">
+  <value column="Name" original="C_ProjectGroup">C_ProjectGroup</value>
+  <value column="Description" original="Project Group">Project Group</value>
+  <value column="Help" original="Project Group">Project Group</value>
+  <value column="UUID" original="a47ea93a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53941" trl="N">
+  <value column="Name" original="C_ProjectClass">C_ProjectClass</value>
+  <value column="Description" original="Project Class">Project Class</value>
+  <value column="Help" original="Project Class">Project Class</value>
+  <value column="UUID" original="a47ea9b2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53942" trl="N">
+  <value column="Name" original="C_ProjectCategory">C_ProjectCategory</value>
+  <value column="Description" original="Project Category">Project Category</value>
+  <value column="Help" original="Project Category">Project Category</value>
+  <value column="UUID" original="a47eaa34-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53943" trl="N">
+  <value column="Name" original="C_ProjectStatus">C_ProjectStatus</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eab2e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53951" trl="N">
+  <value column="Name" original="RelType C_Order (Sales) =&gt; C_Invoice_ID Sales Invoice (Open)"><![CDATA[RelType C_Order (Sales) => C_Invoice_ID Sales Invoice (Open)]]></value>
+  <value column="Description" original="Finds Sales Invoice Open">Finds Sales Invoice Open</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eaba6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53952" trl="N">
+  <value column="Name" original="RelType C_Order (Vendor) =&gt; C_Invoice_ID Invoice (Open)"><![CDATA[RelType C_Order (Vendor) => C_Invoice_ID Invoice (Open)]]></value>
+  <value column="Description" original="Finds Vendor Invoice Open">Finds Vendor Invoice Open</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eac28-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53953" trl="N">
+  <value column="Name" original="RelType C_Order =&gt; C_Payment_ID Unallocated Payments"><![CDATA[RelType C_Order => C_Payment_ID Unallocated Payments]]></value>
+  <value column="Description" original="Finds Unallocated Payments">Finds Unallocated Payments</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eacaa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53954" trl="N">
+  <value column="Name" original="RelType C_Order &lt;= C_Payment_ID Payments"><![CDATA[RelType C_Order <= C_Payment_ID Payments]]></value>
+  <value column="Description" original="Finds Payments">Finds Payments</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eae80-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53955" trl="N">
+  <value column="Name" original="RelType C_Order (Vendor) &lt;= C_Invoice_ID (Vendor)"><![CDATA[RelType C_Order (Vendor) <= C_Invoice_ID (Vendor)]]></value>
+  <value column="Description" original="Finds C_Order_IDs for a given C_Invoice_ID">Finds C_Order_IDs for a given C_Invoice_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb4b6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53956" trl="N">
+  <value column="Name" original="RelType C_BPartner =&gt; C_Payment_ID Unallocated Payments"><![CDATA[RelType C_BPartner => C_Payment_ID Unallocated Payments]]></value>
+  <value column="Description" original="Finds Unallocated Payments">Finds Unallocated Payments</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eaf16-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53957" trl="N">
+  <value column="Name" original="RelType C_BPartner &lt;= C_Payment_ID Payments"><![CDATA[RelType C_BPartner <= C_Payment_ID Payments]]></value>
+  <value column="Description" original="Finds Business Partner">Finds Business Partner</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eaf98-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53958" trl="N">
+  <value column="Name" original="RelType C_BPartner =&gt; C_Invoice_ID Sales (Open)"><![CDATA[RelType C_BPartner => C_Invoice_ID Sales (Open)]]></value>
+  <value column="Description" original="Finds Invoice Open from BP">Finds Invoice Open from BP</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb2a4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53959" trl="N">
+  <value column="Name" original="RelType C_BPartner =&gt; C_Invoice_ID Vendor (Open)"><![CDATA[RelType C_BPartner => C_Invoice_ID Vendor (Open)]]></value>
+  <value column="Description" original="Finds Invoice Open from BP">Finds Invoice Open from BP</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb344-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53960" trl="N">
+  <value column="Name" original="RelType C_BPartner &lt;= C_Invoice Invoice"><![CDATA[RelType C_BPartner <= C_Invoice Invoice]]></value>
+  <value column="Description" original="Finds Business Partner">Finds Business Partner</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb3c6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53961" trl="N">
+  <value column="Name" original="RelType C_Payment =&gt; C_BankStatement_ID"><![CDATA[RelType C_Payment => C_BankStatement_ID]]></value>
+  <value column="Description" original="Finds Payment in Bank Statement">Finds Payment in Bank Statement</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb43e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53962" trl="N">
+  <value column="Name" original="RelType C_Payment &lt;= C_BankStatement_ID"><![CDATA[RelType C_Payment <= C_BankStatement_ID]]></value>
+  <value column="Description" original="Finds C_Payment_IDs for a given C_BankStatement_ID">Finds C_Payment_IDs for a given C_BankStatement_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb538-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53963" trl="N">
+  <value column="Name" original="RelType C_Invoice =&gt; C_AllocationHdr_ID Allocations"><![CDATA[RelType C_Invoice => C_AllocationHdr_ID Allocations]]></value>
+  <value column="Description" original="Finds Allocations for Invoice">Finds Allocations for Invoice</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb5b0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53964" trl="N">
+  <value column="Name" original="RelType C_Invoice &lt;= C_AllocationHdr_ID"><![CDATA[RelType C_Invoice <= C_AllocationHdr_ID]]></value>
+  <value column="Description" original="Finds C_Invoice_IDs for a given C_AllocationHdr_ID">Finds C_Invoice_IDs for a given C_AllocationHdr_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb628-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53965" trl="N">
+  <value column="Name" original="RelType C_Invoice =&gt; C_Payment_ID Allocations"><![CDATA[RelType C_Invoice => C_Payment_ID Allocations]]></value>
+  <value column="Description" original="Finds Payment Allocated for Invoice">Finds Payment Allocated for Invoice</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb6a0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53966" trl="N">
+  <value column="Name" original="RelType C_Invoice (Vendor) &lt;= C_Payment_ID"><![CDATA[RelType C_Invoice (Vendor) <= C_Payment_ID]]></value>
+  <value column="Description" original="Finds C_Invoice_IDs for a given C_Payment_ID">Finds C_Invoice_IDs for a given C_Payment_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb718-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53967" trl="N">
+  <value column="Name" original="RelType C_Invoice (Customer) &lt;= C_Payment_ID"><![CDATA[RelType C_Invoice (Customer) <= C_Payment_ID]]></value>
+  <value column="Description" original="Finds C_Invoice_IDs for a given C_Payment_ID">Finds C_Invoice_IDs for a given C_Payment_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb790-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53968" trl="N">
+  <value column="Name" original="RelType C_Invoice =&gt; C_Invoice_ID Sales Allocations"><![CDATA[RelType C_Invoice => C_Invoice_ID Sales Allocations]]></value>
+  <value column="Description" original="Finds Sales Invoices Allocated for Invoice">Finds Sales Invoices Allocated for Invoice</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb808-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53969" trl="N">
+  <value column="Name" original="RelType C_Invoice =&gt; C_Invoice_ID Vendor Allocations"><![CDATA[RelType C_Invoice => C_Invoice_ID Vendor Allocations]]></value>
+  <value column="Description" original="Finds Vendor Invoices Allocated for Invoice">Finds Vendor Invoices Allocated for Invoice</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb88a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53970" trl="N">
+  <value column="Name" original="RelType C_Invoice =&gt; M_MatchPO Match PO"><![CDATA[RelType C_Invoice => M_MatchPO Match PO]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb902-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53971" trl="N">
+  <value column="Name" original="RelType C_Invoice =&gt; M_MatchInv Match Invoice"><![CDATA[RelType C_Invoice => M_MatchInv Match Invoice]]></value>
+  <value column="Description" original="Receipt Matched">Receipt Matched</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb97a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53972" trl="N">
+  <value column="Name" original="RelType C_Invoice =&gt; PO Matched"><![CDATA[RelType C_Invoice => PO Matched]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eb9f2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53973" trl="N">
+  <value column="Name" original="RelType C_Invoice =&gt; Receipts Matched"><![CDATA[RelType C_Invoice => Receipts Matched]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47eba74-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53974" trl="N">
+  <value column="Name" original="RelType C_Invoice &lt;= Match"><![CDATA[RelType C_Invoice <= Match]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ebaec-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53975" trl="N">
+  <value column="Name" original="RelType C_Invoice &lt;= C_Order_ID Matched"><![CDATA[RelType C_Invoice <= C_Order_ID Matched]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ebb64-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53976" trl="N">
+  <value column="Name" original="RelType C_Invoice &lt;= M_InOut_ID Matched"><![CDATA[RelType C_Invoice <= M_InOut_ID Matched]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ebbdc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53978" trl="N">
+  <value column="Name" original="BankType List">BankType List</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ebcd6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53979" trl="N">
+  <value column="Name" original="C_ProjectTaskCategory">C_ProjectTaskCategory</value>
+  <value column="Description" original="Project Task Category">Project Task Category</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ebc5e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53980" trl="N">
+  <value column="Name" original="C_BankAccount as Cash">C_BankAccount as Cash</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ebd4e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53981" trl="N">
+  <value column="Name" original="C_Payment as Cash">C_Payment as Cash</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ebdc6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53982" trl="N">
+  <value column="Name" original="RelType C_Payment (Cash) =&gt; C_Payment_ID (Deposit)"><![CDATA[RelType C_Payment (Cash) => C_Payment_ID Deposit]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ebec0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53983" trl="N">
+  <value column="Name" original="RelType C_Payment (Cash) &lt;= C_Payment_ID (Deposit)"><![CDATA[RelType C_Payment (Cash) <= C_Payment_ID (Deposit)]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ebe3e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53984" trl="N">
+  <value column="Name" original="R_StandardRequest">R_StandardRequest</value>
+  <value column="Description" original="R_StandardRequest">R_StandardRequest</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ebf38-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53985" trl="N">
+  <value column="Name" original="C_DocType Payment Allocation">C_DocType Payment Allocation</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ebfb0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53994" trl="N">
+  <value column="Name" original="AD_User - Project Manager">AD_User - Project Manager</value>
+  <value column="Description" original="Project Manager">Project Manager</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ec028-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53995" trl="N">
+  <value column="Name" original="AD_User - Project Member">AD_User - Project Member</value>
+  <value column="Description" original="Project Member">Project Member</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ec0a0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54058" trl="N">
+  <value column="Name" original="C_DocType PO">C_DocType PO</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ec348-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54061" trl="N">
+  <value column="Name" original="DocsExportFormat List">ExportFormat List</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="431166fa-3098-11e9-8dcd-63e1650d7d8c"/>
+ </row>
+ <row id="54071" trl="N">
+  <value column="Name" original="TokenType reference">TokenType reference</value>
+  <value column="Description" original="reference for token">reference for token</value>
+  <value column="Help" original="Can be SMS MMS, EMail Other">Can be SMS MMS, EMail Other</value>
+  <value column="UUID" original="a47ec244-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54072" trl="N">
+  <value column="Name" original="AD_Token reference">AD_Token reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ec2c6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54081" trl="N">
+  <value column="Name" original="Application Type List">Application Type List</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a47ec438-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54117" trl="N">
+  <value column="Name" original="HierarchyType List">Tipo de Jerarquía</value>
+  <value column="Description" original="">Tipo de Jerarquía en personalización</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="d1be8bba-4b89-11e9-8045-537e7472b1c4">d1c0cb50-4b89-11e9-8047-bbad0c1112eb</value>
+ </row>
+ <row id="54118" trl="N">
+  <value column="Name" original="TemplateType List">TemplateType List</value>
+  <value column="Description" original="Template Type List">Template Type List</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="722d2db6-509b-11e9-89f6-57de241836b2">723383a0-509b-11e9-89f8-07da4c71e863</value>
+ </row>
+ <row id="54119" trl="N">
+  <value column="Name" original="EventType Notification">EventType Notification</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8f0b9b32-509d-11e9-8a0a-9388433cfa34">8f0d94b4-509d-11e9-8a0c-ebd8fa750ae4</value>
+ </row>
+ <row id="54120" trl="N">
+  <value column="Name" original="ASP_Level Type">ASP_Level Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="513a1f4a-56e2-11e9-9bd4-d7a674dfbfbb">51735a44-56e2-11e9-9be7-e79b1151af13</value>
+ </row>
+ <row id="54130" trl="N">
+  <value column="Name" original="AD_Session reference">AD_Session reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="6dfae828-80b6-11e9-b4f4-873410f78a50">6e43fe96-80b6-11e9-b507-0fd1100c9dd8</value>
+ </row>
+ <row id="54145" trl="N">
+  <value column="Name" original="Withholding Person Type">Withholding Person Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="963043aa-8e2c-11e9-a006-eb72a3af776d">965bc2fa-8e2c-11e9-a019-639522b9afec</value>
+ </row>
+ <row id="54146" trl="N">
+  <value column="Name" original="LVE_List reference">LVE_List DefaultTaxRate_ID</value>
+  <value column="Description" original="Used for eference of List"/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="d9c466e6-8ef9-11e9-b41f-f37f4ae9ce39">da35df60-8ef9-11e9-b432-c3374b5969ad</value>
+ </row>
+ <row id="54147" trl="N">
+  <value column="Name" original="LVE_ListType reference">LVE_ListType reference</value>
+  <value column="Description" original="Used for eference of List Type">Used for eference of List Type</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="f805aa50-8f00-11e9-8be8-13ca33169ec2">f83c4164-8f00-11e9-8bfb-df02d72c1bb9</value>
+ </row>
+</adempiereTrl>

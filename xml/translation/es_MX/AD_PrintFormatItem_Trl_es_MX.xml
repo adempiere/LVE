@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--ADempiere(r) Release 3.9.2_2019-05-03 -Smart Suite ERP,CRM and SCM- (c) 1999-2019 ADempiere(r); Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_MX" table="AD_PrintFormatItem">
+ <row id="50477" trl="N">
+  <value column="PrintName" original="VendorProductNo">VendorProductNo</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40cd1ca-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50992" trl="Y">
+  <value column="PrintName" original="Setup">Configuración</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40abfc0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51001" trl="Y">
+  <value column="PrintName" original="Cost T">Costo T</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40a2d80-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51005" trl="Y">
+  <value column="PrintName" original="Cost TL">Costo TL</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40a2f92-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51006" trl="Y">
+  <value column="PrintName" original="Cost LL">Cost NM</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40a3014-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51013" trl="Y">
+  <value column="PrintName" original="Levels">Niveles</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40a3514-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51018" trl="Y">
+  <value column="PrintName" original="Parent">Padre</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40a37a8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51026" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40cd530-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51066" trl="Y">
+  <value column="PrintName" original="F  Cost">Costo F</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40a3bc2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51067" trl="Y">
+  <value column="PrintName" original="F  Cost LL">Costo F NM</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40a3c44-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51068" trl="Y">
+  <value column="PrintName" original="S Cost">Costo E</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40a3cc6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51069" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40a28c6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51074" trl="Y">
+  <value column="PrintName" original="Description">Descripción</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40cd63e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51075" trl="Y">
+  <value column="PrintName" original="Help">Ayuda</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40cd6c0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51076" trl="Y">
+  <value column="PrintName" original="Help"/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40cd742-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51337" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40cdc6a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51642" trl="N">
+  <value column="PrintName" original="Cost LL">Cost LL</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40b836a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51643" trl="N">
+  <value column="PrintName" original="Total Cost">Total Cost</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40b8bda-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51646" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40cdf58-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51647" trl="Y">
+  <value column="PrintName" original="Amt LL">Amt LL</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40ce084-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="51648" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40ce11a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53007" trl="Y">
+  <value column="PrintName" original="Standard Cost">Standard Cost</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c0c9a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53008" trl="Y">
+  <value column="PrintName" original="Std Cost Amount Sum">Std Cost Amount Sum</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c09de-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53063" trl="Y">
+  <value column="PrintName" original="Single Level BOM">Single Level BOM</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c450c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53064" trl="Y">
+  <value column="PrintName" original="Part Number">Part Number</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c461a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53065" trl="Y">
+  <value column="PrintName" original="Product Name">Product Name</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c4598-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53066" trl="Y">
+  <value column="PrintName" original="Product Category">Product Category</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c46a6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53067" trl="Y">
+  <value column="PrintName" original="Part Type">Part Type</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c471e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53068" trl="Y">
+  <value column="PrintName" original="Unit of Measure">Unit of Measure</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c47a0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53069" trl="Y">
+  <value column="PrintName" original="Locator">Locator</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c4818-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53070" trl="Y">
+  <value column="PrintName" original="Standard Cost">Standard Cost</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c4890-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53073" trl="Y">
+  <value column="PrintName" original="Bill of Materials">Bill of Materials</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c4458-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53074" trl="Y">
+  <value column="PrintName" original="BOM Verified">BOM Verified</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c4912-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53075" trl="Y">
+  <value column="PrintName" original="Manufactured">Manufactured</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c498a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53076" trl="Y">
+  <value column="PrintName" original="Purchased">Purchased</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c4a02-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53077" trl="Y">
+  <value column="PrintName" original="Sold">Sold</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c4a7a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53078" trl="Y">
+  <value column="PrintName" original="Kanban">Kanban</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c4afc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53081" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c22e8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53129" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40b3e78-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53130" trl="Y">
+  <value column="PrintName" original="Project Phase">Fase del Proyecto</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40b3efa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53131" trl="Y">
+  <value column="PrintName" original="Campaign">Campaña</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40ce6c4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54435" trl="Y">
+  <value column="PrintName" original="Approval Amt">Approval Amt</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c522c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54436" trl="Y">
+  <value column="PrintName" original="Process Now">Process Now</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c52a4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54437" trl="Y">
+  <value column="PrintName" original="Phys.Inventory">Phys.Inventory</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c531c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54438" trl="Y">
+  <value column="PrintName" original="Active">Active</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5394-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54439" trl="Y">
+  <value column="PrintName" original="Posted">Posted</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c540c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54440" trl="Y">
+  <value column="PrintName" original="Doc Action">Doc Action</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5484-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54441" trl="Y">
+  <value column="PrintName" original="Trx Organisation">Trx Organisation</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5862-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54442" trl="Y">
+  <value column="PrintName" original="Work Centre">Work Centre</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c58da-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54443" trl="Y">
+  <value column="PrintName" original="Processed">Processed</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c595c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54444" trl="Y">
+  <value column="PrintName" original="Updated">Updated</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c59d4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54445" trl="Y">
+  <value column="PrintName" original="Updated By">Updated By</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5a42-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54446" trl="Y">
+  <value column="PrintName" original="Update Quantities">Update Quantities</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5aba-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54447" trl="Y">
+  <value column="PrintName" original="Created">Created</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5b32-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54448" trl="Y">
+  <value column="PrintName" original="Department">Department</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5baa-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54449" trl="Y">
+  <value column="PrintName" original="Client">Client</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5c22-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54450" trl="Y">
+  <value column="PrintName" original="Perpetual Inventory">Perpetual Inventory</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5c9a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54451" trl="Y">
+  <value column="PrintName" original="Organisation">Organisation</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5e16-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54452" trl="Y">
+  <value column="PrintName" original="Generate List">Generate List</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5ea2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54453" trl="Y">
+  <value column="PrintName" original="Project">Project</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5f1a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54454" trl="Y">
+  <value column="PrintName" original="Supply Source">Supply Source</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c5f92-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54455" trl="Y">
+  <value column="PrintName" original="Product Family">Product Family</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c600a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54456" trl="Y">
+  <value column="PrintName" original="Approved">Approved</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c6078-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54457" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=":">:</value>
+  <value column="UUID" original="a40c60f0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54458" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c617c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54459" trl="Y">
+  <value column="PrintName" original="Warehouse:">Warehouse:</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c61f4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54460" trl="Y">
+  <value column="PrintName" original="Movement Date: ">Movement Date: </value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c626c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54461" trl="Y">
+  <value column="PrintName" original="Doc Status: ">Doc Status: </value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c62e4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54462" trl="Y">
+  <value column="PrintName" original="Created By: ">Created By: </value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c635c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54463" trl="Y">
+  <value column="PrintName" original="@*MultiPageInfo@">@*MultiPageInfo@</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40ce746-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54464" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c63d4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54465" trl="Y">
+  <value column="PrintName" original="Phys.Inventory Line">Phys.Inventory Line</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c6f50-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54466" trl="Y">
+  <value column="PrintName" original="Locator">Locator</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c6fdc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54467" trl="Y">
+  <value column="PrintName" original="Description">Description</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c7054-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54468" trl="Y">
+  <value column="PrintName" original="Quantity book">Quantity book</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c644c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54469" trl="Y">
+  <value column="PrintName" original="Charge">Charge</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c64c4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54470" trl="Y">
+  <value column="PrintName" original="Qty used">Qty used</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c653c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54471" trl="Y">
+  <value column="PrintName" original="Product">Product</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c65b4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54472" trl="Y">
+  <value column="PrintName" original="Inventory Type">Inventory Type</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c662c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54473" trl="Y">
+  <value column="PrintName" original="Attribute Set Instance">Attribute Set Instance</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c66a4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54474" trl="Y">
+  <value column="PrintName" original="Updated">Updated</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c671c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54475" trl="Y">
+  <value column="PrintName" original="Organisation">Organisation</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c6794-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54476" trl="Y">
+  <value column="PrintName" original="UPC/EAN">UPC/EAN</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c680c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54477" trl="Y">
+  <value column="PrintName" original="Processed">Processed</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c6884-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54478" trl="Y">
+  <value column="PrintName" original="Created">Created</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c68fc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54479" trl="Y">
+  <value column="PrintName" original="Created By">Created By</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c697e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54480" trl="Y">
+  <value column="PrintName" original="Updated By">Updated By</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c6aa0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54481" trl="Y">
+  <value column="PrintName" original="Client">Client</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c6b4a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54482" trl="Y">
+  <value column="PrintName" original="Phys.Inventory">Phys.Inventory</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c6bcc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54483" trl="Y">
+  <value column="PrintName" original="Active">Active</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c6c44-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54484" trl="Y">
+  <value column="PrintName" original="Line">Line</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c6cbc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54485" trl="Y">
+  <value column="PrintName" original="Aisle (X)">Aisle (X)</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40ce7d2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54486" trl="Y">
+  <value column="PrintName" original="Locator">Locator</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40ce854-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54487" trl="Y">
+  <value column="PrintName" original="Product">Product</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40ce8cc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54488" trl="Y">
+  <value column="PrintName" original="UOM">UOM</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40ceaca-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54489" trl="Y">
+  <value column="PrintName" original="Search Key">Search Key</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c6d5c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54490" trl="Y">
+  <value column="PrintName" original="Qty Count">Qty Count</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c6dd4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54491" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40ceb56-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="56539" trl="Y">
+  <value column="PrintName" original="Picked">Picked</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40cebec-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="56540" trl="Y">
+  <value column="PrintName" original="1st Count">1st Count</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40cec6e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="58563" trl="Y">
+  <value column="PrintName" original="Promised Date">Promised Date</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c8332-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="58925" trl="N">
+  <value column="PrintName" original="Accounting Schema">Accounting Schema</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c070e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="59686" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c85bc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="59687" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c8648-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="59688" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c86ca-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="59689" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c8742-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="59690" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c87c4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="59691" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c883c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="59692" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c88be-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="59693" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c8936-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="59694" trl="Y">
+  <value column="PrintName" original=""/>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c89ae-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="59695" trl="Y">
+  <value column="PrintName" original="@Page@ @*Page@ @of@ @*PageCount@">@Page@ @*Page@ @of@ @*PageCount@</value>
+  <value column="PrintNameSuffix" original=""/>
+  <value column="UUID" original="a40c8aa8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+</adempiereTrl>

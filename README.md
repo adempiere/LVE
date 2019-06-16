@@ -3,13 +3,13 @@
 Esta localización permite lo siguiente:
   - Generar Retenciones a proveedores:
     - I.V.A. [Con base en Gaceta Oficial 40720 (SNAT/2015/0049)](http://declaraciones.seniat.gob.ve/portal/page/portal/MANEJADOR_CONTENIDO_SENIAT/01NOTICIAS/00IMAGENES/GACETAOFICIAL40720.pdf)
-    - I.S.L.R.
     - Municipal
+    ![Diagrama ER de Retenciones IVA](docs/withholding/IVA.png)
+	 - I.S.L.R.
   - Declarar Retenciones:
-    - XML de I.S.L.R.
     - TXT de I.V.A.
+    - XML de I.S.L.R.
     - TXT de Retenciones Municipales.
-    ![Diagrama ER de Retenciones](docs/Withholding.png)
   - Generar IGTF de manera automática.
   - Calcular el Descuento de impuesto según decreto de descuento de impuesto a cliente
   - Imprimir con Impresora fiscal: Soportado para las impresoras The Factory HKA

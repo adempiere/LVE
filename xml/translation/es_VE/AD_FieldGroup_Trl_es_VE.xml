@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--ADempiere(r) Release 3.9.2_2019-05-03 -Smart Suite ERP,CRM and SCM- (c) 1999-2019 ADempiere(r); Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_VE" table="AD_FieldGroup">
+ <row id="101" trl="Y">
+  <value column="Name" original="Status">Estado</value>
+  <value column="UUID" original="8dde0928-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="102" trl="Y">
+  <value column="Name" original="Quantities">Cantidades</value>
+  <value column="UUID" original="8dd17082-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="103" trl="Y">
+  <value column="Name" original="Amounts">Totales</value>
+  <value column="UUID" original="8dd170f0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="104" trl="Y">
+  <value column="Name" original="Reference">Referencia</value>
+  <value column="UUID" original="8dde09c8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="105" trl="Y">
+  <value column="Name" original="History">Historia</value>
+  <value column="UUID" original="8dd1715e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="106" trl="Y">
+  <value column="Name" original="Product">Producto</value>
+  <value column="UUID" original="8dd171cc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="107" trl="Y">
+  <value column="Name" original="Business Partner">Socio del Negocio</value>
+  <value column="UUID" original="8dd1723a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="108" trl="Y">
+  <value column="Name" original="Warehouse">Almacén</value>
+  <value column="UUID" original="8dddf6cc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="109" trl="Y">
+  <value column="Name" original="Bank">Banco</value>
+  <value column="UUID" original="8dddf7e4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="110" trl="Y">
+  <value column="Name" original="Cash Book">Caja Menor</value>
+  <value column="UUID" original="8dddf848-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="111" trl="Y">
+  <value column="Name" original="Tax">Impuesto</value>
+  <value column="UUID" original="8dddf898-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="112" trl="Y">
+  <value column="Name" original="Project">Proyecto</value>
+  <value column="UUID" original="8dddf8de-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="113" trl="Y">
+  <value column="Name" original="General">General</value>
+  <value column="UUID" original="8dddf92e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="114" trl="Y">
+  <value column="Name" original="Action">Acción</value>
+  <value column="UUID" original="8dddf974-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="115" trl="Y">
+  <value column="Name" original="Standard Cost">Costo Estándar</value>
+  <value column="UUID" original="8dddf9ba-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="116" trl="Y">
+  <value column="Name" original="Actual Costs">Costos Actuales</value>
+  <value column="UUID" original="8dddfa0a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="117" trl="Y">
+  <value column="Name" original="Statistics">Estadísticas</value>
+  <value column="UUID" original="8dddfa50-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="118" trl="Y">
+  <value column="Name" original="Defaults">Predeterminados</value>
+  <value column="UUID" original="8dd16f9c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="119" trl="Y">
+  <value column="Name" original="Request Management">Gestión de Solicitudes</value>
+  <value column="UUID" original="8dd1700a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="120" trl="Y">
+  <value column="Name" original="Web Store">Tienda Web</value>
+  <value column="UUID" original="8dddfa96-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="121" trl="Y">
+  <value column="Name" original="Internal">Interno</value>
+  <value column="UUID" original="8dddfb2c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="122" trl="Y">
+  <value column="Name" original="External">Externo</value>
+  <value column="UUID" original="8dddfb7c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="123" trl="Y">
+  <value column="Name" original="Common">Común</value>
+  <value column="UUID" original="8dddfbc2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="124" trl="Y">
+  <value column="Name" original="Shipment">Envío</value>
+  <value column="UUID" original="8dd16f24-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="125" trl="Y">
+  <value column="Name" original="Document">Documento</value>
+  <value column="UUID" original="8dddfae6-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="126" trl="Y">
+  <value column="Name" original="Line">Línea</value>
+  <value column="UUID" original="8dddfc08-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="127" trl="Y">
+  <value column="Name" original="Simulation">Simulación</value>
+  <value column="UUID" original="8dddfd7a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="128" trl="Y">
+  <value column="Name" original="Calculations">Cálculos</value>
+  <value column="UUID" original="8dd16826-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="129" trl="Y">
+  <value column="Name" original="Proxy">Apoderado</value>
+  <value column="UUID" original="8dd16e98-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="130" trl="Y">
+  <value column="Name" original="Delivery">Entrega</value>
+  <value column="UUID" original="8dd16c22-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="131" trl="Y">
+  <value column="Name" original="Invoicing">Facturación</value>
+  <value column="UUID" original="8dd16dd0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="132" trl="Y">
+  <value column="Name" original="Only ..">Sólo ..</value>
+  <value column="UUID" original="8dddfcee-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="133" trl="Y">
+  <value column="Name" original="Selection">Selección</value>
+  <value column="UUID" original="8dddfd34-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="134" trl="Y">
+  <value column="Name" original="Workflow">Flujo de Trabajo</value>
+  <value column="UUID" original="8dddfc58-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="135" trl="Y">
+  <value column="Name" original="Access">Acceso</value>
+  <value column="UUID" original="8dddfc9e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50000" trl="Y">
+  <value column="Name" original="Allow Info In Role">Permitir información en rol</value>
+  <value column="UUID" original="8dde005e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50001" trl="Y">
+  <value column="Name" original="Accounts">Cuentas</value>
+  <value column="UUID" original="8dde06da-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50002" trl="Y">
+  <value column="Name" original="Setup">Configuración</value>
+  <value column="UUID" original="8dde072a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50003" trl="Y">
+  <value column="Name" original="Dates">Fechas</value>
+  <value column="UUID" original="8dde07c0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50004" trl="Y">
+  <value column="Name" original="Revaluation Accounts">Cuentas de Reevaluación</value>
+  <value column="UUID" original="8dde077a-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50005" trl="Y">
+  <value column="Name" original="Contract">Contrato</value>
+  <value column="UUID" original="8dde0a2c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50006" trl="Y">
+  <value column="Name" original="Options">Opciones</value>
+  <value column="UUID" original="8dde0810-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50007" trl="Y">
+  <value column="Name" original="General Ledger">Contabilidad General</value>
+  <value column="UUID" original="8dde0130-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50008" trl="Y">
+  <value column="Name" original="Machines">Máquinas</value>
+  <value column="UUID" original="8dde0310-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50009" trl="Y">
+  <value column="Name" original="Database">Base de Datos</value>
+  <value column="UUID" original="8dde03c4-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50010" trl="Y">
+  <value column="Name" original="Manufacturing">Manufactura</value>
+  <value column="UUID" original="8dde0428-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50012" trl="Y">
+  <value column="Name" original="Logo">Logo</value>
+  <value column="UUID" original="8dde0482-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50013" trl="Y">
+  <value column="Name" original="Delivery Rules">Delivery Rules</value>
+  <value column="UUID" original="8dde04dc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50016" trl="Y">
+  <value column="Name" original="Location">Location</value>
+  <value column="UUID" original="8dde052c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50017" trl="Y">
+  <value column="Name" original="Fixed Asset">Fixed Asset</value>
+  <value column="UUID" original="8dde057c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50018" trl="Y">
+  <value column="Name" original="Maintenance">Maintenance</value>
+  <value column="UUID" original="8dde05cc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50019" trl="Y">
+  <value column="Name" original="Funding">Funding</value>
+  <value column="UUID" original="8dde0630-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50020" trl="Y">
+  <value column="Name" original="Depreciation">Depreciation</value>
+  <value column="UUID" original="8dde0694-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50040" trl="Y">
+  <value column="Name" original="Job Summary ">Job Summary </value>
+  <value column="UUID" original="8dde0a86-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50041" trl="Y">
+  <value column="Name" original="Job Detail">Job Detail </value>
+  <value column="UUID" original="8dde0acc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50057" trl="Y">
+  <value column="Name" original="Personal Info">información Personal</value>
+  <value column="UUID" original="8dde0b1c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50058" trl="Y">
+  <value column="Name" original="Education">Educación</value>
+  <value column="UUID" original="8dde0b6c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50059" trl="Y">
+  <value column="Name" original="Payment Info">Información de Pago</value>
+  <value column="UUID" original="8dde0bbc-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50060" trl="Y">
+  <value column="Name" original="Payroll Info">Información de Nómina</value>
+  <value column="UUID" original="8dde0c0c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50061" trl="Y">
+  <value column="Name" original="Contact">Contacto</value>
+  <value column="UUID" original="8dde0c52-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50062" trl="Y">
+  <value column="Name" original="Dimension &amp; Measurements "><![CDATA[Dimension & Measurements ]]></value>
+  <value column="UUID" original="8dde0ca2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50066" trl="Y">
+  <value column="Name" original="Sequence">Secuencia</value>
+  <value column="UUID" original="8dde0ce8-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50067" trl="Y">
+  <value column="Name" original="Print Format">Formato de Impresión</value>
+  <value column="UUID" original="8dde0d38-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50068" trl="Y">
+  <value column="Name" original="Behavior">Comportamiento</value>
+  <value column="UUID" original="8dde0d7e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50069" trl="Y">
+  <value column="Name" original="Column Definition">Definición de Columna</value>
+  <value column="UUID" original="8dde0dce-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50071" trl="N">
+  <value column="Name" original="Line Format">Line Format</value>
+  <value column="UUID" original="8dde0e1e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="50079" trl="N">
+  <value column="Name" original="Financial Big Transaction Tax (Venezuela)">Impuesto a las Grandes Transacciones Financieras</value>
+  <value column="UUID" original="a023bc98-128f-11e9-9326-47085fc08f18"/>
+ </row>
+ <row id="50080" trl="N">
+  <value column="Name" original="Fiscal Information (Venezuela)">Información Fiscal</value>
+  <value column="UUID" original="a0245dec-128f-11e9-9327-67a166a344ff"/>
+ </row>
+ <row id="50081" trl="N">
+  <value column="Name" original="Financial Information (Venezuela)">Financial Information (LVE)</value>
+  <value column="UUID" original="6fa7ad2a-8fc8-11e9-9143-bfd9157cc054">6fdc04f8-8fc8-11e9-9145-0b3fea8c6f36</value>
+ </row>
+ <row id="50105" trl="N">
+  <value column="Name" original="Withholding Definition (Venezuela)">Definición de Retención (Venezuela)</value>
+  <value column="UUID" original="529061a2-8e2c-11e9-9fe8-afc6279d77e5">52b74786-8e2c-11e9-9ff8-53a0be8aff82</value>
+ </row>
+</adempiereTrl>

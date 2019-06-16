@@ -39,4 +39,11 @@ public class MLVEListVersion extends X_LVE_ListVersion {
 	public MLVEListVersion(Properties ctx, ResultSet rs, String trxName) {
 		super(ctx, rs, trxName);
 	}
+
+	@Override
+	public String toString() {
+		return "MLVEListVersion [getAmount()=" + getAmount() + ", getLVE_List_ID()=" + getLVE_List_ID()
+				+ ", getLVE_ListVersion_ID()=" + getLVE_ListVersion_ID() + ", getName()=" + getName()
+				+ ", getValidFrom()=" + getValidFrom() + "]";
+	}
 }
