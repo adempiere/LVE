@@ -99,16 +99,16 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			isValid = false;
 			addLog("@DocumentWithholdingTaxExempt@");
 		}
-		//	Validate Exempt Business Partner
-		if(invoice.get_ValueAsBoolean(WITHHOLDING_TAX_EXEMPT)) {
-			isValid = false;
-			addLog("@BPartnerWithholdingTaxExempt@");
-		}
 		//	Validate Person Type
 		businessPartner = (MBPartner) invoice.getC_BPartner();
 		if(Util.isEmpty(businessPartner.get_ValueAsString(PERSON_TYPE))) {
 			addLog("@" + PERSON_TYPE + "@ @NotFound@ @C_BPartner_ID@ " + businessPartner.getValue() + " - " + businessPartner.getName());
 			isValid = false;
+		}
+		//	Validate Exempt Business Partner
+		if(businessPartner.get_ValueAsBoolean(WITHHOLDING_TAX_EXEMPT)) {
+			isValid = false;
+			addLog("@BPartnerWithholdingTaxExempt@");
 		}
 		//	Validate Withholding Definition
 		MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getCtx(), invoice.getAD_Org_ID());
