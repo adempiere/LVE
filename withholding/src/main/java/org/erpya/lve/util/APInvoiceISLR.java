@@ -16,32 +16,29 @@
 package org.erpya.lve.util;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.compiere.model.I_C_Invoice;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceTax;
-import org.compiere.model.MTax;
 import org.compiere.util.Env;
-import org.erpya.lve.model.MLVEList;
+import org.compiere.util.Util;
 import org.erpya.lve.model.MLVEWithholdingTax;
 import org.spin.model.I_WH_Withholding;
 import org.spin.model.MWHSetting;
 import org.spin.util.AbstractWithholdingSetting;
 
 /**
- * 	Implementación de retención de I.V.A para la localización de Venezuela
- * 	Esto puede aplicar para Documentos por Pagar y Notas de Crédito de Documentos por Pagar
- * 	Note que la validación de las 20 UT solo aplica para documentos por pagar
+ * 	Implementación de retención de I.S.L.R para la locacización de Venezuela
+ * 	Note que básicamente se realiza una validación del documento en cuestión y luego se procesa
+ * 	la generación del documento de retención o el log del documento queda a libertad de la clase abstracta
  * 	@author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
  */
-public class APInvoiceIVA extends AbstractWithholdingSetting {
+public class APInvoiceISLR extends AbstractWithholdingSetting {
 
-	public APInvoiceIVA(MWHSetting setting) {
+	public APInvoiceISLR(MWHSetting setting) {
 		super(setting);
 	}
 	/**	Current Invoice	*/
@@ -50,16 +47,10 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 	private MBPartner businessPartner;
 	/**	Withholding tax rate	*/
 	private BigDecimal withholdingRate;
-	/**	Taxes	*/
-	private List<MInvoiceTax> taxes;
-	/**	Withholding Tax Applied for Tax	*/
-	private final String WITHHOLDING_APPLIED = "IsWithholdingTaxApplied";
-	/**	Custom Tax Rate for Business Partner	*/
-	private final String WITHHOLDING_TAX_RATE = "WithholdingTaxRate_ID";
-	/**	Withholding Tax Exempt for Business Partner	*/
-	private final String WITHHOLDING_TAX_EXEMPT = "IsWithholdingTaxExempt";
+	/**	PErson Type	for Business Partner	*/
+	private final String PERSON_TYPE = "PersonType";
 	/**	Minimum Tribute Unit for apply Withholding Tax	*/
-	private final int MINIMUM_TRIBUTE_UNIT = 20;
+//	private final int MINIMUM_TRIBUTE_UNIT = 20;
 	
 	
 	@Override
@@ -95,73 +86,68 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			isValid = false;
 		}
 		//	Validate Exempt Document
-		if(invoice.get_ValueAsBoolean(WITHHOLDING_TAX_EXEMPT)) {
+//		if(invoice.get_ValueAsBoolean(WITHHOLDING_TAX_EXEMPT)) {
+//			isValid = false;
+//			addLog("@DocumentWithholdingTaxExempt@");
+//		}
+		//	Validate Person Type
+		businessPartner = (MBPartner) invoice.getC_BPartner();
+		if(Util.isEmpty(businessPartner.get_ValueAsString(PERSON_TYPE))) {
+			addLog("@" + PERSON_TYPE + "@ @NotFound@ @C_BPartner_ID@ " + businessPartner.getValue() + " - " + businessPartner.getName());
 			isValid = false;
-			addLog("@DocumentWithholdingTaxExempt@");
 		}
 		//	Validate Exempt Business Partner
-		if(businessPartner.get_ValueAsBoolean(WITHHOLDING_TAX_EXEMPT)) {
-			isValid = false;
-			addLog("@BPartnerWithholdingTaxExempt@");
-		}
+//		if(businessPartner.get_ValueAsBoolean(WITHHOLDING_TAX_EXEMPT)) {
+//			isValid = false;
+//			addLog("@BPartnerWithholdingTaxExempt@");
+//		}
 		//	Validate Withholding Definition
-		MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getCtx(), invoice.getAD_Org_ID());
-		int withholdingRateId = businessPartner.get_ValueAsInt(WITHHOLDING_TAX_RATE);
-		if(withholdingRateId == 0) {
-			withholdingRateId = withholdingTaxDefinition.getDefaultWithholdingRate_ID();
-		}
+//		MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getCtx(), invoice.getAD_Org_ID());
+//		int withholdingRateId = businessPartner.get_ValueAsInt(WITHHOLDING_TAX_RATE);
+//		if(withholdingRateId == 0) {
+//			withholdingRateId = withholdingTaxDefinition.getDefaultWithholdingRate_ID();
+//		}
 		//	Validate Definition
-		if(withholdingRateId == 0) {
-			addLog("@" + WITHHOLDING_TAX_RATE + "@ @NotFound@");
-			isValid = false;
-		} else {
-			withholdingRate = MLVEList.get(getCtx(), withholdingRateId).getListVersionAmount(invoice.getDateInvoiced());
-		}
+//		if(withholdingRateId == 0) {
+//			addLog("@" + WITHHOLDING_TAX_RATE + "@ @NotFound@");
+//			isValid = false;
+//		} else {
+//			withholdingRate = MLVEList.get(getCtx(), withholdingRateId).getListVersionAmount(invoice.getDateInvoiced());
+//		}
 		//	Validate Tax
 		if(withholdingRate.equals(Env.ZERO)) {
 			addLog("@LVE_WithholdingTax_ID@ (@Rate@ @NotFound@)");
 			isValid = false;
 		}
 		//	Validate Tribute Unit
-		BigDecimal tributeUnitAmount = withholdingTaxDefinition.getValidTributeUnitAmount(invoice.getDateInvoiced());
-		if(tributeUnitAmount.equals(Env.ZERO)) {
-			addLog("@TributeUnit@ (@Rate@ @NotFound@)");
-			isValid = false;
-		}
+//		BigDecimal tributeUnitAmount = withholdingTaxDefinition.getValidTributeUnitAmount(invoice.getDateInvoiced());
+//		if(tributeUnitAmount.equals(Env.ZERO)) {
+//			addLog("@TributeUnit@ (@Rate@ @NotFound@)");
+//			isValid = false;
+//		}
 		//	Validate Minimum Tribute Unit (Only for AP Invoice)
-		if(documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)) {
-			BigDecimal minTributeUnitAmount = tributeUnitAmount.multiply(new BigDecimal(MINIMUM_TRIBUTE_UNIT));
-			if(minTributeUnitAmount.compareTo(invoice.getGrandTotal()) > 0) {
-				addLog("@MinimumTributeUnitRequired@ " + MINIMUM_TRIBUTE_UNIT);
-				isValid = false;
-			}
-		}
-		//	Validate if it have taxes
-		taxes = Arrays.asList(invoice.getTaxes(false))
-			.stream()
-			.filter(invoiceTax -> MTax.get(getCtx(), invoiceTax.getC_Tax_ID()).get_ValueAsBoolean(WITHHOLDING_APPLIED) 
-					&& invoiceTax.getTaxAmt() != null 
-					&& invoiceTax.getTaxAmt().compareTo(Env.ZERO) > 0)
-			.collect(Collectors.toList());
-		if(taxes.size() == 0) {
-			addLog("@NoTaxesForWithholding@");
-			isValid = false;
-		}
+//		if(documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)) {
+//			BigDecimal minTributeUnitAmount = tributeUnitAmount.multiply(new BigDecimal(MINIMUM_TRIBUTE_UNIT));
+//			if(minTributeUnitAmount.compareTo(invoice.getGrandTotal()) > 0) {
+//				addLog("@MinimumTributeUnitRequired@ " + MINIMUM_TRIBUTE_UNIT);
+//				isValid = false;
+//			}
+//		}
 		//	
 		return isValid;
 	}
 
 	@Override
 	public String run() {
-		setWithholdingRate(withholdingRate);
-		withholdingRate = withholdingRate.divide(Env.ONEHUNDRED);
-		//	Iterate
-		taxes.forEach(invoiceTax -> {
-			addBaseAmount(invoiceTax.getTaxAmt());
-			addWithholdingAmount(invoiceTax.getTaxAmt().multiply(withholdingRate));
-			MTax tax = MTax.get(getCtx(), invoiceTax.getC_Tax_ID());
-			addDescription(tax.getName() + " @Processed@");
-		});
+//		setWithholdingRate(withholdingRate);
+//		withholdingRate = withholdingRate.divide(Env.ONEHUNDRED);
+//		//	Iterate
+//		taxes.forEach(invoiceTax -> {
+//			addBaseAmount(invoiceTax.getTaxAmt());
+//			addWithholdingAmount(invoiceTax.getTaxAmt().multiply(withholdingRate));
+//			MTax tax = MTax.get(getCtx(), invoiceTax.getC_Tax_ID());
+//			addDescription(tax.getName() + " @Processed@");
+//		});
 		return null;
 	}
 }
