@@ -159,6 +159,19 @@ public interface I_LVE_WithholdingTax
 	  */
 	public String getName();
 
+    /** Column name Type */
+    public static final String COLUMNNAME_Type = "Type";
+
+	/** Set Type.
+	  * Type of Validation (SQL, Java Script, Java Language)
+	  */
+	public void setType (String Type);
+
+	/** Get Type.
+	  * Type of Validation (SQL, Java Script, Java Language)
+	  */
+	public String getType();
+
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";
 

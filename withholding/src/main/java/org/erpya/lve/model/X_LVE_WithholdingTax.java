@@ -31,7 +31,7 @@ public class X_LVE_WithholdingTax extends PO implements I_LVE_WithholdingTax, I_
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20190615L;
+	private static final long serialVersionUID = 20190617L;
 
     /** Standard Constructor */
     public X_LVE_WithholdingTax (Properties ctx, int LVE_WithholdingTax_ID, String trxName)
@@ -39,9 +39,10 @@ public class X_LVE_WithholdingTax extends PO implements I_LVE_WithholdingTax, I_
       super (ctx, LVE_WithholdingTax_ID, trxName);
       /** if (LVE_WithholdingTax_ID == 0)
         {
-			setDefaultWithholdingRate_ID (0);
 			setLVE_WithholdingTax_ID (0);
 			setName (null);
+			setType (null);
+// IV
 			setWithholdingRateType_ID (0);
         } */
     }
@@ -190,6 +191,32 @@ public class X_LVE_WithholdingTax extends PO implements I_LVE_WithholdingTax, I_
     {
         return new KeyNamePair(get_ID(), getName());
     }
+
+	/** Type AD_Reference_ID=54148 */
+	public static final int TYPE_AD_Reference_ID=54148;
+	/** I.V.A. = IV */
+	public static final String TYPE_IVA = "IV";
+	/** I.S.L.R. = IS */
+	public static final String TYPE_ISLR = "IS";
+	/** Impuesto Municipal = IM */
+	public static final String TYPE_ImpuestoMunicipal = "IM";
+	/** Set Type.
+		@param Type 
+		Type of Validation (SQL, Java Script, Java Language)
+	  */
+	public void setType (String Type)
+	{
+
+		set_Value (COLUMNNAME_Type, Type);
+	}
+
+	/** Get Type.
+		@return Type of Validation (SQL, Java Script, Java Language)
+	  */
+	public String getType () 
+	{
+		return (String)get_Value(COLUMNNAME_Type);
+	}
 
 	/** Set Immutable Universally Unique Identifier.
 		@param UUID 
