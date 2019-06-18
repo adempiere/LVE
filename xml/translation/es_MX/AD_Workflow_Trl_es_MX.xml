@@ -389,4 +389,10 @@ Si no puede cubrir el MPS como fue planeado, este módulo le brinda la informaci
   <value column="Help" original=""/>
   <value column="UUID" original="a52677dc-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="50072" trl="N">
+  <value column="Name" original="Process_Withholding Allocation">Process_Withholding Allocation</value>
+  <value column="Description" original="(Standard Process_Withholding Allocation)">(Standard Process_Withholding Allocation)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="1d23ee2e-8c80-11e9-8559-1fbb775ac2ca">1d7d51f8-8c80-11e9-858b-9bd481658123</value>
+ </row>
 </adempiereTrl>

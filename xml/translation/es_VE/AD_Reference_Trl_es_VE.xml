@@ -46,7 +46,7 @@
   <value column="Name" original="Amount">Monto</value>
   <value column="Description" original="Number with 4 decimals">Número con 4 decimales</value>
   <value column="Help" original=""/>
-  <value column="UUID" original="a47e78ca-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a47e78ca-fb40-11e8-a479-7a0060f0aa01">e001bbbe-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="13" trl="Y">
   <value column="Name" original="ID">ID</value>
@@ -64,7 +64,7 @@
   <value column="Name" original="Date">Fecha</value>
   <value column="Description" original="Date mm/dd/yyyy">Fecha mm/dd/aaaa</value>
   <value column="Help" original=""/>
-  <value column="UUID" original="a47d8316-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a47d8316-fb40-11e8-a479-7a0060f0aa01">e0007d58-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="16" trl="Y">
   <value column="Name" original="Date+Time">Fecha+Hora</value>
@@ -154,7 +154,7 @@
   <value column="Name" original="Search">Búsqueda</value>
   <value column="Description" original="Search Field">Campo de Búsqueda</value>
   <value column="Help" original=""/>
-  <value column="UUID" original="a47e75d2-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a47e75d2-fb40-11e8-a479-7a0060f0aa01">e0007ba0-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="31" trl="Y">
   <value column="Name" original="Locator (WH)">Ubicación (Almacén)</value>
@@ -394,7 +394,7 @@
   <value column="Name" original="_Document Status">_Document Status</value>
   <value column="Description" original="Document Status list">Lista de estado de Documentos</value>
   <value column="Help" original=""/>
-  <value column="UUID" original="a47d3dc0-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a47d3dc0-fb40-11e8-a479-7a0060f0aa01">e000b6f6-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="132" trl="Y">
   <value column="Name" original="Account_ID (Trx)">Account_ID (Trx)</value>
@@ -418,7 +418,7 @@
   <value column="Name" original="_Document Action">_Document Action</value>
   <value column="Description" original="Document action list">Lista de acción en Documentos</value>
   <value column="Help" original=""/>
-  <value column="UUID" original="a47d3e42-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a47d3e42-fb40-11e8-a479-7a0060f0aa01">e000b93a-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="136" trl="Y">
   <value column="Name" original="C_AcctSchema">C_AcctSchema</value>
@@ -436,7 +436,7 @@
   <value column="Name" original="C_BPartner (Trx)">C_BPartner (Trx)</value>
   <value column="Description" original="Business Partner selection (no Summary)">Selección de Terceros (no resumen)</value>
   <value column="Help" original=""/>
-  <value column="UUID" original="a47e71ea-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a47e71ea-fb40-11e8-a479-7a0060f0aa01">e0019cf6-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="141" trl="Y">
   <value column="Name" original="C_Project (No summary)">C_Project (No summary)</value>
@@ -754,7 +754,7 @@
   <value column="Name" original="C_Charge">C_Charge</value>
   <value column="Description" original=""/>
   <value column="Help" original=""/>
-  <value column="UUID" original="a47e143e-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a47e143e-fb40-11e8-a479-7a0060f0aa01">e000a012-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="201" trl="Y">
   <value column="Name" original="C_BP_EDI EDI Type">C_BP_EDI EDI Type</value>
@@ -1534,7 +1534,7 @@
   <value column="Name" original="C_Invoice">C_Invoice</value>
   <value column="Description" original=""/>
   <value column="Help" original=""/>
-  <value column="UUID" original="a47d95ae-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a47d95ae-fb40-11e8-a479-7a0060f0aa01">e000f2e2-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="337" trl="Y">
   <value column="Name" original="M_InOut">M_InOut</value>
@@ -2044,7 +2044,7 @@
   <value column="Name" original="EventModelValidator">EventModelValidator</value>
   <value column="Description" original=""/>
   <value column="Help" original=""/>
-  <value column="UUID" original="a47da0ee-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a47da0ee-fb40-11e8-a479-7a0060f0aa01">ee55cb4a-8c6f-11e9-b455-232d0a767099</value>
  </row>
  <row id="53238" trl="Y">
   <value column="Name" original="EventChangeLog">EventChangeLog</value>
@@ -3245,7 +3245,7 @@
   <value column="Name" original="C_InvoiceLine">C_InvoiceLine</value>
   <value column="Description" original=""/>
   <value column="Help" original=""/>
-  <value column="UUID" original="a47ea750-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a47ea750-fb40-11e8-a479-7a0060f0aa01">e001c2a8-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="53934" trl="N">
   <value column="Name" original="GL_JournalLine">GL_JournalLine</value>
@@ -3571,6 +3571,42 @@
   <value column="Help" original=""/>
   <value column="UUID" original="6dfae828-80b6-11e9-b4f4-873410f78a50">6e43fe96-80b6-11e9-b507-0fd1100c9dd8</value>
  </row>
+ <row id="54139" trl="N">
+  <value column="Name" original="WH_Setting Event Type">WH_Setting Event Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="204827b6-8c6a-11e9-866f-378a5ab15fc6">204db690-8c6a-11e9-8671-0312686da06d</value>
+ </row>
+ <row id="54140" trl="N">
+  <value column="Name" original="WH_Withholding reference">Withholding reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="53fb8db2-8e1a-11e9-829d-6b219b58b91c">54252906-8e1a-11e9-82b0-d75f70dcf62f</value>
+ </row>
+ <row id="54141" trl="N">
+  <value column="Name" original="RelType C_Invoice (Vendor) =&gt; WH_Log_ID Withholding Log"><![CDATA[RelType C_Invoice => WH_Log_ID Withholding Log]]></value>
+  <value column="Description" original="Withholding Log">Withholding Log</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="cc378f78-8e20-11e9-a418-07b5da355089">cc7c331c-8e20-11e9-a42b-136960b9b0d1</value>
+ </row>
+ <row id="54142" trl="N">
+  <value column="Name" original="RelType C_Invoice (Vendor) &lt;= WH_Log_ID"><![CDATA[RelType C_Invoice (Vendor) <= WH_Log_ID]]></value>
+  <value column="Description" original="Withholding Log to Invoice">Withholding Log to Invoice</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="23ee5d5a-8e21-11e9-a451-3bfc625605ea">24199ff6-8e21-11e9-a464-fbeac3338130</value>
+ </row>
+ <row id="54143" trl="N">
+  <value column="Name" original="RelType C_Invoice (Vendor) &lt;= WH_Withholding_ID"><![CDATA[RelType C_Invoice (Vendor) <= WH_Withholding_ID]]></value>
+  <value column="Description" original="Withholding Generated to Invoice">Withholding Generated to Invoice</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8cede130-8e22-11e9-9b9b-37f368f34563">8d18b3f6-8e22-11e9-9bae-0b9dca5538aa</value>
+ </row>
+ <row id="54144" trl="N">
+  <value column="Name" original="RelType C_Invoice (Vendor) =&gt; WH_Withholding_ID Withholding"><![CDATA[RelType C_Invoice (Vendor) => WH_Withholding_ID Withholding]]></value>
+  <value column="Description" original="Withholding">Withholding</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="f72aa2a4-8e22-11e9-9bd7-e328e4aefa10">f7510fde-8e22-11e9-9bea-9b8f13e44fa7</value>
+ </row>
  <row id="54145" trl="N">
   <value column="Name" original="Withholding Person Type">Withholding Person Type</value>
   <value column="Description" original=""/>
@@ -3588,5 +3624,11 @@
   <value column="Description" original="Used for eference of List Type">Used for eference of List Type</value>
   <value column="Help" original=""/>
   <value column="UUID" original="f805aa50-8f00-11e9-8be8-13ca33169ec2">f83c4164-8f00-11e9-8bfb-df02d72c1bb9</value>
+ </row>
+ <row id="54148" trl="N">
+  <value column="Name" original="LVE_WithholdingTax Type">LVE_WithholdingTax Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="1ab20266-9121-11e9-a688-6f986867d634">1addbca8-9121-11e9-a69b-2baef89cd7fc</value>
  </row>
 </adempiereTrl>

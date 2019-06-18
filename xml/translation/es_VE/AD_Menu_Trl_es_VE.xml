@@ -620,6 +620,16 @@
   <value column="Description" original="Transport Unit Browser">Define la Consulta de unidades de transporte</value>
   <value column="UUID" original="8e503c5a-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="54335" trl="Y">
+  <value column="Name" original="Location Venezuela">Localización Venezuela</value>
+  <value column="Description" original="">Localización Venezuela</value>
+  <value column="UUID" original="ac9fe9a6-128f-11e9-94be-ff9e375c828c"/>
+ </row>
+ <row id="54336" trl="Y">
+  <value column="Name" original="Payments for FBTT">Generar IGTF desde Pagos</value>
+  <value column="Description" original="">Genera IGTF desde Pagos no Generados</value>
+  <value column="UUID" original="aca02bc8-128f-11e9-94c0-0729e1e26427">2e9466fc-91d0-11e9-8dc9-ff35bc277af9</value>
+ </row>
  <row id="54337" trl="Y">
   <value column="Name" original="Payroll Movement Report">Informe del movimiento de nómina</value>
   <value column="Description" original="Payroll Movement Report">Informe del movimiento de nómina</value>

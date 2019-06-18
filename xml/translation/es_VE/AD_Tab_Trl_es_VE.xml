@@ -8803,6 +8803,55 @@ The class needs to implement org.compiere.model.PaymentProcessor]]></value>
   <value column="Help" original="See: https://en.wikipedia.org/wiki/Social_media for future reference">Vea: https://en.wikipedia.org/wiki/Social_media para futuras referencias</value>
   <value column="UUID" original="1db0337e-8272-11e9-90bb-3b3e0432b47c">1dfce58e-8272-11e9-90e6-a3e1800ade3b</value>
  </row>
+ <row id="54811" trl="N">
+  <value column="Name" original="Withholding Definition">Definición de Retenciones</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="The Withholding tab define a behavior for all withholding that will be generated from it">La pestaña Definición de Retenciones determina el comportamiento de una retención de IVA, Impuesto Sobre la Renta y demás</value>
+  <value column="Help" original="This tab will be used for define distints winthholding that will be generated for AP Invoices or entered from AR Invoices">En esta pestaña podrá definir las distintas retenciones que serán aplicadas a documentos por pagar o cargadas desde documentos por cobrar</value>
+  <value column="UUID" original="6acf4c20-288c-11e9-a7a3-6c0b840adaed">e0aadb86-82ef-11e9-bc49-0242ac140004</value>
+ </row>
+ <row id="54812" trl="N">
+  <value column="Name" original="Documents to Apply">Documentos a Aplicar</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Document Types for Apply Withholding">Tipos de Documento a Aplicar</value>
+  <value column="Help" original="This tab is used for define all document that will be applied a withholding from process">Esta pestaña es usada para definir todos los documentos que serán aplicados para el proceso de retención</value>
+  <value column="UUID" original="88c3883a-288d-11e9-88d6-6c0b840adaed">e0aaddb6-82ef-11e9-bc49-0242ac140004</value>
+ </row>
+ <row id="54813" trl="N">
+  <value column="Name" original="Allocation">Asignación</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Allocation for Withholding">Asignación para Retenciones</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="3e1ebb1a-8be8-11e9-b1db-0242ac140011">3e3093f8-8be8-11e9-b1db-0242ac140011</value>
+ </row>
+ <row id="54814" trl="N">
+  <value column="Name" original="Withholding Type">Tipo de Retención</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Indicates the types of national tax withholdings">Indica el Tipo de Retención de Impuesto</value>
+  <value column="Help" original="">En la pestaña Tipo de Retención se configuran llos tipos de retención que se aplican a impuestos</value>
+  <value column="UUID" original="ce477458-288c-11e9-a3ae-6c0b840adaed">e0aadaf0-82ef-11e9-bc49-0242ac140004</value>
+ </row>
+ <row id="54815" trl="N">
+  <value column="Name" original="Withholding Setting">Configuración de Retención</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="specifies the functionalities to each applied retention">Especifica las funcionalidades para cada retención aplicada</value>
+  <value column="Help" original="in the window it specifies the functionalities to each applied withholding">En esta pestaña se especifica la funcionalidad aplicada para cada retención así como su comportamiento</value>
+  <value column="UUID" original="e062b8ec-82ef-11e9-bc49-0242ac140004">e0aade38-82ef-11e9-bc49-0242ac140004</value>
+ </row>
+ <row id="54816" trl="N">
+  <value column="Name" original="Sequence">Secuencia</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Sequence of Running">Secuencia de Ejecución</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="63298fb2-8c69-11e9-a362-8f7fcd2f5b72">632e1eec-8c69-11e9-a364-1fab60c4e16a</value>
+ </row>
+ <row id="54818" trl="N">
+  <value column="Name" original="Log">Log</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Log Tab">Pestaña de Log</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="f4833bf4-8e1a-11e9-87f2-b32453de43bd">f4d218e6-8e1a-11e9-881d-677ea2b444ae</value>
+ </row>
  <row id="54820" trl="N">
   <value column="Name" original="Withholding Tax">Retención de I.V.A</value>
   <value column="CommitWarning" original=""/>
@@ -8816,5 +8865,40 @@ The class needs to implement org.compiere.model.PaymentProcessor]]></value>
   <value column="Description" original="Tribute Unit Setup">Configuración de Unidad Tributaria</value>
   <value column="Help" original="">Configure la Unidad Tributaria para la Fecha Indicada</value>
   <value column="UUID" original="3902cb86-8f07-11e9-91b4-cb436c4b84e0">39448940-8f07-11e9-91df-576db3ef52b2</value>
+ </row>
+ <row id="54822" trl="N">
+  <value column="Name" original="Tax Applied">Tasa de I.V.A.</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Tax Applied for documents">Tasas de I.V.A. aplicadas a los documentos</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="68300b78-8ff5-11e9-bc57-47a2a7120b0a">6872bb58-8ff5-11e9-bc82-47cb7f286c4d</value>
+ </row>
+ <row id="54823" trl="N">
+  <value column="Name" original="Withholding Type">Tipo de Porcentaje</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Withholding Type for Business Partners">Tipo de Porcentaje a Aplicar</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="e4a684c4-8ff6-11e9-b98a-d7be2490620b">e4e9ad30-8ff6-11e9-b9b5-53724651a9c3</value>
+ </row>
+ <row id="54824" trl="N">
+  <value column="Name" original="Withholding Rental">Retención de I.S.L.R</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="">Configuración de Retención de I.S.L.R. para Venezuela</value>
+  <value column="Help" original="">Contiene toda la configuración de Retención de I.S.L.R. para Venezuela con base en la ley</value>
+  <value column="UUID" original="5bf455ba-9123-11e9-9a16-8bfe8b4944b9">5c2d39d4-9123-11e9-9a41-5b3a0120a29b</value>
+ </row>
+ <row id="54825" trl="N">
+  <value column="Name" original="Withholding Concept">Concepto de Retención</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Withholding Concept for Combination">Concepto de Retención para Aplicar</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="646f33fe-9123-11e9-9d07-c374dbb4218f">64a76dbe-9123-11e9-9d32-2b317e820bf0</value>
+ </row>
+ <row id="54826" trl="N">
+  <value column="Name" original="Tax Applied">Tasa de I.S.L.R</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Tax Applied for documents">Tasa de I.S.L.R. Aplicada al documento</value>
+  <value column="Help" original="Note that rate can change for distints person types">Note que la tasa puede variar dependiendo del tipo de persona</value>
+  <value column="UUID" original="6ad9baca-9123-11e9-9f3b-17d3e9834290">6b0d5718-9123-11e9-9f66-a317a9f69d10</value>
  </row>
 </adempiereTrl>

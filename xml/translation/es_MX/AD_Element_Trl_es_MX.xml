@@ -691,7 +691,7 @@
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cc52242-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cc52242-fb40-11e8-a479-7a0060f0aa01">a566a28a-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="189" trl="Y">
   <value column="Name" original="Partner Location">Dirección del Socio del Negocio</value>
@@ -768,7 +768,7 @@
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cc868d0-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cc868d0-fb40-11e8-a479-7a0060f0aa01">a566a4c4-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="197" trl="Y">
   <value column="Name" original="Target Document Type">Tipo Documento Destino</value>
@@ -1297,7 +1297,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cc76ed0-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cc76ed0-fb40-11e8-a479-7a0060f0aa01">a5570ad2-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="264" trl="Y">
   <value column="Name" original="Date Delivered">Fecha de Entrega</value>
@@ -1319,7 +1319,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cc71796-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cc71796-fb40-11e8-a479-7a0060f0aa01">a55e643a-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="267" trl="Y">
   <value column="Name" original="Date Invoiced">Fecha de Facturación</value>
@@ -1495,7 +1495,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cca3930-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cca3930-fb40-11e8-a479-7a0060f0aa01">a566b18a-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="288" trl="Y">
   <value column="Name" original="Document Sequence">Secuencia del Documento</value>
@@ -1517,7 +1517,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cce4b24-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cce4b24-fb40-11e8-a479-7a0060f0aa01">a5575302-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="290" trl="Y">
   <value column="Name" original="Document No">No. del Documento</value>
@@ -1530,7 +1530,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cc545e2-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cc545e2-fb40-11e8-a479-7a0060f0aa01">a54d2ddc-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="291" trl="Y">
   <value column="Name" original="EMU Entry Date">Fecha de inicio EMU</value>
@@ -1937,7 +1937,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cd49e5c-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cd49e5c-fb40-11e8-a479-7a0060f0aa01">a565e70a-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="352" trl="Y">
   <value column="Name" original="Activate Audit">Activar Auditoria</value>
@@ -3125,7 +3125,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cdb731c-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cdb731c-fb40-11e8-a479-7a0060f0aa01">a5666964-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="526" trl="Y">
   <value column="Name" original="Quantity">Cantidad</value>
@@ -3961,7 +3961,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cc4e1ba-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cc4e1ba-fb40-11e8-a479-7a0060f0aa01">a566c454-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="622" trl="Y">
   <value column="Name" original="Partner Category">Categoría del Socio del Negocio</value>
@@ -4181,7 +4181,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cca44c0-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cca44c0-fb40-11e8-a479-7a0060f0aa01">a5600eb6-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="849" trl="Y">
   <value column="Name" original="Charge amount">Total de Cargo</value>
@@ -4808,7 +4808,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cc6f072-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cc6f072-fb40-11e8-a479-7a0060f0aa01">a55816b6-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="973" trl="Y">
   <value column="Name" original="Swift code">Código Swift</value>
@@ -4907,7 +4907,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cc66724-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cc66724-fb40-11e8-a479-7a0060f0aa01">a55e0792-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="1009" trl="Y">
   <value column="Name" original="Customer Prepayment">Pago Anticipado de Clientes</value>
@@ -5215,7 +5215,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cc9ebf6-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cc9ebf6-fb40-11e8-a479-7a0060f0aa01">a55fe8be-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="1048" trl="Y">
   <value column="Name" original="Quantity book">Cantidad en Libros</value>
@@ -5435,7 +5435,7 @@ El callout es una clase Java que implementa org.compiere.model.Callout y un nomb
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cc535c0-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cc535c0-fb40-11e8-a479-7a0060f0aa01">a55d9938-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="1078" trl="Y">
   <value column="Name" original="Revenue Recognition">Reconocimiento de Ingreso</value>
@@ -27811,7 +27811,7 @@ La suma del Costo Precio Actual y el Costo Precio Actual Menor Nivel es el costo
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cc2ea86-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cc2ea86-fb40-11e8-a479-7a0060f0aa01">f6ffcfe8-8c6f-11e9-b591-dbde84f61849</value>
  </row>
  <row id="53340" trl="Y">
   <value column="Name" original="Network Distribution">Red Distribución</value>
@@ -29013,7 +29013,7 @@ http://en.wikipedia.org/wiki/Safety_stock</value>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8ccaf80c-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8ccaf80c-fb40-11e8-a479-7a0060f0aa01">a5607cf2-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="53499" trl="Y">
   <value column="Name" original="A_Calc_Accumulated_Depr">Depreciación Acumulada Calc</value>
@@ -32140,7 +32140,7 @@ Crédito Cuenta Trabajo en Proceso</value>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cc438aa-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cc438aa-fb40-11e8-a479-7a0060f0aa01">a5677e9e-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="53906" trl="Y">
   <value column="Name" original="View Definition">View Definition ID</value>
@@ -41176,7 +41176,7 @@ Credit Expense 1000
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="6ece0534-8fc8-11e9-913d-83de93d2b085">6f044928-8fc8-11e9-913f-df3b027d3243</value>
+  <value column="UUID" original="6c9ff810-91cd-11e9-b7bb-1f7bb150949d">6f044928-8fc8-11e9-913f-df3b027d3243</value>
  </row>
  <row id="60426" trl="N">
   <value column="Name" original="Bank Matcher">Algoritmo de Conciliación Configurado</value>
@@ -41475,6 +41475,149 @@ Credit Expense 1000
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="7a36e7ac-8270-11e9-8fd0-7f846e353da8">7a60d152-8270-11e9-8fe9-f75e8d7b850c</value>
  </row>
+ <row id="61013" trl="N">
+  <value column="Name" original="Notify me my own changes">Notificarme mis Propios Cambios</value>
+  <value column="PrintName" original="Notify me my own changes">Notificarme mis Propios Cambios</value>
+  <value column="Description" original="I want to be notified of changes that I make myself">Indica que será notificado cuando haga cambios usted mismo</value>
+  <value column="Help" original="I want to be notified of changes that I make myself on project or request">Indica que será notificado cuando haga cambios usted mismo, esto aplicará para proyecto o solicitudes</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="27e2416c-872b-11e9-8c82-af30634f66a9">281175d6-872b-11e9-8c9b-b779cf13e1dc</value>
+ </row>
+ <row id="61055" trl="N">
+  <value column="Name" original="Withholding ">Retención </value>
+  <value column="PrintName" original="Withholding ">Retención </value>
+  <value column="Description" original="Withholding Definition is used for define a withholding rule for BP">Conservación de parte de una cantidad que se debe pagar para garantizar el cumplimiento de alguna obligación, generalmente de tipo fiscal.</value>
+  <value column="Help" original="Withholding is the amount that is withheld from a salary, salary or other collection for the payment of a tax, of debts under the embargo, that is, you are now withheld to secure the payment of the tax.">La retención es la cantidad que se retiene de un sueldo, salario u otra percepción para el pago de un impuesto, de deudas en virtud de embargo, es decir, te retienen ahora para asegurar el pago del impuesto.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="90719ffc-28b2-11e9-896b-6c0b840adaed">a4475e7c-28b2-11e9-8984-6c0b840adaed</value>
+ </row>
+ <row id="61056" trl="N">
+  <value column="Name" original="Withholding Type">Tipo de Retención</value>
+  <value column="PrintName" original="Withholding Type">Tipo de Retención</value>
+  <value column="Description" original="Indicates the types of national tax withholdings">Identifica las Diversas Retenciones Existentes</value>
+  <value column="Help" original="In the window the types of existing national tax withholdings are indicated."/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="d2c8db2c-2899-11e9-a455-6c0b840adaed">9171f812-28bb-11e9-bbe8-6c0b840adaed</value>
+ </row>
+ <row id="61057" trl="N">
+  <value column="Name" original="Is Include Processed">Incluir Procesado</value>
+  <value column="PrintName" original="Is Include Processed">Incluir Procesado</value>
+  <value column="Description" original="allows me to point out that the document is already processed">Me permite señalar que el documento ya esta procesado</value>
+  <value column="Help" original="">Me permite señalar que el documento ya esta procesado y se puede incluir al sistema</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="6f8a4d4a-28b5-11e9-899f-6c0b840adaed">b4b408de-28b5-11e9-996a-6c0b840adaed</value>
+ </row>
+ <row id="61058" trl="N">
+  <value column="Name" original="Withholding Line ">Línea de Retención</value>
+  <value column="PrintName" original="Withholding Line ">Línea de Retención</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="8a1b37f4-28b6-11e9-a123-6c0b840adaed">712b9bee-28b6-11e9-a120-6c0b840adaed</value>
+ </row>
+ <row id="61059" trl="N">
+  <value column="Name" original="Is Declared">Retención Declarada</value>
+  <value column="PrintName" original="Is Declared">Retención Declarada</value>
+  <value column="Description" original="Show if a withholding has been declared">Indica que la Retención fue Declarada</value>
+  <value column="Help" original="This flag is very useful for determinate if a withholding was declared or not">Esta bandera es útil para determinar si una retención fue o no declarada</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="a5425d08-82ef-11e9-bc49-0242ac140004">a56793d4-82ef-11e9-bc49-0242ac140004</value>
+ </row>
+ <row id="61060" trl="N">
+  <value column="Name" original="Source Invoice ">Factura Fuente</value>
+  <value column="PrintName" original="Source Invoice ">Factura Fuente</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="a5425d8a-82ef-11e9-bc49-0242ac140004">a5679456-82ef-11e9-bc49-0242ac140004</value>
+ </row>
+ <row id="61061" trl="N">
+  <value column="Name" original="Source Invoice Line">Línea de Factura Fuente</value>
+  <value column="PrintName" original="Source Invoice Line">Línea de Factura Fuente</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="a5425e0c-82ef-11e9-bc49-0242ac140004">a56794e2-82ef-11e9-bc49-0242ac140004</value>
+ </row>
+ <row id="61062" trl="N">
+  <value column="Name" original="Withholding Allocation">Asignación de Retención</value>
+  <value column="PrintName" original="Withholding Allocation">Asignación de Retención</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="a5425c04-82ef-11e9-bc49-0242ac140004">a56792d0-82ef-11e9-bc49-0242ac140004</value>
+ </row>
+ <row id="61063" trl="N">
+  <value column="Name" original="Withholding Amt">Monto de Retención</value>
+  <value column="PrintName" original="Withholding Amt">Monto de Retención</value>
+  <value column="Description" original="">Monto de Retención aplicada</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="a543d606-82ef-11e9-bc49-0242ac140004">a5679564-82ef-11e9-bc49-0242ac140004</value>
+ </row>
+ <row id="61064" trl="N">
+  <value column="Name" original="Withholding Setting">Funcionalidades</value>
+  <value column="PrintName" original="Withholding Setting">Funcionalidades</value>
+  <value column="Description" original="specifies the setting to each applied withholding"/>
+  <value column="Help" original="in this sale the functionalities are specified to each applied withholding."/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="a54402b6-82ef-11e9-bc49-0242ac140004">a56795e6-82ef-11e9-bc49-0242ac140004</value>
+ </row>
+ <row id="61065" trl="N">
+  <value column="Name" original="Withholding Class Name">Nombre de la Clase para Retención</value>
+  <value column="PrintName" original="Withholding Class Name">Nombre de la Clase para Retención</value>
+  <value column="Description" original="Java Classname">Nombre de la Clase de Java</value>
+  <value column="Help" original="Classname identifies the Java classname used by Withholding">Nombre de clase identifica el nombre de clase de Java utilizado por Retención</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="4eed7d2a-28b8-11e9-afc9-6c0b840adaed">e0ce9d80-28ba-11e9-bbe4-6c0b840adaed</value>
+ </row>
+ <row id="61068" trl="N">
+  <value column="Name" original="Withholding Log">Log de Retención</value>
+  <value column="PrintName" original="Withholding Log">Log de Retención</value>
+  <value column="Description" original="Save a log for each document processed">Guarda un registro por cada documento procesado</value>
+  <value column="Help" original="Use this information for know if exists a error with withholding setup">Use ésta información para saber si existe algún error con la configiración de retenciones</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="26b70ff8-8e19-11e9-85c3-8308929d6d88">26e3313c-8e19-11e9-85dc-53f15d2cbcb5</value>
+ </row>
  <row id="61069" trl="N">
   <value column="Name" original="Withholding Tax Applied">Retención Aplicada</value>
   <value column="PrintName" original="Withholding Tax Applied">Retención Aplicada</value>
@@ -41496,6 +41639,17 @@ Credit Expense 1000
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="63826dec-8e2d-11e9-a0c1-9b814e505c40">63c2a4d4-8e2d-11e9-a0da-3f9064c73a83</value>
+ </row>
+ <row id="61072" trl="N">
+  <value column="Name" original="Withholding Rate">Porcentaje de Retención</value>
+  <value column="PrintName" original="Withholding Rate">Porcentaje de Retención</value>
+  <value column="Description" original="Withholding Rate applied to Document">Porcentaje de Retención aplicado al documento</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="f2a5c664-8ec2-11e9-ab44-8f0647893f01">f2e5ee74-8ec2-11e9-ab5d-ff6764ebd283</value>
  </row>
  <row id="61073" trl="N">
   <value column="Name" original="Withholding Tax Rate">Retención de I.V.A. Aplicada</value>
@@ -41520,10 +41674,10 @@ Credit Expense 1000
   <value column="UUID" original="a6653bfa-8efd-11e9-8aa0-8f842469a952">a691846c-8efd-11e9-8ab9-abf50f49179c</value>
  </row>
  <row id="61075" trl="N">
-  <value column="Name" original="Withholding Tax for Venezuela">Configuración de Retención de I.V.A</value>
-  <value column="PrintName" original="Withholding Tax for Venezuela">Configuración de Retención de I.V.A</value>
-  <value column="Description" original="Withholding Tax Maintaining for Venezuela">Configuración de Retención de I.V.A para Venezuela</value>
-  <value column="Help" original="">Contiene toda la configuración de Retención de I.V.A. para Venezuela con base en la ley</value>
+  <value column="Name" original="Withholding Tax for Venezuela">Configuración de Retención</value>
+  <value column="PrintName" original="Withholding Tax for Venezuela">Configuración de Retención</value>
+  <value column="Description" original="Withholding Tax Maintaining for Venezuela">Configuración de Retención de para Venezuela</value>
+  <value column="Help" original="">Contiene toda la configuración de Retención para Venezuela con base en la ley</value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -41533,8 +41687,8 @@ Credit Expense 1000
  <row id="61076" trl="N">
   <value column="Name" original="Withholding Rate Type">Tipo de Tasa Aplicada</value>
   <value column="PrintName" original="Withholding Rate Type">Tipo de Tasa Aplicada</value>
-  <value column="Description" original="Withholding Rate Type for handle Withholding Tax Rate">Tipo de Tasa Aplicada para Retención de IVA</value>
-  <value column="Help" original="">Determina el tipo de tasa aplicada para retención de I.V.A.</value>
+  <value column="Description" original="Withholding Rate Type for handle Withholding Tax Rate">Tipo de Tasa Aplicada para Retención</value>
+  <value column="Help" original="">Determina el tipo de tasa aplicada para retención</value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -41553,10 +41707,10 @@ Credit Expense 1000
   <value column="UUID" original="715866b8-8f01-11e9-8c21-a70b105af0c9">7198f322-8f01-11e9-8c3a-3fce9cf02b04</value>
  </row>
  <row id="61078" trl="N">
-  <value column="Name" original="Client Excluded">La Compañía no Retiene I.V.A.</value>
-  <value column="PrintName" original="Client Excluded">La Compañía no Retiene I.V.A.</value>
-  <value column="Description" original="Client Excluded for Withholding">La Compañía no Retiene I.V.A.</value>
-  <value column="Help" original="">La Compañía no Retiene I.V.A. a proveedores</value>
+  <value column="Name" original="Client Excluded">La Compañía no Retiene Impuesto</value>
+  <value column="PrintName" original="Client Excluded">La Compañía no Retiene Impuesto</value>
+  <value column="Description" original="Client Excluded for Withholding">La Compañía no Retiene Impuesto</value>
+  <value column="Help" original="">La Compañía no Retiene Impuesto a proveedores</value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -41573,6 +41727,28 @@ Credit Expense 1000
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="da4c9014-8f05-11e9-9d9d-f76f11784652">da886170-8f05-11e9-9db6-0b2058d7c69c</value>
+ </row>
+ <row id="61082" trl="N">
+  <value column="Name" original="Withholding Rental Rate">Retención de I.S.L.R. Aplicada</value>
+  <value column="PrintName" original="Withholding Rental Rate">Retención de I.S.L.R. Aplicada</value>
+  <value column="Description" original="Withholding Rental Rate for a Business Partner">Retención de I.S.L.R. Aplicada al Socio de Negocio</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="c48c2b9a-9121-11e9-a7a3-1f855d85b0ed">c4bb37d2-9121-11e9-a7bc-333ff1fc391e</value>
+ </row>
+ <row id="61083" trl="N">
+  <value column="Name" original="Withholding Rental Exempt">No Aplica Retención de I.S.L.R.</value>
+  <value column="PrintName" original="Withholding Rental Exempt">No Aplica Retención de I.S.L.R.</value>
+  <value column="Description" original="Withholding Rental Exempt for this Vendor">No Aplica Retención de I.S.L.R. para este Documento o Socio de Negocio</value>
+  <value column="Help" original="The documents or business partner flagged with this flag will not processed when running withholding">Los documentos o socios de negocio marcados con esta bandera no serán procesados al momento de realizar la retención de I.S.L.R.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="6c327f52-9122-11e9-a157-27b2310b0434">6c6114b6-9122-11e9-a170-7b1656aaae92</value>
  </row>
  <row id="200000" trl="Y">
   <value column="Name" original="Recent Item">Recent Item</value>

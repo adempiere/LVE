@@ -338,102 +338,102 @@
  <row id="164" trl="Y">
   <value column="Name" original="Drafted">Borrador</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a459d506-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a459d506-fb40-11e8-a479-7a0060f0aa01">e016399a-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="165" trl="Y">
   <value column="Name" original="Completed">Completo</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a455fea4-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455fea4-fb40-11e8-a479-7a0060f0aa01">e0163a26-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="166" trl="Y">
   <value column="Name" original="Approved">Aprobado</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a455fdb4-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455fdb4-fb40-11e8-a479-7a0060f0aa01">e0163abc-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="168" trl="Y">
   <value column="Name" original="Not Approved">No Aprobado</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a459d290-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a459d290-fb40-11e8-a479-7a0060f0aa01">e012f7c6-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="172" trl="Y">
   <value column="Name" original="Voided">Anulado</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a455ffe4-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455ffe4-fb40-11e8-a479-7a0060f0aa01">e012ee20-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="173" trl="Y">
   <value column="Name" original="Invalid">No-Válido</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a455ff08-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455ff08-fb40-11e8-a479-7a0060f0aa01">e00f1840-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="176" trl="Y">
   <value column="Name" original="Reversed">Reversado</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a455ff76-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455ff76-fb40-11e8-a479-7a0060f0aa01">e013ebfe-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="177" trl="Y">
   <value column="Name" original="Closed">Cerrado</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a455fe36-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455fe36-fb40-11e8-a479-7a0060f0aa01">e012d296-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="178" trl="Y">
   <value column="Name" original="Complete">Completar</value>
   <value column="Description" original="Generate documents and complete transaction">Genera los documentos y completa la transacción</value>
-  <value column="UUID" original="a455c7f4-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455c7f4-fb40-11e8-a479-7a0060f0aa01">e013cd68-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="179" trl="Y">
   <value column="Name" original="Approve">Aprobar</value>
   <value column="Description" original="Approve this transaction">Aprueba esta transacción</value>
-  <value column="UUID" original="a455c86c-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455c86c-fb40-11e8-a479-7a0060f0aa01">e013cdf4-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="180" trl="Y">
   <value column="Name" original="Reject">Rechazar</value>
   <value column="Description" original="Reject the approval of the document. ">Rechaza la aprobación del documento</value>
-  <value column="UUID" original="a455c8e4-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455c8e4-fb40-11e8-a479-7a0060f0aa01">e013ce8a-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="181" trl="Y">
   <value column="Name" original="Post">Aplicar</value>
   <value column="Description" original="Post transaction">Aplica la transacción</value>
-  <value column="UUID" original="a455c952-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455c952-fb40-11e8-a479-7a0060f0aa01">e013cf16-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="182" trl="Y">
   <value column="Name" original="Void">Anular</value>
   <value column="Description" original="Set all quantities to zero and complete transaction">Pone a cero las cantidades y completa la transacción</value>
-  <value column="UUID" original="a455c9ca-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455c9ca-fb40-11e8-a479-7a0060f0aa01">e013cfac-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="183" trl="Y">
   <value column="Name" original="Close">Cerrar</value>
   <value column="Description" original="Finally close this transaction. It cannot be re-activated.">Cierre final de esta transacción. No podrá ser reactivada</value>
-  <value column="UUID" original="a455ca38-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455ca38-fb40-11e8-a479-7a0060f0aa01">e013d038-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="184" trl="Y">
   <value column="Name" original="Reverse - Correct">Reversar - Corregir</value>
   <value column="Description" original="Reverse Transaction (correction) by reversing sign with same date">Transacción Inversa (corrección) invirtiendo el signo con la misma fecha</value>
-  <value column="UUID" original="a455caa6-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455caa6-fb40-11e8-a479-7a0060f0aa01">e00f4158-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="185" trl="Y">
   <value column="Name" original="Reverse - Accrual">Reversar - Causación</value>
   <value column="Description" original="Reverse by switching Dr/Cr with current date">Restaurar a través de intercambiar Débitos y Créditos con la fecha actual</value>
-  <value column="UUID" original="a455cb1e-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455cb1e-fb40-11e8-a479-7a0060f0aa01">e013d0c4-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="187" trl="Y">
   <value column="Name" original="Invalidate">Invalidar</value>
   <value column="Description" original="Invalidate Document"/>
-  <value column="UUID" original="a455cb8c-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455cb8c-fb40-11e8-a479-7a0060f0aa01">e013d15a-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="188" trl="Y">
   <value column="Name" original="Re-activate">Reactivar</value>
   <value column="Description" original="Reopen Document and Reverse automaticly generated documents; You need to Complete the transaction after the change. ">Reabrir el documento y reversar automáticamente los documentos generados, debe Completar la transacción después del cambio</value>
-  <value column="UUID" original="a455cbfa-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455cbfa-fb40-11e8-a479-7a0060f0aa01">e0163bc0-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="189" trl="Y">
   <value column="Name" original="&lt;None&gt;"><![CDATA[<Ninguno>]]></value>
   <value column="Description" original="No action">Sin acción</value>
-  <value column="UUID" original="a455cc68-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a455cc68-fb40-11e8-a479-7a0060f0aa01">e013d1e6-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="190" trl="Y">
   <value column="Name" original="Unknown">Desconocido</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a4560692-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4560692-fb40-11e8-a479-7a0060f0aa01">e013ec8a-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="194" trl="Y">
   <value column="Name" original="System+Client">Sistema+Compañía</value>
@@ -1043,7 +1043,7 @@
  <row id="341" trl="Y">
   <value column="Name" original="In Progress">En Proceso</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a456aec6-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a456aec6-fb40-11e8-a479-7a0060f0aa01">e0142e5c-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="342" trl="Y">
   <value column="Name" original="Blind list (w/o book quantity)">Lista oculta (sin cantidad en libros)</value>
@@ -1063,17 +1063,17 @@
  <row id="345" trl="Y">
   <value column="Name" original="Prepare">Preparar</value>
   <value column="Description" original="Check Document conistency and check Inventory">Chequear consistencia del documento y chequear inventarios</value>
-  <value column="UUID" original="a4572ebe-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4572ebe-fb40-11e8-a479-7a0060f0aa01">e0144090-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="346" trl="Y">
   <value column="Name" original="Waiting Payment">Esperando Pago</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a459d308-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a459d308-fb40-11e8-a479-7a0060f0aa01">e01643fe-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="347" trl="Y">
   <value column="Name" original="Unlock">Desbloquear</value>
   <value column="Description" original="Unlock Transaction (process error)">Desbloquea la transacción (error de proceso)</value>
-  <value column="UUID" original="a4572f40-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4572f40-fb40-11e8-a479-7a0060f0aa01">e014411c-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="348" trl="Y">
   <value column="Name" original="Material Physical Inventory">Inventario Físico del Material</value>
@@ -2613,7 +2613,7 @@
  <row id="670" trl="Y">
   <value column="Name" original="Waiting Confirmation">Esperando Confirmación</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a46776f2-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a46776f2-fb40-11e8-a479-7a0060f0aa01">e015e2ba-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="671" trl="Y">
   <value column="Name" original="Process Completed">Proceso Completo</value>
@@ -2718,7 +2718,7 @@
  <row id="691" trl="Y">
   <value column="Name" original="Wait Complete">Espera Condición de Completar</value>
   <value column="Description" original="Wait Condition ok Complete Docuement">Wait Condition ok, Complete Docuement</value>
-  <value column="UUID" original="a456e5a8-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a456e5a8-fb40-11e8-a479-7a0060f0aa01">e0164f66-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="692" trl="Y">
   <value column="Name" original="Purchase Order">Orden de Compra</value>
@@ -4533,112 +4533,112 @@
  <row id="53299" trl="Y">
   <value column="Name" original="Table Before New">Tabla - Antes de Insertar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a457624e-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a457624e-fb40-11e8-a479-7a0060f0aa01">eeac4218-8c6f-11e9-b462-eb751af7d14b</value>
  </row>
  <row id="53300" trl="Y">
   <value column="Name" original="Table Before Change">Tabla - Antes de Cambiar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a457743c-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a457743c-fb40-11e8-a479-7a0060f0aa01">eefe1d86-8c6f-11e9-b46e-c79eb74db918</value>
  </row>
  <row id="53301" trl="Y">
   <value column="Name" original="Table Before Delete">Tabla - Antes de Borrar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a45774aa-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a45774aa-fb40-11e8-a479-7a0060f0aa01">ef56cb98-8c6f-11e9-b47a-2734c77fb2c7</value>
  </row>
  <row id="53302" trl="Y">
   <value column="Name" original="Table After New">Tabla - Despues de Insertar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a4577518-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4577518-fb40-11e8-a479-7a0060f0aa01">efb10f86-8c6f-11e9-b486-2fb8daa05f3f</value>
  </row>
  <row id="53303" trl="Y">
   <value column="Name" original="Table After Change">Tabla - Despues de Cambiar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a457757c-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a457757c-fb40-11e8-a479-7a0060f0aa01">f00313a8-8c6f-11e9-b492-aff19513c111</value>
  </row>
  <row id="53304" trl="Y">
   <value column="Name" original="Table After Delete">Tabla - Despues de Borrar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a45775ea-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a45775ea-fb40-11e8-a479-7a0060f0aa01">f062d658-8c6f-11e9-b49e-4b7fbfbc0809</value>
  </row>
  <row id="53305" trl="Y">
   <value column="Name" original="Document Before Prepare">Documento - Antes de preparar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a457764e-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a457764e-fb40-11e8-a479-7a0060f0aa01">f0acb14c-8c6f-11e9-b4aa-d76567b9af71</value>
  </row>
  <row id="53306" trl="Y">
   <value column="Name" original="Document Before Void">Documento - Antes de anular</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a4577874-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4577874-fb40-11e8-a479-7a0060f0aa01">f0f8afe8-8c6f-11e9-b4b6-7f51a93e7eac</value>
  </row>
  <row id="53307" trl="Y">
   <value column="Name" original="Document Before Close">Documento - Antes de cerrar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a45778f6-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a45778f6-fb40-11e8-a479-7a0060f0aa01">f14fbe82-8c6f-11e9-b4c2-c7e16df99002</value>
  </row>
  <row id="53308" trl="Y">
   <value column="Name" original="Document Before Reactivate">Documento - Antes de reactivar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a457795a-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a457795a-fb40-11e8-a479-7a0060f0aa01">f1a32fc2-8c6f-11e9-b4ce-1377a1d61e7d</value>
  </row>
  <row id="53309" trl="Y">
   <value column="Name" original="Document Before Reverse Correct">Documento - Antes de reversar para corregir</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a45779c8-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a45779c8-fb40-11e8-a479-7a0060f0aa01">f1fb7e3e-8c6f-11e9-b4da-ff3429e69921</value>
  </row>
  <row id="53310" trl="Y">
   <value column="Name" original="Document Before Reverse Accrual">Documento - Antes de reversar causación</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a4577a2c-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4577a2c-fb40-11e8-a479-7a0060f0aa01">f25716d6-8c6f-11e9-b4e6-0780441ec9a7</value>
  </row>
  <row id="53311" trl="Y">
   <value column="Name" original="Document Before Complete">Documento - Antes de completar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a4577a9a-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4577a9a-fb40-11e8-a479-7a0060f0aa01">f2a8e38a-8c6f-11e9-b4f2-b7eabc274b5b</value>
  </row>
  <row id="53312" trl="Y">
   <value column="Name" original="Document Before Post">Documento - Antes de contabilizar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a4577afe-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4577afe-fb40-11e8-a479-7a0060f0aa01">f2f4c53e-8c6f-11e9-b4fe-1f96b360920c</value>
  </row>
  <row id="53313" trl="Y">
   <value column="Name" original="Document After Prepare">Documento - Despues de preparar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a4577b6c-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4577b6c-fb40-11e8-a479-7a0060f0aa01">f34f3960-8c6f-11e9-b50a-d7fb00286702</value>
  </row>
  <row id="53314" trl="Y">
   <value column="Name" original="Document After Void">Documento - Despues de anular</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a4577bda-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4577bda-fb40-11e8-a479-7a0060f0aa01">f3a15a4c-8c6f-11e9-b516-d3c23bd1e648</value>
  </row>
  <row id="53315" trl="Y">
   <value column="Name" original="Document After Close">Documento - Despues de cerrar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a4577c3e-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4577c3e-fb40-11e8-a479-7a0060f0aa01">f3ef2768-8c6f-11e9-b522-4bf7c889246c</value>
  </row>
  <row id="53316" trl="Y">
   <value column="Name" original="Document After Reactivate">Documento - Despues de reactivar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a4577cac-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4577cac-fb40-11e8-a479-7a0060f0aa01">f4458446-8c6f-11e9-b52e-27ebad44d086</value>
  </row>
  <row id="53317" trl="Y">
   <value column="Name" original="Document After Reverse Correct">Documento - Despues de reversar para corregir</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a4577d10-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4577d10-fb40-11e8-a479-7a0060f0aa01">f494acd8-8c6f-11e9-b53a-832ef4a50ae6</value>
  </row>
  <row id="53318" trl="Y">
   <value column="Name" original="Document After Reverse Accrual">Documento - Despues de reversar causación</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a4578454-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a4578454-fb40-11e8-a479-7a0060f0aa01">f4f33794-8c6f-11e9-b546-fb005ccd41fa</value>
  </row>
  <row id="53319" trl="Y">
   <value column="Name" original="Document After Complete">Documento - Despues de completar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a45784cc-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a45784cc-fb40-11e8-a479-7a0060f0aa01">f5418ed0-8c6f-11e9-b552-0b5ba74b8659</value>
  </row>
  <row id="53320" trl="Y">
   <value column="Name" original="Document After Post">Documento - Despues de contabilizar</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a457853a-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a457853a-fb40-11e8-a479-7a0060f0aa01">f5911310-8c6f-11e9-b55e-c34cd88dd5d6</value>
  </row>
  <row id="53321" trl="Y">
   <value column="Name" original="Insert">Insertar</value>
@@ -4723,17 +4723,17 @@
  <row id="53337" trl="Y">
   <value column="Name" original="Table After New Replication">Tabla - Despues de Replicación Nuevo</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a457bcc6-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a457bcc6-fb40-11e8-a479-7a0060f0aa01">f5dfb2fe-8c6f-11e9-b56a-9b1633f21cb2</value>
  </row>
  <row id="53338" trl="Y">
   <value column="Name" original="Table After Change Replication">Tabla - Despues de Replicación Cambio</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a457bd52-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a457bd52-fb40-11e8-a479-7a0060f0aa01">f63c9668-8c6f-11e9-b576-6b96d25ca50a</value>
  </row>
  <row id="53339" trl="Y">
   <value column="Name" original="Table Before Delete Replication">Tabla - Antes de Replicación Borrado</value>
   <value column="Description" original=""/>
-  <value column="UUID" original="a457bdb6-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a457bdb6-fb40-11e8-a479-7a0060f0aa01">f6a2b38a-8c6f-11e9-b582-3b69fd411b39</value>
  </row>
  <row id="53343" trl="Y">
   <value column="Name" original="Amount">Monto</value>
@@ -7610,6 +7610,31 @@
   <value column="Description" original=""/>
   <value column="UUID" original="80d76266-8271-11e9-9065-e73080ce4b9b">811485d8-8271-11e9-9078-8fff96298c05</value>
  </row>
+ <row id="55367" trl="N">
+  <value column="Name" original="Process">Proceso</value>
+  <value column="Description" original="Document Process called from menu">Proceso de un Documento llamado desde el menú</value>
+  <value column="UUID" original="2ae4ef1a-8c6a-11e9-8672-6bb163462e94">2ae6b16a-8c6a-11e9-8674-2f56f52870c3</value>
+ </row>
+ <row id="55368" trl="N">
+  <value column="Name" original="Event">Evento</value>
+  <value column="Description" original="Table or Document Event">Evento de Tabla o Documento</value>
+  <value column="UUID" original="58912046-8c6a-11e9-8676-030d9c1adb19">58949a82-8c6a-11e9-8678-3b26541d4154</value>
+ </row>
+ <row id="55369" trl="N">
+  <value column="Name" original="Withholding">Retención</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="9520c7c2-8de7-11e9-a46b-bb6a7ad8b55f">954d3974-8de7-11e9-a47e-a790f9cba1e1</value>
+ </row>
+ <row id="55370" trl="N">
+  <value column="Name" original="Withholding Log">Log de Retención</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="1dff6898-8e22-11e9-a48b-6facfbb044c6">1e2943ca-8e22-11e9-a49e-3bef3636e7e6</value>
+ </row>
+ <row id="55371" trl="N">
+  <value column="Name" original="Withholding Generated">Retención Generada</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="30e75aba-8e22-11e9-a4b2-fbf2ec22f00f">3110e876-8e22-11e9-a4c5-8757b5b4d128</value>
+ </row>
  <row id="55372" trl="N">
   <value column="Name" original="Resident Natural Person">Persona Natural Residente</value>
   <value column="Description" original=""/>
@@ -7634,6 +7659,21 @@
   <value column="Name" original="Legal Person Not Established Domiciled">Persona Jurídica No Constituída Domiciliada</value>
   <value column="Description" original=""/>
   <value column="UUID" original="247e0764-8e2d-11e9-8f78-f7d8f138b1ec">24b0b178-8e2d-11e9-8f8b-8f03567345c8</value>
+ </row>
+ <row id="55378" trl="N">
+  <value column="Name" original="I.V.A.">I.V.A.</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="2b2aefb8-9121-11e9-a6ab-f36e54716bd7">2b58a00c-9121-11e9-a6be-b3e79af4e716</value>
+ </row>
+ <row id="55379" trl="N">
+  <value column="Name" original="I.S.L.R.">I.S.L.R.</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="34512b20-9121-11e9-a6cd-6b956466a682">347cba2e-9121-11e9-a6e0-4b2fd5bbf361</value>
+ </row>
+ <row id="55380" trl="N">
+  <value column="Name" original="Impuesto Municipal">Impuesto Municipal</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="3e7615f2-9121-11e9-a6ef-2f8bca818133">3ead9cc0-9121-11e9-a702-c3d639034058</value>
  </row>
  <row id="200139" trl="Y">
   <value column="Name" original="Fixed Assets Addition">Fixed Assets Document</value>

@@ -52,7 +52,7 @@
   <value column="Name" original="User">Usuario</value>
   <value column="Description" original="Maintain Users of the system">Mantener Usuarios del Sistema</value>
   <value column="Help" original="The User Window allows you to maintain User of the system.  Users can log into the system and have access to functionality via one or more roles.  A user can also be a business partner contact.">La ventana de usuario permite que se defina cada usuario en el sistema. Los usuarios pueden entrar al sistema y tener acceso a la funcionalidad via uno o más roles.</value>
-  <value column="UUID" original="a5216710-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a5216710-fb40-11e8-a479-7a0060f0aa01">e26ec5c2-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="109" trl="Y">
   <value column="Name" original="Client">Compañía</value>
@@ -136,7 +136,7 @@
   <value column="Name" original="Business Partner">Socio del Negocio</value>
   <value column="Description" original="Maintain Business Partners">Mantener Socios del Negocio</value>
   <value column="Help" original="The Business Partner window allows you do define any party with whom you transact.  This includes customers, vendors and employees.  Prior to entering or importing products, you must define your vendors.  Prior to generating Orders you must define your customers.  This window holds all information about your business partner and the values entered will be used to generate all document transactions">Esta ventana permite definir a cualquier ente con el cual se tenga relación de negocios (Socios del Negocio). Esto incluye clientes, proveedores y empleados. Antes de entrar o importar productos, es necesario definir proveedores. La ventana mantiene toda la información sobre los tercerso y los valores que aqui se definan, serán usados en todas las transacciones de documentos de la aplicación.</value>
-  <value column="UUID" original="a520de12-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a520de12-fb40-11e8-a479-7a0060f0aa01">e26dd356-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="125" trl="Y">
   <value column="Name" original="Accounting Schema">Esquema Contable</value>
@@ -310,7 +310,7 @@
   <value column="Name" original="Charge">Cargo</value>
   <value column="Description" original="Maintain Charges">Mantener Cargos</value>
   <value column="Help" original="The Charges Window defines the different charges that may be incurred.  These can include Bank Charges, Vendor Charges and Handling Charges.">Define los diferentes cargos adicionales en que se puede incurrir en una transacción. Estos pueden incluir cargos de servicio bancario, cargos del proveedor, cargos de manejo entre otros.</value>
-  <value column="UUID" original="a5211562-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a5211562-fb40-11e8-a479-7a0060f0aa01">e26d9d82-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="162" trl="Y">
   <value column="Name" original="Accounting Fact Details">Asientos Contables</value>
@@ -334,7 +334,7 @@
   <value column="Name" original="Invoice (Customer)">Documentos por Cobrar</value>
   <value column="Description" original="Customer Invoice Entry">Entrar factura de cliente</value>
   <value column="Help" original="The Customer Invoice Window allows you to display and enter invoices for a customer.  Invoices can also be generated from Sales Orders or Delivery documents.">La ventana permite desplegar y entrar facturas para un cliente. Las facturas pueden también ser generadas desde una orden de ventas o una entrega.</value>
-  <value column="UUID" original="a5220bac-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a5220bac-fb40-11e8-a479-7a0060f0aa01">e26ed508-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="168" trl="Y">
   <value column="Name" original="Physical Inventory">Inventario Físico</value>
@@ -400,7 +400,7 @@
   <value column="Name" original="Invoice (Vendor)">Documentos por Pagar</value>
   <value column="Description" original="Vendor Invoice Entry">Entrar Facturas de Proveedor</value>
   <value column="Help" original="The Vendor Invoice Window allows you to display and enter Invoices from a Vendor.  Vendor Invoices can also be generated from Purchase Orders or Delivery Receipts.">La ventana permite desplegar y entrar facturas para un proveedor. Facturas de proveedores pueden ser generadas desde una orden de compra o desde un recibo de envíos.</value>
-  <value column="UUID" original="a520e312-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a520e312-fb40-11e8-a479-7a0060f0aa01">e26dea08-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="184" trl="Y">
   <value column="Name" original="Material Receipt">Recepción de Productos</value>
@@ -2950,6 +2950,30 @@ Pipelines (pipeline transport)</value>
   <value column="Help" original="Make a template for request when a event is triggered">Realiza una Plantilla de correo por Solicitud cuando existe un evento</value>
   <value column="UUID" original="cee43920-50a3-11e9-8a7f-17908d22ab95">ceeb54ee-50a3-11e9-8a81-638e4c6868c5</value>
  </row>
+ <row id="53671" trl="N">
+  <value column="Name" original="Withholding Definition">Definición de Retenciones</value>
+  <value column="Description" original="The Withholding window define a behavior for all withholding that will be generated from it">La ventana Definición de Retenciones determina el comportamiento de una retención de IVA, Impuesto Sobre la Renta y demás</value>
+  <value column="Help" original="This window will be used for define distints winthholding that will be generated for AP Invoices or entered from AR Invoices">En esta ventana podrá definir las distintas retenciones que serán aplicadas a documentos por pagar o cargadas desde documentos por cobrar</value>
+  <value column="UUID" original="3d81c366-28a9-11e9-b235-6c0b840adaed">e26ed7c4-82ef-11e9-bc49-0242ac140004</value>
+ </row>
+ <row id="53672" trl="N">
+  <value column="Name" original="Withholding Allocation">Retención Generada</value>
+  <value column="Description" original="Withholding Allocation">Retención Generada</value>
+  <value column="Help" original="Allocation for withholding from AP or AR Invoices">Asignación de Retenciones a Documentos por Cobrar o Pagar</value>
+  <value column="UUID" original="137b0620-8be8-11e9-b1db-0242ac140011">138902b6-8be8-11e9-b1db-0242ac140011</value>
+ </row>
+ <row id="53673" trl="N">
+  <value column="Name" original="Withholding Type">Tipo de Retención</value>
+  <value column="Description" original="Indicates the types of national tax withholdings">Indica el Tipo de Retención de Impuesto</value>
+  <value column="Help" original="In the window the types of existing national tax withholdings are indicated.">En la ventana Tipo de Retención se configuran llos tipos de retención que se aplican a impuestos</value>
+  <value column="UUID" original="79c9cc84-2894-11e9-a338-6c0b840adaed">e26e8300-82ef-11e9-bc49-0242ac140004</value>
+ </row>
+ <row id="53675" trl="N">
+  <value column="Name" original="Withholding Log">Log de Retención</value>
+  <value column="Description" original="Save a log for each document processed">Guarda un registro por cada documento procesado</value>
+  <value column="Help" original="Use this information for know if exists a error with withholding setup">Use ésta información para saber si existe algún error con la configiración de retenciones</value>
+  <value column="UUID" original="cba6a676-8e1a-11e9-8362-fb2c7992a933">cbd5e120-8e1a-11e9-837c-670f67116c4e</value>
+ </row>
  <row id="53677" trl="N">
   <value column="Name" original="Withholding Tax Maintaining">Configuración de Retención de I.V.A</value>
   <value column="Description" original="Withholding Tax Maintaining">Configuración de Retención de I.V.A para Venezuela</value>
@@ -2961,5 +2985,11 @@ Pipelines (pipeline transport)</value>
   <value column="Description" original="Tribute Unit Maintaining">Mantenimiento de Unidad Tributaria</value>
   <value column="Help" original="Use this window for save and maintaining of Tribute Unit for Venezuela">Use ésta ventana para guardar y mantener la Unidad Tributaria para Venezuela</value>
   <value column="UUID" original="a281b776-8f06-11e9-917f-8bb97e2ea4ef">a2c118da-8f06-11e9-9199-3f071d77e203</value>
+ </row>
+ <row id="53679" trl="N">
+  <value column="Name" original="Withholding Rental Maintaining">Configuración de Retención de I.S.L.R</value>
+  <value column="Description" original="Withholding Rental Maintaining">Configuración de Retención de I.S.L.R. para Venezuela</value>
+  <value column="Help" original="Withholding Rental Maintaining for Client">Contiene toda la configuración de Retención de I.S.L.R. para Venezuela con base en la ley</value>
+  <value column="UUID" original="2a6773d8-9123-11e9-b27b-b79bf4bc86fe">2aa2ee2c-9123-11e9-b295-079c1505939a</value>
  </row>
 </adempiereTrl>

@@ -78,11 +78,11 @@
   <value column="Help" original="">Copiar todas las pestañas y campos de la ventana</value>
   <value column="UUID" original="a42a516e-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="114" trl="Y">
+ <row id="114" trl="N">
   <value column="Name" original="Copy Tab Fields">Copiar Pestañas</value>
   <value column="Description" original="Copy Fields from other Tab"/>
   <value column="Help" original="">Copiar campos a la pestaña</value>
-  <value column="UUID" original="a42a51dc-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a42a51dc-fb40-11e8-a479-7a0060f0aa01">ef8aab22-8ff6-11e9-981a-572b6a18ae29</value>
  </row>
  <row id="115" trl="Y">
   <value column="Name" original="Vendor Selection">Selección de Proveedor</value>
@@ -390,11 +390,11 @@
   <value column="Help" original="Write-off receivables causes the invoices selected by the criteria to be marked as paid and the open invoice amount to be written off.  Alternatively you can create payments.">Dar de Baja cuentas por recibir causa que las facturas seleccionadas por los criterios para ser marcadas como pagadas y los Totales de las facturas abiertas seran dadas de baja</value>
   <value column="UUID" original="a42b579e-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="172" trl="Y">
+ <row id="172" trl="N">
   <value column="Name" original="Synchronize Terminology">Sincronizar Terminología</value>
   <value column="Description" original="Synchronize the terminology within the system.">Sincronizar la terminología dentro del sistema</value>
   <value column="Help" original="Based on the entries in Window Element, the fields in windows, parameters, etc. are synchronized, if they are centrally maintained.  Also synchronizes Language Translation.">Basado en las entradas en el elemento de ventana, los campos en ventanas, parámetros, etc. Son sincronizados, si ellos son mantenidos centralizadamente.</value>
-  <value column="UUID" original="a42d3618-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a42d3618-fb40-11e8-a479-7a0060f0aa01">5041ebdc-9133-11e9-b99b-bf4617ea1ca6</value>
  </row>
  <row id="173" trl="Y">
   <value column="Name" original="Create Columns from DB">Crear Columnas desde BD</value>
@@ -402,11 +402,11 @@
   <value column="Help" original="If you have added columns in the database to this table, this procedure creates the Column records in the Dictionary.  Please be aware, that they may deleted, if the entity type is not set to User.">Si existen columnas adicionadas a esta tabla en la base de datos, este procedimiento crea los registros de columna en el diccionario. Favor tener en cuenta que si estas columnas no estan definidas como de usuario, ellas pueden ser borradas</value>
   <value column="UUID" original="a42b2bde-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="174" trl="Y">
+ <row id="174" trl="N">
   <value column="Name" original="Create Fields">Crear Campos</value>
   <value column="Description" original="Create Field from Table Column, which do not exist in the Tab yet">Crear campo desde la tabla, la cual no existe aun en la pestaña</value>
   <value column="Help" original="Based on the table columns of this Tab, this procedure creates the missing Fields">Basado en la tabla de esta pestaña, este procedimiento crea los campos faltantes</value>
-  <value column="UUID" original="a42b2c42-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a42b2c42-fb40-11e8-a479-7a0060f0aa01">c758fb82-8ff5-11e9-97da-ab8fc288ac8d</value>
  </row>
  <row id="175" trl="Y">
   <value column="Name" original="Resubmit Posting">Reenviar a Registrar</value>
@@ -911,11 +911,11 @@ Nos ayudará, si usted permitirá publicar su uso en Adempiere. Nos pondremos en
   <value column="Help" original=""/>
   <value column="UUID" original="a42b46b4-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="258" trl="Y">
-  <value column="Name" original="Sequence Check">Comprobar Secuencia</value>
-  <value column="Description" original="Check System and Document Sequences">Compruebe la secuencia del sistema y del documento.</value>
-  <value column="Help" original="Check that System and Document sequences are correct.  Run this process, if you get Duplicate Key error messages.">Compruebe que la secuencia del documento y del sistema estén correctas. Arranque este proceso, si usted consigue mensajes de error del artículo con valores identicos de validación.</value>
-  <value column="UUID" original="a42d3ee2-fb40-11e8-a479-7a0060f0aa01"/>
+ <row id="258" trl="N">
+  <value column="Name" original="Comprobar Secuencia">Comprobar Secuencia</value>
+  <value column="Description" original="Compruebe la secuencia del sistema y del documento.">Compruebe la secuencia del sistema y del documento.</value>
+  <value column="Help" original="Compruebe que la secuencia del documento y del sistema estén correctas. Arranque este proceso, si usted consigue mensajes de error del artículo con valores identicos de validación.">Compruebe que la secuencia del documento y del sistema estén correctas. Arranque este proceso, si usted consigue mensajes de error del artículo con valores identicos de validación.</value>
+  <value column="UUID" original="a42d3ee2-fb40-11e8-a479-7a0060f0aa01">d6545e0e-8fd4-11e9-ad7c-af9befe8d7c5</value>
  </row>
  <row id="259" trl="Y">
   <value column="Name" original="Create Orders">Crea Ordenes</value>
@@ -1137,12 +1137,12 @@ Entonces las valuaciones de todas las respuestas de cantidad se adicionan a la v
   <value column="Help" original="The report provides Material Shipment Header and Line with locator information.  You can use the report to create a Consolidated Picking List.">El informe se provee del jefe y del envío de la línea de materiales de la información de la localización. Usted puede utilizar el informe para crear una lista consolidada.</value>
   <value column="UUID" original="a42b8480-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="295" trl="Y">
-  <value column="Name" original="Role Access Update">Actualización de Rol</value>
-  <value column="Description" original="Update the access rights of a role or roles of a client">Actualizar las reglas de acceso de un rol o roles de un cliente.</value>
-  <value column="Help" original="Update the access rights of a role or all roles of a client to windows, forms, processes and workflows. If run for System, all roles of all clients are updated. Note that a role is only updated if it is not marked as manual.">Actualize las reglas de acceso de un rol o de todos los roles de un cliente para Ventanas, Formatos y Flujos de Trabajo.
+ <row id="295" trl="N">
+  <value column="Name" original="Actualización de Rol">Actualización de Rol</value>
+  <value column="Description" original="Actualizar las reglas de acceso de un rol o roles de un cliente.">Actualizar las reglas de acceso de un rol o roles de un cliente.</value>
+  <value column="Help" original="Actualize las reglas de acceso de un rol o de todos los roles de un cliente para Ventanas, Formatos y Flujos de Trabajo.&#10;Si está funcionando para el sistema, todos los roles de todos los clientes son actualizados. Observe que un rol es solamente actualizado si no esta marcado como manual.">Actualize las reglas de acceso de un rol o de todos los roles de un cliente para Ventanas, Formatos y Flujos de Trabajo.
 Si está funcionando para el sistema, todos los roles de todos los clientes son actualizados. Observe que un rol es solamente actualizado si no esta marcado como manual.</value>
-  <value column="UUID" original="a42d5594-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="a42d5594-fb40-11e8-a479-7a0060f0aa01">daaed4b8-91d0-11e9-a6e4-cf77eff0a1c4</value>
  </row>
  <row id="296" trl="Y">
   <value column="Name" original="Import Confirmations">Importar Confirmaciones</value>
@@ -3348,6 +3348,18 @@ You can also include orders who have outstanding confirmations (e.g. ordered=10 
   <value column="Description" original="Drop (expand) Bill of Materials into an Order, Invoice, etc.">Expandir Listas de Materiales en una orden, factura, etc.</value>
   <value column="Help" original="Drop the extended Bill of Materials into an Order, Invoice, etc.  The documents need to be in a Drafted stage.  Make sure that the items included in the BOM are on the price list of the Order, Invoice, etc. as otherwise the price will be zero!"><![CDATA[Traer (expandir) la lista de materiales en una orden, factura, etc. Los documentos deben estar en un estado Borrador. Aseg&uacute;rese de que los art&iacute;culos incluidos en la LDM est&aacute;n en la lista de precios de la orden, factura, etc. de lo contrario el precio ser&aacute; cero!]]></value>
   <value column="UUID" original="bfff8fd6-526f-11e9-9026-00ff97344bad">f81d2900-526f-11e9-904a-00ff97344bad</value>
+ </row>
+ <row id="54243" trl="N">
+  <value column="Name" original="Withholding Generate">Generar Retención</value>
+  <value column="Description" original="Withholding Generate is used for generate based on AP Documents">Generar Retención es usado para generar desde Documentos por Pagar</value>
+  <value column="Help" original="This process allows generate withholding from AP Invoices for add to declaration party">Éste proceso permite generar retenciones desde Documentos por Pagar para agregar a la declaración</value>
+  <value column="UUID" original="8bdae39c-2a22-11e9-a24d-6c0b840adaed">8be14304-2a22-11e9-a24e-6c0b840adaed</value>
+ </row>
+ <row id="54245" trl="N">
+  <value column="Name" original="Process Withholding Allocation">Process Withholding Allocation</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="22fcc2f8-8c80-11e9-871e-23f5c6919e7c">233ec7fc-8c80-11e9-8742-0bac54b236f5</value>
  </row>
  <row id="90001" trl="Y">
   <value column="Name" original="SB_InvoiceGenerateFromOrderLine">SB_InvoiceGenerateFromOrderLine</value>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Se cambia parte de traducción" ReleaseNo="" SeqNo="81000040">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="116" Action="U" Record_ID="54335" Table="AD_Menu">
+        <Data AD_Column_ID="59134" Column="IsCentrallyMaintained" oldValue="true">false</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="116" Action="U" Record_ID="54336" Table="AD_Menu">
+        <Data AD_Column_ID="59134" Column="IsCentrallyMaintained" oldValue="true">false</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>

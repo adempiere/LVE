@@ -7375,7 +7375,7 @@ Por favor contacte al ADMINISTRADOR.</value>
  <row id="53460" trl="N">
   <value column="MsgText" original="{0} Line(s) - {1,number,#,##0.00} -  Total: {2,number,#,##0.00}  {3}  =  {4,number,#,##0.00}">{0} Línea(s) - {1,number,#,##0.00} -  Total: {2,number,#,##0.00}  {3} =  {4,number,#,##0.00}</value>
   <value column="MsgTip" original=""/>
-  <value column="UUID" original="8e605144-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8e605144-fb40-11e8-a479-7a0060f0aa01">ad48ab1a-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="53463" trl="N">
   <value column="MsgText" original="Credit Limit: {0,number,#,##0.00} &#10;Credit Used: {1,number,#,##0.00} &#10;Open Balance: {2,number,#,##0.00} &#10;First Sale: {3,date, yyyy-MM-dd}">Límite de Crédito: {0,number,#,##0.00} 
@@ -7694,6 +7694,26 @@ Primera Venta: {3,date, dd/MM/yyyy}</value>
   <value column="MsgText" original="No Taxes for Withholding">No existen Impuestos con retención aplicada para el documento</value>
   <value column="MsgTip" original=""/>
   <value column="UUID" original="64495064-8e38-11e9-8671-e3a048a728c5">647307ce-8e38-11e9-8682-6314af34ba8c</value>
+ </row>
+ <row id="53631" trl="N">
+  <value column="MsgText" original="Withholding Tax Exempt for Document">No Aplica Retención de I.V.A. para El Documento</value>
+  <value column="MsgTip" original="">Los documentos o socios de negocio marcados con esta bandera no serán procesados al momento de realizar la retención de I.V.A.</value>
+  <value column="UUID" original="fd9c3a2a-8ff4-11e9-86ec-8ffb1b82e70e">fdc6e770-8ff4-11e9-86fd-9b122390e059</value>
+ </row>
+ <row id="53632" trl="N">
+  <value column="MsgText" original="Withholding Tax Exempt for Business Partner">No Aplica Retención de I.V.A. para el Socio de Negocio</value>
+  <value column="MsgTip" original="">Los documentos o socios de negocio marcados con esta bandera no serán procesados al momento de realizar la retención de I.V.A.</value>
+  <value column="UUID" original="1fa26fea-8ff5-11e9-8711-47435e7a9881">1fcad480-8ff5-11e9-8722-93d3fe226062</value>
+ </row>
+ <row id="53633" trl="N">
+  <value column="MsgText" original="Tribute Unit">Unidad Tributaria</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="3a1a7f9e-8ffe-11e9-8a31-2ff4f24a5781">3a639bd4-8ffe-11e9-8a42-4ff21edb4db0</value>
+ </row>
+ <row id="53634" trl="N">
+  <value column="MsgText" original="Minimum Tribute Unit Required">Cantidad Mínima de Unidades Tributarias Requeridas</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="50982b22-8ffe-11e9-80ba-138ace6cf9af">50c2e86c-8ffe-11e9-80cb-6f4383dd3665</value>
  </row>
  <row id="200001" trl="Y">
   <value column="MsgText" original="Map">Mapa</value>
