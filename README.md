@@ -5,7 +5,8 @@ Esta localización permite lo siguiente:
   
    - I.V.A. [Con base en Gaceta Oficial 40720 (SNAT/2015/0049)](http://declaraciones.seniat.gob.ve/portal/page/portal/MANEJADOR_CONTENIDO_SENIAT/01NOTICIAS/00IMAGENES/GACETAOFICIAL40720.pdf)
    	
-
+- I.S.L.R [Con base a manual técnico de Sistema de Impuesto Sobre la Renta]
+(http://declaraciones.seniat.gob.ve/portal/page/portal/MANEJADOR_CONTENIDO_SENIAT/05MENU_HORIZONTAL/5.3ANUNCIOS_CARTELES/5.3.2CARTELES_NOTIFICACION/CARTELES/MT_Retenciones%20ISLRV3.0_2014.pdf)
 ![Diagrama ER de Retenciones IVA](docs/withholding/IVA.png)
 
    - I.S.L.R.
