@@ -65,7 +65,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 		//	Add reference
 		setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
 		//	Validate if exists Withholding Tax Definition for client
-		if(MLVEWithholdingTax.getFromClient(getCtx(), getDocument().getAD_Org_ID()) == null) {
+		if(MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID()) == null) {
 			addLog("@LVE_WithholdingTax_ID@ @NotFound@");
 			isValid = false;
 		}
@@ -74,7 +74,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 			addLog("@C_Invoice_ID@ @Voided@");
 			isValid = false;
 		}
-		MDocType documentType = MDocType.get(getCtx(), invoice.getC_DocTypeTarget_ID());
+		MDocType documentType = MDocType.get(getContext(), invoice.getC_DocTypeTarget_ID());
 		if(documentType == null) {
 			addLog("@C_DocType_ID@ @NotFound@");
 			isValid = false;

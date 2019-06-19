@@ -22,7 +22,7 @@ import org.compiere.model.MSequence;
 import org.compiere.util.Env;
 
 /**
- * 	Class added from standard values
+ * 	Class added for handle control number for sequence
  * 	@author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
  *		<a href="https://github.com/adempiere/LVE/issues/2>
  * 		@see FR [ 2 ] Add standard LVE values</a>
