@@ -15,6 +15,8 @@
  ************************************************************************************/
 package org.erpya.lve.model;
 
+import java.util.Arrays;
+
 import org.compiere.model.I_C_BPartner;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MClient;
@@ -25,7 +27,9 @@ import org.compiere.model.ModelValidationEngine;
 import org.compiere.model.ModelValidator;
 import org.compiere.model.PO;
 import org.compiere.util.CLogger;
+import org.compiere.util.Env;
 import org.compiere.util.Util;
+import org.erpya.lve.util.AllocationManager;
 import org.erpya.lve.util.DocumentTypeSequence;
 
 /**
@@ -98,7 +102,20 @@ public class LVE implements ModelValidator {
 				//	Save
 				invoice.saveEx();
 			}
-		}		
+		} else if(timing == TIMING_AFTER_COMPLETE)	{
+			MInvoice invoice = (MInvoice) po;
+			if(!invoice.isReversal()) {
+				AllocationManager allocationManager = new AllocationManager(invoice);
+				Arrays.asList(invoice.getLines())
+					.stream()
+					.filter(invoiceLine -> invoiceLine.get_ValueAsInt("InvoiceToAllocate_ID") != 0)
+					.forEach(invoiceLine -> {
+						allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt("InvoiceToAllocate_ID"), invoiceLine.getLineNetAmt(), Env.ZERO, Env.ZERO);
+					});
+				//	Create Allocation
+				allocationManager.createAllocation();
+			}
+		}
 		//
 		return null;
 	}
@@ -110,9 +127,9 @@ public class LVE implements ModelValidator {
 			log.fine(" TYPE_BEFORE_NEW || TYPE_BEFORE_CHANGE");
 			if (po.get_TableName().equals(MInvoice.Table_Name)) {
 				MInvoice invoice = (MInvoice) po;
-				if(invoice.get_Value("InvoiceToAllocate_ID") != null){
+				if(invoice.get_ValueAsInt("InvoiceToAllocate_ID") != 0) {
 					for(MInvoiceLine line : invoice.getLines()) {
-						if(line.get_Value("InvoiceToAllocate_ID") == null) {
+						if(line.get_ValueAsInt("InvoiceToAllocate_ID") == 0) {
 							line.set_ValueOfColumn("InvoiceToAllocate_ID", invoice.get_Value("InvoiceToAllocate_ID"));
 							line.saveEx();
 						}
