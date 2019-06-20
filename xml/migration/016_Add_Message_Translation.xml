@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="D" Name="Se agrega Traducción de Mensaje" ReleaseNo="3.9.3" SeqNo="81000070">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="109" Action="I" Record_ID="53635" Table="AD_Message">
+        <Data AD_Column_ID="588" Column="IsActive">true</Data>
+        <Data AD_Column_ID="589" Column="Created">2019-06-20 11:32:15.262</Data>
+        <Data AD_Column_ID="198" Column="MsgText">Withholding Tax (txt)</Data>
+        <Data AD_Column_ID="591" Column="Updated">2019-06-20 11:32:15.262</Data>
+        <Data AD_Column_ID="197" Column="MsgType">I</Data>
+        <Data AD_Column_ID="6766" Column="Value">FileIVATXT</Data>
+        <Data AD_Column_ID="199" Column="MsgTip">Export firle format for Withholding Tax applied to documents</Data>
+        <Data AD_Column_ID="392" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="391" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="7716" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="6765" Column="AD_Message_ID">53635</Data>
+        <Data AD_Column_ID="590" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="592" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84346" Column="UUID">c646ef06-9374-11e9-8c81-279375069137</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="119" Action="I" Record_ID="0" Table="AD_Message_Trl">
+        <Data AD_Column_ID="609" Column="Created">2019-06-20 11:32:16.714</Data>
+        <Data AD_Column_ID="611" Column="Updated">2019-06-20 11:32:16.714</Data>
+        <Data AD_Column_ID="608" Column="IsActive">true</Data>
+        <Data AD_Column_ID="344" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="342" Column="MsgText">Withholding Tax (txt)</Data>
+        <Data AD_Column_ID="343" Column="MsgTip">Export firle format for Withholding Tax applied to documents</Data>
+        <Data AD_Column_ID="1192" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="1193" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="610" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="341" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="6767" Column="AD_Message_ID">53635</Data>
+        <Data AD_Column_ID="612" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84347" Column="UUID">c67e2386-9374-11e9-8c92-a7a7fd81035f</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="119" Action="U" Record_ID="0" Table="AD_Message_Trl">
+        <Data AD_Column_ID="342" Column="MsgText" oldValue="Withholding Tax (txt)">Declaración de I.V.A (txt)</Data>
+        <Data AD_Column_ID="343" Column="MsgTip" oldValue="Export firle format for Withholding Tax applied to documents">Archivo de exportación de Declaración de I.V.A</Data>
+        <Data AD_Column_ID="341" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="6767" Column="AD_Message_ID" oldValue="53635">53635</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="109" Action="I" Record_ID="53636" Table="AD_Message">
+        <Data AD_Column_ID="588" Column="IsActive">true</Data>
+        <Data AD_Column_ID="589" Column="Created">2019-06-20 11:33:41.973</Data>
+        <Data AD_Column_ID="198" Column="MsgText">Withholding Rental Tax (xml)</Data>
+        <Data AD_Column_ID="591" Column="Updated">2019-06-20 11:33:41.973</Data>
+        <Data AD_Column_ID="197" Column="MsgType">I</Data>
+        <Data AD_Column_ID="6766" Column="Value">FileISLRXML</Data>
+        <Data AD_Column_ID="199" Column="MsgTip">Export file format for Withholding Rental Tax applied to documents</Data>
+        <Data AD_Column_ID="392" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="391" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="7716" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="6765" Column="AD_Message_ID">53636</Data>
+        <Data AD_Column_ID="590" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="592" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84346" Column="UUID">fa455df6-9374-11e9-8b07-4773170f2f6d</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="119" Action="I" Record_ID="0" Table="AD_Message_Trl">
+        <Data AD_Column_ID="609" Column="Created">2019-06-20 11:33:43.833</Data>
+        <Data AD_Column_ID="611" Column="Updated">2019-06-20 11:33:43.833</Data>
+        <Data AD_Column_ID="608" Column="IsActive">true</Data>
+        <Data AD_Column_ID="344" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="342" Column="MsgText">Withholding Rental Tax (xml)</Data>
+        <Data AD_Column_ID="343" Column="MsgTip">Export file format for Withholding Rental Tax applied to documents</Data>
+        <Data AD_Column_ID="1192" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="1193" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="610" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="341" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="6767" Column="AD_Message_ID">53636</Data>
+        <Data AD_Column_ID="612" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84347" Column="UUID">fa6b5cea-9374-11e9-8b18-d704446aefeb</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="60" StepType="AD">
+      <PO AD_Table_ID="109" Action="U" Record_ID="53635" Table="AD_Message">
+        <Data AD_Column_ID="199" Column="MsgTip" oldValue="Export firle format for Withholding Tax applied to documents">Export file format for Withholding Tax applied to documents</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="70" StepType="AD">
+      <PO AD_Table_ID="119" Action="U" Record_ID="0" Table="AD_Message_Trl">
+        <Data AD_Column_ID="342" Column="MsgText" oldValue="Withholding Rental Tax (xml)">Declaración de I.S.L.R (xml)</Data>
+        <Data AD_Column_ID="341" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="6767" Column="AD_Message_ID" oldValue="53636">53636</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="80" StepType="AD">
+      <PO AD_Table_ID="109" Action="U" Record_ID="53636" Table="AD_Message">
+        <Data AD_Column_ID="199" Column="MsgTip" oldValue="Export file format for Withholding Rental Tax applied to documents">Archivo de exportación de Declaración de I.S.L.R</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>

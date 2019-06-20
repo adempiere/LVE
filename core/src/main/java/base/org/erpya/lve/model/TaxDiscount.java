@@ -37,6 +37,7 @@ import org.compiere.model.PO;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.TimeUtil;
+import org.erpya.lve.util.ColumnsAdded;
 
 /**
  * 	Class added from standard values
@@ -95,20 +96,20 @@ public class TaxDiscount implements ModelValidator {
 					if(invoice.getReversal_ID() == 0) {
 						//	Set List Identifier
 						setListId(invoice);
-						int docAffectedId = invoice.get_ValueAsInt("DocAffected_ID");
-						if(docAffectedId <= 0) {
+						int invoiceToAllocateId = invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID);
+						if(invoiceToAllocateId <= 0) {
 							for(MInvoiceLine line : invoice.getLines()) {
-								docAffectedId = line.get_ValueAsInt("DocAffected_ID");
-								if(docAffectedId > 0) {
+								invoiceToAllocateId = line.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID);
+								if(invoiceToAllocateId > 0) {
 									break;
 								}
 							}
 						}
 						//	Calculate Tax
-						if(docAffectedId <= 0) {
+						if(invoiceToAllocateId <= 0) {
 							recalculateTaxForInvoice(invoice);
 						} else {
-							copyTaxFromAffected(invoice, docAffectedId);
+							copyTaxFromAffected(invoice, invoiceToAllocateId);
 						}
 					}
 				}
@@ -395,6 +396,6 @@ public class TaxDiscount implements ModelValidator {
 	 */
 	private boolean isHasSpecialTax(MTax tax) {
 		MTaxCategory taxCategory = (MTaxCategory) tax.getC_TaxCategory();
-		return taxCategory.get_ValueAsBoolean("IsHasSpecialTax");
+		return taxCategory.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsHasSpecialTax);
 	}
 }

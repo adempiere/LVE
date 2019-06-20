@@ -52,12 +52,6 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 	private BigDecimal withholdingRate;
 	/**	Taxes	*/
 	private List<MInvoiceTax> taxes;
-	/**	Withholding Tax Applied for Tax	*/
-	private final String WITHHOLDING_APPLIED = "IsWithholdingTaxApplied";
-	/**	Custom Tax Rate for Business Partner	*/
-	private final String WITHHOLDING_TAX_RATE = "WithholdingTaxRate_ID";
-	/**	Withholding Tax Exempt for Business Partner	*/
-	private final String WITHHOLDING_TAX_EXEMPT = "IsWithholdingTaxExempt";
 	/**	Minimum Tribute Unit for apply Withholding Tax	*/
 	private final int MINIMUM_TRIBUTE_UNIT = 20;
 	
@@ -95,24 +89,24 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			isValid = false;
 		}
 		//	Validate Exempt Document
-		if(invoice.get_ValueAsBoolean(WITHHOLDING_TAX_EXEMPT)) {
+		if(invoice.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingTaxExempt)) {
 			isValid = false;
 			addLog("@DocumentWithholdingTaxExempt@");
 		}
 		//	Validate Exempt Business Partner
-		if(businessPartner.get_ValueAsBoolean(WITHHOLDING_TAX_EXEMPT)) {
+		if(businessPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingTaxExempt)) {
 			isValid = false;
 			addLog("@BPartnerWithholdingTaxExempt@");
 		}
 		//	Validate Withholding Definition
 		MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), invoice.getAD_Org_ID());
-		int withholdingRateId = businessPartner.get_ValueAsInt(WITHHOLDING_TAX_RATE);
+		int withholdingRateId = businessPartner.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingTaxRate_ID);
 		if(withholdingRateId == 0) {
 			withholdingRateId = withholdingTaxDefinition.getDefaultWithholdingRate_ID();
 		}
 		//	Validate Definition
 		if(withholdingRateId == 0) {
-			addLog("@" + WITHHOLDING_TAX_RATE + "@ @NotFound@");
+			addLog("@" + ColumnsAdded.COLUMNNAME_WithholdingTaxRate_ID + "@ @NotFound@");
 			isValid = false;
 		} else {
 			withholdingRate = MLVEList.get(getContext(), withholdingRateId).getListVersionAmount(invoice.getDateInvoiced());
@@ -139,7 +133,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 		//	Validate if it have taxes
 		taxes = Arrays.asList(invoice.getTaxes(false))
 			.stream()
-			.filter(invoiceTax -> MTax.get(getContext(), invoiceTax.getC_Tax_ID()).get_ValueAsBoolean(WITHHOLDING_APPLIED) 
+			.filter(invoiceTax -> MTax.get(getContext(), invoiceTax.getC_Tax_ID()).get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingTaxApplied) 
 					&& invoiceTax.getTaxAmt() != null 
 					&& invoiceTax.getTaxAmt().compareTo(Env.ZERO) > 0)
 			.collect(Collectors.toList());

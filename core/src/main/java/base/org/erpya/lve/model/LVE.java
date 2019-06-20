@@ -30,6 +30,7 @@ import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
 import org.erpya.lve.util.AllocationManager;
+import org.erpya.lve.util.ColumnsAdded;
 import org.erpya.lve.util.DocumentTypeSequence;
 
 /**
@@ -87,16 +88,16 @@ public class LVE implements ModelValidator {
 			if (po.get_TableName().equals(MInvoice.Table_Name)) {
 				MInvoice invoice = (MInvoice) po;
 				if(invoice.isReversal()) {
-					invoice.set_ValueOfColumn("IsFiscalDocument", false);
+					invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument, false);
 				} else {
 					MDocType documentType = (MDocType) invoice.getC_DocTypeTarget();
-					invoice.set_ValueOfColumn("IsFiscalDocument",
-							documentType.get_ValueAsBoolean("IsFiscalDocument"));
+					invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument,
+							documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsFiscalDocument));
 					//	Set Control No
-					if(!documentType.get_ValueAsBoolean("IsSetControlNoOnPrint")
-							&& Util.isEmpty(invoice.get_ValueAsString("ControlNo"))) {
+					if(!documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsSetControlNoOnPrint)
+							&& Util.isEmpty(invoice.get_ValueAsString(ColumnsAdded.COLUMNNAME_ControlNo))) {
 						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType);
-						invoice.set_ValueOfColumn("ControlNo", sequence.getControlNo());
+						invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_ControlNo, sequence.getControlNo());
 					}
 				}
 				//	Save
@@ -105,15 +106,18 @@ public class LVE implements ModelValidator {
 		} else if(timing == TIMING_AFTER_COMPLETE)	{
 			MInvoice invoice = (MInvoice) po;
 			if(!invoice.isReversal()) {
-				AllocationManager allocationManager = new AllocationManager(invoice);
-				Arrays.asList(invoice.getLines())
-					.stream()
-					.filter(invoiceLine -> invoiceLine.get_ValueAsInt("InvoiceToAllocate_ID") != 0)
-					.forEach(invoiceLine -> {
-						allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt("InvoiceToAllocate_ID"), invoiceLine.getLineNetAmt(), Env.ZERO, Env.ZERO);
-					});
-				//	Create Allocation
-				allocationManager.createAllocation();
+				MDocType documentType = MDocType.get(invoice.getCtx(), invoice.getC_DocTypeTarget_ID());
+				if(documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsAllocateInvoice)) {
+					AllocationManager allocationManager = new AllocationManager(invoice);
+					Arrays.asList(invoice.getLines())
+						.stream()
+						.filter(invoiceLine -> invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0)
+						.forEach(invoiceLine -> {
+							allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID), invoiceLine.getLineNetAmt(), Env.ZERO, Env.ZERO);
+						});
+					//	Create Allocation
+					allocationManager.createAllocation();
+				}
 			}
 		}
 		//
@@ -127,10 +131,10 @@ public class LVE implements ModelValidator {
 			log.fine(" TYPE_BEFORE_NEW || TYPE_BEFORE_CHANGE");
 			if (po.get_TableName().equals(MInvoice.Table_Name)) {
 				MInvoice invoice = (MInvoice) po;
-				if(invoice.get_ValueAsInt("InvoiceToAllocate_ID") != 0) {
+				if(invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0) {
 					for(MInvoiceLine line : invoice.getLines()) {
-						if(line.get_ValueAsInt("InvoiceToAllocate_ID") == 0) {
-							line.set_ValueOfColumn("InvoiceToAllocate_ID", invoice.get_Value("InvoiceToAllocate_ID"));
+						if(line.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) == 0) {
+							line.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID, invoice.get_Value(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID));
 							line.saveEx();
 						}
 					}

@@ -45,7 +45,7 @@ public class DocumentTypeSequence {
 	 */
 	public String getControlNo() {
 		//	Get Control No Sequence by User
-		int sequenceId = documentType.get_ValueAsInt("ControlNoSequence_ID");
+		int sequenceId = documentType.get_ValueAsInt(ColumnsAdded.COLUMNNAME_ControlNoSequence_ID);
 		//	Load Sequence
 		if(sequenceId != 0) {
 			MSequence seqControlNo = new MSequence(Env.getCtx(), sequenceId, documentType.get_TrxName());
