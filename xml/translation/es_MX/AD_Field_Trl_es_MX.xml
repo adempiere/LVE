@@ -1239,4 +1239,28 @@ To Manufacturing Order is the date when the last manufacturing order movement is
   <value column="Help" original="A Bank Business Partner is anyone with whom you transact.">La pestaña tercero define las entidades con las cuales una organización se relaciona para los negocios.</value>
   <value column="UUID" original="8dbab7f2-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="94877" trl="N">
+  <value column="Name" original="Rate">Tasa Aplicada</value>
+  <value column="Description" original="Amount in a defined currency">Tasa Aplicada para la Retención</value>
+  <value column="Help" original="The Amount indicates the amount for this document line.">Tasa Aplicada para la Retención del Documento</value>
+  <value column="UUID" original="7170fd62-9123-11e9-a16f-6f1b20b24434">71b84eec-9123-11e9-a19e-63e53ddba860</value>
+ </row>
+ <row id="95027" trl="N">
+  <value column="Name" original="Min Value">Mínimo (Unidades Tributarias)</value>
+  <value column="Description" original="">Mínimo (Unidades Tributarias) para el cálculo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="bd973c22-92ec-11e9-8641-4f16ae893124">bdd0a106-92ec-11e9-8670-43dce7ed1c8a</value>
+ </row>
+ <row id="95028" trl="N">
+  <value column="Name" original="Max Value">Máximo (Unidades Tributarias)</value>
+  <value column="Description" original="">Máximo (Unidades Tributarias) para el cálculo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="be53b2e4-92ec-11e9-8680-cf7a9ddc8ca3">bea815fa-92ec-11e9-86af-2bc9b7ff0389</value>
+ </row>
+ <row id="95029" trl="N">
+  <value column="Name" original="Rate">Tasa Aplicada</value>
+  <value column="Description" original="Rate">Tasa Aplicada para Retener</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="bf4d9d7c-92ec-11e9-86bf-0fafd09ac4a4">bfa4a46e-92ec-11e9-86ee-b3b69c22035a</value>
+ </row>
 </adempiereTrl>

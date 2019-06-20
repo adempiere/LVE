@@ -38077,15 +38077,15 @@ context.</value>
   <value column="UUID" original="8cd52f7a-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
  <row id="58020" trl="Y">
-  <value column="Name" original="Global Payroll Concept Type">Global Payroll Concept Type ID</value>
-  <value column="PrintName" original="Global Payroll Concept Type">Global Payroll Concept Type ID</value>
+  <value column="Name" original="Global Payroll Concept Type">Tipo de Concepto de Nómina</value>
+  <value column="PrintName" original="Global Payroll Concept Type">Tipo de Concepto de Nómina</value>
   <value column="Description" original="Allows define types for concepts"/>
   <value column="Help" original=""/>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="8cce2bda-fb40-11e8-a479-7a0060f0aa01"/>
+  <value column="UUID" original="8cce2bda-fb40-11e8-a479-7a0060f0aa01">0a0bb918-939f-11e9-bf56-5792401a2403</value>
  </row>
  <row id="58022" trl="Y">
   <value column="Name" original="Order Info">Order Info</value>
@@ -41176,7 +41176,7 @@ Credit Expense 1000
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="6c9ff810-91cd-11e9-b7bb-1f7bb150949d">6f044928-8fc8-11e9-913f-df3b027d3243</value>
+  <value column="UUID" original="93040302-936c-11e9-b889-53634afca0f8">6f044928-8fc8-11e9-913f-df3b027d3243</value>
  </row>
  <row id="60426" trl="N">
   <value column="Name" original="Bank Matcher">Algoritmo de Conciliación Configurado</value>
@@ -41475,6 +41475,39 @@ Credit Expense 1000
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="7a36e7ac-8270-11e9-8fd0-7f846e353da8">7a60d152-8270-11e9-8fe9-f75e8d7b850c</value>
  </row>
+ <row id="61009" trl="N">
+  <value column="Name" original="Parent Product">Parent Product</value>
+  <value column="PrintName" original="Parent Product">Parent Product</value>
+  <value column="Description" original="Parent (superior) Product ">Parent (superior) Product </value>
+  <value column="Help" original="Parent Product - the next level in the Product hierarchy.">Parent Product - the next level in the Product hierarchy.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="4356887c-83d9-11e9-a814-0242ac110002">43836748-83d9-11e9-a814-0242ac110002</value>
+ </row>
+ <row id="61010" trl="N">
+  <value column="Name" original="Parent Project">Proyecto Padre</value>
+  <value column="PrintName" original="Parent Project">Proyecto Padre</value>
+  <value column="Description" original="The parent (summary) project">Proyecto padre (resumen)</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="fe52508c-83db-11e9-bef4-0242ac110002">fe7f1b08-83db-11e9-bef4-0242ac110002</value>
+ </row>
+ <row id="61011" trl="N">
+  <value column="Name" original="Parent Sales Region">Parent Sales Region</value>
+  <value column="PrintName" original="Parent Sales Region">Parent Sales Region</value>
+  <value column="Description" original="The parent (summary) Sales Region">The parent (summary) Sales Region</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="71132c16-83de-11e9-94e1-0242ac110002">714b19f0-83de-11e9-94e1-0242ac110002</value>
+ </row>
  <row id="61013" trl="N">
   <value column="Name" original="Notify me my own changes">Notificarme mis Propios Cambios</value>
   <value column="PrintName" original="Notify me my own changes">Notificarme mis Propios Cambios</value>
@@ -41749,6 +41782,39 @@ Credit Expense 1000
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="6c327f52-9122-11e9-a157-27b2310b0434">6c6114b6-9122-11e9-a170-7b1656aaae92</value>
+ </row>
+ <row id="61084" trl="N">
+  <value column="Name" original="Parent Activity">Actividad Padre</value>
+  <value column="PrintName" original="Parent Activity">Actividad Padre</value>
+  <value column="Description" original="The parent (summary) Activity">La actividad padre (resumen)</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="84b6e6c0-91d7-11e9-8f97-0242ac110002">84e6e9ec-91d7-11e9-8f97-0242ac110002</value>
+ </row>
+ <row id="61085" trl="N">
+  <value column="Name" original="Parent Campaign">Campaña Padre</value>
+  <value column="PrintName" original="Parent Campaign">Campaña Padre</value>
+  <value column="Description" original="The parent (summary) Campaign">La campaña padre (resumen)</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="34fd96fa-91d8-11e9-8f97-0242ac110002">3538b74e-91d8-11e9-8f97-0242ac110002</value>
+ </row>
+ <row id="61087" trl="N">
+  <value column="Name" original="Variable Rate">Tasa Variable</value>
+  <value column="PrintName" original="Variable Rate">Tasa Variable</value>
+  <value column="Description" original="Variable Rate for Withholding Tax Calculation">Tasa Variable para Cálculo de Retención</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="85c325d4-92e9-11e9-9dac-93e90f14f3f0">89272b62-92e9-11e9-9dc5-972d8f2e5da9</value>
  </row>
  <row id="200000" trl="Y">
   <value column="Name" original="Recent Item">Recent Item</value>

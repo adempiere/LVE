@@ -3571,6 +3571,12 @@
   <value column="Help" original=""/>
   <value column="UUID" original="6dfae828-80b6-11e9-b4f4-873410f78a50">6e43fe96-80b6-11e9-b507-0fd1100c9dd8</value>
  </row>
+ <row id="54131" trl="N">
+  <value column="Name" original="AD_Column String">AD_Column String</value>
+  <value column="Description" original="">Solo tipo string (Nombre)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="f23e14a2-8331-11e9-805e-0242ac110002">f274efb8-8331-11e9-805e-0242ac110002</value>
+ </row>
  <row id="54139" trl="N">
   <value column="Name" original="WH_Setting Event Type">WH_Setting Event Type</value>
   <value column="Description" original=""/>
@@ -3630,5 +3636,17 @@
   <value column="Description" original=""/>
   <value column="Help" original=""/>
   <value column="UUID" original="1ab20266-9121-11e9-a688-6f986867d634">1addbca8-9121-11e9-a69b-2baef89cd7fc</value>
+ </row>
+ <row id="54149" trl="N">
+  <value column="Name" original="C_Activity (summary)">C_Activity (summary)</value>
+  <value column="Description" original="Activity selection">Actividad Resumen</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="67f4b58a-91d7-11e9-b64d-0242ac110002">6830cfb6-91d7-11e9-b64d-0242ac110002</value>
+ </row>
+ <row id="54150" trl="N">
+  <value column="Name" original="C_Campaign (summary)">C_Campaign (summary)</value>
+  <value column="Description" original="Campaign selection">Campaña Resumen</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="03852c28-91d8-11e9-8f97-0242ac110002">03b695f6-91d8-11e9-8f97-0242ac110002</value>
  </row>
 </adempiereTrl>

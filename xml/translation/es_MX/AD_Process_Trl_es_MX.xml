@@ -1137,7 +1137,7 @@ Entonces las valuaciones de todas las respuestas de cantidad se adicionan a la v
   <value column="Help" original="The report provides Material Shipment Header and Line with locator information.  You can use the report to create a Consolidated Picking List.">El informe se provee del jefe y del envío de la línea de materiales de la información de la localización. Usted puede utilizar el informe para crear una lista consolidada.</value>
   <value column="UUID" original="a42b8480-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="295" trl="N">
+ <row id="295" trl="Y">
   <value column="Name" original="Actualización de Rol">Actualización de Rol</value>
   <value column="Description" original="Actualizar las reglas de acceso de un rol o roles de un cliente.">Actualizar las reglas de acceso de un rol o roles de un cliente.</value>
   <value column="Help" original="Actualize las reglas de acceso de un rol o de todos los roles de un cliente para Ventanas, Formatos y Flujos de Trabajo.&#10;Si está funcionando para el sistema, todos los roles de todos los clientes son actualizados. Observe que un rol es solamente actualizado si no esta marcado como manual.">Actualize las reglas de acceso de un rol o de todos los roles de un cliente para Ventanas, Formatos y Flujos de Trabajo.

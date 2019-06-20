@@ -7715,6 +7715,16 @@ Primera Venta: {3,date, dd/MM/yyyy}</value>
   <value column="MsgTip" original=""/>
   <value column="UUID" original="50982b22-8ffe-11e9-80ba-138ace6cf9af">50c2e86c-8ffe-11e9-80cb-6f4383dd3665</value>
  </row>
+ <row id="53635" trl="N">
+  <value column="MsgText" original="Withholding Tax (txt)">Declaración de I.V.A (txt)</value>
+  <value column="MsgTip" original="Export file format for Withholding Tax applied to documents">Archivo de exportación de Declaración de I.V.A</value>
+  <value column="UUID" original="c646ef06-9374-11e9-8c81-279375069137">c67e2386-9374-11e9-8c92-a7a7fd81035f</value>
+ </row>
+ <row id="53636" trl="N">
+  <value column="MsgText" original="Withholding Rental Tax (xml)">Declaración de I.S.L.R (xml)</value>
+  <value column="MsgTip" original="Archivo de exportación de Declaración de I.S.L.R">Export file format for Withholding Rental Tax applied to documents</value>
+  <value column="UUID" original="fa455df6-9374-11e9-8b07-4773170f2f6d">fa6b5cea-9374-11e9-8b18-d704446aefeb</value>
+ </row>
  <row id="200001" trl="Y">
   <value column="MsgText" original="Map">Mapa</value>
   <value column="MsgTip" original=""/>

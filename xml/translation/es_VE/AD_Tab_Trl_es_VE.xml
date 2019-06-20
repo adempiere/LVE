@@ -8901,4 +8901,18 @@ The class needs to implement org.compiere.model.PaymentProcessor]]></value>
   <value column="Help" original="Note that rate can change for distints person types">Note que la tasa puede variar dependiendo del tipo de persona</value>
   <value column="UUID" original="6ad9baca-9123-11e9-9f3b-17d3e9834290">6b0d5718-9123-11e9-9f66-a317a9f69d10</value>
  </row>
+ <row id="54835" trl="N">
+  <value column="Name" original="Variable Rate">Tasa Variable</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Variable Rate for Withholding">Tasa Variable para Retenciones</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="8ce1769c-92ec-11e9-8482-cb7fdb2e56e8">8d1a5d22-92ec-11e9-84ad-fb881e4374e4</value>
+ </row>
+ <row id="54836" trl="N">
+  <value column="Name" original="Sequence">Secuencia</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Rate Sequence for Withholding">Secuencia de Tasa para Retención</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="b5275512-936f-11e9-9ff1-271a21249318">b56b17b6-936f-11e9-a01c-6354db24d7a9</value>
+ </row>
 </adempiereTrl>
