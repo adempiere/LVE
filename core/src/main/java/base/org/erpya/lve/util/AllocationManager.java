@@ -50,7 +50,7 @@ public class AllocationManager {
 	/**	Document	*/
 	private MInvoice document;
 	/**	Applied documents	*/
-	Map<MInvoice, AllocationValues> documentsToAllocate;
+	Map<Integer, AllocationValues> documentsToAllocate;
 	/**	Context	*/
 	private Properties context;
 	/**	Transaction Name	*/
@@ -96,7 +96,7 @@ public class AllocationManager {
 		this.document = document;
 		setContext(document.getCtx());
 		setTransactionName(document.get_TrxName());
-		documentsToAllocate = new HashMap<MInvoice, AllocationValues>();
+		documentsToAllocate = new HashMap<Integer, AllocationValues>();
 		return this;
 	}
 	
@@ -108,8 +108,8 @@ public class AllocationManager {
 	 * @param writeOffAmount
 	 * @return
 	 */
-	public AllocationManager addAllocateDocument(int invoiceToAllocateId, BigDecimal appliedAmount, BigDecimal discountAmount, BigDecimal writeOffAmount) {
-		return addAllocateDocument(new MInvoice(getContext(), invoiceToAllocateId, getTransactionName()), appliedAmount, discountAmount, writeOffAmount);	
+	public AllocationManager addAllocateDocument(MInvoice invoiceToAllocate, BigDecimal appliedAmount, BigDecimal discountAmount, BigDecimal writeOffAmount) {
+		return addAllocateDocument(invoiceToAllocate.getC_Invoice_ID(), appliedAmount, discountAmount, writeOffAmount);	
 	}
 	
 	/**
@@ -118,7 +118,7 @@ public class AllocationManager {
 	 * @return
 	 */
 	public AllocationManager addAllocateDocument(MInvoice invoiceToAllocate) {
-		return addAllocateDocument(invoiceToAllocate, invoiceToAllocate.getOpenAmt(), Env.ZERO, Env.ZERO);
+		return addAllocateDocument(invoiceToAllocate.getC_Invoice_ID(), invoiceToAllocate.getOpenAmt(), Env.ZERO, Env.ZERO);
 	}
 	
 	/**
@@ -129,11 +129,20 @@ public class AllocationManager {
 	 * @param writeOffAmount
 	 * @return
 	 */
-	public AllocationManager addAllocateDocument(MInvoice invoiceToAllocate, BigDecimal appliedAmount, BigDecimal discountAmount, BigDecimal writeOffAmount) {
-		if(invoiceToAllocate == null) {
+	public AllocationManager addAllocateDocument(int invoiceToAllocateId, BigDecimal appliedAmount, BigDecimal discountAmount, BigDecimal writeOffAmount) {
+		if(invoiceToAllocateId <= 0) {
 			throw new AdempiereException("@C_Invoice_ID@ @NotFound@");
 		}
-		documentsToAllocate.put(invoiceToAllocate, new AllocationValues(appliedAmount, discountAmount, writeOffAmount));
+		//	Validate access
+		AllocationValues value = documentsToAllocate.get(invoiceToAllocateId);
+		if(value != null) {
+			value.addAppliedAmount(appliedAmount);
+			value.addDiscountAmount(discountAmount);
+			value.addWriteOffAmount(writeOffAmount);
+		} else {
+			value = new AllocationValues(appliedAmount, discountAmount, writeOffAmount);
+		}
+		documentsToAllocate.put(invoiceToAllocateId, value);
 		return this;
 	}
 	
@@ -185,9 +194,10 @@ public class AllocationManager {
 		allocation.saveEx();
 		BigDecimal summaryAppliedAmount = Env.ZERO;
 		//	Allocate all documents
-		for(Entry<MInvoice, AllocationValues> allocationSet : documentsToAllocate.entrySet()) {
+		for(Entry<Integer, AllocationValues> allocationSet : documentsToAllocate.entrySet()) {
 			//	OverUnderAmt needs to be in Allocation Currency
-			MInvoice invoiceToAllocate = allocationSet.getKey();
+			int invoiceToAllocateId = allocationSet.getKey();
+			MInvoice invoiceToAllocate = new MInvoice(getContext(), invoiceToAllocateId, getTransactionName());
 			BigDecimal multiplier = getMultiplier(invoiceToAllocate);
 			BigDecimal multiplierAP = getMultiplierAP(invoiceToAllocate);
 			BigDecimal openAmount = invoiceToAllocate.getOpenAmt().multiply(multiplierAP);
@@ -207,9 +217,11 @@ public class AllocationManager {
 			summaryAppliedAmount = summaryAppliedAmount.add(allocationSet.getValue().getAppliedAmount());
 		}
 		//	Add allocation for initial document
+		BigDecimal multiplier = getMultiplier(document);
 		BigDecimal multiplierAP = getMultiplierAP(document);
 		BigDecimal openAmount = document.getOpenAmt().multiply(multiplierAP);
-		BigDecimal overUnderAmount = openAmount.multiply(multiplierAP)
+		summaryAppliedAmount = summaryAppliedAmount.multiply(multiplier).multiply(multiplierAP);
+		BigDecimal overUnderAmount = openAmount
 				.subtract(summaryAppliedAmount)
 				.subtract(Env.ZERO)
 				.subtract(Env.ZERO);
@@ -249,19 +261,31 @@ public class AllocationManager {
 			return appliedAmount;
 		}
 		
+		public void addAppliedAmount(BigDecimal appliedAmount) {
+			this.appliedAmount = this.appliedAmount.add(appliedAmount);
+		}
+		
 		public BigDecimal getDiscountAmount() {
 			return discountAmount;
 		}
 		
+		public void addDiscountAmount(BigDecimal discountAmount) {
+			this.discountAmount = this.discountAmount.add(discountAmount);
+		}
+		
 		public BigDecimal getWriteOffAmount() {
 			return writeOffAmount;
+		}
+		
+		public void addWriteOffAmount(BigDecimal writeOffAmount) {
+			this.writeOffAmount = this.writeOffAmount.add(writeOffAmount);
 		}
 	}
 	
 	public static void main(String args[]) {
 		org.compiere.Adempiere.startup(true);
 		Env.setContext(Env.getCtx(), "#AD_Client_ID", 11);
-		MInvoice invoice = new MInvoice(Env.getCtx(), 1000042, null);
+		MInvoice invoice = new MInvoice(Env.getCtx(), 1000005, null);
 		AllocationManager allocationManager = new AllocationManager(invoice);
 		Arrays.asList(invoice.getLines())
 		.stream()
