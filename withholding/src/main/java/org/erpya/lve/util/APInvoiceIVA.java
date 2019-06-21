@@ -48,8 +48,6 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 	private MInvoice invoice;
 	/**	Current Business Partner	*/
 	private MBPartner businessPartner;
-	/**	Withholding tax rate	*/
-	private BigDecimal withholdingRate;
 	/**	Taxes	*/
 	private List<MInvoiceTax> taxes;
 	/**	Minimum Tribute Unit for apply Withholding Tax	*/
@@ -109,10 +107,10 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			addLog("@" + ColumnsAdded.COLUMNNAME_WithholdingTaxRate_ID + "@ @NotFound@");
 			isValid = false;
 		} else {
-			withholdingRate = MLVEList.get(getContext(), withholdingRateId).getListVersionAmount(invoice.getDateInvoiced());
+			setWithholdingRate(MLVEList.get(getContext(), withholdingRateId).getListVersionAmount(invoice.getDateInvoiced()));
 		}
 		//	Validate Tax
-		if(withholdingRate.equals(Env.ZERO)) {
+		if(getWithholdingRate().equals(Env.ZERO)) {
 			addLog("@LVE_WithholdingTax_ID@ (@Rate@ @NotFound@)");
 			isValid = false;
 		}
@@ -147,12 +145,10 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 
 	@Override
 	public String run() {
-		setWithholdingRate(withholdingRate);
-		withholdingRate = withholdingRate.divide(Env.ONEHUNDRED);
 		//	Iterate
 		taxes.forEach(invoiceTax -> {
 			addBaseAmount(invoiceTax.getTaxAmt());
-			addWithholdingAmount(invoiceTax.getTaxAmt().multiply(withholdingRate));
+			addWithholdingAmount(invoiceTax.getTaxAmt().multiply(getWithholdingRate(true)));
 			MTax tax = MTax.get(getContext(), invoiceTax.getC_Tax_ID());
 			addDescription(tax.getName() + " @Processed@");
 		});
