@@ -118,6 +118,19 @@ public interface I_LVE_ListVersion
 	  */
 	public boolean isActive();
 
+    /** Column name IsVariableRate */
+    public static final String COLUMNNAME_IsVariableRate = "IsVariableRate";
+
+	/** Set Variable Rate.
+	  * Variable Rate for Withholding Tax Calculation
+	  */
+	public void setIsVariableRate (boolean IsVariableRate);
+
+	/** Get Variable Rate.
+	  * Variable Rate for Withholding Tax Calculation
+	  */
+	public boolean isVariableRate();
+
     /** Column name LVE_List_ID */
     public static final String COLUMNNAME_LVE_List_ID = "LVE_List_ID";
 
@@ -150,6 +163,19 @@ public interface I_LVE_ListVersion
 	  * Alphanumeric identifier of the entity
 	  */
 	public String getName();
+
+    /** Column name PersonType */
+    public static final String COLUMNNAME_PersonType = "PersonType";
+
+	/** Set Person Type.
+	  * Person Type for Withholding
+	  */
+	public void setPersonType (String PersonType);
+
+	/** Get Person Type.
+	  * Person Type for Withholding
+	  */
+	public String getPersonType();
 
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";
@@ -205,4 +231,17 @@ public interface I_LVE_ListVersion
 	  * Valid to including this date (last day)
 	  */
 	public Timestamp getValidTo();
+
+    /** Column name Value */
+    public static final String COLUMNNAME_Value = "Value";
+
+	/** Set Search Key.
+	  * Search key for the record in the format required - must be unique
+	  */
+	public void setValue (String Value);
+
+	/** Get Search Key.
+	  * Search key for the record in the format required - must be unique
+	  */
+	public String getValue();
 }

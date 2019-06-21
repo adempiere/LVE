@@ -33,7 +33,7 @@ public class X_LVE_ListLine extends PO implements I_LVE_ListLine, I_Persistent
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20190615L;
+	private static final long serialVersionUID = 20190621L;
 
     /** Standard Constructor */
     public X_LVE_ListLine (Properties ctx, int LVE_ListLine_ID, String trxName)
@@ -316,6 +316,26 @@ public class X_LVE_ListLine extends PO implements I_LVE_ListLine, I_Persistent
     {
         return new KeyNamePair(get_ID(), getName());
     }
+
+	/** Set Sequence.
+		@param SeqNo 
+		Method of ordering records; lowest number comes first
+	  */
+	public void setSeqNo (int SeqNo)
+	{
+		set_Value (COLUMNNAME_SeqNo, Integer.valueOf(SeqNo));
+	}
+
+	/** Get Sequence.
+		@return Method of ordering records; lowest number comes first
+	  */
+	public int getSeqNo () 
+	{
+		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
+		if (ii == null)
+			 return 0;
+		return ii.intValue();
+	}
 
 	/** Set Immutable Universally Unique Identifier.
 		@param UUID 

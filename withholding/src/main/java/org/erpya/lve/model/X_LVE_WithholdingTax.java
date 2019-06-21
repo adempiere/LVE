@@ -31,7 +31,7 @@ public class X_LVE_WithholdingTax extends PO implements I_LVE_WithholdingTax, I_
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20190617L;
+	private static final long serialVersionUID = 20190621L;
 
     /** Standard Constructor */
     public X_LVE_WithholdingTax (Properties ctx, int LVE_WithholdingTax_ID, String trxName)

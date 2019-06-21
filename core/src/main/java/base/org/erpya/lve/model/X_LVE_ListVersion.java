@@ -23,7 +23,6 @@ import java.sql.Timestamp;
 import java.util.Properties;
 import org.compiere.model.*;
 import org.compiere.util.Env;
-import org.compiere.util.KeyNamePair;
 
 /** Generated Model for LVE_ListVersion
  *  @author Adempiere (generated) 
@@ -34,7 +33,7 @@ public class X_LVE_ListVersion extends PO implements I_LVE_ListVersion, I_Persis
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20190615L;
+	private static final long serialVersionUID = 20190621L;
 
     /** Standard Constructor */
     public X_LVE_ListVersion (Properties ctx, int LVE_ListVersion_ID, String trxName)
@@ -44,7 +43,6 @@ public class X_LVE_ListVersion extends PO implements I_LVE_ListVersion, I_Persis
         {
 			setLVE_List_ID (0);
 			setLVE_ListVersion_ID (0);
-			setName (null);
 			setValidFrom (new Timestamp( System.currentTimeMillis() ));
         } */
     }
@@ -114,6 +112,30 @@ public class X_LVE_ListVersion extends PO implements I_LVE_ListVersion, I_Persis
 		return (String)get_Value(COLUMNNAME_Description);
 	}
 
+	/** Set Variable Rate.
+		@param IsVariableRate 
+		Variable Rate for Withholding Tax Calculation
+	  */
+	public void setIsVariableRate (boolean IsVariableRate)
+	{
+		set_Value (COLUMNNAME_IsVariableRate, Boolean.valueOf(IsVariableRate));
+	}
+
+	/** Get Variable Rate.
+		@return Variable Rate for Withholding Tax Calculation
+	  */
+	public boolean isVariableRate () 
+	{
+		Object oo = get_Value(COLUMNNAME_IsVariableRate);
+		if (oo != null) 
+		{
+			 if (oo instanceof Boolean) 
+				 return ((Boolean)oo).booleanValue(); 
+			return "Y".equals(oo);
+		}
+		return false;
+	}
+
 	public org.erpya.lve.model.I_LVE_List getLVE_List() throws RuntimeException
     {
 		return (org.erpya.lve.model.I_LVE_List)MTable.get(getCtx(), org.erpya.lve.model.I_LVE_List.Table_Name)
@@ -176,13 +198,35 @@ public class X_LVE_ListVersion extends PO implements I_LVE_ListVersion, I_Persis
 		return (String)get_Value(COLUMNNAME_Name);
 	}
 
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
+	/** PersonType AD_Reference_ID=54145 */
+	public static final int PERSONTYPE_AD_Reference_ID=54145;
+	/** Resident Natural Person = PNR */
+	public static final String PERSONTYPE_ResidentNaturalPerson = "PNR";
+	/** Non Resident Natural Person = PNNR */
+	public static final String PERSONTYPE_NonResidentNaturalPerson = "PNNR";
+	/** Legal Person Domiciled = PJD */
+	public static final String PERSONTYPE_LegalPersonDomiciled = "PJD";
+	/** Legal Person Not Domiciled = PJND */
+	public static final String PERSONTYPE_LegalPersonNotDomiciled = "PJND";
+	/** Legal Person Not Established Domiciled = PJNCD */
+	public static final String PERSONTYPE_LegalPersonNotEstablishedDomiciled = "PJNCD";
+	/** Set Person Type.
+		@param PersonType 
+		Person Type for Withholding
+	  */
+	public void setPersonType (String PersonType)
+	{
+
+		set_Value (COLUMNNAME_PersonType, PersonType);
+	}
+
+	/** Get Person Type.
+		@return Person Type for Withholding
+	  */
+	public String getPersonType () 
+	{
+		return (String)get_Value(COLUMNNAME_PersonType);
+	}
 
 	/** Set Immutable Universally Unique Identifier.
 		@param UUID 
@@ -233,5 +277,22 @@ public class X_LVE_ListVersion extends PO implements I_LVE_ListVersion, I_Persis
 	public Timestamp getValidTo () 
 	{
 		return (Timestamp)get_Value(COLUMNNAME_ValidTo);
+	}
+
+	/** Set Search Key.
+		@param Value 
+		Search key for the record in the format required - must be unique
+	  */
+	public void setValue (String Value)
+	{
+		set_Value (COLUMNNAME_Value, Value);
+	}
+
+	/** Get Search Key.
+		@return Search key for the record in the format required - must be unique
+	  */
+	public String getValue () 
+	{
+		return (String)get_Value(COLUMNNAME_Value);
 	}
 }
