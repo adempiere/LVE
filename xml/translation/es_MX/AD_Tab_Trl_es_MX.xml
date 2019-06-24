@@ -8915,4 +8915,25 @@ The class needs to implement org.compiere.model.PaymentProcessor]]></value>
   <value column="Help" original=""/>
   <value column="UUID" original="b5275512-936f-11e9-9ff1-271a21249318">b56b17b6-936f-11e9-a01c-6354db24d7a9</value>
  </row>
+ <row id="54837" trl="N">
+  <value column="Name" original="Withholding Municipal Setup">Retención Municipal</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Withholding Municipal Setup">Configuración de Retención Municipal para Venezuela</value>
+  <value column="Help" original="">Contiene toda la configuración de Retención Municipal para Venezuela con base en la ley</value>
+  <value column="UUID" original="52ffc7cc-969c-11e9-bdbc-d322785a1d47">53381578-969c-11e9-bde7-1f05dd0ae86e</value>
+ </row>
+ <row id="54838" trl="N">
+  <value column="Name" original="Withholding Type">Actividad Comercial</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Withholding Type for Business Partners">Actividad Comercial para el Socio de Negocio</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="5d421438-969c-11e9-9a50-e7e3d77999d2">5d7c6c32-969c-11e9-9a7b-3be8f83a5351</value>
+ </row>
+ <row id="54839" trl="N">
+  <value column="Name" original="Tax Applied">Tasa Aplicada</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Tax Applied for documents">Tasa Aplicada según el documento</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="63d71a1e-969c-11e9-9c84-e77cd595d508">642273e2-969c-11e9-9caf-8bbbf1d70ee9</value>
+ </row>
 </adempiereTrl>

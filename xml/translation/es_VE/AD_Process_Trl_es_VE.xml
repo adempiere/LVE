@@ -391,9 +391,9 @@
   <value column="UUID" original="a42b579e-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
  <row id="172" trl="N">
-  <value column="Name" original="Synchronize Terminology">Sincronizar Terminología</value>
-  <value column="Description" original="Synchronize the terminology within the system.">Sincronizar la terminología dentro del sistema</value>
-  <value column="Help" original="Based on the entries in Window Element, the fields in windows, parameters, etc. are synchronized, if they are centrally maintained.  Also synchronizes Language Translation.">Basado en las entradas en el elemento de ventana, los campos en ventanas, parámetros, etc. Son sincronizados, si ellos son mantenidos centralizadamente.</value>
+  <value column="Name" original="Sincronizar Terminología">Sincronizar Terminología</value>
+  <value column="Description" original="Sincronizar la terminología dentro del sistema">Sincronizar la terminología dentro del sistema</value>
+  <value column="Help" original="Basado en las entradas en el elemento de ventana, los campos en ventanas, parámetros, etc. Son sincronizados, si ellos son mantenidos centralizadamente.">Basado en las entradas en el elemento de ventana, los campos en ventanas, parámetros, etc. Son sincronizados, si ellos son mantenidos centralizadamente.</value>
   <value column="UUID" original="a42d3618-fb40-11e8-a479-7a0060f0aa01">5041ebdc-9133-11e9-b99b-bf4617ea1ca6</value>
  </row>
  <row id="173" trl="Y">

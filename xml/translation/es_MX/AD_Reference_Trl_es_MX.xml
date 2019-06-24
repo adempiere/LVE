@@ -3649,4 +3649,16 @@
   <value column="Help" original=""/>
   <value column="UUID" original="03852c28-91d8-11e9-8f97-0242ac110002">03b695f6-91d8-11e9-8f97-0242ac110002</value>
  </row>
+ <row id="54151" trl="N">
+  <value column="Name" original="LVE_ListVersion (Municipal) reference">LVE_ListVersion reference</value>
+  <value column="Description" original="Used for eference of List Version">Used for eference of List Version</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="bc7bb1f4-9695-11e9-a4ff-1f1cfc0638ca">bca4daa2-9695-11e9-a512-e3aea0d164d6</value>
+ </row>
+ <row id="54152" trl="N">
+  <value column="Name" original="LVE_ListLine reference">LVE_ListLine reference</value>
+  <value column="Description" original="Used for eference of List Line">Used for eference of List Line</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="3035adc0-9696-11e9-87cd-f384cfa5aca7">30622c60-9696-11e9-87e0-b77b61b157dc</value>
+ </row>
 </adempiereTrl>

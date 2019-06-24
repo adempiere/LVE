@@ -41176,7 +41176,7 @@ Credit Expense 1000
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="93040302-936c-11e9-b889-53634afca0f8">6f044928-8fc8-11e9-913f-df3b027d3243</value>
+  <value column="UUID" original="04149bc0-9691-11e9-9ed5-6f95d5b0e288">6f044928-8fc8-11e9-913f-df3b027d3243</value>
  </row>
  <row id="60426" trl="N">
   <value column="Name" original="Bank Matcher">Algoritmo de Conciliación Configurado</value>
@@ -41762,9 +41762,9 @@ Credit Expense 1000
   <value column="UUID" original="da4c9014-8f05-11e9-9d9d-f76f11784652">da886170-8f05-11e9-9db6-0b2058d7c69c</value>
  </row>
  <row id="61082" trl="N">
-  <value column="Name" original="Withholding Rental Rate">Retención de I.S.L.R. Aplicada</value>
-  <value column="PrintName" original="Withholding Rental Rate">Retención de I.S.L.R. Aplicada</value>
-  <value column="Description" original="Withholding Rental Rate for a Business Partner">Retención de I.S.L.R. Aplicada al Socio de Negocio</value>
+  <value column="Name" original="Withholding Rental Concept">Concepto de Retención de I.S.L.R</value>
+  <value column="PrintName" original="Withholding Rental Concept">Concepto de Retención de I.S.L.R Aplicado</value>
+  <value column="Description" original="Withholding Rental Concept for a Business Partner">Retención de I.S.L.R. Aplicada al Socio de Negocio</value>
   <value column="Help" original=""/>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
@@ -41815,6 +41815,61 @@ Credit Expense 1000
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="85c325d4-92e9-11e9-9dac-93e90f14f3f0">89272b62-92e9-11e9-9dc5-972d8f2e5da9</value>
+ </row>
+ <row id="61095" trl="N">
+  <value column="Name" original="Withholding Rental Rate">Tasa de Retención de I.S.L.R Aplicada</value>
+  <value column="PrintName" original="Withholding Rental Rate Applied">Tasa de Retención de I.S.L.R Aplicada</value>
+  <value column="Description" original="">Tasa de Retención de I.S.L.R Aplicada al documento</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="d5a7802c-9695-11e9-a538-0f69d3475846">d5d0b712-9695-11e9-a551-cb573f937bc8</value>
+ </row>
+ <row id="61096" trl="N">
+  <value column="Name" original="Withholding Retal Variable Rate">Tasa Variable de I.S.L.R Aplicada</value>
+  <value column="PrintName" original="Withholding Retal Variable Rate">Tasa Variable de I.S.L.R Aplicada</value>
+  <value column="Description" original="">Tasa Variable de I.S.L.R Aplicada al documento</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="5bb28bda-9696-11e9-a5ae-ab6859726537">5bdacd48-9696-11e9-a5c7-efc6fc1fcbc4</value>
+ </row>
+ <row id="61097" trl="N">
+  <value column="Name" original="Withholding Municipal Exempt">No Aplica Retención Municipal</value>
+  <value column="PrintName" original="Withholding Municipal Exempt">No Aplica Retención Municipal</value>
+  <value column="Description" original="Withholding Municipal Exempt for this Vendor">No Aplica Retención Municipal para este Documento o Socio de Negocio</value>
+  <value column="Help" original="The documents or business partner flagged with this flag will not processed when running withholding">Los documentos o socios de negocio marcados con esta bandera no serán procesados al momento de realizar la retención Municipal</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="e85fba0a-9699-11e9-ad30-73eb05894384">e898cd5e-9699-11e9-ad49-5b45f935a348</value>
+ </row>
+ <row id="61098" trl="N">
+  <value column="Name" original="Withholding Business Activity">Actividad Comercial</value>
+  <value column="PrintName" original="Withholding Business Activity">Actividad Comercial</value>
+  <value column="Description" original="Withholding Business Activity for Municipal application">Actividad Comercial del Socio de Negocio</value>
+  <value column="Help" original="">La Actividad Comercial del Socio de Negocio determina el tipo de retención que le será aplicada</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="52d2f06e-969a-11e9-ad6b-1b65c29de241">52fefe98-969a-11e9-ad84-4b00be086936</value>
+ </row>
+ <row id="61099" trl="N">
+  <value column="Name" original="Withholding Municipal Rate">Tasa de Retención Municipal</value>
+  <value column="PrintName" original="Withholding Municipal Rate">Tasa de Retención Municipal</value>
+  <value column="Description" original="Withholding Municipal Rate for document">Tasa de Retención Municipal aplicada al documento</value>
+  <value column="Help" original="">La Tasa de Retención Municipal aplicada al documento dependerá de la configuración del socio de negocio y de su actividad comercial</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="bb0ffe42-969a-11e9-ada0-af9305c57eb5">bb3bb104-969a-11e9-adb9-ff0c2c8c5efd</value>
  </row>
  <row id="200000" trl="Y">
   <value column="Name" original="Recent Item">Recent Item</value>

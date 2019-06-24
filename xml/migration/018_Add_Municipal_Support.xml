@@ -3028,5 +3028,25 @@ There are two reasons for de-activating and not deleting records:
         <Data AD_Column_ID="145" Column="AD_Display" oldValue="85258">93720</Data>
       </PO>
     </Step>
+    <Step SeqNo="1150" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="93834" Table="AD_Column">
+        <Data AD_Column_ID="6482" Column="EntityType" oldValue="WHH">LVE</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1160" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="93835" Table="AD_Column">
+        <Data AD_Column_ID="6482" Column="EntityType" oldValue="WHH">LVE</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1170" StepType="AD">
+      <PO AD_Table_ID="107" Action="U" Record_ID="95135" Table="AD_Field">
+        <Data AD_Column_ID="7714" Column="EntityType" oldValue="WHH">LVE</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1180" StepType="AD">
+      <PO AD_Table_ID="107" Action="U" Record_ID="95136" Table="AD_Field">
+        <Data AD_Column_ID="7714" Column="EntityType" oldValue="WHH">LVE</Data>
+      </PO>
+    </Step>
   </Migration>
 </Migrations>

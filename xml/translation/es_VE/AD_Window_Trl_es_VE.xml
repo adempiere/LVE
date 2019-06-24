@@ -2992,4 +2992,10 @@ Pipelines (pipeline transport)</value>
   <value column="Help" original="Withholding Rental Maintaining for Client">Contiene toda la configuración de Retención de I.S.L.R. para Venezuela con base en la ley</value>
   <value column="UUID" original="2a6773d8-9123-11e9-b27b-b79bf4bc86fe">2aa2ee2c-9123-11e9-b295-079c1505939a</value>
  </row>
+ <row id="53681" trl="N">
+  <value column="Name" original="Withholding Municipal Maintaining">Configuración de Retención Municipal</value>
+  <value column="Description" original="Withholding Municipal Maintaining">Configuración de Retención Municipal para Venezuela</value>
+  <value column="Help" original="Withholding Municipal Maintaining for Client">Contiene toda la configuración de Retención Municipal para Venezuela con base en la ley</value>
+  <value column="UUID" original="2a6660c8-969c-11e9-bd83-7f1e9aeb3131">2aa6ca8c-969c-11e9-bd9d-3b325a53fca2</value>
+ </row>
 </adempiereTrl>

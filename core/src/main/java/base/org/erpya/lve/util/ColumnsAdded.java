@@ -50,4 +50,15 @@ public class ColumnsAdded {
 	public static final String COLUMNNAME_TributeUnitType_ID = "TributeUnitType_ID";
 	/**	Withholding Tax Applied flag	*/
 	public static final String COLUMNNAME_IsWithholdingTaxApplied = "IsWithholdingTaxApplied";
+	/**	Withholding Rental Rate Applied	*/
+	public static final String COLUMNNAME_WithholdingRentalRate_ID = "WithholdingRentalRate_ID";
+	/**	Withholding Rental Variable Rate Applied	*/
+	public static final String COLUMNNAME_WithholdingVariableRate_ID = "WithholdingVariableRate_ID";
+	/**	Withholding Municipal Rate Applied	*/
+	public static final String COLUMNNAME_WithholdingMunicipalRate_ID = "WithholdingMunicipalRate_ID";
+	/**	Withholding municipal business activity	*/
+	public static final String COLUMNNAME_BusinessActivity_ID = "BusinessActivity_ID";
+	/**	Business Partner Withholding Municipal Exempt	*/
+	public static final String COLUMNNAME_IsWithholdingMunicipalExempt = "IsWithholdingMunicipalExempt";
+	
 }
