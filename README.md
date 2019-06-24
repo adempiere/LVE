@@ -2,20 +2,9 @@
 
 Esta localización permite lo siguiente:
   - Generar Retenciones a proveedores:
-  
    - I.V.A. [Con base en Gaceta Oficial 40720 (SNAT/2015/0049)](http://declaraciones.seniat.gob.ve/portal/page/portal/MANEJADOR_CONTENIDO_SENIAT/01NOTICIAS/00IMAGENES/GACETAOFICIAL40720.pdf)
-   	
-- I.S.L.R. [Con base a manual técnico de Sistema de Impuesto Sobre la Renta](http://declaraciones.seniat.gob.ve/portal/page/portal/MANEJADOR_CONTENIDO_SENIAT/05MENU_HORIZONTAL/5.3ANUNCIOS_CARTELES/5.3.2CARTELES_NOTIFICACION/CARTELES/MT_Retenciones%20ISLRV3.0_2014.pdf)
-
-![Diagrama ER de Retenciones IVA](docs/withholding/IVA.png)
-
-   - I.S.L.R.
-
-
-![Diagrama ER de Retenciones ISLR](docs/withholding/ISLR.png)
-
+   - I.S.L.R. [Con base a manual técnico de Sistema de Impuesto Sobre la Renta](http://declaraciones.seniat.gob.ve/portal/page/portal/MANEJADOR_CONTENIDO_SENIAT/05MENU_HORIZONTAL/5.3ANUNCIOS_CARTELES/5.3.2CARTELES_NOTIFICACION/CARTELES/MT_Retenciones%20ISLRV3.0_2014.pdf)
    - Municipal
-	
   - Declarar Retenciones:
     - TXT de I.V.A.
     - XML de I.S.L.R.
@@ -84,6 +73,21 @@ Para poder configurar e instalar la localización se requiere:
 - Crear la configuración requerida para tu compañía en ADempiere
 
 ## Configuración de la localización
+
+
+Diagrama E-R para I.V.A.
+
+![Diagrama ER de Retenciones IVA](docs/withholding/IVA.png)
+
+
+Diagrama E-R para I.S.L.R.
+
+![Diagrama ER de Retenciones ISLR](docs/withholding/ISLR.png)
+
+Diagrama E-R para Municipal.
+
+![Diagrama ER de Retenciones Municipales](docs/withholding/IM.png)
+	
 
 ## Licencia
 Copyright (C) 2003-2018 E.R.P. Consultores y Asociados, C.A. All Rights Reserved.
