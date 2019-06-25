@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2013-07-26 14:33:25</creation_date>
-			<updated_date>2019-06-24 10:36:22</updated_date>
+			<updated_date>2019-06-25 08:09:53</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>
@@ -411,6 +411,22 @@
 		</word>
 		<word>
 			<id>15</id>
+			<length>null</length>
+			<decimal>null</decimal>
+			<array>false</array>
+			<array_dimension>null</array_dimension>
+			<unsigned>false</unsigned>
+			<zerofill>false</zerofill>
+			<binary>false</binary>
+			<args></args>
+			<char_semantics>false</char_semantics>
+			<description></description>
+			<logical_name>Subtrahend</logical_name>
+			<physical_name>Subtrahend</physical_name>
+			<type>numeric</type>
+		</word>
+		<word>
+			<id>16</id>
 			<length>2</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -426,7 +442,7 @@
 			<type>character(n)</type>
 		</word>
 		<word>
-			<id>16</id>
+			<id>17</id>
 			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
@@ -1016,7 +1032,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>16</word_id>
+					<word_id>17</word_id>
 					<id>10</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1468,7 +1484,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>15</word_id>
+					<word_id>16</word_id>
 					<id>18</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1667,6 +1683,39 @@
 						<decimal_size>0</decimal_size>
 					</sequence>
 				</normal_column>
+				<normal_column>
+					<word_id>15</word_id>
+					<id>24</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>numeric</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
 			</columns>
 			<indexes>
 			</indexes>
@@ -1723,7 +1772,7 @@
 			<columns>
 				<normal_column>
 					<word_id>12</word_id>
-					<id>24</id>
+					<id>25</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1755,7 +1804,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<id>25</id>
+					<id>26</id>
 					<referenced_column>1</referenced_column>
 					<relation>8</relation>
 					<description></description>
@@ -1844,7 +1893,7 @@
 			<columns>
 				<normal_column>
 					<word_id>3</word_id>
-					<id>26</id>
+					<id>27</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1876,7 +1925,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<id>27</id>
+					<id>28</id>
 					<referenced_column>1</referenced_column>
 					<relation>9</relation>
 					<description></description>
