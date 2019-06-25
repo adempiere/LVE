@@ -171,7 +171,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 								addWithholdingAmount(baseAmount.multiply(rate,MathContext.DECIMAL128)
 																.setScale(curPrecision,BigDecimal.ROUND_HALF_UP)
 																.subtract(subtractAmt));
-								addDescription(whConcept.getName() + "@Processed@");
+								addDescription(whConcept.getName() + " @Processed@");
 								setReturnValue(ColumnsAdded.COLUMNNAME_Subtrahend, subtractAmt);
 								saveResult();
 							}

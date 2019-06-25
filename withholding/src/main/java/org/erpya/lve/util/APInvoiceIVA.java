@@ -63,6 +63,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			isValid = false;
 		}
 		invoice = (MInvoice) getDocument();
+		businessPartner = (MBPartner) invoice.getC_BPartner();
 		//	Add reference
 		setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
 		//	Validate if exists Withholding Tax Definition for client
