@@ -16,16 +16,26 @@
 package org.erpya.lve.util;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 
 import org.compiere.model.I_C_Invoice;
 import org.compiere.model.MBPartner;
+import org.compiere.model.MCharge;
+import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
-import org.compiere.model.MInvoiceTax;
+import org.compiere.model.MInvoiceLine;
+import org.compiere.model.MProduct;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
+import org.erpya.lve.model.MLVEList;
+import org.erpya.lve.model.MLVEListLine;
+import org.erpya.lve.model.MLVEListVersion;
 import org.erpya.lve.model.MLVEWithholdingTax;
+import org.erpya.lve.model.X_LVE_ListVersion;
 import org.spin.model.I_WH_Withholding;
 import org.spin.model.MWHSetting;
 import org.spin.util.AbstractWithholdingSetting;
@@ -35,6 +45,7 @@ import org.spin.util.AbstractWithholdingSetting;
  * 	Note que básicamente se realiza una validación del documento en cuestión y luego se procesa
  * 	la generación del documento de retención o el log del documento queda a libertad de la clase abstracta
  * 	@author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
+ *  @contributor Carlos Parada, cparada@erpya.com, ERPCyA http://www.erpya.com
  */
 public class APInvoiceISLR extends AbstractWithholdingSetting {
 
@@ -45,14 +56,20 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	private MInvoice invoice;
 	/**	Current Business Partner	*/
 	private MBPartner businessPartner;
-	/**	Withholding tax rate	*/
-	private BigDecimal withholdingRate;
-	/**	PErson Type	for Business Partner	*/
-	private final String PERSON_TYPE = "PersonType";
-	/**	Minimum Tribute Unit for apply Withholding Tax	*/
-//	private final int MINIMUM_TRIBUTE_UNIT = 20;
-	
-	
+	/**Person Type*/
+	private String bpartnerPersonType = null;
+	/**	Withholding Rental Exempt for Business Partner	*/
+	private HashMap<MLVEList,BigDecimal>  conceptsToApply= new HashMap<MLVEList,BigDecimal>();
+	/**Withholding Rental Rates to Apply*/
+	private HashMap<MLVEListVersion,MLVEListLine> ratesToApply= new HashMap<MLVEListVersion,MLVEListLine>();
+	/**Tribute Unit Amount */
+	BigDecimal tributeUnitAmount = Env.ZERO;
+	/**Factor*/
+	private static BigDecimal FACTOR = new BigDecimal(83.3334);
+	/**Subtract Amount*/
+	private BigDecimal subtractAmt = Env.ZERO;
+	/**Currency Precision */
+	int curPrecision = 0 ;
 	@Override
 	public boolean isValid() {
 		boolean isValid = true;
@@ -62,6 +79,10 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 			isValid = false;
 		}
 		invoice = (MInvoice) getDocument();
+		if (invoice!=null) {
+			MCurrency currency = (MCurrency) invoice.getC_Currency();
+			curPrecision = currency.getStdPrecision();
+		}
 		//	Add reference
 		setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
 		//	Validate if exists Withholding Tax Definition for client
@@ -80,74 +101,171 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 			isValid = false;
 		}
 		//	Validate AP only
-		if(!documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)
-				&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo)) {
+		if(documentType!=null 
+				&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)
+					&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo)) {
 			addLog("@APDocumentRequired@");
 			isValid = false;
 		}
-		//	Validate Exempt Document
-//		if(invoice.get_ValueAsBoolean(WITHHOLDING_TAX_EXEMPT)) {
-//			isValid = false;
-//			addLog("@DocumentWithholdingTaxExempt@");
-//		}
 		//	Validate Person Type
 		businessPartner = (MBPartner) invoice.getC_BPartner();
-		if(Util.isEmpty(businessPartner.get_ValueAsString(PERSON_TYPE))) {
-			addLog("@" + PERSON_TYPE + "@ @NotFound@ @C_BPartner_ID@ " + businessPartner.getValue() + " - " + businessPartner.getName());
+		bpartnerPersonType = businessPartner.get_ValueAsString(ColumnsAdded.COLUMNNAME_PersonType);
+		if(Util.isEmpty(bpartnerPersonType)) {
+			addLog("@" + ColumnsAdded.COLUMNNAME_PersonType + "@ @NotFound@ @C_BPartner_ID@ " + businessPartner.getValue() + " - " + businessPartner.getName());
 			isValid = false;
 		}
 		//	Validate Exempt Business Partner
-//		if(businessPartner.get_ValueAsBoolean(WITHHOLDING_TAX_EXEMPT)) {
-//			isValid = false;
-//			addLog("@BPartnerWithholdingTaxExempt@");
-//		}
+		if(businessPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingRentalExempt)) {
+			isValid = false;
+			addLog("@BPartnerWithholdingRentalExempt@");
+		}
 		//	Validate Withholding Definition
-//		MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getCtx(), invoice.getAD_Org_ID());
-//		int withholdingRateId = businessPartner.get_ValueAsInt(WITHHOLDING_TAX_RATE);
-//		if(withholdingRateId == 0) {
-//			withholdingRateId = withholdingTaxDefinition.getDefaultWithholdingRate_ID();
-//		}
-		//	Validate Definition
-//		if(withholdingRateId == 0) {
-//			addLog("@" + WITHHOLDING_TAX_RATE + "@ @NotFound@");
-//			isValid = false;
-//		} else {
-//			withholdingRate = MLVEList.get(getCtx(), withholdingRateId).getListVersionAmount(invoice.getDateInvoiced());
-//		}
-		//	Validate Tax
-		if(withholdingRate.equals(Env.ZERO)) {
-			addLog("@LVE_WithholdingTax_ID@ (@Rate@ @NotFound@)");
+		setConcepts();
+		if (conceptsToApply.size()==0) {
+			isValid = false;
+			addLog("@NotWitholdingRentalConcept@");
+		}
+		
+		//	Validate Tribute Unit
+		MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), invoice.getAD_Org_ID());
+		tributeUnitAmount = withholdingTaxDefinition.getValidTributeUnitAmount(invoice.getDateInvoiced());
+		if(tributeUnitAmount.equals(Env.ZERO)) {
+			addLog("@TributeUnit@ (@Rate@ @NotFound@)");
 			isValid = false;
 		}
-		//	Validate Tribute Unit
-//		BigDecimal tributeUnitAmount = withholdingTaxDefinition.getValidTributeUnitAmount(invoice.getDateInvoiced());
-//		if(tributeUnitAmount.equals(Env.ZERO)) {
-//			addLog("@TributeUnit@ (@Rate@ @NotFound@)");
-//			isValid = false;
-//		}
-		//	Validate Minimum Tribute Unit (Only for AP Invoice)
-//		if(documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)) {
-//			BigDecimal minTributeUnitAmount = tributeUnitAmount.multiply(new BigDecimal(MINIMUM_TRIBUTE_UNIT));
-//			if(minTributeUnitAmount.compareTo(invoice.getGrandTotal()) > 0) {
-//				addLog("@MinimumTributeUnitRequired@ " + MINIMUM_TRIBUTE_UNIT);
-//				isValid = false;
-//			}
-//		}
-		//	
+		
+		setRates();
+		if (ratesToApply.size()==0) {
+			isValid = false;
+			addLog("@NotWitholdingRentalRates@");
+		}
+
 		return isValid;
 	}
 
 	@Override
 	public String run() {
-//		setWithholdingRate(withholdingRate);
-//		withholdingRate = withholdingRate.divide(Env.ONEHUNDRED);
-//		//	Iterate
-//		taxes.forEach(invoiceTax -> {
-//			addBaseAmount(invoiceTax.getTaxAmt());
-//			addWithholdingAmount(invoiceTax.getTaxAmt().multiply(withholdingRate));
-//			MTax tax = MTax.get(getCtx(), invoiceTax.getC_Tax_ID());
-//			addDescription(tax.getName() + " @Processed@");
-//		});
+		conceptsToApply.forEach((whConcept,baseAmount) ->{
+			ratesToApply.entrySet()
+						.stream()
+						.filter(ratesToApply -> ratesToApply.getKey().getLVE_List_ID() == whConcept.getLVE_List_ID())
+						.forEach((rateToApply) -> {
+							BigDecimal rate = Env.ZERO;
+							if (!rateToApply.getKey().isVariableRate()) {
+								rate = rateToApply.getKey().getAmount();
+								setReturnValue(ColumnsAdded.COLUMNNAME_WithholdingRentalRate_ID, rateToApply.getKey().getLVE_ListVersion_ID());
+							}
+							else  {
+								rate = (BigDecimal)rateToApply.getValue().get_Value(ColumnsAdded.COLUMNNAME_VariableRate);
+								setReturnValue(ColumnsAdded.COLUMNNAME_WithholdingRentalRate_ID, rateToApply.getKey().getLVE_ListVersion_ID());
+								setReturnValue(ColumnsAdded.COLUMNNAME_WithholdingVariableRate_ID, rateToApply.getValue().getLVE_ListLine_ID());
+							}
+							
+							if (rate==null) 
+								rate = Env.ZERO;
+							
+							if (rate.compareTo(Env.ZERO)!=0) {
+								setWithholdingRate(rate);
+								rate = getWithholdingRate(true);
+								addBaseAmount(baseAmount);
+								addWithholdingAmount(baseAmount.multiply(rate,MathContext.DECIMAL128)
+																.setScale(curPrecision,BigDecimal.ROUND_HALF_UP)
+																.subtract(subtractAmt));
+								addDescription(whConcept.getName() + "@Processed@");
+								setReturnValue(ColumnsAdded.COLUMNNAME_Subtrahend, subtractAmt);
+								saveResult();
+							}
+
+						}
+					);			
+			}
+		);
+		
+		conceptsToApply.clear();
+		ratesToApply.clear();
+		curPrecision = 0;
+		subtractAmt = Env.ZERO;
 		return null;
+	}
+	
+	/**
+	 * Set concepts from invoice document
+	 */
+	private void setConcepts() {
+		if (invoice!=null) {
+			if (invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) {
+				conceptsToApply.put(MLVEList.get(getContext(), invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)),
+										invoice.getTotalLines());
+				return;
+			}
+			
+			MInvoiceLine[] iLines = invoice.getLines();
+			for (MInvoiceLine line : iLines) {
+				//Search concept for product
+				if (line.getM_Product_ID()!=0) {
+					MProduct product = (MProduct)line.getM_Product();
+					if (product.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) {
+						MLVEList list = MLVEList.get(getContext(), product.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID));
+						BigDecimal currentAmount = conceptsToApply.get(list);
+						if (currentAmount==null)
+							conceptsToApply.put(list,line.getLineNetAmt());
+						else
+							conceptsToApply.put(list,currentAmount.add(line.getLineNetAmt()));
+					}
+				}
+				
+				if (line.getC_Charge_ID()!=0) {
+					MCharge charge = (MCharge)line.getC_Charge();
+					if (charge.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) {
+						MLVEList list = MLVEList.get(getContext(), charge.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID));
+						BigDecimal currentAmount = conceptsToApply.get(list);
+						if (currentAmount==null)
+							conceptsToApply.put(list,line.getLineNetAmt());
+						else
+							conceptsToApply.put(list,currentAmount.add(line.getLineNetAmt()));
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Set Rates
+	 */
+	private void setRates() {
+		
+		conceptsToApply.forEach((whConcept,baseAmount) ->{
+			MLVEListVersion rateToApply = whConcept.getValidVersionInstance(invoice.getDateInvoiced(), ColumnsAdded.COLUMNNAME_PersonType, bpartnerPersonType);
+			if (rateToApply!=null) {
+				if (rateToApply.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsVariableRate)) {
+					List<MLVEListLine> varRate= rateToApply.getListLine();
+					if (varRate!=null) 
+						ratesToApply.put(rateToApply,varRate.stream()
+														.filter(listLine -> (
+																baseAmount.compareTo(listLine.getMinValue().multiply(tributeUnitAmount))>=0 && 
+																	(baseAmount.compareTo(listLine.getMaxValue().multiply(tributeUnitAmount))<=0 
+																		|| listLine.getMaxValue().compareTo(Env.ZERO)==0))
+																)
+														.sorted(Comparator.comparing(MLVEListLine::getSeqNo))
+														.findFirst()
+														.get());
+				}else {
+					if (bpartnerPersonType.equals(X_LVE_ListVersion.PERSONTYPE_ResidentNaturalPerson)) {
+						BigDecimal minValue = tributeUnitAmount.multiply(FACTOR,MathContext.DECIMAL128).setScale(curPrecision,BigDecimal.ROUND_HALF_UP);
+						if (baseAmount.compareTo(minValue)>=0) {
+							subtractAmt = minValue.multiply(rateToApply.getAmount()
+																.divide(Env.ONEHUNDRED,MathContext.DECIMAL128)
+															,MathContext.DECIMAL128)
+													.setScale(curPrecision,BigDecimal.ROUND_HALF_UP);
+							ratesToApply.put(rateToApply,null);
+						}
+					}else 
+						ratesToApply.put(rateToApply,null);
+				}
+				
+			}
+		}
+		);
+		
 	}
 }

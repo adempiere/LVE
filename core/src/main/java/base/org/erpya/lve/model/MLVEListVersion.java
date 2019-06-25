@@ -18,7 +18,12 @@
 package org.erpya.lve.model;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
+
+import org.compiere.model.Query;
+import org.compiere.util.CCache;
 
 
 /**
@@ -31,6 +36,8 @@ public class MLVEListVersion extends X_LVE_ListVersion {
 	 * 
 	 */
 	private static final long serialVersionUID = -5508386218141968441L;
+	/**	List version with Valid From	*/
+	private CCache<String, List<MLVEListLine>> listLineCache = new CCache<String, List<MLVEListLine>>(I_LVE_ListLine.Table_Name + "_LineID", 40, 5);	//	5 minutes
 
 	public MLVEListVersion(Properties ctx, int WH_Log_ID, String trxName) {
 		super(ctx, WH_Log_ID, trxName);
@@ -46,4 +53,35 @@ public class MLVEListVersion extends X_LVE_ListVersion {
 				+ ", getLVE_ListVersion_ID()=" + getLVE_ListVersion_ID() + ", getName()=" + getName()
 				+ ", getValidFrom()=" + getValidFrom() + "]";
 	}
+	
+	/**
+	 * Helper Method : Get a value for a column from value range
+	 * @param listSearchKey Value List
+	 * @from from date to valid list
+	 * @param amount Amount to search
+	 * @param columnParam Number of column to return (1.......8)
+	 * @return The amount corresponding to the designated column 'column'
+	 */
+	public List<MLVEListLine> getListLine() {
+		
+		String key = getLVE_ListVersion_ID() + "" ;
+		List<MLVEListLine> listLine = listLineCache.get(key);
+		if(listLine == null) {
+			ArrayList<Object> params = new ArrayList<Object>();
+			StringBuffer whereClause = new StringBuffer(COLUMNNAME_LVE_ListVersion_ID + " = ?");
+			params.add(getLVE_ListVersion_ID());
+			//check client
+			listLine = new Query(getCtx(), MLVEListLine.Table_Name, whereClause.toString(), null)
+					.setParameters(params)
+					.setOrderBy(MLVEListLine.COLUMNNAME_SeqNo + " DESC")
+					.setClient_ID()
+					.setOnlyActiveRecords(true)
+					.list();
+			if(listLine != null) {
+				listLineCache.put(key, listLine);
+			}
+		}
+		return listLine;
+		
+	} // getList
 }

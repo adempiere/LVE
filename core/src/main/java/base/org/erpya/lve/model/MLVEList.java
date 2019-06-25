@@ -167,4 +167,43 @@ public class MLVEList extends X_LVE_List {
 		return "MLVEList [getLVE_List_ID()=" + getLVE_List_ID() + ", getValue()="
 				+ getValue() + ", getName()=" + getName() + "]";
 	}
+	
+	/**
+	 * Get Valid Rate Instance of List Version
+	 * @param validFrom
+	 * @return
+	 */
+	public MLVEListVersion getValidVersionInstance(Timestamp validFrom,String columnFilter, String valueFilter) {
+		if (columnFilter == null
+				|| valueFilter == null)
+			return null;
+		
+		SimpleDateFormat format = (SimpleDateFormat)DateFormat.getInstance();
+		format.applyPattern("yyyyMMdd");
+		String key = getLVE_List_ID() + "|" + format.format(validFrom) + "|" + valueFilter;
+		MLVEListVersion listVersion = listVersionCache.get(key);
+		if(listVersion == null) {
+			ArrayList<Object> params = new ArrayList<Object>();
+			StringBuffer whereClause = new StringBuffer(MLVEListVersion.COLUMNNAME_LVE_List_ID + " = ?");
+			params.add(getLVE_List_ID());
+			// check ValidFrom
+			whereClause.append(" AND ").append(MLVEListVersion.COLUMNNAME_ValidFrom + "<=?");
+			params.add(validFrom);
+			//other column filter
+			whereClause.append(" AND ").append(columnFilter + " = ?");
+			params.add(valueFilter);
+			//check client
+			listVersion = new Query(getCtx(), MLVEListVersion.Table_Name, whereClause.toString(), null)
+					.setParameters(params)
+					.setOrderBy(MLVEListVersion.COLUMNNAME_ValidFrom + " DESC")
+					.setClient_ID()
+					.setOnlyActiveRecords(true)
+					.first();
+			if(listVersion != null) {
+				listVersionCache.put(key, listVersion);
+			}
+		}
+		//	
+		return listVersion;
+	}
 }

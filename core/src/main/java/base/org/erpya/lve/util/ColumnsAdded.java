@@ -52,6 +52,8 @@ public class ColumnsAdded {
 	public static final String COLUMNNAME_IsWithholdingTaxApplied = "IsWithholdingTaxApplied";
 	/**	Withholding Rental Rate Applied	*/
 	public static final String COLUMNNAME_WithholdingRentalRate_ID = "WithholdingRentalRate_ID";
+	/**	Withholding Rental Concept*/
+	public static final String COLUMNNAME_WithholdingRentalConcept_ID = "WithholdingRentalConcept_ID";
 	/**	Withholding Rental Variable Rate Applied	*/
 	public static final String COLUMNNAME_WithholdingVariableRate_ID = "WithholdingVariableRate_ID";
 	/**	Withholding Municipal Rate Applied	*/
@@ -60,5 +62,11 @@ public class ColumnsAdded {
 	public static final String COLUMNNAME_BusinessActivity_ID = "BusinessActivity_ID";
 	/**	Business Partner Withholding Municipal Exempt	*/
 	public static final String COLUMNNAME_IsWithholdingMunicipalExempt = "IsWithholdingMunicipalExempt";
+	/**Withholding Is Variable Rate*/
+	public static final String COLUMNNAME_IsVariableRate = "IsVariableRate";
+	/**Withholding Variable Rate*/
+	public static final String COLUMNNAME_VariableRate = "Col_1";
+	/**Withholding Subtrahend*/
+	public static final String COLUMNNAME_Subtrahend = "Subtrahend";
 	
 }
