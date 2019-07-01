@@ -105,10 +105,10 @@ public class BOD extends LVEPaymentExportList {
 			String paymentQty = leftPadding(String.valueOf(checks.size()), 6, "0");
 			//	Payment Amount
 			String totalAmtAsString = String.format("%.2f", paySelection.getTotalAmt().abs()).replace(".", "").replace(",", "");
-			if(totalAmtAsString.length() > 19) {
+			if(totalAmtAsString.length() > 17) {
 				addError(Msg.parseTranslation(Env.getCtx(), "@PayAmt@ @Invalid@"));
 			}
-			totalAmtAsString = leftPadding(totalAmtAsString, 19, "0", true);
+			totalAmtAsString = leftPadding(totalAmtAsString, 17, "0", true);
 			//	ISO Code for Currency
 			String iSOCode = currency.getISO_Code();
 			//	Constant
@@ -196,7 +196,7 @@ public class BOD extends LVEPaymentExportList {
 								addError(Msg.parseTranslation(Env.getCtx(), "@PayAmt@ @Invalid@"));
 							}
 							amountAsString = amountAsString.substring(0, amountAsString.length() >= 17? 17: amountAsString.length());
-							amountAsString = leftPadding(amountAsString, 17, "0");
+							amountAsString = leftPadding(amountAsString, 15, "0");
 							//	Withholding Tax
 							String withholdingTaxAsString = String.format("%.2f", Env.ZERO).replace(".", "").replace(",", "");
 							withholdingTaxAsString = leftPadding(withholdingTaxAsString, 17, "0", true);
@@ -315,15 +315,16 @@ public class BOD extends LVEPaymentExportList {
 					}
 				}
 				//	Document No
-				documentNo = rightPadding(documentNo, 20, " ");
+				String documentReference = documentNo.substring(0, 20);
+				documentNo = rightPadding(documentReference, 20, " ");
 				//	Reference Amount
 				String documentAmountAsString = String.format("%.2f", documentAmount.abs()).replace(".", "").replace(",", "");
-				documentAmountAsString = leftPadding(documentAmountAsString, 17, "0", true);
+				documentAmountAsString = leftPadding(documentAmountAsString, 15, "0", true);
 				//	Document Date
 				String documentDateAsString = new SimpleDateFormat(REFERENCE_DATE_FORMAT).format(documentDate);
 				//	Withholding Tax
 				String withholdingTaxAsString = String.format("%.2f", withholdingTax).replace(".", "").replace(",", "");
-				withholdingTaxAsString = leftPadding(withholdingTaxAsString, 17, "0", true);
+				withholdingTaxAsString = leftPadding(withholdingTaxAsString, 15, "0", true);
 				//	Constant
 				String constant = leftPadding("", 187, " ");
 				//	Line
