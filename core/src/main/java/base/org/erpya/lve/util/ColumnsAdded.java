@@ -68,5 +68,7 @@ public class ColumnsAdded {
 	public static final String COLUMNNAME_VariableRate = "Col_1";
 	/**Withholding Subtrahend*/
 	public static final String COLUMNNAME_Subtrahend = "Subtrahend";
+	/**Withholding Is Cumulative */
+	public static final String COLUMNNAME_IsCumulativeWithholding = "IsCumulativeWithholding";
 	
 }
