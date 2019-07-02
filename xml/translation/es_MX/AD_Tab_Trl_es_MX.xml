@@ -8818,7 +8818,7 @@ The class needs to implement org.compiere.model.PaymentProcessor]]></value>
   <value column="UUID" original="88c3883a-288d-11e9-88d6-6c0b840adaed">e0aaddb6-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="54813" trl="N">
-  <value column="Name" original="Allocation">Asignación</value>
+  <value column="Name" original="Withholding">Asignación</value>
   <value column="CommitWarning" original=""/>
   <value column="Description" original="Allocation for Withholding">Asignación para Retenciones</value>
   <value column="Help" original=""/>
@@ -8935,5 +8935,12 @@ The class needs to implement org.compiere.model.PaymentProcessor]]></value>
   <value column="Description" original="Tax Applied for documents">Tasa Aplicada según el documento</value>
   <value column="Help" original=""/>
   <value column="UUID" original="63d71a1e-969c-11e9-9c84-e77cd595d508">642273e2-969c-11e9-9caf-8bbbf1d70ee9</value>
+ </row>
+ <row id="54840" trl="N">
+  <value column="Name" original="Withholding Detail">Detalle de Retención</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Withholding Detail for Rental Tax">Detalle de Retención de I.S.L.R</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="63dbc978-9c6a-11e9-a959-0242ac110002">640a9faa-9c6a-11e9-a959-0242ac110002</value>
  </row>
 </adempiereTrl>

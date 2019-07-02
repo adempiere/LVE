@@ -41176,7 +41176,7 @@ Credit Expense 1000
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="04149bc0-9691-11e9-9ed5-6f95d5b0e288">6f044928-8fc8-11e9-913f-df3b027d3243</value>
+  <value column="UUID" original="84963e1e-9c56-11e9-8ded-0242ac110002">6f044928-8fc8-11e9-913f-df3b027d3243</value>
  </row>
  <row id="60426" trl="N">
   <value column="Name" original="Bank Matcher">Algoritmo de Conciliación Configurado</value>
@@ -41870,6 +41870,72 @@ Credit Expense 1000
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="bb0ffe42-969a-11e9-ada0-af9305c57eb5">bb3bb104-969a-11e9-adb9-ff0c2c8c5efd</value>
+ </row>
+ <row id="61103" trl="N">
+  <value column="Name" original="Subtrahend">Sustraendo</value>
+  <value column="PrintName" original="Subtrahend">Sustraendo</value>
+  <value column="Description" original="Subtrahend for Withholding">Sustraendo para Retención</value>
+  <value column="Help" original="">El sustraendo, en una resta, es el segundo de los dos números que intervienen y es la cantidad que debe restarse de la otra.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="92ed164c-9745-11e9-93a7-5f20cc54325d">934725ec-9745-11e9-93c0-7f1ef2991733</value>
+ </row>
+ <row id="61105" trl="N">
+  <value column="Name" original="Declaration Debit Document Type">Tipo de Documento de Declaración (Débito)</value>
+  <value column="PrintName" original="Declaration Debit Document Type">Tipo de Documento de Declaración (Débito)</value>
+  <value column="Description" original="Declaration Debit Document Type">Tipo de Documento de Declaración (Débito)</value>
+  <value column="Help" original="Use this field for set Declaration Debit Document Type">Use este campo para llenar el Tipo de Documento de Declaración (Débito)</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="e751c5d6-9c61-11e9-8fbe-0242ac110002">e78daf6a-9c61-11e9-8fbe-0242ac110002</value>
+ </row>
+ <row id="61106" trl="N">
+  <value column="Name" original="Declaration Credit Document Type">Tipo de Documento de Declaración (Crédito)</value>
+  <value column="PrintName" original="Declaration Credit Document Type">Tipo de Documento de Declaración (Crédito)</value>
+  <value column="Description" original="Declaration Credit Document Type">Tipo de Documento de Declaración (Crédito)</value>
+  <value column="Help" original="Use this field for set Declaration Credit Document Type">Use este campo para establecer el Tipo de Documento de Declaración (Crédito)</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="3e75d14a-9c62-11e9-8888-0242ac110002">3e9d644e-9c62-11e9-8888-0242ac110002</value>
+ </row>
+ <row id="61107" trl="N">
+  <value column="Name" original="Withholding Declaration">Declaración de Retención</value>
+  <value column="PrintName" original="Withholding Declaration">Declaración de Retención</value>
+  <value column="Description" original="Withholding Declaration reference">Referencia de Declaración de Retención</value>
+  <value column="Help" original="Make a reference to AP invoice for withholding declaration">Indica la referencia al documento por pagar de declaración de retención</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="bafa93ae-9c62-11e9-8888-0242ac110002">bb1a7a20-9c62-11e9-8888-0242ac110002</value>
+ </row>
+ <row id="61108" trl="N">
+  <value column="Name" original="Cumulative Withholding">Retención Acumulativa</value>
+  <value column="PrintName" original="Cumulative Withholding">Retención Acumulativa</value>
+  <value column="Description" original="Cumulative Withholding, calculated over old documents">Retención Acumulativa, calculada sobre documentos retenidos</value>
+  <value column="Help" original="Use this flag for determinate if a withholding is cumulative for a period">Use esta bandera para determinar si una retención es acumulativa para un período</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="c4d4f7b0-9c68-11e9-8a6f-0242ac110002">c515a1a2-9c68-11e9-8a6f-0242ac110002</value>
+ </row>
+ <row id="61109" trl="N">
+  <value column="Name" original="Withholding Detail">Detalle de Retención</value>
+  <value column="PrintName" original="Withholding Detail">Detalle de Retención</value>
+  <value column="Description" original="Withholding Detail for Rental Tax">Detalle de Retención para I.S.L.R</value>
+  <value column="Help" original="This table save all detail about withholding detail for rental tax">Esta tabla guarda todo el detalle de una retención de I.S.L.R</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="c9124084-9c69-11e9-8047-0242ac110002">c9374cbc-9c69-11e9-8047-0242ac110002</value>
  </row>
  <row id="200000" trl="Y">
   <value column="Name" original="Recent Item">Recent Item</value>

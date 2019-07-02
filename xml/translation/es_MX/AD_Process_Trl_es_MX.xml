@@ -391,9 +391,9 @@
   <value column="UUID" original="a42b579e-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
  <row id="172" trl="N">
-  <value column="Name" original="Sincronizar Terminología">Sincronizar Terminología</value>
-  <value column="Description" original="Sincronizar la terminología dentro del sistema">Sincronizar la terminología dentro del sistema</value>
-  <value column="Help" original="Basado en las entradas en el elemento de ventana, los campos en ventanas, parámetros, etc. Son sincronizados, si ellos son mantenidos centralizadamente.">Basado en las entradas en el elemento de ventana, los campos en ventanas, parámetros, etc. Son sincronizados, si ellos son mantenidos centralizadamente.</value>
+  <value column="Name" original="Synchronize Terminology">Sincronizar Terminología</value>
+  <value column="Description" original="Synchronize the terminology within the system.">Sincronizar la terminología dentro del sistema</value>
+  <value column="Help" original="Based on the entries in Window Element, the fields in windows, parameters, etc. are synchronized, if they are centrally maintained.  Also synchronizes Language Translation.">Basado en las entradas en el elemento de ventana, los campos en ventanas, parámetros, etc. Son sincronizados, si ellos son mantenidos centralizadamente.</value>
   <value column="UUID" original="a42d3618-fb40-11e8-a479-7a0060f0aa01">5041ebdc-9133-11e9-b99b-bf4617ea1ca6</value>
  </row>
  <row id="173" trl="Y">
@@ -912,9 +912,9 @@ Nos ayudará, si usted permitirá publicar su uso en Adempiere. Nos pondremos en
   <value column="UUID" original="a42b46b4-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
  <row id="258" trl="N">
-  <value column="Name" original="Comprobar Secuencia">Comprobar Secuencia</value>
-  <value column="Description" original="Compruebe la secuencia del sistema y del documento.">Compruebe la secuencia del sistema y del documento.</value>
-  <value column="Help" original="Compruebe que la secuencia del documento y del sistema estén correctas. Arranque este proceso, si usted consigue mensajes de error del artículo con valores identicos de validación.">Compruebe que la secuencia del documento y del sistema estén correctas. Arranque este proceso, si usted consigue mensajes de error del artículo con valores identicos de validación.</value>
+  <value column="Name" original="Sequence Check">Comprobar Secuencia</value>
+  <value column="Description" original="Check System and Document Sequences">Compruebe la secuencia del sistema y del documento.</value>
+  <value column="Help" original="Check that System and Document sequences are correct.  Run this process, if you get Duplicate Key error messages.">Compruebe que la secuencia del documento y del sistema estén correctas. Arranque este proceso, si usted consigue mensajes de error del artículo con valores identicos de validación.</value>
   <value column="UUID" original="a42d3ee2-fb40-11e8-a479-7a0060f0aa01">d6545e0e-8fd4-11e9-ad7c-af9befe8d7c5</value>
  </row>
  <row id="259" trl="Y">
@@ -1138,9 +1138,9 @@ Entonces las valuaciones de todas las respuestas de cantidad se adicionan a la v
   <value column="UUID" original="a42b8480-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
  <row id="295" trl="Y">
-  <value column="Name" original="Actualización de Rol">Actualización de Rol</value>
-  <value column="Description" original="Actualizar las reglas de acceso de un rol o roles de un cliente.">Actualizar las reglas de acceso de un rol o roles de un cliente.</value>
-  <value column="Help" original="Actualize las reglas de acceso de un rol o de todos los roles de un cliente para Ventanas, Formatos y Flujos de Trabajo.&#10;Si está funcionando para el sistema, todos los roles de todos los clientes son actualizados. Observe que un rol es solamente actualizado si no esta marcado como manual.">Actualize las reglas de acceso de un rol o de todos los roles de un cliente para Ventanas, Formatos y Flujos de Trabajo.
+  <value column="Name" original="Role Access Update">Actualización de Rol</value>
+  <value column="Description" original="Update the access rights of a role or roles of a client">Actualizar las reglas de acceso de un rol o roles de un cliente.</value>
+  <value column="Help" original="Update the access rights of a role or all roles of a client to windows, forms, processes and workflows. If run for System, all roles of all clients are updated. Note that a role is only updated if it is not marked as manual.">Actualize las reglas de acceso de un rol o de todos los roles de un cliente para Ventanas, Formatos y Flujos de Trabajo.
 Si está funcionando para el sistema, todos los roles de todos los clientes son actualizados. Observe que un rol es solamente actualizado si no esta marcado como manual.</value>
   <value column="UUID" original="a42d5594-fb40-11e8-a479-7a0060f0aa01">daaed4b8-91d0-11e9-a6e4-cf77eff0a1c4</value>
  </row>
