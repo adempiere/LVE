@@ -91,7 +91,7 @@ Diagrama E-R para Municipal.
 
 ## Licencia
 Copyright (C) 2003-2018 E.R.P. Consultores y Asociados, C.A. All Rights Reserved.
-Código disponible con licencia GNU/GPLv3.
+Código disponible con licencia GNU/GPLv2 or later.
 
 ## Contacto
  - Yamel Senih ysenih@erpya.com E.R.P. Consultores y Asociados, C.A.
