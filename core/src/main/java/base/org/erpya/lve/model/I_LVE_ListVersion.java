@@ -118,6 +118,19 @@ public interface I_LVE_ListVersion
 	  */
 	public boolean isActive();
 
+    /** Column name IsCumulativeWithholding */
+    public static final String COLUMNNAME_IsCumulativeWithholding = "IsCumulativeWithholding";
+
+	/** Set Cumulative Withholding.
+	  * Cumulative Withholding, calculated over old documents
+	  */
+	public void setIsCumulativeWithholding (boolean IsCumulativeWithholding);
+
+	/** Get Cumulative Withholding.
+	  * Cumulative Withholding, calculated over old documents
+	  */
+	public boolean isCumulativeWithholding();
+
     /** Column name IsVariableRate */
     public static final String COLUMNNAME_IsVariableRate = "IsVariableRate";
 
@@ -244,4 +257,17 @@ public interface I_LVE_ListVersion
 	  * Search key for the record in the format required - must be unique
 	  */
 	public String getValue();
+
+    /** Column name WithholdingBaseRate */
+    public static final String COLUMNNAME_WithholdingBaseRate = "WithholdingBaseRate";
+
+	/** Set Withholding Base Rate.
+	  * Withholding Base Rate
+	  */
+	public void setWithholdingBaseRate (BigDecimal WithholdingBaseRate);
+
+	/** Get Withholding Base Rate.
+	  * Withholding Base Rate
+	  */
+	public BigDecimal getWithholdingBaseRate();
 }
