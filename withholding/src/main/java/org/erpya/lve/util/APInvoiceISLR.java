@@ -17,9 +17,11 @@ package org.erpya.lve.util;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.text.NumberFormat;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 import org.compiere.model.I_C_Invoice;
 import org.compiere.model.MBPartner;
@@ -28,6 +30,7 @@ import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceLine;
+import org.compiere.model.MPeriod;
 import org.compiere.model.MProduct;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
@@ -59,17 +62,16 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	/**Person Type*/
 	private String bpartnerPersonType = null;
 	/**	Withholding Rental Exempt for Business Partner	*/
-	private HashMap<MLVEList,BigDecimal>  conceptsToApply= new HashMap<MLVEList,BigDecimal>();
-	/**Withholding Rental Rates to Apply*/
-	private HashMap<MLVEListVersion,MLVEListLine> ratesToApply= new HashMap<MLVEListVersion,MLVEListLine>();
+	private HashMap<MLVEList,WHConceptSetting> conceptsToApply = new HashMap<MLVEList,WHConceptSetting>();
 	/**Tribute Unit Amount */
 	BigDecimal tributeUnitAmount = Env.ZERO;
 	/**Factor*/
 	private static BigDecimal FACTOR = new BigDecimal(83.3334);
-	/**Subtract Amount*/
-	private BigDecimal subtractAmt = Env.ZERO;
 	/**Currency Precision */
 	int curPrecision = 0 ;
+	/**Period*/
+	private MPeriod invoicePeriod = null;
+	
 	@Override
 	public boolean isValid() {
 		boolean isValid = true;
@@ -79,17 +81,28 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 			isValid = false;
 		}
 		invoice = (MInvoice) getDocument();
+		
 		if (invoice!=null) {
 			MCurrency currency = (MCurrency) invoice.getC_Currency();
 			curPrecision = currency.getStdPrecision();
 		}
 		//	Add reference
 		setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
+		
+		MLVEWithholdingTax currentWHTax = MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID(),MLVEWithholdingTax.TYPE_ISLR);
 		//	Validate if exists Withholding Tax Definition for client
-		if(MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID()) == null) {
+		if(currentWHTax == null) {
 			addLog("@LVE_WithholdingTax_ID@ @NotFound@");
 			isValid = false;
 		}
+		
+		//	Validate if withholding if exclude for client
+		if(currentWHTax!=null 
+				&& currentWHTax.isClientExcluded()) {
+			addLog("@IsClientExcluded@ " + currentWHTax.getName());
+			isValid = false;
+		}
+	
 		//	Validate Reversal
 		if(invoice.isReversal()) {
 			addLog("@C_Invoice_ID@ @Voided@");
@@ -117,27 +130,33 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 		//	Validate Exempt Business Partner
 		if(businessPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingRentalExempt)) {
 			isValid = false;
-			addLog("@BPartnerWithholdingRentalExempt@");
+			addLog("@C_BPartner_ID@ @IsWithholdingRentalExempt@");
 		}
 		//	Validate Withholding Definition
 		setConcepts();
 		if (conceptsToApply.size()==0) {
 			isValid = false;
-			addLog("@NotWitholdingRentalConcept@");
+			addLog("@NotFound@ @WithholdingRentalConcept_ID@");
 		}
 		
 		//	Validate Tribute Unit
-		MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), invoice.getAD_Org_ID());
-		tributeUnitAmount = withholdingTaxDefinition.getValidTributeUnitAmount(invoice.getDateInvoiced());
+		//MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), invoice.getAD_Org_ID());
+		if (currentWHTax!=null)
+			tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(invoice.getDateInvoiced());
+		
 		if(tributeUnitAmount.equals(Env.ZERO)) {
 			addLog("@TributeUnit@ (@Rate@ @NotFound@)");
 			isValid = false;
 		}
 		
-		setRates();
-		if (ratesToApply.size()==0) {
-			isValid = false;
-			addLog("@NotWitholdingRentalRates@");
+		String errorMessage = setRates();
+		
+		if (errorMessage!=null
+				&& !errorMessage.isEmpty()) {
+			if (!conceptsToApply.entrySet().stream().anyMatch((rateToApply) -> rateToApply.getValue().isGenerateDocument()))
+				isValid = false;
+			
+			addLog(errorMessage);
 		}
 
 		return isValid;
@@ -145,46 +164,43 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 
 	@Override
 	public String run() {
-		conceptsToApply.forEach((whConcept,baseAmount) ->{
-			ratesToApply.entrySet()
+		conceptsToApply.entrySet()
 						.stream()
-						.filter(ratesToApply -> ratesToApply.getKey().getLVE_List_ID() == whConcept.getLVE_List_ID())
-						.forEach((rateToApply) -> {
-							BigDecimal rate = Env.ZERO;
-							if (!rateToApply.getKey().isVariableRate()) {
-								rate = rateToApply.getKey().getAmount();
-								setReturnValue(ColumnsAdded.COLUMNNAME_WithholdingRentalRate_ID, rateToApply.getKey().getLVE_ListVersion_ID());
-							}
-							else  {
-								rate = (BigDecimal)rateToApply.getValue().get_Value(ColumnsAdded.COLUMNNAME_VariableRate);
-								setReturnValue(ColumnsAdded.COLUMNNAME_WithholdingRentalRate_ID, rateToApply.getKey().getLVE_ListVersion_ID());
-								setReturnValue(ColumnsAdded.COLUMNNAME_WithholdingVariableRate_ID, rateToApply.getValue().getLVE_ListLine_ID());
-							}
+						.filter((rateToApply) -> rateToApply.getValue().isGenerateDocument())
+						.forEach(rateToApply  -> {
+						
+						WHConceptSetting conceptSetting = rateToApply.getValue();
+						BigDecimal rate = conceptSetting.getRate();
+						setReturnValue(ColumnsAdded.COLUMNNAME_WithholdingRentalRate_ID, conceptSetting.getRateToApply().getLVE_ListVersion_ID());
+						if (conceptSetting.isVarRate()) 
+							setReturnValue(ColumnsAdded.COLUMNNAME_WithholdingVariableRate_ID, conceptSetting.getVarRateToApply().getLVE_ListLine_ID());
+						
+						if (rate==null) 
+							rate = Env.ZERO;
+						
+						if (rate.compareTo(Env.ZERO)!=0) {
+							setWithholdingRate(rate);
+							rate = getWithholdingRate(true);
+							addBaseAmount(conceptSetting.getAmtBase());
+							if (conceptSetting.isValid())
+								addWithholdingAmount(conceptSetting.getAmtBase().multiply(rate,MathContext.DECIMAL128)
+															.setScale(curPrecision,BigDecimal.ROUND_HALF_UP)
+															.subtract(conceptSetting.getAmtSubtract()));
+							else
+								addWithholdingAmount(Env.ZERO);
 							
-							if (rate==null) 
-								rate = Env.ZERO;
-							
-							if (rate.compareTo(Env.ZERO)!=0) {
-								setWithholdingRate(rate);
-								rate = getWithholdingRate(true);
-								addBaseAmount(baseAmount);
-								addWithholdingAmount(baseAmount.multiply(rate,MathContext.DECIMAL128)
-																.setScale(curPrecision,BigDecimal.ROUND_HALF_UP)
-																.subtract(subtractAmt));
-								addDescription(whConcept.getName() + " @Processed@");
-								setReturnValue(ColumnsAdded.COLUMNNAME_Subtrahend, subtractAmt);
-								saveResult();
-							}
-
+							addDescription(rateToApply.getKey().getName());
+							setReturnValue(ColumnsAdded.COLUMNNAME_Subtrahend, conceptSetting.getAmtSubtract());
+							setReturnValue("IsCumulativeWithholding", conceptSetting.isCumulative());
+							setReturnValue("IsSimulation", !conceptSetting.isValid());
+							setReturnValue("SourceInvoice_ID",invoice.getC_Invoice_ID());
+							setReturnValue("C_BPartner_ID", invoice.getC_BPartner_ID());
+							saveResult();
 						}
-					);			
-			}
-		);
-		
+							
+		});
 		conceptsToApply.clear();
-		ratesToApply.clear();
 		curPrecision = 0;
-		subtractAmt = Env.ZERO;
 		return null;
 	}
 	
@@ -195,77 +211,297 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 		if (invoice!=null) {
 			if (invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) {
 				conceptsToApply.put(MLVEList.get(getContext(), invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)),
-										invoice.getTotalLines());
+												 new WHConceptSetting(invoice.getTotalLines()));
 				return;
 			}
 			
 			MInvoiceLine[] iLines = invoice.getLines();
 			for (MInvoiceLine line : iLines) {
 				//Search concept for product
+				MLVEList list = null;
 				if (line.getM_Product_ID()!=0) {
 					MProduct product = (MProduct)line.getM_Product();
-					if (product.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) {
-						MLVEList list = MLVEList.get(getContext(), product.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID));
-						BigDecimal currentAmount = conceptsToApply.get(list);
-						if (currentAmount==null)
-							conceptsToApply.put(list,line.getLineNetAmt());
-						else
-							conceptsToApply.put(list,currentAmount.add(line.getLineNetAmt()));
-					}
+					if (product.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) 
+						list = MLVEList.get(getContext(), product.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID));
 				}
 				
 				if (line.getC_Charge_ID()!=0) {
 					MCharge charge = (MCharge)line.getC_Charge();
-					if (charge.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) {
-						MLVEList list = MLVEList.get(getContext(), charge.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID));
-						BigDecimal currentAmount = conceptsToApply.get(list);
-						if (currentAmount==null)
-							conceptsToApply.put(list,line.getLineNetAmt());
-						else
-							conceptsToApply.put(list,currentAmount.add(line.getLineNetAmt()));
-					}
+					if (charge.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) 
+						list = MLVEList.get(getContext(), charge.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID));
 				}
+				
+				conceptsToApply.compute(list, (concept, rateToApply) -> 
+					rateToApply == null ? new WHConceptSetting(line.getLineNetAmt()): rateToApply.addAmtBase(line.getLineNetAmt()));
 			}
 		}
 	}
 	
 	/**
-	 * Set Rates
+	 * Set Rates to calculate
+	 * @return
 	 */
-	private void setRates() {
-		
-		conceptsToApply.forEach((whConcept,baseAmount) ->{
-			MLVEListVersion rateToApply = whConcept.getValidVersionInstance(invoice.getDateInvoiced(), ColumnsAdded.COLUMNNAME_PersonType, bpartnerPersonType);
+	private String setRates() {
+
+	    AtomicReference<String> resultMessage = new AtomicReference<>();
+	    resultMessage.set("");
+	    conceptsToApply.forEach((whConcept,whConceptSetting) ->{
+	    	
+	    	MLVEListVersion rateToApply = whConcept.getValidVersionInstance(invoice.getDateInvoiced(), ColumnsAdded.COLUMNNAME_PersonType, bpartnerPersonType);
+	    	MLVEListLine varRateToApply = null;
+	    	BigDecimal subtractAmt = Env.ZERO;
 			if (rateToApply!=null) {
+				
 				if (rateToApply.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsVariableRate)) {
 					List<MLVEListLine> varRate= rateToApply.getListLine();
-					if (varRate!=null) 
-						ratesToApply.put(rateToApply,varRate.stream()
-														.filter(listLine -> (
-																baseAmount.compareTo(listLine.getMinValue().multiply(tributeUnitAmount))>=0 && 
-																	(baseAmount.compareTo(listLine.getMaxValue().multiply(tributeUnitAmount))<=0 
-																		|| listLine.getMaxValue().compareTo(Env.ZERO)==0))
-																)
-														.sorted(Comparator.comparing(MLVEListLine::getSeqNo))
-														.findFirst()
-														.get());
+					if (varRate!=null) {
+						varRateToApply = varRate.stream()
+								.filter(listLine -> (
+										whConceptSetting.getAmtBase().compareTo(listLine.getMinValue().multiply(tributeUnitAmount))>=0 && 
+											(whConceptSetting.getAmtBase().compareTo(listLine.getMaxValue().multiply(tributeUnitAmount))<=0 
+												|| listLine.getMaxValue().compareTo(Env.ZERO)==0))
+										)
+								.sorted(Comparator.comparing(MLVEListLine::getSeqNo))
+								.findFirst()
+								.orElse(null);
+						
+						if (varRateToApply==null)
+							varRate.stream()
+									.filter(listLine -> !(
+											whConceptSetting.getAmtBase().compareTo(listLine.getMinValue().multiply(tributeUnitAmount))>=0 && 
+												(whConceptSetting.getAmtBase().compareTo(listLine.getMaxValue().multiply(tributeUnitAmount))<=0 
+													|| listLine.getMaxValue().compareTo(Env.ZERO)==0))
+											)
+									.sorted(Comparator.comparing(MLVEListLine::getSeqNo))
+									.forEach(listLine -> {
+										String minValue =NumberFormat.getInstance().format(listLine.getMinValue().multiply(tributeUnitAmount,MathContext.DECIMAL128));
+										String maxValue =NumberFormat.getInstance().format(listLine.getMaxValue().multiply(tributeUnitAmount,MathContext.DECIMAL128));
+										String baseAmt =NumberFormat.getInstance().format(whConceptSetting.getAmtBase());
+										resultMessage.set(resultMessage.get()  + (resultMessage.get().isEmpty() ? "" :  "- ") + 
+												"@A_Base_Amount@ < @MinAmt@ @OR@ > @MaxAmt@ (@MinAmt@ = " + minValue+ " - @MaxAmt@ = " + maxValue + "  - @A_Base_Amount@ = " + baseAmt + ") \n");
+									});
+						else
+							whConceptSetting.setGenerateDocument(true);
+					}
 				}else {
 					if (bpartnerPersonType.equals(X_LVE_ListVersion.PERSONTYPE_ResidentNaturalPerson)) {
 						BigDecimal minValue = tributeUnitAmount.multiply(FACTOR,MathContext.DECIMAL128).setScale(curPrecision,BigDecimal.ROUND_HALF_UP);
-						if (baseAmount.compareTo(minValue)>=0) {
-							subtractAmt = minValue.multiply(rateToApply.getAmount()
-																.divide(Env.ONEHUNDRED,MathContext.DECIMAL128)
-															,MathContext.DECIMAL128)
-													.setScale(curPrecision,BigDecimal.ROUND_HALF_UP);
-							ratesToApply.put(rateToApply,null);
+						subtractAmt = minValue.multiply(rateToApply.getAmount()
+												.divide(Env.ONEHUNDRED,MathContext.DECIMAL128)
+												,MathContext.DECIMAL128)
+												.setScale(curPrecision,BigDecimal.ROUND_HALF_UP);
+						if (whConceptSetting.getAmtBase().compareTo(minValue)>=0) {
+							whConceptSetting.setGenerateDocument(true);
+						}else {
+							if (rateToApply.get_ValueAsBoolean("IsCumulativeWithholding")){
+								subtractAmt = minValue.multiply(rateToApply.getAmount()
+																			.divide(Env.ONEHUNDRED,MathContext.DECIMAL128)
+																			,MathContext.DECIMAL128)
+																			.setScale(curPrecision,BigDecimal.ROUND_HALF_UP);
+								whConceptSetting.setGenerateDocument(true);
+								whConceptSetting.setValid(false);
+							}
+							resultMessage.set("@A_Base_Amount@ < @MinimumAmt@ ( @MinimumAmt@ = " + minValue + " @A_Base_Amount@ = " + whConceptSetting.getAmtBase() + ") \n");
 						}
 					}else 
-						ratesToApply.put(rateToApply,null);
+						whConceptSetting.setGenerateDocument(true);
 				}
-				
-			}
-		}
-		);
+				whConceptSetting.setRateToApply(rateToApply);
+				whConceptSetting.setVarRateToApply(varRateToApply);	
+				whConceptSetting.setAmtSubtract(subtractAmt);
+				whConceptSetting.setCumulative(rateToApply.get_ValueAsBoolean("IsCumulativeWithholding"));
+				if (varRateToApply!=null)
+					whConceptSetting.setRate((BigDecimal)varRateToApply.get_Value(ColumnsAdded.COLUMNNAME_VariableRate));
+				else
+					whConceptSetting.setRate(rateToApply.getAmount());
+			}else
+				resultMessage.set(resultMessage.get() + "- "  + "@NotFound@ @WithholdingRentalRate_ID@");
+	    });
 		
+		return resultMessage.get();
+	}
+}
+
+/**
+ * 
+ * @author Carlos Parada, cparada@erpya.com 
+ * Withholding Concept Settings to apply
+ */
+class WHConceptSetting{
+	private MLVEListVersion rateToApply = null;
+	private MLVEListLine varRateToApply = null;
+	private BigDecimal amtBase = Env.ZERO;
+	private BigDecimal amtSubtract = Env.ZERO;
+	private boolean isCumulative = false;
+	private boolean isValid = true;
+	private boolean generateDocument = false;
+	private BigDecimal rate = Env.ZERO;
+	
+	/**
+	 * Constructor
+	 * @param amtBase
+	 */
+	public WHConceptSetting(BigDecimal amtBase) {
+		setAmtBase(amtBase);
+	}
+	
+	/**
+	 * Set Amount base
+	 * @param amtBase
+	 */
+	public void setAmtBase(BigDecimal amtBase) {
+		if (amtBase!=null)
+			this.amtBase = amtBase;
+	}
+	
+	/**
+	 * Add to Amount Base
+	 * @param amt
+	 * @return
+	 */
+	public WHConceptSetting addAmtBase(BigDecimal amt) {
+		if (amt!=null)
+			this.amtBase = (this.amtBase == null ? Env.ZERO : this.amtBase).add(amt);
+		return this;
+	}
+	
+	/**
+	 * get Amount Base
+	 * @return
+	 */
+	public BigDecimal getAmtBase() {
+		return amtBase;
+	}
+	
+	/**
+	 * Set Rate to Apply
+	 * @param rateToApply
+	 */
+	public void setRateToApply(MLVEListVersion rateToApply) {
+		this.rateToApply = rateToApply;
+	}
+	
+	/**
+	 * Set Variable Rate to Apply
+	 * @param varRateToApply
+	 */
+	public void setVarRateToApply(MLVEListLine varRateToApply) {
+		this.varRateToApply = varRateToApply;
+	}
+	
+	/**
+	 * Set Amount to Subtract
+	 * @param amtSubtract
+	 */
+	public void setAmtSubtract(BigDecimal amtSubtract) {
+		this.amtSubtract = amtSubtract;
+	}
+	
+	/**
+	 * set IsValid 
+	 * @param isValid
+	 */
+	public void setValid(boolean isValid) {
+		this.isValid = isValid;
+	}
+	
+	/**
+	 * Get is Valid
+	 * @return
+	 */
+	public boolean isValid() {
+		return isValid;
+	}
+	
+	/**
+	 * Set Generated Document
+	 * @param generateDocument
+	 */
+	public void setGenerateDocument(boolean generateDocument) {
+		this.generateDocument = generateDocument;
+	}
+	
+	/**
+	 * Get Generate Document
+	 * @return
+	 */
+	public boolean isGenerateDocument() {
+		return generateDocument;
+	}
+	
+	/**
+	 * Get Rate to Apply
+	 * @return
+	 */
+	public MLVEListVersion getRateToApply() {
+		return rateToApply;
+	}
+	
+	/**
+	 * Get Variable Rate to Apply
+	 * @return
+	 */
+	public MLVEListLine getVarRateToApply() {
+		return varRateToApply;
+	}
+	
+	/**
+	 * Get Amount to Subtract
+	 * @return
+	 */
+	public BigDecimal getAmtSubtract() {
+		return amtSubtract;
+	}
+	
+	/**
+	 * Get is Variable Rate
+	 * @return
+	 */
+	public boolean isVarRate() {
+		return varRateToApply!=null;
+	}
+	
+	/**
+	 * Set Rate
+	 * @param rate
+	 */
+	public void setRate(BigDecimal rate) {
+		this.rate = rate;
+	}
+	
+	/**
+	 * Get Rate
+	 * @return
+	 */
+	public BigDecimal getRate() {
+		return rate;
+	}
+	
+	/**
+	 * Set Cumulative
+	 * @return
+	 */
+	public boolean isCumulative() {
+		return isCumulative;
+	}
+	
+	/**
+	 * Get Cumulative
+	 * @param isCumulative
+	 */
+	public void setCumulative(boolean isCumulative) {
+		this.isCumulative = isCumulative;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Rate = " + getRate()
+				+ ",AmtBase = " + getAmtBase()
+				+ ",Subtract = " + getAmtSubtract()
+				+ ",GenerateDocument = " + isGenerateDocument()
+				+ ",IsValid = " + isValid()
+				
+		;
 	}
 }

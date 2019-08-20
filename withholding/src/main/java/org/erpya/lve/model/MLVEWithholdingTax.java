@@ -84,14 +84,15 @@ public class MLVEWithholdingTax extends X_LVE_WithholdingTax {
 	 * @param documentTypeId
 	 * @return
 	 */
-	public static MLVEWithholdingTax getFromClient(Properties ctx, int organizationId) {
-		String key = Env.getAD_Client_ID(ctx) + "|" + organizationId;
+	public static MLVEWithholdingTax getFromClient(Properties ctx, int organizationId, String type) {
+		String key = Env.getAD_Client_ID(ctx) + "|" + organizationId + "|" + type;
 		MLVEWithholdingTax withholdingTaxDefinition = withholdingTaxFromClientCache.get(key);
 		if(withholdingTaxDefinition != null) {
 			return withholdingTaxDefinition;
 		}
 		//	
-		String whereClause = (organizationId > 0? I_LVE_WithholdingTax.COLUMNNAME_AD_Org_ID + " IN(" + organizationId + ", 0)": null);
+		String whereClause = (organizationId > 0? I_LVE_WithholdingTax.COLUMNNAME_AD_Org_ID + " IN(" + organizationId + ", 0)": "");
+		whereClause += !whereClause.equals("") ? " AND Type = '" + type + "'"  : "";
 		//	
 		withholdingTaxDefinition = new Query(ctx, I_LVE_WithholdingTax.Table_Name, whereClause, null)
 				.setClient_ID()

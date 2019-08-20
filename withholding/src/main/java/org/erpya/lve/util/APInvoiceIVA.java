@@ -66,11 +66,20 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 		businessPartner = (MBPartner) invoice.getC_BPartner();
 		//	Add reference
 		setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
+		MLVEWithholdingTax currentWHTax = MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID(),MLVEWithholdingTax.TYPE_IVA);
 		//	Validate if exists Withholding Tax Definition for client
-		if(MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID()) == null) {
+		if(currentWHTax == null) {
 			addLog("@LVE_WithholdingTax_ID@ @NotFound@");
 			isValid = false;
 		}
+		
+		//	Validate if withholding if exclude for client
+		if(currentWHTax!=null 
+				&& currentWHTax.isClientExcluded()) {
+			addLog("@IsClientExcluded@ " + currentWHTax.getName());
+			isValid = false;
+		}
+		
 		//	Validate Reversal
 		if(invoice.isReversal()) {
 			addLog("@C_Invoice_ID@ @Voided@");
@@ -98,10 +107,11 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			addLog("@BPartnerWithholdingTaxExempt@");
 		}
 		//	Validate Withholding Definition
-		MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), invoice.getAD_Org_ID());
+		//MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), invoice.getAD_Org_ID());
 		int withholdingRateId = businessPartner.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingTaxRate_ID);
-		if(withholdingRateId == 0) {
-			withholdingRateId = withholdingTaxDefinition.getDefaultWithholdingRate_ID();
+		if(withholdingRateId == 0
+				&& currentWHTax!=null) {
+			withholdingRateId = currentWHTax.getDefaultWithholdingRate_ID();
 		}
 		//	Validate Definition
 		if(withholdingRateId == 0) {
@@ -116,7 +126,11 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			isValid = false;
 		}
 		//	Validate Tribute Unit
-		BigDecimal tributeUnitAmount = withholdingTaxDefinition.getValidTributeUnitAmount(invoice.getDateInvoiced());
+		
+		BigDecimal tributeUnitAmount = Env.ZERO;
+		if (currentWHTax != null)
+			tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(invoice.getDateInvoiced());
+		
 		if(tributeUnitAmount.equals(Env.ZERO)) {
 			addLog("@TributeUnit@ (@Rate@ @NotFound@)");
 			isValid = false;
@@ -142,6 +156,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 		}
 		//	
 		return isValid;
+		
 	}
 
 	@Override
@@ -152,7 +167,10 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			addWithholdingAmount(invoiceTax.getTaxAmt().multiply(getWithholdingRate(true)));
 			MTax tax = MTax.get(getContext(), invoiceTax.getC_Tax_ID());
 			addDescription(tax.getName() + " @Processed@");
+			setReturnValue("C_BPartner_ID", invoice.getC_BPartner_ID());
 		});
 		return null;
 	}
 }
+
+
