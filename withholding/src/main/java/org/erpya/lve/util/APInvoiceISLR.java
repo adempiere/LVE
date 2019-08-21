@@ -231,8 +231,9 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 						list = MLVEList.get(getContext(), charge.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID));
 				}
 				
-				conceptsToApply.compute(list, (concept, rateToApply) -> 
-					rateToApply == null ? new WHConceptSetting(line.getLineNetAmt()): rateToApply.addAmtBase(line.getLineNetAmt()));
+				if (list!=null)
+					conceptsToApply.compute(list, (concept, rateToApply) -> 
+						rateToApply == null ? new WHConceptSetting(line.getLineNetAmt()): rateToApply.addAmtBase(line.getLineNetAmt()));
 			}
 		}
 	}
