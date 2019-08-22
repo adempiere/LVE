@@ -33,7 +33,7 @@ public class X_LVE_ListLine extends PO implements I_LVE_ListLine, I_Persistent
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20190621L;
+	private static final long serialVersionUID = 20190815L;
 
     /** Standard Constructor */
     public X_LVE_ListLine (Properties ctx, int LVE_ListLine_ID, String trxName)

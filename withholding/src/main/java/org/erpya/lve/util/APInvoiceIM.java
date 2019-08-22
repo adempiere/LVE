@@ -72,9 +72,17 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 		}
 		//	Add reference
 		setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
+		MLVEWithholdingTax currentWHTax = MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID(),MLVEWithholdingTax.TYPE_ImpuestoMunicipal);
 		//	Validate if exists Withholding Tax Definition for client
-		if(MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID()) == null) {
+		if(currentWHTax == null) {
 			addLog("@LVE_WithholdingTax_ID@ @NotFound@");
+			isValid = false;
+		}
+		
+		//	Validate if withholding if exclude for client
+		if(currentWHTax!=null 
+				&& currentWHTax.isClientExcluded()) {
+			addLog("@IsClientExcluded@ " + currentWHTax.getName());
 			isValid = false;
 		}
 		//	Validate Reversal
@@ -97,19 +105,19 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 		//	Validate Exempt Business Partner
 		if(businessPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingMunicipalExempt)) {
 			isValid = false;
-			addLog("@BPartnerWithholdingMunicipalExempt@");
+			addLog("@C_BPartner_ID@ @IsWithholdingMunicipalExempt@");
 		}
 		//	Validate Withholding Definition
 		setActivity();
 		if (activityToApply==null) {
 			isValid = false;
-			addLog("@NotWitholdingActivity@");
+			addLog("@NotFound@ @BusinessActivity_ID@");
 		}
 		
 		setRate();
 		if (rateToApply == null) {
 			isValid = false;
-			addLog("@NotWitholdingMunicipalRates@");
+			addLog("@NotFound@ @WithholdingMunicipalRate_ID@");
 		}
 
 		return isValid;
@@ -130,7 +138,8 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 				addBaseAmount(baseAmount);
 				addWithholdingAmount(baseAmount.multiply(rate,MathContext.DECIMAL128)
 												.setScale(curPrecision,BigDecimal.ROUND_HALF_UP));
-				addDescription(activityToApply.getName() + " @Processed@");
+				addDescription(activityToApply.getName());
+				setReturnValue("C_BPartner_ID", invoice.getC_BPartner_ID());
 				saveResult();
 			}
 		}

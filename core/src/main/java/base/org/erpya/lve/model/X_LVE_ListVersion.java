@@ -33,7 +33,7 @@ public class X_LVE_ListVersion extends PO implements I_LVE_ListVersion, I_Persis
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20190621L;
+	private static final long serialVersionUID = 20190815L;
 
     /** Standard Constructor */
     public X_LVE_ListVersion (Properties ctx, int LVE_ListVersion_ID, String trxName)
@@ -110,6 +110,30 @@ public class X_LVE_ListVersion extends PO implements I_LVE_ListVersion, I_Persis
 	public String getDescription () 
 	{
 		return (String)get_Value(COLUMNNAME_Description);
+	}
+
+	/** Set Cumulative Withholding.
+		@param IsCumulativeWithholding 
+		Cumulative Withholding, calculated over old documents
+	  */
+	public void setIsCumulativeWithholding (boolean IsCumulativeWithholding)
+	{
+		set_Value (COLUMNNAME_IsCumulativeWithholding, Boolean.valueOf(IsCumulativeWithholding));
+	}
+
+	/** Get Cumulative Withholding.
+		@return Cumulative Withholding, calculated over old documents
+	  */
+	public boolean isCumulativeWithholding () 
+	{
+		Object oo = get_Value(COLUMNNAME_IsCumulativeWithholding);
+		if (oo != null) 
+		{
+			 if (oo instanceof Boolean) 
+				 return ((Boolean)oo).booleanValue(); 
+			return "Y".equals(oo);
+		}
+		return false;
 	}
 
 	/** Set Variable Rate.
@@ -294,5 +318,25 @@ public class X_LVE_ListVersion extends PO implements I_LVE_ListVersion, I_Persis
 	public String getValue () 
 	{
 		return (String)get_Value(COLUMNNAME_Value);
+	}
+
+	/** Set Withholding Base Rate.
+		@param WithholdingBaseRate 
+		Withholding Base Rate
+	  */
+	public void setWithholdingBaseRate (BigDecimal WithholdingBaseRate)
+	{
+		set_Value (COLUMNNAME_WithholdingBaseRate, WithholdingBaseRate);
+	}
+
+	/** Get Withholding Base Rate.
+		@return Withholding Base Rate
+	  */
+	public BigDecimal getWithholdingBaseRate () 
+	{
+		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_WithholdingBaseRate);
+		if (bd == null)
+			 return Env.ZERO;
+		return bd;
 	}
 }
