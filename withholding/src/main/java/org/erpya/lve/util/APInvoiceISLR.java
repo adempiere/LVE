@@ -32,6 +32,7 @@ import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceLine;
 import org.compiere.model.MPeriod;
 import org.compiere.model.MProduct;
+import org.compiere.model.Query;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
 import org.erpya.lve.model.MLVEList;
@@ -41,6 +42,7 @@ import org.erpya.lve.model.MLVEWithholdingTax;
 import org.erpya.lve.model.X_LVE_ListVersion;
 import org.spin.model.I_WH_Withholding;
 import org.spin.model.MWHSetting;
+import org.spin.model.MWHWithholding;
 import org.spin.util.AbstractWithholdingSetting;
 
 /**
@@ -159,6 +161,11 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 			addLog(errorMessage);
 		}
 
+		//Validate if Document is Generated
+		if (isGenerated()) {
+			isValid = false;
+		}
+
 		return isValid;
 	}
 
@@ -193,8 +200,6 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 							setReturnValue(ColumnsAdded.COLUMNNAME_Subtrahend, conceptSetting.getAmtSubtract());
 							setReturnValue("IsCumulativeWithholding", conceptSetting.isCumulative());
 							setReturnValue("IsSimulation", !conceptSetting.isValid());
-							setReturnValue("SourceInvoice_ID",invoice.getC_Invoice_ID());
-							setReturnValue("C_BPartner_ID", invoice.getC_BPartner_ID());
 							saveResult();
 						}
 							
@@ -320,6 +325,19 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	    });
 		
 		return resultMessage.get();
+	}
+	
+	private boolean isGenerated() {
+		if (invoice!=null) 
+			return new Query(getContext(), MWHWithholding.Table_Name, "SourceInvoice_ID = ? "
+																	+ "AND WH_Definition_ID = ? "
+																	+ "AND WH_Setting_ID = ? "
+																	+ "AND Processed = 'Y' "
+																	+ "AND IsSimulation='N'"
+																	+ "AND DocStatus IN (?,?)" , getTransactionName())
+						.setParameters(invoice.get_ID(),getDefinition().get_ID(),getSetting().get_ID(),MWHWithholding.DOCSTATUS_Completed,MWHWithholding.DOCSTATUS_Closed)
+						.match();
+		return false;
 	}
 }
 
