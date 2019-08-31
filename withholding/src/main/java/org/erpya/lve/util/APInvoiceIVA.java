@@ -26,11 +26,13 @@ import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceTax;
 import org.compiere.model.MTax;
+import org.compiere.model.Query;
 import org.compiere.util.Env;
 import org.erpya.lve.model.MLVEList;
 import org.erpya.lve.model.MLVEWithholdingTax;
 import org.spin.model.I_WH_Withholding;
 import org.spin.model.MWHSetting;
+import org.spin.model.MWHWithholding;
 import org.spin.util.AbstractWithholdingSetting;
 
 /**
@@ -154,7 +156,12 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			addLog("@NoTaxesForWithholding@");
 			isValid = false;
 		}
-		//	
+
+		//Validate if Document is Generated
+		if (isGenerated()) {
+			isValid = false;
+		}
+		
 		return isValid;
 		
 	}
@@ -167,9 +174,21 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			addWithholdingAmount(invoiceTax.getTaxAmt().multiply(getWithholdingRate(true)));
 			MTax tax = MTax.get(getContext(), invoiceTax.getC_Tax_ID());
 			addDescription(tax.getName() + " @Processed@");
-			setReturnValue("C_BPartner_ID", invoice.getC_BPartner_ID());
 		});
 		return null;
+	}
+	
+	private boolean isGenerated() {
+		if (invoice!=null) 
+			return new Query(getContext(), MWHWithholding.Table_Name, "SourceInvoice_ID = ? "
+																	+ "AND WH_Definition_ID = ? "
+																	+ "AND WH_Setting_ID = ? "
+																	+ "AND Processed = 'Y' "
+																	+ "AND IsSimulation='N'"
+																	+ "AND DocStatus IN (?,?)" , getTransactionName())
+						.setParameters(invoice.get_ID(),getDefinition().get_ID(),getSetting().get_ID(),MWHWithholding.DOCSTATUS_Completed,MWHWithholding.DOCSTATUS_Closed)
+						.match();
+		return false;
 	}
 }
 

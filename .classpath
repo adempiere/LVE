@@ -3,8 +3,10 @@
 	<classpathentry kind="src" path="financial/src/main/java/base"/>
 	<classpathentry kind="src" path="core/src/main/java/base"/>
 	<classpathentry kind="src" path="withholding/src/main/java"/>
+	<classpathentry kind="src" path="human_resource/src/main/java/base"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk8"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Withholding"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/adempiereFork"/>
+	<classpathentry kind="lib" path="lib/jackcess-3.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

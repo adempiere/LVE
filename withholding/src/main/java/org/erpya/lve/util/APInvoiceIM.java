@@ -23,12 +23,14 @@ import org.compiere.model.MBPartner;
 import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
+import org.compiere.model.Query;
 import org.compiere.util.Env;
 import org.erpya.lve.model.MLVEList;
 import org.erpya.lve.model.MLVEListVersion;
 import org.erpya.lve.model.MLVEWithholdingTax;
 import org.spin.model.I_WH_Withholding;
 import org.spin.model.MWHSetting;
+import org.spin.model.MWHWithholding;
 import org.spin.util.AbstractWithholdingSetting;
 
 /**
@@ -119,7 +121,12 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 			isValid = false;
 			addLog("@NotFound@ @WithholdingMunicipalRate_ID@");
 		}
-
+		
+		//Validate if Document is Generated
+		if (isGenerated()) {
+			isValid = false;
+		}
+		
 		return isValid;
 	}
 
@@ -139,7 +146,6 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 				addWithholdingAmount(baseAmount.multiply(rate,MathContext.DECIMAL128)
 												.setScale(curPrecision,BigDecimal.ROUND_HALF_UP));
 				addDescription(activityToApply.getName());
-				setReturnValue("C_BPartner_ID", invoice.getC_BPartner_ID());
 				saveResult();
 			}
 		}
@@ -170,5 +176,18 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 				rateToApply = new MLVEListVersion(getContext(), businessPartner.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingMunicipalRate_ID), businessPartner.get_TrxName());
 		}
 		
+	}
+	
+	private boolean isGenerated() {
+		if (invoice!=null) 
+			return new Query(getContext(), MWHWithholding.Table_Name, "SourceInvoice_ID = ? "
+																	+ "AND WH_Definition_ID = ? "
+																	+ "AND WH_Setting_ID = ? "
+																	+ "AND Processed = 'Y' "
+																	+ "AND IsSimulation='N'"
+																	+ "AND DocStatus IN (?,?)" , getTransactionName())
+						.setParameters(invoice.get_ID(),getDefinition().get_ID(),getSetting().get_ID(),MWHWithholding.DOCSTATUS_Completed,MWHWithholding.DOCSTATUS_Closed)
+						.match();
+		return false;
 	}
 }
