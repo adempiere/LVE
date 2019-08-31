@@ -113,7 +113,7 @@ public class LVE implements ModelValidator {
 						.stream()
 						.filter(invoiceLine -> invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0)
 						.forEach(invoiceLine -> {
-							allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID), invoiceLine.getLineNetAmt(), Env.ZERO, Env.ZERO);
+							allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID), invoiceLine.getLineTotalAmt(), Env.ZERO, Env.ZERO);
 						});
 					//	Create Allocation
 					allocationManager.createAllocation();

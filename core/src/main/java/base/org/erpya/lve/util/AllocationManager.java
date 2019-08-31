@@ -142,6 +142,11 @@ public class AllocationManager {
 		} else {
 			value = new AllocationValues(appliedAmount, discountAmount, writeOffAmount);
 		}
+		//validate if not allocated
+		MInvoice invoiceToAllocated = MInvoice.get(getContext(), invoiceToAllocateId);
+		if (invoiceToAllocated.testAllocation())
+			return this;
+		
 		documentsToAllocate.put(invoiceToAllocateId, value);
 		return this;
 	}
@@ -186,6 +191,7 @@ public class AllocationManager {
 				|| documentsToAllocate.size() == 0) {
 			return;
 		}
+		
 		//	Create allocation
 		String allocationMessage = Msg.parseTranslation(document.getCtx(), "@CreatedFromDocument@ @C_Invoice_ID@: " + document.getDocumentNo());
 		MAllocationHdr allocation = new MAllocationHdr(document.getCtx(), true, document.getDateInvoiced(), document.getC_Currency_ID(), allocationMessage, document.get_TrxName());
