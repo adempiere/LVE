@@ -205,6 +205,7 @@ public class Venezuela extends LVEPaymentExportList {
 					addError(Msg.parseTranslation(Env.getCtx(), "@C_BP_BankAccount_ID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 				}
 			}
+		/**
 			//	Totals Register
 			//	Constant
 			String constant = rightPadding("TOTAL", 8, " ");
@@ -229,6 +230,7 @@ public class Venezuela extends LVEPaymentExportList {
 			writeLine(footer.toString());
 			//	
 			closeFileWriter();
+		**/
 		} catch (Exception e) {
 			addError(e.toString());
 		} finally {

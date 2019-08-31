@@ -61,9 +61,6 @@ public class Banplus_BankTransaction extends BankTransactionAbstract {
 		if(Util.isEmpty(line)) {
 			return;
 		}
-		System.out.println("Validacion1");
-		System.out.println(processValue(line)+ processValue(HEAD_REFERENCE_FIRST_LINE_FLAG));
-		System.out.println(line+ HEAD_BEGIN_BALANCE_FLAG);
 		if(line.contains(HEAD_REFERENCE_FIRST_LINE_FLAG)
 				|| line.contains(HEAD_BEGIN_BALANCE_FLAG)) {
 			isTransaction = false;
@@ -77,9 +74,6 @@ public class Banplus_BankTransaction extends BankTransactionAbstract {
 		//	Replace bad characters
 		line = line.replaceAll("\"", "");
 		//	Set Transaction Date
-
-		System.out.println("Fecha");
-		System.out.println(line + (subString(line, 0, 10)));
 		addValue(LINE_TRANSACTION_Date, getDate("dd/MM/yyyy", subString(line, 0, 10)));
 		//	Set Reference
 		int startIndex = 0;
