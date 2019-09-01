@@ -74,7 +74,7 @@ public class Provincial extends LVEPaymentExportList {
 								bPTaxId = bPTaxId.replace("-", "").trim();
 								String bpTaxIdChar = bPTaxId.substring(0, 1);
 								bPTaxId = bPTaxId.substring(1, bPTaxId.length());
-								bPTaxId = leftPadding(bPTaxId, 9, "0", true);
+								bPTaxId = leftPadding(bPTaxId, 12, "0", true);
 								bPTaxId = bpTaxIdChar + bPTaxId;
 							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@BPTaxID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));

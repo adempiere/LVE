@@ -199,7 +199,7 @@ public class BOD extends LVEPaymentExportList {
 							amountAsString = leftPadding(amountAsString, 15, "0");
 							//	Withholding Tax
 							String withholdingTaxAsString = String.format("%.2f", Env.ZERO).replace(".", "").replace(",", "");
-							withholdingTaxAsString = leftPadding(withholdingTaxAsString, 17, "0", true);
+							withholdingTaxAsString = leftPadding(withholdingTaxAsString, 15, "0", true);
 							//	EMail
 							String bPEmail = "";
 							if(!Util.isEmpty(bpAccount.getA_EMail())) {

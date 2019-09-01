@@ -29,7 +29,7 @@ import org.spin.util.impexp.BankTransactionAbstract;
  */
 public class Banplus_BankTransaction extends BankTransactionAbstract {
 	/**	Ignore it line because is a first line as head */
-	public static final String HEAD_REFERENCE_FIRST_LINE_FLAG = "\"Fecha\"	\"Referencia\"	\"Descripción\"	\"Concepto\"	\"Débito\"	\"Crédito\"	\"Saldo\"";
+	public static final String HEAD_REFERENCE_FIRST_LINE_FLAG = "\"Fecha\"	\"Referencia\"	\"Descripci";
 	/**	Ignore it line because is a begin balance */
 	public static final String HEAD_BEGIN_BALANCE_FLAG = "		\"Saldo Inicial\"";
 	/**	Value Date [dddMMyyyy]	*/

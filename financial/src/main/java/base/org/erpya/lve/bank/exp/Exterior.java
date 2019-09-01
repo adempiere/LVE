@@ -114,7 +114,7 @@ public class Exterior extends LVEPaymentExportList {
 							//	Process Account Name
 							String bPName = processValue(bpAccount.getA_Name());
 							if(Optional.ofNullable(bPName).isPresent()) {
-								bPName = rightPadding(bPName, 50, " ", true);
+								bPName = rightPadding(bPName, 60, " ", true);
 							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@A_Name@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
@@ -133,6 +133,11 @@ public class Exterior extends LVEPaymentExportList {
 								addError(Msg.parseTranslation(Env.getCtx(), "@RoutingNo@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
 							bPRoutingNo = processValue(bpBank.getRoutingNo());
+							
+							if(bPRoutingNo.charAt(0) == '0') {
+								bPRoutingNo = bPRoutingNo.substring(1);
+							} 
+							
 							bPRoutingNo = leftPadding(bPRoutingNo, 3, "0", true);
 							//	BP Account No
 							String bPAccountNo = processValue(bpAccount.getAccountNo());
@@ -146,7 +151,7 @@ public class Exterior extends LVEPaymentExportList {
 							if(!Util.isEmpty(bpAccount.getA_EMail())) {
 								bPEmail = bpAccount.getA_EMail();
 							}
-							bPEmail = rightPadding(bPEmail, 50, " ", true);
+							bPEmail = rightPadding(bPEmail, 60, " ", true);
 							//	Reference No
 							String debtReferenceNo = processValue(paySelection.getDocumentNo());
 							debtReferenceNo = getNumericOnly(debtReferenceNo);
