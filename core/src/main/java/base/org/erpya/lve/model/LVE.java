@@ -15,6 +15,7 @@
  ************************************************************************************/
 package org.erpya.lve.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 import org.compiere.model.I_C_BPartner;
@@ -26,12 +27,14 @@ import org.compiere.model.MInvoiceLine;
 import org.compiere.model.ModelValidationEngine;
 import org.compiere.model.ModelValidator;
 import org.compiere.model.PO;
+import org.compiere.model.Query;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
 import org.erpya.lve.util.AllocationManager;
 import org.erpya.lve.util.ColumnsAdded;
 import org.erpya.lve.util.DocumentTypeSequence;
+import org.spin.model.MWHWithholding;
 
 /**
  * 	Add Default Model Validator for Location Venezuela
@@ -68,6 +71,7 @@ public class LVE implements ModelValidator {
 		
 		engine.addModelChange(MInvoice.Table_Name, this);
 		engine.addModelChange(MBPartner.Table_Name, this);
+		engine.addModelChange(MWHWithholding.Table_Name, this);
 	}
 
 	@Override
@@ -99,6 +103,22 @@ public class LVE implements ModelValidator {
 						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType);
 						invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_ControlNo, sequence.getControlNo());
 					}
+					
+					//Set Document Number for Withholding
+					if (new Query(invoice.getCtx(), MWHWithholding.Table_Name, "C_Invoice_ID = ? ", invoice.get_TrxName()).setParameters(invoice.getC_Invoice_ID()).match()) {
+						//	Get Document No
+						int docNo = Integer.parseInt(invoice.getDocumentNo());
+						//	Format Date
+						String format = "yyyyMM";
+						SimpleDateFormat sdf = new SimpleDateFormat(format);
+						String prefix = sdf.format(invoice.getDateInvoiced().getTime());
+						if(prefix == null)
+							prefix = "";
+						//	Set New Document No
+						invoice.setDocumentNo(prefix + String.format("%1$" + 8 + "s", docNo).replace(" ", "0"));
+						invoice.save();
+					}
+					
 				}
 				//	Save
 				invoice.saveEx();
@@ -149,7 +169,19 @@ public class LVE implements ModelValidator {
 						bp.setTaxID(bp.getValue());
 					}
 				}	
+			}else if (po.get_TableName().equals(MWHWithholding.Table_Name)) {
+				MWHWithholding withholding = (MWHWithholding) po;
+				MInvoiceLine invoiceLine = new Query(withholding.getCtx(), MInvoiceLine.Table_Name, "C_InvoiceLine_ID = ?", withholding.get_TrxName())
+												.setParameters(withholding.getC_InvoiceLine_ID())
+												.first();
+				if (invoiceLine!=null 
+						&& invoiceLine.get_ID()>0) {
+					invoiceLine.set_ValueOfColumn("InvoiceToAllocate_ID", withholding.getSourceInvoice_ID());
+					invoiceLine.save();
+				}
 			}
+			
+			
 		} 
 		return null;
 	}
