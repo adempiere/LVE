@@ -72,5 +72,10 @@ public class ColumnsAdded {
 	public static final String COLUMNNAME_IsCumulativeWithholding = "IsCumulativeWithholding";
 	/**	Preborn leave paid	*/
 	public static final String COLUMNNAME_IsPrebornLeavePaid = "IsPrebornLeavePaid";
+	/**Withholding Third Party */
+	public static final String COLUMNNAME_WHThirdParty_ID = "WHThirdParty_ID";
+	/**Is Simulation Withholding*/
+	public static final String COLUMNNAME_IsSimulation = "IsSimulation";
+	
 	
 }

@@ -174,6 +174,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			addWithholdingAmount(invoiceTax.getTaxAmt().multiply(getWithholdingRate(true)));
 			MTax tax = MTax.get(getContext(), invoiceTax.getC_Tax_ID());
 			addDescription(tax.getName() + " @Processed@");
+			setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID));
 		});
 		return null;
 	}

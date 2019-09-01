@@ -159,6 +159,13 @@ public class LVE implements ModelValidator {
 						}
 					}
 				}
+				if (invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID)==0) {
+					if (invoice.getC_BPartner_ID()>0) {
+						int WHThirdParty_ID = ((MBPartner)invoice.getC_BPartner()).get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
+						if (WHThirdParty_ID != 0)
+							invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
+					}
+				}
 			} else if(po.get_TableName().equals(MBPartner.Table_Name)) {
 				MBPartner bp = (MBPartner) po;
 				if(type == TYPE_BEFORE_NEW

@@ -198,8 +198,9 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 							
 							addDescription(rateToApply.getKey().getName());
 							setReturnValue(ColumnsAdded.COLUMNNAME_Subtrahend, conceptSetting.getAmtSubtract());
-							setReturnValue("IsCumulativeWithholding", conceptSetting.isCumulative());
-							setReturnValue("IsSimulation", !conceptSetting.isValid());
+							setReturnValue(ColumnsAdded.COLUMNNAME_IsCumulativeWithholding, conceptSetting.isCumulative());
+							setReturnValue(ColumnsAdded.COLUMNNAME_IsSimulation, !conceptSetting.isValid());
+							setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID));
 							saveResult();
 						}
 							

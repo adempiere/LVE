@@ -146,6 +146,7 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 				addWithholdingAmount(baseAmount.multiply(rate,MathContext.DECIMAL128)
 												.setScale(curPrecision,BigDecimal.ROUND_HALF_UP));
 				addDescription(activityToApply.getName());
+				setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID));
 				saveResult();
 			}
 		}
