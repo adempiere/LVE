@@ -123,6 +123,7 @@
     </Step>
     <Step SeqNo="50" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61155" Table="AD_Element">
+        <Data AD_Column_ID="2595" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="2596" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2600" Column="Updated">2019-09-01 20:06:20.096</Data>
         <Data AD_Column_ID="2597" Column="IsActive">true</Data>
@@ -140,7 +141,6 @@
         <Data AD_Column_ID="58589" Column="FieldLength">10</Data>
         <Data AD_Column_ID="58588" Column="AD_Reference_ID">22</Data>
         <Data AD_Column_ID="2594" Column="AD_Element_ID">61155</Data>
-        <Data AD_Column_ID="2595" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="6484" Column="EntityType">LVE</Data>
         <Data AD_Column_ID="2599" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="58590" Column="AD_Reference_Value_ID" isNewNull="true"/>
@@ -174,6 +174,30 @@
     <Step SeqNo="70" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94280" Table="AD_Column">
         <Data AD_Column_ID="112" Column="Description">Percentage provided by the National Institute for Educational Cooperation (INCES)</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">c8ddf234-c50e-11e9-bede-0242ac110004</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-01 20:06:20.933</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-01 20:06:20.933</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94280</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Contribution INCES</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase">N</Data>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="116" Column="ColumnName">ContributionINCES</Data>
         <Data AD_Column_ID="113" Column="Help">Percentage provided by the National Institute for Educational Cooperation (INCES), an entity regulated by the Law of the National Institute for Educational Cooperation.
@@ -199,30 +223,6 @@
         <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
         <Data AD_Column_ID="118" Column="FieldLength">0</Data>
         <Data AD_Column_ID="226" Column="AD_Reference_ID">22</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">c8ddf234-c50e-11e9-bede-0242ac110004</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
-        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="549" Column="Created">2019-09-01 20:06:20.933</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-01 20:06:20.933</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94280</Data>
-        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
-        <Data AD_Column_ID="111" Column="Name">Contribution INCES</Data>
-        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
-        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
-        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
-        <Data AD_Column_ID="120" Column="IsParent">false</Data>
-        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
-        <Data AD_Column_ID="6483" Column="IsSyncDatabase">N</Data>
-        <Data AD_Column_ID="119" Column="IsKey">false</Data>
-        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
-        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
-        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
-        <Data AD_Column_ID="110" Column="Version">0</Data>
-        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="80" StepType="AD">
@@ -243,6 +243,7 @@
     </Step>
     <Step SeqNo="90" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61156" Table="AD_Element">
+        <Data AD_Column_ID="58588" Column="AD_Reference_ID">22</Data>
         <Data AD_Column_ID="6286" Column="PO_PrintName" isNewNull="true"/>
         <Data AD_Column_ID="2600" Column="Updated">2019-09-01 20:06:21.775</Data>
         <Data AD_Column_ID="2597" Column="IsActive">true</Data>
@@ -257,7 +258,6 @@
         <Data AD_Column_ID="4299" Column="PrintName">Contribution RPE</Data>
         <Data AD_Column_ID="6283" Column="PO_Description" isNewNull="true"/>
         <Data AD_Column_ID="58589" Column="FieldLength">10</Data>
-        <Data AD_Column_ID="58588" Column="AD_Reference_ID">22</Data>
         <Data AD_Column_ID="2594" Column="AD_Element_ID">61156</Data>
         <Data AD_Column_ID="2596" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2595" Column="AD_Client_ID">0</Data>
@@ -293,26 +293,6 @@
     </Step>
     <Step SeqNo="110" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94281" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">Percentage provided by the Venezuelan Institute of Social Security (IVSS)</Data>
-        <Data AD_Column_ID="119" Column="IsKey">false</Data>
-        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
-        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
-        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
-        <Data AD_Column_ID="110" Column="Version">0</Data>
-        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
-        <Data AD_Column_ID="116" Column="ColumnName">ContributionRPE</Data>
-        <Data AD_Column_ID="113" Column="Help">Percentage provided by the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.
-</Data>
-        <Data AD_Column_ID="3360" Column="IsUpdateable">true</Data>
-        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
-        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
-        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
-        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
-        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
-        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
-        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
-        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
-        <Data AD_Column_ID="127" Column="SeqNo">0</Data>
         <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
         <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
@@ -343,6 +323,26 @@
         <Data AD_Column_ID="120" Column="IsParent">false</Data>
         <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
         <Data AD_Column_ID="6483" Column="IsSyncDatabase">N</Data>
+        <Data AD_Column_ID="112" Column="Description">Percentage provided by the Venezuelan Institute of Social Security (IVSS)</Data>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">ContributionRPE</Data>
+        <Data AD_Column_ID="113" Column="Help">Percentage provided by the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.
+</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">true</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo">0</Data>
       </PO>
     </Step>
     <Step SeqNo="120" StepType="AD">
@@ -363,6 +363,7 @@
     </Step>
     <Step SeqNo="130" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61157" Table="AD_Element">
+        <Data AD_Column_ID="58588" Column="AD_Reference_ID">22</Data>
         <Data AD_Column_ID="2602" Column="ColumnName">ContributionSSO</Data>
         <Data AD_Column_ID="2605" Column="Help">Percentage provided by the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.
 </Data>
@@ -372,7 +373,6 @@
         <Data AD_Column_ID="6286" Column="PO_PrintName" isNewNull="true"/>
         <Data AD_Column_ID="6283" Column="PO_Description" isNewNull="true"/>
         <Data AD_Column_ID="58589" Column="FieldLength">10</Data>
-        <Data AD_Column_ID="58588" Column="AD_Reference_ID">22</Data>
         <Data AD_Column_ID="2594" Column="AD_Element_ID">61157</Data>
         <Data AD_Column_ID="2596" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2595" Column="AD_Client_ID">0</Data>
@@ -413,21 +413,6 @@
     </Step>
     <Step SeqNo="150" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94282" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">Percentage provided by the Venezuelan Institute of Social Security (IVSS)</Data>
-        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
-        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
-        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
-        <Data AD_Column_ID="120" Column="IsParent">false</Data>
-        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
-        <Data AD_Column_ID="6483" Column="IsSyncDatabase">N</Data>
-        <Data AD_Column_ID="119" Column="IsKey">false</Data>
-        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
-        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
-        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
-        <Data AD_Column_ID="110" Column="Version">0</Data>
-        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
-        <Data AD_Column_ID="116" Column="ColumnName">ContributionSSO</Data>
         <Data AD_Column_ID="113" Column="Help">Percentage provided by the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.
 </Data>
         <Data AD_Column_ID="3360" Column="IsUpdateable">true</Data>
@@ -463,6 +448,21 @@
         <Data AD_Column_ID="109" Column="AD_Column_ID">94282</Data>
         <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
         <Data AD_Column_ID="111" Column="Name">Contribution SSO</Data>
+        <Data AD_Column_ID="112" Column="Description">Percentage provided by the Venezuelan Institute of Social Security (IVSS)</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase">N</Data>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">ContributionSSO</Data>
       </PO>
     </Step>
     <Step SeqNo="160" StepType="AD">
@@ -483,11 +483,11 @@
     </Step>
     <Step SeqNo="170" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61158" Table="AD_Element">
+        <Data AD_Column_ID="2598" Column="Created">2019-09-01 20:06:24.251</Data>
         <Data AD_Column_ID="2600" Column="Updated">2019-09-01 20:06:24.251</Data>
         <Data AD_Column_ID="2597" Column="IsActive">true</Data>
         <Data AD_Column_ID="2603" Column="Name">Deduction FAOV</Data>
         <Data AD_Column_ID="2604" Column="Description">Obtained from the National Housing and Habitat Bank, (BANAVIH)</Data>
-        <Data AD_Column_ID="2598" Column="Created">2019-09-01 20:06:24.251</Data>
         <Data AD_Column_ID="2602" Column="ColumnName">DeductionFAOV</Data>
         <Data AD_Column_ID="2605" Column="Help">Obtained from the National Housing and Habitat Bank, (BANAVIH), an entity regulated by the Housing and Habitat Provision Regime Law.
 </Data>
@@ -533,6 +533,8 @@
     </Step>
     <Step SeqNo="190" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94283" Table="AD_Column">
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
         <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
         <Data AD_Column_ID="112" Column="Description">Obtained from the National Housing and Habitat Bank, (BANAVIH)</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
@@ -546,8 +548,6 @@
         <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
         <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
-        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
-        <Data AD_Column_ID="120" Column="IsParent">false</Data>
         <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
         <Data AD_Column_ID="6483" Column="IsSyncDatabase">N</Data>
         <Data AD_Column_ID="119" Column="IsKey">false</Data>
@@ -603,11 +603,11 @@
     </Step>
     <Step SeqNo="210" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61159" Table="AD_Element">
+        <Data AD_Column_ID="2598" Column="Created">2019-09-01 20:06:25.453</Data>
         <Data AD_Column_ID="2600" Column="Updated">2019-09-01 20:06:25.453</Data>
         <Data AD_Column_ID="2597" Column="IsActive">true</Data>
         <Data AD_Column_ID="2603" Column="Name">Deduction INCES</Data>
         <Data AD_Column_ID="2604" Column="Description">Percentage provided by the National Institute for Educational Cooperation (INCES</Data>
-        <Data AD_Column_ID="2598" Column="Created">2019-09-01 20:06:25.453</Data>
         <Data AD_Column_ID="2602" Column="ColumnName">DeductionINCES</Data>
         <Data AD_Column_ID="2605" Column="Help">Percentage provided by the National Institute for Educational Cooperation (INCES), an entity regulated by the Law of the National Institute for Educational Cooperation.
 </Data>
@@ -654,17 +654,6 @@
     <Step SeqNo="230" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94284" Table="AD_Column">
         <Data AD_Column_ID="112" Column="Description">Percentage provided by the National Institute for Educational Cooperation (INCES</Data>
-        <Data AD_Column_ID="549" Column="Created">2019-09-01 20:06:25.982</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-01 20:06:25.982</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94284</Data>
-        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
-        <Data AD_Column_ID="111" Column="Name">Deduction INCES</Data>
-        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
-        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
-        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
         <Data AD_Column_ID="120" Column="IsParent">false</Data>
         <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
         <Data AD_Column_ID="6483" Column="IsSyncDatabase">N</Data>
@@ -703,6 +692,17 @@
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-01 20:06:25.982</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-01 20:06:25.982</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94284</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Deduction INCES</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="240" StepType="AD">
@@ -774,13 +774,6 @@
     <Step SeqNo="270" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94285" Table="AD_Column">
         <Data AD_Column_ID="112" Column="Description">Percentage provided by the Venezuelan Institute of Social Security (IVSS)</Data>
-        <Data AD_Column_ID="548" Column="IsActive">true</Data>
-        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="549" Column="Created">2019-09-01 20:06:27.22</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-01 20:06:27.22</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94285</Data>
         <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
         <Data AD_Column_ID="111" Column="Name">Deduction RPE</Data>
         <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
@@ -823,6 +816,13 @@
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">2fd7516c-c50d-11e9-b3b6-0242ac110004</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-01 20:06:27.22</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-01 20:06:27.22</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94285</Data>
       </PO>
     </Step>
     <Step SeqNo="280" StepType="AD">
@@ -894,9 +894,6 @@
     <Step SeqNo="310" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94286" Table="AD_Column">
         <Data AD_Column_ID="2608" Column="AD_Element_ID">61161</Data>
-        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="118" Column="FieldLength">0</Data>
         <Data AD_Column_ID="226" Column="AD_Reference_ID">22</Data>
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">693b3182-c50b-11e9-b624-0242ac110004</Data>
@@ -943,16 +940,19 @@
         <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
         <Data AD_Column_ID="114" Column="AD_Table_ID">228</Data>
         <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">0</Data>
       </PO>
     </Step>
     <Step SeqNo="320" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94286" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12957" Column="Name">Deducción SSO</Data>
         <Data AD_Column_ID="12960" Column="Created">2019-09-01 20:06:28.973</Data>
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2019-09-01 20:06:28.973</Data>
         <Data AD_Column_ID="12955" Column="AD_Column_ID">94286</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="12957" Column="Name">Deducción SSO</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
@@ -1013,7 +1013,6 @@
     <Step SeqNo="350" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94287" Table="AD_Column">
         <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
-        <Data AD_Column_ID="112" Column="Description">Obtained from the Venezuelan Institute of Social Security (IVSS)</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-01 20:06:29.805</Data>
@@ -1061,15 +1060,11 @@
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">6e417526-c513-11e9-b624-0242ac110004</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description">Obtained from the Venezuelan Institute of Social Security (IVSS)</Data>
       </PO>
     </Step>
     <Step SeqNo="360" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94287" Table="AD_Column_Trl">
-        <Data AD_Column_ID="12960" Column="Created">2019-09-01 20:06:30.125</Data>
-        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
-        <Data AD_Column_ID="12952" Column="Updated">2019-09-01 20:06:30.125</Data>
-        <Data AD_Column_ID="12955" Column="AD_Column_ID">94287</Data>
-        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="12957" Column="Name">Número de Empleador</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
@@ -1077,6 +1072,11 @@
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84310" Column="UUID">6e5d7546-c513-11e9-b624-0242ac110004</Data>
+        <Data AD_Column_ID="12960" Column="Created">2019-09-01 20:06:30.125</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2019-09-01 20:06:30.125</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">94287</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
       </PO>
     </Step>
     <Step SeqNo="370" StepType="AD">
@@ -1130,8 +1130,8 @@
     </Step>
     <Step SeqNo="390" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94288" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">Date of Registration processed in the Venezuelan Institute of Social Security (IVSS)</Data>
         <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="112" Column="Description">Date of Registration processed in the Venezuelan Institute of Social Security (IVSS)</Data>
         <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
         <Data AD_Column_ID="114" Column="AD_Table_ID">228</Data>
@@ -1184,9 +1184,6 @@
     <Step SeqNo="400" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94288" Table="AD_Column_Trl">
         <Data AD_Column_ID="12960" Column="Created">2019-09-01 20:06:31.548</Data>
-        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
-        <Data AD_Column_ID="12952" Column="Updated">2019-09-01 20:06:31.548</Data>
-        <Data AD_Column_ID="12955" Column="AD_Column_ID">94288</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="12957" Column="Name">Fecha de Inscripción de SSO</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -1195,6 +1192,9 @@
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84310" Column="UUID">d0901cdc-c504-11e9-9dcf-0242ac110004</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2019-09-01 20:06:31.548</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">94288</Data>
       </PO>
     </Step>
     <Step SeqNo="410" StepType="AD">
@@ -1302,10 +1302,10 @@
     </Step>
     <Step SeqNo="440" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94289" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">94289</Data>
         <Data AD_Column_ID="12960" Column="Created">2019-09-01 20:06:32.876</Data>
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2019-09-01 20:06:32.876</Data>
-        <Data AD_Column_ID="12955" Column="AD_Column_ID">94289</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="12957" Column="Name">Número de Identificación Laboral(NIL)</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -1420,11 +1420,11 @@
     </Step>
     <Step SeqNo="480" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94290" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">94290</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="12960" Column="Created">2019-09-01 20:06:34.22</Data>
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2019-09-01 20:06:34.22</Data>
-        <Data AD_Column_ID="12955" Column="AD_Column_ID">94290</Data>
-        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="12957" Column="Name">Número de Prestaciones</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
@@ -1474,6 +1474,9 @@
     </Step>
     <Step SeqNo="510" StepType="AD">
       <PO AD_Table_ID="104" Action="I" Record_ID="55402" Table="AD_Ref_List">
+        <Data AD_Column_ID="565" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="567" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84390" Column="UUID">15d142a6-c507-11e9-9dcf-0242ac110004</Data>
         <Data AD_Column_ID="563" Column="IsActive">true</Data>
         <Data AD_Column_ID="564" Column="Created">2019-09-01 20:06:34.891</Data>
         <Data AD_Column_ID="566" Column="Updated">2019-09-01 20:06:34.891</Data>
@@ -1487,9 +1490,6 @@
         <Data AD_Column_ID="148" Column="AD_Ref_List_ID">55402</Data>
         <Data AD_Column_ID="372" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="371" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="565" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="567" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84390" Column="UUID">15d142a6-c507-11e9-9dcf-0242ac110004</Data>
       </PO>
     </Step>
     <Step SeqNo="520" StepType="AD">
@@ -1548,13 +1548,13 @@
     </Step>
     <Step SeqNo="550" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61166" Table="AD_Element">
+        <Data AD_Column_ID="2605" Column="Help">Obtained from the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.</Data>
         <Data AD_Column_ID="2600" Column="Updated">2019-09-01 20:06:35.87</Data>
         <Data AD_Column_ID="2597" Column="IsActive">true</Data>
         <Data AD_Column_ID="2603" Column="Name">Regime</Data>
         <Data AD_Column_ID="2604" Column="Description">Obtained from the Venezuelan Institute of Social Security (IVSS</Data>
         <Data AD_Column_ID="2598" Column="Created">2019-09-01 20:06:35.87</Data>
         <Data AD_Column_ID="2602" Column="ColumnName">Regime</Data>
-        <Data AD_Column_ID="2605" Column="Help">Obtained from the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.</Data>
         <Data AD_Column_ID="6285" Column="PO_Name" isNewNull="true"/>
         <Data AD_Column_ID="6284" Column="PO_Help" isNewNull="true"/>
         <Data AD_Column_ID="4299" Column="PrintName">Regime</Data>
@@ -1598,17 +1598,6 @@
     <Step SeqNo="570" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94291" Table="AD_Column">
         <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="112" Column="Description">Obtained from the Venezuelan Institute of Social Security (IVSS</Data>
-        <Data AD_Column_ID="548" Column="IsActive">true</Data>
-        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="549" Column="Created">2019-09-01 20:06:36.677</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-01 20:06:36.677</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94291</Data>
-        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
-        <Data AD_Column_ID="111" Column="Name">Regime</Data>
-        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
         <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
         <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
@@ -1646,6 +1635,17 @@
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">eacb771a-c507-11e9-9dcf-0242ac110004</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description">Obtained from the Venezuelan Institute of Social Security (IVSS</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-01 20:06:36.677</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-01 20:06:36.677</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94291</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Regime</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
       </PO>
     </Step>
     <Step SeqNo="580" StepType="AD">
@@ -1666,9 +1666,9 @@
     </Step>
     <Step SeqNo="590" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61167" Table="AD_Element">
+        <Data AD_Column_ID="2603" Column="Name">Registration Number FAOV</Data>
         <Data AD_Column_ID="2600" Column="Updated">2019-09-01 20:06:37.805</Data>
         <Data AD_Column_ID="2597" Column="IsActive">true</Data>
-        <Data AD_Column_ID="2603" Column="Name">Registration Number FAOV</Data>
         <Data AD_Column_ID="2604" Column="Description">Obtained from the National Housing and Habitat Bank, (BANAVIH)</Data>
         <Data AD_Column_ID="2598" Column="Created">2019-09-01 20:06:37.805</Data>
         <Data AD_Column_ID="2602" Column="ColumnName">RegistrationNumberFAOV</Data>
@@ -1837,14 +1837,6 @@
     </Step>
     <Step SeqNo="650" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94293" Table="AD_Column">
-        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
-        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
-        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
-        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
-        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
-        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
-        <Data AD_Column_ID="127" Column="SeqNo">0</Data>
-        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
         <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
@@ -1887,10 +1879,19 @@
         <Data AD_Column_ID="3360" Column="IsUpdateable">true</Data>
         <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
         <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo">0</Data>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
       </PO>
     </Step>
     <Step SeqNo="660" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94293" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="12960" Column="Created">2019-09-01 20:06:40.391</Data>
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2019-09-01 20:06:40.391</Data>
@@ -1901,7 +1902,6 @@
         <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84310" Column="UUID">1c7f5578-c50e-11e9-b3b6-0242ac110004</Data>
       </PO>
     </Step>
@@ -1965,11 +1965,11 @@
     </Step>
     <Step SeqNo="700" StepType="AD">
       <PO AD_Table_ID="136" Action="I" Record_ID="55404" Table="AD_Ref_List_Trl">
+        <Data AD_Column_ID="340" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="707" Column="Created">2019-09-01 20:06:41.421</Data>
         <Data AD_Column_ID="709" Column="Updated">2019-09-01 20:06:41.421</Data>
         <Data AD_Column_ID="706" Column="IsActive">true</Data>
         <Data AD_Column_ID="338" Column="Name">Minimo</Data>
-        <Data AD_Column_ID="340" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="339" Column="Description" isNewNull="true"/>
         <Data AD_Column_ID="1216" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="1215" Column="AD_Client_ID">0</Data>
@@ -2019,6 +2019,8 @@
     </Step>
     <Step SeqNo="730" StepType="AD">
       <PO AD_Table_ID="104" Action="I" Record_ID="55406" Table="AD_Ref_List">
+        <Data AD_Column_ID="567" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84390" Column="UUID">72bcbea8-c509-11e9-bede-0242ac110004</Data>
         <Data AD_Column_ID="563" Column="IsActive">true</Data>
         <Data AD_Column_ID="564" Column="Created">2019-09-01 20:06:42.048</Data>
         <Data AD_Column_ID="566" Column="Updated">2019-09-01 20:06:42.048</Data>
@@ -2033,8 +2035,6 @@
         <Data AD_Column_ID="372" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="371" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="565" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="567" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84390" Column="UUID">72bcbea8-c509-11e9-bede-0242ac110004</Data>
       </PO>
     </Step>
     <Step SeqNo="740" StepType="AD">
@@ -2093,6 +2093,7 @@
     </Step>
     <Step SeqNo="770" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61169" Table="AD_Element">
+        <Data AD_Column_ID="2602" Column="ColumnName">Risk</Data>
         <Data AD_Column_ID="2600" Column="Updated">2019-09-01 20:06:42.988</Data>
         <Data AD_Column_ID="2601" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84316" Column="UUID">53c1f49c-c508-11e9-9af1-0242ac110004</Data>
@@ -2100,7 +2101,6 @@
         <Data AD_Column_ID="2603" Column="Name">Risk</Data>
         <Data AD_Column_ID="2604" Column="Description">Obtained from the Venezuelan Institute of Social Security (IVSS)</Data>
         <Data AD_Column_ID="2598" Column="Created">2019-09-01 20:06:42.988</Data>
-        <Data AD_Column_ID="2602" Column="ColumnName">Risk</Data>
         <Data AD_Column_ID="2605" Column="Help">Obtained from the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.
 </Data>
         <Data AD_Column_ID="6285" Column="PO_Name" isNewNull="true"/>
@@ -2143,19 +2143,6 @@
     </Step>
     <Step SeqNo="790" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94294" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">Obtained from the Venezuelan Institute of Social Security (IVSS)</Data>
-        <Data AD_Column_ID="548" Column="IsActive">true</Data>
-        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="549" Column="Created">2019-09-01 20:06:43.472</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-01 20:06:43.472</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94294</Data>
-        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
-        <Data AD_Column_ID="111" Column="Name">Risk</Data>
-        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
-        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
         <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
         <Data AD_Column_ID="120" Column="IsParent">false</Data>
         <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
@@ -2193,6 +2180,19 @@
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">d3c628b0-c509-11e9-b3b6-0242ac110004</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description">Obtained from the Venezuelan Institute of Social Security (IVSS)</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-01 20:06:43.472</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-01 20:06:43.472</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94294</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Risk</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="800" StepType="AD">
@@ -2213,9 +2213,9 @@
     </Step>
     <Step SeqNo="810" StepType="AD">
       <PO AD_Table_ID="107" Action="I" Record_ID="95687" Table="AD_Field">
+        <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
         <Data AD_Column_ID="170" Column="Help">The Performance Goal indicates what this users performance will be measured against.</Data>
         <Data AD_Column_ID="168" Column="Name">Goal</Data>
-        <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
         <Data AD_Column_ID="579" Column="Created">2019-09-01 20:06:44.542</Data>
         <Data AD_Column_ID="78493" Column="IsQuickEntry">false</Data>
         <Data AD_Column_ID="88877" Column="AD_FieldDefinition_ID" isNewNull="true"/>
@@ -2261,6 +2261,7 @@
     </Step>
     <Step SeqNo="820" StepType="AD">
       <PO AD_Table_ID="127" Action="I" Record_ID="95687" Table="AD_Field_Trl">
+        <Data AD_Column_ID="673" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="671" Column="IsActive">true</Data>
         <Data AD_Column_ID="672" Column="Created">2019-09-01 20:06:45.036</Data>
         <Data AD_Column_ID="674" Column="Updated">2019-09-01 20:06:45.036</Data>
@@ -2271,7 +2272,6 @@
         <Data AD_Column_ID="288" Column="Help">La meta de desempeño indica contra que será medido este desempeño de usuarios.</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">95687</Data>
-        <Data AD_Column_ID="673" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="675" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID">c070a84a-c512-11e9-b3b6-0242ac110004</Data>
@@ -2327,9 +2327,9 @@
     </Step>
     <Step SeqNo="840" StepType="AD">
       <PO AD_Table_ID="127" Action="I" Record_ID="95686" Table="AD_Field_Trl">
+        <Data AD_Column_ID="672" Column="Created">2019-09-01 20:06:45.976</Data>
         <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="671" Column="IsActive">true</Data>
-        <Data AD_Column_ID="672" Column="Created">2019-09-01 20:06:45.976</Data>
         <Data AD_Column_ID="674" Column="Updated">2019-09-01 20:06:45.976</Data>
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="289" Column="IsTranslated">false</Data>
@@ -2534,15 +2534,6 @@
     <Step SeqNo="1000" StepType="AD">
       <PO AD_Table_ID="107" Action="I" Record_ID="95690" Table="AD_Field">
         <Data AD_Column_ID="168" Column="Name">Enrollment Date SSO</Data>
-        <Data AD_Column_ID="169" Column="Description">Date of Registration processed in the Venezuelan Institute of Social Security (IVSS)</Data>
-        <Data AD_Column_ID="176" Column="IsDisplayed">true</Data>
-        <Data AD_Column_ID="185" Column="IsFieldOnly">false</Data>
-        <Data AD_Column_ID="182" Column="SortNo" isNewNull="true"/>
-        <Data AD_Column_ID="2745" Column="IsCentrallyMaintained">true</Data>
-        <Data AD_Column_ID="170" Column="Help">Date of Registration processed in the Venezuelan Institute of Social Security (IVSS), body regulated by the Social Security Regulations.</Data>
-        <Data AD_Column_ID="54359" Column="InfoFactoryClass" isNewNull="true"/>
-        <Data AD_Column_ID="177" Column="DisplayLogic" isNewNull="true"/>
-        <Data AD_Column_ID="15011" Column="AD_Reference_ID" isNewNull="true"/>
         <Data AD_Column_ID="15013" Column="IsMandatory" isNewNull="true"/>
         <Data AD_Column_ID="59704" Column="PreferredWidth" isNewNull="true"/>
         <Data AD_Column_ID="62478" Column="IsDisplayedGrid">true</Data>
@@ -2577,6 +2568,15 @@
         <Data AD_Column_ID="90940" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="59703" Column="IsEmbedded">false</Data>
         <Data AD_Column_ID="74868" Column="IsAllowCopy">false</Data>
+        <Data AD_Column_ID="169" Column="Description">Date of Registration processed in the Venezuelan Institute of Social Security (IVSS)</Data>
+        <Data AD_Column_ID="176" Column="IsDisplayed">true</Data>
+        <Data AD_Column_ID="185" Column="IsFieldOnly">false</Data>
+        <Data AD_Column_ID="182" Column="SortNo" isNewNull="true"/>
+        <Data AD_Column_ID="2745" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="170" Column="Help">Date of Registration processed in the Venezuelan Institute of Social Security (IVSS), body regulated by the Social Security Regulations.</Data>
+        <Data AD_Column_ID="54359" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="177" Column="DisplayLogic" isNewNull="true"/>
+        <Data AD_Column_ID="15011" Column="AD_Reference_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="1010" StepType="AD">
@@ -2600,8 +2600,6 @@
     <Step SeqNo="1020" StepType="AD">
       <PO AD_Table_ID="107" Action="I" Record_ID="95691" Table="AD_Field">
         <Data AD_Column_ID="579" Column="Created">2019-09-01 20:06:53.46</Data>
-        <Data AD_Column_ID="168" Column="Name">Employer Number</Data>
-        <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
         <Data AD_Column_ID="78493" Column="IsQuickEntry">false</Data>
         <Data AD_Column_ID="88877" Column="AD_FieldDefinition_ID" isNewNull="true"/>
         <Data AD_Column_ID="581" Column="Updated">2019-09-01 20:06:53.46</Data>
@@ -2643,11 +2641,17 @@
         <Data AD_Column_ID="172" Column="AD_Tab_ID">170</Data>
         <Data AD_Column_ID="54357" Column="AD_Val_Rule_ID" isNewNull="true"/>
         <Data AD_Column_ID="84320" Column="UUID">8e50afda-c513-11e9-b624-0242ac110004</Data>
+        <Data AD_Column_ID="168" Column="Name">Employer Number</Data>
+        <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
       </PO>
     </Step>
     <Step SeqNo="1030" StepType="AD">
       <PO AD_Table_ID="127" Action="I" Record_ID="95691" Table="AD_Field_Trl">
         <Data AD_Column_ID="671" Column="IsActive">true</Data>
+        <Data AD_Column_ID="673" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="675" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84323" Column="UUID">8e591f08-c513-11e9-b624-0242ac110004</Data>
         <Data AD_Column_ID="672" Column="Created">2019-09-01 20:06:53.896</Data>
         <Data AD_Column_ID="674" Column="Updated">2019-09-01 20:06:53.896</Data>
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
@@ -2657,10 +2661,6 @@
         <Data AD_Column_ID="288" Column="Help">Obtenido en el instituto venezolano de los seguros sociales(IVSS), organismo regulado por el Reglamento del Seguro Social.</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">95691</Data>
-        <Data AD_Column_ID="673" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="675" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
-        <Data AD_Column_ID="84323" Column="UUID">8e591f08-c513-11e9-b624-0242ac110004</Data>
       </PO>
     </Step>
     <Step SeqNo="1040" StepType="AD">
@@ -2713,10 +2713,10 @@
     </Step>
     <Step SeqNo="1050" StepType="AD">
       <PO AD_Table_ID="127" Action="I" Record_ID="95692" Table="AD_Field_Trl">
-        <Data AD_Column_ID="672" Column="Created">2019-09-01 20:06:54.496</Data>
-        <Data AD_Column_ID="674" Column="Updated">2019-09-01 20:06:54.496</Data>
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="289" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="672" Column="Created">2019-09-01 20:06:54.496</Data>
+        <Data AD_Column_ID="674" Column="Updated">2019-09-01 20:06:54.496</Data>
         <Data AD_Column_ID="287" Column="Description">Obtenido en el instituto venezolano de los seguros sociales(IVSS)</Data>
         <Data AD_Column_ID="286" Column="Name">Régimen</Data>
         <Data AD_Column_ID="288" Column="Help">Obtenido en el instituto venezolano de los seguros sociales(IVSS), organismo regulado por el Reglamento del Seguro Social.  Las cotizaciones al Seguro Social se causarán semanalmente y se determinarán tomando como base el salario devengado por el asegurado en dicho período, del régimen aplicado en cada zona y del riesgo asignado a las empresas o grupo de trabajadores.</Data>
@@ -2732,6 +2732,14 @@
     <Step SeqNo="1060" StepType="AD">
       <PO AD_Table_ID="107" Action="I" Record_ID="95693" Table="AD_Field">
         <Data AD_Column_ID="582" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="5375" Column="AD_FieldGroup_ID" isNewNull="true"/>
+        <Data AD_Column_ID="174" Column="AD_Column_ID">94294</Data>
+        <Data AD_Column_ID="54356" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="62479" Column="SeqNoGrid">0</Data>
+        <Data AD_Column_ID="180" Column="DisplayLength">10</Data>
+        <Data AD_Column_ID="172" Column="AD_Tab_ID">170</Data>
+        <Data AD_Column_ID="54357" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="84320" Column="UUID">c19a7eda-c512-11e9-b3b6-0242ac110004</Data>
         <Data AD_Column_ID="168" Column="Name">Risk</Data>
         <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
         <Data AD_Column_ID="579" Column="Created">2019-09-01 20:06:54.692</Data>
@@ -2768,14 +2776,6 @@
         <Data AD_Column_ID="7714" Column="EntityType">LVE</Data>
         <Data AD_Column_ID="580" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="181" Column="SeqNo">250</Data>
-        <Data AD_Column_ID="5375" Column="AD_FieldGroup_ID" isNewNull="true"/>
-        <Data AD_Column_ID="174" Column="AD_Column_ID">94294</Data>
-        <Data AD_Column_ID="54356" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="62479" Column="SeqNoGrid">0</Data>
-        <Data AD_Column_ID="180" Column="DisplayLength">10</Data>
-        <Data AD_Column_ID="172" Column="AD_Tab_ID">170</Data>
-        <Data AD_Column_ID="54357" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="84320" Column="UUID">c19a7eda-c512-11e9-b3b6-0242ac110004</Data>
       </PO>
     </Step>
     <Step SeqNo="1070" StepType="AD">
@@ -2799,6 +2799,25 @@
     <Step SeqNo="1080" StepType="AD">
       <PO AD_Table_ID="107" Action="I" Record_ID="95694" Table="AD_Field">
         <Data AD_Column_ID="59704" Column="PreferredWidth" isNewNull="true"/>
+        <Data AD_Column_ID="9969" Column="ObscureType" isNewNull="true"/>
+        <Data AD_Column_ID="53265" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="57957" Column="Included_Tab_ID" isNewNull="true"/>
+        <Data AD_Column_ID="186" Column="IsEncrypted">false</Data>
+        <Data AD_Column_ID="384" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="383" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="167" Column="AD_Field_ID">95694</Data>
+        <Data AD_Column_ID="7714" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="582" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="580" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="181" Column="SeqNo">260</Data>
+        <Data AD_Column_ID="5375" Column="AD_FieldGroup_ID" isNewNull="true"/>
+        <Data AD_Column_ID="174" Column="AD_Column_ID">94282</Data>
+        <Data AD_Column_ID="54356" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="62479" Column="SeqNoGrid">0</Data>
+        <Data AD_Column_ID="180" Column="DisplayLength">10</Data>
+        <Data AD_Column_ID="172" Column="AD_Tab_ID">170</Data>
+        <Data AD_Column_ID="54357" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="84320" Column="UUID">bf7d6176-c512-11e9-b3b6-0242ac110004</Data>
         <Data AD_Column_ID="168" Column="Name">Contribution SSO</Data>
         <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
         <Data AD_Column_ID="579" Column="Created">2019-09-01 20:06:55.405</Data>
@@ -2824,25 +2843,6 @@
         <Data AD_Column_ID="62478" Column="IsDisplayedGrid">true</Data>
         <Data AD_Column_ID="183" Column="IsSameLine">false</Data>
         <Data AD_Column_ID="184" Column="IsHeading">false</Data>
-        <Data AD_Column_ID="9969" Column="ObscureType" isNewNull="true"/>
-        <Data AD_Column_ID="53265" Column="DefaultValue" isNewNull="true"/>
-        <Data AD_Column_ID="57957" Column="Included_Tab_ID" isNewNull="true"/>
-        <Data AD_Column_ID="186" Column="IsEncrypted">false</Data>
-        <Data AD_Column_ID="384" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="383" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="167" Column="AD_Field_ID">95694</Data>
-        <Data AD_Column_ID="7714" Column="EntityType">LVE</Data>
-        <Data AD_Column_ID="582" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="580" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="181" Column="SeqNo">260</Data>
-        <Data AD_Column_ID="5375" Column="AD_FieldGroup_ID" isNewNull="true"/>
-        <Data AD_Column_ID="174" Column="AD_Column_ID">94282</Data>
-        <Data AD_Column_ID="54356" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="62479" Column="SeqNoGrid">0</Data>
-        <Data AD_Column_ID="180" Column="DisplayLength">10</Data>
-        <Data AD_Column_ID="172" Column="AD_Tab_ID">170</Data>
-        <Data AD_Column_ID="54357" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="84320" Column="UUID">bf7d6176-c512-11e9-b3b6-0242ac110004</Data>
       </PO>
     </Step>
     <Step SeqNo="1090" StepType="AD">
@@ -2981,6 +2981,11 @@
     </Step>
     <Step SeqNo="1130" StepType="AD">
       <PO AD_Table_ID="127" Action="I" Record_ID="95696" Table="AD_Field_Trl">
+        <Data AD_Column_ID="84323" Column="UUID">bf75173c-c512-11e9-b3b6-0242ac110004</Data>
+        <Data AD_Column_ID="672" Column="Created">2019-09-01 20:06:57.052</Data>
+        <Data AD_Column_ID="674" Column="Updated">2019-09-01 20:06:57.052</Data>
+        <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="289" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="671" Column="IsActive">true</Data>
         <Data AD_Column_ID="287" Column="Description">Porcentaje previsto por l instituto venezolano de los seguros sociales(IVSS</Data>
         <Data AD_Column_ID="286" Column="Name">Aporte RPE</Data>
@@ -2990,11 +2995,6 @@
         <Data AD_Column_ID="673" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="675" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
-        <Data AD_Column_ID="84323" Column="UUID">bf75173c-c512-11e9-b3b6-0242ac110004</Data>
-        <Data AD_Column_ID="672" Column="Created">2019-09-01 20:06:57.052</Data>
-        <Data AD_Column_ID="674" Column="Updated">2019-09-01 20:06:57.052</Data>
-        <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="289" Column="IsTranslated">false</Data>
       </PO>
     </Step>
     <Step SeqNo="1140" StepType="AD">
@@ -3067,6 +3067,15 @@
     <Step SeqNo="1160" StepType="AD">
       <PO AD_Table_ID="107" Action="I" Record_ID="95698" Table="AD_Field">
         <Data AD_Column_ID="168" Column="Name">Registration Number INCES</Data>
+        <Data AD_Column_ID="181" Column="SeqNo">300</Data>
+        <Data AD_Column_ID="5375" Column="AD_FieldGroup_ID" isNewNull="true"/>
+        <Data AD_Column_ID="174" Column="AD_Column_ID">94293</Data>
+        <Data AD_Column_ID="54356" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="62479" Column="SeqNoGrid">0</Data>
+        <Data AD_Column_ID="180" Column="DisplayLength">10</Data>
+        <Data AD_Column_ID="172" Column="AD_Tab_ID">170</Data>
+        <Data AD_Column_ID="54357" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="84320" Column="UUID">c1696584-c512-11e9-b3b6-0242ac110004</Data>
         <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
         <Data AD_Column_ID="579" Column="Created">2019-09-01 20:06:57.936</Data>
         <Data AD_Column_ID="78493" Column="IsQuickEntry">false</Data>
@@ -3102,15 +3111,6 @@
         <Data AD_Column_ID="7714" Column="EntityType">LVE</Data>
         <Data AD_Column_ID="582" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="580" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="181" Column="SeqNo">300</Data>
-        <Data AD_Column_ID="5375" Column="AD_FieldGroup_ID" isNewNull="true"/>
-        <Data AD_Column_ID="174" Column="AD_Column_ID">94293</Data>
-        <Data AD_Column_ID="54356" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="62479" Column="SeqNoGrid">0</Data>
-        <Data AD_Column_ID="180" Column="DisplayLength">10</Data>
-        <Data AD_Column_ID="172" Column="AD_Tab_ID">170</Data>
-        <Data AD_Column_ID="54357" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="84320" Column="UUID">c1696584-c512-11e9-b3b6-0242ac110004</Data>
       </PO>
     </Step>
     <Step SeqNo="1170" StepType="AD">
@@ -3134,6 +3134,24 @@
     <Step SeqNo="1180" StepType="AD">
       <PO AD_Table_ID="107" Action="I" Record_ID="95699" Table="AD_Field">
         <Data AD_Column_ID="54359" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="53265" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="57957" Column="Included_Tab_ID" isNewNull="true"/>
+        <Data AD_Column_ID="186" Column="IsEncrypted">false</Data>
+        <Data AD_Column_ID="384" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="383" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="167" Column="AD_Field_ID">95699</Data>
+        <Data AD_Column_ID="7714" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="582" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="580" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="181" Column="SeqNo">310</Data>
+        <Data AD_Column_ID="5375" Column="AD_FieldGroup_ID" isNewNull="true"/>
+        <Data AD_Column_ID="174" Column="AD_Column_ID">94280</Data>
+        <Data AD_Column_ID="54356" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="62479" Column="SeqNoGrid">0</Data>
+        <Data AD_Column_ID="180" Column="DisplayLength">10</Data>
+        <Data AD_Column_ID="172" Column="AD_Tab_ID">170</Data>
+        <Data AD_Column_ID="54357" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="84320" Column="UUID">bf345d82-c512-11e9-b3b6-0242ac110004</Data>
         <Data AD_Column_ID="168" Column="Name">Contribution INCES</Data>
         <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
         <Data AD_Column_ID="579" Column="Created">2019-09-01 20:06:58.469</Data>
@@ -3160,24 +3178,6 @@
         <Data AD_Column_ID="183" Column="IsSameLine">false</Data>
         <Data AD_Column_ID="184" Column="IsHeading">false</Data>
         <Data AD_Column_ID="9969" Column="ObscureType" isNewNull="true"/>
-        <Data AD_Column_ID="53265" Column="DefaultValue" isNewNull="true"/>
-        <Data AD_Column_ID="57957" Column="Included_Tab_ID" isNewNull="true"/>
-        <Data AD_Column_ID="186" Column="IsEncrypted">false</Data>
-        <Data AD_Column_ID="384" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="383" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="167" Column="AD_Field_ID">95699</Data>
-        <Data AD_Column_ID="7714" Column="EntityType">LVE</Data>
-        <Data AD_Column_ID="582" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="580" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="181" Column="SeqNo">310</Data>
-        <Data AD_Column_ID="5375" Column="AD_FieldGroup_ID" isNewNull="true"/>
-        <Data AD_Column_ID="174" Column="AD_Column_ID">94280</Data>
-        <Data AD_Column_ID="54356" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="62479" Column="SeqNoGrid">0</Data>
-        <Data AD_Column_ID="180" Column="DisplayLength">10</Data>
-        <Data AD_Column_ID="172" Column="AD_Tab_ID">170</Data>
-        <Data AD_Column_ID="54357" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="84320" Column="UUID">bf345d82-c512-11e9-b3b6-0242ac110004</Data>
       </PO>
     </Step>
     <Step SeqNo="1190" StepType="AD">
@@ -3200,6 +3200,7 @@
     </Step>
     <Step SeqNo="1200" StepType="AD">
       <PO AD_Table_ID="107" Action="I" Record_ID="95700" Table="AD_Field">
+        <Data AD_Column_ID="177" Column="DisplayLogic" isNewNull="true"/>
         <Data AD_Column_ID="168" Column="Name">Deduction INCES</Data>
         <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
         <Data AD_Column_ID="579" Column="Created">2019-09-01 20:06:59.035</Data>
@@ -3219,7 +3220,6 @@
         <Data AD_Column_ID="170" Column="Help">Percentage provided by the National Institute for Educational Cooperation (INCES), an entity regulated by the Law of the National Institute for Educational Cooperation.
 </Data>
         <Data AD_Column_ID="54359" Column="InfoFactoryClass" isNewNull="true"/>
-        <Data AD_Column_ID="177" Column="DisplayLogic" isNewNull="true"/>
         <Data AD_Column_ID="15011" Column="AD_Reference_ID" isNewNull="true"/>
         <Data AD_Column_ID="15013" Column="IsMandatory" isNewNull="true"/>
         <Data AD_Column_ID="59704" Column="PreferredWidth" isNewNull="true"/>
@@ -3268,16 +3268,6 @@
     <Step SeqNo="1220" StepType="AD">
       <PO AD_Table_ID="107" Action="I" Record_ID="95701" Table="AD_Field">
         <Data AD_Column_ID="168" Column="Name">Registration Number FAOV</Data>
-        <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
-        <Data AD_Column_ID="579" Column="Created">2019-09-01 20:06:59.665</Data>
-        <Data AD_Column_ID="78493" Column="IsQuickEntry">false</Data>
-        <Data AD_Column_ID="88877" Column="AD_FieldDefinition_ID" isNewNull="true"/>
-        <Data AD_Column_ID="581" Column="Updated">2019-09-01 20:06:59.665</Data>
-        <Data AD_Column_ID="88918" Column="AD_ContextInfo_ID" isNewNull="true"/>
-        <Data AD_Column_ID="578" Column="IsActive">true</Data>
-        <Data AD_Column_ID="90940" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="59703" Column="IsEmbedded">false</Data>
-        <Data AD_Column_ID="74868" Column="IsAllowCopy">false</Data>
         <Data AD_Column_ID="169" Column="Description">Obtained from the National Housing and Habitat Bank, (BANAVIH)</Data>
         <Data AD_Column_ID="176" Column="IsDisplayed">true</Data>
         <Data AD_Column_ID="185" Column="IsFieldOnly">false</Data>
@@ -3312,6 +3302,16 @@
         <Data AD_Column_ID="172" Column="AD_Tab_ID">170</Data>
         <Data AD_Column_ID="54357" Column="AD_Val_Rule_ID" isNewNull="true"/>
         <Data AD_Column_ID="84320" Column="UUID">c13f2c38-c512-11e9-b3b6-0242ac110004</Data>
+        <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
+        <Data AD_Column_ID="579" Column="Created">2019-09-01 20:06:59.665</Data>
+        <Data AD_Column_ID="78493" Column="IsQuickEntry">false</Data>
+        <Data AD_Column_ID="88877" Column="AD_FieldDefinition_ID" isNewNull="true"/>
+        <Data AD_Column_ID="581" Column="Updated">2019-09-01 20:06:59.665</Data>
+        <Data AD_Column_ID="88918" Column="AD_ContextInfo_ID" isNewNull="true"/>
+        <Data AD_Column_ID="578" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90940" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="59703" Column="IsEmbedded">false</Data>
+        <Data AD_Column_ID="74868" Column="IsAllowCopy">false</Data>
       </PO>
     </Step>
     <Step SeqNo="1230" StepType="AD">
@@ -3335,10 +3335,10 @@
     </Step>
     <Step SeqNo="1240" StepType="AD">
       <PO AD_Table_ID="107" Action="I" Record_ID="95702" Table="AD_Field">
+        <Data AD_Column_ID="579" Column="Created">2019-09-01 20:07:00.254</Data>
         <Data AD_Column_ID="168" Column="Name">Contribution FAOV</Data>
         <Data AD_Column_ID="2007" Column="IsReadOnly">false</Data>
         <Data AD_Column_ID="84320" Column="UUID">bf11ed10-c512-11e9-b3b6-0242ac110004</Data>
-        <Data AD_Column_ID="579" Column="Created">2019-09-01 20:07:00.254</Data>
         <Data AD_Column_ID="78493" Column="IsQuickEntry">false</Data>
         <Data AD_Column_ID="88877" Column="AD_FieldDefinition_ID" isNewNull="true"/>
         <Data AD_Column_ID="581" Column="Updated">2019-09-01 20:07:00.254</Data>
@@ -3384,6 +3384,7 @@
     </Step>
     <Step SeqNo="1250" StepType="AD">
       <PO AD_Table_ID="127" Action="I" Record_ID="95702" Table="AD_Field_Trl">
+        <Data AD_Column_ID="673" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="671" Column="IsActive">true</Data>
         <Data AD_Column_ID="672" Column="Created">2019-09-01 20:07:00.661</Data>
         <Data AD_Column_ID="674" Column="Updated">2019-09-01 20:07:00.661</Data>
@@ -3394,7 +3395,6 @@
         <Data AD_Column_ID="288" Column="Help">Obtenido en el Banco Nacional de Vivienda y Hábitat, (BANAVIH), organismo regulado por la Ley del Régimen Prestacional de Vivienda y Hábitat.</Data>
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">95702</Data>
-        <Data AD_Column_ID="673" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="675" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID">bf249cda-c512-11e9-b3b6-0242ac110004</Data>
@@ -3451,11 +3451,11 @@
     </Step>
     <Step SeqNo="1270" StepType="AD">
       <PO AD_Table_ID="127" Action="I" Record_ID="95703" Table="AD_Field_Trl">
+        <Data AD_Column_ID="289" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="671" Column="IsActive">true</Data>
         <Data AD_Column_ID="672" Column="Created">2019-09-01 20:07:01.242</Data>
         <Data AD_Column_ID="674" Column="Updated">2019-09-01 20:07:01.242</Data>
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="289" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="287" Column="Description">Obtenido en el Banco Nacional de Vivienda y Hábitat, (BANAVIH),</Data>
         <Data AD_Column_ID="286" Column="Name">Deductción FAOV</Data>
         <Data AD_Column_ID="288" Column="Help">Obtenido en el Banco Nacional de Vivienda y Hábitat, (BANAVIH), organismo regulado por la Ley del Régimen Prestacional de Vivienda y Hábitat.</Data>
@@ -3470,6 +3470,44 @@
     <Step SeqNo="1280" StepType="AD">
       <PO AD_Table_ID="107" Action="U" Record_ID="57532" Table="AD_Field">
         <Data AD_Column_ID="181" Column="SeqNo" oldValue="210">360</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1290" StepType="AD">
+      <PO AD_Table_ID="126" Action="U" Record_ID="0" Table="AD_Reference_Trl">
+        <Data AD_Column_ID="280" Column="Name" oldValue="Riesgo">Risk</Data>
+        <Data AD_Column_ID="279" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="278" Column="AD_Reference_ID" oldValue="54168">54168</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1300" StepType="AD">
+      <PO AD_Table_ID="136" Action="U" Record_ID="55405" Table="AD_Ref_List_Trl">
+        <Data AD_Column_ID="338" Column="Name" oldValue="Maximo">Máximo</Data>
+        <Data AD_Column_ID="336" Column="AD_Ref_List_ID" oldValue="55405">55405</Data>
+        <Data AD_Column_ID="337" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1310" StepType="AD">
+      <PO AD_Table_ID="104" Action="U" Record_ID="55404" Table="AD_Ref_List">
+        <Data AD_Column_ID="200" Column="Value" oldValue="M">I</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1320" StepType="AD">
+      <PO AD_Table_ID="104" Action="U" Record_ID="55405" Table="AD_Ref_List">
+        <Data AD_Column_ID="200" Column="Value" oldValue="m">M</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1330" StepType="AD">
+      <PO AD_Table_ID="136" Action="U" Record_ID="55404" Table="AD_Ref_List_Trl">
+        <Data AD_Column_ID="338" Column="Name" oldValue="Minimo">Mínimo</Data>
+        <Data AD_Column_ID="336" Column="AD_Ref_List_ID" oldValue="55404">55404</Data>
+        <Data AD_Column_ID="337" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1340" StepType="AD">
+      <PO AD_Table_ID="126" Action="U" Record_ID="0" Table="AD_Reference_Trl">
+        <Data AD_Column_ID="280" Column="Name" oldValue="Régimen">Regime</Data>
+        <Data AD_Column_ID="279" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="278" Column="AD_Reference_ID" oldValue="54167">54167</Data>
       </PO>
     </Step>
   </Migration>
