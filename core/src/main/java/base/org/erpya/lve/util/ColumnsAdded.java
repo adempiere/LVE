@@ -76,6 +76,7 @@ public class ColumnsAdded {
 	public static final String COLUMNNAME_WHThirdParty_ID = "WHThirdParty_ID";
 	/**Is Simulation Withholding*/
 	public static final String COLUMNNAME_IsSimulation = "IsSimulation";
-	
+	/**Affected Document No*/
+	public static final String COLUMNNAME_AffectedDocumentNo = "AffectedDocumentNo";
 	
 }
