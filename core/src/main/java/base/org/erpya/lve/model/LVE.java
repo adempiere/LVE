@@ -190,9 +190,18 @@ public class LVE implements ModelValidator {
 					invoiceLine.save();
 				}
 			}
-			
-			
-		} 
+		} else if (type == TYPE_AFTER_CHANGE) {
+			// Set Is Paid for Auto Allocation Invoice Documents
+			if (po.get_TableName().equals(MInvoice.Table_Name)) {
+				MInvoice invoice = (MInvoice) po;
+				if (invoice.is_ValueChanged(MInvoice.COLUMNNAME_DocStatus)
+						&& invoice.getDocStatus().equals(MInvoice.DOCSTATUS_Completed)
+							&& invoice.testAllocation()){
+					invoice.save();
+				}
+			}
+		}
+		
 		return null;
 	}
 }
