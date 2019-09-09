@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 import org.compiere.model.I_C_BPartner;
+import org.compiere.model.I_I_Invoice;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MClient;
 import org.compiere.model.MDocType;
@@ -72,6 +73,8 @@ public class LVE implements ModelValidator {
 		engine.addModelChange(MInvoice.Table_Name, this);
 		engine.addModelChange(MBPartner.Table_Name, this);
 		engine.addModelChange(MWHWithholding.Table_Name, this);
+		
+		engine.addImportValidate(I_I_Invoice.Table_Name,new LVEImport());
 	}
 
 	@Override
@@ -187,9 +190,18 @@ public class LVE implements ModelValidator {
 					invoiceLine.save();
 				}
 			}
-			
-			
-		} 
+		} else if (type == TYPE_AFTER_CHANGE) {
+			// Set Is Paid for Auto Allocation Invoice Documents
+			if (po.get_TableName().equals(MInvoice.Table_Name)) {
+				MInvoice invoice = (MInvoice) po;
+				if (invoice.is_ValueChanged(MInvoice.COLUMNNAME_DocStatus)
+						&& invoice.getDocStatus().equals(MInvoice.DOCSTATUS_Completed)
+							&& invoice.testAllocation()){
+					invoice.save();
+				}
+			}
+		}
+		
 		return null;
 	}
 }
