@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="D" Name="Add Exempt Amount in Withholding View" ReleaseNo="3.9.3" SeqNo="81000220">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="276" Action="I" Record_ID="61185" Table="AD_Element">
+        <Data AD_Column_ID="6484" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="2599" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="58590" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2601" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84316" Column="UUID">2a4fa2b6-d4e5-11e9-9f57-0242ac110002</Data>
+        <Data AD_Column_ID="2600" Column="Updated">2019-09-11 18:40:32.957</Data>
+        <Data AD_Column_ID="2597" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2603" Column="Name">Exempt Amount</Data>
+        <Data AD_Column_ID="2604" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="2598" Column="Created">2019-09-11 18:40:32.957</Data>
+        <Data AD_Column_ID="2602" Column="ColumnName">ExemptAmt</Data>
+        <Data AD_Column_ID="2605" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="6285" Column="PO_Name" isNewNull="true"/>
+        <Data AD_Column_ID="6284" Column="PO_Help" isNewNull="true"/>
+        <Data AD_Column_ID="4299" Column="PrintName">Exempt Amount</Data>
+        <Data AD_Column_ID="6286" Column="PO_PrintName" isNewNull="true"/>
+        <Data AD_Column_ID="6283" Column="PO_Description" isNewNull="true"/>
+        <Data AD_Column_ID="58589" Column="FieldLength">0</Data>
+        <Data AD_Column_ID="58588" Column="AD_Reference_ID">12</Data>
+        <Data AD_Column_ID="2594" Column="AD_Element_ID">61185</Data>
+        <Data AD_Column_ID="2596" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2595" Column="AD_Client_ID">0</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="277" Action="I" Record_ID="0" Table="AD_Element_Trl">
+        <Data AD_Column_ID="2642" Column="Created">2019-09-11 18:40:33.682</Data>
+        <Data AD_Column_ID="6449" Column="PO_Help" isNewNull="true"/>
+        <Data AD_Column_ID="2641" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2644" Column="Updated">2019-09-11 18:40:33.682</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="6450" Column="PO_Name" isNewNull="true"/>
+        <Data AD_Column_ID="2648" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="2647" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="2649" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="6448" Column="PO_Description" isNewNull="true"/>
+        <Data AD_Column_ID="6451" Column="PO_PrintName" isNewNull="true"/>
+        <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2645" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2637" Column="AD_Element_ID">61185</Data>
+        <Data AD_Column_ID="84317" Column="UUID">2a7b8764-d4e5-11e9-9f57-0242ac110002</Data>
+        <Data AD_Column_ID="2646" Column="Name">Monto Exento</Data>
+        <Data AD_Column_ID="4300" Column="PrintName">Monto Exento</Data>
+      </PO>
+    </Step>
+    <Step DBType="ALL" Parse="Y" SeqNo="30" StepType="SQL">
+      <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_Withholding AS 
+SELECT 
+	whDoc.AD_Client_ID,
+	whDoc.AD_Org_ID,
+	whDoc.C_Invoice_ID,
+	whDocLine.C_InvoiceLine_ID,
+	wh.A_Base_Amount,
+	wh.WithholdingAmt,
+	wh.WithholdingRate,
+	wh.Subtrahend,
+	origDoc.DocumentNo,
+	origDoc.ControlNo,
+	origDoc.DateInvoiced,
+	whDocLine.Line,
+	CASE WHEN whDoc.DocStatus IN ('VO','RE') THEN '3-anu' 
+		 ELSE '1-reg' END  "type",
+	origDoc.GrandTotal,
+	origDoc.TotalLines,
+	it.TaxAmt,
+	CASE WHEN dtOrigDoc.FiscalDocumentType='01' THEN origDoc.DocumentNo ELSE null::varchar END InvoiceNo,
+	CASE WHEN dtOrigDoc.FiscalDocumentType='03' THEN origDoc.DocumentNo ELSE null::varchar END CreditDocumentNo, 
+	CASE WHEN dtOrigDoc.FiscalDocumentType='02' THEN origDoc.DocumentNo ELSE null::varchar END DebitDocumentNo,
+	COALESCE(affectedHdrDoc.DocumentNo,affectedLineDoc.DocumentNo) AffectedDocumentNo,
+	origDoc.DateAcct,
+	whc.Description,
+	whc.PersonType,
+	dtWhDoc.DocumentNote,
+	dtWhDoc.PrintName,
+	COALESCE(origDocTax.ExemptAmt,0) ExemptAmt
+FROM C_Invoice whDoc
+INNER JOIN C_InvoiceLine whDocLine ON (whDoc.C_Invoice_ID = whDocLine.C_Invoice_ID)
+INNER JOIN WH_Withholding wh ON (wh.C_Invoice_ID = whDoc.C_Invoice_ID)
+INNER JOIN C_Invoice origDoc ON (origDoc.C_Invoice_ID = wh.SourceInvoice_ID)
+INNER JOIN C_DocType dtOrigDoc ON (dtOrigDoc.C_DocType_ID = origDoc.C_DocTypeTarget_ID)
+INNER JOIN C_DocType dtWhDoc ON (dtWhDoc.C_DocType_ID = whDoc.C_DocTypeTarget_ID)
+LEFT JOIN C_Invoice affectedHdrDoc ON (affectedHdrDoc.C_Invoice_ID = origDoc.InvoiceToAllocate_ID)
+LEFT JOIN (SELECT DISTINCT i.DocumentNo,il.C_Invoice_ID 
+		   FROM C_Invoice i
+		   INNER JOIN C_InvoiceLine il ON (i.C_Invoice_ID = il.InvoiceToAllocate_ID)
+		  )affectedLineDoc ON (affectedLineDoc.C_Invoice_ID = origDoc.C_Invoice_ID)
+LEFT JOIN (SELECT C_Invoice_ID,SUM(TaxAmt) TaxAmt FROM C_InvoiceTax it GROUP BY C_Invoice_ID) it ON it.C_Invoice_ID = origDoc.C_Invoice_ID
+LEFT JOIN LVE_ListVersion whc ON (whc.LVE_ListVersion_ID = wh.WithholdingRentalRate_ID)
+LEFT JOIN (SELECT it.C_Invoice_ID, 
+		   		  SUM(it.TaxBaseAmt) ExemptAmt 
+		   FROM C_InvoiceTax it
+		   WHERE 
+		   it.TaxAmt = 0
+		   GROUP BY C_Invoice_ID) origDocTax ON (origDoc.C_Invoice_ID = origDocTax.C_Invoice_ID)
+WHERE 
+wh.DocStatus IN ('CO','CL')
+;</SQLStatement>
+      <RollbackStatement>DROP VIEW LVE_RV_Withholding;</RollbackStatement>
+    </Step>
+  </Migration>
+</Migrations>
