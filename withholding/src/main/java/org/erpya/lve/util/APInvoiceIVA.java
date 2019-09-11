@@ -52,8 +52,6 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 	private MBPartner businessPartner;
 	/**	Taxes	*/
 	private List<MInvoiceTax> taxes;
-	/**	Minimum Tribute Unit for apply Withholding Tax	*/
-	private final int MINIMUM_TRIBUTE_UNIT = 20;
 	
 	
 	@Override
@@ -136,14 +134,6 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 		if(tributeUnitAmount.equals(Env.ZERO)) {
 			addLog("@TributeUnit@ (@Rate@ @NotFound@)");
 			isValid = false;
-		}
-		//	Validate Minimum Tribute Unit (Only for AP Invoice)
-		if(documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)) {
-			BigDecimal minTributeUnitAmount = tributeUnitAmount.multiply(new BigDecimal(MINIMUM_TRIBUTE_UNIT));
-			if(minTributeUnitAmount.compareTo(invoice.getGrandTotal()) > 0) {
-				addLog("@MinimumTributeUnitRequired@ " + MINIMUM_TRIBUTE_UNIT);
-				isValid = false;
-			}
 		}
 		//	Validate if it have taxes
 		taxes = Arrays.asList(invoice.getTaxes(false))

@@ -8,5 +8,9 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/Withholding"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/adempiereFork"/>
 	<classpathentry kind="lib" path="lib/jackcess-3.0.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/DeviceManagement"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Get-Weight"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/RawMaterialReceipt"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/RecordWeight"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
