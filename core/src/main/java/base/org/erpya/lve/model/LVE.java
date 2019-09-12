@@ -108,7 +108,7 @@ public class LVE implements ModelValidator {
 					}
 					
 					//Set Document Number for Withholding
-					if (new Query(invoice.getCtx(), MWHWithholding.Table_Name, "C_Invoice_ID = ? ", invoice.get_TrxName()).setParameters(invoice.getC_Invoice_ID()).match()) {
+					if (new Query(invoice.getCtx(), MWHWithholding.Table_Name, "C_Invoice_ID = ? AND IsManual = 'N'", invoice.get_TrxName()).setParameters(invoice.getC_Invoice_ID()).match()) {
 						//	Get Document No
 						int docNo = Integer.parseInt(invoice.getDocumentNo());
 						//	Format Date

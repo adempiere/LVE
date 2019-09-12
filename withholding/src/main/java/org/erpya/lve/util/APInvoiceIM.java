@@ -179,6 +179,10 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 		
 	}
 	
+	/**
+	 * Validate if the document has withholding allocated
+	 * @return
+	 */
 	private boolean isGenerated() {
 		if (invoice!=null) 
 			return new Query(getContext(), MWHWithholding.Table_Name, "SourceInvoice_ID = ? "

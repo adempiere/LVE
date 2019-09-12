@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add Exempt Amount in Withholding View" ReleaseNo="3.9.3" SeqNo="81000220">
+  <Migration EntityType="LVE" Name="Add Exempt Amount in Withholding View" ReleaseNo="3.9.3" SeqNo="81000230">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61185" Table="AD_Element">
         <Data AD_Column_ID="6484" Column="EntityType">LVE</Data>
@@ -79,7 +79,7 @@ SELECT
 	whc.PersonType,
 	dtWhDoc.DocumentNote,
 	dtWhDoc.PrintName,
-	COALESCE(origDocTax.ExemptAmt,0) ExemptAmt
+	COALESCE(it.ExemptAmt,0) ExemptAmt
 FROM C_Invoice whDoc
 INNER JOIN C_InvoiceLine whDocLine ON (whDoc.C_Invoice_ID = whDocLine.C_Invoice_ID)
 INNER JOIN WH_Withholding wh ON (wh.C_Invoice_ID = whDoc.C_Invoice_ID)
@@ -91,14 +91,8 @@ LEFT JOIN (SELECT DISTINCT i.DocumentNo,il.C_Invoice_ID
 		   FROM C_Invoice i
 		   INNER JOIN C_InvoiceLine il ON (i.C_Invoice_ID = il.InvoiceToAllocate_ID)
 		  )affectedLineDoc ON (affectedLineDoc.C_Invoice_ID = origDoc.C_Invoice_ID)
-LEFT JOIN (SELECT C_Invoice_ID,SUM(TaxAmt) TaxAmt FROM C_InvoiceTax it GROUP BY C_Invoice_ID) it ON it.C_Invoice_ID = origDoc.C_Invoice_ID
+LEFT JOIN (SELECT C_Invoice_ID,SUM(TaxAmt) TaxAmt,SUM(CASE WHEN TaxAmt = 0 THEN TaxBaseAmt ELSE 0 END) ExemptAmt  FROM C_InvoiceTax it GROUP BY C_Invoice_ID) it ON it.C_Invoice_ID = origDoc.C_Invoice_ID
 LEFT JOIN LVE_ListVersion whc ON (whc.LVE_ListVersion_ID = wh.WithholdingRentalRate_ID)
-LEFT JOIN (SELECT it.C_Invoice_ID, 
-		   		  SUM(it.TaxBaseAmt) ExemptAmt 
-		   FROM C_InvoiceTax it
-		   WHERE 
-		   it.TaxAmt = 0
-		   GROUP BY C_Invoice_ID) origDocTax ON (origDoc.C_Invoice_ID = origDocTax.C_Invoice_ID)
 WHERE 
 wh.DocStatus IN ('CO','CL')
 ;</SQLStatement>
