@@ -111,7 +111,7 @@ public class Venezuela extends LVEPaymentExportList {
 			//	
 			header.append(sequence)			//	Sequence (Constant)
 				.append(paymentRequestNo)	//	Payment Request No
-				.append(bankClientNo)	//	Bank Client No
+				.append(bankClientNo)		//	Bank Client No
 				.append(orgPersonType)		//	Person Type
 				.append(orgTaxId)			//	Tax ID
 				.append(paymentDate)		//	Payment Date
@@ -167,7 +167,7 @@ public class Venezuela extends LVEPaymentExportList {
 						addError(Msg.parseTranslation(Env.getCtx(), "@A_Name@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 					}
 					//	Constant
-					String constant5 = leftPadding("", 2, "0");
+					String accountType = leftPadding("", 2, "0");
 					//	Process Business Partner Account No
 					String bPAccountNo = processValue(bpAccount.getAccountNo());
 					if(Optional.ofNullable(bPAccountNo).isPresent()) {
@@ -177,11 +177,11 @@ public class Venezuela extends LVEPaymentExportList {
 					}
 					//	Payment Type
 					MBank bpBank = MBank.get(Env.getCtx(), bpAccount.getC_Bank_ID());
-					String paymentType = "00";
+					String paymentType = "10";
 					if (!Util.isEmpty(bank.getSwiftCode())
 							&& !Util.isEmpty(bpBank.getSwiftCode())
 							&& !bank.getSwiftCode().equals(bpBank.getSwiftCode())) {
-						paymentType = "10";
+						paymentType = "00";
 					}
 					//	Swift Code
 					String bPSwiftCode = bpBank.getSwiftCode();
@@ -206,7 +206,7 @@ public class Venezuela extends LVEPaymentExportList {
 						.append(bPPersonType)	//	BP PersonType
 						.append(bPTaxId)		//	BP TaxID
 						.append(bPName)			//  BP Name
-						.append(constant5)		//  Account Type
+						.append(accountType)	//  Account Type
 						.append(bPAccountNo)	//	BP Account
 						.append(amountAsString)	// 	Amount
 						.append(paymentType)	//	Payment Type
