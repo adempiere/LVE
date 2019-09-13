@@ -78,5 +78,6 @@ public class ColumnsAdded {
 	public static final String COLUMNNAME_IsSimulation = "IsSimulation";
 	/**Affected Document No*/
 	public static final String COLUMNNAME_AffectedDocumentNo = "AffectedDocumentNo";
-	
+	/**	Bank client Number	*/
+	public static final String COLUMNNAME_BankClientNo = "BankClientNo";
 }

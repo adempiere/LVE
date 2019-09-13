@@ -144,7 +144,7 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 		MPaySelection paymentSelection = check.getParent();
 		MBankAccount bankAccount = MBankAccount.get(Env.getCtx(), paymentSelection.getC_BankAccount_ID());
 		MBank bank = MBank.get(Env.getCtx(), bankAccount.getC_Bank_ID());
-		String fileName = getFileName(file, bank.getName(), processValue(paymentSelection.getDocumentNo()));
+		String fileName = getFileName(file, processValue(bank.getName()), processValue(paymentSelection.getDocumentNo()));
 		openFileWriter(fileName);
 	}
 	

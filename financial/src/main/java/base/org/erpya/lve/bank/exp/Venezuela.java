@@ -37,6 +37,7 @@ import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Msg;
 import org.compiere.util.Util;
+import org.erpya.lve.util.ColumnsAdded;
 
 /**
  * 	Implementation for Export Payment from Venezuela bank
@@ -50,7 +51,9 @@ public class Venezuela extends LVEPaymentExportList {
 	static private CLogger	s_log = CLogger.getCLogger (Venezuela.class);
 	/**	Header Short Format	*/
 	private final String SHORT_DATE_FORMAT = "dd/MM/yyyy";
-	
+	public final static char CR  = (char) 0x0D;
+	public final static char LF  = (char) 0x0A;
+	public final static String CRLF  = "" + CR + LF; 
 	
 	@Override
 	public int exportToFile(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
@@ -73,8 +76,16 @@ public class Venezuela extends LVEPaymentExportList {
 			Date now = new Date(System.currentTimeMillis());
 			//	Fields of Control Register (fixed data)
 			String sequence = rightPadding("HEADER", 8, " ");
-			//	Payment Request
-			String paymentRequestNo = rightPadding(processValue(paySelection.getDocumentNo()), 8, " ", true);
+			//	Bank Client No
+			String bankClientNo = "";
+			if(!Util.isEmpty(bank.get_ValueAsString("BankClientNo"))) {
+				bankClientNo = processValue(bank.get_ValueAsString(ColumnsAdded.COLUMNNAME_BankClientNo));
+				bankClientNo = leftPadding(bankClientNo, 8, "0", true);
+			} else {
+				addError(Msg.parseTranslation(Env.getCtx(), "@BankClientNo@ @NotFound@"));
+			}
+			//	
+			String paymentRequestNo = leftPadding(processValue(paySelection.getDocumentNo()), 8, "0", true);
 			//	Process Person Type
 			String orgPersonType = "";
 			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
@@ -100,7 +111,7 @@ public class Venezuela extends LVEPaymentExportList {
 			//	
 			header.append(sequence)			//	Sequence (Constant)
 				.append(paymentRequestNo)	//	Payment Request No
-				.append(paymentRequestNo)	//	Payment Request No
+				.append(bankClientNo)	//	Bank Client No
 				.append(orgPersonType)		//	Person Type
 				.append(orgTaxId)			//	Tax ID
 				.append(paymentDate)		//	Payment Date
@@ -120,8 +131,8 @@ public class Venezuela extends LVEPaymentExportList {
 					//	Constant space
 					String constant = rightPadding("DEBITO", 8, " ");
 					//	Fields of Debt Register
-					String documentNo = processValue(paySelection.getDocumentNo());
-					documentNo = rightPadding(documentNo, 8, " ", true);
+					String documentNo = processValue(paySelectionCheck.getDocumentNo());
+					documentNo = leftPadding(documentNo, 8, "0", true);
 					//	Constant space
 					String constant2 = leftPadding("", 2, "0");
 					//	Payment Amount
@@ -134,7 +145,7 @@ public class Venezuela extends LVEPaymentExportList {
 					//	ISO Code
 					String iSOCode = currency.getISO_Code();
 					//	Constant
-					String constant3 = rightPadding("40", 3, " ");
+					String constant3 = rightPadding("40", 3, "");
 					//	Constant
 					String constant4 = rightPadding("CREDITO", 8, " ");
 					//	Process Person Type
@@ -175,8 +186,9 @@ public class Venezuela extends LVEPaymentExportList {
 					//	Swift Code
 					String bPSwiftCode = bpBank.getSwiftCode();
 					bPSwiftCode = rightPadding(bPSwiftCode, 10, " ", true);
+					String constantSpace = rightPadding("", 59, " ");
 					//	
-					line.append(Env.NL)			//	New Line
+					line.append(CRLF)			//	New Line
 						.append(constant)		//	Sequence (Constant)
 						.append(documentNo)		//	Document No
 						.append(orgPersonType)	//  Person Type
@@ -188,7 +200,7 @@ public class Venezuela extends LVEPaymentExportList {
 						.append(amountAsString)	// 	Amount
 						.append(iSOCode)		//	ISO Code Currency
 						.append(constant3)		//	Sequence (Constant)
-						.append(Env.NL)			//	New Line
+						.append(CRLF)			//	New Line
 						.append(constant4)		//	Sequence (Constant)
 						.append(documentNo)		//	Document No
 						.append(bPPersonType)	//	BP PersonType
@@ -198,14 +210,14 @@ public class Venezuela extends LVEPaymentExportList {
 						.append(bPAccountNo)	//	BP Account
 						.append(amountAsString)	// 	Amount
 						.append(paymentType)	//	Payment Type
-						.append(bPSwiftCode);	// 	BP Swift Code
+						.append(bPSwiftCode)	// 	BP Swift Code
+						.append(constantSpace);	//	Fixed Lenght
 					s_log.fine("Write Line");
 					writeLine(line.toString());
 				} else {
 					addError(Msg.parseTranslation(Env.getCtx(), "@C_BP_BankAccount_ID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 				}
 			}
-		/**
 			//	Totals Register
 			//	Constant
 			String constant = rightPadding("TOTAL", 8, " ");
@@ -222,7 +234,7 @@ public class Venezuela extends LVEPaymentExportList {
 			}
 			//	Write Totals
 			StringBuffer footer = new StringBuffer();
-			footer.append(Env.NL)			//	New Line
+			footer.append(CRLF)			//	New Line
 				.append(constant)			//  Sequence (Constant)
 				.append(constant2)			//  Sequence (Constant)
 				.append(constant3)			//	Sequence (Constant)
@@ -230,7 +242,6 @@ public class Venezuela extends LVEPaymentExportList {
 			writeLine(footer.toString());
 			//	
 			closeFileWriter();
-		**/
 		} catch (Exception e) {
 			addError(e.toString());
 		} finally {
@@ -338,7 +349,7 @@ public class Venezuela extends LVEPaymentExportList {
 				String constant3 = leftPadding("", 80, " ");
 				//	Write Credit Register
 				StringBuffer line = new StringBuffer();
-				line.append(Env.NL)				//	New Line
+				line.append(CRLF)				//	New Line
 					.append(constant)			//	Constant
 					.append(bankAccountNo)		//	Bank Account
 					.append(bPName)				//	BP Name
