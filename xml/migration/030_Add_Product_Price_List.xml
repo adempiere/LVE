@@ -1,6 +1,123 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
   <Migration EntityType="D" Name="Add Price List Report" ReleaseNo="3.9.3" SeqNo="81000210">
+          <Step DBType="Postgres" Parse="N" SeqNo="10" StepType="SQL">
+      <SQLStatement>-- FUNCTION: adempiere.productpricelastchange(numeric, numeric, numeric, timestamp without time zone)
+
+-- DROP FUNCTION adempiere.productpricelastchange(numeric, numeric, numeric, timestamp without time zone);
+/*************************************************************************
+ * The contents of this file are subject to the Compiere License.  You may
+ * obtain a copy of the License at    http://www.compiere.org/license.html
+ * Software is on an  "AS IS" basis,  WITHOUT WARRANTY OF ANY KIND, either
+ * express or implied. See the License for details. Code: Compiere ERP+CRM
+ * Copyright (C) 1999-2001 Jorg Janke, ComPiere, Inc. All Rights Reserved.
+ *
+ * Created By Yamel Senih, 
+ * ysenih@erpcya.com
+ *************************************************************************
+ * Title: Search Tax Rate
+ * Description:
+ * 
+ ************************************************************************/
+CREATE OR REPLACE FUNCTION productpricelastchange(
+	p_m_pricelist_id numeric,
+	p_m_product_id numeric,
+	p_pricelist numeric,
+	p_date timestamp without time zone)
+    RETURNS timestamp without time zone
+    LANGUAGE 'plpgsql'
+
+    COST 100
+    VOLATILE 
+AS $BODY$
+DECLARE
+v_Record RECORD;
+v_ValidFrom TIMESTAMP;
+v_Count INTEGER := 0;
+BEGIN
+    FOR v_Record IN 
+SELECT pp.PriceList, plv.ValidFrom
+FROM M_PriceList_Version plv 
+INNER JOIN M_ProductPrice pp ON(pp.M_PriceList_Version_ID = plv.M_PriceList_Version_ID AND pp.M_Product_ID = p_M_Product_ID)
+WHERE plv.M_PriceList_ID = p_M_PriceList_ID
+AND plv.ValidFrom &lt; p_Date
+ORDER BY plv.ValidFrom DESC
+    LOOP
+v_Count := v_Count + 1;
+IF(ROUND(v_Record.PriceList, 2) &lt;&gt; ROUND(p_PriceList, 2) AND v_Count = 1) THEN
+    RETURN NULL;
+END IF;
+IF(ROUND(v_Record.PriceList, 2) &lt;&gt; ROUND(p_PriceList, 2) AND v_Count &gt; 1) THEN
+    RETURN v_Record.ValidFrom;
+END IF;
+    END LOOP;
+
+     SELECT INTO v_ValidFrom plv.ValidFrom
+FROM M_PriceList_Version plv 
+INNER JOIN M_ProductPrice pp ON(pp.M_PriceList_Version_ID = plv.M_PriceList_Version_ID AND pp.M_Product_ID = p_M_Product_ID)
+WHERE plv.M_PriceList_ID = p_M_PriceList_ID
+AND plv.ValidFrom &lt; p_Date 
+ORDER BY plv.ValidFrom ASC
+LIMIT 1;
+    RETURN v_ValidFrom;
+END;
+
+$BODY$;</SQLStatement>
+    </Step>
+    <Step DBType="Postgres" Parse="N" SeqNo="20" StepType="SQL">
+      <SQLStatement>-- FUNCTION: adempiere.taxrateat(numeric, timestamp without time zone, character varying)
+
+-- DROP FUNCTION adempiere.taxrateat(numeric, timestamp without time zone, character varying);
+/*************************************************************************
+ * The contents of this file are subject to the Compiere License.  You may
+ * obtain a copy of the License at    http://www.compiere.org/license.html
+ * Software is on an  "AS IS" basis,  WITHOUT WARRANTY OF ANY KIND, either
+ * express or implied. See the License for details. Code: Compiere ERP+CRM
+ * Copyright (C) 1999-2001 Jorg Janke, ComPiere, Inc. All Rights Reserved.
+ *
+ * Created By Yamel Senih, 
+ * ysenih@erpcya.com
+ *************************************************************************
+ * Title: Search Tax Rate
+ * Description:
+ * 
+ ************************************************************************/
+CREATE OR REPLACE FUNCTION taxrateat(
+	p_c_taxcategory_id numeric,
+	p_validfrom timestamp without time zone,
+	issotrx character varying)
+    RETURNS numeric
+    LANGUAGE 'plpgsql'
+
+    COST 100
+    VOLATILE 
+AS $BODY$
+DECLARE
+v_CurrentTax NUMERIC;
+BEGIN
+    -- Get Cost At
+SELECT t.Rate INTO v_CurrentTax
+FROM C_Tax t
+WHERE t.C_TaxCategory_ID = p_C_TaxCategory_ID 
+AND t.ValidFrom &lt;= p_ValidFrom
+AND (t.IsSalesTax = issotrx 
+OR 
+(issotrx = 'Y' AND (t.SOPOType = 'B' OR t.SOPOType = 'S'))
+OR
+(issotrx = 'N' AND (t.SOPOType = 'B' OR t.SOPOType = 'P'))
+)
+ORDER BY t.ValidFrom DESC
+LIMIT 1;
+--  DBMS_OUTPUT.PUT_LINE('== FTA_FarmerLiquidation_ID=' || p_FTA_FarmerLiquidation_ID || ', Amt=' || v_AvailableAmt);
+-- Valid if is null Value
+IF v_CurrentTax IS NULL THEN
+v_CurrentTax := 0;
+END IF;
+-- Default Return
+RETURN  v_CurrentTax;
+END
+$BODY$;</SQLStatement>
+    </Step>
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="284" Action="I" Record_ID="54290" Table="AD_Process">
         <Data AD_Column_ID="4374" Column="AD_ReportView_ID" isNewNull="true"/>
@@ -22,7 +139,7 @@
         <Data AD_Column_ID="2813" Column="ProcedureName" isNewNull="true"/>
         <Data AD_Column_ID="63488" Column="AD_Browse_ID" isNewNull="true"/>
         <Data AD_Column_ID="6485" Column="EntityType">LVE</Data>
-        <Data AD_Column_ID="50182" Column="JasperReport">attachment:rpt_ProductPriceList.jrxml</Data>
+        <Data AD_Column_ID="50182" Column="JasperReport">attachment:rpt_ProductPriceList.jasper</Data>
         <Data AD_Column_ID="2805" Column="Created">2019-09-02 15:30:59.778</Data>
         <Data AD_Column_ID="2807" Column="Updated">2019-09-02 15:30:59.778</Data>
         <Data AD_Column_ID="4214" Column="IsDirectPrint">false</Data>
