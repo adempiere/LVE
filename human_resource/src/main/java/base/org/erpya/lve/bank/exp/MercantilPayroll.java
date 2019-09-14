@@ -44,10 +44,10 @@ import org.compiere.util.Util;
  *		<a href="https://github.com/adempiere/LVE/issues/1">
  * 		@see FR [ 1 ] Initial commit</a>
  */
-public class Mercantil extends LVEPaymentExportList {
+public class MercantilPayroll extends LVEPaymentExportList {
 
 	/** Logger								*/
-	static private CLogger	s_log = CLogger.getCLogger (MercantilPayroll.class);
+	static private CLogger	s_log = CLogger.getCLogger (Mercantil.class);
 	/**	Header Short Format	*/
 	private final String HEADER_SHORT_DATE_FORMAT = "yyyyMMdd";
 	
