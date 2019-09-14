@@ -14,7 +14,7 @@
  * All Rights Reserved.                                                       *
  * Contributor(s): Yamel Senih www.erpcya.com                                 *
  *****************************************************************************/
-package org.erpya.lve.util.impexp;
+package org.erpya.lve.util.exp;
 
 import java.io.File;
 import java.io.Writer;

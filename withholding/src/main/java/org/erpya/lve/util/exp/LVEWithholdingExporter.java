@@ -15,7 +15,7 @@
  * All Rights Reserved.                                                       *
  * Contributor(s): Yamel Senih www.erpya.com                                  *
  *****************************************************************************/
-package org.erpya.lve.util.impexp;
+package org.erpya.lve.util.exp;
 
 import java.util.ArrayList;
 import java.util.List;
