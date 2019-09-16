@@ -144,7 +144,7 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 						continue;
 					}
 					//	
-					if(column.getColumnName().equals("OrgTaxID")
+					if(column.getColumnName().equals("OrgValue")
 							&& orgPrintFormatItemId == 0) {
 						orgPrintFormatItemId = item.getAD_PrintFormatItem_ID();
 						orgPrintName = item.getPrintName();
@@ -168,13 +168,13 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 				}
 				//	Set
 				if(Util.isEmpty(orgPrintName)) {
-					orgPrintName = "OrgTaxID";
+					orgPrintName = "RifAgente";
 				}
 				if(Util.isEmpty(orgTaxId)) {
 					orgTaxId = "";
 				}
 				if(Util.isEmpty(periodPrintName)) {
-					periodPrintName = "Period";
+					periodPrintName = "Periodo";
 				}
 				if(Util.isEmpty(period)) {
 					period = "";

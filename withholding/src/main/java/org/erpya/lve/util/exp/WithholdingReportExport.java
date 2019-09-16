@@ -26,9 +26,9 @@ import org.spin.util.ReportExport;
  * 		<a href="https://github.com/adempiere/adempiere/issues/1400">
  * 		@see FR [ 1400 ] Dynamic report export</a>
  */
-public class ReportExportLVE extends ReportExport {
+public class WithholdingReportExport extends ReportExport {
 		
-	public ReportExportLVE(Properties ctx, ReportEngine reportEngine) {
+	public WithholdingReportExport(Properties ctx, ReportEngine reportEngine) {
 		super(ctx, reportEngine);
 		addExportFormat(new ExportFormatTXT_IVA(ctx, reportEngine));
 		addExportFormat(new ExportFormatXML_ISLR(ctx, reportEngine));

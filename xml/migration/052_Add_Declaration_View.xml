@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="D" Name="Se agrega Vista de Declaración" ReleaseNo="3.9.3" SeqNo="81000270">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="361" Action="I" Record_ID="53311" Table="AD_ReportView">
+        <Data AD_Column_ID="4388" Column="Created">2019-09-16 12:43:54.139</Data>
+        <Data AD_Column_ID="85531" Column="Classname" isNewNull="true"/>
+        <Data AD_Column_ID="4387" Column="IsActive">true</Data>
+        <Data AD_Column_ID="4390" Column="Updated">2019-09-16 12:43:54.139</Data>
+        <Data AD_Column_ID="4384" Column="AD_ReportView_ID">53311</Data>
+        <Data AD_Column_ID="4395" Column="WhereClause" isNewNull="true"/>
+        <Data AD_Column_ID="4396" Column="OrderByClause" isNewNull="true"/>
+        <Data AD_Column_ID="4393" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="4392" Column="Name">LVE_RV_Withholding (Declared)</Data>
+        <Data AD_Column_ID="78517" Column="PrintName">Withholding Declared</Data>
+        <Data AD_Column_ID="78535" Column="IsCentrallyMaintained">false</Data>
+        <Data AD_Column_ID="4385" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="10032" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="4386" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="4389" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="4391" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="4394" Column="AD_Table_ID">54669</Data>
+        <Data AD_Column_ID="84405" Column="UUID">2bba802a-d8a1-11e9-9295-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="54060" Action="I" Record_ID="0" Table="AD_ReportView_Trl">
+        <Data AD_Column_ID="78520" Column="IsActive">true</Data>
+        <Data AD_Column_ID="78521" Column="Created">2019-09-16 12:43:55.01</Data>
+        <Data AD_Column_ID="78522" Column="Updated">2019-09-16 12:43:55.01</Data>
+        <Data AD_Column_ID="78527" Column="PrintName">Withholding Declared</Data>
+        <Data AD_Column_ID="78528" Column="Name">LVE_RV_Withholding (Declared)</Data>
+        <Data AD_Column_ID="78529" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="78534" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="78518" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="78519" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="78523" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="78524" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="78526" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="78525" Column="AD_ReportView_ID">53311</Data>
+        <Data AD_Column_ID="84407" Column="UUID">2bf1f1b8-d8a1-11e9-9295-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="54060" Action="U" Record_ID="0" Table="AD_ReportView_Trl">
+        <Data AD_Column_ID="78527" Column="PrintName" oldValue="Withholding Declared">Retenciones Declaradas</Data>
+        <Data AD_Column_ID="78528" Column="Name" oldValue="LVE_RV_Withholding (Declared)">Retenciones Declaradas</Data>
+        <Data AD_Column_ID="78526" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="78525" Column="AD_ReportView_ID" oldValue="53311">53311</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="361" Action="U" Record_ID="53311" Table="AD_ReportView">
+        <Data AD_Column_ID="85531" Column="Classname" isOldNull="true">org.erpya.lve.util.exp.WithholdingReportExport</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="361" Action="U" Record_ID="53311" Table="AD_ReportView">
+        <Data AD_Column_ID="4395" Column="WhereClause" isOldNull="true">LVE_RV_Withholding.IsDeclared = 'Y'</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
