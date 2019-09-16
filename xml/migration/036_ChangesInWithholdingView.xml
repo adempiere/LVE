@@ -71,7 +71,8 @@
       </PO>
     </Step>
     <Step DBType="ALL" Parse="Y" SeqNo="30" StepType="SQL">
-      <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_Withholding AS 
+      <SQLStatement>DROP VIEW LVE_RV_Withholding;
+CREATE OR REPLACE VIEW LVE_RV_Withholding AS 
 SELECT 
 	whDoc.AD_Client_ID,
 	whDoc.AD_Org_ID,
