@@ -98,6 +98,9 @@ public class ExportFormatTXT_IVA extends ExportFormatCSV {
 
 				//	for all columns
 				boolean first = true;	//	first column to print
+				if(!first) {
+					writer.write(Env.NL);
+				}
 				for (int col = 0; col < printFormat.getItemCount(); col++) {
 					MPrintFormatItem item = printFormat.getItem(col);
 					if (item.isPrinted()) {
@@ -162,7 +165,6 @@ public class ExportFormatTXT_IVA extends ExportFormatCSV {
 					}	//	printed
 				}	//	for all columns
 				writer.write(sb.toString());
-				writer.write(Env.NL);
 			}	//	for all rows
 			//
 			writer.flush();
