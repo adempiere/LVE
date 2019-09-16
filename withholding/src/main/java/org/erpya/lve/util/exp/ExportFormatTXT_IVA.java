@@ -90,6 +90,7 @@ public class ExportFormatTXT_IVA extends ExportFormatCSV {
 			int startAt = 0;
 			PrintData printData = (engine != null? engine.getPrintData(): getPrintData());
 			MPrintFormat printFormat = (engine != null? engine.getPrintFormat(): getPrintFormat());
+			boolean firstLine = true;
 			//	for all rows (-1 = header row)
 			for (int row = startAt; row < printData.getRowCount(); row++) {
 				StringBuffer sb = new StringBuffer();
@@ -98,8 +99,10 @@ public class ExportFormatTXT_IVA extends ExportFormatCSV {
 
 				//	for all columns
 				boolean first = true;	//	first column to print
-				if(!first) {
-					writer.write(Env.NL);
+				if(firstLine) {
+					firstLine = false;
+				} else {
+					writer.write(CRLF);
 				}
 				for (int col = 0; col < printFormat.getItemCount(); col++) {
 					MPrintFormatItem item = printFormat.getItem(col);
@@ -114,8 +117,11 @@ public class ExportFormatTXT_IVA extends ExportFormatCSV {
 							createCSVvalue (sb, delimiter,
 									printFormat.getItem(col).getPrintName(getLanguage()));
 						} else {
-							Object obj = printData.getNode(new Integer(item.getAD_Column_ID()));
+							Object obj = null;
 							String data = "";
+							if(item.getAD_Column_ID() != 0) {
+								obj = printData.getNode(new Integer(item.getAD_Column_ID()));
+							}
 							if (obj == null) {
 								if(item.getPrintFormatType().equals(MPrintFormatItem.PRINTFORMATTYPE_Text)) {
 									if(!Util.isEmpty(item.getPrintName())) {
@@ -146,19 +152,35 @@ public class ExportFormatTXT_IVA extends ExportFormatCSV {
 									query.addRestriction(item.getColumnName(), MQuery.EQUAL, new Integer(Record_ID));
 									format.setTranslationViewQuery(query);
 									log.fine(query.toString());
-								}
-								else if (pde.isPKey()) {
+								} else if (pde.isPKey()) {
 									data = pde.getValueAsString();
 								} else {
 									data = pde.getValueDisplay(getLanguage());	//	formatted
 									//	Only for IVA
-									if(!Util.isEmpty(data)
-											&& DisplayType.isNumeric(pde.getDisplayType())) {
-										data = data.replaceAll(",", ".");
+									if(!Util.isEmpty(data)) {
+										if(DisplayType.isNumeric(pde.getDisplayType())) {
+											data = data.replaceAll(",", ".");
+										} else if(DisplayType.isText(pde.getDisplayType())
+												&& (item.getColumnName().equals("InvoiceNo") 
+														|| item.getColumnName().equals("AffectedDocumentNo"))) {
+											int intValue = -1;
+											try {
+												intValue = Integer.parseInt(data);
+											} catch (Exception e) {
+												//	None
+											}
+											if(intValue != -1) {
+												data = String.valueOf(intValue);
+											}
+										}
 									}
 								}
 							} else {
 								log.log(Level.SEVERE, "Element not PrintData(Element) " + obj.getClass());
+							}
+							//	Set default
+							if(Util.isEmpty(data)) {
+								data = "0";
 							}
 							createCSVvalue (sb, delimiter, data);
 						}
