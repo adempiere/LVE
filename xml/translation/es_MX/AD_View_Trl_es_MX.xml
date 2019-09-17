@@ -288,11 +288,29 @@
   <value column="Help" original=""/>
   <value column="UUID" original="a4cb6130-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="50135" trl="N">
+  <value column="Name" original="Replenish view">Vista de Reabastecimiento</value>
+  <value column="Description" original="">Muestra los productos que se encuentran listos para reabastecer</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="eca9c18a-9439-11e9-8f2d-0242ac110003">ecbf3a92-9439-11e9-8f2d-0242ac110003</value>
+ </row>
  <row id="50144" trl="N">
   <value column="Name" original="Process of Window">Procesos de Ventana</value>
   <value column="Description" original="view of the window">Vista de los procesos de una ventana</value>
   <value column="Help" original=""/>
   <value column="UUID" original="97e20aac-2fb9-11e9-ba31-0242ac140002"/>
+ </row>
+ <row id="50155" trl="Y">
+  <value column="Name" original="Withholding">Retenciones</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="0fb0a5fa-9dd0-11e9-a5b9-0242ac140003">0fb3715e-9dd0-11e9-a5b9-0242ac140003</value>
+ </row>
+ <row id="50158" trl="N">
+  <value column="Name" original="Invoice Withholding">Retenciónes Generadas</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="7a7946b0-c2b2-11e9-a02c-0242ac110004">7a97a452-c2b2-11e9-a02c-0242ac110004</value>
  </row>
  <row id="90002" trl="Y">
   <value column="Name" original="SB_InvoiceGenerateFromOrderLine">Generar Facturas de líneas de Orden</value>

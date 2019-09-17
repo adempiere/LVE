@@ -369,11 +369,41 @@ Para saber cómo satisfacen los suministros cada demanda, es posible seleccionar
   <value column="Help" original="Create Purchase orders from Purchase Requisitions Lines.">Consulta permite crear órdenes de compra a partir de las lineas de la requisiciones</value>
   <value column="UUID" original="8aaf0ce8-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="50152" trl="N">
+  <value column="Name" original="Warehouse Replenish">Reabastecimiento de Almacén</value>
+  <value column="Description" original="Smart Browser Inventory Replenish">Reabastecimiento de Almacén</value>
+  <value column="Help" original="Maintains the inventory stocks">Permite Mantener las existencias en inventario.</value>
+  <value column="UUID" original="a478aa2a-9439-11e9-8f2d-0242ac110003">a48f0d06-9439-11e9-8f2d-0242ac110003</value>
+ </row>
  <row id="50161" trl="N">
   <value column="Name" original="Create Process From Window">Crear Acceso a Proceso desde Ventana</value>
   <value column="Description" original="Create Process Access from Window">Crear Acceso a Proceso desde una Ventana</value>
   <value column="Help" original="">Permite agregar acceso a uno o varios procesos que existen en la ventana seleccionada</value>
   <value column="UUID" original="7134aa9a-2fb9-11e9-9a38-0242ac140002"/>
+ </row>
+ <row id="50179" trl="N">
+  <value column="Name" original="Create Lines for RFQ from Requisitions">Crear desde Requisición</value>
+  <value column="Description" original="Request for Quotation Create From Requisition">Crea Lineas de Solicitud desde Requisiciones</value>
+  <value column="Help" original="This Browser allows create lines for RFQ from requisitions">Crea Lineas de Solicitud para Cotizar desde Requisiciones</value>
+  <value column="UUID" original="393d4536-c6d9-11e9-b32d-0242ac110002">3961f05c-c6d9-11e9-b32d-0242ac110002</value>
+ </row>
+ <row id="50180" trl="N">
+  <value column="Name" original="Generate Invoice From Outbound Order">Generar Factura desde Orden de Salida</value>
+  <value column="Description" original="This Smart Browse allow select the Outbound Order Lines ready to be to ship.">Esta búsqueda inteligente permite seleccionar las líneas de orden de salida listas para facturar.</value>
+  <value column="Help" original="">Esta búsqueda inteligente permite seleccionar las líneas de orden de salida listas para facturar.</value>
+  <value column="UUID" original="393d428e-c6d9-11e9-b32d-0242ac110002">3961edc8-c6d9-11e9-b32d-0242ac110002</value>
+ </row>
+ <row id="50181" trl="N">
+  <value column="Name" original="Browser Generate Withholding">Generar Retenciones</value>
+  <value column="Description" original="Generate Withholding">Genera Retenciones desde cálculos realizados</value>
+  <value column="Help" original="Generate Withholding">Use este visor inteligenete para generar las retenciones de documentos por pagar a partir de un cálculo existente</value>
+  <value column="UUID" original="6e6ebb6e-a266-11e9-8834-0242ac110003">6e790bf0-a266-11e9-8834-0242ac110003</value>
+ </row>
+ <row id="50184" trl="N">
+  <value column="Name" original="Browser Generate Withholding Declaration">Generar Declaracion de Retenciones</value>
+  <value column="Description" original="Generate Withholding Declaration">Permite Generar la Declaracion de Retenciones realizadas</value>
+  <value column="Help" original="Generate Withholding Declaration">Use este visor para generar la declaración a final de período basado en todas las retenciones realizadas</value>
+  <value column="UUID" original="0c12794a-c2bb-11e9-9209-0242ac110004">0c192826-c2bb-11e9-9209-0242ac110004</value>
  </row>
  <row id="90002" trl="Y">
   <value column="Name" original="Generate Invoice from Order Line">Generar Factura desde Linea de Orden</value>

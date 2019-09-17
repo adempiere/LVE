@@ -640,4 +640,9 @@
   <value column="Description" original="A planned material requisition is a suggested by the MRP process and contains its quantity and its release and promise dates.">Una requisición planificada es sugerida por el proceso MRP y contiene su cantidad y sus fechas de liberación y promesa.</value>
   <value column="UUID" original="8e51c372-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="54465" trl="Y">
+  <value column="Name" original="Withholding Management">Manejo de Retenciones</value>
+  <value column="Description" original="Define Withholding">Manejo de Retenciones a Socio de Negocio</value>
+  <value column="UUID" original="acc70718-82ef-11e9-bc49-0242ac140004">fa3c549a-8c7b-11e9-9580-f775b1d64ea7</value>
+ </row>
 </adempiereTrl>

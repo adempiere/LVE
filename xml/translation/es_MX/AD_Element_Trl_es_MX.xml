@@ -38077,8 +38077,8 @@ context.</value>
   <value column="UUID" original="8cd52f7a-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
  <row id="58020" trl="Y">
-  <value column="Name" original="Global Payroll Concept Type">Tipo de Concepto de Nómina</value>
-  <value column="PrintName" original="Global Payroll Concept Type">Tipo de Concepto de Nómina</value>
+  <value column="Name" original="Global Payroll Concept Type">Global Payroll Concept Type ID</value>
+  <value column="PrintName" original="Global Payroll Concept Type">Global Payroll Concept Type ID</value>
   <value column="Description" original="Allows define types for concepts"/>
   <value column="Help" original=""/>
   <value column="PO_Description" original=""/>
@@ -39374,7 +39374,7 @@ Strings may be in single quotes (optional)]]></value>
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="8cce1730-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="59298" trl="N">
+ <row id="59298" trl="Y">
   <value column="Name" original="Is Update Count Qty">Is Update Count Qty</value>
   <value column="PrintName" original="Is Update Count Qty">Is Update Count Qty</value>
   <value column="Description" original="Update count quantity on inventory">Update count quantity on inventory</value>
@@ -41176,7 +41176,7 @@ Credit Expense 1000
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
-  <value column="UUID" original="84963e1e-9c56-11e9-8ded-0242ac110002">6f044928-8fc8-11e9-913f-df3b027d3243</value>
+  <value column="UUID" original="46fa1dce-d89b-11e9-a479-0242ac110002">6f044928-8fc8-11e9-913f-df3b027d3243</value>
  </row>
  <row id="60426" trl="N">
   <value column="Name" original="Bank Matcher">Algoritmo de Conciliación Configurado</value>
@@ -41298,6 +41298,61 @@ Credit Expense 1000
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="8cdb8fd2-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="60886" trl="N">
+  <value column="Name" original="Commission Type">Tipo de Comisión</value>
+  <value column="PrintName" original="Commission Type">Tipo de Comisión</value>
+  <value column="Description" original="Defined for custom query on commission">Se define para realizar una consulta personalizada</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="60907" trl="N">
+  <value column="Name" original="Currency Column">Columna para Moneda</value>
+  <value column="PrintName" original="Currency Column">Columna para Moneda</value>
+  <value column="Description" original="Currency Column for get from View">Columna para Moneda desde la Vista</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="60908" trl="N">
+  <value column="Name" original="Quantity Column">Columna para Cantidad</value>
+  <value column="PrintName" original="Quantity Column">Columna para Cantidad</value>
+  <value column="Description" original="Quantity Column for get from View">Columna para Cantidad desde la Vista</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="60909" trl="N">
+  <value column="Name" original="Amount Column">Columna para Monto</value>
+  <value column="PrintName" original="Amount Column">Columna para Monto</value>
+  <value column="Description" original="Amount Column for get from View">Columna para Monto desde la Vista</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="60910" trl="N">
+  <value column="Name" original="Date Doc Column">Columna para Fecha</value>
+  <value column="PrintName" original="Date Doc Column">Columna para Fecha</value>
+  <value column="Description" original="Date Doc Column for get from View">Columna para Fecha desde la Vista</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original=""/>
  </row>
  <row id="60911" trl="N">
   <value column="Name" original="Landed Cost Type">Tipo de Costo Adicional</value>
@@ -41475,6 +41530,17 @@ Credit Expense 1000
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="7a36e7ac-8270-11e9-8fd0-7f846e353da8">7a60d152-8270-11e9-8fe9-f75e8d7b850c</value>
  </row>
+ <row id="61008" trl="N">
+  <value column="Name" original="Attachment Reference">Referencia de Adjunto</value>
+  <value column="PrintName" original="Attachment Reference">Referencia de Adjunto</value>
+  <value column="Description" original="Used for save reference for all attachment files">Usado para guardar referencia de todos los adjuntos</value>
+  <value column="Help" original="Make reference with external Storage">Hace referencia con un almacenamiento externo</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="2618086c-8352-11e9-a0f3-6b47d8ddb515">264450e8-8352-11e9-a10c-7b016094f4fc</value>
+ </row>
  <row id="61009" trl="N">
   <value column="Name" original="Parent Product">Parent Product</value>
   <value column="PrintName" original="Parent Product">Parent Product</value>
@@ -41507,6 +41573,17 @@ Credit Expense 1000
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="71132c16-83de-11e9-94e1-0242ac110002">714b19f0-83de-11e9-94e1-0242ac110002</value>
+ </row>
+ <row id="61012" trl="N">
+  <value column="Name" original="File Handler">Manejador de Archivos</value>
+  <value column="PrintName" original="File Handler">Manejador de Archivos</value>
+  <value column="Description" original="File Handler Registered as App Registration for handle all file system">Manejador de Archivos con una Aplicación Registrada para el manejo de los archivos del sistema</value>
+  <value column="Help" original="Use it for handle all file system as external connetion or linking to O.S files">Use esto para manejar todos los archivos del sistema con una conexión a un manejador de archivos externos o con un enlace a archivos locales del Sistema Operativo</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="f62fa0da-85a2-11e9-80cc-83c40f89f3d6">f69ad256-85a2-11e9-80e5-3766f509750e</value>
  </row>
  <row id="61013" trl="N">
   <value column="Name" original="Notify me my own changes">Notificarme mis Propios Cambios</value>
@@ -41575,8 +41652,8 @@ Credit Expense 1000
   <value column="UUID" original="a5425d08-82ef-11e9-bc49-0242ac140004">a56793d4-82ef-11e9-bc49-0242ac140004</value>
  </row>
  <row id="61060" trl="N">
-  <value column="Name" original="Source Invoice ">Factura Fuente</value>
-  <value column="PrintName" original="Source Invoice ">Factura Fuente</value>
+  <value column="Name" original="Source Invoice">Factura Fuente</value>
+  <value column="PrintName" original="Source Invoice">Factura Fuente</value>
   <value column="Description" original=""/>
   <value column="Help" original=""/>
   <value column="PO_Description" original=""/>
@@ -41672,6 +41749,17 @@ Credit Expense 1000
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="63826dec-8e2d-11e9-a0c1-9b814e505c40">63c2a4d4-8e2d-11e9-a0da-3f9064c73a83</value>
+ </row>
+ <row id="61071" trl="N">
+  <value column="Name" original="Package Custom Exporter">Exportador de Paquetes</value>
+  <value column="PrintName" original="Package Custom Exporter">Exportador de Paquetes</value>
+  <value column="Description" original="Custom Exporter for any entity">Usado para exportar cualquier tipo de entidad</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="737f7118-8e3c-11e9-a583-6b1609342479">73adcd60-8e3c-11e9-a59c-f37aa31a1ffa</value>
  </row>
  <row id="61072" trl="N">
   <value column="Name" original="Withholding Rate">Porcentaje de Retención</value>
@@ -41936,6 +42024,426 @@ Credit Expense 1000
   <value column="PO_Name" original=""/>
   <value column="PO_PrintName" original=""/>
   <value column="UUID" original="c9124084-9c69-11e9-8047-0242ac110002">c9374cbc-9c69-11e9-8047-0242ac110002</value>
+ </row>
+ <row id="61110" trl="N">
+  <value column="Name" original="Preborn Leave is Paid">Permiso por Nacimiento (Pagado por la Empresa)</value>
+  <value column="PrintName" original="Preborn Leave is Paid">Permiso por Nacimiento (Pagado por la Empresa)</value>
+  <value column="Description" original="Preborn Leave is Paid for Organization">Permiso por Nacimiento (Pagado por la Empresa)</value>
+  <value column="Help" original="This flag is for indicate that Preborn Leave is Paid for Current Organization">Indica que el permiso por nacimiento será pagado por la empresa y la misma se encargará de hacer el cobro al IVSS</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="c9da3926-9cd8-11e9-b589-0242ac110002">cde89d1e-9cd8-11e9-b589-0242ac110002</value>
+ </row>
+ <row id="61136" trl="N">
+  <value column="Name" original="Withholding Credit Document Type">Tipo de Documento de Retención (Crédito)</value>
+  <value column="PrintName" original="Withholding Credit Document Type">Tipo de Documento de Retención (Crédito)</value>
+  <value column="Description" original="Withholding Credit Document Type">Tipo de Documento de Retención (Crédito)</value>
+  <value column="Help" original="Use this field for set Declaration Credit Document Type">Use este campo para establecer el Tipo de Documento de Retención (Crédito)</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="120b1828-bdfe-11e9-b157-0242ac110002">123b95de-bdfe-11e9-b157-0242ac110002</value>
+ </row>
+ <row id="61137" trl="N">
+  <value column="Name" original="Withholding Debit Document Type">Tipo de Documento de Retención (Débito)</value>
+  <value column="PrintName" original="Withholding Debit Document Type">Tipo de Documento de Retención (Débito)</value>
+  <value column="Description" original="Withholding Debit Document Type">Tipo de Documento de Retención (Débito)</value>
+  <value column="Help" original="Use this field for set Withholding Debit Document Type">Use este campo para llenar el Tipo de Documento de Retención (Débito)</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="3f901f8c-bdfe-11e9-b157-0242ac110002">3fb56aa8-bdfe-11e9-b157-0242ac110002</value>
+ </row>
+ <row id="61139" trl="N">
+  <value column="Name" original="SICA Code">Código SICA</value>
+  <value column="PrintName" original="SICA Code">Código SICA</value>
+  <value column="Description" original="Used for identify a location">Usado para identificar una localización ante la entidad gubernamental de SUNAGRO</value>
+  <value column="Help" original="See: https://sistema.sunagro.gob.ve/index.php">Vea: https://sistema.sunagro.gob.ve/index.php</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="b65eb970-becb-11e9-acc1-0242ac110002">b69ca528-becb-11e9-acc1-0242ac110002</value>
+ </row>
+ <row id="61140" trl="N">
+  <value column="Name" original="CPE Code">Código CPE</value>
+  <value column="PrintName" original="CPE Code">Código CPE</value>
+  <value column="Description" original="Packaged Products Code">Código de Productos Envasados (CPE)</value>
+  <value column="Help" original="Your can search code here http://sencamer.gob.ve/cpe/ or visit a page for more info http://sencamer.gob.ve/">Usted puede consultar el código CPE aquí http://sencamer.gob.ve/cpe/ o visite la página oficial para mayor información info http://sencamer.gob.ve/</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="507d0aae-bee3-11e9-9fe2-0242ac110002">50bc57f4-bee3-11e9-9fe2-0242ac110002</value>
+ </row>
+ <row id="61141" trl="N">
+  <value column="Name" original="UOM for Weight (Report)">UM para Peso (Reporte)</value>
+  <value column="PrintName" original="UOM for Weight (Report)">UM para Peso (Reporte)</value>
+  <value column="Description" original="Standard Unit of Measure for Weight">Unidad de Medida estándar para peso</value>
+  <value column="Help" original="The Standard UOM for Weight indicates the UOM to use for products referenced by weight in a document.">La UM estándar de peso indica la UM a usar para productos referenciados por peso en un documento</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="33581136-bee7-11e9-bc42-0242ac110002">339344d6-bee7-11e9-bc42-0242ac110002</value>
+ </row>
+ <row id="61142" trl="N">
+  <value column="Name" original="UOM for Volume (Report)">UM para Volumen (Reporte)</value>
+  <value column="PrintName" original="UOM for Volume (Report)">UM para Volumen (Reporte)</value>
+  <value column="Description" original="Standard Unit of Measure for Volume">Unidad de Medida estándar para volumen</value>
+  <value column="Help" original="The Standard UOM for Volume indicates the UOM to use for products referenced by volume in a document.">La UM estándar de volumen indica la UM a usar para productos referenciados por volumen en un documento</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="aae427f8-bee7-11e9-ac96-0242ac110002">ab13a410-bee7-11e9-ac96-0242ac110002</value>
+ </row>
+ <row id="61143" trl="N">
+  <value column="Name" original="Withholding Base Rate">Porcentage de Monto Base</value>
+  <value column="PrintName" original="Withholding Base Rate">Porcentage de Monto Base</value>
+  <value column="Description" original="Withholding Base Rate">Porcentage de Monto Base</value>
+  <value column="Help" original="">Porcentage de Monto Base para aplicar la retención configurada</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="376a4e5a-bf7e-11e9-a962-0242ac110002">378c8ac4-bf7e-11e9-a962-0242ac110002</value>
+ </row>
+ <row id="61146" trl="N">
+  <value column="Name" original="Source Order">Orden Fuente</value>
+  <value column="PrintName" original="Source Order">Orden Fuente</value>
+  <value column="Description" original="">Orden Fuente para la Retención a Generar</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="9d1513f8-c11c-11e9-9e36-0242ac110002">9da9a428-c11c-11e9-9e36-0242ac110002</value>
+ </row>
+ <row id="61147" trl="N">
+  <value column="Name" original="Source Order Line">Linea de Orden Fuente</value>
+  <value column="PrintName" original="Source Order Line">Linea de Orden Fuente</value>
+  <value column="Description" original="">Linea de Orden Fuente para la Retención a Generar</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="fbf23b6c-c11c-11e9-9e36-0242ac110002">fc12bacc-c11c-11e9-9e36-0242ac110002</value>
+ </row>
+ <row id="61153" trl="N">
+  <value column="Name" original="Withholding Third Party">Retención de terceros</value>
+  <value column="PrintName" original="Withholding Third Party">Retención de terceros</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="2fbf69ba-cd02-11e9-9b00-0242ac110002">2ff2ced6-cd02-11e9-9b00-0242ac110002</value>
+ </row>
+ <row id="61154" trl="N">
+  <value column="Name" original="Contribution FAOV">Aporte FAOV</value>
+  <value column="PrintName" original="Contribution FAOV">Aporte FAOV</value>
+  <value column="Description" original="Obtained from the National Housing and Habitat Bank, (BANAVIH)">Obtenido en el Banco Nacional de Vivienda y Hábitat, (BANAVIH)</value>
+  <value column="Help" original="Obtained from the National Housing and Habitat Bank, (BANAVIH), an entity regulated by the Housing and Habitat Provision Regime Law.&#10;">Obtenido en el Banco Nacional de Vivienda y Hábitat, (BANAVIH), organismo regulado por la Ley del Régimen Prestacional de Vivienda y Hábitat.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="d676c90a-c510-11e9-b624-0242ac110004">d68a04c0-c510-11e9-b624-0242ac110004</value>
+ </row>
+ <row id="61155" trl="N">
+  <value column="Name" original="Contribution INCES">Aporte INCES</value>
+  <value column="PrintName" original="Contribution INCES">Aporte INCES</value>
+  <value column="Description" original="Percentage provided by the National Institute for Educational Cooperation (INCES)">Porcentaje previsto por Instituto Nacional de Cooperación Educativa(INCES)</value>
+  <value column="Help" original="Percentage provided by the National Institute for Educational Cooperation (INCES), an entity regulated by the Law of the National Institute for Educational Cooperation.&#10;">Porcentaje previsto por Instituto Nacional de Cooperación Educativa(INCES), organismo regulado por la Ley del Instituto Nacional de Cooperación Educativa.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="797e39e2-c50e-11e9-bede-0242ac110004">799165e4-c50e-11e9-bede-0242ac110004</value>
+ </row>
+ <row id="61156" trl="N">
+  <value column="Name" original="Contribution RPE">Aporte RPE</value>
+  <value column="PrintName" original="Contribution RPE">Aporte RPE</value>
+  <value column="Description" original="Percentage provided by the Venezuelan Institute of Social Security (IVSS)">Porcentaje previsto por l instituto venezolano de los seguros sociales(IVSS</value>
+  <value column="Help" original="Percentage provided by the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.&#10;">Porcentaje previsto por l instituto venezolano de los seguros sociales(IVSS), organismo regulado por el Reglamento del Seguro Social. Las cotizaciones al Seguro Social se causarán semanalmente y se determinarán tomando como base el salario devengado por el asegurado en dicho período, del régimen aplicado en cada zona y del riesgo asignado a las empresas o grupo de trabajadores.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="183e4692-c50c-11e9-b624-0242ac110004">18461f8e-c50c-11e9-b624-0242ac110004</value>
+ </row>
+ <row id="61157" trl="N">
+  <value column="Name" original="Contribution SSO">Aporte SSO</value>
+  <value column="PrintName" original="Contribution SSO">Aporte SSO</value>
+  <value column="Description" original="Percentage provided by the Venezuelan Institute of Social Security (IVSS)">Porcentaje previsto por l instituto venezolano de los seguros sociales(IVSS)</value>
+  <value column="Help" original="Percentage provided by the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.&#10;">Porcentaje previsto por l instituto venezolano de los seguros sociales(IVSS), organismo regulado por el Reglamento del Seguro Social. Las cotizaciones al Seguro Social se causarán semanalmente y se determinarán tomando como base el salario devengado por el asegurado en dicho período, del régimen aplicado en cada zona y del riesgo asignado a las empresas o grupo de trabajadores.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="3a8c5a6a-c50a-11e9-b3b6-0242ac110004">3bb18744-c50a-11e9-b3b6-0242ac110004</value>
+ </row>
+ <row id="61158" trl="N">
+  <value column="Name" original="Deduction FAOV">Deducción FAOV</value>
+  <value column="PrintName" original="Deduction FAOV">Deducción FAOV</value>
+  <value column="Description" original="Obtained from the National Housing and Habitat Bank, (BANAVIH)">Obtenido en el Banco Nacional de Vivienda y Hábitat, (BANAVIH),</value>
+  <value column="Help" original="Obtained from the National Housing and Habitat Bank, (BANAVIH), an entity regulated by the Housing and Habitat Provision Regime Law.&#10;">Obtenido en el Banco Nacional de Vivienda y Hábitat, (BANAVIH), organismo regulado por la Ley del Régimen Prestacional de Vivienda y Hábitat.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="5891ba76-c511-11e9-bede-0242ac110004">58a9ed3a-c511-11e9-bede-0242ac110004</value>
+ </row>
+ <row id="61159" trl="N">
+  <value column="Name" original="Deduction INCES">Deducción INCES</value>
+  <value column="PrintName" original="Deduction INCES">Deducción INCES</value>
+  <value column="Description" original="Percentage provided by the National Institute for Educational Cooperation (INCES">Porcentaje previsto por Instituto Nacional de Cooperación Educativa(INCES)</value>
+  <value column="Help" original="Percentage provided by the National Institute for Educational Cooperation (INCES), an entity regulated by the Law of the National Institute for Educational Cooperation.&#10;">Porcentaje previsto por Instituto Nacional de Cooperación Educativa(INCES), organismo regulado por la Ley del Instituto Nacional de Cooperación Educativa.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="16e03cda-c50f-11e9-b624-0242ac110004">16f1a45c-c50f-11e9-b624-0242ac110004</value>
+ </row>
+ <row id="61160" trl="N">
+  <value column="Name" original="Deduction RPE">Deducción RPE</value>
+  <value column="PrintName" original="Deduction RPE">Deducción RPE</value>
+  <value column="Description" original="Percentage provided by the Venezuelan Institute of Social Security (IVSS)">Porcentaje previsto por l instituto venezolano de los seguros sociales(IVSS)</value>
+  <value column="Help" original="Percentage provided by the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.&#10;">Porcentaje previsto por l instituto venezolano de los seguros sociales(IVSS), organismo regulado por el Reglamento del Seguro Social. Las cotizaciones al Seguro Social se causarán semanalmente y se determinarán tomando como base el salario devengado por el asegurado en dicho período, del régimen aplicado en cada zona y del riesgo asignado a las empresas o grupo de trabajadores.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="bda7e458-c50c-11e9-b624-0242ac110004">bdb03194-c50c-11e9-b624-0242ac110004</value>
+ </row>
+ <row id="61161" trl="N">
+  <value column="Name" original="Deduction SSO">Deducción SSO</value>
+  <value column="PrintName" original="Deduction SSO">Deducción SSO</value>
+  <value column="Description" original="Percentage provided by the Venezuelan Institute of Social Security (IVSS)">Porcentaje previsto por l instituto venezolano de los seguros sociales(IVSS)</value>
+  <value column="Help" original="Percentage provided by the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.&#10;">Porcentaje previsto por l instituto venezolano de los seguros sociales(IVSS), organismo regulado por el Reglamento del Seguro Social. Las cotizaciones al Seguro Social se causarán semanalmente y se determinarán tomando como base el salario devengado por el asegurado en dicho período, del régimen aplicado en cada zona y del riesgo asignado a las empresas o grupo de trabajadores.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="00fba71e-c50b-11e9-bede-0242ac110004">010effe4-c50b-11e9-bede-0242ac110004</value>
+ </row>
+ <row id="61162" trl="N">
+  <value column="Name" original="Employer Number">Número de Empleador</value>
+  <value column="PrintName" original="Employer Number">Número de Empleador</value>
+  <value column="Description" original="Obtained from the Venezuelan Institute of Social Security (IVSS)">Obtenido en el instituto venezolano de los seguros sociales(IVSS)</value>
+  <value column="Help" original="Obtained from the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations.">Obtenido en el instituto venezolano de los seguros sociales(IVSS), organismo regulado por el Reglamento del Seguro Social.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="24f7554c-c505-11e9-9dcf-0242ac110004">250114e2-c505-11e9-9dcf-0242ac110004</value>
+ </row>
+ <row id="61163" trl="N">
+  <value column="Name" original="Enrollment Date SSO">Fecha de Inscripción de SSO</value>
+  <value column="PrintName" original="EnrollmentDateSSO">Fecha de Inscripción de SSO</value>
+  <value column="Description" original="Date of Registration processed in the Venezuelan Institute of Social Security (IVSS)">Fecha de la Inscripción procesada en el instituto venezolano de los seguros sociales(IVSS)</value>
+  <value column="Help" original="Date of Registration processed in the Venezuelan Institute of Social Security (IVSS), body regulated by the Social Security Regulations.">Fecha de la Inscripción procesada en el instituto venezolano de los seguros sociales(IVSS), organismo regulado por el Reglamento del Seguro Social.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="83bafcb0-c504-11e9-9dcf-0242ac110004">83cea2d8-c504-11e9-9dcf-0242ac110004</value>
+ </row>
+ <row id="61164" trl="N">
+  <value column="Name" original="Labor Identification Number">Número de Identificación Laboral (NIL)</value>
+  <value column="PrintName" original="Labor Identification Number">Número de Identificación Laboral (NIL)</value>
+  <value column="Description" original="Obtained from the National Registry of Labor Entities (RENET)">Obtenido en el Registro Nacional de Entidades de Trabajo (RENET).</value>
+  <value column="Help" original="Obtained from the National Registry of Labor Entities (RENET), an agency regulated by the Ministry of Popular Power for the Social Work Process (MPPPST)">Obtenido en el Registro Nacional de Entidades de Trabajo (RENET), organismo regulado por el  Ministerio del Poder Popular para el Proceso Social de Trabajo (MPPPST).
+</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="c5232f3e-c4f9-11e9-9dcf-0242ac110004">c8482f20-c4f9-11e9-9dcf-0242ac110004</value>
+ </row>
+ <row id="61165" trl="N">
+  <value column="Name" original="Number Benefits ">Número de Prestaciones</value>
+  <value column="PrintName" original="Number Benefits ">Número de Prestaciones</value>
+  <value column="Description" original="Obtained in the Trust Registry for the cancellation of social benefits.">Obtenido en el Registro de Fideicomiso para la cancelación de prestaciones sociales</value>
+  <value column="Help" original="Obtained in the Trust Registry for the cancellation of social benefits.">Obtenido en el Registro de Fideicomiso para la cancelación de prestaciones sociales.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="d4d20ad6-c503-11e9-9dcf-0242ac110004">d4da2568-c503-11e9-9dcf-0242ac110004</value>
+ </row>
+ <row id="61166" trl="N">
+  <value column="Name" original="Regime">Régimen</value>
+  <value column="PrintName" original="Regime">Régimen</value>
+  <value column="Description" original="Obtained from the Venezuelan Institute of Social Security (IVSS">Obtenido en el instituto venezolano de los seguros sociales(IVSS)</value>
+  <value column="Help" original="Obtained from the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.">Obtenido en el instituto venezolano de los seguros sociales(IVSS), organismo regulado por el Reglamento del Seguro Social.  Las cotizaciones al Seguro Social se causarán semanalmente y se determinarán tomando como base el salario devengado por el asegurado en dicho período, del régimen aplicado en cada zona y del riesgo asignado a las empresas o grupo de trabajadores.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="edce1ffa-c505-11e9-9af1-0242ac110004">ee1df250-c505-11e9-9af1-0242ac110004</value>
+ </row>
+ <row id="61167" trl="N">
+  <value column="Name" original="Registration Number FAOV">Número Registro FAOV</value>
+  <value column="PrintName" original="Registration Number FAOV">Número Registro FAOV</value>
+  <value column="Description" original="Obtained from the National Housing and Habitat Bank, (BANAVIH)">Obtenido en el Banco Nacional de Vivienda y Hábitat, (BANAVIH)</value>
+  <value column="Help" original="Obtained from the National Housing and Habitat Bank, (BANAVIH), an entity regulated by the Housing and Habitat Provision Regime Law.&#10;">Obtenido en el Banco Nacional de Vivienda y Hábitat, (BANAVIH), organismo regulado por la Ley del Régimen Prestacional de Vivienda y Hábitat.
+</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="40d69376-c510-11e9-bede-0242ac110004">40e90aec-c510-11e9-bede-0242ac110004</value>
+ </row>
+ <row id="61168" trl="N">
+  <value column="Name" original="Registration Number INCES">Número Registro INCES</value>
+  <value column="PrintName" original="Registration Number INCES">Número Registro INCES</value>
+  <value column="Description" original="Obtained from that of the National Institute for Educational Cooperation (INCES)">Obtenido en el del Instituto Nacional de Cooperación Educativa(INCES),</value>
+  <value column="Help" original="Obtained from that of the National Institute for Educational Cooperation (INCES), an organism regulated by the Law of the National Institute for Educational Cooperation, being an employer with five (5) or more workers (natural or legal persons).&#10;">Obtenido en el del Instituto Nacional de Cooperación Educativa(INCES), organismo regulado por la Ley del Instituto Nacional de Cooperación Educativa,  siendo obligado todo empleador con cinco (5) o más trabajadores (personas naturales o jurídicas).</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="ae1276ce-c50d-11e9-bede-0242ac110004">ae22c7c2-c50d-11e9-bede-0242ac110004</value>
+ </row>
+ <row id="61169" trl="N">
+  <value column="Name" original="Risk">Riesgo</value>
+  <value column="PrintName" original="Risk">Riesgo</value>
+  <value column="Description" original="Obtained from the Venezuelan Institute of Social Security (IVSS)">Obtenido en el instituto venezolano de los seguros sociales(IVSS)</value>
+  <value column="Help" original="Obtained from the Venezuelan Institute of Social Security (IVSS), an agency regulated by the Social Security Regulations. Social Security contributions will be made weekly and will be determined based on the salary earned by the insured in said period, the regime applied in each zone and the risk assigned to the companies or group of workers.&#10;">Obtenido en el instituto venezolano de los seguros sociales(IVSS), organismo regulado por el Reglamento del Seguro Social. Las cotizaciones al Seguro Social se causarán semanalmente y se determinarán tomando como base el salario devengado por el asegurado en dicho período, del régimen aplicado en cada zona y del riesgo asignado a las empresas o grupo de trabajadores.</value>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="53c1f49c-c508-11e9-9af1-0242ac110004">546729ee-c508-11e9-9af1-0242ac110004</value>
+ </row>
+ <row id="61175" trl="N">
+  <value column="Name" original="Vehicle Group">Grupo de Vehículo</value>
+  <value column="PrintName" original="Vehicle Group">Grupo de Vehículo</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="9580784c-4045-11e9-b658-0242ac140002">958c0e8c-4045-11e9-b658-0242ac140002</value>
+ </row>
+ <row id="61176" trl="N">
+  <value column="Name" original="Affected Document Number">Nro Documento Afectado</value>
+  <value column="PrintName" original="Affected Document Number">Documento Afectado</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="e115e0c0-cd18-11e9-9dd0-0242ac110002">e1176378-cd18-11e9-9dd0-0242ac110002</value>
+ </row>
+ <row id="61177" trl="N">
+  <value column="Name" original="Credit Document Number">Nro de Nota de Crédito</value>
+  <value column="PrintName" original="Credit Number">Nota de Crédito</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="e10a714a-cd18-11e9-9dd0-0242ac110002">e10c5dca-cd18-11e9-9dd0-0242ac110002</value>
+ </row>
+ <row id="61178" trl="N">
+  <value column="Name" original="Debit Document Number">Nro Nota de Débito</value>
+  <value column="PrintName" original="Debit Number">Nota de Débito</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="e1101e9c-cd18-11e9-9dd0-0242ac110002">e111d458-cd18-11e9-9dd0-0242ac110002</value>
+ </row>
+ <row id="61179" trl="N">
+  <value column="Name" original="Invoice Number">Nro de Factura</value>
+  <value column="PrintName" original="Invoice">Factura</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="e10126ee-cd18-11e9-9dd0-0242ac110002">e104f724-cd18-11e9-9dd0-0242ac110002</value>
+ </row>
+ <row id="61180" trl="N">
+  <value column="Name" original="Fiscal Document Type">Fiscal Document Type</value>
+  <value column="PrintName" original="Fiscal Document Type">Fiscal Document Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="30040fd6-cd32-11e9-ac06-0242ac110002">30408790-cd32-11e9-ac06-0242ac110002</value>
+ </row>
+ <row id="61181" trl="N">
+  <value column="Name" original="Public Max Price">PMVP</value>
+  <value column="PrintName" original="Public Max Price">PMVP</value>
+  <value column="Description" original="">Precio Marcado de Venta al Público</value>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="caadfeac-cdaf-11e9-b8cc-0242ac110002">ced9e54a-cdaf-11e9-b8cc-0242ac110002</value>
+ </row>
+ <row id="61183" trl="N">
+  <value column="Name" original="Price List Name">Nombre de Lista de Precios</value>
+  <value column="PrintName" original="Price List Name">Nombre de Lista de Precios</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="f89a952e-cff7-11e9-93f1-0242ac110002">f8d3538c-cff7-11e9-93f1-0242ac110002</value>
+ </row>
+ <row id="61185" trl="N">
+  <value column="Name" original="Exempt Amount">Monto Exento</value>
+  <value column="PrintName" original="Exempt Amount">Monto Exento</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="2a4fa2b6-d4e5-11e9-9f57-0242ac110002">2a7b8764-d4e5-11e9-9f57-0242ac110002</value>
+ </row>
+ <row id="61188" trl="N">
+  <value column="Name" original="Withholding Document Number">Nro de Retención</value>
+  <value column="PrintName" original="Withholding Number">Nro de Retención</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="864ebb68-d744-11e9-b979-0242ac110002">86cce9c0-d744-11e9-b979-0242ac110002</value>
+ </row>
+ <row id="61189" trl="N">
+  <value column="Name" original="Concept Value">Código de Concepto</value>
+  <value column="PrintName" original="Concept Value">Código de Concepto</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="PO_Description" original=""/>
+  <value column="PO_Help" original=""/>
+  <value column="PO_Name" original=""/>
+  <value column="PO_PrintName" original=""/>
+  <value column="UUID" original="a08bd4a2-d744-11e9-a755-0242ac110002">a0aca3d0-d744-11e9-a755-0242ac110002</value>
  </row>
  <row id="200000" trl="Y">
   <value column="Name" original="Recent Item">Recent Item</value>

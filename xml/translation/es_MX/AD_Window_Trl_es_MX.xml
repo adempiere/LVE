@@ -2932,6 +2932,12 @@ Pipelines (pipeline transport)</value>
   <value column="Help" original=""/>
   <value column="UUID" original="2f286d9a-8166-11e9-865b-f323896c4cfc"/>
  </row>
+ <row id="53656" trl="N">
+  <value column="Name" original="Commission Type">Tipo de Comisión</value>
+  <value column="Description" original="Commission Type is used for define a custom commission">Tipo de Comisión es utilizada para definir comisiones personalizadas</value>
+  <value column="Help" original="Use it for define a custom commission calculation or search">Use esta ventana para definir una comisión o búsqueda personalizada</value>
+  <value column="UUID" original="61014b7e-8194-11e9-a28d-ef4bce9fa156"/>
+ </row>
  <row id="53660" trl="N">
   <value column="Name" original="Process Customization">Personalización de Proceso</value>
   <value column="Description" original="Maintain Reports &amp; Processes">Mantener informes y procesos</value>
@@ -2949,6 +2955,12 @@ Pipelines (pipeline transport)</value>
   <value column="Description" original="Request Notice Template by Event">Plantilla de Notificación por evento</value>
   <value column="Help" original="Make a template for request when a event is triggered">Realiza una Plantilla de correo por Solicitud cuando existe un evento</value>
   <value column="UUID" original="cee43920-50a3-11e9-8a7f-17908d22ab95">ceeb54ee-50a3-11e9-8a81-638e4c6868c5</value>
+ </row>
+ <row id="53665" trl="N">
+  <value column="Name" original="Attachment Reference">Referencia de Adjunto</value>
+  <value column="Description" original="Used for save reference for all attachment files">Usado para guardar referencia de todos los adjuntos</value>
+  <value column="Help" original="Make reference with external Storage">Hace referencia con un almacenamiento externo</value>
+  <value column="UUID" original="f5cd4e3e-8355-11e9-9bb0-7317b9981235">f611bee8-8355-11e9-9bca-63c495dcee58</value>
  </row>
  <row id="53671" trl="N">
   <value column="Name" original="Withholding Definition">Definición de Retenciones</value>
@@ -2974,6 +2986,12 @@ Pipelines (pipeline transport)</value>
   <value column="Help" original="Use this information for know if exists a error with withholding setup">Use ésta información para saber si existe algún error con la configiración de retenciones</value>
   <value column="UUID" original="cba6a676-8e1a-11e9-8362-fb2c7992a933">cbd5e120-8e1a-11e9-837c-670f67116c4e</value>
  </row>
+ <row id="53676" trl="N">
+  <value column="Name" original="Custom Exporter">Exportador de Paquetes</value>
+  <value column="Description" original="Custom Exporter Maintaining">Mantenimiento de Exportador de Paquetes</value>
+  <value column="Help" original="Use this window for define any exporter">Use ésta ventana para mantener los exportadores de paquetes personalizados</value>
+  <value column="UUID" original="0d83c3f8-8e3e-11e9-b776-372592310ec7">0db3b914-8e3e-11e9-b790-87d94c594c61</value>
+ </row>
  <row id="53677" trl="N">
   <value column="Name" original="Withholding Tax Maintaining">Configuración de Retención de I.V.A</value>
   <value column="Description" original="Withholding Tax Maintaining">Configuración de Retención de I.V.A para Venezuela</value>
@@ -2997,5 +3015,11 @@ Pipelines (pipeline transport)</value>
   <value column="Description" original="Withholding Municipal Maintaining">Configuración de Retención Municipal para Venezuela</value>
   <value column="Help" original="Withholding Municipal Maintaining for Client">Contiene toda la configuración de Retención Municipal para Venezuela con base en la ley</value>
   <value column="UUID" original="2a6660c8-969c-11e9-bd83-7f1e9aeb3131">2aa6ca8c-969c-11e9-bd9d-3b325a53fca2</value>
+ </row>
+ <row id="53686" trl="N">
+  <value column="Name" original="Vehicle Group">Grupo de Vehículo</value>
+  <value column="Description" original="Vehicle Group">Grupo de Vehículo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a959a51e-4045-11e9-b658-0242ac140002">a965a44a-4045-11e9-b658-0242ac140002</value>
  </row>
 </adempiereTrl>

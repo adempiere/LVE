@@ -78,7 +78,7 @@
   <value column="Help" original="">Copiar todas las pestañas y campos de la ventana</value>
   <value column="UUID" original="a42a516e-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="114" trl="N">
+ <row id="114" trl="Y">
   <value column="Name" original="Copy Tab Fields">Copiar Pestañas</value>
   <value column="Description" original="Copy Fields from other Tab"/>
   <value column="Help" original="">Copiar campos a la pestaña</value>
@@ -390,7 +390,7 @@
   <value column="Help" original="Write-off receivables causes the invoices selected by the criteria to be marked as paid and the open invoice amount to be written off.  Alternatively you can create payments.">Dar de Baja cuentas por recibir causa que las facturas seleccionadas por los criterios para ser marcadas como pagadas y los Totales de las facturas abiertas seran dadas de baja</value>
   <value column="UUID" original="a42b579e-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="172" trl="N">
+ <row id="172" trl="Y">
   <value column="Name" original="Synchronize Terminology">Sincronizar Terminología</value>
   <value column="Description" original="Synchronize the terminology within the system.">Sincronizar la terminología dentro del sistema</value>
   <value column="Help" original="Based on the entries in Window Element, the fields in windows, parameters, etc. are synchronized, if they are centrally maintained.  Also synchronizes Language Translation.">Basado en las entradas en el elemento de ventana, los campos en ventanas, parámetros, etc. Son sincronizados, si ellos son mantenidos centralizadamente.</value>
@@ -402,7 +402,7 @@
   <value column="Help" original="If you have added columns in the database to this table, this procedure creates the Column records in the Dictionary.  Please be aware, that they may deleted, if the entity type is not set to User.">Si existen columnas adicionadas a esta tabla en la base de datos, este procedimiento crea los registros de columna en el diccionario. Favor tener en cuenta que si estas columnas no estan definidas como de usuario, ellas pueden ser borradas</value>
   <value column="UUID" original="a42b2bde-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="174" trl="N">
+ <row id="174" trl="Y">
   <value column="Name" original="Create Fields">Crear Campos</value>
   <value column="Description" original="Create Field from Table Column, which do not exist in the Tab yet">Crear campo desde la tabla, la cual no existe aun en la pestaña</value>
   <value column="Help" original="Based on the table columns of this Tab, this procedure creates the missing Fields">Basado en la tabla de esta pestaña, este procedimiento crea los campos faltantes</value>
@@ -911,7 +911,7 @@ Nos ayudará, si usted permitirá publicar su uso en Adempiere. Nos pondremos en
   <value column="Help" original=""/>
   <value column="UUID" original="a42b46b4-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="258" trl="N">
+ <row id="258" trl="Y">
   <value column="Name" original="Sequence Check">Comprobar Secuencia</value>
   <value column="Description" original="Check System and Document Sequences">Compruebe la secuencia del sistema y del documento.</value>
   <value column="Help" original="Check that System and Document sequences are correct.  Run this process, if you get Duplicate Key error messages.">Compruebe que la secuencia del documento y del sistema estén correctas. Arranque este proceso, si usted consigue mensajes de error del artículo con valores identicos de validación.</value>
@@ -3301,6 +3301,19 @@ You can also include orders who have outstanding confirmations (e.g. ordered=10 
   <value column="Help" original="Using App Support configuration is possible establish a connection for a test">Using App Support configuration is possible establish a connection for a test</value>
   <value column="UUID" original="a42d549a-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="54161" trl="N">
+  <value column="Name" original="Generate Freight Order from Outbound Order">Generar Orden de Flete</value>
+  <value column="Description" original="Generate Freight Order from Outbound Order">Generar Orden de Flete desde Orden de Salida</value>
+  <value column="Help" original="This process allows create a Freight Order from Outbount Order, is very useful for allocate Vehicle and Driver">Este proceso permite crear una Orden de Flete desde una Orden de Salida, es muy usado para asignar conductor, vehículo y transportista</value>
+  <value column="UUID" original="e5948862-c6d9-11e9-b32d-0242ac110002">e6767966-c6d9-11e9-b32d-0242ac110002</value>
+ </row>
+ <row id="54169" trl="N">
+  <value column="Name" original="Replenish Report">Reabastecimiento de Inventario</value>
+  <value column="Description" original="Inventory Replenish Report">Reabastecimiento de Inventario</value>
+  <value column="Help" original="Report lists products to be replenished. Note that a product can have only one current vendor. If there are more then vendor per product, both records are reset.  You need to select a current vendor manually.&lt;br&gt;&#10;Movements are only created, if a sourcing warehouse is defined for the warehouse to be replenished."><![CDATA[El informe genera una lista los productos a reponer. Tenga en cuenta que un producto solo puede tener un proveedor actual. Si hay más de un proveedor por producto, ambos registros se restablecen. Debe seleccionar un proveedor actual manualmente. <br>
+Los movimientos solo se crean si se define un almacén de aprovisionamiento para que el almacén se reponga.]]></value>
+  <value column="UUID" original="ea8afc70-9439-11e9-8f2d-0242ac110003">eab02efa-9439-11e9-8f2d-0242ac110003</value>
+ </row>
  <row id="54170" trl="N">
   <value column="Name" original="Export Surrogate Key To Migration">Exportar UUIDs a Migración</value>
   <value column="Description" original="Export Surrogate Key to Migration">Exportar UUIDs a Migración de ADempiere</value>
@@ -3349,6 +3362,13 @@ You can also include orders who have outstanding confirmations (e.g. ordered=10 
   <value column="Help" original="Drop the extended Bill of Materials into an Order, Invoice, etc.  The documents need to be in a Drafted stage.  Make sure that the items included in the BOM are on the price list of the Order, Invoice, etc. as otherwise the price will be zero!"><![CDATA[Traer (expandir) la lista de materiales en una orden, factura, etc. Los documentos deben estar en un estado Borrador. Aseg&uacute;rese de que los art&iacute;culos incluidos en la LDM est&aacute;n en la lista de precios de la orden, factura, etc. de lo contrario el precio ser&aacute; cero!]]></value>
   <value column="UUID" original="bfff8fd6-526f-11e9-9026-00ff97344bad">f81d2900-526f-11e9-904a-00ff97344bad</value>
  </row>
+ <row id="54240" trl="N">
+  <value column="Name" original="Setup Storage for Files System">Configurar Almacenamiento (Para Adjuntos)</value>
+  <value column="Description" original="Setup Storage for save files of Attachment, Images and Archives">Configura el Almacenamiento para archivos guardados como Adjuntos, Imágenes y Reportes Archivados</value>
+  <value column="Help" original="This process allows setup a storage for save attachment of system, note that all files will be migrated but original location is keeped&#10;Note: After running ot all files will be saved on new storage system">Este proceso permite configurar un almacenamiento para guardar adjuntos del sistema, note que todos los archivos serán migrados pero la ubicación original se mantendrá
+Nota: Después de ejecutar el proceso todos los archivos del sistema serán almacenados en el nuevo manejador de archivos</value>
+  <value column="UUID" original="43520ada-82fe-11e9-95e9-f744f3646165">43b2c078-82fe-11e9-960d-634adcfcb355</value>
+ </row>
  <row id="54243" trl="N">
   <value column="Name" original="Withholding Generate">Generar Retención</value>
   <value column="Description" original="Withholding Generate is used for generate based on AP Documents">Generar Retención es usado para generar desde Documentos por Pagar</value>
@@ -3360,6 +3380,78 @@ You can also include orders who have outstanding confirmations (e.g. ordered=10 
   <value column="Description" original=""/>
   <value column="Help" original=""/>
   <value column="UUID" original="22fcc2f8-8c80-11e9-871e-23f5c6919e7c">233ec7fc-8c80-11e9-8742-0bac54b236f5</value>
+ </row>
+ <row id="54261" trl="N">
+  <value column="Name" original="Withholding Re-Process">Re-Procesar Retención</value>
+  <value column="Description" original="Re-Process a Withholding generated from a AP Document">Re-Procesar Retención de un Documento</value>
+  <value column="Help" original="This process allows re-generate withholding from AP Invoices for add to declaration party">Este proceso permite re-procesar un documento para generar la retención</value>
+  <value column="UUID" original="660ea190-c120-11e9-996e-0242ac110002">664015f4-c120-11e9-996e-0242ac110002</value>
+ </row>
+ <row id="54275" trl="N">
+  <value column="Name" original="Process Lines from Selection">Procesar Lineas Seleccionadas</value>
+  <value column="Description" original="Process selected lines from smart browser for create lines of RFQ from requisition">Procesa las lineas seleccionadas desde el visor que permite crear lineas de SPC desde Requisiciones</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="e59493ca-c6d9-11e9-b32d-0242ac110002">e676806e-c6d9-11e9-b32d-0242ac110002</value>
+ </row>
+ <row id="54276" trl="N">
+  <value column="Name" original="Create From Requisition Browse">Crear desde Requisición</value>
+  <value column="Description" original="Create Lines for RFQ from Requisitions">Crea Lineas de Solicitud desde Requisiciones</value>
+  <value column="Help" original="This Browser allows create lines for RFQ from requisitions">Crea Lineas de Solicitud para Cotizar desde Requisiciones</value>
+  <value column="UUID" original="e5948c4a-c6d9-11e9-b32d-0242ac110002">e676829e-c6d9-11e9-b32d-0242ac110002</value>
+ </row>
+ <row id="54277" trl="N">
+  <value column="Name" original="Generate Invoice From Outbound Order">Generar Factura desde Orden de Salida</value>
+  <value column="Description" original="Generate Invoice From Outbound Order Lines can be used for generate all invoices of current outbound order">Generar Factura desde Orden de Salida permite generar facturas desde las líneas de la orden de salida actual</value>
+  <value column="Help" original="Use this process for generate invoices from outbound orders">Use éste proceso para generar facturas desde las líneas de la oren de salida</value>
+  <value column="UUID" original="e59468aa-c6d9-11e9-b32d-0242ac110002">e6767e34-c6d9-11e9-b32d-0242ac110002</value>
+ </row>
+ <row id="54287" trl="N">
+  <value column="Name" original="Generate Withholding">Generar Retenciones</value>
+  <value column="Description" original="Generate Withholding">Generar Retenciones</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="d3b5e57e-a266-11e9-ba81-0242ac110003">d3bc6b2e-a266-11e9-ba81-0242ac110003</value>
+ </row>
+ <row id="54288" trl="N">
+  <value column="Name" original="Freight Order Print">Impresión de Orden de Transporte</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="f4bfa4c4-ccde-11e9-92e4-0242ac110002">f4f8ff8a-ccde-11e9-92e4-0242ac110002</value>
+ </row>
+ <row id="54290" trl="N">
+  <value column="Name" original="Product Price List">Reporte de Lista de Precios</value>
+  <value column="Description" original="Product Price List Report">Reporte de Lista de Precios de Productos</value>
+  <value column="Help" original="You can see all product and prices">Puede ver todos los productos y sus precios incluyendo su último cambio</value>
+  <value column="UUID" original="31a70ae2-cdb8-11e9-82d1-0242ac110002">31fe1bac-cdb8-11e9-82d1-0242ac110002</value>
+ </row>
+ <row id="54292" trl="N">
+  <value column="Name" original="Outbound Order Detail">Detalle de Orden de Salida</value>
+  <value column="Description" original="Show all Outbound orders detail">Muestra el Detalle de Orden de Salida</value>
+  <value column="Help" original="">Con este reporte puede ver todo lo sucedido con las órdenes de salida</value>
+  <value column="UUID" original="35c3f464-cff7-11e9-b2cc-0242ac110002">35e665da-cff7-11e9-b2cc-0242ac110002</value>
+ </row>
+ <row id="54293" trl="N">
+  <value column="Name" original="Withholding Process">Procesar Retenciones</value>
+  <value column="Description" original="Withholding Process"/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="1b49a5ae-d25c-11e9-a9c0-0242ac110002">1b8ef8d4-d25c-11e9-a9c0-0242ac110002</value>
+ </row>
+ <row id="54294" trl="N">
+  <value column="Name" original="Production Batch Print Format">Orden de Producción</value>
+  <value column="Description" original="Production Batch Print Format">Formato de Impresión de Orden de Producción</value>
+  <value column="Help" original="Use it format for print current production batch">Use este formato para ver un reporte de la orden de producción actual</value>
+  <value column="UUID" original="3bba913e-d31c-11e9-a068-0242ac110002">3be89bce-d31c-11e9-a068-0242ac110002</value>
+ </row>
+ <row id="54301" trl="N">
+  <value column="Name" original="Generate Withholding Declaration">Generate Withholding Declaration</value>
+  <value column="Description" original="Generate Withholding Declaration from not Declarated Withholding">Generate Withholding Declaration from not Declarated Withholding</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="30d48632-c2b7-11e9-ab8c-0242ac110004">30fdf580-c2b7-11e9-ab8c-0242ac110004</value>
+ </row>
+ <row id="54302" trl="N">
+  <value column="Name" original="Withholding Detail">Detalle de Retenciones</value>
+  <value column="Description" original="Withholding Detail (All Withholding)">Detalle de Retenciones (Todas las Retenciones)</value>
+  <value column="Help" original="Show all withholding generated for documents, note that this report can be used for declaration">Muestra todas las retenciones generadas para los documentos, note que este reporte puede ser usado para declaración</value>
+  <value column="UUID" original="8abe12a2-d89d-11e9-aeca-0242ac110002">8af9b528-d89d-11e9-aeca-0242ac110002</value>
  </row>
  <row id="90001" trl="Y">
   <value column="Name" original="SB_InvoiceGenerateFromOrderLine">SB_InvoiceGenerateFromOrderLine</value>

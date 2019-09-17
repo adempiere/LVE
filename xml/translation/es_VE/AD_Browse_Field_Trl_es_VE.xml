@@ -300,7 +300,7 @@ There are two reasons for de-activating and not deleting records:
   <value column="Help" original=""/>
   <value column="UUID" original="8ab0aeae-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="51653" trl="N">
+ <row id="51653" trl="Y">
   <value column="Name" original="Company Agent">Company Agent</value>
   <value column="Description" original="Company Agent">Company Agent</value>
   <value column="Help" original=""/>
@@ -469,5 +469,17 @@ If you leave the search key empty, the system automatically creates a numeric nu
   <value column="Description" original=""/>
   <value column="Help" original=""/>
   <value column="UUID" original="8adc2b92-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="65494" trl="N">
+  <value column="Name" original="QtyToDeliver">QtyToDeliver</value>
+  <value column="Description" original="Qty to Deliver">Qty to Deliver</value>
+  <value column="Help" original="Qty to Deliver">Qty to Deliver</value>
+  <value column="UUID" original="3951376c-c6d9-11e9-b32d-0242ac110002">395dc702-c6d9-11e9-b32d-0242ac110002</value>
+ </row>
+ <row id="65515" trl="N">
+  <value column="Name" original="Withholding Setting">Configuración de Retención</value>
+  <value column="Description" original="specifies the setting to each applied withholding"/>
+  <value column="Help" original="in this sale the functionalities are specified to each applied withholding."/>
+  <value column="UUID" original="77d86168-a267-11e9-8834-0242ac110003">77dae578-a267-11e9-8834-0242ac110003</value>
  </row>
 </adempiereTrl>

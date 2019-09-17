@@ -17064,61 +17064,61 @@
   <value column="Help" original=""/>
   <value column="UUID" original="a4d60ae0-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="53717" trl="N">
+ <row id="53717" trl="Y">
   <value column="Name" original="Freight Amount">Freight Amount</value>
   <value column="Description" original="Freight Amount ">Freight Amount </value>
   <value column="Help" original="The Freight Amount indicates the amount charged for Freight in the document currency."/>
   <value column="UUID" original="a4d612ec-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="53718" trl="N">
+ <row id="53718" trl="Y">
   <value column="Name" original="Freight Category">Freight Category</value>
   <value column="Description" original="Category of the Freight">Category of the Freight</value>
   <value column="Help" original="Freight Categories are used to calculate the Freight for the Shipper selected"/>
   <value column="UUID" original="a4d6133c-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="53719" trl="N">
+ <row id="53719" trl="Y">
   <value column="Name" original="Freight Category">Freight Category</value>
   <value column="Description" original="Category of the Freight">Category of the Freight</value>
   <value column="Help" original="Freight Categories are used to calculate the Freight for the Shipper selected"/>
   <value column="UUID" original="a4d6138c-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="53720" trl="N">
+ <row id="53720" trl="Y">
   <value column="Name" original="Volume">Volume</value>
   <value column="Description" original="Volume of a product">Volume of a product</value>
   <value column="Help" original="The Volume indicates the volume of the product in the Volume UOM of the Client"/>
   <value column="UUID" original="a4d613e6-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="53721" trl="N">
+ <row id="53721" trl="Y">
   <value column="Name" original="Weight">Weight</value>
   <value column="Description" original="Weight of a product">Weight of a product</value>
   <value column="Help" original="The Weight indicates the weight  of the product in the Weight UOM of the Client"/>
   <value column="UUID" original="a4d61436-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="53722" trl="N">
+ <row id="53722" trl="Y">
   <value column="Name" original="On Hand Quantity">On Hand Quantity</value>
   <value column="Description" original="On Hand Quantity">On Hand Quantity</value>
   <value column="Help" original="The On Hand Quantity indicates the quantity of a product that is on hand in a warehouse."/>
   <value column="UUID" original="a4d61486-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="53723" trl="N">
+ <row id="53723" trl="Y">
   <value column="Name" original="Ordered Quantity">Ordered Quantity</value>
   <value column="Description" original="Ordered Quantity">Ordered Quantity</value>
   <value column="Help" original="The Ordered Quantity indicates the quantity of a product that was ordered."/>
   <value column="UUID" original="a4d615e4-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="53724" trl="N">
+ <row id="53724" trl="Y">
   <value column="Name" original="Reserved Quantity">Reserved Quantity</value>
   <value column="Description" original="Reserved Quantity">Reserved Quantity</value>
   <value column="Help" original="The Reserved Quantity indicates the quantity of a product that is currently reserved."/>
   <value column="UUID" original="a4d61666-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="53725" trl="N">
+ <row id="53725" trl="Y">
   <value column="Name" original="On Hand Quantity">On Hand Quantity</value>
   <value column="Description" original="On Hand Quantity">On Hand Quantity</value>
   <value column="Help" original="The On Hand Quantity indicates the quantity of a product that is on hand in a warehouse."/>
   <value column="UUID" original="a4d616c0-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
- <row id="53726" trl="N">
+ <row id="53726" trl="Y">
   <value column="Name" original="Reserved Quantity">Reserved Quantity</value>
   <value column="Description" original="Reserved Quantity">Reserved Quantity</value>
   <value column="Help" original="The Reserved Quantity indicates the quantity of a product that is currently reserved."/>
@@ -33306,6 +33306,132 @@
   <value column="Help" original="The user defined element displays the optional elements that have been defined for this account combination."/>
   <value column="UUID" original="a4e7d5cc-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="65316" trl="N">
+  <value column="Name" original="Sales Invoice Line">Sales Invoice Line</value>
+  <value column="Description" original="Sales Invoice Line">Sales Invoice Line</value>
+  <value column="Help" original="The Sales Invoice Line is a unique identifier for a line in an invoice."/>
+  <value column="UUID" original="e89df2b4-c6d9-11e9-b32d-0242ac110002">e8a647de-c6d9-11e9-b32d-0242ac110002</value>
+ </row>
+ <row id="65317" trl="N">
+  <value column="Name" original="Sales Invoice">Sales Invoice</value>
+  <value column="Description" original="Sales Invoice">Sales Invoice</value>
+  <value column="Help" original="The Sales Invoice is a unique identifier for a invoice."/>
+  <value column="UUID" original="e89e39ea-c6d9-11e9-b32d-0242ac110002">e8a64ae0-c6d9-11e9-b32d-0242ac110002</value>
+ </row>
+ <row id="65318" trl="N">
+  <value column="Name" original="Warehouse">Warehouse</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad88e2-9439-11e9-8f2d-0242ac110003">ecb9a708-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65319" trl="N">
+  <value column="Name" original="Product">Product</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad3e82-9439-11e9-8f2d-0242ac110003">ecb9a79e-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65320" trl="N">
+  <value column="Name" original="Business Partner">Business Partner</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad3f2c-9439-11e9-8f2d-0242ac110003">ecb9a83e-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65321" trl="N">
+  <value column="Name" original="Client">Client</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad3fd6-9439-11e9-8f2d-0242ac110003">ecb949c0-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65322" trl="N">
+  <value column="Name" original="Organization">Organization</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad4080-9439-11e9-8f2d-0242ac110003">ecb95028-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65323" trl="N">
+  <value column="Name" original="Replenish Type">Replenish Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad412a-9439-11e9-8f2d-0242ac110003">ecb95186-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65324" trl="N">
+  <value column="Name" original="Minimun Level">Minimun Level</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad41ca-9439-11e9-8f2d-0242ac110003">ecb95708-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65325" trl="N">
+  <value column="Name" original="Maximum Level">Maximum Level</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad4274-9439-11e9-8f2d-0242ac110003">ecb95a8c-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65326" trl="N">
+  <value column="Name" original="Minimun Order Qty">Minimun Order Qty</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad4314-9439-11e9-8f2d-0242ac110003">ecb95e7e-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65327" trl="N">
+  <value column="Name" original="Order Pack Qty">Order Pack Qty</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad43b4-9439-11e9-8f2d-0242ac110003">ecb9613a-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65328" trl="N">
+  <value column="Name" original="On Hand Quantity">On Hand Quantity</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad4454-9439-11e9-8f2d-0242ac110003">ecb96360-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65329" trl="N">
+  <value column="Name" original="Reserved Quantity">Reserved Quantity</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad8c98-9439-11e9-8f2d-0242ac110003">ecb964f0-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65330" trl="N">
+  <value column="Name" original="Ordered Quantity">Ordered Quantity</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad9206-9439-11e9-8f2d-0242ac110003">ecb9673e-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65331" trl="N">
+  <value column="Name" original="Product Category">Product Category</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecad9594-9439-11e9-8f2d-0242ac110003">ecb969d2-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65332" trl="N">
+  <value column="Name" original="Unit Of Measure">Unit Of Measure</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecb2fc00-9439-11e9-8f2d-0242ac110003">ecb96ae0-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65334" trl="N">
+  <value column="Name" original="Locator">Locator</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecb311d6-9439-11e9-8f2d-0242ac110003">ecb96d2e-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65335" trl="N">
+  <value column="Name" original="Source Warehouse">Source Warehouse</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecb31c8a-9439-11e9-8f2d-0242ac110003">ecb96e28-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65336" trl="N">
+  <value column="Name" original="Quantity to Order">Quantity to Order</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecb320b8-9439-11e9-8f2d-0242ac110003">ecb96fc2-9439-11e9-8f2d-0242ac110003</value>
+ </row>
+ <row id="65337" trl="N">
+  <value column="Name" original="Avaliable Quantity">Avaliable Quantity</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ecb32298-9439-11e9-8f2d-0242ac110003">ecb97256-9439-11e9-8f2d-0242ac110003</value>
+ </row>
  <row id="65709" trl="N">
   <value column="Name" original="Context Info">Context Info</value>
   <value column="Description" original="Context Info Maintainig">Context Info Maintainig</value>
@@ -33911,6 +34037,330 @@
   <value column="Description" original="Allows define types for concepts">Allows define types for concepts</value>
   <value column="Help" original=""/>
   <value column="UUID" original="742c5d60-7be5-11e9-9877-0242ac120002">744ff6da-7be5-11e9-9877-0242ac120002</value>
+ </row>
+ <row id="66751" trl="N">
+  <value column="Name" original="Immutable Universally Unique Identifier">Immutable Universally Unique Identifier</value>
+  <value column="Description" original="Immutable Universally Unique Identifier">Immutable Universally Unique Identifier</value>
+  <value column="Help" original="&quot;A surrogate key in a database is a unique identifier for either an entity in the modeled world or an object in the database. The surrogate key is not derived from application data, unlike a natural (or business) key which is derived from application data. &quot; , According to Wikipedia http://en.wikipedia.org/wiki/Surrogate_key"/>
+  <value column="UUID" original="a8aebeee-c5c2-11e9-803e-0242ac110002">a8b17544-c5c2-11e9-803e-0242ac110002</value>
+ </row>
+ <row id="66752" trl="N">
+  <value column="Name" original="Updated By">Updated By</value>
+  <value column="Description" original="User who updated this records">User who updated this records</value>
+  <value column="Help" original="The Updated By field indicates the user who updated this record."/>
+  <value column="UUID" original="a8b3aaee-c5c2-11e9-803e-0242ac110002">a8b50182-c5c2-11e9-803e-0242ac110002</value>
+ </row>
+ <row id="66753" trl="N">
+  <value column="Name" original="Updated">Updated</value>
+  <value column="Description" original="Date this record was updated">Date this record was updated</value>
+  <value column="Help" original="The Updated field indicates the date that this record was updated."/>
+  <value column="UUID" original="a8b6882c-c5c2-11e9-803e-0242ac110002">a8b7e2ee-c5c2-11e9-803e-0242ac110002</value>
+ </row>
+ <row id="66754" trl="N">
+  <value column="Name" original="Ordered Quantity">Ordered Quantity</value>
+  <value column="Description" original="Ordered Quantity">Ordered Quantity</value>
+  <value column="Help" original="The Ordered Quantity indicates the quantity of a product that was ordered."/>
+  <value column="UUID" original="a8b96eca-c5c2-11e9-803e-0242ac110002">a8bad7ba-c5c2-11e9-803e-0242ac110002</value>
+ </row>
+ <row id="66755" trl="N">
+  <value column="Name" original="Product Category">Product Category</value>
+  <value column="Description" original="Category of a Product">Category of a Product</value>
+  <value column="Help" original="Identifies the category which this product belongs to.  Product categories are used for pricing and selection."/>
+  <value column="UUID" original="a8bc39d4-c5c2-11e9-803e-0242ac110002">a8bdb16a-c5c2-11e9-803e-0242ac110002</value>
+ </row>
+ <row id="66756" trl="N">
+  <value column="Name" original="Active">Active</value>
+  <value column="Description" original="The record is active in the system">The record is active in the system</value>
+  <value column="Help" original="There are two methods of making records unavailable in the system: One is to delete the record, the other is to de-activate the record. A de-activated record is not available for selection, but available for reports.&#10;There are two reasons for de-activating and not deleting records:&#10;(1) The system requires the record for audit purposes.&#10;(2) The record is referenced by other records. E.g., you cannot delete a Business Partner, if there are invoices for this partner record existing. You de-activate the Business Partner and prevent that this record is used for future entries."/>
+  <value column="UUID" original="a8bf277a-c5c2-11e9-803e-0242ac110002">a8c0abe0-c5c2-11e9-803e-0242ac110002</value>
+ </row>
+ <row id="66757" trl="N">
+  <value column="Name" original="Created By">Created By</value>
+  <value column="Description" original="User who created this records">User who created this records</value>
+  <value column="Help" original="The Created By field indicates the user who created this record."/>
+  <value column="UUID" original="a8c209ae-c5c2-11e9-803e-0242ac110002">a8c37546-c5c2-11e9-803e-0242ac110002</value>
+ </row>
+ <row id="66758" trl="N">
+  <value column="Name" original="Created">Created</value>
+  <value column="Description" original="Date this record was created">Date this record was created</value>
+  <value column="Help" original="The Created field indicates the date that this record was created."/>
+  <value column="UUID" original="a8c4d5f8-c5c2-11e9-803e-0242ac110002">a8c62d40-c5c2-11e9-803e-0242ac110002</value>
+ </row>
+ <row id="66759" trl="N">
+  <value column="Name" original="Product Class">Product Class</value>
+  <value column="Description" original="Class of a Product">Class of a Product</value>
+  <value column="Help" original="Identifies the Class which this product belongs to"/>
+  <value column="UUID" original="a8c7621e-c5c2-11e9-803e-0242ac110002">a8c8d5d6-c5c2-11e9-803e-0242ac110002</value>
+ </row>
+ <row id="66760" trl="N">
+  <value column="Name" original="Product Classification">Product Classification</value>
+  <value column="Description" original="Classification of a Product">Classification of a Product</value>
+  <value column="Help" original="Identifies the classification which this product belongs to."/>
+  <value column="UUID" original="a8ca134c-c5c2-11e9-803e-0242ac110002">a8cb5702-c5c2-11e9-803e-0242ac110002</value>
+ </row>
+ <row id="66761" trl="N">
+  <value column="Name" original="Product Group">Product Group</value>
+  <value column="Description" original="Group of a Product">Group of a Product</value>
+  <value column="Help" original="Identifies the Group which this product belongs to."/>
+  <value column="UUID" original="a8cca116-c5c2-11e9-803e-0242ac110002">a8cdf5a2-c5c2-11e9-803e-0242ac110002</value>
+ </row>
+ <row id="66762" trl="N">
+  <value column="Name" original="Source Invoice Line">Source Invoice Line</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="4c8522bc-9dd0-11e9-8514-0242ac140003">4c88392a-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66763" trl="N">
+  <value column="Name" original="Updated">Updated</value>
+  <value column="Description" original="Date this record was updated">Date this record was updated</value>
+  <value column="Help" original="The Updated field indicates the date that this record was updated."/>
+  <value column="UUID" original="4c8a3b9e-9dd0-11e9-8514-0242ac140003">4c8f7050-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66764" trl="N">
+  <value column="Name" original="Processed">Processed</value>
+  <value column="Description" original="The document has been processed">The document has been processed</value>
+  <value column="Help" original="The Processed checkbox indicates that a document has been processed."/>
+  <value column="UUID" original="4c79ae14-9dd0-11e9-8514-0242ac140003">4c7b79b0-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66765" trl="N">
+  <value column="Name" original="Process Now">Process Now</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="4c7d8a16-9dd0-11e9-8514-0242ac140003">4c7f5ac6-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66766" trl="N">
+  <value column="Name" original="Source Invoice ">Source Invoice </value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="4c8163e8-9dd0-11e9-8514-0242ac140003">4c8325fc-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66767" trl="N">
+  <value column="Name" original="A_Base_Amount">A_Base_Amount</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="4c2e3524-9dd0-11e9-8514-0242ac140003">4c30ea94-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66768" trl="N">
+  <value column="Name" original="Client">Client</value>
+  <value column="Description" original="Client/Tenant for this installation.">Client/Tenant for this installation.</value>
+  <value column="Help" original="A Client is a company or a legal entity. You cannot share data between Clients. Tenant is a synonym for Client."/>
+  <value column="UUID" original="4c349770-9dd0-11e9-8514-0242ac140003">4c36dbfc-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66769" trl="N">
+  <value column="Name" original="Organization">Organization</value>
+  <value column="Description" original="Organizational entity within client">Organizational entity within client</value>
+  <value column="Help" original="An organization is a unit of your client or legal entity - examples are store, department. You can share data between organizations."/>
+  <value column="UUID" original="4c38d81c-9dd0-11e9-8514-0242ac140003">4c3ab3b2-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66770" trl="N">
+  <value column="Name" original="Invoice">Invoice</value>
+  <value column="Description" original="Invoice Identifier">Invoice Identifier</value>
+  <value column="Help" original="The Invoice Document."/>
+  <value column="UUID" original="4c3ca500-9dd0-11e9-8514-0242ac140003">4c410ffa-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66771" trl="N">
+  <value column="Name" original="Invoice Line">Invoice Line</value>
+  <value column="Description" original="Invoice Detail Line">Invoice Detail Line</value>
+  <value column="Help" original="The Invoice Line uniquely identifies a single line of an Invoice."/>
+  <value column="UUID" original="4c46da84-9dd0-11e9-8514-0242ac140003">4c4b418c-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66772" trl="N">
+  <value column="Name" original="Created">Created</value>
+  <value column="Description" original="Date this record was created">Date this record was created</value>
+  <value column="Help" original="The Created field indicates the date that this record was created."/>
+  <value column="UUID" original="4c4d2f88-9dd0-11e9-8514-0242ac140003">4c4f18a2-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66773" trl="N">
+  <value column="Name" original="Created By">Created By</value>
+  <value column="Description" original="User who created this records">User who created this records</value>
+  <value column="Help" original="The Created By field indicates the user who created this record."/>
+  <value column="UUID" original="4c50fe56-9dd0-11e9-8514-0242ac140003">4c5410be-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66774" trl="N">
+  <value column="Name" original="Document Date">Document Date</value>
+  <value column="Description" original="Date of the Document">Date of the Document</value>
+  <value column="Help" original="The Document Date indicates the date the document was generated.  It may or may not be the same as the accounting date."/>
+  <value column="UUID" original="4c5610f8-9dd0-11e9-8514-0242ac140003">4c57ea5e-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66775" trl="N">
+  <value column="Name" original="Document Type">Document Type</value>
+  <value column="Description" original="Document type or rules">Document type or rules</value>
+  <value column="Help" original="The Document Type determines document sequence and processing rules"/>
+  <value column="UUID" original="4c59eade-9dd0-11e9-8514-0242ac140003">4c5bc412-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66776" trl="N">
+  <value column="Name" original="Description">Description</value>
+  <value column="Description" original="Optional short description of the record">Optional short description of the record</value>
+  <value column="Help" original="A description is limited to 255 characters."/>
+  <value column="UUID" original="4c5dbb46-9dd0-11e9-8514-0242ac140003">4c5f7aee-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66777" trl="N">
+  <value column="Name" original="Document Action">Document Action</value>
+  <value column="Description" original="The targeted status of the document">The targeted status of the document</value>
+  <value column="Help" original="You find the current status in the Document Status field. The options are listed in a popup"/>
+  <value column="UUID" original="4c618d3e-9dd0-11e9-8514-0242ac140003">4c635556-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66778" trl="N">
+  <value column="Name" original="Document Status">Document Status</value>
+  <value column="Description" original="The current status of the document">The current status of the document</value>
+  <value column="Help" original="The Document Status indicates the status of a document at this time.  If you want to change the document status, use the Document Action field"/>
+  <value column="UUID" original="4c655464-9dd0-11e9-8514-0242ac140003">4c671024-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66779" trl="N">
+  <value column="Name" original="Document No">Document No</value>
+  <value column="Description" original="Document sequence number of the document">Document sequence number of the document</value>
+  <value column="Help" original="The document number is usually automatically generated by the system and determined by the document type of the document. If the document is not saved, the preliminary number is displayed in &quot;&lt;&gt;&quot;.&#10;&#10;If the document type of your document has no automatic document sequence defined, the field is empty if you create a new document. This is for documents which usually have an external number (like vendor invoice).  If you leave the field empty, the system will generate a document number for you. The document sequence used for this fallback number is defined in the &quot;Maintain Sequence&quot; window with the name &quot;DocumentNo_&lt;TableName&gt;&quot;, where TableName is the actual name of the table (e.g. C_Order)."/>
+  <value column="UUID" original="4c692e4a-9dd0-11e9-8514-0242ac140003">4c6af77a-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66780" trl="N">
+  <value column="Name" original="Active">Active</value>
+  <value column="Description" original="The record is active in the system">The record is active in the system</value>
+  <value column="Help" original="There are two methods of making records unavailable in the system: One is to delete the record, the other is to de-activate the record. A de-activated record is not available for selection, but available for reports.&#10;There are two reasons for de-activating and not deleting records:&#10;(1) The system requires the record for audit purposes.&#10;(2) The record is referenced by other records. E.g., you cannot delete a Business Partner, if there are invoices for this partner record existing. You de-activate the Business Partner and prevent that this record is used for future entries."/>
+  <value column="UUID" original="4c6d00d8-9dd0-11e9-8514-0242ac140003">4c6ebab8-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66781" trl="N">
+  <value column="Name" original="Approved">Approved</value>
+  <value column="Description" original="Indicates if this document requires approval">Indicates if this document requires approval</value>
+  <value column="Help" original="The Approved checkbox indicates if this document requires approval before it can be processed."/>
+  <value column="UUID" original="4c72171c-9dd0-11e9-8514-0242ac140003">4c73e6dc-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66782" trl="N">
+  <value column="Name" original="Is Declared">Is Declared</value>
+  <value column="Description" original="Show if a withholding has been declared">Show if a withholding has been declared</value>
+  <value column="Help" original="This flag is very useful for determinate if a withholding was declared or not"/>
+  <value column="UUID" original="4c75e72a-9dd0-11e9-8514-0242ac140003">4c77b0aa-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66783" trl="N">
+  <value column="Name" original="Updated By">Updated By</value>
+  <value column="Description" original="User who updated this records">User who updated this records</value>
+  <value column="Help" original="The Updated By field indicates the user who updated this record."/>
+  <value column="UUID" original="4c953ca6-9dd0-11e9-8514-0242ac140003">4c9b4b64-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66784" trl="N">
+  <value column="Name" original="Immutable Universally Unique Identifier">Immutable Universally Unique Identifier</value>
+  <value column="Description" original="Immutable Universally Unique Identifier">Immutable Universally Unique Identifier</value>
+  <value column="Help" original="&quot;A surrogate key in a database is a unique identifier for either an entity in the modeled world or an object in the database. The surrogate key is not derived from application data, unlike a natural (or business) key which is derived from application data. &quot; , According to Wikipedia http://en.wikipedia.org/wiki/Surrogate_key"/>
+  <value column="UUID" original="4c9d58dc-9dd0-11e9-8514-0242ac140003">4c9f1c08-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66785" trl="N">
+  <value column="Name" original="Withholding Allocation">Withholding Allocation</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="4ca1296c-9dd0-11e9-8514-0242ac140003">4ca2f1ac-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66786" trl="N">
+  <value column="Name" original="Withholding Amt">Withholding Amt</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="4ca4f31c-9dd0-11e9-8514-0242ac140003">4ca6bdc8-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66787" trl="N">
+  <value column="Name" original="Withholding Setting">Withholding Setting</value>
+  <value column="Description" original="specifies the setting to each applied withholding">specifies the setting to each applied withholding</value>
+  <value column="Help" original="in this sale the functionalities are specified to each applied withholding."/>
+  <value column="UUID" original="4ca8cb18-9dd0-11e9-8514-0242ac140003">4caa9858-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66788" trl="N">
+  <value column="Name" original="Withholding ">Withholding </value>
+  <value column="Description" original="Withholding Definition is used for define a withholding rule for BP">Withholding Definition is used for define a withholding rule for BP</value>
+  <value column="Help" original="Withholding is the amount that is withheld from a salary, salary or other collection for the payment of a tax, of debts under the embargo, that is, you are now withheld to secure the payment of the tax."/>
+  <value column="UUID" original="4cac948c-9dd0-11e9-8514-0242ac140003">4caf3f34-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66789" trl="N">
+  <value column="Name" original="Withholding Rate">Withholding Rate</value>
+  <value column="Description" original="Withholding Rate applied to Document">Withholding Rate applied to Document</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="4cb13b0e-9dd0-11e9-8514-0242ac140003">4cb37cde-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66790" trl="N">
+  <value column="Name" original="Subtrahend">Subtrahend</value>
+  <value column="Description" original="Subtrahend for Withholding">Subtrahend for Withholding</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="4cb582f4-9dd0-11e9-8514-0242ac140003">4cb74e86-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66791" trl="N">
+  <value column="Name" original="Withholding Rental Rate">Withholding Rental Rate</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="4cb955c8-9dd0-11e9-8514-0242ac140003">4cbb09d6-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66792" trl="N">
+  <value column="Name" original="Withholding Retal Variable Rate">Withholding Retal Variable Rate</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="4cbd2cf2-9dd0-11e9-8514-0242ac140003">4cbef3de-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66793" trl="N">
+  <value column="Name" original="Withholding Declaration">Withholding Declaration</value>
+  <value column="Description" original="Withholding Declaration reference">Withholding Declaration reference</value>
+  <value column="Help" original="Make a reference to AP invoice for withholding declaration"/>
+  <value column="UUID" original="4cc0f8be-9dd0-11e9-8514-0242ac140003">4cc400f4-9dd0-11e9-8514-0242ac140003</value>
+ </row>
+ <row id="66794" trl="N">
+  <value column="Name" original="Business Partner ">Business Partner </value>
+  <value column="Description" original="Identifies a Business Partner">Identifies a Business Partner</value>
+  <value column="Help" original="A Business Partner is anyone with whom you transact.  This can include Vendor, Customer, Employee or Salesperson"/>
+  <value column="UUID" original="776f6b3c-be0e-11e9-b233-0242ac110003">7778dac8-be0e-11e9-b233-0242ac110003</value>
+ </row>
+ <row id="66795" trl="N">
+  <value column="Name" original="Simulation">Simulation</value>
+  <value column="Description" original="Performing the function is only simulated">Performing the function is only simulated</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="7780de8a-be0e-11e9-b233-0242ac110003">77837924-be0e-11e9-b233-0242ac110003</value>
+ </row>
+ <row id="66796" trl="N">
+  <value column="Name" original="Withholding Type">Withholding Type</value>
+  <value column="Description" original="Withholding Type"/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="dec96c3e-9dd3-11e9-9796-0242ac140003">decb6278-9dd3-11e9-9796-0242ac140003</value>
+ </row>
+ <row id="66983" trl="N">
+  <value column="Name" original="Document No">Document No</value>
+  <value column="Description" original="Document sequence number of the document">Document sequence number of the document</value>
+  <value column="Help" original="The document number is usually automatically generated by the system and determined by the document type of the document. If the document is not saved, the preliminary number is displayed in &quot;&lt;&gt;&quot;.&#10;&#10;If the document type of your document has no automatic document sequence defined, the field is empty if you create a new document. This is for documents which usually have an external number (like vendor invoice).  If you leave the field empty, the system will generate a document number for you. The document sequence used for this fallback number is defined in the &quot;Maintain Sequence&quot; window with the name &quot;DocumentNo_&lt;TableName&gt;&quot;, where TableName is the actual name of the table (e.g. C_Order)."/>
+  <value column="UUID" original="ed3edec6-c2b2-11e9-ab8c-0242ac110004">ed46beac-c2b2-11e9-ab8c-0242ac110004</value>
+ </row>
+ <row id="66984" trl="N">
+  <value column="Name" original="Grand Total">Grand Total</value>
+  <value column="Description" original="Total amount of document">Total amount of document</value>
+  <value column="Help" original="The Grand Total displays the total amount including Tax and Freight in document currency"/>
+  <value column="UUID" original="ed5ea8d2-c2b2-11e9-ab8c-0242ac110004">ed673722-c2b2-11e9-ab8c-0242ac110004</value>
+ </row>
+ <row id="66985" trl="N">
+  <value column="Name" original="Date Invoiced">Date Invoiced</value>
+  <value column="Description" original="Date printed on Invoice">Date printed on Invoice</value>
+  <value column="Help" original="The Date Invoice indicates the date printed on the invoice."/>
+  <value column="UUID" original="eeab1022-c2b2-11e9-ab8c-0242ac110004">eeb2f65c-c2b2-11e9-ab8c-0242ac110004</value>
+ </row>
+ <row id="66986" trl="N">
+  <value column="Name" original="Invoice">Invoice</value>
+  <value column="Description" original="Invoice Identifier">Invoice Identifier</value>
+  <value column="Help" original="The Invoice Document."/>
+  <value column="UUID" original="ef98fc74-c2b2-11e9-ab8c-0242ac110004">efa1117a-c2b2-11e9-ab8c-0242ac110004</value>
+ </row>
+ <row id="66987" trl="N">
+  <value column="Name" original="Business Partner ">Business Partner </value>
+  <value column="Description" original="Identifies a Business Partner">Identifies a Business Partner</value>
+  <value column="Help" original="A Business Partner is anyone with whom you transact.  This can include Vendor, Customer, Employee or Salesperson"/>
+  <value column="UUID" original="f0592f76-c2b2-11e9-ab8c-0242ac110004">f06135ea-c2b2-11e9-ab8c-0242ac110004</value>
+ </row>
+ <row id="66988" trl="N">
+  <value column="Name" original="Withholding ">Withholding </value>
+  <value column="Description" original="Withholding Definition is used for define a withholding rule for BP">Withholding Definition is used for define a withholding rule for BP</value>
+  <value column="Help" original="Withholding is the amount that is withheld from a salary, salary or other collection for the payment of a tax, of debts under the embargo, that is, you are now withheld to secure the payment of the tax."/>
+  <value column="UUID" original="fbed39c2-c2b2-11e9-ab8c-0242ac110004">fc0773f0-c2b2-11e9-ab8c-0242ac110004</value>
+ </row>
+ <row id="66989" trl="N">
+  <value column="Name" original="Withholding Type">Withholding Type</value>
+  <value column="Description" original="Indicates the types of national tax withholdings">Indicates the types of national tax withholdings</value>
+  <value column="Help" original="In the window the types of existing national tax withholdings are indicated."/>
+  <value column="UUID" original="8d8bf0ee-c2c2-11e9-b910-0242ac110004"/>
+ </row>
+ <row id="66990" trl="N">
+  <value column="Name" original="Account Date">Account Date</value>
+  <value column="Description" original="Accounting Date">Accounting Date</value>
+  <value column="Help" original="The Accounting Date indicates the date to be used on the General Ledger account entries generated from this document. It is also used for any currency conversion."/>
+  <value column="UUID" original="c4b0c4b4-d8ac-11e9-a6d9-0242ac110002">c53991fe-d8ac-11e9-a6d9-0242ac110002</value>
  </row>
  <row id="90719" trl="Y">
   <value column="Name" original="Client">Client</value>

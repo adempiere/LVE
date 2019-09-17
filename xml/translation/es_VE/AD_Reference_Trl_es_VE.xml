@@ -3577,6 +3577,12 @@
   <value column="Help" original=""/>
   <value column="UUID" original="f23e14a2-8331-11e9-805e-0242ac110002">f274efb8-8331-11e9-805e-0242ac110002</value>
  </row>
+ <row id="54134" trl="N">
+  <value column="Name" original="AD_AppRegistration reference">AD_AppRegistration reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ce03d9dc-85a2-11e9-8093-d75a86fd4152">d5044fdc-85a2-11e9-80a6-0f6ff1ebcf46</value>
+ </row>
  <row id="54139" trl="N">
   <value column="Name" original="WH_Setting Event Type">WH_Setting Event Type</value>
   <value column="Description" original=""/>
@@ -3660,5 +3666,47 @@
   <value column="Description" original="Used for eference of List Line">Used for eference of List Line</value>
   <value column="Help" original=""/>
   <value column="UUID" original="3035adc0-9696-11e9-87cd-f384cfa5aca7">30622c60-9696-11e9-87e0-b77b61b157dc</value>
+ </row>
+ <row id="54155" trl="N">
+  <value column="Name" original="DD_Freight reference">DD_Freight reference</value>
+  <value column="Description" original="Freight reference">Freight reference</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="eff11e0c-9f69-11e9-8358-0242ac110002">f000c280-9f69-11e9-8358-0242ac110002</value>
+ </row>
+ <row id="54159" trl="N">
+  <value column="Name" original="WM_InOutBound reference">WM_InOutBound reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="c7776212-a269-11e9-80ac-0242ac110002">c77db2a2-a269-11e9-80ac-0242ac110002</value>
+ </row>
+ <row id="54167" trl="N">
+  <value column="Name" original="Regime">Regime</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="c4b59bce-c506-11e9-9af1-0242ac110004">c4ccfbac-c506-11e9-9af1-0242ac110004</value>
+ </row>
+ <row id="54168" trl="N">
+  <value column="Name" original="Risk">Risk</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a6767b90-c508-11e9-9dcf-0242ac110004">a6a6b58a-c508-11e9-9dcf-0242ac110004</value>
+ </row>
+ <row id="54169" trl="N">
+  <value column="Name" original="FiscalDocumentType">Tipo de Documento Fiscal</value>
+  <value column="Description" original="Fiscal Document Type">Tipo de Documento Fiscal</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="c3904414-cd31-11e9-ac06-0242ac110002">c4274dc8-cd31-11e9-ac06-0242ac110002</value>
+ </row>
+ <row id="54170" trl="N">
+  <value column="Name" original="DD_OrderLine">DD_OrderLine</value>
+  <value column="Description" original="Distribution Order Line">Distribution Order Line</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="f9aa64f0-cff5-11e9-b2cc-0242ac110002">f9d15330-cff5-11e9-b2cc-0242ac110002</value>
+ </row>
+ <row id="54171" trl="N">
+  <value column="Name" original="PP_Product_BOM reference">PP_Product_BOM reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="41c2da2c-d2b9-11e9-bc68-0242ac110002">41fc2552-d2b9-11e9-bc68-0242ac110002</value>
  </row>
 </adempiereTrl>

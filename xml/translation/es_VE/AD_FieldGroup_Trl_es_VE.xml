@@ -274,7 +274,7 @@
  </row>
  <row id="50081" trl="N">
   <value column="Name" original="Financial Information (Venezuela)">Financial Information (LVE)</value>
-  <value column="UUID" original="8516e56e-9c56-11e9-8ded-0242ac110002">6fdc04f8-8fc8-11e9-9145-0b3fea8c6f36</value>
+  <value column="UUID" original="4782398e-d89b-11e9-a479-0242ac110002">6fdc04f8-8fc8-11e9-9145-0b3fea8c6f36</value>
  </row>
  <row id="50104" trl="N">
   <value column="Name" original="Notifications">Notificaciones</value>
@@ -283,5 +283,13 @@
  <row id="50105" trl="N">
   <value column="Name" original="Withholding Definition (Venezuela)">Definición de Retención (Venezuela)</value>
   <value column="UUID" original="529061a2-8e2c-11e9-9fe8-afc6279d77e5">52b74786-8e2c-11e9-9ff8-53a0be8aff82</value>
+ </row>
+ <row id="50106" trl="N">
+  <value column="Name" original="Human Resource (Venezuela)">Talento Humano (Venezuela)</value>
+  <value column="UUID" original="88dcc3a2-9cd9-11e9-92be-0242ac110002">88f872c8-9cd9-11e9-92be-0242ac110002</value>
+ </row>
+ <row id="50109" trl="N">
+  <value column="Name" original="Government Information (Venezuela)">Información Gubernamental</value>
+  <value column="UUID" original="2f5bac34-becc-11e9-acc1-0242ac110002">2f7c0524-becc-11e9-acc1-0242ac110002</value>
  </row>
 </adempiereTrl>

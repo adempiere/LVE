@@ -8614,6 +8614,13 @@ The class needs to implement org.compiere.model.PaymentProcessor]]></value>
   <value column="Help" original=""/>
   <value column="UUID" original="2ecb2cac-8166-11e9-8651-f7d8bc625402"/>
  </row>
+ <row id="54737" trl="N">
+  <value column="Name" original="Commission Type">Tipo de Comisión</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Commission Type is used for define a custom commission">El Tipo de Comisión es usado para definir una comisión personalizada</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="615b3dd2-8194-11e9-a290-4bab76d82d58"/>
+ </row>
  <row id="54751" trl="N">
   <value column="Name" original="Project Processor Queued">Cola Procesador Solicitudes</value>
   <value column="CommitWarning" original=""/>
@@ -8803,6 +8810,13 @@ The class needs to implement org.compiere.model.PaymentProcessor]]></value>
   <value column="Help" original="See: https://en.wikipedia.org/wiki/Social_media for future reference">Vea: https://en.wikipedia.org/wiki/Social_media para futuras referencias</value>
   <value column="UUID" original="1db0337e-8272-11e9-90bb-3b3e0432b47c">1dfce58e-8272-11e9-90e6-a3e1800ade3b</value>
  </row>
+ <row id="54786" trl="N">
+  <value column="Name" original="Attachment">Adjunto</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Attachment Reference">Referencia de Adjunto</value>
+  <value column="Help" original="This tab allows look a reference of attachment, image or archive soraged on external storage system">En esta pestaña puede ver la referencia de un adjunto, imagen o archivo almacenado en un sistema de almacenamiento de datos externo</value>
+  <value column="UUID" original="1b4c2d74-8356-11e9-95fe-a37d0576add7">1ba4513e-8356-11e9-9629-a75e0cad235c</value>
+ </row>
  <row id="54811" trl="N">
   <value column="Name" original="Withholding Definition">Definición de Retenciones</value>
   <value column="CommitWarning" original=""/>
@@ -8851,6 +8865,13 @@ The class needs to implement org.compiere.model.PaymentProcessor]]></value>
   <value column="Description" original="Log Tab">Pestaña de Log</value>
   <value column="Help" original=""/>
   <value column="UUID" original="f4833bf4-8e1a-11e9-87f2-b32453de43bd">f4d218e6-8e1a-11e9-881d-677ea2b444ae</value>
+ </row>
+ <row id="54819" trl="N">
+  <value column="Name" original="Exporter">Exportador</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original="Exporter Definition">Definición de Exportador</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="33d8ac80-8e3e-11e9-a763-7b470c7c1471">341103aa-8e3e-11e9-a78e-5fc7829c23cf</value>
  </row>
  <row id="54820" trl="N">
   <value column="Name" original="Withholding Tax">Retención de I.V.A</value>
@@ -8942,5 +8963,12 @@ The class needs to implement org.compiere.model.PaymentProcessor]]></value>
   <value column="Description" original="Withholding Detail for Rental Tax">Detalle de Retención de I.S.L.R</value>
   <value column="Help" original=""/>
   <value column="UUID" original="63dbc978-9c6a-11e9-a959-0242ac110002">640a9faa-9c6a-11e9-a959-0242ac110002</value>
+ </row>
+ <row id="54855" trl="N">
+  <value column="Name" original="Group">Grupo</value>
+  <value column="CommitWarning" original=""/>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="a7ff0eac-4045-11e9-b658-0242ac140002">a814263e-4045-11e9-b658-0242ac140002</value>
  </row>
 </adempiereTrl>

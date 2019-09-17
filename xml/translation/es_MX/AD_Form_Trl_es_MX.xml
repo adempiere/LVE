@@ -307,4 +307,10 @@ Selecting the "Where Used" check box will display the BOMs that this product is 
   <value column="Help" original=""/>
   <value column="UUID" original="8e4277b4-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="53079" trl="N">
+  <value column="Name" original="Generate Outbound (Sales Order / Distribution Order)">Generar Orden de Salida (Orden de Venta / Distribución)</value>
+  <value column="Description" original="Generate a Outbound from Sales Order or Distribution Order">Generar Orden de Salida desde Orden de Venta o Distribución</value>
+  <value column="Help" original="This Form allows create Outbound based on Sales Orders or Distribution Orders, is very useful for organizations with distribution and sales channels">Éste Formulario permite crear Órdenes de Salida basado en Órdenes de Venta u Órdenes de Distribución, es muy útil para organizaciones con distribución y canales de venta</value>
+  <value column="UUID" original="7ebf8166-c6d7-11e9-afe2-0242ac110002"/>
+ </row>
 </adempiereTrl>

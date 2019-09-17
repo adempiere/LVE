@@ -7450,6 +7450,11 @@
   <value column="Description" original=""/>
   <value column="UUID" original="a467da5c-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="55291" trl="N">
+  <value column="Name" original="Custom">Comisión Personalizada</value>
+  <value column="Description" original="Custom Query">Consulta para comisión personalizada</value>
+  <value column="UUID" original="6b28baa6-8194-11e9-aea1-abe5a833f28e"/>
+ </row>
  <row id="55306" trl="Y">
   <value column="Name" original="Quick Response Code">QR Código de Respuesta Rápida</value>
   <value column="Description" original="Is the trademark for a type of matrix barcode (or two-dimensional barcode)">Es código de barras matricial (o código de barras bidimensional)</value>
@@ -7660,6 +7665,11 @@
   <value column="Description" original=""/>
   <value column="UUID" original="247e0764-8e2d-11e9-8f78-f7d8f138b1ec">24b0b178-8e2d-11e9-8f8b-8f03567345c8</value>
  </row>
+ <row id="55377" trl="N">
+  <value column="Name" original="Custom Export">Exportador Personalizado</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="155cbd66-8e3c-11e9-a31c-53e004bad7c9">15931cf8-8e3c-11e9-a32f-1bbaf89bf6bc</value>
+ </row>
  <row id="55378" trl="N">
   <value column="Name" original="I.V.A.">I.V.A.</value>
   <value column="Description" original=""/>
@@ -7674,6 +7684,56 @@
   <value column="Name" original="Impuesto Municipal">Impuesto Municipal</value>
   <value column="Description" original=""/>
   <value column="UUID" original="3e7615f2-9121-11e9-a6ef-2f8bca818133">3ead9cc0-9121-11e9-a702-c3d639034058</value>
+ </row>
+ <row id="55401" trl="N">
+  <value column="Name" original="Freight Order">Orden de Flete</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="2233cb02-cba8-11e9-82e6-0242ac110002">227a1c6a-cba8-11e9-82e6-0242ac110002</value>
+ </row>
+ <row id="55402" trl="N">
+  <value column="Name" original="General">General</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="15d142a6-c507-11e9-9dcf-0242ac110004">15efe5d0-c507-11e9-9dcf-0242ac110004</value>
+ </row>
+ <row id="55403" trl="Y">
+  <value column="Name" original="Partial">Parcial</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="2d104700-c507-11e9-9af1-0242ac110004">2d2847c4-c507-11e9-9af1-0242ac110004</value>
+ </row>
+ <row id="55404" trl="N">
+  <value column="Name" original="Minimum">Mínimo</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="db3c2e6a-c508-11e9-9dcf-0242ac110004">db444514-c508-11e9-9dcf-0242ac110004</value>
+ </row>
+ <row id="55405" trl="N">
+  <value column="Name" original="Maximum">Máximo</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="57626f86-c509-11e9-b624-0242ac110004">576a719a-c509-11e9-b624-0242ac110004</value>
+ </row>
+ <row id="55406" trl="N">
+  <value column="Name" original="Medium">Medio</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="72bcbea8-c509-11e9-bede-0242ac110004">72c417fc-c509-11e9-bede-0242ac110004</value>
+ </row>
+ <row id="55407" trl="N">
+  <value column="Name" original="Partia">Parcial</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="a914a52e-c509-11e9-bede-0242ac110004">a91bb382-c509-11e9-bede-0242ac110004</value>
+ </row>
+ <row id="55408" trl="N">
+  <value column="Name" original="Invoice">Factura</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="eba9d992-cd31-11e9-ac06-0242ac110002">ebd4e89e-cd31-11e9-ac06-0242ac110002</value>
+ </row>
+ <row id="55409" trl="N">
+  <value column="Name" original="Debit Note">Nota de Débito</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="f763ab1e-cd31-11e9-ac06-0242ac110002">f78b9f66-cd31-11e9-ac06-0242ac110002</value>
+ </row>
+ <row id="55410" trl="N">
+  <value column="Name" original="Credit Note">Nota de Crédito</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="04d2d310-cd32-11e9-ac06-0242ac110002">05034176-cd32-11e9-ac06-0242ac110002</value>
  </row>
  <row id="200139" trl="Y">
   <value column="Name" original="Fixed Assets Addition">Fixed Assets Document</value>
