@@ -199,13 +199,4 @@ public class Exterior extends LVEPaymentExportList {
 		}
 		return getExportedPayments();
 	}
-	
-	@Override
-	public String processValue(String value) {
-		if(Util.isEmpty(value)) {
-			return value;
-		}
-		//	
-		return value.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ$,;*/@?_\"/:]", "");
-	}
 }

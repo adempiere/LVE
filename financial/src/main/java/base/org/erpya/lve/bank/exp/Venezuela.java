@@ -255,15 +255,6 @@ public class Venezuela extends LVEPaymentExportList {
 	}
 	
 	@Override
-	public String processValue(String value) {
-		if(Util.isEmpty(value)) {
-			return value;
-		}
-		//	
-		return value.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ$,.;*/]", "");
-	}
-	
-	@Override
 	public int exportToFileAsVerification(MBankAccount bankAccount, List<MPayment> payments, File file, StringBuffer error) {
 		if (payments == null || payments.size() == 0)
 			return 0;

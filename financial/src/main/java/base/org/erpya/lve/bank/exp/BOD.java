@@ -342,13 +342,4 @@ public class BOD extends LVEPaymentExportList {
 				writeLine(line.toString());
 			});
 	}
-	
-	@Override
-	public String processValue(String value) {
-		if(Util.isEmpty(value)) {
-			return value;
-		}
-		//	
-		return value.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ$,;*/]", "");
-	}
 }

@@ -347,15 +347,6 @@ public class Banesco extends LVEPaymentExportList {
 	}
 	
 	@Override
-	public String processValue(String value) {
-		if(Util.isEmpty(value)) {
-			return value;
-		}
-		//	
-		return value.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ$,;*/-]", "");
-	}
-	
-	@Override
 	public int exportToFileAsEnrollment(MBankAccount bankAccount, List<MBPBankAccount> bPartnerAccountList,
 			boolean isEnroll, File file, StringBuffer error) {
 		MOrgInfo orgInfo = MOrgInfo.get(bankAccount.getCtx(), bankAccount.getAD_Org_ID(), bankAccount.get_TrxName());

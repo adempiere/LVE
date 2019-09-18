@@ -282,13 +282,4 @@ public class BFC extends LVEPaymentExportList {
 	private void addPaymentToCounter() {
 		paymentQty++;
 	}
-	
-	@Override
-	public String processValue(String value) {
-		if(Util.isEmpty(value)) {
-			return value;
-		}
-		//	
-		return value.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ$,.;*/]", "");
-	}
 }
