@@ -90,7 +90,7 @@ public class Mercantil_BankTransaction extends MT940BankTransaction {
 			//	Currency
 			addValue(HEAD_OPENING_BALANCE_Currency, subString(value, index, index += 3));
 			//	Amount
-			addValue(HEAD_OPENING_BALANCE_Amount, getAmountAsString(subString(value, index, value.length())));
+			addValue(HEAD_OPENING_BALANCE_Amount, getAmountFromString(subString(value, index, value.length())));
 		} else if(LINE_TRANSACTION.equals(key)) {
 			int index = 0;
 			//	Date
@@ -103,7 +103,7 @@ public class Mercantil_BankTransaction extends MT940BankTransaction {
 			//	Currency
 			// addValue(LINE_TRANSACTION_Currency_Char, subString(value, index, index += 1));
 			//	Amount
-			BigDecimal amount = getAmountAsString(subString(value, index, value.indexOf(LINE_TRANSACTION_NMSCNONREF)));
+			BigDecimal amount = getAmountFromString(subString(value, index, value.indexOf(LINE_TRANSACTION_NMSCNONREF)));
 			if(!Util.isEmpty(trxType)
 					&& trxType.equals(DEBT)
 					&& amount != null) {
@@ -136,7 +136,7 @@ public class Mercantil_BankTransaction extends MT940BankTransaction {
 			//	Currency
 			addValue(LINE_CLOSING_BALANCE_Currency, subString(value, index, index += 3));
 			//	Amount
-			addValue(LINE_CLOSING_BALANCE_Amount, getAmountAsString(subString(value, index, value.length())));
+			addValue(LINE_CLOSING_BALANCE_Amount, getAmountFromString(subString(value, index, value.length())));
 		} else if(LINE_AVAILABLE_BALANCE.equals(key)) {
 			int index = 0;
 			//	Transaction Type
@@ -146,7 +146,7 @@ public class Mercantil_BankTransaction extends MT940BankTransaction {
 			//	Currency
 			addValue(LINE_AVAILABLE_BALANCE_Currency, subString(value, index, index += 3));
 			//	Amount
-			addValue(LINE_AVAILABLE_BALANCE_Amount, getAmountAsString(subString(value, index, value.length())));
+			addValue(LINE_AVAILABLE_BALANCE_Amount, getAmountFromString(subString(value, index, value.length())));
 		} else if(LINE_TYPE_ADDITIONAL_INFORMATION.equals(key)) {
 			addValue(LINE_TYPE_ADDITIONAL_INFORMATION, subString(value, 0, 65));
 		}
@@ -158,7 +158,7 @@ public class Mercantil_BankTransaction extends MT940BankTransaction {
 	 * @return
 	 * @throws ParseException
 	 */
-	private BigDecimal getAmountAsString(String amountAsString) throws ParseException {
+	private BigDecimal getAmountFromString(String amountAsString) throws ParseException {
 		char separator = '.';
 		if(amountAsString.lastIndexOf('.') > 0) {
 			separator = ',';
