@@ -44,13 +44,15 @@ import org.compiere.util.Util;
  *		<a href="https://github.com/adempiere/LVE/issues/1">
  * 		@see FR [ 1 ] Initial commit</a>
  */
-public class Mercantil extends LVEPaymentExportList {
+public class MercantilNominaFacil extends LVEPaymentExportList {
 
 	/** Logger								*/
 	static private CLogger	s_log = CLogger.getCLogger (MercantilNomina.class);
 	/**	Header Short Format	*/
 	private final String HEADER_SHORT_DATE_FORMAT = "yyyyMMdd";
-	
+	public final static char CR  = (char) 0x0D;
+	public final static char LF  = (char) 0x0A;
+	public final static String CRLF  = "" + CR + LF; 
 	
 	@Override
 	public int exportToFile(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
@@ -79,9 +81,9 @@ public class Mercantil extends LVEPaymentExportList {
 			String paymentRequestNo = processValue(paySelection.getDocumentNo());
 			paymentRequestNo = rightPadding(paymentRequestNo, 15, " ", true);
 			// Product Type
-			String productType = "PROVE";
+			String productType = "NOMIN";
 			//	Payment Type
-			String paymentTypeConstant = "0000000062";
+			String paymentTypeConstant = leftPadding("222", 10, "0");
 			//	Process Organization Tax ID
 			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
 			//	Process Person Type
@@ -127,8 +129,7 @@ public class Mercantil extends LVEPaymentExportList {
 				.append(totalAmtAsString)			//  Total Amount
 				.append(payDate)					//	Payment Date
 				.append(bankAccountNo)				//  Account No
-				.append(leftPadding("", 7, "0"))	//  Reserved 
-				.append(leftPadding("", 8, "0"))	//  Reserved Note Serial Number Company
+				.append(leftPadding(paymentRequestNo, 8, "0"))	//  Reserved Note Serial Number Company
 				.append(leftPadding("", 4, "0")) 	//	Reserved Response Code (Data Output)
 				.append(leftPadding("", 8, "0")) 	//	Reserved Date process (Data Output)
 				.append(leftPadding("", 261, "0"));	// 	Reserved
@@ -183,8 +184,15 @@ public class Mercantil extends LVEPaymentExportList {
 							}
 							
 							//	Process Document No
-							String documentNo = processValue(payselectionCheck.getDocumentNo());
-							documentNo = rightPadding(documentNo, 8, " ", true);
+							String paymentDescription = processValue(payselectionCheck.getDocumentNo());
+							if(!Util.isEmpty(paySelection.getName())) {
+								paymentDescription = paymentDescription + " " + processValue(paySelection.getName());
+							}
+							if(!Util.isEmpty(paySelection.getDescription())) {
+								paymentDescription = paymentDescription + " " + processValue(paySelection.getDescription());
+							}
+							//	
+							paymentDescription = rightPadding(paymentDescription, 80, " ", true);
 							//	Payment Amount
 							String amountAsString = String.format("%.2f", payselectionCheck.getPayAmt().abs()).replace(".", "").replace(",", "");
 							if(amountAsString.length() > 17) {
@@ -199,26 +207,24 @@ public class Mercantil extends LVEPaymentExportList {
 							bPEmail = rightPadding(bPEmail, 50, " ", true);
 							//	Write Credit Register
 							StringBuffer line = new StringBuffer();
-							line.append(Env.NL)						//	New Line
+							line.append(CRLF)						//	New Line
 								.append("2")						//	Constant
 								.append(personType)					//	Type Register	
 								.append(bPTaxId)					// 	BP TaxID
 								.append(paymentType)				//	Payment Type (Same Bank / Other Bank)
 								.append(leftPadding("", 12, "0"))	//	Reserved
-								.append(leftPadding("", 15, " "))	//	Reserved
-								.append(leftPadding("", 15, "0"))	//	Reserved
+								.append(leftPadding("", 30, " "))	//	Reserved
 								.append(bPAccountNo)				//  BP Bank Account
 								.append(amountAsString)				//	Payment Amount
 								.append(bPValue)					//	BP Value
 								.append(paymentTypeConstant)		//	Payment Type
 								.append(leftPadding("", 3, "0"))	//  Reserved
 								.append(bPName)						//	BP Name
-								.append(leftPadding("", 7, "0"))	//  Reserved
-								.append(documentNo) 				//	Document No
+								.append(leftPadding("", 15, "0"))	//  Reserved
 								.append(bPEmail) 					//	Email
 								.append(leftPadding("", 4, "0")) 	//	Response Code
 								.append(leftPadding("", 30, " "))	//  Response Message
-								.append(leftPadding("", 80, " "))	//	Payment Concept
+								.append(paymentDescription)			//	Payment Concept
 								.append(leftPadding("", 35, "0")); 	//	Reserved
 							s_log.fine("Write Line");
 							writeLine(line.toString());
@@ -372,7 +378,7 @@ public class Mercantil extends LVEPaymentExportList {
 				constant2 = leftPadding("", 26, " ");
 				//	Write Credit Register
 				StringBuffer line = new StringBuffer();
-				line.append(Env.NL)				//	New Line
+				line.append(CRLF)				//	New Line
 					.append(constant)			//	Constant
 					.append(bankAccountNo)		//	Bank Account
 					.append(checkNo)			//	Check No

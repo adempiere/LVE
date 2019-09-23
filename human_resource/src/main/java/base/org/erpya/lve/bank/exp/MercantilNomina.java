@@ -45,10 +45,10 @@ import org.erpya.lve.util.ColumnsAdded;
  * 	Implementation for Export Payment from Mercantil bank for Payroll
  * 	@author Yamel Senih, ysenih@erpya.com, ERPCyA http://www.erpya.com
  */
-public class MercantilPayroll extends LVEPaymentExportList {
+public class MercantilNomina extends LVEPaymentExportList {
 
 	/** Logger								*/
-	static private CLogger	s_log = CLogger.getCLogger (Mercantil.class);
+	static private CLogger	s_log = CLogger.getCLogger (MercantilNominaFacil.class);
 	/**	Header Short Format	*/
 	private final String HEADER_SHORT_DATE_FORMAT = "yyyyMMdd";
 	/**	Payroll process list	*/

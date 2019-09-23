@@ -15,18 +15,51 @@
  ************************************************************************************/
 package org.erpya.lve.bank.imp;
 
-import org.spin.util.impexp.BankStatementHandler;
-import org.spin.util.impexp.BankTransactionAbstract;
+import java.math.BigDecimal;
+
+import org.compiere.impexp.OFXBankStatementHandler;
+import org.compiere.util.Util;
 
 /**
- * File of Provincial Bank support
+ * Custom format for Provincial Bank Transaction
+ * It is a specific solution for a bank
  * @author Yamel Senih, ysenih@erpya.com , http://www.erpya.com
- * <li> FR [ 1701 ] Add support to MT940 format
+ * <li> FR [ 1701 ] Add support to OFX format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public final class Bancaribe_BankStatementLoader extends BankStatementHandler {
+public class Bancaribe_OFC_BankTransaction extends OFXBankStatementHandler {
+	/**	Debt Constant	*/
+	public static final String DEBT = "D";
+	/**	Credit Constant	*/
+	public static final String CREDIT = "C";
+
 	@Override
-	protected BankTransactionAbstract getBankTransactionInstance() {
-		return new Bancaribe_BankTransaction();
+	public String getTrxType() {
+		return super.getPayeeName();
 	}
+	
+	@Override
+	public BigDecimal getTrxAmt() {
+		BigDecimal trxAmt = super.getTrxAmt();
+		if(!Util.isEmpty(getTrxType())
+				&& getTrxType().equals(DEBT)
+				&& trxAmt != null) {
+			trxAmt = trxAmt.negate();
+		}
+		//	Default
+		return trxAmt;
+	}
+	
+	@Override
+	public BigDecimal getStmtAmt() {
+		BigDecimal smtAmt = super.getStmtAmt();
+		if(!Util.isEmpty(getTrxType())
+				&& getTrxType().equals(DEBT)
+				&& smtAmt != null) {
+			smtAmt = smtAmt.negate();
+		}
+		//	Default
+		return smtAmt;
+	}
+	
 }
