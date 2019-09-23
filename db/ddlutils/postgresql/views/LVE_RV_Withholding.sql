@@ -31,7 +31,7 @@ SELECT
 	bp.TaxID,
 	oi.TaxID OrgValue,
 	CASE WHEN whDoc.IsSOTrx = 'N' THEN 'C' ELSE 'V' END DocumentType,
-	whconcept.Value Concept_Value,
+	whc.Value Concept_Value,
 	whDoc.DocumentNo WHDocumentNo,
 	it.Rate,
 	wh.WH_Definition_ID,
@@ -40,7 +40,8 @@ SELECT
 	wh.WithholdingDeclaration_ID,
 	wh.IsManual,
 	dtOrigDoc.FiscalDocumentType,
-	it.TaxBaseAmt
+	it.TaxBaseAmt,
+	whconcept.Name Concept_Name
 FROM C_Invoice whDoc
 INNER JOIN C_InvoiceLine whDocLine ON (whDoc.C_Invoice_ID = whDocLine.C_Invoice_ID)
 INNER JOIN C_BPartner bp ON (whDoc.C_BPartner_ID = bp.C_BPartner_ID)
