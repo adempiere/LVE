@@ -1,8 +1,242 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add support to Process Withholding for AR Invoice" ReleaseNo="3.9.3" SeqNo="81000240">
+  <Migration EntityType="LVE" Name="Add Support to Process Withholding for AR Invoice" ReleaseNo="3.9.3" SeqNo="81000240">
     <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="284" Action="I" Record_ID="54308" Table="AD_Process">
+        <Data AD_Column_ID="4374" Column="AD_ReportView_ID" isNewNull="true"/>
+        <Data AD_Column_ID="84383" Column="UUID">7077ade2-de3b-11e9-b984-0242ac110002</Data>
+        <Data AD_Column_ID="4656" Column="Classname">org.erpya.lve.process.ARWithholdingProcess</Data>
+        <Data AD_Column_ID="2811" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="3371" Column="IsReport">false</Data>
+        <Data AD_Column_ID="12458" Column="IsBetaFunctionality">false</Data>
+        <Data AD_Column_ID="6653" Column="Statistic_Seconds">0</Data>
+        <Data AD_Column_ID="6652" Column="Statistic_Count">0</Data>
+        <Data AD_Column_ID="2809" Column="Name">Withholding Process for AR Invoice / AR Credit Memo</Data>
+        <Data AD_Column_ID="2810" Column="Description">Withholding Process for AR Invoice / AR Credit Memo</Data>
+        <Data AD_Column_ID="2808" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2806" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2801" Column="AD_Process_ID">54308</Data>
+        <Data AD_Column_ID="2802" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2803" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="11834" Column="AD_Workflow_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2813" Column="ProcedureName" isNewNull="true"/>
+        <Data AD_Column_ID="63488" Column="AD_Browse_ID" isNewNull="true"/>
+        <Data AD_Column_ID="6485" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="50182" Column="JasperReport" isNewNull="true"/>
+        <Data AD_Column_ID="2805" Column="Created">2019-09-23 15:50:45.512</Data>
+        <Data AD_Column_ID="2807" Column="Updated">2019-09-23 15:50:45.512</Data>
+        <Data AD_Column_ID="4214" Column="IsDirectPrint">false</Data>
+        <Data AD_Column_ID="57920" Column="CopyFromProcess">N</Data>
+        <Data AD_Column_ID="2804" Column="IsActive">true</Data>
+        <Data AD_Column_ID="50181" Column="ShowHelp">Y</Data>
+        <Data AD_Column_ID="4023" Column="Value">Withholding Process (ARI / ARC)</Data>
+        <Data AD_Column_ID="11563" Column="WorkflowValue" isNewNull="true"/>
+        <Data AD_Column_ID="56515" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="5790" Column="AccessLevel">3</Data>
+        <Data AD_Column_ID="14084" Column="IsServerProcess">false</Data>
+        <Data AD_Column_ID="78843" Column="GenerateClass">N</Data>
+        <Data AD_Column_ID="7752" Column="AD_PrintFormat_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="287" Action="I" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2847" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2850" Column="Updated">2019-09-23 15:50:48.917</Data>
+        <Data AD_Column_ID="2848" Column="Created">2019-09-23 15:50:48.917</Data>
+        <Data AD_Column_ID="2853" Column="Description">Withholding Process for AR Invoice / AR Credit Memo</Data>
+        <Data AD_Column_ID="2854" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="2855" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2852" Column="Name">Withholding Process for AR Invoice / AR Credit Memo</Data>
+        <Data AD_Column_ID="2846" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2845" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2851" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID">54308</Data>
+        <Data AD_Column_ID="2849" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="84387" Column="UUID">70d87708-de3b-11e9-b984-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="285" Action="I" Record_ID="57154" Table="AD_Process_Para">
+        <Data AD_Column_ID="2820" Column="Updated">2019-09-23 15:51:12.424</Data>
+        <Data AD_Column_ID="2822" Column="Name">Withholding </Data>
+        <Data AD_Column_ID="2817" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2830" Column="IsRange">false</Data>
+        <Data AD_Column_ID="2818" Column="Created">2019-09-23 15:51:12.424</Data>
+        <Data AD_Column_ID="3738" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName">WH_Definition_ID</Data>
+        <Data AD_Column_ID="2823" Column="Description">Withholding Definition is used for define a withholding rule for BP</Data>
+        <Data AD_Column_ID="2824" Column="Help">Withholding is the amount that is withheld from a salary, salary or other collection for the payment of a tax, of debts under the embargo, that is, you are now withheld to secure the payment of the tax.</Data>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">57154</Data>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7728" Column="EntityType">WHH</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">10</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54308</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">19</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID">52730</Data>
+        <Data AD_Column_ID="2826" Column="SeqNo">10</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">61055</Data>
+        <Data AD_Column_ID="84385" Column="UUID">807e8418-de3b-11e9-a114-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="286" Action="I" Record_ID="57154" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created">2019-09-23 15:51:15.567</Data>
+        <Data AD_Column_ID="2835" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2838" Column="Updated">2019-09-23 15:51:15.567</Data>
+        <Data AD_Column_ID="2840" Column="Name">Withholding </Data>
+        <Data AD_Column_ID="2842" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2841" Column="Description">Withholding Definition is used for define a withholding rule for BP</Data>
+        <Data AD_Column_ID="3743" Column="Help">Withholding is the amount that is withheld from a salary, salary or other collection for the payment of a tax, of debts under the embargo, that is, you are now withheld to secure the payment of the tax.</Data>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">57154</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2837" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84386" Column="UUID">80bae66a-de3b-11e9-a114-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="285" Action="I" Record_ID="57155" Table="AD_Process_Para">
+        <Data AD_Column_ID="2820" Column="Updated">2019-09-23 15:51:15.918</Data>
+        <Data AD_Column_ID="2822" Column="Name">Withholding Type</Data>
+        <Data AD_Column_ID="2817" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2830" Column="IsRange">false</Data>
+        <Data AD_Column_ID="2818" Column="Created">2019-09-23 15:51:15.918</Data>
+        <Data AD_Column_ID="3738" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName">WH_Type_ID</Data>
+        <Data AD_Column_ID="2823" Column="Description">Indicates the types of national tax withholdings</Data>
+        <Data AD_Column_ID="2824" Column="Help">In the window the types of existing national tax withholdings are indicated.</Data>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">57155</Data>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7728" Column="EntityType">WHH</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">10</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54308</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">19</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo">20</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">61056</Data>
+        <Data AD_Column_ID="84385" Column="UUID">819626bc-de3b-11e9-a114-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="60" StepType="AD">
+      <PO AD_Table_ID="286" Action="I" Record_ID="57155" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created">2019-09-23 15:51:17.618</Data>
+        <Data AD_Column_ID="2835" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2838" Column="Updated">2019-09-23 15:51:17.618</Data>
+        <Data AD_Column_ID="2840" Column="Name">Withholding Type</Data>
+        <Data AD_Column_ID="2842" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2841" Column="Description">Indicates the types of national tax withholdings</Data>
+        <Data AD_Column_ID="3743" Column="Help">In the window the types of existing national tax withholdings are indicated.</Data>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">57155</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2837" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84386" Column="UUID">81f3e4c8-de3b-11e9-a114-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="70" StepType="AD">
+      <PO AD_Table_ID="285" Action="I" Record_ID="57156" Table="AD_Process_Para">
+        <Data AD_Column_ID="2820" Column="Updated">2019-09-23 15:51:17.858</Data>
+        <Data AD_Column_ID="2822" Column="Name">Withholding Setting</Data>
+        <Data AD_Column_ID="2817" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2830" Column="IsRange">false</Data>
+        <Data AD_Column_ID="2818" Column="Created">2019-09-23 15:51:17.858</Data>
+        <Data AD_Column_ID="3738" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName">WH_Setting_ID</Data>
+        <Data AD_Column_ID="2823" Column="Description">specifies the setting to each applied withholding</Data>
+        <Data AD_Column_ID="2824" Column="Help">in this sale the functionalities are specified to each applied withholding.</Data>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">57156</Data>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7728" Column="EntityType">WHH</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">10</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54308</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">19</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID">52728</Data>
+        <Data AD_Column_ID="2826" Column="SeqNo">30</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">61064</Data>
+        <Data AD_Column_ID="84385" Column="UUID">82c7b190-de3b-11e9-a114-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="80" StepType="AD">
+      <PO AD_Table_ID="286" Action="I" Record_ID="57156" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created">2019-09-23 15:51:19.596</Data>
+        <Data AD_Column_ID="2835" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2838" Column="Updated">2019-09-23 15:51:19.596</Data>
+        <Data AD_Column_ID="2840" Column="Name">Withholding Setting</Data>
+        <Data AD_Column_ID="2842" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2841" Column="Description">specifies the setting to each applied withholding</Data>
+        <Data AD_Column_ID="3743" Column="Help">in this sale the functionalities are specified to each applied withholding.</Data>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">57156</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2837" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84386" Column="UUID">8321df3a-de3b-11e9-a114-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="90" StepType="AD">
       <PO AD_Table_ID="285" Action="I" Record_ID="57105" Table="AD_Process_Para">
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">57105</Data>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">22</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">12</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo">40</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">53498</Data>
+        <Data AD_Column_ID="84385" Column="UUID">232f16f6-d517-11e9-b026-0242ac110002</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54308</Data>
         <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true"/>
         <Data AD_Column_ID="2820" Column="Updated">2019-09-12 00:38:15.825</Data>
         <Data AD_Column_ID="2822" Column="Name">A_Base_Amount</Data>
@@ -18,26 +252,9 @@
         <Data AD_Column_ID="5819" Column="IsCentrallyMaintained">true</Data>
         <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true"/>
         <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true"/>
-        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true"/>
-        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
-        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">57105</Data>
-        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
-        <Data AD_Column_ID="3737" Column="FieldLength">22</Data>
-        <Data AD_Column_ID="2825" Column="AD_Process_ID">54293</Data>
-        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="2827" Column="AD_Reference_ID">12</Data>
-        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="2826" Column="SeqNo">40</Data>
-        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="7729" Column="AD_Element_ID">53498</Data>
-        <Data AD_Column_ID="84385" Column="UUID">232f16f6-d517-11e9-b026-0242ac110002</Data>
       </PO>
     </Step>
-    <Step SeqNo="20" StepType="AD">
+    <Step SeqNo="100" StepType="AD">
       <PO AD_Table_ID="286" Action="I" Record_ID="57105" Table="AD_Process_Para_Trl">
         <Data AD_Column_ID="2836" Column="Created">2019-09-12 00:38:16.591</Data>
         <Data AD_Column_ID="2835" Column="IsActive">true</Data>
@@ -55,13 +272,14 @@
         <Data AD_Column_ID="84386" Column="UUID">235f418c-d517-11e9-b026-0242ac110002</Data>
       </PO>
     </Step>
-    <Step SeqNo="30" StepType="AD">
+    <Step SeqNo="110" StepType="AD">
       <PO AD_Table_ID="285" Action="U" Record_ID="57105" Table="AD_Process_Para">
         <Data AD_Column_ID="56300" Column="DisplayLogic" isOldNull="true">@IsSOTrx@=Y</Data>
       </PO>
     </Step>
-    <Step SeqNo="40" StepType="AD">
+    <Step SeqNo="120" StepType="AD">
       <PO AD_Table_ID="285" Action="I" Record_ID="57106" Table="AD_Process_Para">
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2820" Column="Updated">2019-09-12 00:39:19.711</Data>
         <Data AD_Column_ID="2822" Column="Name">Withholding Rate</Data>
         <Data AD_Column_ID="2817" Column="IsActive">true</Data>
@@ -82,10 +300,8 @@
         <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
         <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">57106</Data>
         <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
         <Data AD_Column_ID="3737" Column="FieldLength">10</Data>
-        <Data AD_Column_ID="2825" Column="AD_Process_ID">54293</Data>
         <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2827" Column="AD_Reference_ID">12</Data>
         <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
@@ -94,9 +310,10 @@
         <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true"/>
         <Data AD_Column_ID="7729" Column="AD_Element_ID">61072</Data>
         <Data AD_Column_ID="84385" Column="UUID">494496d6-d517-11e9-be1e-0242ac110002</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54308</Data>
       </PO>
     </Step>
-    <Step SeqNo="50" StepType="AD">
+    <Step SeqNo="130" StepType="AD">
       <PO AD_Table_ID="286" Action="I" Record_ID="57106" Table="AD_Process_Para_Trl">
         <Data AD_Column_ID="2836" Column="Created">2019-09-12 00:39:20.478</Data>
         <Data AD_Column_ID="2835" Column="IsActive">true</Data>
@@ -114,28 +331,38 @@
         <Data AD_Column_ID="84386" Column="UUID">497390c6-d517-11e9-be1e-0242ac110002</Data>
       </PO>
     </Step>
-    <Step SeqNo="60" StepType="AD">
+    <Step SeqNo="140" StepType="AD">
       <PO AD_Table_ID="285" Action="U" Record_ID="57106" Table="AD_Process_Para">
         <Data AD_Column_ID="56300" Column="DisplayLogic" isOldNull="true">@IsSOTrx@=Y</Data>
       </PO>
     </Step>
-    <Step SeqNo="70" StepType="AD">
-      <PO AD_Table_ID="285" Action="U" Record_ID="57104" Table="AD_Process_Para">
+    <Step SeqNo="150" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57154" Table="AD_Process_Para">
         <Data AD_Column_ID="56300" Column="DisplayLogic" isOldNull="true">@IsSOTrx@=Y</Data>
       </PO>
     </Step>
-    <Step SeqNo="80" StepType="AD">
-      <PO AD_Table_ID="285" Action="U" Record_ID="57075" Table="AD_Process_Para">
+    <Step SeqNo="160" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57155" Table="AD_Process_Para">
         <Data AD_Column_ID="56300" Column="DisplayLogic" isOldNull="true">@IsSOTrx@=Y</Data>
       </PO>
     </Step>
-    <Step SeqNo="90" StepType="AD">
-      <PO AD_Table_ID="285" Action="U" Record_ID="57074" Table="AD_Process_Para">
+    <Step SeqNo="170" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57156" Table="AD_Process_Para">
         <Data AD_Column_ID="56300" Column="DisplayLogic" isOldNull="true">@IsSOTrx@=Y</Data>
       </PO>
     </Step>
-    <Step SeqNo="100" StepType="AD">
+    <Step SeqNo="180" StepType="AD">
       <PO AD_Table_ID="285" Action="I" Record_ID="57108" Table="AD_Process_Para">
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54308</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">10</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">12</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo">60</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">61063</Data>
+        <Data AD_Column_ID="84385" Column="UUID">701f71ae-d517-11e9-819d-0242ac110002</Data>
         <Data AD_Column_ID="2820" Column="Updated">2019-09-12 00:40:24.837</Data>
         <Data AD_Column_ID="2822" Column="Name">Withholding Amt</Data>
         <Data AD_Column_ID="2817" Column="IsActive">true</Data>
@@ -158,19 +385,9 @@
         <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
-        <Data AD_Column_ID="3737" Column="FieldLength">10</Data>
-        <Data AD_Column_ID="2825" Column="AD_Process_ID">54293</Data>
-        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="2827" Column="AD_Reference_ID">12</Data>
-        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="2826" Column="SeqNo">60</Data>
-        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="7729" Column="AD_Element_ID">61063</Data>
-        <Data AD_Column_ID="84385" Column="UUID">701f71ae-d517-11e9-819d-0242ac110002</Data>
       </PO>
     </Step>
-    <Step SeqNo="110" StepType="AD">
+    <Step SeqNo="190" StepType="AD">
       <PO AD_Table_ID="286" Action="I" Record_ID="57108" Table="AD_Process_Para_Trl">
         <Data AD_Column_ID="2836" Column="Created">2019-09-12 00:40:25.625</Data>
         <Data AD_Column_ID="84386" Column="UUID">704841ba-d517-11e9-819d-0242ac110002</Data>
@@ -188,8 +405,9 @@
         <Data AD_Column_ID="2839" Column="UpdatedBy">100</Data>
       </PO>
     </Step>
-    <Step SeqNo="120" StepType="AD">
+    <Step SeqNo="200" StepType="AD">
       <PO AD_Table_ID="285" Action="I" Record_ID="57109" Table="AD_Process_Para">
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2820" Column="Updated">2019-09-12 00:40:34.519</Data>
         <Data AD_Column_ID="2822" Column="Name">Document No</Data>
         <Data AD_Column_ID="2817" Column="IsActive">true</Data>
@@ -215,8 +433,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
         <Data AD_Column_ID="3737" Column="FieldLength">30</Data>
-        <Data AD_Column_ID="2825" Column="AD_Process_ID">54293</Data>
-        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54308</Data>
         <Data AD_Column_ID="2827" Column="AD_Reference_ID">10</Data>
         <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
         <Data AD_Column_ID="2826" Column="SeqNo">70</Data>
@@ -226,7 +443,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="84385" Column="UUID">75fbe40e-d517-11e9-819d-0242ac110002</Data>
       </PO>
     </Step>
-    <Step SeqNo="130" StepType="AD">
+    <Step SeqNo="210" StepType="AD">
       <PO AD_Table_ID="286" Action="I" Record_ID="57109" Table="AD_Process_Para_Trl">
         <Data AD_Column_ID="2837" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
@@ -246,19 +463,126 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
       </PO>
     </Step>
-    <Step SeqNo="140" StepType="AD">
+    <Step SeqNo="220" StepType="AD">
       <PO AD_Table_ID="53660" Action="I" Record_ID="318" Table="AD_Table_Process">
+        <Data AD_Column_ID="69647" Column="AD_Process_ID">54308</Data>
         <Data AD_Column_ID="69648" Column="AD_Table_ID">318</Data>
         <Data AD_Column_ID="69641" Column="IsActive">true</Data>
         <Data AD_Column_ID="69642" Column="Created">2019-09-12 00:41:40.851</Data>
         <Data AD_Column_ID="69643" Column="Updated">2019-09-12 00:41:40.851</Data>
-        <Data AD_Column_ID="69647" Column="AD_Process_ID">54293</Data>
         <Data AD_Column_ID="69640" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="69649" Column="EntityType">LVE</Data>
         <Data AD_Column_ID="69639" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="69645" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="69644" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="84427" Column="UUID">9d1f17fe-d517-11e9-819d-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="230" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57155" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="20">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="240" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57156" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="30">20</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="250" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57154" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="10">30</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="260" StepType="AD">
+      <PO AD_Table_ID="285" Action="I" Record_ID="57157" Table="AD_Process_Para">
+        <Data AD_Column_ID="2820" Column="Updated">2019-09-23 16:37:06.724</Data>
+        <Data AD_Column_ID="2822" Column="Name">Document Date</Data>
+        <Data AD_Column_ID="2817" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2830" Column="IsRange">false</Data>
+        <Data AD_Column_ID="2818" Column="Created">2019-09-23 16:37:06.724</Data>
+        <Data AD_Column_ID="3738" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName">DateDoc</Data>
+        <Data AD_Column_ID="2823" Column="Description">Date of the Document</Data>
+        <Data AD_Column_ID="2824" Column="Help">The Document Date indicates the date the document was generated.  It may or may not be the same as the accounting date.</Data>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">57157</Data>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">7</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54308</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">15</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo">80</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">265</Data>
+        <Data AD_Column_ID="84385" Column="UUID">0f2c61e8-de42-11e9-a5b4-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="270" StepType="AD">
+      <PO AD_Table_ID="286" Action="I" Record_ID="57157" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created">2019-09-23 16:38:11.89</Data>
+        <Data AD_Column_ID="2835" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2838" Column="Updated">2019-09-23 16:38:11.89</Data>
+        <Data AD_Column_ID="2840" Column="Name">Document Date</Data>
+        <Data AD_Column_ID="2842" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2841" Column="Description">Date of the Document</Data>
+        <Data AD_Column_ID="3743" Column="Help">The Document Date indicates the date the document was generated.  It may or may not be the same as the accounting date.</Data>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">57157</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2837" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84386" Column="UUID">0f63ce76-de42-11e9-a5b4-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="280" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57157" Table="AD_Process_Para">
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isOldNull="true">@IsSOTrx@=Y</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="290" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57157" Table="AD_Process_Para">
+        <Data AD_Column_ID="3738" Column="IsMandatory" oldValue="false">true</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="300" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57109" Table="AD_Process_Para">
+        <Data AD_Column_ID="3738" Column="IsMandatory" oldValue="false">true</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="310" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57108" Table="AD_Process_Para">
+        <Data AD_Column_ID="3738" Column="IsMandatory" oldValue="false">true</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="320" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57106" Table="AD_Process_Para">
+        <Data AD_Column_ID="3738" Column="IsMandatory" oldValue="false">true</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="330" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57105" Table="AD_Process_Para">
+        <Data AD_Column_ID="3738" Column="IsMandatory" oldValue="false">true</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="340" StepType="AD">
+      <PO AD_Table_ID="287" Action="U" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2853" Column="Description" oldValue="Withholding Process for AR Invoice / AR Credit Memo">Procesar Retenciones CxC</Data>
+        <Data AD_Column_ID="2852" Column="Name" oldValue="Withholding Process for AR Invoice / AR Credit Memo">Procesar Retenciones CxC</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID" oldValue="54308">54308</Data>
       </PO>
     </Step>
   </Migration>
