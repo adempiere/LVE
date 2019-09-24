@@ -20,6 +20,7 @@ sourceSets {
 dependencies {
     implementation name: 'Adempiere'
     implementation name: 'Withholding'
+    implementation name: 'HumanResourceAndPayroll'
 }
 
 jar {
