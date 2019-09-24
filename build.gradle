@@ -21,6 +21,7 @@ dependencies {
     implementation name: 'Adempiere'
     implementation name: 'Withholding'
     implementation name: 'HumanResourceAndPayroll'
+    implementation name: 'jackcess-3.0.1'
 }
 
 jar {
