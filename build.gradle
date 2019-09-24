@@ -5,7 +5,7 @@ plugins {
 repositories {
     jcenter()
     flatDir {
-       dirs ['dependences', 'lib']
+       dirs 'dependences', 'lib'
 	}
 }
 
