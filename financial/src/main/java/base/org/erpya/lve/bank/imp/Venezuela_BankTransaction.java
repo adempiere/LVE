@@ -17,6 +17,10 @@ package org.erpya.lve.bank.imp;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+
+import org.compiere.util.Env;
 import org.compiere.util.Util;
 import org.spin.util.impexp.BankTransactionAbstract;
 
@@ -34,7 +38,7 @@ public class Venezuela_BankTransaction extends BankTransactionAbstract {
 	public static final String HEAD_BEGIN_BALANCE_FLAG = "SALDO INICIAL                 ";
 	/**	Value Date [dddMMyyyy]	*/
 	public static final String LINE_TRANSACTION_Date = "TrxDate";
-	/**	Transaction code [3!n] Numerical transaction code. List of codes available in separate document. Transaction code enables automatical recognition of transaction type	*/
+	/**	Transaction code [3!n] Numerical transaction code. List of codes available in separate document. Transaction code enables automatic recognition of transaction type	*/
 	public static final String LINE_TRANSACTION_AccountNo = "AccountNo";
 	/**	Transaction type Transaction type (description)	*/ 
 	public static final String LINE_TRANSACTION_Type = "Type";
@@ -75,9 +79,9 @@ public class Venezuela_BankTransaction extends BankTransactionAbstract {
 		//	Set Memo
 		addValue(LINE_TRANSACTION_Memo, subString(line, index, index += 30));
 		//	Set Debit
-		BigDecimal debit = getNumber('.', "##################", subString(line, index, index += 18));
+		BigDecimal debit = getAmountFromString(subString(line, index, index += 18));
 		//	Set Credit
-		BigDecimal credit = getNumber('.', "##################", subString(line, index, index += 18));
+		BigDecimal credit = getAmountFromString(subString(line, index, index += 18));
 		//	Add to index (ignore balance)
 		if(debit != null
 				&& debit.doubleValue() != 0) {
@@ -93,6 +97,26 @@ public class Venezuela_BankTransaction extends BankTransactionAbstract {
 		addValue(LINE_TRANSACTION_Reconciliation_Code, subString(line, index, index += 4));
 		//	fine
 		isTransaction = true;
+	}
+	
+	/**
+	 * Get Amount from String
+	 * @param amountAsString
+	 * @return
+	 * @throws ParseException
+	 */
+	private BigDecimal getAmountFromString(String amountAsString) throws ParseException {
+		//	Instance it
+		DecimalFormat decimalFormat = new DecimalFormat("##################");
+		decimalFormat.setMinimumFractionDigits(2);
+		decimalFormat.setParseBigDecimal(true);
+		//	Parse
+		BigDecimal amount = (BigDecimal) decimalFormat.parse(amountAsString);
+		if(amount == null) {
+			amount = Env.ZERO;
+		}
+		amount = amount.divide(Env.ONEHUNDRED);
+		return amount;
 	}
 	
 	/**
