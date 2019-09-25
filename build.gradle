@@ -1,0 +1,32 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    jcenter()
+    flatDir {
+       dirs 'dependences', 'lib'
+	}
+}
+
+sourceSets {
+    main {
+         java {
+            srcDirs = ['core', 'financial', 'withholding', 'human_resource']
+         }
+    }
+}
+
+dependencies {
+    implementation name: 'Adempiere'
+    implementation name: 'Withholding'
+    implementation name: 'HumanResourceAndPayroll'
+    implementation name: 'jackcess-3.0.1'
+}
+
+jar {
+    manifest {
+        attributes('Implementation-Title': project.name,
+                   'Implementation-Version': project.version)
+    }
+}
