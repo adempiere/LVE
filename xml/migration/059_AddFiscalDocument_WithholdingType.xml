@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add Fiscal Document Check on Withholding Type" ReleaseNo="3.9.3" SeqNo="81000370">
+  <Migration EntityType="D" Name="Add Fiscal Document Check on Withholding Type" ReleaseNo="3.9.3" SeqNo="81000370">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94631" Table="AD_Column">
         <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
@@ -120,10 +120,8 @@
     </Step>
     <Step SeqNo="40" StepType="AD">
       <PO AD_Table_ID="127" Action="I" Record_ID="95807" Table="AD_Field_Trl">
-        <Data AD_Column_ID="671" Column="IsActive">true</Data>
         <Data AD_Column_ID="675" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
-        <Data AD_Column_ID="84323" Column="UUID">e994471c-e066-11e9-bea5-0242ac110002</Data>
+        <Data AD_Column_ID="671" Column="IsActive">true</Data>
         <Data AD_Column_ID="672" Column="Created">2019-09-26 10:07:02.157</Data>
         <Data AD_Column_ID="674" Column="Updated">2019-09-26 10:07:02.157</Data>
         <Data AD_Column_ID="1205" Column="AD_Org_ID">0</Data>
@@ -134,6 +132,13 @@
         <Data AD_Column_ID="1204" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="284" Column="AD_Field_ID">95807</Data>
         <Data AD_Column_ID="673" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84323" Column="UUID">e994471c-e066-11e9-bea5-0242ac110002</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="107" Action="U" Record_ID="95807" Table="AD_Field">
+        <Data AD_Column_ID="5375" Column="AD_FieldGroup_ID" isOldNull="true">50080</Data>
       </PO>
     </Step>
   </Migration>
