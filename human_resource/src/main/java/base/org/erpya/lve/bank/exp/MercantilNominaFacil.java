@@ -79,7 +79,10 @@ public class MercantilNominaFacil extends LVEPaymentExportList {
 			}
 			//	Fields of Control Register (fixed data)
 			String paymentRequestNo = processValue(paySelection.getDocumentNo());
-			paymentRequestNo = rightPadding(paymentRequestNo, 15, " ", true);
+			paymentRequestNo = leftPadding(paymentRequestNo, 15, "0", true);
+			//	Identify
+			String identifyRequestNo = processValue(paySelection.getDocumentNo());
+			identifyRequestNo = leftPadding(identifyRequestNo, 8, "0", true);
 			// Product Type
 			String productType = "NOMIN";
 			//	Payment Type
@@ -129,7 +132,8 @@ public class MercantilNominaFacil extends LVEPaymentExportList {
 				.append(totalAmtAsString)			//  Total Amount
 				.append(payDate)					//	Payment Date
 				.append(bankAccountNo)				//  Account No
-				.append(leftPadding(paymentRequestNo, 8, "0"))	//  Reserved Note Serial Number Company
+				.append(leftPadding("", 7, "0"))	//  Reserved
+				.append(identifyRequestNo)			//  Reserved Note Serial Number Company
 				.append(leftPadding("", 4, "0")) 	//	Reserved Response Code (Data Output)
 				.append(leftPadding("", 8, "0")) 	//	Reserved Date process (Data Output)
 				.append(leftPadding("", 261, "0"));	// 	Reserved
