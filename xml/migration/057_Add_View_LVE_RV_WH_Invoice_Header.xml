@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add view LVE_RV_WH_Invoice_Header" ReleaseNo="3.9.3" SeqNo="81000350">
+  <Migration EntityType="LVE" Name="Add view LVE_RV_WH_Invoice_Header" ReleaseNo="3.9.3" SeqNo="81000350">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="100" Action="I" Record_ID="54673" Table="AD_Table">
         <Data AD_Column_ID="546" Column="Updated">2019-09-24 10:50:25.517</Data>
@@ -125,6 +125,14 @@
     <Step SeqNo="50" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94574" Table="AD_Column">
         <Data AD_Column_ID="112" Column="Description">Organizational entity within client</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">113</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID">104</Data>
+        <Data AD_Column_ID="118" Column="FieldLength">10</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">19</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">a68999e6-deda-11e9-9f1f-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:50:28.372</Data>
@@ -165,14 +173,6 @@
         <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
         <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
         <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="2608" Column="AD_Element_ID">113</Data>
-        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID">104</Data>
-        <Data AD_Column_ID="118" Column="FieldLength">10</Data>
-        <Data AD_Column_ID="226" Column="AD_Reference_ID">19</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">a68999e6-deda-11e9-9f1f-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="60" StepType="AD">
@@ -266,7 +266,6 @@ There are two reasons for de-activating and not deleting records:
     <Step SeqNo="90" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94576" Table="AD_Column">
         <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
-        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
         <Data AD_Column_ID="112" Column="Description">Date this record was created</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
@@ -286,6 +285,7 @@ There are two reasons for de-activating and not deleting records:
         <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
         <Data AD_Column_ID="119" Column="IsKey">false</Data>
         <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
         <Data AD_Column_ID="110" Column="Version">1</Data>
         <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
         <Data AD_Column_ID="116" Column="ColumnName">Created</Data>
@@ -457,9 +457,6 @@ There are two reasons for de-activating and not deleting records:
     <Step SeqNo="140" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94578" Table="AD_Column_Trl">
         <Data AD_Column_ID="12955" Column="AD_Column_ID">94578</Data>
-        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:50:33.503</Data>
-        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
-        <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:50:33.503</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="12957" Column="Name">Created By</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -468,16 +465,15 @@ There are two reasons for de-activating and not deleting records:
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84310" Column="UUID">a93c2eba-deda-11e9-9f1f-0242ac110002</Data>
+        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:50:33.503</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:50:33.503</Data>
       </PO>
     </Step>
     <Step SeqNo="150" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94579" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">User who updated this records</Data>
         <Data AD_Column_ID="118" Column="FieldLength">10</Data>
-        <Data AD_Column_ID="226" Column="AD_Reference_ID">18</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">a9a2b9f0-deda-11e9-9f1f-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description">User who updated this records</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:50:33.685</Data>
@@ -521,6 +517,10 @@ There are two reasons for de-activating and not deleting records:
         <Data AD_Column_ID="2608" Column="AD_Element_ID">608</Data>
         <Data AD_Column_ID="227" Column="AD_Reference_Value_ID">110</Data>
         <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">18</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">a9a2b9f0-deda-11e9-9f1f-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="160" StepType="AD">
@@ -541,8 +541,24 @@ There are two reasons for de-activating and not deleting records:
     </Step>
     <Step SeqNo="170" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94580" Table="AD_Column">
-        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
         <Data AD_Column_ID="112" Column="Description">Immutable Universally Unique Identifier</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">59595</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">36</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">aa2e9cae-deda-11e9-9f1f-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:50:34.666</Data>
@@ -574,22 +590,6 @@ There are two reasons for de-activating and not deleting records:
         <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
         <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
         <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
-        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
-        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
-        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
-        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
-        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
-        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="2608" Column="AD_Element_ID">59595</Data>
-        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="118" Column="FieldLength">36</Data>
-        <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">aa2e9cae-deda-11e9-9f1f-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="180" StepType="AD">
@@ -610,10 +610,10 @@ There are two reasons for de-activating and not deleting records:
     </Step>
     <Step SeqNo="190" StepType="AD">
       <PO AD_Table_ID="115" Action="I" Record_ID="55175" Table="AD_Sequence">
-        <Data AD_Column_ID="349" Column="IsActive">true</Data>
-        <Data AD_Column_ID="347" Column="Description">Table LVE_RV_WH_Invoice_Header</Data>
         <Data AD_Column_ID="630" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84417" Column="UUID">ab127226-deda-11e9-9f1f-0242ac110002</Data>
+        <Data AD_Column_ID="349" Column="IsActive">true</Data>
+        <Data AD_Column_ID="347" Column="Description">Table LVE_RV_WH_Invoice_Header</Data>
         <Data AD_Column_ID="629" Column="Updated">2019-09-24 10:50:35.822</Data>
         <Data AD_Column_ID="627" Column="Created">2019-09-24 10:50:35.822</Data>
         <Data AD_Column_ID="225" Column="StartNewYear">false</Data>
@@ -655,19 +655,6 @@ There are two reasons for de-activating and not deleting records:
     <Step SeqNo="210" StepType="AD">
       <PO AD_Table_ID="101" Action="D" Record_ID="94580" Table="AD_Column">
         <Data AD_Column_ID="6482" Column="EntityType" isNewNull="true" oldValue="LVE"/>
-        <Data AD_Column_ID="359" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
-        <Data AD_Column_ID="360" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
-        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true" isOldNull="true"/>
-        <Data AD_Column_ID="114" Column="AD_Table_ID" isNewNull="true" oldValue="54673"/>
-        <Data AD_Column_ID="550" Column="CreatedBy" isNewNull="true" oldValue="100"/>
-        <Data AD_Column_ID="2608" Column="AD_Element_ID" isNewNull="true" oldValue="59595"/>
-        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true" isOldNull="true"/>
-        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true" isOldNull="true"/>
-        <Data AD_Column_ID="118" Column="FieldLength" isNewNull="true" oldValue="36"/>
-        <Data AD_Column_ID="226" Column="AD_Reference_ID" isNewNull="true" oldValue="10"/>
-        <Data AD_Column_ID="552" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
-        <Data AD_Column_ID="84306" Column="UUID" isNewNull="true" oldValue="aa2e9cae-deda-11e9-9f1f-0242ac110002"/>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true" isOldNull="true"/>
         <Data AD_Column_ID="112" Column="Description" isNewNull="true" oldValue="Immutable Universally Unique Identifier"/>
         <Data AD_Column_ID="548" Column="IsActive" isNewNull="true" oldValue="true"/>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true" isOldNull="true"/>
@@ -703,11 +690,23 @@ There are two reasons for de-activating and not deleting records:
         <Data AD_Column_ID="68024" Column="IsRange" isNewNull="true" oldValue="false"/>
         <Data AD_Column_ID="62199" Column="IsAllowCopy" isNewNull="true" oldValue="true"/>
         <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="359" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="360" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID" isNewNull="true" oldValue="54673"/>
+        <Data AD_Column_ID="550" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID" isNewNull="true" oldValue="59595"/>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength" isNewNull="true" oldValue="36"/>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID" isNewNull="true" oldValue="10"/>
+        <Data AD_Column_ID="552" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="84306" Column="UUID" isNewNull="true" oldValue="aa2e9cae-deda-11e9-9f1f-0242ac110002"/>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true" isOldNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="220" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94581" Table="AD_Column">
-        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="112" Column="Description">Invoice Identifier</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
@@ -748,6 +747,7 @@ There are two reasons for de-activating and not deleting records:
         <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
         <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2608" Column="AD_Element_ID">1008</Data>
         <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
         <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
@@ -777,6 +777,24 @@ There are two reasons for de-activating and not deleting records:
     <Step SeqNo="240" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94582" Table="AD_Column">
         <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">1106</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">1</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">20</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">bee14c28-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
         <Data AD_Column_ID="112" Column="Description">This is a Sales Transaction</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
@@ -807,24 +825,6 @@ There are two reasons for de-activating and not deleting records:
         <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
         <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
         <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
-        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
-        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
-        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
-        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
-        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
-        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
-        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
-        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="2608" Column="AD_Element_ID">1106</Data>
-        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="118" Column="FieldLength">1</Data>
-        <Data AD_Column_ID="226" Column="AD_Reference_ID">20</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">bee14c28-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="250" StepType="AD">
@@ -846,10 +846,6 @@ There are two reasons for de-activating and not deleting records:
     <Step SeqNo="260" StepType="AD">
       <PO AD_Table_ID="115" Action="I" Record_ID="55176" Table="AD_Sequence">
         <Data AD_Column_ID="349" Column="IsActive">true</Data>
-        <Data AD_Column_ID="220" Column="CurrentNext">1000000</Data>
-        <Data AD_Column_ID="628" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="630" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84417" Column="UUID">bf6f10a8-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="347" Column="Description">DocumentNo/Value for Table LVE_RV_WH_Invoice_Header</Data>
         <Data AD_Column_ID="629" Column="Updated">2019-09-24 10:51:10.274</Data>
         <Data AD_Column_ID="627" Column="Created">2019-09-24 10:51:10.274</Data>
@@ -869,6 +865,10 @@ There are two reasons for de-activating and not deleting records:
         <Data AD_Column_ID="2746" Column="StartNo">1000000</Data>
         <Data AD_Column_ID="350" Column="IsTableID">false</Data>
         <Data AD_Column_ID="3887" Column="CurrentNextSys">50000</Data>
+        <Data AD_Column_ID="220" Column="CurrentNext">1000000</Data>
+        <Data AD_Column_ID="628" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="630" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84417" Column="UUID">bf6f10a8-deda-11e9-955d-0242ac110002</Data>
       </PO>
     </Step>
     <Step SeqNo="270" StepType="AD">
@@ -901,10 +901,33 @@ There are two reasons for de-activating and not deleting records:
     </Step>
     <Step SeqNo="280" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94583" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">Document sequence number of the document</Data>
         <Data AD_Column_ID="113" Column="Help">The document number is usually automatically generated by the system and determined by the document type of the document. If the document is not saved, the preliminary number is displayed in "&lt;&gt;".
 
 If the document type of your document has no automatic document sequence defined, the field is empty if you create a new document. This is for documents which usually have an external number (like vendor invoice).  If you leave the field empty, the system will generate a document number for you. The document sequence used for this fallback number is defined in the "Maintain Sequence" window with the name "DocumentNo_&lt;TableName&gt;", where TableName is the actual name of the table (e.g. C_Order).</Data>
+        <Data AD_Column_ID="112" Column="Description">Document sequence number of the document</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:10.265</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:10.265</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94583</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Document No</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">true</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">DocumentNo</Data>
         <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
         <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
         <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
@@ -929,29 +952,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">c0a827f2-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
-        <Data AD_Column_ID="548" Column="IsActive">true</Data>
-        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:10.265</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:10.265</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94583</Data>
-        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
-        <Data AD_Column_ID="111" Column="Name">Document No</Data>
-        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
-        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
-        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
-        <Data AD_Column_ID="120" Column="IsParent">false</Data>
-        <Data AD_Column_ID="6244" Column="IsSelectionColumn">true</Data>
-        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
-        <Data AD_Column_ID="119" Column="IsKey">false</Data>
-        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
-        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
-        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
-        <Data AD_Column_ID="110" Column="Version">0</Data>
-        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
-        <Data AD_Column_ID="116" Column="ColumnName">DocumentNo</Data>
       </PO>
     </Step>
     <Step SeqNo="290" StepType="AD">
@@ -972,8 +972,18 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="300" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94584" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">The current status of the document</Data>
         <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="112" Column="Description">The current status of the document</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:13.291</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:13.291</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94584</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Document Status</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
         <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
         <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
         <Data AD_Column_ID="120" Column="IsParent">false</Data>
@@ -1011,16 +1021,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">c1393f80-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
-        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
-        <Data AD_Column_ID="548" Column="IsActive">true</Data>
-        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:13.291</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:13.291</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94584</Data>
-        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
-        <Data AD_Column_ID="111" Column="Name">Document Status</Data>
       </PO>
     </Step>
     <Step SeqNo="310" StepType="AD">
@@ -1096,24 +1096,21 @@ If the document type of your document has no automatic document sequence defined
       <PO AD_Table_ID="752" Action="I" Record_ID="94585" Table="AD_Column_Trl">
         <Data AD_Column_ID="12957" Column="Name">Document Type</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:16.589</Data>
-        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
-        <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:51:16.589</Data>
-        <Data AD_Column_ID="12955" Column="AD_Column_ID">94585</Data>
-        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84310" Column="UUID">c2ea98c4-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:16.589</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:51:16.589</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">94585</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
       </PO>
     </Step>
     <Step SeqNo="340" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94586" Table="AD_Column">
         <Data AD_Column_ID="226" Column="AD_Reference_ID">19</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">c3484762-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
         <Data AD_Column_ID="112" Column="Description">Identifies a Business Partner</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
@@ -1159,6 +1156,9 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
         <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
         <Data AD_Column_ID="118" Column="FieldLength">10</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">c3484762-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="350" StepType="AD">
@@ -1248,8 +1248,30 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="380" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94588" Table="AD_Column">
-        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
         <Data AD_Column_ID="112" Column="Description">Tax ID of the Business Partner</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">2266</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">20</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">c46322d4-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:18.629</Data>
@@ -1275,28 +1297,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="116" Column="ColumnName">BPTaxID</Data>
         <Data AD_Column_ID="113" Column="Help" isNewNull="true"/>
         <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
-        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
-        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
-        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
-        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
-        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
-        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
-        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
-        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
-        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
-        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
-        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
-        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="2608" Column="AD_Element_ID">2266</Data>
-        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="118" Column="FieldLength">20</Data>
-        <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">c46322d4-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="390" StepType="AD">
@@ -1317,23 +1317,8 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="400" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94589" Table="AD_Column">
-        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
         <Data AD_Column_ID="112" Column="Description">Standard Industry Code or its successor NAIC - http://www.osha.gov/oshstats/sicser.html</Data>
-        <Data AD_Column_ID="548" Column="IsActive">true</Data>
-        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:19.632</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:19.632</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94589</Data>
-        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
-        <Data AD_Column_ID="111" Column="Name">NAICS/SIC</Data>
-        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
-        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
-        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
-        <Data AD_Column_ID="120" Column="IsParent">false</Data>
-        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
         <Data AD_Column_ID="119" Column="IsKey">false</Data>
         <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
         <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
@@ -1366,6 +1351,21 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">c50d117c-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:19.632</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:19.632</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94589</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">NAICS/SIC</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
       </PO>
     </Step>
     <Step SeqNo="410" StepType="AD">
@@ -1386,13 +1386,13 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="420" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94590" Table="AD_Column">
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
         <Data AD_Column_ID="112" Column="Description">Dun &amp; Bradstreet Number</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:20.796</Data>
         <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
         <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:20.796</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
         <Data AD_Column_ID="109" Column="AD_Column_ID">94590</Data>
         <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
         <Data AD_Column_ID="111" Column="Name">D-U-N-S</Data>
@@ -1509,9 +1509,9 @@ If the document type of your document has no automatic document sequence defined
     <Step SeqNo="450" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94591" Table="AD_Column_Trl">
         <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:51:22.806</Data>
-        <Data AD_Column_ID="12955" Column="AD_Column_ID">94591</Data>
         <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:22.806</Data>
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">94591</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="12957" Column="Name">Org Address</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -1524,13 +1524,6 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="460" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94592" Table="AD_Column">
-        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="118" Column="FieldLength">20</Data>
-        <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">c71c80e2-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
         <Data AD_Column_ID="112" Column="Description">Tax Identification</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
@@ -1573,6 +1566,13 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
         <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="2608" Column="AD_Element_ID">590</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">20</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">c71c80e2-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="470" StepType="AD">
@@ -1593,6 +1593,7 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="480" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94593" Table="AD_Column">
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
         <Data AD_Column_ID="112" Column="Description">Document Type</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
@@ -1626,7 +1627,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
         <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
         <Data AD_Column_ID="68024" Column="IsRange">false</Data>
-        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
         <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
         <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
         <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
@@ -1663,28 +1663,6 @@ If the document type of your document has no automatic document sequence defined
     <Step SeqNo="500" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94594" Table="AD_Column">
         <Data AD_Column_ID="112" Column="Description">Optional note of a document type</Data>
-        <Data AD_Column_ID="548" Column="IsActive">true</Data>
-        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:25.226</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:25.226</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94594</Data>
-        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
-        <Data AD_Column_ID="111" Column="Name">Document Type Note</Data>
-        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
-        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
-        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
-        <Data AD_Column_ID="120" Column="IsParent">false</Data>
-        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
-        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
-        <Data AD_Column_ID="119" Column="IsKey">false</Data>
-        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
-        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
-        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
-        <Data AD_Column_ID="110" Column="Version">0</Data>
-        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
         <Data AD_Column_ID="116" Column="ColumnName">DocumentTypeNote</Data>
         <Data AD_Column_ID="113" Column="Help" isNewNull="true"/>
         <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
@@ -1711,6 +1689,28 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">c86d0f34-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:25.226</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:25.226</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94594</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Document Type Note</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="510" StepType="AD">
@@ -1853,22 +1853,23 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="550" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94596" Table="AD_Column_Trl">
-        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:28.92</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
-        <Data AD_Column_ID="84310" Column="UUID">ca442bb2-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:28.92</Data>
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:51:28.92</Data>
         <Data AD_Column_ID="12955" Column="AD_Column_ID">94596</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="12957" Column="Name">Sales Representative</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">ca442bb2-deda-11e9-955d-0242ac110002</Data>
       </PO>
     </Step>
     <Step SeqNo="560" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94597" Table="AD_Column">
+        <Data AD_Column_ID="84306" Column="UUID">caf13c58-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="112" Column="Description" isNewNull="true"/>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
@@ -1916,7 +1917,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="118" Column="FieldLength">60</Data>
         <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">caf13c58-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
@@ -1939,6 +1939,17 @@ If the document type of your document has no automatic document sequence defined
     <Step SeqNo="580" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94598" Table="AD_Column">
         <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">267</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">0</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">16</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">cb7dcc4a-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
         <Data AD_Column_ID="112" Column="Description">Date printed on Invoice</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
@@ -1976,17 +1987,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
         <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
         <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
-        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
-        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="2608" Column="AD_Element_ID">267</Data>
-        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="118" Column="FieldLength">0</Data>
-        <Data AD_Column_ID="226" Column="AD_Reference_ID">16</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">cb7dcc4a-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="590" StepType="AD">
@@ -2076,7 +2076,6 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="620" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94600" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">Alphanumeric identifier of the entity</Data>
         <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
         <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
         <Data AD_Column_ID="110" Column="Version">0</Data>
@@ -2107,6 +2106,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">cdb57e54-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description">Alphanumeric identifier of the entity</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:33.23</Data>
@@ -2267,7 +2267,6 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="670" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94602" Table="AD_Column_Trl">
-        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:38.034</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="12957" Column="Name">BP Contact Greeting</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
@@ -2276,6 +2275,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84310" Column="UUID">cfb2e02a-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:38.034</Data>
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:51:38.034</Data>
         <Data AD_Column_ID="12955" Column="AD_Column_ID">94602</Data>
@@ -2283,11 +2283,11 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="680" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94603" Table="AD_Column">
+        <Data AD_Column_ID="112" Column="Description">Name this entity is referred to as</Data>
         <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">d0155e62-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
-        <Data AD_Column_ID="112" Column="Description">Name this entity is referred to as</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:38.26</Data>
@@ -2352,21 +2352,8 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="700" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94604" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">Identifies a telephone number</Data>
         <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
-        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
-        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
-        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="2608" Column="AD_Element_ID">505</Data>
-        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="118" Column="FieldLength">40</Data>
-        <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">d0e09870-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description">Identifies a telephone number</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:39.528</Data>
@@ -2401,6 +2388,19 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="68024" Column="IsRange">false</Data>
         <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
         <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">505</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">40</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">d0e09870-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="710" StepType="AD">
@@ -2421,6 +2421,7 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="720" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94605" Table="AD_Column">
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
         <Data AD_Column_ID="112" Column="Description">Business Partner Contact Name</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
@@ -2447,7 +2448,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="116" Column="ColumnName">ContactName</Data>
         <Data AD_Column_ID="113" Column="Help" isNewNull="true"/>
         <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
-        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
         <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
         <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
         <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
@@ -2490,6 +2490,7 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="740" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94606" Table="AD_Column">
+        <Data AD_Column_ID="112" Column="Description">Location or Address</Data>
         <Data AD_Column_ID="119" Column="IsKey">false</Data>
         <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
         <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
@@ -2522,7 +2523,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">d2945f3a-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
-        <Data AD_Column_ID="112" Column="Description">Location or Address</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:42.29</Data>
@@ -2559,14 +2559,8 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="760" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94607" Table="AD_Column">
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94607</Data>
         <Data AD_Column_ID="112" Column="Description">Your customer or vendor number at the Business Partner's site</Data>
-        <Data AD_Column_ID="548" Column="IsActive">true</Data>
-        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:43.628</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:43.628</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94607</Data>
         <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
         <Data AD_Column_ID="111" Column="Name">Reference No</Data>
         <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
@@ -2608,13 +2602,19 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">d371ef76-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:43.628</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:43.628</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="770" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94607" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:44.846</Data>
         <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84310" Column="UUID">d3c24142-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:44.846</Data>
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:51:44.846</Data>
         <Data AD_Column_ID="12955" Column="AD_Column_ID">94607</Data>
@@ -2682,6 +2682,7 @@ If the document type of your document has no automatic document sequence defined
     <Step SeqNo="790" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94608" Table="AD_Column_Trl">
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:45.973</Data>
         <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:51:45.973</Data>
         <Data AD_Column_ID="12955" Column="AD_Column_ID">94608</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
@@ -2692,7 +2693,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84310" Column="UUID">d46e3b64-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:45.973</Data>
       </PO>
     </Step>
     <Step SeqNo="800" StepType="AD">
@@ -2766,27 +2766,8 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="820" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94610" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">Transaction Reference Number (Sales Order, Purchase Order) of your Business Partner</Data>
         <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
-        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
-        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
-        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
-        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
-        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
-        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
-        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
-        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
-        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="2608" Column="AD_Element_ID">952</Data>
-        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="118" Column="FieldLength">20</Data>
-        <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">d5a85316-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description">Transaction Reference Number (Sales Order, Purchase Order) of your Business Partner</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:47.334</Data>
@@ -2815,6 +2796,25 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
         <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
         <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">952</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">20</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">d5a85316-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="830" StepType="AD">
@@ -2835,27 +2835,8 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="840" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94611" Table="AD_Column">
-        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
         <Data AD_Column_ID="112" Column="Description">Date of Order</Data>
-        <Data AD_Column_ID="548" Column="IsActive">true</Data>
-        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:48.552</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:48.552</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94611</Data>
-        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
-        <Data AD_Column_ID="111" Column="Name">Date Ordered</Data>
-        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
-        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
-        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
-        <Data AD_Column_ID="120" Column="IsParent">false</Data>
-        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
-        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
-        <Data AD_Column_ID="119" Column="IsKey">false</Data>
-        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
-        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
         <Data AD_Column_ID="110" Column="Version">0</Data>
         <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
         <Data AD_Column_ID="116" Column="ColumnName">DateOrdered</Data>
@@ -2884,6 +2865,25 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">d642d4f4-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:48.552</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:48.552</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94611</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Date Ordered</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="850" StepType="AD">
@@ -2904,9 +2904,18 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="860" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94612" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">The Currency for this record</Data>
         <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
         <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="112" Column="Description">The Currency for this record</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:49.692</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:49.692</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94612</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Currency</Data>
         <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
         <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
         <Data AD_Column_ID="120" Column="IsParent">false</Data>
@@ -2944,15 +2953,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">d6eb511a-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
-        <Data AD_Column_ID="548" Column="IsActive">true</Data>
-        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:49.692</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:51:49.692</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94612</Data>
-        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
-        <Data AD_Column_ID="111" Column="Name">Currency</Data>
       </PO>
     </Step>
     <Step SeqNo="870" StepType="AD">
@@ -3027,11 +3027,11 @@ If the document type of your document has no automatic document sequence defined
     <Step SeqNo="890" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94613" Table="AD_Column_Trl">
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Payment Term</Data>
         <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:51.667</Data>
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:51:51.667</Data>
         <Data AD_Column_ID="12955" Column="AD_Column_ID">94613</Data>
-        <Data AD_Column_ID="12957" Column="Name">Payment Term</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
@@ -3042,11 +3042,8 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="900" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94614" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">Note of a Payment Term</Data>
         <Data AD_Column_ID="226" Column="AD_Reference_ID">14</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">d845faf6-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description">Note of a Payment Term</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:51.98</Data>
@@ -3091,6 +3088,9 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
         <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
         <Data AD_Column_ID="118" Column="FieldLength">2000</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">d845faf6-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="910" StepType="AD">
@@ -3111,7 +3111,6 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="920" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94615" Table="AD_Column">
-        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
         <Data AD_Column_ID="112" Column="Description">Additional document charges</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
@@ -3147,6 +3146,7 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="68024" Column="IsRange">false</Data>
         <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
         <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
         <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
@@ -3249,6 +3249,7 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="960" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94617" Table="AD_Column">
+        <Data AD_Column_ID="112" Column="Description">Total of all document lines</Data>
         <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
         <Data AD_Column_ID="119" Column="IsKey">false</Data>
         <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
@@ -3282,7 +3283,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">da4ab030-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
-        <Data AD_Column_ID="112" Column="Description">Total of all document lines</Data>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:55.306</Data>
@@ -3372,6 +3372,8 @@ If the document type of your document has no automatic document sequence defined
     <Step SeqNo="990" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94618" Table="AD_Column_Trl">
         <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:57.094</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">db0f2514-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:51:57.094</Data>
         <Data AD_Column_ID="12955" Column="AD_Column_ID">94618</Data>
@@ -3381,8 +3383,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
-        <Data AD_Column_ID="84310" Column="UUID">db0f2514-deda-11e9-955d-0242ac110002</Data>
       </PO>
     </Step>
     <Step SeqNo="1000" StepType="AD">
@@ -3441,8 +3441,6 @@ If the document type of your document has no automatic document sequence defined
     <Step SeqNo="1010" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94619" Table="AD_Column_Trl">
         <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:51:58.341</Data>
-        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:58.341</Data>
-        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
         <Data AD_Column_ID="12955" Column="AD_Column_ID">94619</Data>
         <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="12957" Column="Name">Amt in Words</Data>
@@ -3452,6 +3450,8 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84310" Column="UUID">dbcd8bee-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:51:58.341</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
       </PO>
     </Step>
     <Step SeqNo="1020" StepType="AD">
@@ -3526,6 +3526,24 @@ If the document type of your document has no automatic document sequence defined
     <Step SeqNo="1040" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94621" Table="AD_Column">
         <Data AD_Column_ID="112" Column="Description">Tax is included in the price </Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">1065</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">1</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">20</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">dceabb78-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:51:59.81</Data>
@@ -3556,24 +3574,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
         <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
         <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
-        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
-        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
-        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
-        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
-        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
-        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
-        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
-        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="2608" Column="AD_Element_ID">1065</Data>
-        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
-        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="118" Column="FieldLength">1</Data>
-        <Data AD_Column_ID="226" Column="AD_Reference_ID">20</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">dceabb78-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="1050" StepType="AD">
@@ -3732,9 +3732,10 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="1100" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94624" Table="AD_Column">
-        <Data AD_Column_ID="112" Column="Description">Business Activity</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:52:04.046</Data>
+        <Data AD_Column_ID="112" Column="Description">Business Activity</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
         <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:52:04.046</Data>
         <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
@@ -3780,23 +3781,22 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">df85bcfc-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
-        <Data AD_Column_ID="548" Column="IsActive">true</Data>
       </PO>
     </Step>
     <Step SeqNo="1110" StepType="AD">
       <PO AD_Table_ID="752" Action="I" Record_ID="94624" Table="AD_Column_Trl">
-        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:52:04.934</Data>
         <Data AD_Column_ID="12957" Column="Name">Activity</Data>
+        <Data AD_Column_ID="12960" Column="Created">2019-09-24 10:52:04.934</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:52:04.934</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">94624</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84310" Column="UUID">dfbb6014-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
-        <Data AD_Column_ID="12952" Column="Updated">2019-09-24 10:52:04.934</Data>
-        <Data AD_Column_ID="12955" Column="AD_Column_ID">94624</Data>
-        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
       </PO>
     </Step>
     <Step SeqNo="1120" StepType="AD">
@@ -3940,28 +3940,6 @@ If the document type of your document has no automatic document sequence defined
     <Step SeqNo="1160" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94627" Table="AD_Column">
         <Data AD_Column_ID="112" Column="Description">Person Type for Withholding</Data>
-        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
-        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
-        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
-        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
-        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
-        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
-        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
-        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
-        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
-        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
-        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
-        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
-        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
-        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="2608" Column="AD_Element_ID">61070</Data>
-        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID">54145</Data>
-        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
-        <Data AD_Column_ID="118" Column="FieldLength">5</Data>
-        <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
-        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="84306" Column="UUID">e141034e-deda-11e9-955d-0242ac110002</Data>
-        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
         <Data AD_Column_ID="548" Column="IsActive">true</Data>
         <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
         <Data AD_Column_ID="549" Column="Created">2019-09-24 10:52:07.069</Data>
@@ -3988,6 +3966,28 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="113" Column="Help">You can see more information about it here: http://declaraciones.seniat.gob.ve</Data>
         <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
         <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54673</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">61070</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID">54145</Data>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">5</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">10</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">e141034e-deda-11e9-955d-0242ac110002</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
       </PO>
     </Step>
     <Step SeqNo="1170" StepType="AD">
@@ -4008,25 +4008,8 @@ If the document type of your document has no automatic document sequence defined
     </Step>
     <Step SeqNo="1180" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94628" Table="AD_Column">
-        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
         <Data AD_Column_ID="112" Column="Description" isNewNull="true"/>
-        <Data AD_Column_ID="548" Column="IsActive">true</Data>
-        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
-        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:52:08.009</Data>
-        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
-        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:52:08.009</Data>
-        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
-        <Data AD_Column_ID="109" Column="AD_Column_ID">94628</Data>
-        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
-        <Data AD_Column_ID="111" Column="Name">Withholding Third Party</Data>
-        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
-        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
-        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
-        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
-        <Data AD_Column_ID="120" Column="IsParent">false</Data>
-        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
-        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
-        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
         <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
         <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
         <Data AD_Column_ID="110" Column="Version">0</Data>
@@ -4057,6 +4040,23 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
         <Data AD_Column_ID="84306" Column="UUID">e1d1b8a8-deda-11e9-955d-0242ac110002</Data>
         <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2019-09-24 10:52:08.009</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2019-09-24 10:52:08.009</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">94628</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Withholding Third Party</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
       </PO>
     </Step>
     <Step SeqNo="1190" StepType="AD">
@@ -4161,6 +4161,11 @@ If the document type of your document has no automatic document sequence defined
     <Step SeqNo="1220" StepType="AD">
       <PO AD_Table_ID="101" Action="U" Record_ID="94628" Table="AD_Column">
         <Data AD_Column_ID="226" Column="AD_Reference_ID" oldValue="19">18</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1230" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="94591" Table="AD_Column">
+        <Data AD_Column_ID="226" Column="AD_Reference_ID" oldValue="19">21</Data>
       </PO>
     </Step>
   </Migration>
