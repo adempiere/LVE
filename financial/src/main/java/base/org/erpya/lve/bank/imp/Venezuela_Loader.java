@@ -19,14 +19,14 @@ import org.spin.util.impexp.BankStatementHandler;
 import org.spin.util.impexp.BankTransactionAbstract;
 
 /**
- * File of Banco Nacional de Crédito BNC support
+ * File of Bank of Venezuela support
  * @author Yamel Senih, ysenih@erpya.com , http://www.erpya.com
  * <li> FR [ 1701 ] Add support to MT940 format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public final class BNC_BankStatementLoader extends BankStatementHandler {
+public final class Venezuela_Loader extends BankStatementHandler {
 	@Override
 	protected BankTransactionAbstract getBankTransactionInstance() {
-		return new BNC_BankTransaction();
+		return new Venezuela_Transaction();
 	}
 }

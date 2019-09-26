@@ -17,21 +17,17 @@ package org.erpya.lve.bank.imp;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+
 import org.compiere.util.Util;
 import org.spin.util.impexp.BankTransactionAbstract;
 
 /**
- * Custom format for Venezuela Bank Transaction
+ * Custom format for Bancaribe Bank Transaction spared by ;
  * It is a specific solution for a bank
  * @author Yamel Senih, ysenih@erpya.com , http://www.erpya.com
- * <li> FR [ 1701 ] Add support to MT940 format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public class Banplus_BankTransaction extends BankTransactionAbstract {
-	/**	Ignore it line because is a first line as head */
-	public static final String HEAD_REFERENCE_FIRST_LINE_FLAG = "\"Fecha\"	\"Referencia\"	\"Descripci";
-	/**	Ignore it line because is a begin balance */
-	public static final String HEAD_BEGIN_BALANCE_FLAG = "		\"Saldo Inicial\"";
+public class Bancaribe_Transaction extends BankTransactionAbstract {
 	/**	Value Date [dddMMyyyy]	*/
 	public static final String LINE_TRANSACTION_Date = "TrxDate";
 	/**	Transaction type Transaction type (description)	*/ 
@@ -45,11 +41,11 @@ public class Banplus_BankTransaction extends BankTransactionAbstract {
 	/**	Amount	*/
 	public static final String LINE_TRANSACTION_Amount = "Amount";
 	/**	Start Column Index	*/
-	private static final char START_CHAR_VALUE = '\t';
+	private static final char START_CHAR_VALUE = ';';
 	/**	Debt Constant	*/
-	public static final String DEBT = "DR";
+	public static final String DEBT = "D";
 	/**	Credit Constant	*/
-	public static final String CREDIT = "CR";
+	public static final String CREDIT = "C";
 	/**	Is a transaction	*/
 	private boolean isTransaction = false;
 	
@@ -61,8 +57,7 @@ public class Banplus_BankTransaction extends BankTransactionAbstract {
 		if(Util.isEmpty(line)) {
 			return;
 		}
-		if(line.contains(HEAD_REFERENCE_FIRST_LINE_FLAG)
-				|| line.contains(HEAD_BEGIN_BALANCE_FLAG)) {
+		if(line.length() == 21) {
 			isTransaction = false;
 			return;
 		}
@@ -84,7 +79,7 @@ public class Banplus_BankTransaction extends BankTransactionAbstract {
 		endIndex = line.substring(startIndex).indexOf(START_CHAR_VALUE) + startIndex + initPosition;
 		value = subString(line, startIndex, endIndex);
 		if(!Util.isEmpty(value)) {
-			addValue(LINE_TRANSACTION_ReferenceNo, value.replaceAll("	", ""));
+			addValue(LINE_TRANSACTION_ReferenceNo, value.replaceAll(";", "").trim());
 		}
 		//	
 		line = line.substring(endIndex);
@@ -93,39 +88,34 @@ public class Banplus_BankTransaction extends BankTransactionAbstract {
 		//	Set Memo
 		value = subString(line, startIndex, endIndex);
 		if(!Util.isEmpty(value)) {
-			addValue(LINE_TRANSACTION_Memo, value.replaceAll("	", ""));
+			addValue(LINE_TRANSACTION_Memo, value.replaceAll(";", "").trim());
 		}
-		//	Set Concept
+		//	Reset
 		line = line.substring(endIndex);
 		startIndex = 0;
 		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
-		//	Set Concept
+		//	Set Debt
 		value = subString(line, startIndex, endIndex);
+		//	Add to index (ignore balance)
 		if(!Util.isEmpty(value)) {
-			addValue(LINE_TRANSACTION_Concept, value.replaceAll("	", ""));
+			addValue(LINE_TRANSACTION_Type, value.replaceAll(";", "").trim());
+		} else {
+			addValue(LINE_TRANSACTION_Type, CREDIT);
 		}
 		//	
 		line = line.substring(endIndex);
 		startIndex = 0;
 		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
 		//	Set Debt
-		BigDecimal debit = getNumber('.', "##################", subString(line, startIndex, endIndex));
-		//	
-		line = line.substring(endIndex);
+		BigDecimal amount = getNumber('.', "#,###,###,###,###,###.##", subString(line, startIndex, endIndex));
+		if(!Util.isEmpty(getString(LINE_TRANSACTION_Type))
+				&& getString(LINE_TRANSACTION_Type).equals(DEBT)) {
+			amount = amount.negate();
+		}
+		addValue(LINE_TRANSACTION_Amount, amount);
+		//	Transaction Type
 		startIndex = 0;
 		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
-		//	Set Credit
-		BigDecimal credit = getNumber('.', "##################", subString(line, startIndex, endIndex));
-		//	Add to index (ignore balance)
-		if(debit != null
-				&& debit.doubleValue() != 0) {
-			addValue(LINE_TRANSACTION_Amount, debit.negate());
-			addValue(LINE_TRANSACTION_Type, DEBT);
-		} else if(credit != null
-				&& credit.doubleValue() != 0) {
-			addValue(LINE_TRANSACTION_Amount, credit);
-			addValue(LINE_TRANSACTION_Type, CREDIT);
-		}
 		//	fine
 		isTransaction = true;
 	}

@@ -17,40 +17,39 @@ package org.erpya.lve.bank.imp;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.text.DecimalFormat;
-import java.text.ParseException;
-
-import org.compiere.util.Env;
 import org.compiere.util.Util;
 import org.spin.util.impexp.BankTransactionAbstract;
 
 /**
- * Custom format for Venezuela Bank Transaction
+ * Custom format for Banco Nacional de Crédito BNC Transaction
  * It is a specific solution for a bank
  * @author Yamel Senih, ysenih@erpya.com , http://www.erpya.com
  * <li> FR [ 1701 ] Add support to MT940 format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public class Venezuela_BankTransaction extends BankTransactionAbstract {
+public class BNC_Transaction extends BankTransactionAbstract {
 	/**	Ignore it line because is a first line as head */
-	public static final String HEAD_REFERENCE_FIRST_LINE_FLAG = "NOCUENTA            FECHA   REFERENCIA   CONCEPTO                      CARGO             ABONO             BALANCE           TMCT";
+	public static final String HEAD_REFERENCE_FIRST_LINE_FLAG = "Fecha	Referencia	 Cod";
 	/**	Ignore it line because is a begin balance */
-	public static final String HEAD_BEGIN_BALANCE_FLAG = "SALDO INICIAL                 ";
+	public static final String HEAD_BEGIN_BALANCE_FLAG = "				 Saldo Inicial";
 	/**	Value Date [dddMMyyyy]	*/
 	public static final String LINE_TRANSACTION_Date = "TrxDate";
-	/**	Transaction code [3!n] Numerical transaction code. List of codes available in separate document. Transaction code enables automatic recognition of transaction type	*/
-	public static final String LINE_TRANSACTION_AccountNo = "AccountNo";
 	/**	Transaction type Transaction type (description)	*/ 
 	public static final String LINE_TRANSACTION_Type = "Type";
+	/**	Description of transaction	*/
+	public static final String LINE_TRANSACTION_Description = "Description";
 	/**	Memo of transaction	*/
 	public static final String LINE_TRANSACTION_Memo = "Memo";
+	/**	Code of transaction	*/
+	public static final String LINE_TRANSACTION_Code = "Code";
 	/**	Sequence number [35x] Sequential number of transaction on account	*/
 	public static final String LINE_TRANSACTION_ReferenceNo = "ReferenceNo";
-	/**	Reconciliation code (Annotations) (TMCT) */
-	public static final String LINE_TRANSACTION_Reconciliation_Code = "ReconciliationCode";
+	/**	Reference No 2 of transaction	*/
+	public static final String LINE_TRANSACTION_ReferenceNo2 = "ReferenceNo2";
 	/**	Amount	*/
 	public static final String LINE_TRANSACTION_Amount = "Amount";
-	
+	/**	Start Column Index	*/
+	private static final char START_CHAR_VALUE = '\t';
 	/**	Is a transaction	*/
 	private boolean isTransaction = false;
 	
@@ -59,64 +58,104 @@ public class Venezuela_BankTransaction extends BankTransactionAbstract {
 	 * @param line
 	 */
 	public void parseLine(String line) throws Exception {
-		line = processValue(line);
 		if(Util.isEmpty(line)) {
 			return;
 		}
-		if(line.contains(HEAD_REFERENCE_FIRST_LINE_FLAG)
+		if(line.startsWith(HEAD_REFERENCE_FIRST_LINE_FLAG)
 				|| line.contains(HEAD_BEGIN_BALANCE_FLAG)) {
 			isTransaction = false;
 			return;
 		}
-		//	
-		int index = 0;
-		//	Set Account
-		addValue(LINE_TRANSACTION_AccountNo, subString(line, index, index += 20));
+		//	Validate
+		line = processValue(line);
+		if(Util.isEmpty(line)) {
+			return;
+		}
+		//	Replace bad characters
+		line = line.replaceAll("\"", "");
 		//	Set Transaction Date
-		addValue(LINE_TRANSACTION_Date, getDate("ddMMyyyy", subString(line, index, index += 8)));
-		//	Set Reference
-		addValue(LINE_TRANSACTION_ReferenceNo, subString(line, index, index += 13));
+		addValue(LINE_TRANSACTION_Date, getDate("MM/dd/yyyy", subString(line, 0, 10)));
+		//	Set Reference No
+		int startIndex = 0;
+		int endIndex = 0;
+		int initPosition = 1;
+		String value = null;
+		startIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
+		endIndex = line.substring(startIndex).indexOf(START_CHAR_VALUE) + startIndex + initPosition;
+		value = subString(line, startIndex, endIndex);
+		if(!Util.isEmpty(value)) {
+			addValue(LINE_TRANSACTION_ReferenceNo, value.replaceAll(";", "").trim());
+		}
+		//	Set Code
+		line = line.substring(endIndex);
+		startIndex = 0;
+		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
+		value = subString(line, startIndex, endIndex);
+		if(!Util.isEmpty(value)) {
+			addValue(LINE_TRANSACTION_Code, value.replaceAll(";", "").trim());
+		}
+		//	Set Trx Type
+		line = line.substring(endIndex);
+		startIndex = 0;
+		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
+		value = subString(line, startIndex, endIndex);
+		if(!Util.isEmpty(value)) {
+			addValue(LINE_TRANSACTION_Type, value.replaceAll(";", "").trim());
+		}
+		//	Set Description
+		line = line.substring(endIndex);
+		startIndex = 0;
+		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
+		value = subString(line, startIndex, endIndex);
+		if(!Util.isEmpty(value)) {
+			addValue(LINE_TRANSACTION_Description, value.replaceAll(";", "").trim());
+		}
 		//	Set Memo
-		addValue(LINE_TRANSACTION_Memo, subString(line, index, index += 30));
-		//	Set Debit
-		BigDecimal debit = getAmountFromString(subString(line, index, index += 18));
+		line = line.substring(endIndex);
+		startIndex = 0;
+		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
+		value = subString(line, startIndex, endIndex);
+		if(!Util.isEmpty(value)) {
+			addValue(LINE_TRANSACTION_Memo, value.replaceAll(";", "").trim());
+		}
+		//	
+		line = line.substring(endIndex);
+		startIndex = 0;
+		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
+		//	Set Debt
+		BigDecimal debit = null;
+		value = subString(line, startIndex, endIndex);
+		if(!Util.isEmpty(value.trim())) {
+			debit = getNumber('.', "#,###,###,###,###,###.##", value);
+		}
+		//	
+		line = line.substring(endIndex);
+		startIndex = 0;
+		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
 		//	Set Credit
-		BigDecimal credit = getAmountFromString(subString(line, index, index += 18));
+		BigDecimal credit = null;
+		value = subString(line, startIndex, endIndex);
+		if(!Util.isEmpty(value.trim())) {
+			credit = getNumber('.', "#,###,###,###,###,###.##", value);
+		}
 		//	Add to index (ignore balance)
 		if(debit != null
 				&& debit.doubleValue() != 0) {
-			addValue(LINE_TRANSACTION_Amount, debit.negate());			
+			addValue(LINE_TRANSACTION_Amount, debit.negate());
 		} else if(credit != null
 				&& credit.doubleValue() != 0) {
 			addValue(LINE_TRANSACTION_Amount, credit);
 		}
-		index += 18;
-		//	Add Transaction Type
-		addValue(LINE_TRANSACTION_Type, subString(line, index, index += 2));
-		//	Add Transaction Type Code
-		addValue(LINE_TRANSACTION_Reconciliation_Code, subString(line, index, index += 4));
+		//	Set Reference 2
+		line = line.substring(endIndex);
+		startIndex = 0;
+		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
+		value = subString(line, startIndex, endIndex);
+		if(!Util.isEmpty(value)) {
+			addValue(LINE_TRANSACTION_ReferenceNo2, value.replaceAll(";", "").trim());
+		}
 		//	fine
 		isTransaction = true;
-	}
-	
-	/**
-	 * Get Amount from String
-	 * @param amountAsString
-	 * @return
-	 * @throws ParseException
-	 */
-	private BigDecimal getAmountFromString(String amountAsString) throws ParseException {
-		//	Instance it
-		DecimalFormat decimalFormat = new DecimalFormat("##################");
-		decimalFormat.setMinimumFractionDigits(2);
-		decimalFormat.setParseBigDecimal(true);
-		//	Parse
-		BigDecimal amount = (BigDecimal) decimalFormat.parse(amountAsString);
-		if(amount == null) {
-			amount = Env.ZERO;
-		}
-		amount = amount.divide(Env.ONEHUNDRED);
-		return amount;
 	}
 	
 	/**
@@ -174,7 +213,7 @@ public class Venezuela_BankTransaction extends BankTransactionAbstract {
 	 * @return
 	 */
 	protected String processValue(String value) {
-		return value.replaceAll("[	+^&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ$><]", "");
+		return value;
 	}
 
 	@Override
@@ -209,7 +248,7 @@ public class Venezuela_BankTransaction extends BankTransactionAbstract {
 
 	@Override
 	public String getTrxCode() {
-		return getString(LINE_TRANSACTION_Reconciliation_Code);
+		return getString(LINE_TRANSACTION_Code);
 	}
 	
 	@Override
@@ -219,6 +258,6 @@ public class Venezuela_BankTransaction extends BankTransactionAbstract {
 
 	@Override
 	public String getPayeeDescription() {
-		return null;
+		return getString(LINE_TRANSACTION_Memo);
 	}
 }

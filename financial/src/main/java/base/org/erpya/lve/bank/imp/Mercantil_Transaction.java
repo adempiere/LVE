@@ -61,7 +61,7 @@ import org.spin.util.impexp.MT940BankTransaction;
  * <li> FR [ 1701 ] Add support to MT940 format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public class Mercantil_BankTransaction extends MT940BankTransaction {
+public class Mercantil_Transaction extends MT940BankTransaction {
 	
 	/**
 	 * Set value from prefix

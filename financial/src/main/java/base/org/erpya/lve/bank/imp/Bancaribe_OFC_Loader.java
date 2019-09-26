@@ -27,7 +27,7 @@ import org.xml.sax.SAXException;
  * <li> FR [ 1701 ] Add support to MT940 format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public final class Bancaribe_OFC_BankStatementLoader extends Bancaribe_OFC_BankTransaction implements BankStatementLoaderInterface {
+public final class Bancaribe_OFC_Loader extends Bancaribe_OFC_Transaction implements BankStatementLoaderInterface {
 
 	/**
 	 * Method init

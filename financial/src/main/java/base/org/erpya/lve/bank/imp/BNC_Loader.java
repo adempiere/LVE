@@ -19,14 +19,14 @@ import org.spin.util.impexp.BankStatementHandler;
 import org.spin.util.impexp.BankTransactionAbstract;
 
 /**
- * File of Provincial Bank support
+ * File of Banco Nacional de Crédito BNC support
  * @author Yamel Senih, ysenih@erpya.com , http://www.erpya.com
  * <li> FR [ 1701 ] Add support to MT940 format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public final class Provincial_BankStatementLoader extends BankStatementHandler {
+public final class BNC_Loader extends BankStatementHandler {
 	@Override
 	protected BankTransactionAbstract getBankTransactionInstance() {
-		return new Provincial_BankTransaction();
+		return new BNC_Transaction();
 	}
 }

@@ -31,9 +31,9 @@ import org.compiere.util.DB;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
 
-public class Bancaribe_BankMatcher implements BankStatementMatcherInterface {
+public class Bancaribe_Matcher implements BankStatementMatcherInterface {
 
-	public Bancaribe_BankMatcher() {
+	public Bancaribe_Matcher() {
 		
 	}
 

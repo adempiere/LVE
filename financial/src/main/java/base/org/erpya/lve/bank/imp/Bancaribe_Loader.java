@@ -19,14 +19,14 @@ import org.spin.util.impexp.BankStatementHandler;
 import org.spin.util.impexp.BankTransactionAbstract;
 
 /**
- * File of Banplus Bank support
+ * File of Provincial Bank support
  * @author Yamel Senih, ysenih@erpya.com , http://www.erpya.com
  * <li> FR [ 1701 ] Add support to MT940 format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public final class Banplus_BankStatementLoader extends BankStatementHandler {
+public final class Bancaribe_Loader extends BankStatementHandler {
 	@Override
 	protected BankTransactionAbstract getBankTransactionInstance() {
-		return new Banplus_BankTransaction();
+		return new Bancaribe_Transaction();
 	}
 }

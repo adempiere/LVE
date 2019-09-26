@@ -25,9 +25,9 @@ import org.spin.util.impexp.BankTransactionAbstract;
  * <li> FR [ 1701 ] Add support to MT940 format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public final class Mercantil_BankStatementLoader extends BankStatementHandler {
+public final class Mercantil_Loader extends BankStatementHandler {
 	@Override
 	protected BankTransactionAbstract getBankTransactionInstance() {
-		return new Mercantil_BankTransaction();
+		return new Mercantil_Transaction();
 	}
 }

@@ -17,6 +17,9 @@ package org.erpya.lve.bank.imp;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.compiere.util.Env;
 import org.compiere.util.Util;
@@ -29,11 +32,13 @@ import org.spin.util.impexp.BankTransactionAbstract;
  * <li> FR [ 1701 ] Add support to MT940 format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public class Provincial_BankTransaction extends BankTransactionAbstract {
-	/**	Ignore it line because is a first line as head */
-	public static final String HEAD_REFERENCE_FIRST_LINE_FLAG = "Fecha;Referencia;";
-	/**	Value Date [dddMMyyyy]	*/
+public class Provincial_ISO_4217_Transaction extends BankTransactionAbstract {
+	/**	Valid Line start */
+	public static final String VALID_LINE_FLAG = "22,";
+	/**	Transaction Date [yyMMdd]	*/
 	public static final String LINE_TRANSACTION_Date = "TrxDate";
+	/**	Value Date [yyMMdd]	*/
+	public static final String LINE_TRANSACTION_ValueDate = "ValueDate";
 	/**	Transaction type Transaction type (description)	*/ 
 	public static final String LINE_TRANSACTION_Type = "Type";
 	/**	Memo of transaction	*/
@@ -44,12 +49,14 @@ public class Provincial_BankTransaction extends BankTransactionAbstract {
 	public static final String LINE_TRANSACTION_ReferenceNo = "ReferenceNo";
 	/**	Amount	*/
 	public static final String LINE_TRANSACTION_Amount = "Amount";
+	/**	Transaction Code	*/
+	public static final String LINE_TRANSACTION_TrxCode = "TrxCode";
 	/**	Start Column Index	*/
-	private static final char START_CHAR_VALUE = ';';
+	private static final String START_CHAR_VALUE = ",";
 	/**	Debt Constant	*/
-	public static final String DEBT = "DR";
+	public static final String DEBT = "1";
 	/**	Credit Constant	*/
-	public static final String CREDIT = "CR";
+	public static final String CREDIT = "2";
 	/**	Is a transaction	*/
 	private boolean isTransaction = false;
 	
@@ -58,58 +65,74 @@ public class Provincial_BankTransaction extends BankTransactionAbstract {
 	 * @param line
 	 */
 	public void parseLine(String line) throws Exception {
-		if(Util.isEmpty(line)) {
-			return;
-		}
-		if(line.contains(HEAD_REFERENCE_FIRST_LINE_FLAG)) {
+		if(!line.startsWith(VALID_LINE_FLAG)) {
 			isTransaction = false;
 			return;
 		}
 		//	Validate
 		line = processValue(line);
 		if(Util.isEmpty(line)) {
+			isTransaction = false;
 			return;
 		}
 		//	Replace bad characters
 		line = line.replaceAll("\"", "");
-		//	Set Transaction Date
-		addValue(LINE_TRANSACTION_Date, getDate("dd-MM-yyyy", subString(line, 0, 10)));
-		//	Set Reference
-		int startIndex = 0;
-		int endIndex = 0;
-		int initPosition = 1;
-		String value = null;
-		startIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
-		endIndex = line.substring(startIndex).indexOf(START_CHAR_VALUE) + startIndex + initPosition;
-		value = subString(line, startIndex, endIndex);
-		if(!Util.isEmpty(value)) {
-			addValue(LINE_TRANSACTION_ReferenceNo, value.replaceAll(";", "").trim());
-		}
-		//	
-		line = line.substring(endIndex);
-		startIndex = 0;
-		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
-		//	Set Memo
-		value = subString(line, startIndex, endIndex);
-		if(!Util.isEmpty(value)) {
-			addValue(LINE_TRANSACTION_Memo, value.replaceAll(";", "").trim());
-		}
-		//	
-		line = line.substring(endIndex);
-		startIndex = 0;
-		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
-		//	Set Debt
-		BigDecimal amount = getNumber('.', "#,###,###,###,###,###.##", subString(line, startIndex, endIndex));
-		addValue(LINE_TRANSACTION_Amount, amount);
-		//	Add to index (ignore balance)
-		if(amount != null
-				&& amount.compareTo(Env.ZERO) < 0) {
-			addValue(LINE_TRANSACTION_Type, DEBT);
-		} else if(amount != null) {
-			addValue(LINE_TRANSACTION_Type, CREDIT);
+		AtomicInteger counter = new AtomicInteger();
+		//	Split String
+		for(String value : line.split(START_CHAR_VALUE)) {
+			int currentPosition = counter.getAndIncrement();
+			switch (currentPosition) {
+			case 3:
+				addValue(LINE_TRANSACTION_Date, getDate("yyMMdd", value));
+				break;
+			case 4:
+				addValue(LINE_TRANSACTION_ValueDate, getDate("yyMMdd", value));
+				break;
+			case 6:
+				addValue(LINE_TRANSACTION_TrxCode, value);
+				break;
+			case 7:
+				addValue(LINE_TRANSACTION_Type, value);
+				break;
+			case 8:
+				BigDecimal amount = getAmountFromString(value);
+				if(getTrxType().equals(DEBT)) {
+					amount = amount.negate();
+				}
+				addValue(LINE_TRANSACTION_Amount, amount);
+				break;
+			case 9:
+				addValue(LINE_TRANSACTION_ReferenceNo, value);
+				break;
+			case 10:
+				addValue(LINE_TRANSACTION_Memo, value);
+				break;
+			default:
+				break;
+			}
 		}
 		//	fine
 		isTransaction = true;
+	}
+	
+	/**
+	 * Get Amount from String
+	 * @param amountAsString
+	 * @return
+	 * @throws ParseException
+	 */
+	private BigDecimal getAmountFromString(String amountAsString) throws ParseException {
+		//	Instance it
+		DecimalFormat decimalFormat = new DecimalFormat("##################");
+		decimalFormat.setMinimumFractionDigits(2);
+		decimalFormat.setParseBigDecimal(true);
+		//	Parse
+		BigDecimal amount = (BigDecimal) decimalFormat.parse(amountAsString);
+		if(amount == null) {
+			amount = Env.ZERO;
+		}
+		amount = amount.divide(Env.ONEHUNDRED);
+		return amount;
 	}
 	
 	/**
@@ -187,7 +210,7 @@ public class Provincial_BankTransaction extends BankTransactionAbstract {
 
 	@Override
 	public Timestamp getValueDate() {
-		return getDate(LINE_TRANSACTION_Date);
+		return getDate(LINE_TRANSACTION_ValueDate);
 	}
 
 	@Override
@@ -207,7 +230,7 @@ public class Provincial_BankTransaction extends BankTransactionAbstract {
 	
 	@Override
 	public String getPayeeName() {
-		return null;
+		return getString(LINE_TRANSACTION_TrxCode);
 	}
 
 	@Override
