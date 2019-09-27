@@ -93,7 +93,7 @@ public class MercantilNominaFacil extends LVEPaymentExportList {
 			String organizationType = "";
 			if(!Util.isEmpty(orgTaxId)){
 				orgTaxId = orgTaxId.replace("-", "").trim();
-				organizationType = orgTaxId.substring(0, 1);
+				organizationType = orgTaxId.substring(0, 1).toUpperCase();
 				orgTaxId = orgTaxId.replaceAll("\\D+", "");
 				orgTaxId = leftPadding(orgTaxId, 15, "0", true);
 			} else {
@@ -136,7 +136,8 @@ public class MercantilNominaFacil extends LVEPaymentExportList {
 				.append(identifyRequestNo)			//  Reserved Note Serial Number Company
 				.append(leftPadding("", 4, "0")) 	//	Reserved Response Code (Data Output)
 				.append(leftPadding("", 8, "0")) 	//	Reserved Date process (Data Output)
-				.append(leftPadding("", 261, "0"));	// 	Reserved
+				.append(leftPadding("", 261, "0"))	// 	Reserved
+				.append(CRLF);						//	New Line
 			//	Open File
 			writeLine(header.toString());
 			//  Write Credit Note
@@ -153,7 +154,7 @@ public class MercantilNominaFacil extends LVEPaymentExportList {
 							String personType = "";
 							if(!Util.isEmpty(bPTaxId)){
 								bPTaxId = bPTaxId.replace("-", "").trim();
-								personType = bPTaxId.substring(0, 1);
+								personType = bPTaxId.substring(0, 1).toUpperCase();
 								bPTaxId = bPTaxId.replaceAll("\\D+","");
 								bPTaxId = leftPadding(bPTaxId, 15, "0", true);
 							} else {
@@ -211,8 +212,7 @@ public class MercantilNominaFacil extends LVEPaymentExportList {
 							bPEmail = rightPadding(bPEmail, 50, " ", true);
 							//	Write Credit Register
 							StringBuffer line = new StringBuffer();
-							line.append(CRLF)						//	New Line
-								.append("2")						//	Constant
+							line.append("2")						//	Constant
 								.append(personType)					//	Type Register	
 								.append(bPTaxId)					// 	BP TaxID
 								.append(paymentType)				//	Payment Type (Same Bank / Other Bank)
@@ -229,7 +229,8 @@ public class MercantilNominaFacil extends LVEPaymentExportList {
 								.append(leftPadding("", 4, "0")) 	//	Response Code
 								.append(leftPadding("", 30, " "))	//  Response Message
 								.append(paymentDescription)			//	Payment Concept
-								.append(leftPadding("", 35, "0")); 	//	Reserved
+								.append(leftPadding("", 35, "0")) 	//	Reserved
+								.append(CRLF);						//	New Line
 							s_log.fine("Write Line");
 							writeLine(line.toString());
 						} else {
