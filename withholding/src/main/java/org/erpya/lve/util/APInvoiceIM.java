@@ -148,10 +148,8 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 				addDescription(activityToApply.getName());
 				
 				int WHThirdParty_ID = invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
-				if (WHThirdParty_ID == 0)
-					WHThirdParty_ID = -1;
-				
-				setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
+				if (WHThirdParty_ID != 0)
+					setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
 				
 				saveResult();
 			}
