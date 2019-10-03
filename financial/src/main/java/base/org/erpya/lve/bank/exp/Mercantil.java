@@ -47,10 +47,12 @@ import org.compiere.util.Util;
 public class Mercantil extends LVEPaymentExportList {
 
 	/** Logger								*/
-	static private CLogger	s_log = CLogger.getCLogger (MercantilNomina.class);
+	static private CLogger	s_log = CLogger.getCLogger (Mercantil.class);
 	/**	Header Short Format	*/
 	private final String HEADER_SHORT_DATE_FORMAT = "yyyyMMdd";
-	
+	public final static char CR  = (char) 0x0D;
+	public final static char LF  = (char) 0x0A;
+	public final static String CRLF  = "" + CR + LF;
 	
 	@Override
 	public int exportToFile(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
@@ -199,7 +201,7 @@ public class Mercantil extends LVEPaymentExportList {
 							bPEmail = rightPadding(bPEmail, 50, " ", true);
 							//	Write Credit Register
 							StringBuffer line = new StringBuffer();
-							line.append(Env.NL)						//	New Line
+							line.append(CRLF)						//	New Line
 								.append("2")						//	Constant
 								.append(personType)					//	Type Register	
 								.append(bPTaxId)					// 	BP TaxID
@@ -372,7 +374,7 @@ public class Mercantil extends LVEPaymentExportList {
 				constant2 = leftPadding("", 26, " ");
 				//	Write Credit Register
 				StringBuffer line = new StringBuffer();
-				line.append(Env.NL)				//	New Line
+				line.append(CRLF)				//	New Line
 					.append(constant)			//	Constant
 					.append(bankAccountNo)		//	Bank Account
 					.append(checkNo)			//	Check No

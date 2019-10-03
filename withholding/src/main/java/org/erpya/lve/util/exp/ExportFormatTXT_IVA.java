@@ -160,18 +160,6 @@ public class ExportFormatTXT_IVA extends ExportFormatCSV {
 									if(!Util.isEmpty(data)) {
 										if(DisplayType.isNumeric(pde.getDisplayType())) {
 											data = data.replaceAll(",", ".");
-										} else if(DisplayType.isText(pde.getDisplayType())
-												&& (item.getColumnName().equals("InvoiceNo") 
-														|| item.getColumnName().equals("AffectedDocumentNo"))) {
-											int intValue = -1;
-											try {
-												intValue = Integer.parseInt(data);
-											} catch (Exception e) {
-												//	None
-											}
-											if(intValue != -1) {
-												data = String.valueOf(intValue);
-											}
 										}
 									}
 								}

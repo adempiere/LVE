@@ -81,6 +81,7 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 		return createXML(convertFile(file));
 	}
 	
+	
 	/**
 	 * 	Write XML to writer
 	 * 	@param writer writer
@@ -207,9 +208,15 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 						} else {
 							data = pde.getValueDisplay(getLanguage());	//	formatted
 							//	Only for ISLR
-							if(!Util.isEmpty(data)
-									&& DisplayType.isNumeric(pde.getDisplayType())) {
-								data = data.replaceAll(",", ".");
+							if(!Util.isEmpty(data)) {
+								if(DisplayType.isNumeric(pde.getDisplayType())) {
+									data = data.replaceAll(",", ".");
+								} else if(DisplayType.isText(pde.getDisplayType())
+										&& (item.getColumnName().equals("InvoiceNo") 
+												|| item.getColumnName().equals("AffectedDocumentNo")
+												|| item.getColumnName().equals("ControlNo"))) {
+									data = data.replaceAll("-", "");
+								}
 							}
 						}
 					} else {
