@@ -18,11 +18,13 @@ package org.erpya.lve.util.exp;
 
 import java.io.File;
 import java.io.Writer;
+import java.util.Arrays;
 import java.util.Properties;
 import java.util.logging.Level;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
@@ -104,18 +106,12 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 	/**************************************************************************
 	 * 	Get XML Document representation
 	 * 	@return XML document
+	 * @throws ParserConfigurationException 
 	 */
-	public Document getDocument() {
-		Document document = null;
-		try {
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			//	System.out.println(factory.getClass().getName());
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			document = builder.newDocument();
-		} catch (Exception e) {
-			log.severe("Error exporting XML " + e.getLocalizedMessage());
-			return null;
-		}
+	public Document getDocument() throws ParserConfigurationException {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		Document document = builder.newDocument();
 		//	
 		PrintData printData = getPrintData();
 		MPrintFormat printFormat = getPrintFormat();
@@ -184,34 +180,41 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 			Element withholdingElement = document.createElement(printFormat.getDescription());
 			//	Add to root
 			root.appendChild(withholdingElement);
+			int orgPrintId = orgPrintFormatItemId;
+			int periodPrintId = periodPrintFormatItemId;
 			//	for all columns
-			for (int col = 0; col < printFormat.getItemCount(); col++) {
-				MPrintFormatItem item = printFormat.getItem(col);
-				if (item.isPrinted()
-						&& item.getAD_PrintFormatItem_ID() != orgPrintFormatItemId
-						&& item.getAD_PrintFormatItem_ID() != periodPrintFormatItemId) {
-					Object obj = printData.getNode(new Integer(item.getAD_Column_ID()));
+			Arrays.asList(printFormat.getItems())
+				.stream()
+				.filter(printFormatItem -> 
+					printFormatItem.isPrinted() 
+						&& printFormatItem.getAD_PrintFormatItem_ID() != orgPrintId 
+						&& printFormatItem.getAD_PrintFormatItem_ID() != periodPrintId)
+				.forEach(printFormatItem -> {
+					Object valueOfItem = printData.getNode(new Integer(printFormatItem.getAD_Column_ID()));
 					String data = "";
-					if (obj == null) {
-						if(item.getPrintFormatType().equals(MPrintFormatItem.PRINTFORMATTYPE_Text)) {
-							if(!Util.isEmpty(item.getPrintName())) {
-								data = item.getPrintName() + (!Util.isEmpty(item.getPrintNameSuffix())? item.getPrintNameSuffix(): "");
+					if (valueOfItem == null) {
+						if(printFormatItem.getPrintFormatType().equals(MPrintFormatItem.PRINTFORMATTYPE_Text)) {
+							if(!Util.isEmpty(printFormatItem.getPrintName())) {
+								data = printFormatItem.getPrintName() + (!Util.isEmpty(printFormatItem.getPrintNameSuffix())? printFormatItem.getPrintNameSuffix(): "");
 							}
 						}
-					} else if (obj instanceof PrintDataElement) {
-						PrintDataElement pde = (PrintDataElement)obj;
-						if (pde.isPKey()) {
-							data = pde.getValueAsString();
+					} else if (valueOfItem instanceof PrintDataElement) {
+						PrintDataElement dataElement = (PrintDataElement) valueOfItem;
+						if (dataElement.isPKey()) {
+							data = dataElement.getValueAsString();
 						} else {
-							data = pde.getValueDisplay(getLanguage());	//	formatted
+							if(!Util.isEmpty(printFormatItem.getFormatPattern())) {
+								dataElement.setM_formatPattern(printFormatItem.getFormatPattern());
+							}
+							data = dataElement.getValueDisplay(getLanguage());	//	formatted
 							//	Only for ISLR
 							if(!Util.isEmpty(data)) {
-								if(DisplayType.isNumeric(pde.getDisplayType())) {
+								if(DisplayType.isNumeric(dataElement.getDisplayType())) {
 									data = data.replaceAll(",", ".");
-								} else if(DisplayType.isText(pde.getDisplayType())
-										&& (item.getColumnName().equals("InvoiceNo") 
-												|| item.getColumnName().equals("AffectedDocumentNo")
-												|| item.getColumnName().equals("ControlNo"))) {
+								} else if(DisplayType.isText(dataElement.getDisplayType())
+										&& (printFormatItem.getColumnName().equals("InvoiceNo") 
+												|| printFormatItem.getColumnName().equals("AffectedDocumentNo")
+												|| printFormatItem.getColumnName().equals("ControlNo"))) {
 									data = data.replaceAll("-", "");
 									//	Change data length
 									if(data.length() > 10) {
@@ -221,15 +224,13 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 							}
 						}
 					} else {
-						log.log(Level.SEVERE, "Element not PrintData(Element) " + obj.getClass());
+						log.log(Level.SEVERE, "Element not PrintData(Element) " + valueOfItem.getClass());
 					}
 					//	Write
-					Element withholdingDetail = document.createElement(item.getPrintName());
+					Element withholdingDetail = document.createElement(printFormatItem.getPrintName());
 					withholdingDetail.appendChild(document.createTextNode(data));
 					withholdingElement.appendChild(withholdingDetail);
-					//	
-				}	//	printed
-			}	//	for all columns
+				});
 		}
 		return document;
 	}	//	getDocument
