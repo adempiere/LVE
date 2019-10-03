@@ -114,7 +114,6 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 			//	System.out.println(factory.getClass().getName());
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			document = builder.newDocument();
-			document.appendChild(document.createComment(Adempiere.getSummaryAscii()));
 		} catch (Exception e) {
 			log.severe("Error exporting XML " + e.getLocalizedMessage());
 			return null;
@@ -216,6 +215,10 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 												|| item.getColumnName().equals("AffectedDocumentNo")
 												|| item.getColumnName().equals("ControlNo"))) {
 									data = data.replaceAll("-", "");
+									//	Change data length
+									if(data.length() > 10) {
+										data = data.substring(data.length() - 10, data.length());
+									}
 								}
 							}
 						}
