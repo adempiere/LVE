@@ -92,7 +92,7 @@ CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
              	JOIN C_InvoiceLine il ON i.C_Invoice_ID = il.C_Invoice_ID
              	JOIN WH_Withholding whd ON (whd.C_InvoiceLine_ID = il.C_InvoiceLine_ID)
 				JOIN WH_Setting whs ON (whs.WH_Setting_ID = whd.WH_Setting_ID)
-				JOIN WH_Type wt ON whs.WH_Type_ID = wt.WH_Type_ID
+				JOIN WH_Type wt ON (whs.WH_Type_ID = wt.WH_Type_ID AND wt.IsFiscalDocument = 'Y')
           WHERE i.DocStatus IN ('CO', 'CL')
 		  GROUP BY
 		    il.LineNetAmt,
@@ -183,7 +183,7 @@ UNION ALL
             JOIN C_InvoiceLine il ON i.C_Invoice_ID = il.C_Invoice_ID
             JOIN WH_Withholding whd ON whd.C_InvoiceLine_ID = il.C_InvoiceLine_ID
 		    JOIN WH_Setting whs ON (whs.WH_Setting_ID = whd.WH_Setting_ID)
-            JOIN WH_Type wt ON whs.WH_Type_ID = wt.WH_Type_ID
+            JOIN WH_Type wt ON (whs.WH_Type_ID = wt.WH_Type_ID AND wt.IsFiscalDocument = 'Y')
           WHERE i.DocStatus IN ('CO', 'CL')
 		  GROUP BY il.LineNetAmt,
             		il.InvoiceToAllocate_ID,
