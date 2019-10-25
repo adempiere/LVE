@@ -17,6 +17,7 @@ package org.erpya.lve.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Optional;
 
 import org.compiere.model.I_C_BPartner;
 import org.compiere.model.I_I_Invoice;
@@ -25,6 +26,7 @@ import org.compiere.model.MClient;
 import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceLine;
+import org.compiere.model.MOrderLine;
 import org.compiere.model.ModelValidationEngine;
 import org.compiere.model.ModelValidator;
 import org.compiere.model.PO;
@@ -73,6 +75,7 @@ public class LVE implements ModelValidator {
 		engine.addModelChange(MInvoice.Table_Name, this);
 		engine.addModelChange(MBPartner.Table_Name, this);
 		engine.addModelChange(MWHWithholding.Table_Name, this);
+		engine.addModelChange(MInvoiceLine.Table_Name, this);
 		
 		engine.addImportValidate(I_I_Invoice.Table_Name,new LVEImport());
 	}
@@ -154,6 +157,7 @@ public class LVE implements ModelValidator {
 			log.fine(" TYPE_BEFORE_NEW || TYPE_BEFORE_CHANGE");
 			if (po.get_TableName().equals(MInvoice.Table_Name)) {
 				MInvoice invoice = (MInvoice) po;
+				
 				if(invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0) {
 					for(MInvoiceLine line : invoice.getLines()) {
 						if(line.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) == 0) {
@@ -189,6 +193,32 @@ public class LVE implements ModelValidator {
 					invoiceLine.set_ValueOfColumn("InvoiceToAllocate_ID", withholding.getSourceInvoice_ID());
 					invoiceLine.save();
 				}
+			}else if (po.get_TableName().equals(MInvoiceLine.Table_Name)) {
+				
+				Optional.ofNullable((MInvoiceLine) po).ifPresent(creditNoteLine -> {
+					if (creditNoteLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) == 0) {
+						Optional.ofNullable((MOrderLine) creditNoteLine.getC_OrderLine()).ifPresent(returnOrderLine ->{
+							Optional.ofNullable(returnOrderLine.getC_Order()).ifPresent(returnOrder ->{
+								if (MDocType.DOCSUBTYPESO_ReturnMaterial.equals(returnOrder.getC_DocType().getDocSubTypeSO())) {
+									Optional.ofNullable((MInvoiceLine) new Query(creditNoteLine.getCtx(), 
+																				MInvoiceLine.Table_Name, 
+																				"EXISTS (SELECT 1 "
+																				+ "FROM C_OrderLine oLine "
+																				+ "INNER JOIN M_InOutLine iol ON (oLine.Ref_InOutLine_ID = iol.M_InOutLine_ID) "
+																				+ "WHERE oLine.C_OrderLine_ID = ? AND iol.C_OrderLine_ID = C_InvoiceLine.C_OrderLine_ID "
+																				+ ")", 
+																				creditNoteLine.get_TrxName())
+																			.setParameters(returnOrderLine.get_ID())
+																			.first())
+																				.ifPresent(sourceInvoiceLine ->{
+																					creditNoteLine.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID, sourceInvoiceLine.getC_Invoice_ID());
+																				});
+								}
+							});
+						});
+					}
+				});
+				
 			}
 		} else if (type == TYPE_AFTER_CHANGE) {
 			// Set Is Paid for Auto Allocation Invoice Documents
