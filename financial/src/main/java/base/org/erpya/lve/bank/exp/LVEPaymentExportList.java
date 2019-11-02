@@ -297,6 +297,6 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 			return value;
 		}
 		//	
-		return value.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ,;*./?-]", "");
+		return value.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ,;*./?-]", "").trim();
 	}
 }

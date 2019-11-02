@@ -160,7 +160,7 @@ public class Provincial extends LVEPaymentExportList {
 						MOrg org = MOrg.get(payment.getCtx(), payment.getAD_Org_ID());
 						MOrgInfo orgInfo = MOrgInfo.get(payment.getCtx(), payment.getAD_Org_ID(), payment.get_TrxName());
 						//	Process Organization Tax ID
-						String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
+						String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 						//	Process Person Type
 						if(!Util.isEmpty(orgTaxId)){
 							orgTaxId = orgTaxId.replace("-", "").trim();

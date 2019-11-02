@@ -95,7 +95,7 @@ public class BFC extends LVEPaymentExportList {
 				accountType = "CA";
 			}
 			//	Account No
-			String bankAccountNo = processValue(bankAccount.getAccountNo()).trim();
+			String bankAccountNo = processValue(bankAccount.getAccountNo());
 			bankAccountNo = bankAccountNo.replace(" ", "");
 			bankAccountNo = leftPadding(bankAccountNo, 22, "0", true);
 			//	Constant space
@@ -103,7 +103,7 @@ public class BFC extends LVEPaymentExportList {
 			//	Constant space
 			String sequence5 = leftPadding("", 34, "0");
 			//	Process Organization Tax ID
-			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
+			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 			orgTaxId = leftPadding(orgTaxId, 10, " ", true);
 			//	Constant space
 			String sequence6 = leftPadding("", 48, "0");

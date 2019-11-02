@@ -88,7 +88,7 @@ public class MercantilNominaFacil extends LVEPaymentExportList {
 			//	Payment Type
 			String paymentTypeConstant = leftPadding("222", 10, "0");
 			//	Process Organization Tax ID
-			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
+			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 			//	Process Person Type
 			String organizationType = "";
 			if(!Util.isEmpty(orgTaxId)){
@@ -115,7 +115,7 @@ public class MercantilNominaFacil extends LVEPaymentExportList {
 			SimpleDateFormat shortFormat = new SimpleDateFormat(HEADER_SHORT_DATE_FORMAT);
 			String payDate = shortFormat.format(paySelection.getPayDate());
 			//	Account No
-			String bankAccountNo = processValue(bankAccount.getAccountNo()).trim();
+			String bankAccountNo = processValue(bankAccount.getAccountNo());
 			bankAccountNo = bankAccountNo.replace(" ", "");
 			bankAccountNo = rightPadding(bankAccountNo, 20, "0", true);
 			//	
@@ -288,7 +288,7 @@ public class MercantilNominaFacil extends LVEPaymentExportList {
 			String processTime = timeFormat.format(currentDate);
 			//	Process Organization Tax ID
 			String organizationType = "";
-			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
+			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 			//	Process Person Type
 			if(!Util.isEmpty(orgTaxId)){
 				organizationType = orgTaxId.substring(0, 1);
@@ -311,7 +311,7 @@ public class MercantilNominaFacil extends LVEPaymentExportList {
 			//	Constant
 			String constant2 = leftPadding("", 142, " ");
 			//	Bank Account No
-			String bankAccountNo = processValue(bankAccount.getAccountNo()).trim();
+			String bankAccountNo = processValue(bankAccount.getAccountNo());
 			bankAccountNo = bankAccountNo.replace(" ", "");
 			bankAccountNo = rightPadding(bankAccountNo, 20, "0", true);
 			//	Days Due

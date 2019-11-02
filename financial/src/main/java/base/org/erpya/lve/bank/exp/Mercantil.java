@@ -85,7 +85,7 @@ public class Mercantil extends LVEPaymentExportList {
 			//	Payment Type
 			String paymentTypeConstant = "0000000062";
 			//	Process Organization Tax ID
-			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
+			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 			//	Process Person Type
 			String organizationType = "";
 			if(!Util.isEmpty(orgTaxId)){
@@ -112,7 +112,7 @@ public class Mercantil extends LVEPaymentExportList {
 			SimpleDateFormat shortFormat = new SimpleDateFormat(HEADER_SHORT_DATE_FORMAT);
 			String payDate = shortFormat.format(paySelection.getPayDate());
 			//	Account No
-			String bankAccountNo = processValue(bankAccount.getAccountNo()).trim();
+			String bankAccountNo = processValue(bankAccount.getAccountNo());
 			bankAccountNo = bankAccountNo.replace(" ", "");
 			bankAccountNo = rightPadding(bankAccountNo, 20, "0", true);
 			//	

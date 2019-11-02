@@ -144,7 +144,7 @@ public class Banesco extends LVEPaymentExportList {
 			debtReferenceNo = debtReferenceNo.replaceAll("\\D+","");
 			debtReferenceNo = rightPadding(debtReferenceNo, 30, " ");
 			//	Process Organization Tax ID
-			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
+			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 			orgTaxId = rightPadding(orgTaxId, 17, " ").toUpperCase();
 			String clientName = processValue(client.getName());
 			clientName = rightPadding(clientName, 35, " ", true);
@@ -159,7 +159,7 @@ public class Banesco extends LVEPaymentExportList {
 			String iSOCode = currency.getISO_Code();
 			String freeField = rightPadding("", 1, " ");
 			//	Account No
-			String bankAccountNo = processValue(bankAccount.getAccountNo()).trim();
+			String bankAccountNo = processValue(bankAccount.getAccountNo());
 			bankAccountNo = bankAccountNo.replace(" ", "");
 			bankAccountNo = rightPadding(bankAccountNo, 34, " ", true);
 			String bankCodeOrder = rightPadding("BANESCO", 11, " ");

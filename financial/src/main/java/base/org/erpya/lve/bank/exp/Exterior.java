@@ -63,7 +63,7 @@ public class Exterior extends LVEPaymentExportList {
 			StringBuffer header = new StringBuffer();
 			//	Process Person Type
 			String personType = "";
-			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
+			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 			if(!Util.isEmpty(orgTaxId)){
 				orgTaxId = orgTaxId.replace("-", "").trim();
 				personType = orgTaxId.substring(0, 1);
@@ -73,7 +73,7 @@ public class Exterior extends LVEPaymentExportList {
 				addError(Msg.parseTranslation(Env.getCtx(), "@TaxID@ @NotFound@"));
 			}
 			//	Account No
-			String bankAccountNo = processValue(bankAccount.getAccountNo()).trim();
+			String bankAccountNo = processValue(bankAccount.getAccountNo());
 			bankAccountNo = bankAccountNo.replace(" ", "");
 			bankAccountNo = rightPadding(bankAccountNo, 20, "0", true);
 			//	Payment Quantity

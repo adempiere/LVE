@@ -78,7 +78,7 @@ public class BOD extends LVEPaymentExportList {
 			String transactionType = rightPadding("PROVEEDORES", 20, " ");
 			//	Process Person Type
 			String personType = "";
-			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
+			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 			if(!Util.isEmpty(orgTaxId)){
 				orgTaxId = orgTaxId.replace("-", "").trim();
 				personType = orgTaxId.substring(0, 1);

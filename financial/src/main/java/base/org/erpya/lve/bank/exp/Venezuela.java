@@ -88,7 +88,7 @@ public class Venezuela extends LVEPaymentExportList {
 			String paymentRequestNo = leftPadding(processValue(paySelection.getDocumentNo()), 8, "0", true);
 			//	Process Person Type
 			String orgPersonType = "";
-			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
+			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 			if(!Util.isEmpty(orgTaxId)){
 				orgPersonType = orgTaxId.substring(0, 1);
 				orgTaxId = orgTaxId.replaceAll("\\D+","");
@@ -104,7 +104,7 @@ public class Venezuela extends LVEPaymentExportList {
 			//	Now
 			String nowAsString = dateFormat.format(now);
 			//	Account No
-			String bankAccountNo = processValue(bankAccount.getAccountNo()).trim();
+			String bankAccountNo = processValue(bankAccount.getAccountNo());
 			bankAccountNo = rightPadding(bankAccountNo, 20, "0", true);
 			// 	Control Register
 			StringBuffer header = new StringBuffer();
@@ -270,7 +270,7 @@ public class Venezuela extends LVEPaymentExportList {
 			String constant = "0";
 			//	Process Organization Tax ID
 			String organizationType = "";
-			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
+			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 			//	Process Person Type
 			if(!Util.isEmpty(orgTaxId)){
 				organizationType = orgTaxId.substring(0, 1);
@@ -282,7 +282,7 @@ public class Venezuela extends LVEPaymentExportList {
 			//	Payments Generated
 			String paymentsGenerated = leftPadding(String.valueOf(payments.size()), 5, "0", true);
 			//	Bank Account No
-			String bankAccountNo = processValue(bankAccount.getAccountNo()).trim();
+			String bankAccountNo = processValue(bankAccount.getAccountNo());
 			bankAccountNo = bankAccountNo.replace(" ", "");
 			bankAccountNo = rightPadding(bankAccountNo, 20, "0", true);
 			//	Iterate over payments

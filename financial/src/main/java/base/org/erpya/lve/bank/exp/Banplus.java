@@ -70,7 +70,7 @@ public class Banplus extends LVEPaymentExportList {
 			debtReferenceNo = debtReferenceNo.replaceAll("\\D+","");
 			debtReferenceNo = rightPadding(debtReferenceNo, 30, " ");
 			//	Process Organization Tax ID
-			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
+			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 			orgTaxId = orgTaxId.substring(0, orgTaxId.length() >= 12? 12: orgTaxId.length());
 			//	Payment Amount
 			String totalAmtAsString = String.format("%.2f", paySelection.getTotalAmt().abs()).replace(".", "").replace(",", "");
@@ -80,7 +80,7 @@ public class Banplus extends LVEPaymentExportList {
 				addError(Msg.parseTranslation(Env.getCtx(), "@PayAmt@ > @InValid@"));
 			}
 			//	Account No
-			String bankAccountNo = processValue(bankAccount.getAccountNo()).trim();
+			String bankAccountNo = processValue(bankAccount.getAccountNo());
 			bankAccountNo = bankAccountNo.substring(0, (bankAccountNo.length() >= 20 ? 20: bankAccountNo.length()));
 			bankAccountNo = bankAccountNo.replace(" ", "");
 			//	Payments Generated
