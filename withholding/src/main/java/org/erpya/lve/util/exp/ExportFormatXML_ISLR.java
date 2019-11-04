@@ -215,7 +215,7 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 										&& (printFormatItem.getColumnName().equals("InvoiceNo") 
 												|| printFormatItem.getColumnName().equals("AffectedDocumentNo")
 												|| printFormatItem.getColumnName().equals("ControlNo"))) {
-									data = data.replaceAll("-", "");
+									data = data.replaceAll("-", "").replaceAll("/", "").replaceAll(" ", "").replaceAll(".", "");
 									//	Change data length
 									if(data.length() > 10) {
 										data = data.substring(data.length() - 10, data.length());
