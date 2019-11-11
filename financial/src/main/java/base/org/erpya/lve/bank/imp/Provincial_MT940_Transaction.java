@@ -20,7 +20,6 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 
 import org.compiere.util.Util;
-import org.jfree.util.Log;
 import org.spin.util.impexp.MT940BankTransaction;
 
 /**
@@ -206,7 +205,6 @@ public class Provincial_MT940_Transaction extends MT940BankTransaction {
 					longReference = new Long(reference);
 				} catch (Exception e) {
 					//	Nothing
-					Log.warn("Unparseable reference " + reference);
 				}
 				if(longReference != null) {
 					reference = String.valueOf(longReference);
