@@ -32,7 +32,6 @@ import org.compiere.model.X_I_BankStatement;
 import org.compiere.util.DB;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
-import org.jfree.util.Log;
 
 /**
  * Add matcher by reference with like
@@ -145,7 +144,6 @@ public class WithoutZeroWithPayment implements BankStatementMatcherInterface {
 					longReference = new Long(reference);
 				} catch (Exception e) {
 					//	Nothing
-					Log.warn("Unparseable reference " + reference);
 				}
 				if(longReference != null) {
 					reference = String.valueOf(longReference);
