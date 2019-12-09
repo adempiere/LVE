@@ -170,6 +170,7 @@ UNION ALL
      JOIN AD_Client c ON i.AD_Client_ID = c.AD_Client_ID
      JOIN AD_OrgInfo oi ON oi.AD_Org_ID = i.AD_Org_ID
      LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+	 INNER JOIN C_Year y ON (y.C_Year_ID = p.C_Year_ID)
      JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
      JOIN C_BPartner bp ON i.C_BPartner_ID = bp.C_BPartner_ID
      JOIN ( SELECT il.LineNetAmt AS WHTaxAmt,
@@ -179,11 +180,13 @@ UNION ALL
 					p.C_Period_ID,
 					p.StartDate,
 					p.EndDate,
+		   			y.C_Calendar_ID,
 					i.DateAcct,
 					i.DateInvoiced,
 					CASE WHEN whd.WHThirdParty_ID > 0 THEN 'Y' ELSE 'N' END IsThirdParty
            	FROM C_Invoice i
             LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+		   	INNER JOIN C_Year y ON (y.C_Year_ID = p.C_Year_ID)
             JOIN C_InvoiceLine il ON i.C_Invoice_ID = il.C_Invoice_ID
             JOIN WH_Withholding whd ON whd.C_InvoiceLine_ID = il.C_InvoiceLine_ID
 		    JOIN WH_Setting whs ON (whs.WH_Setting_ID = whd.WH_Setting_ID)
@@ -196,10 +199,11 @@ UNION ALL
 					p.C_Period_ID,
 					p.StartDate,
 					p.EndDate,
+		   			y.C_Calendar_ID,
 					i.DateAcct,
 					i.DateInvoiced,
 		   			whd.WHThirdParty_ID
-		  ) iwh ON i.C_Invoice_ID = iwh.C_Invoice_ID AND p.C_Period_ID <> iwh.C_Period_ID,
+		  ) iwh ON i.C_Invoice_ID = iwh.C_Invoice_ID AND p.C_Period_ID <> iwh.C_Period_ID AND y.C_Calendar_ID = iwh.C_Calendar_ID,
     ( SELECT wt.AD_Client_ID,
              wt.AD_Org_ID,
              wt.Name,
