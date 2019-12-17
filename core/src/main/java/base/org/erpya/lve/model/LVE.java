@@ -24,6 +24,7 @@ import org.compiere.model.I_I_Invoice;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MClient;
 import org.compiere.model.MDocType;
+import org.compiere.model.MInOut;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceLine;
 import org.compiere.model.MOrderLine;
@@ -73,6 +74,7 @@ public class LVE implements ModelValidator {
 		engine.addDocValidate(MInvoice.Table_Name, this);
 		
 		engine.addModelChange(MInvoice.Table_Name, this);
+		engine.addModelChange(MInOut.Table_Name, this);
 		engine.addModelChange(MBPartner.Table_Name, this);
 		engine.addModelChange(MWHWithholding.Table_Name, this);
 		engine.addModelChange(MInvoiceLine.Table_Name, this);
@@ -128,6 +130,23 @@ public class LVE implements ModelValidator {
 				}
 				//	Save
 				invoice.saveEx();
+			} else if(po.get_TableName().equals(MInOut.Table_Name)) {
+				MInOut shipment = (MInOut) po;
+				if(shipment.isReversal()) {
+					shipment.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument, false);
+				} else {
+					MDocType documentType = (MDocType) shipment.getC_DocType();
+					shipment.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument,
+							documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsFiscalDocument));
+					//	Set Control No
+					if(!documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsSetControlNoOnPrint)
+							&& Util.isEmpty(shipment.get_ValueAsString(ColumnsAdded.COLUMNNAME_ControlNo))) {
+						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType);
+						shipment.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_ControlNo, sequence.getControlNo());
+					}
+				}
+				//	Save
+				shipment.saveEx();
 			}
 		} else if(timing == TIMING_AFTER_COMPLETE)	{
 			MInvoice invoice = (MInvoice) po;
