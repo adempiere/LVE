@@ -74,7 +74,7 @@ public class LVE implements ModelValidator {
 		engine.addDocValidate(MInvoice.Table_Name, this);
 		
 		engine.addModelChange(MInvoice.Table_Name, this);
-		engine.addModelChange(MInOut.Table_Name, this);
+		engine.addDocValidate(MInOut.Table_Name, this);
 		engine.addModelChange(MBPartner.Table_Name, this);
 		engine.addModelChange(MWHWithholding.Table_Name, this);
 		engine.addModelChange(MInvoiceLine.Table_Name, this);
