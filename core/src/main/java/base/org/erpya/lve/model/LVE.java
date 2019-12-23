@@ -101,8 +101,15 @@ public class LVE implements ModelValidator {
 				MInvoice invoice = (MInvoice) po;
 				if(invoice.isReversal()) {
 					invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument, false);
-				} else {
-					MDocType documentType = (MDocType) invoice.getC_DocTypeTarget();
+					//	Save
+					invoice.saveEx();
+				}
+			}
+		} else if(timing == TIMING_AFTER_COMPLETE)	{
+			if (po.get_TableName().equals(MInvoice.Table_Name)) {
+				MInvoice invoice = (MInvoice) po;
+				if(!invoice.isReversal()) {
+					MDocType documentType = MDocType.get(invoice.getCtx(), invoice.getC_DocTypeTarget_ID());
 					invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument,
 							documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsFiscalDocument));
 					//	Set Control No
@@ -111,7 +118,6 @@ public class LVE implements ModelValidator {
 						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType);
 						invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_ControlNo, sequence.getControlNo());
 					}
-					
 					//Set Document Number for Withholding
 					if (new Query(invoice.getCtx(), MWHWithholding.Table_Name, "C_Invoice_ID = ? AND IsManual = 'N'", invoice.get_TrxName()).setParameters(invoice.getC_Invoice_ID()).match()) {
 						//	Get Document No
@@ -124,12 +130,22 @@ public class LVE implements ModelValidator {
 							prefix = "";
 						//	Set New Document No
 						invoice.setDocumentNo(prefix + String.format("%1$" + 8 + "s", docNo).replace(" ", "0"));
-						invoice.save();
 					}
-					
+					//	Create Allocation
+					if(documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsAllocateInvoice)) {
+						AllocationManager allocationManager = new AllocationManager(invoice);
+						Arrays.asList(invoice.getLines())
+							.stream()
+							.filter(invoiceLine -> invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0)
+							.forEach(invoiceLine -> {
+								allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID), invoiceLine.getLineTotalAmt(), Env.ZERO, Env.ZERO);
+							});
+						//	Create Allocation
+						allocationManager.createAllocation();
+					}
+					//	Save
+					invoice.saveEx();
 				}
-				//	Save
-				invoice.saveEx();
 			} else if(po.get_TableName().equals(MInOut.Table_Name)) {
 				MInOut shipment = (MInOut) po;
 				if(shipment.isReversal()) {
@@ -147,24 +163,6 @@ public class LVE implements ModelValidator {
 				}
 				//	Save
 				shipment.saveEx();
-			}
-		} else if(timing == TIMING_AFTER_COMPLETE)	{
-			if (po.get_TableName().equals(MInvoice.Table_Name)) {
-				MInvoice invoice = (MInvoice) po;
-				if(!invoice.isReversal()) {
-					MDocType documentType = MDocType.get(invoice.getCtx(), invoice.getC_DocTypeTarget_ID());
-					if(documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsAllocateInvoice)) {
-						AllocationManager allocationManager = new AllocationManager(invoice);
-						Arrays.asList(invoice.getLines())
-							.stream()
-							.filter(invoiceLine -> invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0)
-							.forEach(invoiceLine -> {
-								allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID), invoiceLine.getLineTotalAmt(), Env.ZERO, Env.ZERO);
-							});
-						//	Create Allocation
-						allocationManager.createAllocation();
-					}
-				}
 			}
 		}
 		//
