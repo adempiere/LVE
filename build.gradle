@@ -2,6 +2,11 @@ plugins {
     id 'java-library'
 }
 
+java {
+	sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
 repositories {
     jcenter()
     flatDir {
@@ -12,7 +17,7 @@ repositories {
 sourceSets {
     main {
          java {
-            srcDirs = ['core', 'financial', 'withholding', 'human_resource']
+            srcDirs = ['core/src/main/java/base', 'financial/src/main/java/base', 'withholding/src/main/java/base', 'human_resource/src/main/java/base']
          }
     }
 }
@@ -22,6 +27,7 @@ dependencies {
     implementation name: 'Withholding'
     implementation name: 'HumanResourceAndPayroll'
     implementation name: 'jackcess-3.0.1'
+    compile 'com.sun.jersey:jersey-client:1.19.4'
 }
 
 jar {

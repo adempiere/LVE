@@ -30,7 +30,6 @@ import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceLine;
-import org.compiere.model.MPeriod;
 import org.compiere.model.MProduct;
 import org.compiere.model.Query;
 import org.compiere.util.Env;
@@ -71,8 +70,6 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	private static BigDecimal FACTOR = new BigDecimal(83.3334);
 	/**Currency Precision */
 	int curPrecision = 0 ;
-	/**Period*/
-	private MPeriod invoicePeriod = null;
 	
 	@Override
 	public boolean isValid() {
