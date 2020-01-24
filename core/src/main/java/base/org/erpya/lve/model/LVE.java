@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.Optional;
 
 import org.compiere.model.I_C_BPartner;
+import org.compiere.model.I_I_BPartner;
 import org.compiere.model.I_I_Invoice;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MClient;
@@ -79,7 +80,9 @@ public class LVE implements ModelValidator {
 		engine.addModelChange(MWHWithholding.Table_Name, this);
 		engine.addModelChange(MInvoiceLine.Table_Name, this);
 		
-		engine.addImportValidate(I_I_Invoice.Table_Name,new LVEImport());
+		LVEImport importValidator = new LVEImport(); 
+		engine.addImportValidate(I_I_Invoice.Table_Name,importValidator);
+		engine.addImportValidate(I_I_BPartner.Table_Name, importValidator);
 	}
 
 	@Override
