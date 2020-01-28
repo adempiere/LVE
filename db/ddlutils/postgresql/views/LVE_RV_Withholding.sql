@@ -5,7 +5,7 @@ SELECT
 	whDoc.C_Invoice_ID,
 	whDocLine.C_InvoiceLine_ID,
 	wh.A_Base_Amount,
-	wh.WithholdingAmt,
+	ROUND(wh.WithholdingAmt,c.StdPrecision) WithholdingAmt,
 	wh.WithholdingRate,
 	wh.Subtrahend,
 	origDoc.DocumentNo,

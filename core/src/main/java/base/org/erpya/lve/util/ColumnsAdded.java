@@ -80,4 +80,7 @@ public class ColumnsAdded {
 	public static final String COLUMNNAME_AffectedDocumentNo = "AffectedDocumentNo";
 	/**	Bank client Number	*/
 	public static final String COLUMNNAME_BankClientNo = "BankClientNo";
+	/**SICA Code (Sistema Integral de Control Agroalimentario)*/
+	public static final String COLUMNNAME_SICACode = "SICACode";
+	
 }
