@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
   <Migration EntityType="LVE" Name="Add Book View" ReleaseNo="3.9.3" SeqNo="81000400">
-    <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
+    <Step DBType="Postgres" Parse="N" SeqNo="10" StepType="SQL">
       <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
  SELECT i.AD_Client_ID,
     i.AD_Org_ID,
@@ -54,7 +54,7 @@
     (i.C_Invoice_ID::VARCHAR || COALESCE(it.C_Tax_ID, 0)::VARCHAR) AS DocumentTax_ID,
     it.AliquotType
    FROM C_Invoice i
-     LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+     LEFT JOIN C_Period p ON i.DateAcct &gt;= p.StartDate AND i.DateAcct &lt;= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
      JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
      JOIN C_BPartner bp ON i.C_BPartner_ID = bp.C_BPartner_ID
      JOIN AD_OrgInfo oi ON oi.AD_Org_ID = i.AD_Org_ID
@@ -68,7 +68,7 @@
                     ELSE 0
                 END) AS Exempt,
             	sum(CASE
-                    WHEN t.Rate <> 0 THEN it.TaxBaseAmt
+                    WHEN t.Rate &lt;&gt; 0 THEN it.TaxBaseAmt
                     ELSE 0
                 End) AS Taxable,
             	it.C_Invoice_ID
@@ -83,16 +83,16 @@
             			t.AliquotType
            		FROM C_InvoiceTax it
              	JOIN C_Tax t ON it.C_Tax_ID = t.C_Tax_ID
-          		WHERE t.Rate <> 0
+          		WHERE t.Rate &lt;&gt; 0
           		GROUP BY it.C_Invoice_ID, t.Rate, it.C_Tax_ID, t.AliquotType) it ON i.C_Invoice_ID = it.C_Invoice_ID
      LEFT JOIN (SELECT il.LineNetAmt AS WHTaxAmt,
             			il.InvoiceToAllocate_ID AS C_Invoice_ID,
             			i.DocumentNo AS WHDocumentNo,
             			wt.WH_Type_ID AS Record_ID, 
             			p.C_Period_ID,
-						CASE WHEN whd.WHThirdParty_ID > 0 THEN 'Y' ELSE 'N' END IsThirdParty
+						CASE WHEN whd.WHThirdParty_ID &gt; 0 THEN 'Y' ELSE 'N' END IsThirdParty
            		FROM C_Invoice i
-             	LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+             	LEFT JOIN C_Period p ON i.DateAcct &gt;= p.StartDate AND i.DateAcct &lt;= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
              	JOIN C_InvoiceLine il ON i.C_Invoice_ID = il.C_Invoice_ID
              	JOIN WH_Withholding whd ON (whd.C_InvoiceLine_ID = il.C_InvoiceLine_ID)
 				JOIN WH_Setting whs ON (whs.WH_Setting_ID = whd.WH_Setting_ID)
@@ -169,7 +169,7 @@ UNION ALL
    FROM C_Invoice i
      JOIN AD_Client c ON i.AD_Client_ID = c.AD_Client_ID
      JOIN AD_OrgInfo oi ON oi.AD_Org_ID = i.AD_Org_ID
-     LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+     LEFT JOIN C_Period p ON i.DateAcct &gt;= p.StartDate AND i.DateAcct &lt;= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
 	 INNER JOIN C_Year y ON (y.C_Year_ID = p.C_Year_ID)
      JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
      JOIN C_BPartner bp ON i.C_BPartner_ID = bp.C_BPartner_ID
@@ -183,9 +183,9 @@ UNION ALL
 		   			y.C_Calendar_ID,
 					i.DateAcct,
 					i.DateInvoiced,
-					CASE WHEN whd.WHThirdParty_ID > 0 THEN 'Y' ELSE 'N' END IsThirdParty
+					CASE WHEN whd.WHThirdParty_ID &gt; 0 THEN 'Y' ELSE 'N' END IsThirdParty
            	FROM C_Invoice i
-            LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+            LEFT JOIN C_Period p ON i.DateAcct &gt;= p.StartDate AND i.DateAcct &lt;= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
 		   	INNER JOIN C_Year y ON (y.C_Year_ID = p.C_Year_ID)
             JOIN C_InvoiceLine il ON i.C_Invoice_ID = il.C_Invoice_ID
             JOIN WH_Withholding whd ON whd.C_InvoiceLine_ID = il.C_InvoiceLine_ID
@@ -203,7 +203,7 @@ UNION ALL
 					i.DateAcct,
 					i.DateInvoiced,
 		   			whd.WHThirdParty_ID
-		  ) iwh ON i.C_Invoice_ID = iwh.C_Invoice_ID AND p.C_Period_ID <> iwh.C_Period_ID AND y.C_Calendar_ID = iwh.C_Calendar_ID,
+		  ) iwh ON i.C_Invoice_ID = iwh.C_Invoice_ID AND p.C_Period_ID &lt;&gt; iwh.C_Period_ID AND y.C_Calendar_ID = iwh.C_Calendar_ID,
     ( SELECT wt.AD_Client_ID,
              wt.AD_Org_ID,
              wt.Name,
@@ -212,7 +212,7 @@ UNION ALL
 	 WHERE IsFiscalDocument = 'Y') wt
   WHERE wt.AD_Client_ID = c.AD_Client_ID
 ;</SQLStatement>
-      <RollbackStatement>DROP VIEW LVE_RV_InvoiceBook;</RollbackStatement>
+      <RollbackStatement>DROP VIEW LVE_RV_InvoiceBook</RollbackStatement>
     </Step>
   </Migration>
 </Migrations>

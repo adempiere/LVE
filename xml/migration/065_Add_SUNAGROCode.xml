@@ -58,7 +58,7 @@
         <Data AD_Column_ID="6449" Column="PO_Help" isNewNull="true"/>
         <Data AD_Column_ID="2641" Column="IsActive">true</Data>
         <Data AD_Column_ID="2644" Column="Updated">2020-01-29 17:22:47.511</Data>
-        <Data AD_Column_ID="2638" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="6450" Column="PO_Name" isNewNull="true"/>
         <Data AD_Column_ID="2648" Column="Help" isNewNull="true"/>
         <Data AD_Column_ID="2646" Column="Name">SADACode</Data>
@@ -169,14 +169,14 @@
         <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="12953" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="84310" Column="UUID">e156b678-8a0a-431a-bec2-4ba6d90402be</Data>
       </PO>
     </Step>
     <Step SeqNo="90" StepType="AD">
       <PO AD_Table_ID="277" Action="U" Record_ID="0" Table="AD_Element_Trl">
-        <Data AD_Column_ID="2638" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language" oldValue="es_MX">es_MX</Data>
         <Data AD_Column_ID="2646" Column="Name" oldValue="SADACode">Código Sunagro</Data>
         <Data AD_Column_ID="4300" Column="PrintName" oldValue="SADA Code">Código Sunagro</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID" oldValue="61267">61267</Data>
@@ -184,7 +184,7 @@
     </Step>
     <Step SeqNo="100" StepType="AD">
       <PO AD_Table_ID="277" Action="U" Record_ID="0" Table="AD_Element_Trl">
-        <Data AD_Column_ID="2638" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language" oldValue="es_MX">es_MX</Data>
         <Data AD_Column_ID="2647" Column="Description" isOldNull="true">Codigo de Superintendencia Nacional de Gestión Agroalimentaria</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID" oldValue="61267">61267</Data>
       </PO>
@@ -268,7 +268,7 @@
         <Data AD_Column_ID="284" Column="AD_Field_ID">96710</Data>
         <Data AD_Column_ID="673" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="675" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID">c940a145-c587-4e12-a265-e26c82d6f5a3</Data>
         <Data AD_Column_ID="672" Column="Created">2020-01-29 17:31:49.93</Data>
       </PO>
@@ -489,7 +489,7 @@
         <Data AD_Column_ID="284" Column="AD_Field_ID">96711</Data>
         <Data AD_Column_ID="673" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="675" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="285" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="285" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="84323" Column="UUID">dfb9dedb-3e1d-4882-b7ab-9e1cd5a36378</Data>
       </PO>
     </Step>
