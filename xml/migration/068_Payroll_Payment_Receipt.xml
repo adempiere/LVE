@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="D" Name="Se agrega recibo de pago de nómina" ReleaseNo="3.9.3" SeqNo="81000440">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="284" Action="I" Record_ID="54355" Table="AD_Process">
+        <Data AD_Column_ID="2813" Column="ProcedureName" isNewNull="true"/>
+        <Data AD_Column_ID="4374" Column="AD_ReportView_ID" isNewNull="true"/>
+        <Data AD_Column_ID="84383" Column="UUID">92f9c2d6-0bcd-4ebe-b144-d630e4b6ef47</Data>
+        <Data AD_Column_ID="4656" Column="Classname" isNewNull="true"/>
+        <Data AD_Column_ID="2811" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="12458" Column="IsBetaFunctionality">false</Data>
+        <Data AD_Column_ID="3371" Column="IsReport">true</Data>
+        <Data AD_Column_ID="6653" Column="Statistic_Seconds">0</Data>
+        <Data AD_Column_ID="6652" Column="Statistic_Count">0</Data>
+        <Data AD_Column_ID="50181" Column="ShowHelp">Y</Data>
+        <Data AD_Column_ID="2809" Column="Name">Payment Receipt</Data>
+        <Data AD_Column_ID="2808" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2806" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2801" Column="AD_Process_ID">54355</Data>
+        <Data AD_Column_ID="2802" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2803" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="11834" Column="AD_Workflow_ID" isNewNull="true"/>
+        <Data AD_Column_ID="63488" Column="AD_Browse_ID" isNewNull="true"/>
+        <Data AD_Column_ID="6485" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="50182" Column="JasperReport">attachment:inf_HR_PaymentReceipt.jasper</Data>
+        <Data AD_Column_ID="2805" Column="Created">2020-02-14 16:31:18.717</Data>
+        <Data AD_Column_ID="2807" Column="Updated">2020-02-14 16:31:18.717</Data>
+        <Data AD_Column_ID="4214" Column="IsDirectPrint">true</Data>
+        <Data AD_Column_ID="57920" Column="CopyFromProcess">N</Data>
+        <Data AD_Column_ID="2804" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2810" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="4023" Column="Value">inf_HR_PaymentReceipt</Data>
+        <Data AD_Column_ID="11563" Column="WorkflowValue" isNewNull="true"/>
+        <Data AD_Column_ID="56515" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="5790" Column="AccessLevel">3</Data>
+        <Data AD_Column_ID="14084" Column="IsServerProcess">false</Data>
+        <Data AD_Column_ID="78843" Column="GenerateClass">N</Data>
+        <Data AD_Column_ID="7752" Column="AD_PrintFormat_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="287" Action="I" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2847" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2850" Column="Updated">2020-02-14 16:31:19.871</Data>
+        <Data AD_Column_ID="2848" Column="Created">2020-02-14 16:31:19.871</Data>
+        <Data AD_Column_ID="2853" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="2854" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="2855" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2852" Column="Name">Payment Receipt</Data>
+        <Data AD_Column_ID="2846" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2845" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2851" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID">54355</Data>
+        <Data AD_Column_ID="2849" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="84387" Column="UUID">4140522b-7db8-4b75-b3d2-ef94921d3011</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="287" Action="U" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2843" Column="AD_Process_ID" oldValue="54355">54355</Data>
+        <Data AD_Column_ID="2852" Column="Name" oldValue="Payment Receipt">Recibo de Pago de Nómina</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="493" Action="I" Record_ID="50439" Table="AD_PrintFormat">
+        <Data AD_Column_ID="64491" Column="IsPrintParameters">true</Data>
+        <Data AD_Column_ID="7010" Column="IsActive">true</Data>
+        <Data AD_Column_ID="7023" Column="AD_PrintPaper_ID">100</Data>
+        <Data AD_Column_ID="7018" Column="Created">2020-02-14 16:32:09.519</Data>
+        <Data AD_Column_ID="7007" Column="Updated">2020-02-14 16:32:09.519</Data>
+        <Data AD_Column_ID="9968" Column="IsDefault">false</Data>
+        <Data AD_Column_ID="7020" Column="CreateCopy">N</Data>
+        <Data AD_Column_ID="7013" Column="AD_Table_ID">54345</Data>
+        <Data AD_Column_ID="84373" Column="UUID">7d3aeaf8-2621-4c85-8c1d-ceef4b153129</Data>
+        <Data AD_Column_ID="7025" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="8562" Column="PrinterName" isNewNull="true"/>
+        <Data AD_Column_ID="52068" Column="Classname" isNewNull="true"/>
+        <Data AD_Column_ID="52069" Column="Args" isNewNull="true"/>
+        <Data AD_Column_ID="7014" Column="IsForm">false</Data>
+        <Data AD_Column_ID="7011" Column="IsStandardHeaderFooter">true</Data>
+        <Data AD_Column_ID="7009" Column="IsTableBased">true</Data>
+        <Data AD_Column_ID="7019" Column="Name">Payroll Payment Receipt</Data>
+        <Data AD_Column_ID="78516" Column="IsSummary">false</Data>
+        <Data AD_Column_ID="7026" Column="AD_PrintFormat_ID">50439</Data>
+        <Data AD_Column_ID="7024" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7022" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="7012" Column="AD_PrintFont_ID">163</Data>
+        <Data AD_Column_ID="7008" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="7046" Column="AD_ReportView_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7017" Column="AD_PrintColor_ID">100</Data>
+        <Data AD_Column_ID="7016" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="7015" Column="HeaderMargin">0</Data>
+        <Data AD_Column_ID="7640" Column="AD_PrintTableFormat_ID">100</Data>
+        <Data AD_Column_ID="7021" Column="FooterMargin">0</Data>
+        <Data AD_Column_ID="50209" Column="JasperProcess_ID">54355</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
