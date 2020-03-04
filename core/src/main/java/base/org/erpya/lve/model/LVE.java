@@ -196,15 +196,27 @@ public class LVE implements ModelValidator {
 					}
 				}
 			} else if(po.get_TableName().equals(MBPartner.Table_Name)) {
-				MBPartner bp = (MBPartner) po;
+				MBPartner businessPartner = (MBPartner) po;
 				if(type == TYPE_BEFORE_NEW
-						|| bp.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
-					String taxId = bp.getTaxID();
+						|| businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
+					String taxId = businessPartner.getTaxID();
 					//	For Tax ID
 					if(taxId == null) {
-						bp.setTaxID(bp.getValue());
+						businessPartner.setTaxID(businessPartner.getValue().trim());
 					}
-				}	
+				}
+				if(type == TYPE_AFTER_CHANGE) {
+					//	Validate without values
+					if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
+						if(!Util.isEmpty(businessPartner.getValue())) {
+							businessPartner.setValue(businessPartner.getValue().trim());
+						}
+					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_TaxID)) {
+						if(!Util.isEmpty(businessPartner.getTaxID())) {
+							businessPartner.setTaxID(businessPartner.getTaxID().trim());
+						}
+					}
+				}
 			}else if (po.get_TableName().equals(MWHWithholding.Table_Name)) {
 				MWHWithholding withholding = (MWHWithholding) po;
 				MInvoiceLine invoiceLine = new Query(withholding.getCtx(), MInvoiceLine.Table_Name, "C_InvoiceLine_ID = ?", withholding.get_TrxName())
