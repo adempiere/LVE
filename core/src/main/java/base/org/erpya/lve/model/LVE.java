@@ -17,6 +17,9 @@ package org.erpya.lve.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.compiere.model.I_C_BPartner;
@@ -28,7 +31,6 @@ import org.compiere.model.MDocType;
 import org.compiere.model.MInOut;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceLine;
-import org.compiere.model.MOrderLine;
 import org.compiere.model.ModelValidationEngine;
 import org.compiere.model.ModelValidator;
 import org.compiere.model.PO;
@@ -106,6 +108,56 @@ public class LVE implements ModelValidator {
 					invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument, false);
 					//	Save
 					invoice.saveEx();
+				} else {
+					//	For credit memo and invoice to allocated
+					MDocType documentType = MDocType.get(invoice.getCtx(), invoice.getC_DocTypeTarget_ID());
+					//	For credit Memo
+					if(invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) == 0 
+							&& (documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo) || documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARCreditMemo))) {
+						Optional.ofNullable(invoice.getC_Order()).ifPresent(returnOrder -> {
+							MDocType returnOrderSubType = MDocType.get(invoice.getCtx(), returnOrder.getC_DocType_ID());
+							if(!Util.isEmpty(returnOrderSubType.getDocSubTypeSO())
+									&& returnOrderSubType.getDocSubTypeSO().equals(MDocType.DOCSUBTYPESO_ReturnMaterial)) {
+								Map<Integer, Integer> invoiceToAllocate = new HashMap<>();
+								Map<Integer, Integer> invoiceLinesAllocated = new HashMap<>();
+								List<MInvoiceLine> creditMemoLines = Arrays.asList(invoice.getLines());
+								if(creditMemoLines.stream().filter(invoiceLine -> invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0).count() == 0) {
+									creditMemoLines
+									.stream()
+									.filter(creditMemoLine -> creditMemoLine.getC_OrderLine_ID() != 0)
+									.forEach(creditMemoLine -> {
+										Optional.ofNullable((MInvoiceLine) new Query(creditMemoLine.getCtx(), 
+												MInvoiceLine.Table_Name, 
+												"EXISTS (SELECT 1 "
+												+ "FROM C_OrderLine oLine "
+												+ "INNER JOIN M_InOutLine iol ON (oLine.Ref_InOutLine_ID = iol.M_InOutLine_ID) "
+												+ "WHERE oLine.C_OrderLine_ID = ? AND iol.C_OrderLine_ID = C_InvoiceLine.C_OrderLine_ID "
+												+ ")", 
+												creditMemoLine.get_TrxName())
+											.setParameters(creditMemoLine.getC_OrderLine_ID())
+											.first()).ifPresent(sourceInvoiceLine -> {
+													invoiceToAllocate.put(sourceInvoiceLine.getC_Invoice_ID(), creditMemoLine.getC_InvoiceLine_ID());
+													invoiceLinesAllocated.put(creditMemoLine.getC_InvoiceLine_ID(), sourceInvoiceLine.getC_Invoice_ID());
+												});
+									});
+								}
+								//	Set from parent or child
+								if(invoiceToAllocate.size() == 1) {
+									invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID, invoiceToAllocate.keySet().stream().findFirst().get());
+									invoice.saveEx();
+								} else if(invoiceToAllocate.size() > 0) {
+									creditMemoLines
+										.forEach(invoiceLine -> {
+											int invoiceToAllocateId = invoiceLinesAllocated.get(invoiceLine.getC_InvoiceLine_ID());
+											if(invoiceToAllocateId != 0) {
+												invoiceLine.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID, invoiceToAllocateId);
+												invoiceLine.saveEx();
+											}
+										});
+								}
+							}
+						});
+					}
 				}
 			}
 		} else if(timing == TIMING_AFTER_COMPLETE)	{
@@ -227,32 +279,6 @@ public class LVE implements ModelValidator {
 					invoiceLine.set_ValueOfColumn("InvoiceToAllocate_ID", withholding.getSourceInvoice_ID());
 					invoiceLine.save();
 				}
-			}else if (po.get_TableName().equals(MInvoiceLine.Table_Name)) {
-				
-				Optional.ofNullable((MInvoiceLine) po).ifPresent(creditNoteLine -> {
-					if (creditNoteLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) == 0) {
-						Optional.ofNullable((MOrderLine) creditNoteLine.getC_OrderLine()).ifPresent(returnOrderLine ->{
-							Optional.ofNullable(returnOrderLine.getC_Order()).ifPresent(returnOrder ->{
-								if (MDocType.DOCSUBTYPESO_ReturnMaterial.equals(returnOrder.getC_DocType().getDocSubTypeSO())) {
-									Optional.ofNullable((MInvoiceLine) new Query(creditNoteLine.getCtx(), 
-																				MInvoiceLine.Table_Name, 
-																				"EXISTS (SELECT 1 "
-																				+ "FROM C_OrderLine oLine "
-																				+ "INNER JOIN M_InOutLine iol ON (oLine.Ref_InOutLine_ID = iol.M_InOutLine_ID) "
-																				+ "WHERE oLine.C_OrderLine_ID = ? AND iol.C_OrderLine_ID = C_InvoiceLine.C_OrderLine_ID "
-																				+ ")", 
-																				creditNoteLine.get_TrxName())
-																			.setParameters(returnOrderLine.get_ID())
-																			.first())
-																				.ifPresent(sourceInvoiceLine ->{
-																					creditNoteLine.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID, sourceInvoiceLine.getC_Invoice_ID());
-																				});
-								}
-							});
-						});
-					}
-				});
-				
 			}
 		} else if (type == TYPE_AFTER_CHANGE) {
 			// Set Is Paid for Auto Allocation Invoice Documents
