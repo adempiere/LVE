@@ -128,8 +128,8 @@ public class LVE implements ModelValidator {
 									.filter(creditMemoLine -> creditMemoLine.getC_OrderLine_ID() != 0)
 									.forEach(creditMemoLine -> {
 										MOrderLine returnOrderLine = (MOrderLine) creditMemoLine.getC_OrderLine();
-										if(returnOrderLine.getRef_InvoiceLine_ID() != 0) {
-											MInvoiceLine sourceInvoiceLine = new MInvoiceLine(creditMemoLine.getCtx(), returnOrderLine.getRef_InvoiceLine_ID(), creditMemoLine.get_TrxName());
+										if(returnOrderLine.get_ValueAsInt("Ref_InvoiceLine_ID") != 0) {
+											MInvoiceLine sourceInvoiceLine = new MInvoiceLine(creditMemoLine.getCtx(), returnOrderLine.get_ValueAsInt("Ref_InvoiceLine_ID"), creditMemoLine.get_TrxName());
 											invoiceToAllocate.put(sourceInvoiceLine.getC_Invoice_ID(), creditMemoLine.getC_InvoiceLine_ID());
 											invoiceLinesAllocated.put(creditMemoLine.getC_InvoiceLine_ID(), sourceInvoiceLine.getC_Invoice_ID());
 										} else {
