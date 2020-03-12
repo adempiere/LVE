@@ -31,6 +31,7 @@ import org.compiere.model.MDocType;
 import org.compiere.model.MInOut;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceLine;
+import org.compiere.model.MOrderLine;
 import org.compiere.model.ModelValidationEngine;
 import org.compiere.model.ModelValidator;
 import org.compiere.model.PO;
@@ -126,19 +127,26 @@ public class LVE implements ModelValidator {
 									.stream()
 									.filter(creditMemoLine -> creditMemoLine.getC_OrderLine_ID() != 0)
 									.forEach(creditMemoLine -> {
-										Optional.ofNullable((MInvoiceLine) new Query(creditMemoLine.getCtx(), 
-												MInvoiceLine.Table_Name, 
-												"EXISTS (SELECT 1 "
-												+ "FROM C_OrderLine oLine "
-												+ "INNER JOIN M_InOutLine iol ON (oLine.Ref_InOutLine_ID = iol.M_InOutLine_ID) "
-												+ "WHERE oLine.C_OrderLine_ID = ? AND iol.C_OrderLine_ID = C_InvoiceLine.C_OrderLine_ID "
-												+ ")", 
-												creditMemoLine.get_TrxName())
-											.setParameters(creditMemoLine.getC_OrderLine_ID())
-											.first()).ifPresent(sourceInvoiceLine -> {
-													invoiceToAllocate.put(sourceInvoiceLine.getC_Invoice_ID(), creditMemoLine.getC_InvoiceLine_ID());
-													invoiceLinesAllocated.put(creditMemoLine.getC_InvoiceLine_ID(), sourceInvoiceLine.getC_Invoice_ID());
+										MOrderLine returnOrderLine = (MOrderLine) creditMemoLine.getC_OrderLine();
+										if(returnOrderLine.getRef_InvoiceLine_ID() != 0) {
+											MInvoiceLine sourceInvoiceLine = new MInvoiceLine(creditMemoLine.getCtx(), returnOrderLine.getRef_InvoiceLine_ID(), creditMemoLine.get_TrxName());
+											invoiceToAllocate.put(sourceInvoiceLine.getC_Invoice_ID(), creditMemoLine.getC_InvoiceLine_ID());
+											invoiceLinesAllocated.put(creditMemoLine.getC_InvoiceLine_ID(), sourceInvoiceLine.getC_Invoice_ID());
+										} else {
+											Optional.ofNullable((MInvoiceLine) new Query(creditMemoLine.getCtx(), 
+													MInvoiceLine.Table_Name, 
+													"EXISTS (SELECT 1 "
+													+ "FROM C_OrderLine oLine "
+													+ "INNER JOIN M_InOutLine iol ON (oLine.Ref_InOutLine_ID = iol.M_InOutLine_ID) "
+													+ "WHERE oLine.C_OrderLine_ID = ? AND iol.C_OrderLine_ID = C_InvoiceLine.C_OrderLine_ID "
+													+ ")", 
+													creditMemoLine.get_TrxName())
+												.setParameters(creditMemoLine.getC_OrderLine_ID())
+												.first()).ifPresent(sourceInvoiceLine -> {
+														invoiceToAllocate.put(sourceInvoiceLine.getC_Invoice_ID(), creditMemoLine.getC_InvoiceLine_ID());
+														invoiceLinesAllocated.put(creditMemoLine.getC_InvoiceLine_ID(), sourceInvoiceLine.getC_Invoice_ID());
 												});
+										}
 									});
 								}
 								//	Set from parent or child
@@ -262,6 +270,11 @@ public class LVE implements ModelValidator {
 					if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
 						if(!Util.isEmpty(businessPartner.getValue())) {
 							businessPartner.setValue(businessPartner.getValue().trim());
+						}
+						String taxId = businessPartner.getTaxID();
+						//	For Tax ID
+						if(taxId == null) {
+							businessPartner.setTaxID(businessPartner.getValue());
 						}
 					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_TaxID)) {
 						if(!Util.isEmpty(businessPartner.getTaxID())) {
