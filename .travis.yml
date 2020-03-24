@@ -20,13 +20,17 @@ jobs:
   include:
     - stage: Compilation
       script: ./gradlew build
-    - stage: Generate Jar
-      script: ./gradlew jar
+    - stage: Prepare Release
+      script:
+         - ./gradlew build 
+         - ./gradlew release
+      on:
+       tags: true
 deploy:
   provider: releases
   token: $GITHUB_TOKEN_KEY
   skip_cleanup: true
   file: 
-    - "$TRAVIS_BUILD_DIR/build/libs/LVE.jar"
+    - "$TRAVIS_BUILD_DIR/build/release/LVE.zip"
   on:
     tags: true
