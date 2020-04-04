@@ -18,7 +18,6 @@ before_script:
   - wget http://github.com/erpcya/Withholding/releases/latest/download/Withholding.zip -c -O Withholding.zip
   - mkdir references
   - unzip -o Withholding.zip -d references
-  - unzip -o references/build/release/Withholding.zip -d references/build/release/
   - mv references/build/release/*.jar dependences/
 jobs:
   include:
