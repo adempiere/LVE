@@ -23,7 +23,7 @@ jobs:
     - stage: Prepare Release
       script:
          - ./gradlew build 
-         - ./gradlew release
+         - ./gradlew createRelease
       on:
        tags: true
 deploy:
@@ -32,5 +32,6 @@ deploy:
   skip_cleanup: true
   file: 
     - "$TRAVIS_BUILD_DIR/build/release/LVE.zip"
+    - "$TRAVIS_BUILD_DIR/build/release/LVE.zip.MD5"
   on:
     tags: true
