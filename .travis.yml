@@ -15,7 +15,11 @@ before_script:
   - tar -xzf Adempiere.tar.gz
   - mv Adempiere/lib/Adempiere.jar dependences/Adempiere.jar
   - mv Adempiere/packages/HumanResourceAndPayroll/lib/HumanResourceAndPayroll.jar dependences/HumanResourceAndPayroll.jar
-  - wget http://github.com/erpcya/Withholding/releases/latest/download/Withholding.jar -c -O dependences/Withholding.jar
+  - wget http://github.com/erpcya/Withholding/releases/latest/download/Withholding.zip -c -O dependences/Withholding.zip
+  - mkdir references
+  - unzip -o Withholding.zip -d references
+  - unzip -o references/build/release/Withholding.zip -d references/build/release/
+  - mv references/build/release/*.jar dependences/
 jobs:
   include:
     - stage: Compilation
