@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="D" Name="Add Employee Verification" ReleaseNo="3.9.4" SeqNo="81000480">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="284" Action="I" Record_ID="54380" Table="AD_Process">
+        <Data AD_Column_ID="4374" Column="AD_ReportView_ID" isNewNull="true"/>
+        <Data AD_Column_ID="84383" Column="UUID">88676871-077a-42ba-b764-bdc8e0b34567</Data>
+        <Data AD_Column_ID="4656" Column="Classname" isNewNull="true"/>
+        <Data AD_Column_ID="2811" Column="Help">This Document must record that a person has been working in this institution in a job since a certain date and for a certain salary.</Data>
+        <Data AD_Column_ID="12458" Column="IsBetaFunctionality">false</Data>
+        <Data AD_Column_ID="3371" Column="IsReport">true</Data>
+        <Data AD_Column_ID="6653" Column="Statistic_Seconds">0</Data>
+        <Data AD_Column_ID="6652" Column="Statistic_Count">0</Data>
+        <Data AD_Column_ID="50181" Column="ShowHelp">Y</Data>
+        <Data AD_Column_ID="2809" Column="Name">Employment Verification letter</Data>
+        <Data AD_Column_ID="2808" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2806" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2801" Column="AD_Process_ID">54380</Data>
+        <Data AD_Column_ID="2802" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2803" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="11834" Column="AD_Workflow_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2813" Column="ProcedureName" isNewNull="true"/>
+        <Data AD_Column_ID="63488" Column="AD_Browse_ID" isNewNull="true"/>
+        <Data AD_Column_ID="6485" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="50182" Column="JasperReport">attachment:inf_HR_EmploymentVerification.jasper</Data>
+        <Data AD_Column_ID="2805" Column="Created">2020-04-06 13:57:40.739</Data>
+        <Data AD_Column_ID="2807" Column="Updated">2020-04-06 13:57:40.739</Data>
+        <Data AD_Column_ID="4214" Column="IsDirectPrint">false</Data>
+        <Data AD_Column_ID="57920" Column="CopyFromProcess">N</Data>
+        <Data AD_Column_ID="2804" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2810" Column="Description">The Employment verification letter, confirm a person is or was employed by this company.</Data>
+        <Data AD_Column_ID="4023" Column="Value">inf_HR_EmploymentVerification</Data>
+        <Data AD_Column_ID="11563" Column="WorkflowValue" isNewNull="true"/>
+        <Data AD_Column_ID="56515" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="5790" Column="AccessLevel">3</Data>
+        <Data AD_Column_ID="14084" Column="IsServerProcess">false</Data>
+        <Data AD_Column_ID="78843" Column="GenerateClass">N</Data>
+        <Data AD_Column_ID="7752" Column="AD_PrintFormat_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="287" Action="I" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2847" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2850" Column="Updated">2020-04-06 13:57:42.625</Data>
+        <Data AD_Column_ID="2848" Column="Created">2020-04-06 13:57:42.625</Data>
+        <Data AD_Column_ID="2853" Column="Description">La Constancia de Trabajo, confirma que una persona trabaja en esta organizacion</Data>
+        <Data AD_Column_ID="2854" Column="Help">Este Documento que hacer constar que una persona ha estado trabajando en esta institución en un puestos de trabajo desde una fecha determinada y por un salario determinados.</Data>
+        <Data AD_Column_ID="2855" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2852" Column="Name">Constancia de Trabajo</Data>
+        <Data AD_Column_ID="2846" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2845" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2851" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID">54380</Data>
+        <Data AD_Column_ID="2849" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="84387" Column="UUID">36ce7516-cec5-426f-9449-cf3f6d338f35</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="287" Action="I" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2847" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2850" Column="Updated">2020-04-06 13:57:42.836</Data>
+        <Data AD_Column_ID="2848" Column="Created">2020-04-06 13:57:42.836</Data>
+        <Data AD_Column_ID="2853" Column="Description">La Constancia de Trabajo, confirma que una persona trabaja en esta organizacion</Data>
+        <Data AD_Column_ID="2854" Column="Help">Este Documento que hacer constar que una persona ha estado trabajando en esta institución en un puestos de trabajo desde una fecha determinada y por un salario determinados.</Data>
+        <Data AD_Column_ID="2855" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2852" Column="Name">Constancia de Trabajo</Data>
+        <Data AD_Column_ID="2846" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2845" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2851" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID">54380</Data>
+        <Data AD_Column_ID="2849" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="84387" Column="UUID">926e13b7-a136-4cba-bcd5-2b588f5a3f2b</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="284" Action="I" Record_ID="54381" Table="AD_Process">
+        <Data AD_Column_ID="2803" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="11834" Column="AD_Workflow_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2813" Column="ProcedureName" isNewNull="true"/>
+        <Data AD_Column_ID="63488" Column="AD_Browse_ID" isNewNull="true"/>
+        <Data AD_Column_ID="6485" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="50182" Column="JasperReport">attachment:inf_HR_EmploymentVerificationUnsigned.jasper</Data>
+        <Data AD_Column_ID="2805" Column="Created">2020-04-06 13:57:43.076</Data>
+        <Data AD_Column_ID="2807" Column="Updated">2020-04-06 13:57:43.076</Data>
+        <Data AD_Column_ID="4214" Column="IsDirectPrint">false</Data>
+        <Data AD_Column_ID="57920" Column="CopyFromProcess">N</Data>
+        <Data AD_Column_ID="2804" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2810" Column="Description">The Employment verification letter, confirm a person is or was employed by this company.</Data>
+        <Data AD_Column_ID="4023" Column="Value">inf_HR_EmploymentVerificationUnsigned</Data>
+        <Data AD_Column_ID="11563" Column="WorkflowValue" isNewNull="true"/>
+        <Data AD_Column_ID="56515" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="5790" Column="AccessLevel">3</Data>
+        <Data AD_Column_ID="14084" Column="IsServerProcess">false</Data>
+        <Data AD_Column_ID="78843" Column="GenerateClass">N</Data>
+        <Data AD_Column_ID="7752" Column="AD_PrintFormat_ID" isNewNull="true"/>
+        <Data AD_Column_ID="4374" Column="AD_ReportView_ID" isNewNull="true"/>
+        <Data AD_Column_ID="84383" Column="UUID">84daf98b-11b2-4d05-b354-3e289201f71a</Data>
+        <Data AD_Column_ID="4656" Column="Classname" isNewNull="true"/>
+        <Data AD_Column_ID="2811" Column="Help">This Document must record that a person has been working in this institution in a job since a certain date and for a certain salary.</Data>
+        <Data AD_Column_ID="12458" Column="IsBetaFunctionality">false</Data>
+        <Data AD_Column_ID="3371" Column="IsReport">true</Data>
+        <Data AD_Column_ID="6653" Column="Statistic_Seconds">0</Data>
+        <Data AD_Column_ID="6652" Column="Statistic_Count">0</Data>
+        <Data AD_Column_ID="50181" Column="ShowHelp">Y</Data>
+        <Data AD_Column_ID="2809" Column="Name">Employment Verification Unsigned letter</Data>
+        <Data AD_Column_ID="2808" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2806" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2801" Column="AD_Process_ID">54381</Data>
+        <Data AD_Column_ID="2802" Column="AD_Client_ID">0</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="287" Action="I" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2847" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2850" Column="Updated">2020-04-06 13:57:44.829</Data>
+        <Data AD_Column_ID="2848" Column="Created">2020-04-06 13:57:44.829</Data>
+        <Data AD_Column_ID="2853" Column="Description">La Constancia de Trabajo, confirma que una persona trabaja en esta organizacion</Data>
+        <Data AD_Column_ID="2854" Column="Help">Este Documento que hacer constar que una persona ha estado trabajando en esta institución en un puestos de trabajo desde una fecha determinada y por un salario determinados.</Data>
+        <Data AD_Column_ID="2855" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2852" Column="Name">Constancia de Trabajo sin Firma</Data>
+        <Data AD_Column_ID="2846" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2845" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2851" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID">54381</Data>
+        <Data AD_Column_ID="2849" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="84387" Column="UUID">1f5d2df2-32b3-4322-b972-9c17051998ec</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="60" StepType="AD">
+      <PO AD_Table_ID="287" Action="I" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2847" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2849" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="84387" Column="UUID">30bc74fa-5bac-425f-9961-ea492766152d</Data>
+        <Data AD_Column_ID="2850" Column="Updated">2020-04-06 13:57:45.036</Data>
+        <Data AD_Column_ID="2848" Column="Created">2020-04-06 13:57:45.036</Data>
+        <Data AD_Column_ID="2853" Column="Description">La Constancia de Trabajo, confirma que una persona trabaja en esta organizacion</Data>
+        <Data AD_Column_ID="2854" Column="Help">Este Documento que hacer constar que una persona ha estado trabajando en esta institución en un puestos de trabajo desde una fecha determinada y por un salario determinados.</Data>
+        <Data AD_Column_ID="2855" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2852" Column="Name">Constancia de Trabajo sin Firma</Data>
+        <Data AD_Column_ID="2846" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2845" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2851" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID">54381</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="70" StepType="AD">
+      <PO AD_Table_ID="492" Action="U" Record_ID="100" Table="AD_PrintPaper">
+        <Data AD_Column_ID="6998" Column="Description" oldValue="1/2 inch margin on all sides">1/2  inch margin on all sides</Data>
+        <Data AD_Column_ID="7000" Column="Name" oldValue="Letter Landscape">Letter  Landscape</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="80" StepType="AD">
+      <PO AD_Table_ID="491" Action="U" Record_ID="133" Table="AD_PrintFont">
+        <Data AD_Column_ID="6991" Column="IsDefault" oldValue="false">true</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="90" StepType="AD">
+      <PO AD_Table_ID="493" Action="I" Record_ID="50442" Table="AD_PrintFormat">
+        <Data AD_Column_ID="64491" Column="IsPrintParameters">true</Data>
+        <Data AD_Column_ID="7010" Column="IsActive">true</Data>
+        <Data AD_Column_ID="7023" Column="AD_PrintPaper_ID">100</Data>
+        <Data AD_Column_ID="7018" Column="Created">2020-04-06 13:57:49.511</Data>
+        <Data AD_Column_ID="7007" Column="Updated">2020-04-06 13:57:49.511</Data>
+        <Data AD_Column_ID="9968" Column="IsDefault">false</Data>
+        <Data AD_Column_ID="7020" Column="CreateCopy">N</Data>
+        <Data AD_Column_ID="7013" Column="AD_Table_ID">54345</Data>
+        <Data AD_Column_ID="84373" Column="UUID">2e137a10-e745-4d99-8618-c9dbd7318091</Data>
+        <Data AD_Column_ID="7025" Column="Description">La Constancia de Trabajo, confirma que una persona trabaja en esta organizacion</Data>
+        <Data AD_Column_ID="8562" Column="PrinterName" isNewNull="true"/>
+        <Data AD_Column_ID="52068" Column="Classname" isNewNull="true"/>
+        <Data AD_Column_ID="52069" Column="Args" isNewNull="true"/>
+        <Data AD_Column_ID="7014" Column="IsForm">false</Data>
+        <Data AD_Column_ID="7011" Column="IsStandardHeaderFooter">true</Data>
+        <Data AD_Column_ID="7009" Column="IsTableBased">true</Data>
+        <Data AD_Column_ID="7019" Column="Name">Constancia de Trabajo</Data>
+        <Data AD_Column_ID="78516" Column="IsSummary">false</Data>
+        <Data AD_Column_ID="7026" Column="AD_PrintFormat_ID">50442</Data>
+        <Data AD_Column_ID="7024" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7022" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="7012" Column="AD_PrintFont_ID">133</Data>
+        <Data AD_Column_ID="7008" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="7046" Column="AD_ReportView_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7017" Column="AD_PrintColor_ID">100</Data>
+        <Data AD_Column_ID="7016" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="7015" Column="HeaderMargin">0</Data>
+        <Data AD_Column_ID="7640" Column="AD_PrintTableFormat_ID">100</Data>
+        <Data AD_Column_ID="7021" Column="FooterMargin">0</Data>
+        <Data AD_Column_ID="50209" Column="JasperProcess_ID">54380</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="100" StepType="AD">
+      <PO AD_Table_ID="493" Action="I" Record_ID="50443" Table="AD_PrintFormat">
+        <Data AD_Column_ID="64491" Column="IsPrintParameters">true</Data>
+        <Data AD_Column_ID="7010" Column="IsActive">true</Data>
+        <Data AD_Column_ID="7023" Column="AD_PrintPaper_ID">100</Data>
+        <Data AD_Column_ID="7011" Column="IsStandardHeaderFooter">true</Data>
+        <Data AD_Column_ID="7009" Column="IsTableBased">true</Data>
+        <Data AD_Column_ID="7019" Column="Name">Constancia de Trabajo sin Firmar</Data>
+        <Data AD_Column_ID="78516" Column="IsSummary">false</Data>
+        <Data AD_Column_ID="7026" Column="AD_PrintFormat_ID">50443</Data>
+        <Data AD_Column_ID="7024" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7022" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="7012" Column="AD_PrintFont_ID">133</Data>
+        <Data AD_Column_ID="7008" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="7046" Column="AD_ReportView_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7017" Column="AD_PrintColor_ID">100</Data>
+        <Data AD_Column_ID="7016" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="7015" Column="HeaderMargin">0</Data>
+        <Data AD_Column_ID="7640" Column="AD_PrintTableFormat_ID">100</Data>
+        <Data AD_Column_ID="7021" Column="FooterMargin">0</Data>
+        <Data AD_Column_ID="50209" Column="JasperProcess_ID">54381</Data>
+        <Data AD_Column_ID="7018" Column="Created">2020-04-06 13:57:51.241</Data>
+        <Data AD_Column_ID="7007" Column="Updated">2020-04-06 13:57:51.241</Data>
+        <Data AD_Column_ID="9968" Column="IsDefault">false</Data>
+        <Data AD_Column_ID="7020" Column="CreateCopy">N</Data>
+        <Data AD_Column_ID="7013" Column="AD_Table_ID">54345</Data>
+        <Data AD_Column_ID="84373" Column="UUID">c53ad03d-3f9f-4c86-938c-1db7bd97f2bd</Data>
+        <Data AD_Column_ID="7025" Column="Description">La Constancia de Trabajo sin Firmar, confirma que una persona trabaja en esta organizacion</Data>
+        <Data AD_Column_ID="8562" Column="PrinterName" isNewNull="true"/>
+        <Data AD_Column_ID="52068" Column="Classname" isNewNull="true"/>
+        <Data AD_Column_ID="52069" Column="Args" isNewNull="true"/>
+        <Data AD_Column_ID="7014" Column="IsForm">false</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
