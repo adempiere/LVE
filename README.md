@@ -64,13 +64,16 @@ Para poder configurar e instalar la localización se requiere:
 ## Instalación de la localización
 
 - Descarga e instala la ultima versión de ADempiere (https://github.com/adempiere/adempiere/releases)
-- Descargar la localización usando git clone https://github.com/adempiere/LVE.git
-- Establece la propiedad adempiere.home editando el archivo build.properties
-- Ejecuta el comando ant install
-- Importar y aplicar el script LVE.xml con la definición del diccionario de aplicaciones
-    - Application Dictionary -> Import migration from XML [File Name: LVE/xml/LVE.xml]
-    - Application Dictionary -> Migration , busca el script LVE y aplica en tu instalación
-- Crear la configuración requerida para tu compañía en ADempiere
+- Descarga e instala la ultima versión de la Localización Venezuela (https://github.com/adempiere/LVE/releases)
+- Descomprime el archivo LVE.zip: Al descomprimir el archivo quedará una estructura de la siguiente manera:
+  - LVE.jar: Este archivo contiene lo necesario para que funcione la localización
+  - translation: Directorio con la traducción VE y origen MX
+  - migration: Directorio con los XML que se deben aplicar para tener la localización instalada
+- En la instalación de ADempiere, dentro del directorio packages cree una estructura de directorio **LVE/lib**
+- Mueva el archivo LVE.jar al directorio previamente creado $ADEMPIERE_HOME/packages/LVE/lib
+- Ejecute el comando RUN_silentsetup.sh / bat según sea su sistema operativo
+- Importe los XML's que se encuentran en el directorio **migration** descomprimido previamentes- Reinicie el servicio de ADempiere
+- Listo!!
 
 ## Configuración de la localización
 
