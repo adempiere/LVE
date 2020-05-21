@@ -74,14 +74,6 @@ public class BNCNomina extends LVEPaymentExportList {
 			} else {
 				addError(Msg.parseTranslation(Env.getCtx(), "@C_Bank_ID@: " + bank.getName() + " @SwiftCode@ @NotFound@"));
 			}
-			//	Bank Client No
-			String bankClientNo = "";
-			if(!Util.isEmpty(bank.get_ValueAsString("BankClientNo"))) {
-				bankClientNo = processValue(bank.get_ValueAsString(ColumnsAdded.COLUMNNAME_BankClientNo));
-				bankClientNo = leftPadding(bankClientNo, 6, "0", true);
-			} else {
-				addError(Msg.parseTranslation(Env.getCtx(), "@BankClientNo@ @NotFound@"));
-			}
 			//	Fields of Control Register (fixed data)
 			String paymentBatchNo = processValue(paySelection.getDocumentNo());
 			paymentBatchNo = leftPadding(paymentBatchNo, 15, "0", true);
