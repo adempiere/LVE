@@ -18,10 +18,11 @@ package org.erpya.lve.util.exp;
 
 import java.io.File;
 import java.io.Writer;
+import java.util.Arrays;
 import java.util.Properties;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;
 
-import org.compiere.model.MQuery;
 import org.compiere.print.MPrintFormat;
 import org.compiere.print.MPrintFormatItem;
 import org.compiere.print.PrintData;
@@ -69,23 +70,17 @@ public class ExportFormatTXT_IVA extends ExportFormatCSV {
 			return false;
 		}
 		//	
-		return createTXTFile(convertFile(file), '\t', getReportEngine());
+		return createTXTFile(convertFile(file), getReportEngine());
 	}
 	
 	/**
 	 * 	Write delimited file to writer
 	 * 	@param writer writer
-	 *  @param delimiter delimiter, e.g. comma, tab
-	 *  @param language translation language
-	 *  @param printHeader if you want a row with column names included
 	 *  @param engine
 	 *  try
 	 * 	@return true if success
 	 */
-	public boolean createTXTFile (Writer writer, char delimiter, ReportEngine engine) {
-		
-		if (delimiter == 0)
-			delimiter = '\t';
+	private boolean createTXTFile (Writer writer, ReportEngine engine) {
 		try {
 			int startAt = 0;
 			PrintData printData = (engine != null? engine.getPrintData(): getPrintData());
@@ -93,88 +88,66 @@ public class ExportFormatTXT_IVA extends ExportFormatCSV {
 			boolean firstLine = true;
 			//	for all rows (-1 = header row)
 			for (int row = startAt; row < printData.getRowCount(); row++) {
-				StringBuffer sb = new StringBuffer();
-				if (row != -1)
+				StringBuffer buffer = new StringBuffer();
+				if (row != -1) {
 					printData.setRowIndex(row);
-
-				//	for all columns
-				boolean first = true;	//	first column to print
+				}
+				AtomicBoolean isFirstColumn = new AtomicBoolean(true);
+				Arrays.asList(printFormat.getItems())
+					.stream()
+					.filter(printFormatItem -> printFormatItem.isPrinted())
+					.forEach(printFormatItem -> {
+						Object valueOfItem = printData.getNode(new Integer(printFormatItem.getAD_Column_ID()));
+						String data = "";
+						if (valueOfItem == null) {
+							if(printFormatItem.getPrintFormatType().equals(MPrintFormatItem.PRINTFORMATTYPE_Text)) {
+								if(!Util.isEmpty(printFormatItem.getPrintName())) {
+									data = printFormatItem.getPrintName() + (!Util.isEmpty(printFormatItem.getPrintNameSuffix())? printFormatItem.getPrintNameSuffix(): "");
+								}
+							}
+						} else if (valueOfItem instanceof PrintDataElement) {
+							PrintDataElement dataElement = (PrintDataElement) valueOfItem;
+							if (dataElement.isPKey()) {
+								data = dataElement.getValueAsString();
+							} else {
+								if(!Util.isEmpty(printFormatItem.getFormatPattern())) {
+									dataElement.setM_formatPattern(printFormatItem.getFormatPattern());
+								}
+								data = dataElement.getValueDisplay(getLanguage());	//	formatted
+								//	Only for IVA
+								if(!Util.isEmpty(data)) {
+									if(DisplayType.isNumeric(dataElement.getDisplayType())) {
+										data = data.replaceAll(",", ".");
+									} else if(DisplayType.isText(dataElement.getDisplayType())
+											&& (printFormatItem.getColumnName().equals("InvoiceNo") 
+													|| printFormatItem.getColumnName().equals("AffectedDocumentNo")
+													|| printFormatItem.getColumnName().equals("ControlNo"))) {
+										data = data.trim();
+									}
+								}
+							}
+						} else {
+							log.log(Level.SEVERE, "Element not PrintData(Element) " + valueOfItem.getClass());
+						}
+						//	Set default
+						if(Util.isEmpty(data)) {
+							data = "0";
+						}
+						//	column delimiter
+						if (isFirstColumn.get()) {
+							isFirstColumn.set(false);
+						} else {
+							buffer.append('\t');
+						}
+						createCSVvalue (buffer, data);
+				});
+				//	Validate first line
 				if(firstLine) {
 					firstLine = false;
-				} else {
+				} else if(buffer.length() > 0) {
 					writer.write(CRLF);
 				}
-				for (int col = 0; col < printFormat.getItemCount(); col++) {
-					MPrintFormatItem item = printFormat.getItem(col);
-					if (item.isPrinted()) {
-						//	column delimiter (comma or tab)
-						if (first)
-							first = false;
-						else
-							sb.append(delimiter);
-						//	header row
-						if (row == -1) {
-							createCSVvalue (sb, delimiter,
-									printFormat.getItem(col).getPrintName(getLanguage()));
-						} else {
-							Object obj = null;
-							String data = "";
-							if(item.getAD_Column_ID() != 0) {
-								obj = printData.getNode(new Integer(item.getAD_Column_ID()));
-							}
-							if (obj == null) {
-								if(item.getPrintFormatType().equals(MPrintFormatItem.PRINTFORMATTYPE_Text)) {
-									if(!Util.isEmpty(item.getPrintName())) {
-										data = item.getPrintName() + (!Util.isEmpty(item.getPrintNameSuffix())? item.getPrintNameSuffix(): "");
-									}
-								}
-							} else if (obj instanceof PrintDataElement) {
-								PrintDataElement pde = (PrintDataElement)obj;
-								if (item.isTypePrintFormat()) {
-									writer.write(sb.toString());
-									sb = new StringBuffer();
-									writer.write(CRLF);
-									MPrintFormat format = MPrintFormat.get (getCtx(), item.getAD_PrintFormatChild_ID(), false);
-									format.setLanguage(getLanguage());
-									int AD_Column_ID = item.getAD_Column_ID();
-									log.info(format + " - Item=" + item.getName() + " (" + AD_Column_ID + ")");
-									//
-									String recordString = pde.getValueKey();
-									int Record_ID = 0;
-									try {
-										Record_ID = Integer.parseInt(recordString);
-									} catch (Exception e) {
-										log.log(Level.SEVERE, "Invalid Record Key - " + recordString
-												+ " (" + e.getMessage()
-												+ ") - AD_Column_ID=" + AD_Column_ID + " - " + item);
-									}
-									MQuery query = new MQuery (format.getAD_Table_ID());
-									query.addRestriction(item.getColumnName(), MQuery.EQUAL, new Integer(Record_ID));
-									format.setTranslationViewQuery(query);
-									log.fine(query.toString());
-								} else if (pde.isPKey()) {
-									data = pde.getValueAsString();
-								} else {
-									data = pde.getValueDisplay(getLanguage());	//	formatted
-									//	Only for IVA
-									if(!Util.isEmpty(data)) {
-										if(DisplayType.isNumeric(pde.getDisplayType())) {
-											data = data.replaceAll(",", ".");
-										}
-									}
-								}
-							} else {
-								log.log(Level.SEVERE, "Element not PrintData(Element) " + obj.getClass());
-							}
-							//	Set default
-							if(Util.isEmpty(data)) {
-								data = "0";
-							}
-							createCSVvalue (sb, delimiter, data);
-						}
-					}	//	printed
-				}	//	for all columns
-				writer.write(sb.toString());
+				writer.write(buffer.toString());
 			}	//	for all rows
 			//
 			writer.flush();
@@ -188,42 +161,12 @@ public class ExportFormatTXT_IVA extends ExportFormatCSV {
 	 * 	Add Content to CSV string.
 	 *  Encapsulate/mask content in " if required
 	 * 	@param sb StringBuffer to add to
-	 * 	@param delimiter delimiter
 	 * 	@param content column value
 	 */
-	private void createCSVvalue (StringBuffer sb, char delimiter, String content)
-	{
+	private void createCSVvalue (StringBuffer sb, String content) {
 		//	nothing to add
 		if (content == null || content.length() == 0)
 			return;
-
-		// don't quote tab-delimited file
-		if ( delimiter == '\t' )
-		{
-			sb.append(content);
-			return;
-		}		
-		//
-		boolean needMask = false;
-		StringBuffer buff = new StringBuffer();
-		char chars[] = content.toCharArray();
-		for (int i = 0; i < chars.length; i++)
-		{
-			char c = chars[i];
-			if (c == '"')
-			{
-				needMask = true;
-				buff.append(c);		//	repeat twice
-			}	//	mask if any control character
-			else if (!needMask && (c == delimiter || !Character.isLetterOrDigit(c)))
-				needMask = true;
-			buff.append(c);
-		}
-
-		//	Optionally mask value
-		if (needMask)
-			sb.append('"').append(buff).append('"');
-		else
-			sb.append(buff);
+		sb.append(content);
 	}	//	addCSVColumnValue
 }	//	AbstractBatchImport
