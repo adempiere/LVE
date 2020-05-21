@@ -121,7 +121,8 @@ public class ExportFormatTXT_IVA extends ExportFormatCSV {
 									} else if(DisplayType.isText(dataElement.getDisplayType())
 											&& (printFormatItem.getColumnName().equals("InvoiceNo") 
 													|| printFormatItem.getColumnName().equals("AffectedDocumentNo")
-													|| printFormatItem.getColumnName().equals("ControlNo"))) {
+													|| printFormatItem.getColumnName().equals("ControlNo")
+													|| printFormatItem.getColumnName().equals("DocumentNo"))) {
 										data = data.trim();
 									}
 								}
