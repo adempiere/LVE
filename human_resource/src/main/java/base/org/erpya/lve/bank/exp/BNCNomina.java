@@ -134,7 +134,7 @@ public class BNCNomina extends LVEPaymentExportList {
 								bPTaxId = bPTaxId.replace("-", "").trim();
 								personType = bPTaxId.substring(0, 1);
 								bPTaxId = bPTaxId.replaceAll("\\D+","");
-								bPTaxId = leftPadding(bPTaxId, 10, "0", true);
+								bPTaxId = leftPadding(bPTaxId, 9, "0", true);
 							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@BPTaxID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
