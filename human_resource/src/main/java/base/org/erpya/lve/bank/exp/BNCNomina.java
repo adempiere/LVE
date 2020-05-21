@@ -17,8 +17,6 @@ package org.erpya.lve.bank.exp;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +26,6 @@ import org.compiere.model.MBPBankAccount;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MBank;
 import org.compiere.model.MBankAccount;
-import org.compiere.model.MCurrency;
 import org.compiere.model.MOrg;
 import org.compiere.model.MOrgInfo;
 import org.compiere.model.MPaySelection;
@@ -49,8 +46,6 @@ public class BNCNomina extends LVEPaymentExportList {
 
 	/** Logger								*/
 	static private CLogger	s_log = CLogger.getCLogger (MercantilNominaFacil.class);
-	/**	Header Short Format	*/
-	private final String HEADER_SHORT_DATE_FORMAT = "yyyyMMdd";
 	/**	Payroll process list	*/
 	private Map<Integer, MHRProcess> payrollProcessMap = new HashMap<Integer, MHRProcess>();
 	/**	Payroll process Amount	*/
@@ -161,7 +156,7 @@ public class BNCNomina extends LVEPaymentExportList {
 							line.append(Env.NL)						//	New Line
 								.append("NC ")						//	Constant
 								.append(bPAccountNo)				//  BP Bank Account
-								.append(amountAsString)			//	Payment Amount
+								.append(amountAsString)				//	Payment Amount
 								.append(personType)					//	Type Register	
 								.append(bPTaxId);					//	BP Value
 
