@@ -51,6 +51,11 @@ public class BNCNomina extends LVEPaymentExportList {
 	/**	Payroll process Amount	*/
 	private Map<Integer, BigDecimal> payrollAmountMap = new HashMap<Integer, BigDecimal>();
 	
+	public final static char CR  = (char) 0x0D;
+	public final static char LF  = (char) 0x0A; 
+
+	public final static String CRLF  = "" + CR + LF; 
+	
 	@Override
 	public int exportToFile(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
 		if (checks == null || checks.size() == 0)
@@ -145,7 +150,7 @@ public class BNCNomina extends LVEPaymentExportList {
 
 							//	Write Credit Register
 							StringBuffer line = new StringBuffer();
-							line.append(Env.NL)						//	New Line
+							line.append(CRLF)						//	New Line
 								.append("NC ")						//	Constant
 								.append(bPAccountNo)				//  BP Bank Account
 								.append(amountAsString)				//	Payment Amount
