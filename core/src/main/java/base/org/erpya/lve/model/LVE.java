@@ -261,7 +261,7 @@ public class LVE implements ModelValidator {
 						|| businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
 					String taxId = businessPartner.getTaxID();
 					//	For Tax ID
-					if(taxId.isEmpty()) {
+					if(Util.isEmpty(taxId)) {
 						businessPartner.setTaxID(businessPartner.getValue().trim());
 					}
 				}
@@ -273,7 +273,7 @@ public class LVE implements ModelValidator {
 						}
 						String taxId = businessPartner.getTaxID();
 						//	For Tax ID
-						if(taxId.isEmpty()) {
+						if(Util.isEmpty(taxId.isEmpty)) {
 							businessPartner.setTaxID(businessPartner.getValue());
 						}
 					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_TaxID)) {
