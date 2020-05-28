@@ -50,7 +50,7 @@
         <Data AD_Column_ID="2846" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2845" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="2851" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="2844" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="2843" Column="AD_Process_ID">54380</Data>
         <Data AD_Column_ID="2849" Column="CreatedBy">100</Data>
         <Data AD_Column_ID="84387" Column="UUID">36ce7516-cec5-426f-9449-cf3f6d338f35</Data>
@@ -143,7 +143,7 @@
         <Data AD_Column_ID="2846" Column="AD_Org_ID">0</Data>
         <Data AD_Column_ID="2845" Column="AD_Client_ID">0</Data>
         <Data AD_Column_ID="2851" Column="UpdatedBy">100</Data>
-        <Data AD_Column_ID="2844" Column="AD_Language">es_VE</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language">es_MX</Data>
         <Data AD_Column_ID="2843" Column="AD_Process_ID">54381</Data>
       </PO>
     </Step>
