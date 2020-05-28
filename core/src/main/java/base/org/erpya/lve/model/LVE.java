@@ -273,7 +273,7 @@ public class LVE implements ModelValidator {
 						}
 						String taxId = businessPartner.getTaxID();
 						//	For Tax ID
-						if(Util.isEmpty(taxId.isEmpty)) {
+						if(Util.isEmpty(taxId)) {
 							businessPartner.setTaxID(businessPartner.getValue());
 						}
 					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_TaxID)) {
