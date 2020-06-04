@@ -43,7 +43,7 @@ public class Tesoro_BankTransaction extends BankTransactionAbstract {
 	/**	Amount	*/
 	public static final String LINE_TRANSACTION_Amount = "Amount";
 	/**	Start Column Index	*/
-	private static final char START_CHAR_VALUE = '\t';
+	private static final char START_CHAR_VALUE = ',';
 	/**	Debt Constant	*/
 	public static final String DEBT = "DR";
 	/**	Credit Constant	*/
@@ -71,7 +71,7 @@ public class Tesoro_BankTransaction extends BankTransactionAbstract {
 		//	Replace bad characters
 		line = line.replaceAll("\"", "");
 		//	Set Transaction Date
-		addValue(LINE_TRANSACTION_Date, getDate("dd/MM/yy", subString(line, 0, 8)));
+		addValue(LINE_TRANSACTION_Date, getDate("dd/MM/yy", subString(line, 0, 10)));
 		//	Set Memo
 		int startIndex = 0;
 		int endIndex = 0;
@@ -81,7 +81,7 @@ public class Tesoro_BankTransaction extends BankTransactionAbstract {
 		endIndex = line.substring(startIndex).indexOf(START_CHAR_VALUE) + startIndex + initPosition;
 		value = subString(line, startIndex, endIndex);
 		if(!Util.isEmpty(value)) {
-			addValue(LINE_TRANSACTION_Memo, value.replaceAll(";", "").trim());
+			addValue(LINE_TRANSACTION_Memo, value.replaceAll(",", "").trim());
 		}
 		//	Set Reference
 		line = line.substring(endIndex);
@@ -90,7 +90,7 @@ public class Tesoro_BankTransaction extends BankTransactionAbstract {
 		//	Set Memo
 		value = subString(line, startIndex, endIndex);
 		if(!Util.isEmpty(value)) {
-			addValue(LINE_TRANSACTION_ReferenceNo, getNumber('.', "#,###,###,###,###,###.##", value.replaceAll(";", "").trim()));
+			addValue(LINE_TRANSACTION_ReferenceNo, getNumber('.', "#,###,###,###,###,###.##", value.replaceAll(",", "").trim()));
 		}
 		//	
 		line = line.substring(endIndex);
@@ -102,8 +102,11 @@ public class Tesoro_BankTransaction extends BankTransactionAbstract {
 		line = line.substring(endIndex);
 		startIndex = 0;
 		endIndex = line.indexOf(START_CHAR_VALUE) + initPosition;
-		//	Set Credit
-		BigDecimal credit = getNumber('.', "#,###,###,###,###,###.##", subString(line, startIndex, endIndex));
+		BigDecimal credit = null;
+		if(endIndex > 0) {
+			//	Set Credit
+			credit = getNumber('.', "#,###,###,###,###,###.##", subString(line, startIndex, endIndex));
+		}
 		//	Add to index (ignore balance)
 		if(debit != null
 				&& debit.doubleValue() != 0) {
