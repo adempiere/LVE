@@ -105,7 +105,7 @@ public class Tesoro_BankTransaction extends BankTransactionAbstract {
 		BigDecimal credit = null;
 		if(endIndex > 0) {
 			//	Set Credit
-			BigDecimal credit = getNumber('.', "#,###,###,###,###,###.##", subString(line, startIndex, endIndex));
+			credit = getNumber('.', "#,###,###,###,###,###.##", subString(line, startIndex, endIndex));
 		}
 		//	Add to index (ignore balance)
 		if(debit != null
