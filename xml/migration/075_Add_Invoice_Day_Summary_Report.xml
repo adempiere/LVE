@@ -1,0 +1,2276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="D" Name="Add new Functionality" ReleaseNo="3.9.4" SeqNo="81000510">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="100" Action="I" Record_ID="54742" Table="AD_Table">
+        <Data AD_Column_ID="546" Column="Updated">2020-06-15 12:45:27.004</Data>
+        <Data AD_Column_ID="544" Column="Created">2020-06-15 12:45:27.004</Data>
+        <Data AD_Column_ID="102" Column="Name">Invoice Day Summary</Data>
+        <Data AD_Column_ID="4196" Column="IsHighVolume">false</Data>
+        <Data AD_Column_ID="88913" Column="AD_ContextInfo_ID" isNewNull="true"/>
+        <Data AD_Column_ID="543" Column="IsActive">true</Data>
+        <Data AD_Column_ID="103" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="50183" Column="CopyColumnsFromTable" isNewNull="true"/>
+        <Data AD_Column_ID="107" Column="TableName">LVE_RV_C_Invoice_Day_Summary</Data>
+        <Data AD_Column_ID="354" Column="AccessLevel">3</Data>
+        <Data AD_Column_ID="104" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="9341" Column="ReplicationType">L</Data>
+        <Data AD_Column_ID="8564" Column="IsChangeLog">false</Data>
+        <Data AD_Column_ID="65574" Column="ACTriggerLength">0</Data>
+        <Data AD_Column_ID="80143" Column="IsIgnoreMigration">false</Data>
+        <Data AD_Column_ID="78180" Column="IsDocument">false</Data>
+        <Data AD_Column_ID="6489" Column="ImportTable" isNewNull="true"/>
+        <Data AD_Column_ID="726" Column="IsSecurityEnabled">false</Data>
+        <Data AD_Column_ID="727" Column="IsDeleteable">false</Data>
+        <Data AD_Column_ID="6125" Column="IsView">true</Data>
+        <Data AD_Column_ID="59135" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="356" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="355" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="100" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="6488" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="106" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="105" Column="AD_Window_ID" isNewNull="true"/>
+        <Data AD_Column_ID="545" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="108" Column="LoadSeq">0</Data>
+        <Data AD_Column_ID="547" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="9342" Column="PO_Window_ID" isNewNull="true"/>
+        <Data AD_Column_ID="84425" Column="UUID">81157cd3-11d3-4802-b4d2-0e74c7af9778</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="746" Action="I" Record_ID="0" Table="AD_Table_Trl">
+        <Data AD_Column_ID="12722" Column="Created">2020-06-15 12:45:28.299</Data>
+        <Data AD_Column_ID="12723" Column="Updated">2020-06-15 12:45:28.299</Data>
+        <Data AD_Column_ID="12724" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12721" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12716" Column="Name">Invoice Day Summary</Data>
+        <Data AD_Column_ID="12720" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12719" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12715" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="12714" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="12718" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12717" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="84429" Column="UUID">c816eb57-c5b3-4420-8a8d-34c5b28e6c22</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="746" Action="U" Record_ID="0" Table="AD_Table_Trl">
+        <Data AD_Column_ID="12716" Column="Name" oldValue="Invoice Day Summary">Resumen de Facturación Por Día</Data>
+        <Data AD_Column_ID="12715" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="12714" Column="AD_Table_ID" oldValue="54742">54742</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96340" Table="AD_Column">
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="112" Column="Description">Client/Tenant for this installation.</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:44.086</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:44.086</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96340</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Client</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">AD_Client_ID</Data>
+        <Data AD_Column_ID="113" Column="Help">A Client is a company or a legal entity. You cannot share data between Clients. Tenant is a synonym for Client.</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">false</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">102</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">10</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">19</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">386d128c-a472-424b-bee2-54e66c46e369</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96340" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:46:45.566</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:46:45.566</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96340</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Client</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">1a80bdf2-3b84-40aa-a865-4bed7735e9bd</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="60" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96341" Table="AD_Column">
+        <Data AD_Column_ID="112" Column="Description">Organizational entity within client</Data>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">113</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">10</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">19</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">099d70bb-12c6-423c-bdec-32b84ed17dea</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:45.781</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:45.781</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96341</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Organization</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">AD_Org_ID</Data>
+        <Data AD_Column_ID="113" Column="Help">An organization is a unit of your client or legal entity - examples are store, department. You can share data between organizations.</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="70" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96341" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:46:46.667</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:46:46.667</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96341</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Organization</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">0f3eb626-205d-42ee-b47d-22a031728eea</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="80" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96342" Table="AD_Column">
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description">Date printed on Invoice</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:46.854</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:46.854</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96342</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Date Invoiced</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">DateInvoiced</Data>
+        <Data AD_Column_ID="113" Column="Help">The Date Invoice indicates the date printed on the invoice.</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">267</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">0</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">16</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">3e5a5728-6b80-4a17-86e2-138c16f49f1e</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="90" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96342" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:46:47.897</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:46:47.897</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96342</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Date Invoiced</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">aba02199-e692-4251-a6b8-430459856418</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="100" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96343" Table="AD_Column">
+        <Data AD_Column_ID="112" Column="Description">Line Extended Amount (Quantity * Actual Price) without Freight and Charges</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Line Amount</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">LineNetAmt</Data>
+        <Data AD_Column_ID="113" Column="Help">Indicates the extended line amount based on the quantity and the actual price.  Any additional charges or freight are not included.  The Amount may or may not include tax.  If the price list is inclusive tax, the line amount is the same as the line total.</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">441</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">0</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">12</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">704e8a48-ae01-443e-a1ab-1b187f9df2b6</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:48.062</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:48.062</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96343</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="110" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96343" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:46:49.027</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">40997dcf-e865-40f4-a499-bc52391c6c93</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:46:49.027</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96343</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Line Amount</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="120" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96344" Table="AD_Column">
+        <Data AD_Column_ID="112" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:49.199</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:49.199</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96344</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Line List Amount</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">LineListAmt</Data>
+        <Data AD_Column_ID="113" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">1275</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">0</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">12</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">e46ff0ee-6912-4a48-b2da-d11a51e9becb</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="130" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96344" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:46:50.321</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96344</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Line List Amount</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">70e21fe6-d78f-4e54-b613-478645667db5</Data>
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:46:50.321</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="140" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96345" Table="AD_Column">
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:50.478</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:50.478</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96345</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Line Limit Amount</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">LineLimitAmt</Data>
+        <Data AD_Column_ID="113" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">1274</Data>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">0</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">12</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">732952b1-12f8-456f-973a-91792d850b59</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="150" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96345" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:46:51.343</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:46:51.343</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96345</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Line Limit Amount</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">d34e5642-9b06-4684-ad8f-a06d70a56a52</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="160" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96346" Table="AD_Column">
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="112" Column="Description">Line Discount Amount</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:51.51</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:51.51</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96346</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Line Discount</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">LineDiscountAmt</Data>
+        <Data AD_Column_ID="113" Column="Help">Indicates the discount for this line as an amount.</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">1273</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">0</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">12</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">39f7c8c5-e6c8-4bd6-8af4-31c77841ea7c</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="170" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96346" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:46:52.503</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:46:52.503</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96346</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Line Discount</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">e86210fc-f10f-42ae-ab8c-a2aac09b51b0</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="180" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96347" Table="AD_Column">
+        <Data AD_Column_ID="116" Column="ColumnName">LineDiscount</Data>
+        <Data AD_Column_ID="112" Column="Description">Line Discount as a percentage</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:52.68</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:52.68</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96347</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Line Discount %</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="113" Column="Help">The Line Discount Percent indicates the discount for this line as a percentage.</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">1272</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">0</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">22</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">6392ad5c-0600-46ca-a519-276c77805e34</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="190" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96347" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:46:54.403</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:46:54.403</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96347</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Line Discount %</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">46e991ef-bcfa-4b0c-99dd-b90a912da0b3</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="200" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96348" Table="AD_Column">
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:54.649</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:54.649</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96348</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Gross Margin</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">LineOverLimitAmt</Data>
+        <Data AD_Column_ID="113" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">1277</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">0</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">12</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">909c27f7-12cb-44c0-bcd6-6d7de0768001</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="210" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96348" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:46:55.604</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:46:55.604</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96348</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Gross Margin</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">2a7d62e6-aaad-4eae-b0c3-1b0e54b82707</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="220" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96349" Table="AD_Column">
+        <Data AD_Column_ID="112" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:55.769</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96349</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Gross margin %</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">LineOverLimit</Data>
+        <Data AD_Column_ID="113" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">1276</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">0</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">22</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">84c42b97-8fc2-4a7d-899a-34cd98f5ac31</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:55.769</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="230" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96349" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:46:56.499</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:46:56.499</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96349</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Gross margin %</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">c6df39f6-6a41-46fd-a26e-dcae97ca1285</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="240" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96350" Table="AD_Column">
+        <Data AD_Column_ID="112" Column="Description">This is a Sales Transaction</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:56.663</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:56.663</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96350</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Sales Transaction</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">IsSOTrx</Data>
+        <Data AD_Column_ID="113" Column="Help">The Sales Transaction checkbox indicates if this item is a Sales Transaction.</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">1106</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">1</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">20</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">ccef485e-bd8b-440b-9913-cc6f8232a1bf</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="250" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96350" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:46:58.066</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:46:58.066</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96350</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Sales Transaction</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">2c94bd34-7416-46ed-99e6-03231d2832a9</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="260" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96351" Table="AD_Column">
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="112" Column="Description">Target document type for conversing documents</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:58.231</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:58.231</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96351</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Target Document Type</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">C_DocTypeTarget_ID</Data>
+        <Data AD_Column_ID="113" Column="Help">You can convert document types (e.g. from Offer to Order or Invoice).  The conversion is then reflected in the current type.  This processing is initiated by selecting the appropriate Document Action.</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">197</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID">170</Data>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">10</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">19</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">cc80a144-2a6b-4fb0-948e-680db9481ebc</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="270" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96351" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:46:59.371</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:46:59.371</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96351</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Target Document Type</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">bcb0486f-6a2a-415b-b0d7-271a3b643066</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="280" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96352" Table="AD_Column">
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description">The current status of the document</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:46:59.583</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:46:59.583</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96352</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Document Status</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">DocStatus</Data>
+        <Data AD_Column_ID="113" Column="Help">The Document Status indicates the status of a document at this time.  If you want to change the document status, use the Document Action field</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">false</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">289</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID">131</Data>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">2</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">17</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">f682f1cd-0953-411e-8251-c6c28a60373e</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="290" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96352" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:47:00.743</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:47:00.743</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96352</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Document Status</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">d4384bd3-ea97-436e-91fd-a7db4e0f88a4</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="300" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96353" Table="AD_Column">
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="112" Column="Description">Fiscal Document</Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:47:00.914</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:47:00.914</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96353</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Fiscal Document</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">IsFiscalDocument</Data>
+        <Data AD_Column_ID="113" Column="Help">Fiscal Document is used for declared invoice</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">60105</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">1</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">20</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">62cf14d0-d9e2-4c99-850b-83975740484e</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="310" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96353" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:47:01.942</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:47:01.942</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96353</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Fiscal Document</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">993dc23e-b126-4ebf-a87d-5914a8c42c5f</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="320" StepType="AD">
+      <PO AD_Table_ID="276" Action="I" Record_ID="61379" Table="AD_Element">
+        <Data AD_Column_ID="6284" Column="PO_Help" isNewNull="true"/>
+        <Data AD_Column_ID="2600" Column="Updated">2020-06-15 12:47:02.102</Data>
+        <Data AD_Column_ID="2597" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2603" Column="Name">beginingdocumentno</Data>
+        <Data AD_Column_ID="2604" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="2598" Column="Created">2020-06-15 12:47:02.102</Data>
+        <Data AD_Column_ID="2602" Column="ColumnName">beginingdocumentno</Data>
+        <Data AD_Column_ID="2605" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="6285" Column="PO_Name" isNewNull="true"/>
+        <Data AD_Column_ID="4299" Column="PrintName">beginingdocumentno</Data>
+        <Data AD_Column_ID="6286" Column="PO_PrintName" isNewNull="true"/>
+        <Data AD_Column_ID="6283" Column="PO_Description" isNewNull="true"/>
+        <Data AD_Column_ID="58589" Column="FieldLength" isNewNull="true"/>
+        <Data AD_Column_ID="58588" Column="AD_Reference_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2594" Column="AD_Element_ID">61379</Data>
+        <Data AD_Column_ID="2596" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2595" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="6484" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="2599" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="58590" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2601" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84316" Column="UUID">a23d9469-f333-47ac-9d16-e8f81cb747cd</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="330" StepType="AD">
+      <PO AD_Table_ID="277" Action="I" Record_ID="0" Table="AD_Element_Trl">
+        <Data AD_Column_ID="2642" Column="Created">2020-06-15 12:47:02.7</Data>
+        <Data AD_Column_ID="6449" Column="PO_Help" isNewNull="true"/>
+        <Data AD_Column_ID="2641" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2644" Column="Updated">2020-06-15 12:47:02.7</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="6450" Column="PO_Name" isNewNull="true"/>
+        <Data AD_Column_ID="2648" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="2646" Column="Name">beginingdocumentno</Data>
+        <Data AD_Column_ID="2647" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="2649" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="4300" Column="PrintName">beginingdocumentno</Data>
+        <Data AD_Column_ID="6451" Column="PO_PrintName" isNewNull="true"/>
+        <Data AD_Column_ID="6448" Column="PO_Description" isNewNull="true"/>
+        <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2645" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2637" Column="AD_Element_ID">61379</Data>
+        <Data AD_Column_ID="84317" Column="UUID">e83aa283-f9d6-4277-9383-03fb7e6de8a8</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="340" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96354" Table="AD_Column">
+        <Data AD_Column_ID="112" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">beginingdocumentno</Data>
+        <Data AD_Column_ID="113" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">61379</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">2147483647</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">14</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">a6af1662-726e-432f-9dc1-e5337c5d0731</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:47:02.101</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:47:02.101</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96354</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">beginingdocumentno</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="350" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96354" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:47:03.811</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:47:03.811</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96354</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">beginingdocumentno</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">0c4f7dfb-283b-4980-813c-68ee5297f719</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="360" StepType="AD">
+      <PO AD_Table_ID="276" Action="I" Record_ID="61380" Table="AD_Element">
+        <Data AD_Column_ID="6284" Column="PO_Help" isNewNull="true"/>
+        <Data AD_Column_ID="2600" Column="Updated">2020-06-15 12:47:03.989</Data>
+        <Data AD_Column_ID="2597" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2603" Column="Name">endingdocumentno</Data>
+        <Data AD_Column_ID="2604" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="2598" Column="Created">2020-06-15 12:47:03.989</Data>
+        <Data AD_Column_ID="2602" Column="ColumnName">endingdocumentno</Data>
+        <Data AD_Column_ID="2605" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="6285" Column="PO_Name" isNewNull="true"/>
+        <Data AD_Column_ID="4299" Column="PrintName">endingdocumentno</Data>
+        <Data AD_Column_ID="6286" Column="PO_PrintName" isNewNull="true"/>
+        <Data AD_Column_ID="6283" Column="PO_Description" isNewNull="true"/>
+        <Data AD_Column_ID="58589" Column="FieldLength" isNewNull="true"/>
+        <Data AD_Column_ID="58588" Column="AD_Reference_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2594" Column="AD_Element_ID">61380</Data>
+        <Data AD_Column_ID="2596" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2595" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="6484" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="2599" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="58590" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2601" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84316" Column="UUID">5a86db68-8410-4c61-a45c-8f691c4f6879</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="370" StepType="AD">
+      <PO AD_Table_ID="277" Action="I" Record_ID="0" Table="AD_Element_Trl">
+        <Data AD_Column_ID="2642" Column="Created">2020-06-15 12:47:05.345</Data>
+        <Data AD_Column_ID="6449" Column="PO_Help" isNewNull="true"/>
+        <Data AD_Column_ID="2641" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2644" Column="Updated">2020-06-15 12:47:05.345</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="6450" Column="PO_Name" isNewNull="true"/>
+        <Data AD_Column_ID="2648" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="2646" Column="Name">endingdocumentno</Data>
+        <Data AD_Column_ID="2647" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="2649" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="4300" Column="PrintName">endingdocumentno</Data>
+        <Data AD_Column_ID="6451" Column="PO_PrintName" isNewNull="true"/>
+        <Data AD_Column_ID="6448" Column="PO_Description" isNewNull="true"/>
+        <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2645" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2637" Column="AD_Element_ID">61380</Data>
+        <Data AD_Column_ID="84317" Column="UUID">fdab4c92-bb64-4b56-bd9d-975255ec2217</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="380" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96355" Table="AD_Column">
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:47:03.987</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:47:03.987</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96355</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">endingdocumentno</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">endingdocumentno</Data>
+        <Data AD_Column_ID="113" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">61380</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">2147483647</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">14</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">0942a25a-191d-4fa4-89f1-ffd08b209489</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="390" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96355" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:47:06.405</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:47:06.405</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96355</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">endingdocumentno</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">b53dcfed-32ee-47aa-81f4-c27d9b60c7a3</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="400" StepType="AD">
+      <PO AD_Table_ID="276" Action="I" Record_ID="61381" Table="AD_Element">
+        <Data AD_Column_ID="2600" Column="Updated">2020-06-15 12:47:06.568</Data>
+        <Data AD_Column_ID="6285" Column="PO_Name" isNewNull="true"/>
+        <Data AD_Column_ID="4299" Column="PrintName">beginingcontrolno</Data>
+        <Data AD_Column_ID="6286" Column="PO_PrintName" isNewNull="true"/>
+        <Data AD_Column_ID="6283" Column="PO_Description" isNewNull="true"/>
+        <Data AD_Column_ID="58589" Column="FieldLength" isNewNull="true"/>
+        <Data AD_Column_ID="58588" Column="AD_Reference_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2594" Column="AD_Element_ID">61381</Data>
+        <Data AD_Column_ID="2596" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2595" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="6484" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="2599" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="58590" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2601" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84316" Column="UUID">d4443fa0-c786-4807-94da-e23df8f93951</Data>
+        <Data AD_Column_ID="2597" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2603" Column="Name">beginingcontrolno</Data>
+        <Data AD_Column_ID="2604" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="2598" Column="Created">2020-06-15 12:47:06.568</Data>
+        <Data AD_Column_ID="2602" Column="ColumnName">beginingcontrolno</Data>
+        <Data AD_Column_ID="2605" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="6284" Column="PO_Help" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="410" StepType="AD">
+      <PO AD_Table_ID="277" Action="I" Record_ID="0" Table="AD_Element_Trl">
+        <Data AD_Column_ID="2642" Column="Created">2020-06-15 12:47:07.612</Data>
+        <Data AD_Column_ID="6449" Column="PO_Help" isNewNull="true"/>
+        <Data AD_Column_ID="2641" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2644" Column="Updated">2020-06-15 12:47:07.612</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="6450" Column="PO_Name" isNewNull="true"/>
+        <Data AD_Column_ID="2648" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="2646" Column="Name">beginingcontrolno</Data>
+        <Data AD_Column_ID="2647" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="2649" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="4300" Column="PrintName">beginingcontrolno</Data>
+        <Data AD_Column_ID="6451" Column="PO_PrintName" isNewNull="true"/>
+        <Data AD_Column_ID="6448" Column="PO_Description" isNewNull="true"/>
+        <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2645" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2637" Column="AD_Element_ID">61381</Data>
+        <Data AD_Column_ID="84317" Column="UUID">921fe74f-c184-479f-8dfb-ca07785e4bb8</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="420" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96356" Table="AD_Column">
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">beginingcontrolno</Data>
+        <Data AD_Column_ID="113" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">61381</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">2147483647</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">14</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">0b139364-eb2c-4f6b-84f8-5970542a654d</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:47:06.567</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:47:06.567</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96356</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">beginingcontrolno</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="430" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96356" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:47:08.567</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:47:08.567</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96356</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">beginingcontrolno</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">e0be9bb6-c21a-4ef9-b89f-9ab91881db15</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="440" StepType="AD">
+      <PO AD_Table_ID="276" Action="I" Record_ID="61382" Table="AD_Element">
+        <Data AD_Column_ID="2600" Column="Updated">2020-06-15 12:47:08.756</Data>
+        <Data AD_Column_ID="6285" Column="PO_Name" isNewNull="true"/>
+        <Data AD_Column_ID="4299" Column="PrintName">endingcontrolno</Data>
+        <Data AD_Column_ID="6286" Column="PO_PrintName" isNewNull="true"/>
+        <Data AD_Column_ID="6283" Column="PO_Description" isNewNull="true"/>
+        <Data AD_Column_ID="58589" Column="FieldLength" isNewNull="true"/>
+        <Data AD_Column_ID="58588" Column="AD_Reference_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2594" Column="AD_Element_ID">61382</Data>
+        <Data AD_Column_ID="2596" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2595" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="6484" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="2599" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="58590" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2601" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84316" Column="UUID">6f4f8b7b-26b3-4112-a1b2-14376084c721</Data>
+        <Data AD_Column_ID="2597" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2603" Column="Name">endingcontrolno</Data>
+        <Data AD_Column_ID="2604" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="2598" Column="Created">2020-06-15 12:47:08.756</Data>
+        <Data AD_Column_ID="2602" Column="ColumnName">endingcontrolno</Data>
+        <Data AD_Column_ID="2605" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="6284" Column="PO_Help" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="450" StepType="AD">
+      <PO AD_Table_ID="277" Action="I" Record_ID="0" Table="AD_Element_Trl">
+        <Data AD_Column_ID="2642" Column="Created">2020-06-15 12:47:10.013</Data>
+        <Data AD_Column_ID="6449" Column="PO_Help" isNewNull="true"/>
+        <Data AD_Column_ID="2641" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2644" Column="Updated">2020-06-15 12:47:10.013</Data>
+        <Data AD_Column_ID="2638" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="6450" Column="PO_Name" isNewNull="true"/>
+        <Data AD_Column_ID="2648" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="2646" Column="Name">endingcontrolno</Data>
+        <Data AD_Column_ID="2647" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="2649" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="4300" Column="PrintName">endingcontrolno</Data>
+        <Data AD_Column_ID="6451" Column="PO_PrintName" isNewNull="true"/>
+        <Data AD_Column_ID="6448" Column="PO_Description" isNewNull="true"/>
+        <Data AD_Column_ID="2640" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2639" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2645" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2643" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2637" Column="AD_Element_ID">61382</Data>
+        <Data AD_Column_ID="84317" Column="UUID">b3109c06-31df-4f9e-8759-e4934f7d25dc</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="460" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="96357" Table="AD_Column">
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="112" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2020-06-15 12:47:08.755</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2020-06-15 12:47:08.755</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">96357</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">endingcontrolno</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true"/>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">endingcontrolno</Data>
+        <Data AD_Column_ID="113" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">false</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">61382</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">2147483647</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">14</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">17fd2d79-e502-4ba0-a59f-a86d1ef63154</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="470" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="96357" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2020-06-15 12:47:11.448</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2020-06-15 12:47:11.448</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">96357</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">endingcontrolno</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">ec66d3d7-89da-405a-88e1-d15ce01b9860</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="480" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96356" Table="AD_Column">
+        <Data AD_Column_ID="118" Column="FieldLength" oldValue="2147483647">255</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID" oldValue="14">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="490" StepType="AD">
+      <PO AD_Table_ID="276" Action="U" Record_ID="61381" Table="AD_Element">
+        <Data AD_Column_ID="58588" Column="AD_Reference_ID" isOldNull="true">10</Data>
+        <Data AD_Column_ID="2603" Column="Name" oldValue="beginingcontrolno">Begining Control No</Data>
+        <Data AD_Column_ID="2602" Column="ColumnName" oldValue="beginingcontrolno">BeginingControlNo</Data>
+        <Data AD_Column_ID="4299" Column="PrintName" oldValue="beginingcontrolno">Begining Control No</Data>
+        <Data AD_Column_ID="58589" Column="FieldLength" isOldNull="true">255</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="500" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96356" Table="AD_Column">
+        <Data AD_Column_ID="111" Column="Name" oldValue="beginingcontrolno">Begining Control No</Data>
+        <Data AD_Column_ID="116" Column="ColumnName" oldValue="beginingcontrolno">BeginingControlNo</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="510" StepType="AD">
+      <PO AD_Table_ID="277" Action="U" Record_ID="0" Table="AD_Element_Trl">
+        <Data AD_Column_ID="2638" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2646" Column="Name" oldValue="beginingcontrolno">Nro de Control de Inicio</Data>
+        <Data AD_Column_ID="2647" Column="Description" isOldNull="true">Nro de Control de Inicio</Data>
+        <Data AD_Column_ID="4300" Column="PrintName" oldValue="beginingcontrolno">Nro de Control de Inicio</Data>
+        <Data AD_Column_ID="2637" Column="AD_Element_ID" oldValue="61381">61381</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="520" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96354" Table="AD_Column">
+        <Data AD_Column_ID="118" Column="FieldLength" oldValue="2147483647">255</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID" oldValue="14">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="530" StepType="AD">
+      <PO AD_Table_ID="276" Action="U" Record_ID="61379" Table="AD_Element">
+        <Data AD_Column_ID="2603" Column="Name" oldValue="beginingdocumentno">Begining Document No</Data>
+        <Data AD_Column_ID="2602" Column="ColumnName" oldValue="beginingdocumentno">BeginingDocumentNo</Data>
+        <Data AD_Column_ID="4299" Column="PrintName" oldValue="beginingdocumentno">Begining Document No</Data>
+        <Data AD_Column_ID="58589" Column="FieldLength" isOldNull="true">255</Data>
+        <Data AD_Column_ID="58588" Column="AD_Reference_ID" isOldNull="true">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="540" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96354" Table="AD_Column">
+        <Data AD_Column_ID="111" Column="Name" oldValue="beginingdocumentno">Begining Document No</Data>
+        <Data AD_Column_ID="116" Column="ColumnName" oldValue="beginingdocumentno">BeginingDocumentNo</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="550" StepType="AD">
+      <PO AD_Table_ID="277" Action="U" Record_ID="0" Table="AD_Element_Trl">
+        <Data AD_Column_ID="2638" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2646" Column="Name" oldValue="beginingdocumentno">Nro de Documento de Inicio</Data>
+        <Data AD_Column_ID="2647" Column="Description" isOldNull="true">Nro de Documento de Inicio</Data>
+        <Data AD_Column_ID="4300" Column="PrintName" oldValue="beginingdocumentno">Nro de Documento de Inicio</Data>
+        <Data AD_Column_ID="2637" Column="AD_Element_ID" oldValue="61379">61379</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="560" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96357" Table="AD_Column">
+        <Data AD_Column_ID="118" Column="FieldLength" oldValue="2147483647">255</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID" oldValue="14">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="570" StepType="AD">
+      <PO AD_Table_ID="276" Action="U" Record_ID="61382" Table="AD_Element">
+        <Data AD_Column_ID="2603" Column="Name" oldValue="endingcontrolno">Ending Control No</Data>
+        <Data AD_Column_ID="2602" Column="ColumnName" oldValue="endingcontrolno">EndingControlNo</Data>
+        <Data AD_Column_ID="4299" Column="PrintName" oldValue="endingcontrolno">Ending Control No</Data>
+        <Data AD_Column_ID="58589" Column="FieldLength" isOldNull="true">255</Data>
+        <Data AD_Column_ID="58588" Column="AD_Reference_ID" isOldNull="true">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="580" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96357" Table="AD_Column">
+        <Data AD_Column_ID="111" Column="Name" oldValue="endingcontrolno">Ending Control No</Data>
+        <Data AD_Column_ID="116" Column="ColumnName" oldValue="endingcontrolno">EndingControlNo</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="590" StepType="AD">
+      <PO AD_Table_ID="277" Action="U" Record_ID="0" Table="AD_Element_Trl">
+        <Data AD_Column_ID="2638" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2646" Column="Name" oldValue="endingcontrolno">Nro de Control Final</Data>
+        <Data AD_Column_ID="2647" Column="Description" isOldNull="true">Nro de Control Final</Data>
+        <Data AD_Column_ID="4300" Column="PrintName" oldValue="endingcontrolno">Nro de Control Final</Data>
+        <Data AD_Column_ID="2637" Column="AD_Element_ID" oldValue="61382">61382</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="600" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96355" Table="AD_Column">
+        <Data AD_Column_ID="118" Column="FieldLength" oldValue="2147483647">255</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID" oldValue="14">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="610" StepType="AD">
+      <PO AD_Table_ID="276" Action="U" Record_ID="61380" Table="AD_Element">
+        <Data AD_Column_ID="2603" Column="Name" oldValue="endingdocumentno">Ending Document No</Data>
+        <Data AD_Column_ID="2602" Column="ColumnName" oldValue="endingdocumentno">EndingDocumentNo</Data>
+        <Data AD_Column_ID="4299" Column="PrintName" oldValue="endingdocumentno">Ending Document No</Data>
+        <Data AD_Column_ID="58589" Column="FieldLength" isOldNull="true">255</Data>
+        <Data AD_Column_ID="58588" Column="AD_Reference_ID" isOldNull="true">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="620" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96355" Table="AD_Column">
+        <Data AD_Column_ID="111" Column="Name" oldValue="endingdocumentno">Ending Document No</Data>
+        <Data AD_Column_ID="116" Column="ColumnName" oldValue="endingdocumentno">EndingDocumentNo</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="630" StepType="AD">
+      <PO AD_Table_ID="277" Action="U" Record_ID="0" Table="AD_Element_Trl">
+        <Data AD_Column_ID="2638" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2646" Column="Name" oldValue="endingdocumentno">Nro de Documento Final</Data>
+        <Data AD_Column_ID="2647" Column="Description" isOldNull="true">Nro de Documento Final</Data>
+        <Data AD_Column_ID="4300" Column="PrintName" oldValue="endingdocumentno">Nro de Documento Final</Data>
+        <Data AD_Column_ID="2637" Column="AD_Element_ID" oldValue="61380">61380</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="640" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96351" Table="AD_Column">
+        <Data AD_Column_ID="226" Column="AD_Reference_ID" oldValue="19">18</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="650" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96342" Table="AD_Column">
+        <Data AD_Column_ID="226" Column="AD_Reference_ID" oldValue="16">15</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="660" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96347" Table="AD_Column"/>
+    </Step>
+    <Step SeqNo="670" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96346" Table="AD_Column"/>
+    </Step>
+    <Step SeqNo="680" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96345" Table="AD_Column"/>
+    </Step>
+    <Step SeqNo="690" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96344" Table="AD_Column"/>
+    </Step>
+    <Step SeqNo="700" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96343" Table="AD_Column"/>
+    </Step>
+    <Step SeqNo="710" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96349" Table="AD_Column"/>
+    </Step>
+    <Step SeqNo="720" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="96348" Table="AD_Column"/>
+    </Step>
+    <Step SeqNo="730" StepType="AD">
+      <PO AD_Table_ID="361" Action="I" Record_ID="53327" Table="AD_ReportView">
+        <Data AD_Column_ID="4388" Column="Created">2020-06-15 12:53:27.25</Data>
+        <Data AD_Column_ID="85531" Column="Classname" isNewNull="true"/>
+        <Data AD_Column_ID="4387" Column="IsActive">true</Data>
+        <Data AD_Column_ID="4390" Column="Updated">2020-06-15 12:53:27.25</Data>
+        <Data AD_Column_ID="4384" Column="AD_ReportView_ID">53327</Data>
+        <Data AD_Column_ID="4395" Column="WhereClause" isNewNull="true"/>
+        <Data AD_Column_ID="4396" Column="OrderByClause" isNewNull="true"/>
+        <Data AD_Column_ID="4393" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="4392" Column="Name">LVE_RV_C_Invoice_Day_Summary</Data>
+        <Data AD_Column_ID="78517" Column="PrintName">Invoice Day Summary (All)</Data>
+        <Data AD_Column_ID="78535" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="4385" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="10032" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="4386" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="4389" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="4391" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="4394" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="84405" Column="UUID">a88f513d-edf3-4e34-9f66-bacb4d294c78</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="740" StepType="AD">
+      <PO AD_Table_ID="54060" Action="I" Record_ID="0" Table="AD_ReportView_Trl">
+        <Data AD_Column_ID="78520" Column="IsActive">true</Data>
+        <Data AD_Column_ID="78521" Column="Created">2020-06-15 12:53:28.194</Data>
+        <Data AD_Column_ID="78522" Column="Updated">2020-06-15 12:53:28.194</Data>
+        <Data AD_Column_ID="78527" Column="PrintName">Invoice Day Summary (All)</Data>
+        <Data AD_Column_ID="78528" Column="Name">LVE_RV_C_Invoice_Day_Summary</Data>
+        <Data AD_Column_ID="78529" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="78534" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="78518" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="78519" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="78523" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="78524" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="78526" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="78525" Column="AD_ReportView_ID">53327</Data>
+        <Data AD_Column_ID="84407" Column="UUID">c6126389-9f74-46be-9c45-1d89addfd741</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="750" StepType="AD">
+      <PO AD_Table_ID="54060" Action="U" Record_ID="0" Table="AD_ReportView_Trl">
+        <Data AD_Column_ID="78527" Column="PrintName" oldValue="Invoice Day Summary (All)">Facturación Diaria (Todos)</Data>
+        <Data AD_Column_ID="78526" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="78525" Column="AD_ReportView_ID" oldValue="53327">53327</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="760" StepType="AD">
+      <PO AD_Table_ID="361" Action="I" Record_ID="53328" Table="AD_ReportView">
+        <Data AD_Column_ID="4388" Column="Created">2020-06-15 12:55:22.245</Data>
+        <Data AD_Column_ID="85531" Column="Classname" isNewNull="true"/>
+        <Data AD_Column_ID="4387" Column="IsActive">true</Data>
+        <Data AD_Column_ID="4390" Column="Updated">2020-06-15 12:55:22.245</Data>
+        <Data AD_Column_ID="4384" Column="AD_ReportView_ID">53328</Data>
+        <Data AD_Column_ID="4395" Column="WhereClause">LVE_RV_C_Invoice_Day_Summary.IsFiscalDocument = 'Y'</Data>
+        <Data AD_Column_ID="4396" Column="OrderByClause" isNewNull="true"/>
+        <Data AD_Column_ID="4393" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="4392" Column="Name">LVE_RV_C_Invoice_Day_Summary</Data>
+        <Data AD_Column_ID="78517" Column="PrintName">Invoice Day Summary (Only Fiscal Documents)</Data>
+        <Data AD_Column_ID="78535" Column="IsCentrallyMaintained">false</Data>
+        <Data AD_Column_ID="4385" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="10032" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="4386" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="4389" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="4391" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="4394" Column="AD_Table_ID">54742</Data>
+        <Data AD_Column_ID="84405" Column="UUID">bee5265e-d190-4f1b-abbd-23a891bb64bf</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="770" StepType="AD">
+      <PO AD_Table_ID="54060" Action="I" Record_ID="0" Table="AD_ReportView_Trl">
+        <Data AD_Column_ID="78527" Column="PrintName">Invoice Day Summary (Only Fiscal Documents)</Data>
+        <Data AD_Column_ID="78528" Column="Name">LVE_RV_C_Invoice_Day_Summary</Data>
+        <Data AD_Column_ID="78529" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="78534" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="78518" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="78519" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="78523" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="78524" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="78526" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="78525" Column="AD_ReportView_ID">53328</Data>
+        <Data AD_Column_ID="84407" Column="UUID">f2e6f7bd-6263-4328-afd9-32893e6fae95</Data>
+        <Data AD_Column_ID="78520" Column="IsActive">true</Data>
+        <Data AD_Column_ID="78521" Column="Created">2020-06-15 12:55:23.258</Data>
+        <Data AD_Column_ID="78522" Column="Updated">2020-06-15 12:55:23.258</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="780" StepType="AD">
+      <PO AD_Table_ID="361" Action="U" Record_ID="53327" Table="AD_ReportView">
+        <Data AD_Column_ID="78535" Column="IsCentrallyMaintained" oldValue="true">false</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="790" StepType="AD">
+      <PO AD_Table_ID="54060" Action="U" Record_ID="0" Table="AD_ReportView_Trl">
+        <Data AD_Column_ID="78527" Column="PrintName" oldValue="Invoice Day Summary (Only Fiscal Documents)">Facturación Diaria (Sólo Documentos Fiscales)</Data>
+        <Data AD_Column_ID="78528" Column="Name" oldValue="LVE_RV_C_Invoice_Day_Summary">LVE_RV_C_Invoice_Day_Summary (Only Fiscal Documents)</Data>
+        <Data AD_Column_ID="78526" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="78525" Column="AD_ReportView_ID" oldValue="53328">53328</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="800" StepType="AD">
+      <PO AD_Table_ID="361" Action="U" Record_ID="53328" Table="AD_ReportView">
+        <Data AD_Column_ID="4392" Column="Name" oldValue="LVE_RV_C_Invoice_Day_Summary">LVE_RV_C_Invoice_Day_Summary (Only fiscal Documents)</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="810" StepType="AD">
+      <PO AD_Table_ID="284" Action="I" Record_ID="54394" Table="AD_Process">
+        <Data AD_Column_ID="4374" Column="AD_ReportView_ID">53327</Data>
+        <Data AD_Column_ID="84383" Column="UUID">23ad62a1-3ec0-43ef-891f-546a958a19f7</Data>
+        <Data AD_Column_ID="4656" Column="Classname" isNewNull="true"/>
+        <Data AD_Column_ID="2811" Column="Help">Invoiced amount by Organization and Sales Rep</Data>
+        <Data AD_Column_ID="12458" Column="IsBetaFunctionality">false</Data>
+        <Data AD_Column_ID="3371" Column="IsReport">true</Data>
+        <Data AD_Column_ID="6653" Column="Statistic_Seconds">0</Data>
+        <Data AD_Column_ID="6652" Column="Statistic_Count">0</Data>
+        <Data AD_Column_ID="50181" Column="ShowHelp">Y</Data>
+        <Data AD_Column_ID="2809" Column="Name">Daily Invoice (Summary)</Data>
+        <Data AD_Column_ID="2808" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2806" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2801" Column="AD_Process_ID">54394</Data>
+        <Data AD_Column_ID="2802" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2803" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="11834" Column="AD_Workflow_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2813" Column="ProcedureName" isNewNull="true"/>
+        <Data AD_Column_ID="63488" Column="AD_Browse_ID" isNewNull="true"/>
+        <Data AD_Column_ID="6485" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="50182" Column="JasperReport" isNewNull="true"/>
+        <Data AD_Column_ID="2805" Column="Created">2020-06-15 12:57:10.854</Data>
+        <Data AD_Column_ID="2807" Column="Updated">2020-06-15 12:57:10.854</Data>
+        <Data AD_Column_ID="4214" Column="IsDirectPrint">false</Data>
+        <Data AD_Column_ID="57920" Column="CopyFromProcess" isNewNull="true"/>
+        <Data AD_Column_ID="2804" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2810" Column="Description">Invoice Report per Day</Data>
+        <Data AD_Column_ID="4023" Column="Value">LVE_RV_C_Invoice_Day_Summary</Data>
+        <Data AD_Column_ID="11563" Column="WorkflowValue" isNewNull="true"/>
+        <Data AD_Column_ID="56515" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="5790" Column="AccessLevel">3</Data>
+        <Data AD_Column_ID="14084" Column="IsServerProcess">false</Data>
+        <Data AD_Column_ID="78843" Column="GenerateClass">N</Data>
+        <Data AD_Column_ID="7752" Column="AD_PrintFormat_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="820" StepType="AD">
+      <PO AD_Table_ID="287" Action="I" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2847" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2850" Column="Updated">2020-06-15 12:57:11.513</Data>
+        <Data AD_Column_ID="2848" Column="Created">2020-06-15 12:57:11.513</Data>
+        <Data AD_Column_ID="2853" Column="Description">Invoice Report per Day</Data>
+        <Data AD_Column_ID="2854" Column="Help">Invoiced amount by Organization and Sales Rep</Data>
+        <Data AD_Column_ID="2855" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2852" Column="Name">Daily Invoice (Summary)</Data>
+        <Data AD_Column_ID="2846" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2845" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2851" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID">54394</Data>
+        <Data AD_Column_ID="2849" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="84387" Column="UUID">0b8a3fd2-ab31-4108-9250-5807e64033d4</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="830" StepType="AD">
+      <PO AD_Table_ID="287" Action="U" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2852" Column="Name" oldValue="Daily Invoice (Summary)">Facturación Diaria (Resumida)</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID" oldValue="54394">54394</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="840" StepType="AD">
+      <PO AD_Table_ID="287" Action="U" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2853" Column="Description" oldValue="Invoice Report per Day">Reportar facturación diaria resumida</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID" oldValue="54394">54394</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="850" StepType="AD">
+      <PO AD_Table_ID="287" Action="U" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2854" Column="Help" oldValue="Invoiced amount by Organization and Sales Rep">Cantidad facturada por organización y representante de ventas resumido</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID" oldValue="54394">54394</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="860" StepType="AD">
+      <PO AD_Table_ID="285" Action="I" Record_ID="57679" Table="AD_Process_Para">
+        <Data AD_Column_ID="2820" Column="Updated">2020-06-15 13:00:00.394</Data>
+        <Data AD_Column_ID="2822" Column="Name">Target Document Type</Data>
+        <Data AD_Column_ID="2817" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2830" Column="IsRange">false</Data>
+        <Data AD_Column_ID="2818" Column="Created">2020-06-15 13:00:00.394</Data>
+        <Data AD_Column_ID="3738" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName">C_DocTypeTarget_ID</Data>
+        <Data AD_Column_ID="2823" Column="Description">Target document type for conversing documents</Data>
+        <Data AD_Column_ID="2824" Column="Help">You can convert document types (e.g. from Offer to Order or Invoice).  The conversion is then reflected in the current type.  This processing is initiated by selecting the appropriate Document Action.</Data>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">57679</Data>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">10</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54394</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">18</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo">10</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID">170</Data>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">197</Data>
+        <Data AD_Column_ID="84385" Column="UUID">e59e7ade-6de6-41a4-b956-6d65550bf27a</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="870" StepType="AD">
+      <PO AD_Table_ID="286" Action="I" Record_ID="57679" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created">2020-06-15 13:00:01.572</Data>
+        <Data AD_Column_ID="2835" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2838" Column="Updated">2020-06-15 13:00:01.572</Data>
+        <Data AD_Column_ID="2840" Column="Name">Target Document Type</Data>
+        <Data AD_Column_ID="2842" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2841" Column="Description">Target document type for conversing documents</Data>
+        <Data AD_Column_ID="3743" Column="Help">You can convert document types (e.g. from Offer to Order or Invoice).  The conversion is then reflected in the current type.  This processing is initiated by selecting the appropriate Document Action.</Data>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">57679</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2837" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84386" Column="UUID">ddfe8ca9-1f03-4696-ae21-b69b7c3a491f</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="880" StepType="AD">
+      <PO AD_Table_ID="285" Action="I" Record_ID="57680" Table="AD_Process_Para">
+        <Data AD_Column_ID="2820" Column="Updated">2020-06-15 13:00:01.747</Data>
+        <Data AD_Column_ID="2822" Column="Name">Date Invoiced</Data>
+        <Data AD_Column_ID="2817" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2830" Column="IsRange">true</Data>
+        <Data AD_Column_ID="2818" Column="Created">2020-06-15 13:00:01.747</Data>
+        <Data AD_Column_ID="3738" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName">DateInvoiced</Data>
+        <Data AD_Column_ID="2823" Column="Description">Date printed on Invoice</Data>
+        <Data AD_Column_ID="2824" Column="Help">The Date Invoice indicates the date printed on the invoice.</Data>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">57680</Data>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">0</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54394</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">15</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo">20</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">267</Data>
+        <Data AD_Column_ID="84385" Column="UUID">8b935a66-039a-4e58-bb41-42303ee67503</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="890" StepType="AD">
+      <PO AD_Table_ID="286" Action="I" Record_ID="57680" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="84386" Column="UUID">fb1d3088-7ef6-4bc8-921a-f4d487afd601</Data>
+        <Data AD_Column_ID="2836" Column="Created">2020-06-15 13:00:02.694</Data>
+        <Data AD_Column_ID="2835" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2838" Column="Updated">2020-06-15 13:00:02.694</Data>
+        <Data AD_Column_ID="2840" Column="Name">Date Invoiced</Data>
+        <Data AD_Column_ID="2842" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2841" Column="Description">Date printed on Invoice</Data>
+        <Data AD_Column_ID="3743" Column="Help">The Date Invoice indicates the date printed on the invoice.</Data>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">57680</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2837" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy">100</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="900" StepType="AD">
+      <PO AD_Table_ID="285" Action="I" Record_ID="57681" Table="AD_Process_Para">
+        <Data AD_Column_ID="2820" Column="Updated">2020-06-15 13:00:02.864</Data>
+        <Data AD_Column_ID="2822" Column="Name">Document Status</Data>
+        <Data AD_Column_ID="2817" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2830" Column="IsRange">false</Data>
+        <Data AD_Column_ID="2818" Column="Created">2020-06-15 13:00:02.864</Data>
+        <Data AD_Column_ID="3738" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName">DocStatus</Data>
+        <Data AD_Column_ID="2823" Column="Description">The current status of the document</Data>
+        <Data AD_Column_ID="2824" Column="Help">The Document Status indicates the status of a document at this time.  If you want to change the document status, use the Document Action field</Data>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue">CO</Data>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">57681</Data>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">2</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54394</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">17</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo">30</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID">131</Data>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">289</Data>
+        <Data AD_Column_ID="84385" Column="UUID">effa28dd-78e6-49ec-b64c-daa57cc8e878</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="910" StepType="AD">
+      <PO AD_Table_ID="286" Action="I" Record_ID="57681" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created">2020-06-15 13:00:04.334</Data>
+        <Data AD_Column_ID="2835" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2838" Column="Updated">2020-06-15 13:00:04.334</Data>
+        <Data AD_Column_ID="2840" Column="Name">Document Status</Data>
+        <Data AD_Column_ID="2842" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2841" Column="Description">The current status of the document</Data>
+        <Data AD_Column_ID="3743" Column="Help">The Document Status indicates the status of a document at this time.  If you want to change the document status, use the Document Action field</Data>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">57681</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2837" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84386" Column="UUID">81d046dc-c16a-4f3f-911c-05cf1ca30704</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="920" StepType="AD">
+      <PO AD_Table_ID="285" Action="I" Record_ID="57682" Table="AD_Process_Para">
+        <Data AD_Column_ID="2817" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2830" Column="IsRange">false</Data>
+        <Data AD_Column_ID="2818" Column="Created">2020-06-15 13:00:04.497</Data>
+        <Data AD_Column_ID="3738" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName">IsSOTrx</Data>
+        <Data AD_Column_ID="2823" Column="Description">This is a Sales Transaction</Data>
+        <Data AD_Column_ID="2824" Column="Help">The Sales Transaction checkbox indicates if this item is a Sales Transaction.</Data>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue">Y</Data>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">57682</Data>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">1</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54394</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">20</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo">40</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">1106</Data>
+        <Data AD_Column_ID="84385" Column="UUID">67c5f0af-cb91-46ba-976f-bf26f67a43a7</Data>
+        <Data AD_Column_ID="2820" Column="Updated">2020-06-15 13:00:04.497</Data>
+        <Data AD_Column_ID="2822" Column="Name">Sales Transaction</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="930" StepType="AD">
+      <PO AD_Table_ID="286" Action="I" Record_ID="57682" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created">2020-06-15 13:00:05.507</Data>
+        <Data AD_Column_ID="2835" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2838" Column="Updated">2020-06-15 13:00:05.507</Data>
+        <Data AD_Column_ID="2840" Column="Name">Sales Transaction</Data>
+        <Data AD_Column_ID="2842" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2841" Column="Description">This is a Sales Transaction</Data>
+        <Data AD_Column_ID="3743" Column="Help">The Sales Transaction checkbox indicates if this item is a Sales Transaction.</Data>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">57682</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2837" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84386" Column="UUID">fd2d3026-f514-4226-a017-d0d61edb636a</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="940" StepType="AD">
+      <PO AD_Table_ID="285" Action="I" Record_ID="57683" Table="AD_Process_Para">
+        <Data AD_Column_ID="2820" Column="Updated">2020-06-15 13:00:05.667</Data>
+        <Data AD_Column_ID="4017" Column="ColumnName">IsFiscalDocument</Data>
+        <Data AD_Column_ID="2823" Column="Description">Fiscal Document</Data>
+        <Data AD_Column_ID="2824" Column="Help">Fiscal Document is used for declared invoice</Data>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue">Y</Data>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">57683</Data>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">1</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54394</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">20</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo">50</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">60105</Data>
+        <Data AD_Column_ID="84385" Column="UUID">87b46cd2-a846-49c5-b98c-ff942d6c4e6d</Data>
+        <Data AD_Column_ID="2822" Column="Name">Fiscal Document</Data>
+        <Data AD_Column_ID="2817" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2830" Column="IsRange">false</Data>
+        <Data AD_Column_ID="2818" Column="Created">2020-06-15 13:00:05.667</Data>
+        <Data AD_Column_ID="3738" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="950" StepType="AD">
+      <PO AD_Table_ID="286" Action="I" Record_ID="57683" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created">2020-06-15 13:00:06.589</Data>
+        <Data AD_Column_ID="2835" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2838" Column="Updated">2020-06-15 13:00:06.589</Data>
+        <Data AD_Column_ID="2840" Column="Name">Fiscal Document</Data>
+        <Data AD_Column_ID="2842" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2841" Column="Description">Fiscal Document</Data>
+        <Data AD_Column_ID="3743" Column="Help">Fiscal Document is used for declared invoice</Data>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">57683</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2837" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84386" Column="UUID">8ed4f8fb-b940-4463-bcab-7c44ae99e5a3</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="960" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57679" Table="AD_Process_Para">
+        <Data AD_Column_ID="3739" Column="DefaultValue" isOldNull="true">-1</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isOldNull="true">124</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="970" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57680" Table="AD_Process_Para">
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isOldNull="true">@#Date@</Data>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isOldNull="true">@#Date@</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="980" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57682" Table="AD_Process_Para">
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID" oldValue="20">17</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isOldNull="true">319</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="990" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57683" Table="AD_Process_Para">
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID" oldValue="20">17</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isOldNull="true">319</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1000" StepType="AD">
+      <PO AD_Table_ID="116" Action="I" Record_ID="54602" Table="AD_Menu">
+        <Data AD_Column_ID="4621" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="598" Column="IsActive">true</Data>
+        <Data AD_Column_ID="57960" Column="AD_Browse_ID" isNewNull="true"/>
+        <Data AD_Column_ID="599" Column="Created">2020-06-15 13:02:22.987</Data>
+        <Data AD_Column_ID="601" Column="Updated">2020-06-15 13:02:22.987</Data>
+        <Data AD_Column_ID="235" Column="AD_Task_ID" isNewNull="true"/>
+        <Data AD_Column_ID="1169" Column="IsSummary">false</Data>
+        <Data AD_Column_ID="4426" Column="IsSOTrx">false</Data>
+        <Data AD_Column_ID="6651" Column="IsReadOnly">false</Data>
+        <Data AD_Column_ID="59134" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="230" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="232" Column="Action">R</Data>
+        <Data AD_Column_ID="399" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="228" Column="AD_Menu_ID">54602</Data>
+        <Data AD_Column_ID="400" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="6297" Column="AD_Workbench_ID" isNewNull="true"/>
+        <Data AD_Column_ID="7721" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="234" Column="AD_Workflow_ID" isNewNull="true"/>
+        <Data AD_Column_ID="233" Column="AD_Window_ID" isNewNull="true"/>
+        <Data AD_Column_ID="600" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="602" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="3375" Column="AD_Process_ID">54394</Data>
+        <Data AD_Column_ID="84344" Column="UUID">a8891b38-d081-4284-86fa-80b2c331804a</Data>
+        <Data AD_Column_ID="229" Column="Name">Daily Invoice (Summary)</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1010" StepType="AD">
+      <PO AD_Table_ID="120" Action="I" Record_ID="54602" Table="AD_Menu_Trl">
+        <Data AD_Column_ID="636" Column="IsActive">true</Data>
+        <Data AD_Column_ID="639" Column="Updated">2020-06-15 13:02:24.216</Data>
+        <Data AD_Column_ID="637" Column="Created">2020-06-15 13:02:24.216</Data>
+        <Data AD_Column_ID="640" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="248" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="249" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="1194" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="1195" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="638" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="245" Column="AD_Menu_ID">54602</Data>
+        <Data AD_Column_ID="246" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84345" Column="UUID">9d42228a-f65e-4150-ae12-4737322afb2d</Data>
+        <Data AD_Column_ID="247" Column="Name">Daily Invoice (Summary)</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1020" StepType="AD">
+      <PO AD_Table_ID="452" Action="I" Record_ID="54602" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="84442" Column="UUID">a27ef74f-e903-4643-9ab6-a0327115b661</Data>
+        <Data AD_Column_ID="6150" Column="IsActive">true</Data>
+        <Data AD_Column_ID="6153" Column="Updated">2020-06-15 13:02:24.416</Data>
+        <Data AD_Column_ID="6151" Column="Created">2020-06-15 13:02:24.416</Data>
+        <Data AD_Column_ID="6162" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="6149" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="6161" Column="Node_ID">54602</Data>
+        <Data AD_Column_ID="6155" Column="Parent_ID">0</Data>
+        <Data AD_Column_ID="6154" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="6152" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo">999</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1030" StepType="AD">
+      <PO AD_Table_ID="452" Action="U" Record_ID="54602" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54602">54602</Data>
+        <Data AD_Column_ID="6155" Column="Parent_ID" oldValue="0">54335</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="999">8</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1040" StepType="AD">
+      <PO AD_Table_ID="452" Action="U" Record_ID="54336" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54336">54336</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="8">9</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1050" StepType="AD">
+      <PO AD_Table_ID="452" Action="U" Record_ID="54199" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54199">54199</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="9">10</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="1060" StepType="AD">
+      <PO AD_Table_ID="452" Action="U" Record_ID="54198" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54198">54198</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="10">11</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
+      </PO>
+    </Step>
+    <Step DBType="Postgres" Parse="Y" SeqNo="1070" StepType="SQL">
+      <Comments>Add LVE_RV_C_Invoice_Day_Summary view</Comments>
+      <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_C_Invoice_Day_Summary
+(AD_Client_ID, AD_Org_ID, DateInvoiced, LineNetAmt, 
+ LineListAmt, LineLimitAmt, LineDiscountAmt, LineDiscount, LineOverLimitAmt, 
+ LineOverLimit, IsSOTrx, C_DocTypeTarget_ID, DocStatus, IsFiscalDocument, BeginingDocumentNo, EndingDocumentNo, BeginingControlNo, EndingControlNo)
+AS 
+SELECT il.AD_Client_ID, il.AD_Org_ID,
+	firstOf(il.DateInvoiced, 'DD') AS DateInvoiced,	--	DD Day, DY Week, MM Month
+	SUM(il.LineNetAmt) AS LineNetAmt,
+	SUM(il.LineListAmt) AS LineListAmt,
+	SUM(il.LineLimitAmt) AS LineLimitAmt,
+	SUM(il.LineDiscountAmt) AS LineDiscountAmt,
+	CASE WHEN SUM(il.LineListAmt)=0 THEN 0 ELSE
+	  ROUND((SUM(il.LineListAmt)-SUM(il.LineNetAmt))/SUM(il.LineListAmt)*100,2) END AS LineDiscount,
+	SUM(il.LineOverLimitAmt) AS LineOverLimitAmt,
+	CASE WHEN SUM(il.LineNetAmt)=0 THEN 0 ELSE
+	  100-ROUND((SUM(il.LineNetAmt)-SUM(il.LineOverLimitAmt))/SUM(il.LineNetAmt)*100,2) END AS LineOverLimit,
+    il.IsSOTrx, il.C_DocTypeTarget_ID, il.DocStatus,
+    i.IsFiscalDocument, 
+    MIN(i.DocumentNo) AS BeginingDocumentNo,
+    MAX(i.DocumentNo) AS EndingDocumentNo,
+    MIN(i.ControlNo) AS BeginingControlNo,
+    MAX(i.ControlNo) AS EndingControlNo
+FROM RV_C_InvoiceLine il
+INNER JOIN C_Invoice i ON(i.C_Invoice_ID = il.C_Invoice_ID)
+GROUP BY il.AD_Client_ID, il.AD_Org_ID, firstOf(il.DateInvoiced, 'DD'), il.IsSOTrx, il.C_DocTypeTarget_ID, il.DocStatus, i.IsFiscalDocument;</SQLStatement>
+      <RollbackStatement>DROP VIEW LVE_RV_C_Invoice_Day_Summary</RollbackStatement>
+    </Step>
+    <Step DBType="Oracle" Parse="Y" SeqNo="1070" StepType="SQL">
+      <Comments>Add LVE_RV_C_Invoice_Day_Summary view</Comments>
+      <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_C_Invoice_Day_Summary
+(AD_Client_ID, AD_Org_ID, DateInvoiced, LineNetAmt, 
+ LineListAmt, LineLimitAmt, LineDiscountAmt, LineDiscount, LineOverLimitAmt, 
+ LineOverLimit, IsSOTrx, C_DocTypeTarget_ID, DocStatus, IsFiscalDocument, BeginingDocumentNo, EndingDocumentNo, BeginingControlNo, EndingControlNo)
+AS 
+SELECT il.AD_Client_ID, il.AD_Org_ID,
+	firstOf(il.DateInvoiced, 'DD') AS DateInvoiced,	--	DD Day, DY Week, MM Month
+	SUM(il.LineNetAmt) AS LineNetAmt,
+	SUM(il.LineListAmt) AS LineListAmt,
+	SUM(il.LineLimitAmt) AS LineLimitAmt,
+	SUM(il.LineDiscountAmt) AS LineDiscountAmt,
+	CASE WHEN SUM(il.LineListAmt)=0 THEN 0 ELSE
+	  ROUND((SUM(il.LineListAmt)-SUM(il.LineNetAmt))/SUM(il.LineListAmt)*100,2) END AS LineDiscount,
+	SUM(il.LineOverLimitAmt) AS LineOverLimitAmt,
+	CASE WHEN SUM(il.LineNetAmt)=0 THEN 0 ELSE
+	  100-ROUND((SUM(il.LineNetAmt)-SUM(il.LineOverLimitAmt))/SUM(il.LineNetAmt)*100,2) END AS LineOverLimit,
+    il.IsSOTrx, il.C_DocTypeTarget_ID, il.DocStatus,
+    i.IsFiscalDocument, 
+    MIN(i.DocumentNo) AS BeginingDocumentNo,
+    MAX(i.DocumentNo) AS EndingDocumentNo,
+    MIN(i.ControlNo) AS BeginingControlNo,
+    MAX(i.ControlNo) AS EndingControlNo
+FROM RV_C_InvoiceLine il
+INNER JOIN C_Invoice i ON(i.C_Invoice_ID = il.C_Invoice_ID)
+GROUP BY il.AD_Client_ID, il.AD_Org_ID, firstOf(il.DateInvoiced, 'DD'), il.IsSOTrx, il.C_DocTypeTarget_ID, il.DocStatus, i.IsFiscalDocument;</SQLStatement>
+      <RollbackStatement>DROP VIEW LVE_RV_C_Invoice_Day_Summary</RollbackStatement>
+    </Step>
+  </Migration>
+</Migrations>
