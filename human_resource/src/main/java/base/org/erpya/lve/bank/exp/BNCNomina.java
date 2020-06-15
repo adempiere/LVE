@@ -36,10 +36,9 @@ import org.compiere.util.Msg;
 import org.compiere.util.Util;
 import org.eevolution.model.MHRMovement;
 import org.eevolution.model.MHRProcess;
-import org.erpya.lve.util.ColumnsAdded;
 
 /**
- * 	Implementation for Export Payment from Mercantil bank for Payroll
+ * 	Implementation for Export Payment from BNC bank for Payroll
  * 	@author Yamel Senih, ysenih@erpya.com, ERPCyA http://www.erpya.com
  */
 public class BNCNomina extends LVEPaymentExportList {
@@ -107,7 +106,7 @@ public class BNCNomina extends LVEPaymentExportList {
 			//	
 			StringBuffer header = new StringBuffer();
 			//	Debt Note
-			header.append("ND ")						//  Constant
+			header.append("ND ")					//  Constant
 				.append(bankAccountNo)				//	Bank Client No
 				.append(totalAmtAsString)			//  Total Amount
 				.append(organizationType)			//	Organization Type
