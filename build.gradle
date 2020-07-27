@@ -1,19 +1,25 @@
-plugins {
-    id 'java-library'
-}
-
-java {
-	sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
+apply plugin: 'java-library'
+apply plugin: 'maven-publish'
 
 repositories {
-    jcenter()
+    mavenLocal()
+    mavenCentral()
     flatDir {
        dirs 'dependences', 'lib'
 	}
+    maven {
+		url = "https://maven.pkg.github.com/erpcya/Repository"
+        credentials {
+        	username = System.properties['deploy.user'] ?: System.getenv("GITHUB_DEPLOY_USER")
+            password = System.properties['deploy.token'] ?: System.getenv("GITHUB_DEPLOY_TOKEN")
+		}
+	}
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+def libraryVersion = '1.0.0'
 sourceSets {
     main {
          java {
@@ -23,10 +29,8 @@ sourceSets {
 }
 
 dependencies {
-    implementation name: 'Adempiere'
-    implementation name: 'Withholding'
-    implementation name: 'HumanResourceAndPayroll'
-    implementation name: 'jackcess-3.0.1'
+	compileOnly fileTree(dir: 'dependences', include: ['*.jar'])
+	compileOnly fileTree(dir: 'lib', include: ['*.jar'])
 }
 
 jar {
@@ -52,4 +56,42 @@ task createRelease(type: Zip) {
             ant.checksum file: file
         }
    	}
+}
+
+publishing {
+    repositories {
+        maven {
+            url = "https://maven.pkg.github.com/erpcya/Repository"
+            credentials {
+                username = System.properties['deploy.user'] ?: System.getenv("GITHUB_DEPLOY_USER")
+                password = System.properties['deploy.token'] ?: System.getenv("GITHUB_DEPLOY_TOKEN")
+            }
+        }
+    }
+    publications {
+		mavenJava(MavenPublication) {
+        	groupId 'org.erpya.adempiere.locations'
+            artifactId 'location-venezuela'
+            version libraryVersion
+           	artifact jar
+           	pom {
+                name = 'ADempiere Venezuela Location'
+                description = 'This library have all related to ADempiere Venezuela Location own Laws for Venezuela (Venezuela Freedom :))'
+                 url = 'https://www.erpya.com/'
+                licenses {
+                    license {
+                        name = 'GNU General Public License v3.0'
+                        url = 'https://www.gnu.org/licenses/gpl-3.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'yamelsenih'
+                        name = 'Yamel Senih'
+                        email = 'ysenih@erpya.com'
+                    }
+                }
+            }
+		}
+	}
 }

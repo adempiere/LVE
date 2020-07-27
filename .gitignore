@@ -23,6 +23,8 @@
 hs_err_pid*
 /bin/
 /.gradle/
+/.settings/
 /build/
-/lib/
 /dependences/
+/lib/
+*.properties
