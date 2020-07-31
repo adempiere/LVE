@@ -21,7 +21,7 @@ SELECT il.AD_Client_ID, il.AD_Org_ID,
     MIN(i.ControlNo) AS BeginingControlNo,
     MAX(i.ControlNo) AS EndingControlNo,
     dt.DocBaseType,
-    SUM(currencyBase(il.LineNetAmt, i.C_Currency_ID, i.DateAcct, i.AD_Client_ID, i.AD_Org_ID)) AS ConvertedAmt
+    SUM(currencyBase(il.LineNetAmt, i.C_Currency_ID, i.DateAcct, i.C_ConversionType_ID, i.AD_Client_ID, i.AD_Org_ID)) AS ConvertedAmt
 FROM RV_C_InvoiceLine il
 INNER JOIN C_Invoice i ON(i.C_Invoice_ID = il.C_Invoice_ID)
 INNER JOIN C_DocType dt ON(dt.C_DocType_ID = il.C_DocTypeTarget_ID)
