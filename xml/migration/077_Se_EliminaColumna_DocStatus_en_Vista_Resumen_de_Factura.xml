@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="D" Name="Se elimina columna DocStatus en vista resumen de factura" ReleaseNo="3.9.4" SeqNo="81000530">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="286" Action="D" Record_ID="57681" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created" isNewNull="true" oldValue="2020-06-15 13:00:04.0"/>
+        <Data AD_Column_ID="2835" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2838" Column="Updated" isNewNull="true" oldValue="2020-06-15 13:00:04.0"/>
+        <Data AD_Column_ID="2840" Column="Name" isNewNull="true" oldValue="Document Status"/>
+        <Data AD_Column_ID="2842" Column="IsTranslated" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2841" Column="Description" isNewNull="true" oldValue="The current status of the document"/>
+        <Data AD_Column_ID="3743" Column="Help" isNewNull="true" oldValue="The Document Status indicates the status of a document at this time.  If you want to change the document status, use the Document Action field"/>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID" oldValue="57681">57681</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2837" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2832" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="84386" Column="UUID" isNewNull="true" oldValue="81d046dc-c16a-4f3f-911c-05cf1ca30704"/>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="285" Action="D" Record_ID="57681" Table="AD_Process_Para">
+        <Data AD_Column_ID="2820" Column="Updated" isNewNull="true" oldValue="2020-06-15 13:00:02.0"/>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true" oldValue="CO"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID" isNewNull="true" oldValue="57681"/>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="7728" Column="EntityType" isNewNull="true" oldValue="LVE"/>
+        <Data AD_Column_ID="3737" Column="FieldLength" isNewNull="true" oldValue="2"/>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID" isNewNull="true" oldValue="54394"/>
+        <Data AD_Column_ID="2819" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID" isNewNull="true" oldValue="17"/>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo" isNewNull="true" oldValue="30"/>
+        <Data AD_Column_ID="2821" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true" oldValue="131"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID" isNewNull="true" oldValue="289"/>
+        <Data AD_Column_ID="84385" Column="UUID" isNewNull="true" oldValue="effa28dd-78e6-49ec-b64c-daa57cc8e878"/>
+        <Data AD_Column_ID="2822" Column="Name" isNewNull="true" oldValue="Document Status"/>
+        <Data AD_Column_ID="2817" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2830" Column="IsRange" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2818" Column="Created" isNewNull="true" oldValue="2020-06-15 13:00:02.0"/>
+        <Data AD_Column_ID="3738" Column="IsMandatory" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName" isNewNull="true" oldValue="DocStatus"/>
+        <Data AD_Column_ID="2823" Column="Description" isNewNull="true" oldValue="The current status of the document"/>
+        <Data AD_Column_ID="2824" Column="Help" isNewNull="true" oldValue="The Document Status indicates the status of a document at this time.  If you want to change the document status, use the Document Action field"/>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="752" Action="D" Record_ID="96352" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created" isNewNull="true" oldValue="2020-06-15 12:47:00.0"/>
+        <Data AD_Column_ID="12959" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="12952" Column="Updated" isNewNull="true" oldValue="2020-06-15 12:47:00.0"/>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID" oldValue="96352">96352</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="12957" Column="Name" isNewNull="true" oldValue="Document Status"/>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="12958" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="12956" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="12953" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID" isNewNull="true" oldValue="d4384bd3-ea97-436e-91fd-a7db4e0f88a4"/>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="101" Action="D" Record_ID="96352" Table="AD_Column">
+        <Data AD_Column_ID="119" Column="IsKey" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="110" Column="Version" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName" isNewNull="true" oldValue="DocStatus"/>
+        <Data AD_Column_ID="113" Column="Help" isNewNull="true" oldValue="The Document Status indicates the status of a document at this time.  If you want to change the document status, use the Document Action field"/>
+        <Data AD_Column_ID="3360" Column="IsUpdateable" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="128" Column="IsEncrypted" isNewNull="true" oldValue="N"/>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="68024" Column="IsRange" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="127" Column="SeqNo" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="6482" Column="EntityType" isNewNull="true" oldValue="LVE"/>
+        <Data AD_Column_ID="359" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="360" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID" isNewNull="true" oldValue="54742"/>
+        <Data AD_Column_ID="550" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID" isNewNull="true" oldValue="289"/>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID" isNewNull="true" oldValue="131"/>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength" isNewNull="true" oldValue="2"/>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID" isNewNull="true" oldValue="17"/>
+        <Data AD_Column_ID="552" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="84306" Column="UUID" isNewNull="true" oldValue="f682f1cd-0953-411e-8251-c6c28a60373e"/>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="112" Column="Description" isNewNull="true" oldValue="The current status of the document"/>
+        <Data AD_Column_ID="548" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="549" Column="Created" isNewNull="true" oldValue="2020-06-15 12:46:59.0"/>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated" isNewNull="true" oldValue="2020-06-15 12:46:59.0"/>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID" isNewNull="true" oldValue="96352"/>
+        <Data AD_Column_ID="126" Column="IsIdentifier" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="111" Column="Name" isNewNull="true" oldValue="Document Status"/>
+        <Data AD_Column_ID="124" Column="IsMandatory" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="125" Column="IsTranslated" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase" isNewNull="true" oldValue="N"/>
+      </PO>
+    </Step>
+    <Step DBType="Postgres" Parse="N" SeqNo="50" StepType="SQL">
+      <SQLStatement>DROP VIEW LVE_RV_C_Invoice_Day_Summary</SQLStatement>
+    </Step>
+    <Step DBType="Oracle" Parse="N" SeqNo="50" StepType="SQL">
+      <SQLStatement>DROP VIEW LVE_RV_C_Invoice_Day_Summary</SQLStatement>
+    </Step>
+    <Step DBType="Oracle" Parse="N" SeqNo="60" StepType="SQL">
+      <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_C_Invoice_Day_Summary
+(AD_Client_ID, AD_Org_ID, DateInvoiced, LineNetAmt, 
+ LineListAmt, LineLimitAmt, LineDiscountAmt, LineDiscount, LineOverLimitAmt, 
+ LineOverLimit, IsSOTrx, DocNoSequence_ID, ControlNoSequence_ID, IsFiscalDocument, BeginingDocumentNo, EndingDocumentNo, BeginingControlNo, EndingControlNo, DocBaseType)
+AS 
+SELECT il.AD_Client_ID, il.AD_Org_ID,
+	firstOf(il.DateInvoiced, 'DD') AS DateInvoiced,	--	DD Day, DY Week, MM Month
+	SUM(il.LineNetAmt) AS LineNetAmt,
+	SUM(il.LineListAmt) AS LineListAmt,
+	SUM(il.LineLimitAmt) AS LineLimitAmt,
+	SUM(il.LineDiscountAmt) AS LineDiscountAmt,
+	CASE WHEN SUM(il.LineListAmt)=0 THEN 0 ELSE
+	  ROUND((SUM(il.LineListAmt)-SUM(il.LineNetAmt))/SUM(il.LineListAmt)*100,2) END AS LineDiscount,
+	SUM(il.LineOverLimitAmt) AS LineOverLimitAmt,
+	CASE WHEN SUM(il.LineNetAmt)=0 THEN 0 ELSE
+	  100-ROUND((SUM(il.LineNetAmt)-SUM(il.LineOverLimitAmt))/SUM(il.LineNetAmt)*100,2) END AS LineOverLimit,
+    il.IsSOTrx, COALESCE(dt.DefiniteSequence_ID, dt.DocNoSequence_ID) AS DocNoSequence_ID, dt.ControlNoSequence_ID,
+    dt.IsFiscalDocument, 
+    MIN(CASE WHEN il.DocStatus IN('CO', 'CL') THEN i.DocumentNo ELSE '' END) AS BeginingDocumentNo,
+    MAX(CASE WHEN il.DocStatus IN('CO', 'CL') THEN i.DocumentNo ELSE '' END) AS EndingDocumentNo,
+    MIN(CASE WHEN il.DocStatus IN('CO', 'CL') THEN i.ControlNo ELSE '' END) AS BeginingControlNo,
+    MAX(CASE WHEN il.DocStatus IN('CO', 'CL') THEN i.ControlNo ELSE '' END) AS EndingControlNo,
+    dt.DocBaseType,
+    SUM(currencyBase(il.LineNetAmt, i.C_Currency_ID, i.DateAcct, i.C_ConversionType_ID, i.AD_Client_ID, i.AD_Org_ID)) AS ConvertedAmt
+FROM RV_C_InvoiceLine il
+INNER JOIN C_Invoice i ON(i.C_Invoice_ID = il.C_Invoice_ID)
+INNER JOIN C_DocType dt ON(dt.C_DocType_ID = il.C_DocTypeTarget_ID)
+WHERE il.DocStatus IN('CO', 'CL', 'RE')
+GROUP BY il.AD_Client_ID, il.AD_Org_ID, firstOf(il.DateInvoiced, 'DD'), il.IsSOTrx, COALESCE(dt.DefiniteSequence_ID, dt.DocNoSequence_ID), dt.ControlNoSequence_ID, dt.IsFiscalDocument, dt.DocBaseType</SQLStatement>
+    </Step>
+    <Step DBType="Postgres" Parse="N" SeqNo="60" StepType="SQL">
+      <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_C_Invoice_Day_Summary
+(AD_Client_ID, AD_Org_ID, DateInvoiced, LineNetAmt, 
+ LineListAmt, LineLimitAmt, LineDiscountAmt, LineDiscount, LineOverLimitAmt, 
+ LineOverLimit, IsSOTrx, DocNoSequence_ID, ControlNoSequence_ID, IsFiscalDocument, BeginingDocumentNo, EndingDocumentNo, BeginingControlNo, EndingControlNo, DocBaseType)
+AS 
+SELECT il.AD_Client_ID, il.AD_Org_ID,
+	firstOf(il.DateInvoiced, 'DD') AS DateInvoiced,	--	DD Day, DY Week, MM Month
+	SUM(il.LineNetAmt) AS LineNetAmt,
+	SUM(il.LineListAmt) AS LineListAmt,
+	SUM(il.LineLimitAmt) AS LineLimitAmt,
+	SUM(il.LineDiscountAmt) AS LineDiscountAmt,
+	CASE WHEN SUM(il.LineListAmt)=0 THEN 0 ELSE
+	  ROUND((SUM(il.LineListAmt)-SUM(il.LineNetAmt))/SUM(il.LineListAmt)*100,2) END AS LineDiscount,
+	SUM(il.LineOverLimitAmt) AS LineOverLimitAmt,
+	CASE WHEN SUM(il.LineNetAmt)=0 THEN 0 ELSE
+	  100-ROUND((SUM(il.LineNetAmt)-SUM(il.LineOverLimitAmt))/SUM(il.LineNetAmt)*100,2) END AS LineOverLimit,
+    il.IsSOTrx, COALESCE(dt.DefiniteSequence_ID, dt.DocNoSequence_ID) AS DocNoSequence_ID, dt.ControlNoSequence_ID,
+    dt.IsFiscalDocument, 
+    MIN(CASE WHEN il.DocStatus IN('CO', 'CL') THEN i.DocumentNo ELSE '' END) AS BeginingDocumentNo,
+    MAX(CASE WHEN il.DocStatus IN('CO', 'CL') THEN i.DocumentNo ELSE '' END) AS EndingDocumentNo,
+    MIN(CASE WHEN il.DocStatus IN('CO', 'CL') THEN i.ControlNo ELSE '' END) AS BeginingControlNo,
+    MAX(CASE WHEN il.DocStatus IN('CO', 'CL') THEN i.ControlNo ELSE '' END) AS EndingControlNo,
+    dt.DocBaseType,
+    SUM(currencyBase(il.LineNetAmt, i.C_Currency_ID, i.DateAcct, i.C_ConversionType_ID, i.AD_Client_ID, i.AD_Org_ID)) AS ConvertedAmt
+FROM RV_C_InvoiceLine il
+INNER JOIN C_Invoice i ON(i.C_Invoice_ID = il.C_Invoice_ID)
+INNER JOIN C_DocType dt ON(dt.C_DocType_ID = il.C_DocTypeTarget_ID)
+WHERE il.DocStatus IN('CO', 'CL', 'RE')
+GROUP BY il.AD_Client_ID, il.AD_Org_ID, firstOf(il.DateInvoiced, 'DD'), il.IsSOTrx, COALESCE(dt.DefiniteSequence_ID, dt.DocNoSequence_ID), dt.ControlNoSequence_ID, dt.IsFiscalDocument, dt.DocBaseType</SQLStatement>
+    </Step>
+  </Migration>
+</Migrations>
