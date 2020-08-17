@@ -195,6 +195,7 @@ public class AllocationManager {
 		//	Create allocation
 		String allocationMessage = Msg.parseTranslation(document.getCtx(), "@CreatedFromDocument@ @C_Invoice_ID@: " + document.getDocumentNo());
 		MAllocationHdr allocation = new MAllocationHdr(document.getCtx(), true, document.getDateInvoiced(), document.getC_Currency_ID(), allocationMessage, document.get_TrxName());
+		allocation.setDateAcct(document.getDateAcct());
 		allocation.setAD_Org_ID(document.getAD_Org_ID());
 		//	Set Description
 		allocation.saveEx();
