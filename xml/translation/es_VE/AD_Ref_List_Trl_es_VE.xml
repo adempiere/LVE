@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!--ADempiere(r) Release 3.9.2_2019-05-03 -Smart Suite ERP,CRM and SCM- (c) 1999-2019 ADempiere(r); Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_VE" table="AD_Ref_List">
+<!--ADempiere(r) Release 3.9.3_2019-12-01 - Smart Suite ERP,CRM and SCM - (c) 1999-2019 ADempiere(r) Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_VE" table="AD_Ref_List">
  <row id="51" trl="Y">
   <value column="Name" original="Organization">Organización</value>
   <value column="Description" original=""/>
@@ -7390,6 +7390,121 @@
   <value column="Description" original=""/>
   <value column="UUID" original="a467c968-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="55107" trl="N">
+  <value column="Name" original="Loan">Préstamo</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55108" trl="N">
+  <value column="Name" original="Financial Agreement">Acuerdo Financiero</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55109" trl="N">
+  <value column="Name" original="Agreement">Acuerdo Financiero</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55110" trl="N">
+  <value column="Name" original="Transaction">Transacción</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55111" trl="N">
+  <value column="Name" original="Account">Cuenta Financiera</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55112" trl="N">
+  <value column="Name" original="Financial Transaction Batch">Lote de Transacción Financiera</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55116" trl="N">
+  <value column="Name" original="Table Action">Acción de Tabla</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55117" trl="N">
+  <value column="Name" original="Simulation">Simulación</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55118" trl="N">
+  <value column="Name" original="Process">Proceso</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55121" trl="N">
+  <value column="Name" original="Daily">Diario</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55122" trl="N">
+  <value column="Name" original="Monthly">Mensual</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55123" trl="N">
+  <value column="Name" original="Quarterly">Trimestral</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55124" trl="N">
+  <value column="Name" original="Semi-yearly">Semestral</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55125" trl="N">
+  <value column="Name" original="Yearly">Anual</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55126" trl="N">
+  <value column="Name" original="Twice Monthly">Quincenal</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55127" trl="N">
+  <value column="Name" original="Single Fee">Cuota Única</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55128" trl="N">
+  <value column="Name" original="Weekly">Semanal</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55132" trl="N">
+  <value column="Name" original="Transaction Reverse">Reverso de Transacción</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55135" trl="N">
+  <value column="Name" original="Loan Interest (Calculated)">Cuota de Interés (Calculado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55136" trl="N">
+  <value column="Name" original="Loan Dunning Interest (Calculated)">Cuota de Interés de Mora (Calculado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55137" trl="N">
+  <value column="Name" original="Loan Initial Payment">Pago Inicial de Préstamo</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55138" trl="N">
+  <value column="Name" original="Loan Interest Tax Calculated">Impuesto Interés de Cuota (Calculado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55142" trl="N">
+  <value column="Name" original="Loan Capital (Calculated)">Cuota de Capital (Calculado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
  <row id="55143" trl="N">
   <value column="Name" original="Forecast vs Invoice">Pronóstico vs Factura</value>
   <value column="Description" original=""/>
@@ -7400,10 +7515,105 @@
   <value column="Description" original=""/>
   <value column="UUID" original="a467cb70-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="55145" trl="N">
+  <value column="Name" original="Payments from Loan">Pagos de Préstamo</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55146" trl="N">
+  <value column="Name" original="Loan of Payment">Préstamo de Pago</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55147" trl="N">
+  <value column="Name" original="Payment Selection from Loan">Selección de Pago de Préstamo</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55148" trl="N">
+  <value column="Name" original="Loan of Payment Selection">Préstamo de Selección de Pagos</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55149" trl="N">
+  <value column="Name" original="Loan Dunning Tax Amount (Calculated)">Impuesto de Morosidad de Cuota (Calculado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55150" trl="N">
+  <value column="Name" original="Invoice Customer From Loan">Documento por Cobrar de Cuota</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55151" trl="N">
+  <value column="Name" original="Loan of Invoice Customer">Préstamo de Cuota</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
  <row id="55164" trl="Y">
   <value column="Name" original="Fixed Assets Split">Dividir Activo Fijo</value>
   <value column="Description" original=""/>
   <value column="UUID" original="a467ce36-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55165" trl="N">
+  <value column="Name" original="Batch Transaction from Agreement">Lote de Transacciones</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55166" trl="N">
+  <value column="Name" original="Agreement from Batch Transaction">Acuerdo Financiero de Lote</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55167" trl="N">
+  <value column="Name" original="Loan Capital (Invoiced)">Cuota de Capital (Facturado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55168" trl="N">
+  <value column="Name" original="Loan Interest (Invoiced)">Cuota de Interés (Facturado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55169" trl="N">
+  <value column="Name" original="Loan Dunning Interest (Invoiced)">Cuota de Interés de Mora (Facturado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55170" trl="N">
+  <value column="Name" original="Loan Tax Amount (Invoiced)">Impuesto de Cuota (Facturado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55171" trl="N">
+  <value column="Name" original="Loan Dunning Tax Amount (Invoiced)">Impuesto de Morosidad de Cuota (Facturado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55172" trl="N">
+  <value column="Name" original="Batch Transaction from Invoice (Customer)">Lote de Transacciones de Documento por Cobrar</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55173" trl="N">
+  <value column="Name" original="Invoice (Customer) from Batch Transaction">Documento por Cobrar de Lote de Transacciones</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55181" trl="N">
+  <value column="Name" original="Loan Provision (Calculated)">Prevision (Calculado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55182" trl="N">
+  <value column="Name" original="Loan Suspend Interest (Calculated)">Interés en Suspenso (Calculado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="55183" trl="N">
+  <value column="Name" original="Loan Suspend Dunning (Calculated)">Mora en Suspenso (Calculado)</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original=""/>
  </row>
  <row id="55185" trl="N">
   <value column="Name" original="CSV">CSV</value>
@@ -7424,6 +7634,76 @@
   <value column="Name" original="Supervisor of WF Responsible">Supervisor del responsable para el flujo de trabajo </value>
   <value column="Description" original=""/>
   <value column="UUID" original="a467d944-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="55211" trl="N">
+  <value column="Name" original="Attendance">Asistencia</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="07c82aea-12c8-11e9-94fa-135a0907893a"/>
+ </row>
+ <row id="55212" trl="N">
+  <value column="Name" original="Entrance">Entrada</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="081b3f28-12c8-11e9-aaec-bf2e90df876a"/>
+ </row>
+ <row id="55213" trl="N">
+  <value column="Name" original="Leave">Ausencia</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="0866d9c4-12c8-11e9-aaef-07c00c9e24fd"/>
+ </row>
+ <row id="55214" trl="N">
+  <value column="Name" original="Egress">Salida</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="08b7c06e-12c8-11e9-aaf2-179164dbffa7"/>
+ </row>
+ <row id="55215" trl="N">
+  <value column="Name" original="Hour">Hora</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="092c6c14-12ca-11e9-9740-bbc22d2fbf2f"/>
+ </row>
+ <row id="55216" trl="N">
+  <value column="Name" original="Minute">Minuto</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="09ab50f6-12ca-11e9-9743-6b46a61f8fb5"/>
+ </row>
+ <row id="55217" trl="N">
+  <value column="Name" original="Attendance Record">Registro de Asistencia</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="0a27b1be-12ca-11e9-9746-972bef4cf44d"/>
+ </row>
+ <row id="55218" trl="N">
+  <value column="Name" original="HR Incidence">Incidencia de Nómina</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="0aa5b208-12ca-11e9-9749-b73fe6ae306e"/>
+ </row>
+ <row id="55219" trl="N">
+  <value column="Name" original="Leave Request">Solicitud del Permiso</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="0b21d1da-12ca-11e9-974c-63ddc7c17016"/>
+ </row>
+ <row id="55220" trl="N">
+  <value column="Name" original="Biweekly">Quincenal</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="196a3e76-12ca-11e9-8714-cb07bfb133d1"/>
+ </row>
+ <row id="55221" trl="N">
+  <value column="Name" original="Monthly">Mensual</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="19e52316-12ca-11e9-8717-c73eb6c53733"/>
+ </row>
+ <row id="55222" trl="N">
+  <value column="Name" original="Quarterly">Trimestral</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="1a600cac-12ca-11e9-871a-e7efd043857b"/>
+ </row>
+ <row id="55223" trl="N">
+  <value column="Name" original="Weekly">Semanal</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="1ada708c-12ca-11e9-871d-6351b096a425"/>
+ </row>
+ <row id="55224" trl="N">
+  <value column="Name" original="Yearly">Anual</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="1b56fff8-12ca-11e9-8720-435237c9745a"/>
  </row>
  <row id="55240" trl="N">
   <value column="Name" original="SMS (Short Message Service) ">SMS (Servicio de Mensajes Cortos) </value>
@@ -7685,6 +7965,11 @@
   <value column="Description" original=""/>
   <value column="UUID" original="3e7615f2-9121-11e9-a6ef-2f8bca818133">3ead9cc0-9121-11e9-a702-c3d639034058</value>
  </row>
+ <row id="55394" trl="N">
+  <value column="Name" original="Variable Date">Fecha Variable</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="f3ef13ae-b3cf-11e9-95a8-0242ac110002">f488ba68-b3cf-11e9-95a8-0242ac110002</value>
+ </row>
  <row id="55401" trl="N">
   <value column="Name" original="Freight Order">Orden de Flete</value>
   <value column="Description" original=""/>
@@ -7734,6 +8019,91 @@
   <value column="Name" original="Credit Note">Nota de Crédito</value>
   <value column="Description" original=""/>
   <value column="UUID" original="04d2d310-cd32-11e9-ac06-0242ac110002">05034176-cd32-11e9-ac06-0242ac110002</value>
+ </row>
+ <row id="55411" trl="N">
+  <value column="Name" original="Bank Charge">Cargo Bancario</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="7cbf418a-db36-11e9-9ee7-0242ac110003">7ce6f90a-db36-11e9-9ee7-0242ac110003</value>
+ </row>
+ <row id="55412" trl="N">
+  <value column="Name" original="Unidentified Payment">Pago sin Identificar</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="985853d2-db36-11e9-9ee7-0242ac110003">98850bd4-db36-11e9-9ee7-0242ac110003</value>
+ </row>
+ <row id="55413" trl="N">
+  <value column="Name" original="Other Payment Type">Otro Tipo de Pago</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="a4cce4b6-db36-11e9-9ee7-0242ac110003">a4f12eac-db36-11e9-9ee7-0242ac110003</value>
+ </row>
+ <row id="55414" trl="N">
+  <value column="Name" original="Identified Payment">Pagos Identificados</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="f2ab7fc2-de2d-11e9-96b6-0242ac110002">f2ca3868-de2d-11e9-96b6-0242ac110002</value>
+ </row>
+ <row id="55415" trl="N">
+  <value column="Name" original="Unidentified Payment">Pagos sin Identificar</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="094374d8-de2e-11e9-96b6-0242ac110002">09679d9a-de2e-11e9-96b6-0242ac110002</value>
+ </row>
+ <row id="55416" trl="N">
+  <value column="Name" original="Create Payment">Crear Pago / Cobro</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="e0e549ca-de38-11e9-b8f2-0242ac110002">e11fc4ce-de38-11e9-b8f2-0242ac110002</value>
+ </row>
+ <row id="55417" trl="N">
+  <value column="Name" original="Select Existing">Seleccionar Existente</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="ef53264e-de38-11e9-b8f2-0242ac110002">ef750cd2-de38-11e9-b8f2-0242ac110002</value>
+ </row>
+ <row id="55418" trl="N">
+  <value column="Name" original="General">General</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="9d79b760-e064-11e9-b70a-0242ac110002">9da26f2a-e064-11e9-b70a-0242ac110002</value>
+ </row>
+ <row id="55419" trl="N">
+  <value column="Name" original="General + Additional">General + Adicional</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="ae34fad8-e064-11e9-b70a-0242ac110002">ae5ed1aa-e064-11e9-b70a-0242ac110002</value>
+ </row>
+ <row id="55420" trl="N">
+  <value column="Name" original="Reduced">Reducido</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="bed1a2d8-e064-11e9-b6cf-0242ac110002">befaf584-e064-11e9-b6cf-0242ac110002</value>
+ </row>
+ <row id="55447" trl="N">
+  <value column="Name" original="Invoice Order">Orden Facturada (Automáticamente)</value>
+  <value column="Description" original="Invoice Order allows generate a invoice automatically after complete, the delivery is based on delivery rule from standar sales process">La orden Pre-Facturada permite generar una factura automáticamente al completarse, la entrega es basada en la regla de entrega desde el proceso estándar de ventas</value>
+  <value column="UUID" original="2e566fc6-b08b-464d-8b10-5684654b18cb">9d507747-08eb-4ddd-ade2-2a4b9314faf5</value>
+ </row>
+ <row id="55460" trl="N">
+  <value column="Name" original="Zelle">Zelle</value>
+  <value column="Description" original="Zelle is a United States-based digital payments network owned by Early Warning Services, a private financial services company owned by the banks Bank of America, BB&amp;T, Capital One, JPMorgan Chase, PNC Bank, US Bank, Citibank and Wells Fargo."><![CDATA[Zelle is a United States-based digital payments network owned by Early Warning Services, a private financial services company owned by the banks Bank of America, BB&T, Capital One, JPMorgan Chase, PNC Bank, US Bank, Citibank and Wells Fargo.]]></value>
+  <value column="UUID" original="c6db5595-6c4b-422e-add6-60b94da87267">7115eca6-0d1c-4ccc-a738-a94c9bc948f6</value>
+ </row>
+ <row id="55461" trl="N">
+  <value column="Name" original="Mobile Payment Interbank">Pago Móvil</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="33f93431-5d38-4bb8-8df8-d333d026db1e">abafedda-af99-4dcb-8396-56c63159b2c2</value>
+ </row>
+ <row id="55495" trl="N">
+  <value column="Name" original="Weight Based">En Base a Peso</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="360a1c37-7e25-41fc-9b87-ef84536a6a56">cd97c8d6-dd51-4006-a9b5-b16c57f21d6c</value>
+ </row>
+ <row id="55496" trl="N">
+  <value column="Name" original="Volume Based">En Base a Volumen</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="a0c62767-7156-4ee4-b550-f83623384f5e">d9ff8626-d94b-40ba-a8d2-03ad92e94cbc</value>
+ </row>
+ <row id="55497" trl="N">
+  <value column="Name" original="Customized">Personalizado</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="d38d1d9d-4f4d-4da4-8d00-777dd885d8ba">d51c61c6-05c4-4ac0-9acb-968a93f98257</value>
+ </row>
+ <row id="55498" trl="N">
+  <value column="Name" original="Package">Paquete</value>
+  <value column="Description" original=""/>
+  <value column="UUID" original="ca4c23b3-f5ec-4ecc-be97-77d2760d6218">bd7e8f68-9c1b-41d7-afa5-3d2ff483a742</value>
  </row>
  <row id="200139" trl="Y">
   <value column="Name" original="Fixed Assets Addition">Fixed Assets Document</value>

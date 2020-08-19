@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!--ADempiere(r) Release 3.9.2_2019-05-03 -Smart Suite ERP,CRM and SCM- (c) 1999-2019 ADempiere(r); Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_VE" table="AD_Window">
+<!--ADempiere(r) Release 3.9.3_2019-12-01 - Smart Suite ERP,CRM and SCM - (c) 1999-2019 ADempiere(r) Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_VE" table="AD_Window">
  <row id="100" trl="Y">
   <value column="Name" original="Table and Column">Tabla y Columna</value>
   <value column="Description" original="Maintain Tables and Columns">Mantener tablas y columnas</value>
@@ -2877,6 +2877,90 @@ Pipelines (pipeline transport)</value>
   <value column="Help" original="">Permite crear de manera dinámica Reportes de Nómina</value>
   <value column="UUID" original="a522088c-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="53570" trl="N">
+  <value column="Name" original="Financial Functional Setting">Funcionalidad Financiera</value>
+  <value column="Description" original="Setup for Functional Setting and Financial Product Category">Configuración de Funcionalidad Financiera</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53571" trl="N">
+  <value column="Name" original="Financial Product Category">Categoría de Producto Financiero</value>
+  <value column="Description" original="Product Category used for Financial Product Classification">Define la Categoría de Producto Financiero</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53572" trl="N">
+  <value column="Name" original="Financial Product">Producto Financiero</value>
+  <value column="Description" original="Main Financial Product Configuration">Mantenimiento de Producto Financiero</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53573" trl="N">
+  <value column="Name" original="Financial Agreement">Acuerdo Financiero</value>
+  <value column="Description" original="Financial Agreement Document">Documento de Acuerdo Financiero</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53574" trl="N">
+  <value column="Name" original="Financial Agreement Type">Tipo de Acuerdo Financiero</value>
+  <value column="Description" original="Financial Agreement Type">Mantenimiento de Tipo de Acuerdo Financiero</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53575" trl="N">
+  <value column="Name" original="Financial Status Type">Tipo de Estado de Inversión o Préstamo</value>
+  <value column="Description" original="Financial Status Type">Mantenimiento de Tipo de Estado de Inversión o Préstamo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53576" trl="N">
+  <value column="Name" original="Financial Account">Cuenta Financiera</value>
+  <value column="Description" original="Financial Account">Mantenimiento de Cuenta Financiera</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53577" trl="N">
+  <value column="Name" original="Financial Transaction Batch">Lote de Transacción Financiera</value>
+  <value column="Description" original="Financial Transaction Batch">Lote de Transacción Financiera</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53578" trl="N">
+  <value column="Name" original="Financial Transaction">Transacción Financiera</value>
+  <value column="Description" original="Financial Transaction History">Historial de Transacción Financiera</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53579" trl="N">
+  <value column="Name" original="Financial Rate">Tasa Financiera</value>
+  <value column="Description" original="Financial Rate Type">Tipo de Tasa Financiera</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53580" trl="N">
+  <value column="Name" original="Financial Loan">Préstamo</value>
+  <value column="Description" original="Financial Loan Document">Préstamo Financiero</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53581" trl="N">
+  <value column="Name" original="Loan Dunning">Morosidad de Préstamo</value>
+  <value column="Description" original="Loan Dunning Definition">Definición de Morosidad de Préstamo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53583" trl="N">
+  <value column="Name" original="Transaction Type">Tipo de Transacción Financiera</value>
+  <value column="Description" original="Transaction Type Definition">Usado para mantener los Tipo de Transacciones Financieras</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53589" trl="N">
+  <value column="Name" original="Import Financial Agreement">Importar Acuerdos Financieros</value>
+  <value column="Description" original="Import Financial Agreement">Importar Acuerdos Financieros</value>
+  <value column="Help" original="The Import Financial Agreement is an interim table which is used when importing Financial Agreements into the system. Selecting the 'Process' button will either add or modify the appropriate records.">importar Acuerdos Financieros es una tabla provisional que se utiliza al importar Acuerdos Financieros en el sistema. Si selecciona el botón 'Procesar', podrá añadir o modificar los registros apropiados.</value>
+  <value column="UUID" original=""/>
+ </row>
  <row id="53590" trl="Y">
   <value column="Name" original="Project Info">Información del proyecto</value>
   <value column="Description" original="Document Information of Project">Información del documento del proyecto</value>
@@ -2900,6 +2984,36 @@ Pipelines (pipeline transport)</value>
   <value column="Description" original="Context Info Maintaining">Mantenimiento de Información de Contexto</value>
   <value column="Help" original=""/>
   <value column="UUID" original="a5220a9e-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="53625" trl="N">
+  <value column="Name" original="Attendance Record">Registro de Asistencia</value>
+  <value column="Description" original="Attendance Record Document">Documento de Registro de Asistencia</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="90ff675c-12c7-11e9-946f-dbabcc08830c"/>
+ </row>
+ <row id="53626" trl="N">
+  <value column="Name" original="Import Attendance Record">Importar Registro de Asistencia</value>
+  <value column="Description" original="Import Attendance Record">Importar Registro de Asistencia</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="b497766e-12c7-11e9-a90f-3bad8b183700"/>
+ </row>
+ <row id="53627" trl="N">
+  <value column="Name" original="Payroll Incidence">Incidencia de Nómina</value>
+  <value column="Description" original="Payroll Incidence">Incidencia de Nómina</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="c31e4ff0-12c7-11e9-a96e-23babc97a8af"/>
+ </row>
+ <row id="53628" trl="N">
+  <value column="Name" original="Human Resource Calendar">Calendario de RRHH</value>
+  <value column="Description" original="Maintain Calendars Years Periods">Mantenimiento de Calendario de RRHH</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="1bb347f6-12c8-11e9-ab6d-af84ed4eb83b"/>
+ </row>
+ <row id="53629" trl="N">
+  <value column="Name" original="Leave Request">Solicitud del Permiso</value>
+  <value column="Description" original="Leave Request">Solicitud del Permiso</value>
+  <value column="Help" original="The Leave Request Window is used to request a leave of an employee">La ventana Solicitud del Permiso es utilizada para la solicitud de un permiso de un Empleado o la aprobación de permiso</value>
+  <value column="UUID" original="447cd030-12c8-11e9-95c0-b7728e61f4f8"/>
  </row>
  <row id="53633" trl="N">
   <value column="Name" original="Token Definition">Generador de Token</value>
@@ -3021,5 +3135,47 @@ Pipelines (pipeline transport)</value>
   <value column="Description" original="Vehicle Group">Grupo de Vehículo</value>
   <value column="Help" original=""/>
   <value column="UUID" original="a959a51e-4045-11e9-b658-0242ac140002">a965a44a-4045-11e9-b658-0242ac140002</value>
+ </row>
+ <row id="53691" trl="N">
+  <value column="Name" original="Business Partner Sales Group">Grupo de Ventas de Socio de Negocio</value>
+  <value column="Description" original="Business Partner Sales Group">Grupo de Ventas de Socio de Negocio o grupo</value>
+  <value column="Help" original="Use this window for maintaining of Business Partner Sales Group">Use esta ventana para mantener la Grupo de Ventas de Socio de Negocio</value>
+  <value column="UUID" original="340ab277-5c90-4897-ab69-271c793ae458">fd0e7c92-bd0e-48b6-84a1-749038f9bae8</value>
+ </row>
+ <row id="53692" trl="N">
+  <value column="Name" original="Business Partner Account Type">Tipo de Cuenta de Socio de Negocio</value>
+  <value column="Description" original="Business Partner Account Type">Tipo de Cuenta de Socio de Negocio</value>
+  <value column="Help" original="Use this window for maintaining of Business Partner Account Type">Use esta ventana para mantener el Tipo de Cuenta del Socio de Negocio</value>
+  <value column="UUID" original="1d7993d0-c94b-4545-a497-2ad29c3b06f4">0eefb702-06cb-436e-8ba7-3b9c6d4b866e</value>
+ </row>
+ <row id="53693" trl="N">
+  <value column="Name" original="Business Partner Segment">Segmento de Socio de Negocio</value>
+  <value column="Description" original="Business Partner Segment">Segmento de Socio de Negocio o Grupo</value>
+  <value column="Help" original="Use this window for maintaining of Business Partner Segment">Use esta ventana para mantener el Segmento del Socio de Negocio</value>
+  <value column="UUID" original="bc1f3ba0-0190-46aa-b066-82049f1f2803">18936759-9845-4c66-84bd-4bfc140f779f</value>
+ </row>
+ <row id="53694" trl="N">
+  <value column="Name" original="Business Partner Industry Type">Tipo de Industria de Socio de Negocio</value>
+  <value column="Description" original="Business Partner Industry Type">Tipo de Industria de Socio de Negocio</value>
+  <value column="Help" original="Use this window for maintaining of Business Partner Industry Type">Use esta ventana para mantener el Tipo de Industria de Socio de Negocio</value>
+  <value column="UUID" original="a86ce537-86fd-4f2b-aa1c-90f01a8dcbd7">8bb1badb-355b-4729-9def-480775df9210</value>
+ </row>
+ <row id="53695" trl="N">
+  <value column="Name" original="Return Material Order (Customer)">Orden de Devolución (Cliente)</value>
+  <value column="Description" original="Enter and change material return authorization">Entre y Cambie las Autorizaciones de Devolución de Cliente</value>
+  <value column="Help" original="The Order Window allows you to enter and modify Material Return Authorization.  ">La ventana Autorizaciones de Devolución (Cliente) permite crear y cambiar las autorizaciones realizadas</value>
+  <value column="UUID" original="be36ca8a-ec56-11e9-88eb-0242ac110002">be3ee5bc-ec56-11e9-88eb-0242ac110002</value>
+ </row>
+ <row id="53696" trl="N">
+  <value column="Name" original="Return Material Order (Vendor)">Orden de Devolución (Proveedor)</value>
+  <value column="Description" original="Enter and change material return authorization">Entre y Cambie las Autorizaciones de Devolución de Proveedor</value>
+  <value column="Help" original="The Order Window allows you to enter and modify Material Return Authorization.  ">La ventana Autorizaciones de Devolución (Proveedor) permite crear y cambiar las autorizaciones realizadas</value>
+  <value column="UUID" original="11d346ba-ec8d-11e9-9459-0242ac110002">11d90abe-ec8d-11e9-9459-0242ac110002</value>
+ </row>
+ <row id="53703" trl="N">
+  <value column="Name" original="Clean Definition">Definición de Borrado</value>
+  <value column="Description" original="Clean Definition for Clients">Definición de Borrado para Clientes</value>
+  <value column="Help" original="The clean Definition Window allows define all tables that will be deleted for Client">La Ventana Definición de Borrado permite definir todas las tablas que se limpiarán en un cliente</value>
+  <value column="UUID" original="f5169f51-63b1-429a-ab55-0cf430aab6d4">5decb445-15cd-43ef-afba-d653f26cd8f0</value>
  </row>
 </adempiereTrl>

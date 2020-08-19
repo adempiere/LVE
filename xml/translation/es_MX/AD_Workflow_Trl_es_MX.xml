@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!--ADempiere(r) Release 3.9.2_2019-05-03 -Smart Suite ERP,CRM and SCM- (c) 1999-2019 ADempiere(r); Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_MX" table="AD_Workflow">
+<!--ADempiere(r) Release 3.9.3_2019-12-01 - Smart Suite ERP,CRM and SCM - (c) 1999-2019 ADempiere(r) Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_MX" table="AD_Workflow">
  <row id="101" trl="Y">
   <value column="Name" original="Project Setup and Use">Definir Proyecto y su Uso</value>
   <value column="Description" original="Setup of projects and project reporting">Configuración de Proyectos y sus Informes</value>
@@ -192,6 +192,12 @@
   <value column="Help" original=""/>
   <value column="UUID" original="a5262354-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="131" trl="Y">
+  <value column="Name" original="Business Partner Approval">Aprobación Tercero</value>
+  <value column="Description" original="Example Document based workflow">Documento ejemplo basado en un flujo de trabajo</value>
+  <value column="Help" original="When a new Business Partner is created, it is forwarded for review and credit check.">Cuando un nuevo tercero es creado, éste es notificado para revisión y chequeo de crédito</value>
+  <value column="UUID" original=""/>
+ </row>
  <row id="50000" trl="Y">
   <value column="Name" original="Manufacturing Management Setup">Configuración de Manufactura</value>
   <value column="Description" original="Setup Manufacturing Management">Configuración de Manufactura</value>
@@ -311,6 +317,30 @@ Si no puede cubrir el MPS como fue planeado, este módulo le brinda la informaci
   <value column="Help" original=""/>
   <value column="UUID" original="a52672c8-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="50015" trl="Y">
+  <value column="Name" original="Patio Chair">Silla Patio</value>
+  <value column="Description" original="Routing for Assembly the Patio Chair">Enrutamiento para ensamblar la silla Patio</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="50016" trl="Y">
+  <value column="Name" original="Lawn Fertilizer">Fertilizante de Césped</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="50017" trl="Y">
+  <value column="Name" original="Fertilizer Packing Process">Proceso Empaque Fertilizante</value>
+  <value column="Description" original="Production Line to Packing the Fertilizer Bag 50 and 70 kg ">Línea de Producción para empacar las bolsas de fertilizante de 50 y 70kg</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="50018" trl="Y">
+  <value column="Name" original="Patio Furniture Set">Conjunto Muebles Patio</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
  <row id="50019" trl="Y">
   <value column="Name" original="Process_InOutBound_Order">Process_InOutBound_Order</value>
   <value column="Description" original="(Standard Process InOutBound Order)">(Standard Process InOutBound Order)</value>
@@ -383,16 +413,52 @@ Si no puede cubrir el MPS como fue planeado, este módulo le brinda la informaci
   <value column="Help" original=""/>
   <value column="UUID" original="a52676e2-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="50059" trl="N">
+  <value column="Name" original="Process_Agreement">Process_Agreement</value>
+  <value column="Description" original="(Standard Process_Agreement)">(Standard Process_Agreement)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="50060" trl="N">
+  <value column="Name" original="Process_Financial Transaction Batch">Process_Financial Transaction Batch</value>
+  <value column="Description" original="(Standard Process_Financial Transaction Batch)">(Standard Process_Financial Transaction Batch)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
  <row id="50062" trl="N">
   <value column="Name" original="Process_Asset Split">Process_Asset Split</value>
   <value column="Description" original="(Standard Process_Asset Split)">(Standard Process_Asset Split)</value>
   <value column="Help" original=""/>
   <value column="UUID" original="a52677dc-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="50065" trl="N">
+  <value column="Name" original="Process_Attendance Batch">Process_Attendance Batch</value>
+  <value column="Description" original="(Standard Process_Attendance Batch)">(Standard Process_Attendance Batch)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="9a25db9a-12c7-11e9-a84d-ab309de26636"/>
+ </row>
+ <row id="50066" trl="N">
+  <value column="Name" original="Process_Employee Incidence">Process_Employee Incidence</value>
+  <value column="Description" original="(Standard Process_Employee Incidence)">(Standard Process_Employee Incidence)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="cfc670b6-12c7-11e9-a9c3-2fdaad121104"/>
+ </row>
+ <row id="50067" trl="N">
+  <value column="Name" original="Process_Leave">Process_Leave</value>
+  <value column="Description" original="(Standard Process_Leave)">(Standard Process_Leave)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
  <row id="50072" trl="N">
   <value column="Name" original="Process_Withholding Allocation">Process_Withholding Allocation</value>
   <value column="Description" original="(Standard Process_Withholding Allocation)">(Standard Process_Withholding Allocation)</value>
   <value column="Help" original=""/>
   <value column="UUID" original="1d23ee2e-8c80-11e9-8559-1fbb775ac2ca">1d7d51f8-8c80-11e9-858b-9bd481658123</value>
+ </row>
+ <row id="50082" trl="N">
+  <value column="Name" original="Process_Package">Process_Package</value>
+  <value column="Description" original="(Standard Process_Package)">(Standard Process_Package)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="4ec6c75c-1edf-412a-afa0-23aaf40377ad">300bba5d-49f7-4efa-83c8-ee147105a98c</value>
  </row>
 </adempiereTrl>

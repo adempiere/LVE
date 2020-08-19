@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!--ADempiere(r) Release 3.9.2_2019-05-03 -Smart Suite ERP,CRM and SCM- (c) 1999-2019 ADempiere(r); Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_VE" table="AD_Message">
+<!--ADempiere(r) Release 3.9.3_2019-12-01 - Smart Suite ERP,CRM and SCM - (c) 1999-2019 ADempiere(r) Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_VE" table="AD_Message">
  <row id="101" trl="Y">
   <value column="MsgText" original="zero">cero</value>
   <value column="MsgTip" original=""/>
@@ -7322,6 +7322,56 @@ Por favor contacte al ADMINISTRADOR.</value>
   <value column="MsgTip" original=""/>
   <value column="UUID" original="8e6050c2-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="53394" trl="N">
+  <value column="MsgText" original="Are you sure of Generate Loan?">Está Seguro de Generar el Préstamo?</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53395" trl="N">
+  <value column="MsgText" original="Loan">Préstamo</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53396" trl="N">
+  <value column="MsgText" original="Generated from Loan">Generado desde Préstamo</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53422" trl="N">
+  <value column="MsgText" original="Fee">Cuota</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53423" trl="N">
+  <value column="MsgText" original="Generate Loan">Generar Préstamo</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53424" trl="N">
+  <value column="MsgText" original="Dunning Balance Open">Saldo de Morosidad Pendiente por Pagar</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53425" trl="N">
+  <value column="MsgText" original="Previous Fee Unpaid">Cuota Anterior no Pagada</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53426" trl="N">
+  <value column="MsgText" original="No Fees Open To Invoice">No Existen Cuotas Pendientes por Facturar</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53427" trl="N">
+  <value column="MsgText" original="All Fees Not Selected">Todas las Cuotas No se Encuentran Seleccionadas</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="53428" trl="N">
+  <value column="MsgText" original="Open Capital Amount &lt; Payment Amount"><![CDATA[Capital Pendiente < Monto de Pago]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original=""/>
+ </row>
  <row id="53431" trl="N">
   <value column="MsgText" original="Forgot Password?">¿Olvidó su Contraseña?</value>
   <value column="MsgTip" original=""/>
@@ -7510,6 +7560,31 @@ Primera Venta: {3,date, dd/MM/yyyy}</value>
   <value column="MsgTip" original=""/>
   <value column="UUID" original="8e6086c8-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="53491" trl="N">
+  <value column="MsgText" original="Must have at least a business day">Debe tener al menos un día de trabajo</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="9ade272a-12c9-11e9-867d-7f7f7d8c1428"/>
+ </row>
+ <row id="53492" trl="N">
+  <value column="MsgText" original="Invalid Break End Time (Break End Time must be defined between Shift From Time and Shift To Time)">Hora Final de Descanso no válida (La Hora Final de Descanso debe ser definida entre Hora de Inicio de Turno y Hora de Final de Turno)</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="9b2a7526-12c9-11e9-af03-fb273e7d5f53"/>
+ </row>
+ <row id="53493" trl="N">
+  <value column="MsgText" original="Invalid Break Start Time (Break Start Time must be defined between Shift From Time and Shift To Time)">Hora Inicio de Descanso no válida (La Hora Inicio de Descanso debe ser definida entre Hora de Inicio de Turno y Hora de Final de Turno)</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="9b746dde-12c9-11e9-af06-7341218ef048"/>
+ </row>
+ <row id="53494" trl="N">
+  <value column="MsgText" original="Invalid Break Time (Break Start Time &gt; Break End Time)"><![CDATA[Tiempo de Descanso no válido (Hora de Inicio de Descanso > Hora de Final de Descanso)]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="9bbf94a8-12c9-11e9-af09-83ebb4e82d7a"/>
+ </row>
+ <row id="53495" trl="N">
+  <value column="MsgText" original="Minimum attendance require must be pair">La asistencia mínima requerida debe ser par</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="0ee654ee-12ca-11e9-aff1-db9ebad237fa"/>
+ </row>
  <row id="53496" trl="N">
   <value column="MsgText" original="Product Stock for Warehouse">Resumen de Inventario por Producto</value>
   <value column="MsgTip" original=""/>
@@ -7639,6 +7714,119 @@ Primera Venta: {3,date, dd/MM/yyyy}</value>
   <value column="MsgText" original="The payment amount is zero.  No payment will be created.">El importe del pago es cero. No se creará ningún pago.</value>
   <value column="MsgTip" original=""/>
   <value column="UUID" original="2e1822ce-8166-11e9-8633-936279c5d4f4"/>
+ </row>
+ <row id="53583" trl="Y">
+  <value column="MsgText" original="A virtual column can't be synchronized with the database.">Una columna virtual no se puede sincronizar con la base de datos.</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="abda6e20-4ea2-11e9-a1d5-00ff97344bad">84dd9361-9957-482a-a233-0fe3c87eec75</value>
+ </row>
+ <row id="53584" trl="Y">
+  <value column="MsgText" original="A view table cannot be synchronized with the database.">Una tabla de vista no se puede sincronizar con la base de datos.</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="8ffcb0dc-4ea2-11e9-9ee1-00ff97344bad">8ec2cdab-2ce0-4ca7-b741-2bd72127f82b</value>
+ </row>
+ <row id="53585" trl="Y">
+  <value column="MsgText" original="There was an error during the synchronization.  A column with that name already exists in the database."><![CDATA[Hubo un error durante la sincronizaci&#xF3;n. Ya existe una columna con ese nombre en la base de datos.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="4faf754a-4ea3-11e9-872c-00ff97344bad">35bbf43f-a8b6-430b-87fc-778d0e2d5a2b</value>
+ </row>
+ <row id="53586" trl="Y">
+  <value column="MsgText" original="The column changes did not create any SQL update. No changes were made."><![CDATA[Los cambios de columna no crearon ninguna actualizaci&#xF3;n de SQL. No se hicieron cambios.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="296f2e3e-4ea3-11e9-8031-00ff97344bad">adb80bff-9d89-49c4-b960-f6f5d1d0b666</value>
+ </row>
+ <row id="53587" trl="Y">
+  <value column="MsgText" original="An SQL Error occured. The column already exists in the database.">Se produjo un error de SQL. La columna ya existe en la base de datos.</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="c3a2e1f4-4ea2-11e9-802b-00ff97344bad">6390169e-f34b-4178-96e3-705ce98c8f4d</value>
+ </row>
+ <row id="53588" trl="Y">
+  <value column="MsgText" original="Synchronization Error: Its not possible to rename the table. A table with the new name already exists in the database."><![CDATA[Error de sincronizaci&oacute;n: no es posible cambiar el nombre de la tabla. Ya existe una tabla con el nuevo nombre en la base de datos.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="8ee16be6-4ea4-11e9-8738-00ff97344bad">c0a4d18d-122b-46c6-89d6-20eb5bdc7482</value>
+ </row>
+ <row id="53598" trl="Y">
+  <value column="MsgText" original="An error occured during the database update. Manual intervention may be required."><![CDATA[Se ha producido un error al intentar sincronizar la columna. Puede requerirse intervenci&oacute;n manual.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="4d66cf08-4e68-11e9-96b3-00ff97344bad">4e5c563a-4e68-11e9-96c4-00ff97344bad</value>
+ </row>
+ <row id="53599" trl="Y">
+  <value column="MsgText" original="The column is part of a key constraint but is not flagged as a key or parent link column in the application dictionary."><![CDATA[La columna forma parte de una restricci&oacute;n de clave, pero no est&aacute; marcada como clave o columna de enlace principal en el diccionario de la aplicaci&oacute;n.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="02ade1d0-4e69-11e9-96d3-00ff97344bad">0345b73a-4e69-11e9-96e4-00ff97344bad</value>
+ </row>
+ <row id="53600" trl="Y">
+  <value column="MsgText" original="The column does not exist in the database and will be added."><![CDATA[La columna no existe en la base de datos y se agregar&aacute;.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="534259c8-4e69-11e9-96f8-00ff97344bad">53d0e044-4e69-11e9-9709-00ff97344bad</value>
+ </row>
+ <row id="53601" trl="Y">
+  <value column="MsgText" original="The name of the column changed. The column in the database will be renamed to match."><![CDATA[El nombre de la columna cambi&oacute;. La columna en la base de datos ser&aacute; renombrada para que coincida.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="98d67f0a-4e69-11e9-9718-00ff97344bad">99724c28-4e69-11e9-9729-00ff97344bad</value>
+ </row>
+ <row id="53602" trl="Y">
+  <value column="MsgText" original="The data type of the column changed.  The data type of the column in the database will be updated to match.  Note that this may cause errors if the column already has data and the data types are not compatible."><![CDATA[El tipo de datos de la columna cambi&oacute;. El tipo de datos de la columna en la base de datos se actualizar&aacute; para que coincida. Tenga en cuenta que esto puede causar errores si la columna ya tiene datos y los tipos de datos no son compatibles.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="eb3a3f8e-4e69-11e9-973d-00ff97344bad">ebd151a8-4e69-11e9-974e-00ff97344bad</value>
+ </row>
+ <row id="53603" trl="Y">
+  <value column="MsgText" original="The mandatory flag of the column changed.  The database will be altered to match."><![CDATA[La bandera obligatoria de la columna cambi&oacute;. La base de datos se modificar&aacute; para que coincida.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="3233513c-4e6a-11e9-9b12-00ff97344bad">32c3ac78-4e6a-11e9-9b23-00ff97344bad</value>
+ </row>
+ <row id="53604" trl="Y">
+  <value column="MsgText" original="The default value of the column changed."><![CDATA[El valor predeterminado de la columna cambi&oacute;.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="7fd99efa-4e6a-11e9-9b32-00ff97344bad">80608438-4e6a-11e9-9b43-00ff97344bad</value>
+ </row>
+ <row id="53605" trl="Y">
+  <value column="MsgText" original="The changes were successfully applied."><![CDATA[Los cambios fueron aplicados con &eacute;xito.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="1957dc54-4e6b-11e9-975d-00ff97344bad">19f1ad98-4e6b-11e9-976e-00ff97344bad</value>
+ </row>
+ <row id="53606" trl="Y">
+  <value column="MsgText" original="Only results were reported. No changes were made."><![CDATA[S&oacute;lo se informaron los resultados. No se hicieron cambios.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="a3793a4a-4e6b-11e9-a063-00ff97344bad">a4152e78-4e6b-11e9-a074-00ff97344bad</value>
+ </row>
+ <row id="53607" trl="Y">
+  <value column="MsgText" original="The primary key will be updated."><![CDATA[La clave principal se actualizar&aacute;.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="cfd40b40-4ea4-11e9-873e-00ff97344bad">d05a5434-4ea4-11e9-874f-00ff97344bad</value>
+ </row>
+ <row id="53608" trl="Y">
+  <value column="MsgText" original="There was an error synchronizing the table changes. Manual intervention may be required."><![CDATA[Se ha producido un error al sincronizar los cambios de la tabla. Puede requerirse intervenci&oacute;n manual.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="354e65ba-4ea5-11e9-a1e4-00ff97344bad">35e836fe-4ea5-11e9-a1f5-00ff97344bad</value>
+ </row>
+ <row id="53609" trl="Y">
+  <value column="MsgText" original="Cannot synchronize a table view.">No se puede sincronizar una vista de tabla.</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="88a93410-4ea5-11e9-a209-00ff97344bad">89ae72e4-4ea5-11e9-a21a-00ff97344bad</value>
+ </row>
+ <row id="53610" trl="Y">
+  <value column="MsgText" original="Success! No changes were required."><![CDATA[&iexcl;&Eacute;xito! No se requirieron cambios.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="c12c93ce-4ef8-11e9-bd39-00ff97344bad">c5cb0c6c-4ef8-11e9-bd4a-00ff97344bad</value>
+ </row>
+ <row id="53611" trl="Y">
+  <value column="MsgText" original="Success! Changes to the database were made.  Refer to the log for details."><![CDATA[
+Output encoded/decoded text
+&iexcl;&Eacute;xito! Se hicieron cambios a la base de datos. Consulte el registro para m&aacute;s detalles.
+]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="08debefe-4ef9-11e9-9de3-00ff97344bad">096492c2-4ef9-11e9-9df4-00ff97344bad</value>
+ </row>
+ <row id="53612" trl="Y">
+  <value column="MsgText" original="No changes necessary. Nothing to Report.">No hay cambios necesarios. Nada que reportar.</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="8d5fb41a-4efb-11e9-aec5-00ff97344bad">8e24b4ae-4efb-11e9-aed6-00ff97344bad</value>
+ </row>
+ <row id="53613" trl="Y">
+  <value column="MsgText" original="Partial success.  Errors occurred on one or more items. Please review the log for details.  Manual intervention may be required."><![CDATA[El &eacute;xito parcial. Se produjeron errores en uno o m&aacute;s elementos. Por favor revise el registro para m&aacute;s detalles. Puede requerirse intervenci&oacute;n manual.]]></value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="04579de8-4f61-11e9-8635-00ff97344bad">1066093a-4f61-11e9-8646-00ff97344bad</value>
  </row>
  <row id="53614" trl="Y">
   <value column="MsgText" original="Recently opened and modified items are shown here. Click on an item to open it.  The list is updated periodically.   Drag items to the trashcan to delete them from the list.  Click the refresh icon to refresh the list."><![CDATA[Los art&iacute;culos recientemente abiertos y modificados se muestran aqu&iacute;. Haga clic en un elemento para abrirlo. La lista se actualiza peri&oacute;dicamente. Arrastre los elementos a la papelera para eliminarlos de la lista. Haga clic en el icono de actualizaci&oacute;n para actualizar la lista.]]></value>
@@ -7789,6 +7977,99 @@ Primera Venta: {3,date, dd/MM/yyyy}</value>
   <value column="MsgText" original="Do You want to print generated document?">¿Desea imprimir el documento generado?</value>
   <value column="MsgTip" original=""/>
   <value column="UUID" original="5f6a0bd2-cd27-11e9-9dd1-0242ac110002">5f99afb8-cd27-11e9-9dd1-0242ac110002</value>
+ </row>
+ <row id="53647" trl="N">
+  <value column="MsgText" original="No Completed">No Completo</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="66714f84-de30-11e9-a2c0-0242ac110002">66b0a382-de30-11e9-a2c0-0242ac110002</value>
+ </row>
+ <row id="53648" trl="N">
+  <value column="MsgText" original="Unidentified Payment Already exists a Reverse">El pago sin identificar ya tiene un reverso creado</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="856ebce6-de30-11e9-a2c0-0242ac110002">858a6fea-de30-11e9-a2c0-0242ac110002</value>
+ </row>
+ <row id="53649" trl="N">
+  <value column="MsgText" original="Mismatched">No coinciden</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="c923feec-de30-11e9-a2c0-0242ac110002">c944875c-de30-11e9-a2c0-0242ac110002</value>
+ </row>
+ <row id="53650" trl="N">
+  <value column="MsgText" original="No Default Cash defined for the Organization">No existe una caja por default para esta Organizacion</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="ad627752-dee8-11e9-a742-bb67565b2231">adecab20-dee8-11e9-a752-0ffdfe34da9b</value>
+ </row>
+ <row id="53651" trl="N">
+  <value column="MsgText" original="Already exists a deposit for this cash collect, please reverse the deposit before reverse it">Ya existe un depósito para esta cobranza, por favor anule el depósito antes de anular la cobranza</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="01163946-dfb2-11e9-90b6-0242ac110002">050bf31a-dfb2-11e9-90b6-0242ac110002</value>
+ </row>
+ <row id="53660" trl="N">
+  <value column="MsgText" original="Error converting allocation currency to base currency&#10;Allocation Currency: {0} &#10;Base Currency: {1} &#10;Conversion Type: {2} &#10;Conversion Date: {3,date, yyyy-MM-dd}">Error convirtiendo moneda de asignación a moneda base
+Moneda de Asignación: {0} 
+Moneda Base: {1} 
+Tipo de Conversión: {2} 
+Fecha de Conversión: {3,date, yyyy-MM-dd}</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="22fec3b4-9449-4c89-8cfc-505b9d4b7092">4bb74aae-5088-499e-a96c-a13775e193a4</value>
+ </row>
+ <row id="53661" trl="N">
+  <value column="MsgText" original="Error converting allocation currency to invoice currency&#10;Allocation Currency: {0} &#10;Invoice Currency: {1} &#10;Conversion Type: {2} &#10;Conversion Date: {3,date, yyyy-MM-dd}">Error convirtiendo moneda de asignación a moneda de factura
+Moneda de Asignación: {0} 
+Moneda de Factura: {1} 
+Tipo de Conversión: {2} 
+Fecha de Conversión: {3,date, yyyy-MM-dd}</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="27032589-7e5f-42b5-813d-321d3a577643">06531ccc-5457-4a33-99ba-14e00f1b9b88</value>
+ </row>
+ <row id="53662" trl="N">
+  <value column="MsgText" original="Error converting invoice currency to base currency&#10;Invoice Currency: {0} &#10;Base Currency: {1} &#10;Conversion Type: {2} &#10;Conversion Date: {3,date, yyyy-MM-dd}">Error convirtiendo moneda de factura a moneda base
+Moneda de Factura: {0} 
+Moneda Base: {1} 
+Tipo de Conversión: {2} 
+Fecha de Conversión: {3,date, yyyy-MM-dd}</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="f44c53af-2f1d-4c4b-9da7-5003d7c13658">3fd9042c-3094-4cca-a727-8e5ba33f152d</value>
+ </row>
+ <row id="53663" trl="N">
+  <value column="MsgText" original="Error converting document currency to base currency&#10;Document Currency: {0} &#10;Base Currency: {1} &#10;Conversion Type: {2} &#10;Conversion Date: {3,date, yyyy-MM-dd}">Error convirtiendo moneda de documento a moneda base
+Moneda de Documento: {0} 
+Moneda Base: {1} 
+Tipo de Conversión: {2} 
+Fecha de Conversión: {3,date, yyyy-MM-dd}</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="1ea6db52-ae17-4ccf-b76d-79660627534d">4d92873c-ccb0-4b5b-8c1c-1caf186f7d15</value>
+ </row>
+ <row id="53664" trl="N">
+  <value column="MsgText" original="Error converting base currency to document currency&#10;Base Currency: {0} &#10;Document Currency: {1} &#10;Conversion Type: {2} &#10;Conversion Date: {3,date, yyyy-MM-dd}">Error convirtiendo moneda base a moneda de documento
+Moneda Base: {0} 
+Moneda de Documento: {1} 
+Tipo de Conversión: {2} 
+Fecha de Conversión: {3,date, yyyy-MM-dd}</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="e54badde-e919-4500-aa17-d9364e528b0c">dbcd0fd9-0250-4c3b-95fe-18ddedbf2ffb</value>
+ </row>
+ <row id="53665" trl="N">
+  <value column="MsgText" original="Last Connection">Última Conexión</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="d6143144-8ec9-4db9-a3a6-21ab21e4cf95">ebf11154-2655-41a7-bfa8-4fffe04eb6b7</value>
+ </row>
+ <row id="53674" trl="N">
+  <value column="MsgText" original="Freight Order #: {0}&#10;Line: {1}&#10;Weight: {2,number,#,##0.00}&#10;Volume: {3,number,#,##0.00}">Orden de Flete #: {0}
+Linea: {1}
+Peso: {2,number,#,##0.00}
+Volumen: {3,number,#,##0.00}</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="54e99d89-c56d-4d50-85a7-6907e16cbf58">17b231f5-0fbf-4793-9a10-daa0a7dbe641</value>
+ </row>
+ <row id="53675" trl="N">
+  <value column="MsgText" original="Freight Order #: {0}&#10;Line: {1}&#10;Weight: {2,number,#,##0.00}&#10;Volume: {3,number,#,##0.00}&#10;Freight Rate: {4,number,#,##0.00}&#10;Freight Amount: {5,number,#,##0.00}">Orden de Flete #: {0}
+Linea: {1}
+Peso: {2,number,#,##0.00}
+Volumen: {3,number,#,##0.00}
+Tasa Aplicada: {4,number,#,##0.00}
+Monto de Flete: {5,number,#,##0.00}</value>
+  <value column="MsgTip" original=""/>
+  <value column="UUID" original="6e2a6cd0-4aa7-4915-9014-b0e85867c189">571cc1ab-56d7-424c-82bf-ec58b832f944</value>
  </row>
  <row id="200001" trl="Y">
   <value column="MsgText" original="Map">Mapa</value>

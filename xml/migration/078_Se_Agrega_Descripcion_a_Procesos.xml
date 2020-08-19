@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Cambios en Descripcion de Procesos" ReleaseNo="3.9.4" SeqNo="81000540">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54310" Table="AD_Process">
+        <Data AD_Column_ID="2811" Column="Help" isOldNull="true">VAT Law Regulation (Decree 206 07-09-1999)
+Article 70: Taxpayers, in addition to the books required by the Commercial Code, must keep a Purchase Book and a Sales Book.
+In these books the information related to its operations in the domestic market, imports and exports, documented by invoices issued and received, equivalent documents of sale of goods and services, as well as debit and credit notes, will be recorded chronologically and without delays. amendments to the originally issued invoices and other receipts and documents that prove the sales or provision of services and the acquisitions of goods or receipt of services.
+Article 71: The Purchase and Sales Books must be kept permanently in the taxpayer's establishment.</Data>
+        <Data AD_Column_ID="2810" Column="Description" isOldNull="true">Sales Book specific for Venezuela Location</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="116" Action="U" Record_ID="54525" Table="AD_Menu">
+        <Data AD_Column_ID="230" Column="Description" isOldNull="true">Sales Book specific for Venezuela Location</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="287" Action="U" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2853" Column="Description" isOldNull="true">Libro de Ventas</Data>
+        <Data AD_Column_ID="2854" Column="Help" oldValue="Reglamento Ley IVA (Decreto 206 09-07-1999)&#10;Artículo 70: Los contribuyentes del impuesto además de los libros exigidos por el Código de Comercio, deberán llevar un Libro de Compras y otro de Ventas.&#10;En estos libros se registrarán cronológicamente y sin atrasos las informaciones relativas a sus operaciones en el mercado interno, importaciones y exportaciones, documentadas mediante facturas emitidas y recibidas, documentos equivalentes de venta de bienes y servicios, así como, las notas de débito y de crédito modificatorias de las facturas originalmente emitidas y otros comprobantes y documentos por los que se comprueben las ventas o prestaciones de servicios y las adquisiciones de bienes o recepción de servicios.&#10;Artículo 71: Los Libros de Compras y de Ventas deberán mantenerse permanentemente en el establecimiento del contribuyente.&#10;Artículo 72: En los Libros de Compras y de Ventas, al final de cada mes, se hará un resumen del respectivo período de imposición, indicando el monto de la base imponible y del impuesto, ajustada con las adiciones y deducciones correspondientes; el débito y el crédito fiscal, así como, un resumen del monto de las ventas de bienes y prestaciones de servicios exentas, exoneradas y no sujetas al impuesto y del monto de las exportaciones de bienes y servicios.&#10;En el caso de operaciones gravadas con distintas alícuotas, deberán indicarse dichos bienes separadamente, agrupándose por cada una de las alícuotas.&#10;Estos resúmenes deberán coincidir con los datos que se indicarán en el formulario de declaración y pago, medios y sistemas autorizados por el Ministerio de Hacienda para la declaración y pago mensual del impuesto.&#10;Los contribuyentes que lleven más de un libro para el registro de sus compras y ventas, deberán hacer en los Libros de Compras y de Ventas diarias, un resumen con los detalles de cada uno de ellos.&#10;Artículo 73: Los contribuyentes que lleven los registros y libros citados en este Reglamento, en forma manual o mediante sistemas mec">VAT Law Regulation (Decree 206 07-09-1999)
+Article 70: Taxpayers, in addition to the books required by the Commercial Code, must keep a Purchase Book and a Sales Book.
+In these books the information related to its operations in the domestic market, imports and exports, documented by invoices issued and received, equivalent documents of sale of goods and services, as well as debit and credit notes, will be recorded chronologically and without delays. amendments to the originally issued invoices and other receipts and documents that prove the sales or provision of services and the acquisitions of goods or receipt of services.
+Article 71: The Purchase and Sales Books must be kept permanently in the taxpayer's establishment.</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID" oldValue="54310">54310</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54309" Table="AD_Process">
+        <Data AD_Column_ID="2811" Column="Help" isOldNull="true">VAT Law Regulation (Decree 206 07-09-1999)
+Article 70: Taxpayers, in addition to the books required by the Commercial Code, must keep a Purchase Book and a Sales Book.
+In these books the information related to its operations in the domestic market, imports and exports, documented by invoices issued and received, equivalent documents of sale of goods and services, as well as debit and credit notes, will be recorded chronologically and without delays. amendments to the originally issued invoices and other receipts and documents that prove the sales or provision of services and the acquisitions of goods or receipt of services.
+Article 71: The Purchase and Sales Books must be kept permanently in the taxpayer's establishment.</Data>
+        <Data AD_Column_ID="2810" Column="Description" isOldNull="true">Purchase Book specific for Venezuela Location</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="116" Action="U" Record_ID="54524" Table="AD_Menu">
+        <Data AD_Column_ID="230" Column="Description" isOldNull="true">Purchase Book specific for Venezuela Location</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="60" StepType="AD">
+      <PO AD_Table_ID="287" Action="U" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2853" Column="Description" isOldNull="true">Libro de Compras Específico para la Localización Venezuela</Data>
+        <Data AD_Column_ID="2854" Column="Help" isOldNull="true">Reglamento Ley IVA (Decreto 206 09-07-1999)
+Artículo 70: Los contribuyentes del impuesto además de los libros exigidos por el Código de Comercio, deberán llevar un Libro de Compras y otro de Ventas.
+En estos libros se registrarán cronológicamente y sin atrasos las informaciones relativas a sus operaciones en el mercado interno, importaciones y exportaciones, documentadas mediante facturas emitidas y recibidas, documentos equivalentes de venta de bienes y servicios, así como, las notas de débito y de crédito modificatorias de las facturas originalmente emitidas y otros comprobantes y documentos por los que se comprueben las ventas o prestaciones de servicios y las adquisiciones de bienes o recepción de servicios.
+Artículo 71: Los Libros de Compras y de Ventas deberán mantenerse permanentemente en el establecimiento del contribuyente.</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID" oldValue="54309">54309</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="70" StepType="AD">
+      <PO AD_Table_ID="287" Action="U" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2853" Column="Description" oldValue="Libro de Ventas">Libro de Ventas Específico para Localización Venezuela</Data>
+        <Data AD_Column_ID="2854" Column="Help" oldValue="VAT Law Regulation (Decree 206 07-09-1999)&#10;Article 70: Taxpayers, in addition to the books required by the Commercial Code, must keep a Purchase Book and a Sales Book.&#10;In these books the information related to its operations in the domestic market, imports and exports, documented by invoices issued and received, equivalent documents of sale of goods and services, as well as debit and credit notes, will be recorded chronologically and without delays. amendments to the originally issued invoices and other receipts and documents that prove the sales or provision of services and the acquisitions of goods or receipt of services.&#10;Article 71: The Purchase and Sales Books must be kept permanently in the taxpayer's establishment.">Reglamento Ley IVA (Decreto 206 09-07-1999)
+Artículo 70: Los contribuyentes del impuesto además de los libros exigidos por el Código de Comercio, deberán llevar un Libro de Compras y otro de Ventas.
+En estos libros se registrarán cronológicamente y sin atrasos las informaciones relativas a sus operaciones en el mercado interno, importaciones y exportaciones, documentadas mediante facturas emitidas y recibidas, documentos equivalentes de venta de bienes y servicios, así como, las notas de débito y de crédito modificatorias de las facturas originalmente emitidas y otros comprobantes y documentos por los que se comprueben las ventas o prestaciones de servicios y las adquisiciones de bienes o recepción de servicios.
+Artículo 71: Los Libros de Compras y de Ventas deberán mantenerse permanentemente en el establecimiento del contribuyente.</Data>
+        <Data AD_Column_ID="2844" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID" oldValue="54310">54310</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>

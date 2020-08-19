@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!--ADempiere(r) Release 3.9.2_2019-05-03 -Smart Suite ERP,CRM and SCM- (c) 1999-2019 ADempiere(r); Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_MX" table="AD_Process">
+<!--ADempiere(r) Release 3.9.3_2019-12-01 - Smart Suite ERP,CRM and SCM - (c) 1999-2019 ADempiere(r) Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_MX" table="AD_Process">
  <row id="100" trl="Y">
   <value column="Name" original="Create Periods ">Crear Períodos</value>
   <value column="Description" original="Create 12 standard calendar periods.">Crear 12 períodos de calendario estándar (Ene-Dic)</value>
@@ -3228,6 +3228,30 @@ You can also include orders who have outstanding confirmations (e.g. ordered=10 
   <value column="Help" original=""/>
   <value column="UUID" original="a42d4158-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="54051" trl="N">
+  <value column="Name" original="Process Agreement">Process Agreement</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54052" trl="N">
+  <value column="Name" original="Process Financial Transaction Batch">Process Financial Transaction Batch</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54058" trl="N">
+  <value column="Name" original="Generate Payment Selection from Loan">Generar Selección de Pago desde Préstamo</value>
+  <value column="Description" original="Generate Payment Selection from Loan Process">Generar Selección de Pago desde Préstamo</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54059" trl="N">
+  <value column="Name" original="Generate Invoice from Loan">Generar Factura desde Préstamo</value>
+  <value column="Description" original="Generate Invoice from Loan Process">Generar Factura desde Préstamo</value>
+  <value column="Help" original="">Permite Generar Documentos por Cobrar / Pagar desde Préstamo</value>
+  <value column="UUID" original=""/>
+ </row>
  <row id="54060" trl="N">
   <value column="Name" original="CreateProductEntriesInPriceList">CreateProductEntriesInPriceList</value>
   <value column="Description" original=""/>
@@ -3246,11 +3270,29 @@ You can also include orders who have outstanding confirmations (e.g. ordered=10 
   <value column="Help" original=""/>
   <value column="UUID" original="a42d4752-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="54072" trl="N">
+  <value column="Name" original="Import Financial Agreement">Importar Acuerdo Financiero</value>
+  <value column="Description" original="Imports Financial Agreement from a file into the application">Importa Acuerdos Financieros desde un archivo en el aplicativo</value>
+  <value column="Help" original="Import Agreement will bring a file of Agreement in a predefined format into the application.&lt;p&gt;&#10;The Parameters are default values for null import record values they do not overwrite any data.">Importa Acuerdos Financieros traerá un archivo de Acuerdos en un formato predefinido en el aplicativo.</value>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54073" trl="N">
+  <value column="Name" original="Import Financial Loan">Importar Préstamo</value>
+  <value column="Description" original="Imports Financial Loan from a file into the application">Importa Préstamos desde un archivo en el aplicativo</value>
+  <value column="Help" original="Import Agreement will bring a file of Agreement in a predefined format into the application.&lt;p&gt;&#10;The Parameters are default values for null import record values they do not overwrite any data.">Importa Préstamos traerá un archivo de Préstamos en un formato predefinido en el aplicativo.</value>
+  <value column="UUID" original=""/>
+ </row>
  <row id="54074" trl="N">
   <value column="Name" original="Process Asset Split">Process Asset Split</value>
   <value column="Description" original=""/>
   <value column="Help" original=""/>
   <value column="UUID" original="a42d448c-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54075" trl="N">
+  <value column="Name" original="Process Functional Setting">Procesar Acuerdo Financiero</value>
+  <value column="Description" original="">Proceso encargardo de hacer los cálculos relacionados al acuerdo financiero</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
  </row>
  <row id="54076" trl="Y">
   <value column="Name" original="Fixed Asset Split Process ">Proceso para dividir múltiples Activos Fijos</value>
@@ -3264,6 +3306,24 @@ You can also include orders who have outstanding confirmations (e.g. ordered=10 
   <value column="Help" original="&#10;">
 </value>
   <value column="UUID" original="a42d46d0-fb40-11e8-a479-7a0060f0aa01"/>
+ </row>
+ <row id="54079" trl="N">
+  <value column="Name" original="Loan Amortization Detail">Detalle de Amortización de Préstamo</value>
+  <value column="Description" original="Loan Amortization Detail (Open)">Detalle de Amortización de Préstamo (Pendiente)</value>
+  <value column="Help" original="Display Open Loans with Amortization Detail">Muestra el Detalle de la Amortización de Préstamo</value>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54080" trl="N">
+  <value column="Name" original="Open Loan">Préstamos Pendientes por Pagar</value>
+  <value column="Description" original="Open Loan Report">Préstamos Pendientes por Pagar</value>
+  <value column="Help" original="Display Open Loans as a Summary">Muestra los Préstamos que aún no se han cancelado o tienen cuotas pendientes</value>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54091" trl="N">
+  <value column="Name" original="Generate Invoice from Loan (Prepay)">Generar Factura desde Préstamo (Prepagado)</value>
+  <value column="Description" original="Generate Invoice from Loan Process (Prepay)">Generar Factura desde Préstamo (Prepagado)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
  </row>
  <row id="54098" trl="N">
   <value column="Name" original="Bank Statement Match">Conciliación de Estado de Cuenta</value>
@@ -3288,6 +3348,48 @@ You can also include orders who have outstanding confirmations (e.g. ordered=10 
   <value column="Description" original="Generate Documentation from Option Menu">Generar Documentación desde Menú de Opciones</value>
   <value column="Help" original="It process allows create docs in supported formats for external documentation handler, reStructuredText or MarkDown">Permite crear documentación en Formatos soportados para manejadores externos de documentos, reStructuredText o MarkDown</value>
   <value column="UUID" original="4223ed80-3098-11e9-8dc8-27f25de3fde8"/>
+ </row>
+ <row id="54132" trl="N">
+  <value column="Name" original="Process Attendance Batch">Procesar Lote de Asistencia</value>
+  <value column="Description" original="">Procesar Lote de Asistencia como Documento</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="9c6b5cd6-12c7-11e9-a85d-4b8f02155f8b"/>
+ </row>
+ <row id="54133" trl="N">
+  <value column="Name" original="Process Employee Incidence">Procesar Incidencia de Nómina</value>
+  <value column="Description" original="">Procesar Incidencia de Nómina como Documento</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="d221fe8e-12c7-11e9-a9d3-bf63da0e2f4a"/>
+ </row>
+ <row id="54134" trl="N">
+  <value column="Name" original="Process Leave">Process Leave</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54135" trl="N">
+  <value column="Name" original="Create Attendance Record">Crear Registro de Asistencia</value>
+  <value column="Description" original="Create Attendance Record Manual">Crear Registro de Asistencia Manual</value>
+  <value column="Help" original="Create Attendance Record from Smart Browser">Crea un Registro de Asistencia desde un Navegador Inteligente</value>
+  <value column="UUID" original="2d233cfc-12c9-11e9-ac7d-db076631030a"/>
+ </row>
+ <row id="54136" trl="N">
+  <value column="Name" original="Create Expense Report (From Incidence)">Crear Informe de Gastos (Desde Incidencia)</value>
+  <value column="Description" original="Create Expense Report from Payroll Incidence">Crear Informe de Gastos desde Incidencia de Nómina</value>
+  <value column="Help" original="Create Expense Report to be Invoicede from Payroll Incidence">Crea Informe de Gastos desde Incidencia de Nómina</value>
+  <value column="UUID" original="84c6882e-12c9-11e9-aee7-3becb73dfd03"/>
+ </row>
+ <row id="54137" trl="N">
+  <value column="Name" original="Process HR Incidence">Procesar Incidencia de Nómina</value>
+  <value column="Description" original="Process Incidence Manual">Procesar Incidencia de Nómina Manual</value>
+  <value column="Help" original="Process Incidence from Smart Browser">Procesar Incidencia de Nómina Manual desde Visor Inteligente</value>
+  <value column="UUID" original="915f8752-12c9-11e9-8653-3bd574d3ac4a"/>
+ </row>
+ <row id="54138" trl="N">
+  <value column="Name" original="Import Attendance Record">Importar Registro de Asistencia</value>
+  <value column="Description" original="Import Attendance Record from Device">Importar Registro de Asistencia desde Dispositivo</value>
+  <value column="Help" original="Allows Import Attendance record from Device">Permite Importar Registro de Asistencia desde Dispositivo</value>
+  <value column="UUID" original="06157516-12ca-11e9-afdb-5b0f74acb4a5"/>
  </row>
  <row id="54143" trl="Y">
   <value column="Name" original="Send Payroll Receipt by Email">Enviar Recibo de Nómina por Correo Electrónico</value>
@@ -3344,6 +3446,12 @@ Los movimientos solo se crean si se define un almacén de aprovisionamiento para
   <value column="Help" original="Use this process for create process access more intuitive">Use este proceso si desea agregar los procesos de una ventana al rol de manera intuitiva</value>
   <value column="UUID" original="9112cc6a-2fba-11e9-96a3-0242ac140002"/>
  </row>
+ <row id="54204" trl="Y">
+  <value column="Name" original="Synchronize All Tables and Columns">Sincronizar todas tablas y columnas</value>
+  <value column="Description" original="Synchronize all tables and columns with the database.">Sincronizar todas las tablas y columnas con la base de datos</value>
+  <value column="Help" original="This process will synchronize all tables and columns that are new or have changes since the last synchronization was performed.  You can select a specific table and column.  If the table and column are left blank, all tables and columns will be tested.  You can also limit the search to only known changes in the application dictionary since the last synchronization.  If all parameters are blank, a full test of every table and column will be performed.  This could take a while."><![CDATA[Este proceso sincronizar&aacute; todas las tablas y columnas que sean nuevas o tengan cambios desde la &uacute;ltima sincronizaci&oacute;n realizada. Puede seleccionar una tabla y columna espec&iacute;fica. Si la tabla y la columna se dejan en blanco, se probar&aacute;n todas las tablas y columnas. Tambi&eacute;n puede limitar la b&uacute;squeda a solo los cambios conocidos en el diccionario de la aplicaci&oacute;n desde la &uacute;ltima sincronizaci&oacute;n. Si todos los par&aacute;metros est&aacute;n en blanco, se realizar&aacute; una prueba completa de cada tabla y columna. Esto podr&iacute;a tomar un tiempo.]]></value>
+  <value column="UUID" original="ef2a54a1-2123-4881-9bff-048d78780375">d81e1895-859b-4c7d-8989-f4057cc07655</value>
+ </row>
  <row id="54211" trl="N">
   <value column="Name" original="Create Customization">Crear Personalización</value>
   <value column="Description" original="Create Customization for a menu or ASP">Crea Personalización para un determinado menú</value>
@@ -3361,6 +3469,12 @@ Los movimientos solo se crean si se define un almacén de aprovisionamiento para
   <value column="Description" original="Drop (expand) Bill of Materials into an Order, Invoice, etc.">Expandir Listas de Materiales en una orden, factura, etc.</value>
   <value column="Help" original="Drop the extended Bill of Materials into an Order, Invoice, etc.  The documents need to be in a Drafted stage.  Make sure that the items included in the BOM are on the price list of the Order, Invoice, etc. as otherwise the price will be zero!"><![CDATA[Traer (expandir) la lista de materiales en una orden, factura, etc. Los documentos deben estar en un estado Borrador. Aseg&uacute;rese de que los art&iacute;culos incluidos en la LDM est&aacute;n en la lista de precios de la orden, factura, etc. de lo contrario el precio ser&aacute; cero!]]></value>
   <value column="UUID" original="bfff8fd6-526f-11e9-9026-00ff97344bad">f81d2900-526f-11e9-904a-00ff97344bad</value>
+ </row>
+ <row id="54215" trl="N">
+  <value column="Name" original="Open Loan To Date">Préstamos Pendientes por Pagar (A la Fecha)</value>
+  <value column="Description" original="Open Loan To Date Report">Préstamos Pendientes por Pagar (A la Fecha)</value>
+  <value column="Help" original="Display Open Loans to date as a Summary">Muestra los Préstamos que aún no se han cancelado o tienen cuotas pendientes a una fecha determinada</value>
+  <value column="UUID" original=""/>
  </row>
  <row id="54240" trl="N">
   <value column="Name" original="Setup Storage for Files System">Configurar Almacenamiento (Para Adjuntos)</value>
@@ -3380,6 +3494,24 @@ Nota: Después de ejecutar el proceso todos los archivos del sistema serán alma
   <value column="Description" original=""/>
   <value column="Help" original=""/>
   <value column="UUID" original="22fcc2f8-8c80-11e9-871e-23f5c6919e7c">233ec7fc-8c80-11e9-8742-0bac54b236f5</value>
+ </row>
+ <row id="54257" trl="N">
+  <value column="Name" original="Create Shift Work Schedule">Crear Planificación de Turno</value>
+  <value column="Description" original="Create Shift Work Schedule from Shift Group and Work Shift">Crear Planificación de Turno desde Turno y Grupo de Turno</value>
+  <value column="Help" original="This Smart Browser allows create a Planning for Work from Shift Turn and Period">Este Visor Inteligente permite crear una planificación de Trabajo desde un Turno de Trabajo y Período</value>
+  <value column="UUID" original="db01c35a-a1be-11e9-b3fd-0242ac110002">db3b8ff4-a1be-11e9-b3fd-0242ac110002</value>
+ </row>
+ <row id="54258" trl="N">
+  <value column="Name" original="Create Shift Work Schedule">Crear Planificación de Turno</value>
+  <value column="Description" original="Create Shift Work Schedule from Shift Group and Work Shift">Crear Planificación de Turno desde Turno y Grupo de Turno</value>
+  <value column="Help" original="This Smart Browser allows create a Planning for Work from Shift Turn and Period">Este Visor Inteligente permite crear una planificación de Trabajo desde un Turno de Trabajo y Período</value>
+  <value column="UUID" original="acb64e24-a1c0-11e9-8345-0242ac110002">ace3228c-a1c0-11e9-8345-0242ac110002</value>
+ </row>
+ <row id="54259" trl="N">
+  <value column="Name" original="Create Repeated Leave for Employee">Crear Permiso Recurrente</value>
+  <value column="Description" original="Create Repeated Leave for Employee based on Frequency Type and Valid From of Employee Leave Assign">Crea los Permisos recurrentes para Empleados basado en el Tipo de Frecuencia y Fecha Válido Desde de la Asignación de Permisos del Empleado</value>
+  <value column="Help" original="This process can be used for generate automatically Vacations, Medical Check and Laws Leave">Este proceso puede ser usado para generar de manera automática Vacaciones, Chequeo Médico y Permisos de Ley</value>
+  <value column="UUID" original="eb122df2-b47e-11e9-a737-0242ac110002">eb521f66-b47e-11e9-a737-0242ac110002</value>
  </row>
  <row id="54261" trl="N">
   <value column="Name" original="Withholding Re-Process">Re-Procesar Retención</value>
@@ -3441,6 +3573,18 @@ Nota: Después de ejecutar el proceso todos los archivos del sistema serán alma
   <value column="Help" original="Use it format for print current production batch">Use este formato para ver un reporte de la orden de producción actual</value>
   <value column="UUID" original="3bba913e-d31c-11e9-a068-0242ac110002">3be89bce-d31c-11e9-a068-0242ac110002</value>
  </row>
+ <row id="54298" trl="N">
+  <value column="Name" original="Payment Selection Print">Imprimir Selección de Pagos</value>
+  <value column="Description" original="Print Payment Selection">Imprimir Selección de Pagos</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="32e16996-d5ad-11e9-b722-0242ac110002">3319b972-d5ad-11e9-b722-0242ac110002</value>
+ </row>
+ <row id="54300" trl="N">
+  <value column="Name" original="Reverse Payment Generated">Reversar Pagos Generados</value>
+  <value column="Description" original="Reverse Payment Generated from Payment Selection">Reversa los pagos generados desde la selección de pagos</value>
+  <value column="Help" original="Use this process for reverse all payments generated from a payment selection">Use este proceso para reversar todos los pagos generados desde una selección de pagos</value>
+  <value column="UUID" original="168a87ae-d71b-11e9-9ccd-0242ac110003">1715c580-d71b-11e9-9ccd-0242ac110003</value>
+ </row>
  <row id="54301" trl="N">
   <value column="Name" original="Generate Withholding Declaration">Generate Withholding Declaration</value>
   <value column="Description" original="Generate Withholding Declaration from not Declarated Withholding">Generate Withholding Declaration from not Declarated Withholding</value>
@@ -3452,6 +3596,345 @@ Nota: Después de ejecutar el proceso todos los archivos del sistema serán alma
   <value column="Description" original="Withholding Detail (All Withholding)">Detalle de Retenciones (Todas las Retenciones)</value>
   <value column="Help" original="Show all withholding generated for documents, note that this report can be used for declaration">Muestra todas las retenciones generadas para los documentos, note que este reporte puede ser usado para declaración</value>
   <value column="UUID" original="8abe12a2-d89d-11e9-aeca-0242ac110002">8af9b528-d89d-11e9-aeca-0242ac110002</value>
+ </row>
+ <row id="54303" trl="N">
+  <value column="Name" original="Remittance Advice Send Mail">Enviar Notificación de Pago</value>
+  <value column="Description" original="Send EMails to all Business Partner of Payment selection selected with a payment remittance">Envía Correos a todos los Socios de Negocio de una Selección de Pagos seleccionada con una notificación de pago</value>
+  <value column="Help" original="Select the Payment Selection.  Additionally, you can send mails to the Contacts of a Business Partner selected.&lt;br&gt;&#10;The User to send emails from needs to have valid EMail information. If you don't select a user, the Mail is sent from the Client's Request Mail User."><![CDATA[Seleccione la Selección de Pagos. Adicionalmente puede enviar correos a un Socio de Negocio específico.<br>
+El usuario para enviar emails de necesidades para tener valida la información del Email. Si usted no selecciona un usuario, el mail se envia de la solicitud del cliente.]]></value>
+  <value column="UUID" original="7282a78a-d982-11e9-9464-0242ac110003">73031f32-d982-11e9-9464-0242ac110003</value>
+ </row>
+ <row id="54304" trl="N">
+  <value column="Name" original="Create Payment from Bank Statement">Create Payment from Bank Statement</value>
+  <value column="Description" original="Create a Payment as unidentified or bank charge">Create a Payment as unidentified or bank charge</value>
+  <value column="Help" original="Use this process for create payment from bank statement">Use this process for create payment from bank statement</value>
+  <value column="UUID" original="bcdc2b62-daae-11e9-8588-0242ac110002">bcdf715a-daae-11e9-8588-0242ac110002</value>
+ </row>
+ <row id="54305" trl="N">
+  <value column="Name" original="Create Payment From Bank Statement">Crear Pagos desde Estado de Cuenta</value>
+  <value column="Description" original="Create Payments from Bank Statements, you can create Bank charges and unidentified payments">Crea Pagos desde el Estado de Cuentas Bancario, puede crear cargos Bancarios o simplemente pagos sin identificar</value>
+  <value column="Help" original="Use this Smart Browser for create all payments that are unidentified for bank statement">Use este Visor para crear todos los pagos que aún no han sido identificados en el estado de cuentas</value>
+  <value column="UUID" original="634f105a-da95-11e9-b5ef-0242ac110002">63574310-da95-11e9-b5ef-0242ac110002</value>
+ </row>
+ <row id="54306" trl="N">
+  <value column="Name" original="Identify Payment">Identificar Pago / Cobro</value>
+  <value column="Description" original="Identify Payment Selected">Identificar Pago / Cobro Seleccionado</value>
+  <value column="Help" original="It process allows Identify a Payment Selected">Este proceso permite identificar un pago / cobro seleccionado que ha sido marcado como pago sin identificar en un estado de cuentas</value>
+  <value column="UUID" original="5dc141aa-dd4a-11e9-95ce-0242ac110002">5dc776b0-dd4a-11e9-95ce-0242ac110002</value>
+ </row>
+ <row id="54307" trl="N">
+  <value column="Name" original="Load Bank Statement (Bank Statement)">Carga de Estado de Cuentas</value>
+  <value column="Description" original="Load Bank Statement (Bank Statement)">Carga de Estado de Cuentas</value>
+  <value column="Help" original="Load the bank statement into the import table. The parameters used depend on the actual loader.">Carge el estado de cuenta en la tabla de la importación. Los parametros usados dependen del cargador real.</value>
+  <value column="UUID" original="a442a7ae-de2b-11e9-96b6-0242ac110002">a4699cb0-de2b-11e9-96b6-0242ac110002</value>
+ </row>
+ <row id="54308" trl="N">
+  <value column="Name" original="Withholding Process for AR Invoice / AR Credit Memo">Procesar Retenciones CxC</value>
+  <value column="Description" original="Withholding Process for AR Invoice / AR Credit Memo">Procesar Retenciones CxC</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="7077ade2-de3b-11e9-b984-0242ac110002">70d87708-de3b-11e9-b984-0242ac110002</value>
+ </row>
+ <row id="54309" trl="N">
+  <value column="Name" original="Purchase Book">Libro de Compras</value>
+  <value column="Description" original="Purchase Book specific for Venezuela Location">Libro de Compras Específico para la Localización Venezuela</value>
+  <value column="Help" original="VAT Law Regulation (Decree 206 07-09-1999)&#10;Article 70: Taxpayers, in addition to the books required by the Commercial Code, must keep a Purchase Book and a Sales Book.&#10;In these books the information related to its operations in the domestic market, imports and exports, documented by invoices issued and received, equivalent documents of sale of goods and services, as well as debit and credit notes, will be recorded chronologically and without delays. amendments to the originally issued invoices and other receipts and documents that prove the sales or provision of services and the acquisitions of goods or receipt of services.&#10;Article 71: The Purchase and Sales Books must be kept permanently in the taxpayer's establishment.">Reglamento Ley IVA (Decreto 206 09-07-1999)
+Artículo 70: Los contribuyentes del impuesto además de los libros exigidos por el Código de Comercio, deberán llevar un Libro de Compras y otro de Ventas.
+En estos libros se registrarán cronológicamente y sin atrasos las informaciones relativas a sus operaciones en el mercado interno, importaciones y exportaciones, documentadas mediante facturas emitidas y recibidas, documentos equivalentes de venta de bienes y servicios, así como, las notas de débito y de crédito modificatorias de las facturas originalmente emitidas y otros comprobantes y documentos por los que se comprueben las ventas o prestaciones de servicios y las adquisiciones de bienes o recepción de servicios.
+Artículo 71: Los Libros de Compras y de Ventas deberán mantenerse permanentemente en el establecimiento del contribuyente.</value>
+  <value column="UUID" original="e69b338a-e067-11e9-9b06-0242ac110002">e6d37fce-e067-11e9-9b06-0242ac110002</value>
+ </row>
+ <row id="54310" trl="N">
+  <value column="Name" original="Sales Book">Libro de Ventas</value>
+  <value column="Description" original="Sales Book specific for Venezuela Location">Libro de Ventas Específico para Localización Venezuela</value>
+  <value column="Help" original="VAT Law Regulation (Decree 206 07-09-1999)&#10;Article 70: Taxpayers, in addition to the books required by the Commercial Code, must keep a Purchase Book and a Sales Book.&#10;In these books the information related to its operations in the domestic market, imports and exports, documented by invoices issued and received, equivalent documents of sale of goods and services, as well as debit and credit notes, will be recorded chronologically and without delays. amendments to the originally issued invoices and other receipts and documents that prove the sales or provision of services and the acquisitions of goods or receipt of services.&#10;Article 71: The Purchase and Sales Books must be kept permanently in the taxpayer's establishment.">Reglamento Ley IVA (Decreto 206 09-07-1999)
+Artículo 70: Los contribuyentes del impuesto además de los libros exigidos por el Código de Comercio, deberán llevar un Libro de Compras y otro de Ventas.
+En estos libros se registrarán cronológicamente y sin atrasos las informaciones relativas a sus operaciones en el mercado interno, importaciones y exportaciones, documentadas mediante facturas emitidas y recibidas, documentos equivalentes de venta de bienes y servicios, así como, las notas de débito y de crédito modificatorias de las facturas originalmente emitidas y otros comprobantes y documentos por los que se comprueben las ventas o prestaciones de servicios y las adquisiciones de bienes o recepción de servicios.
+Artículo 71: Los Libros de Compras y de Ventas deberán mantenerse permanentemente en el establecimiento del contribuyente.</value>
+  <value column="UUID" original="3df7bbac-e069-11e9-9e5c-0242ac110002">3e590466-e069-11e9-9e5c-0242ac110002</value>
+ </row>
+ <row id="54311" trl="N">
+  <value column="Name" original="Return Payment">Devolución de pago</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="69d8ecba-e090-11e9-b778-0242ac110002">6aade154-e090-11e9-b778-0242ac110002</value>
+ </row>
+ <row id="54319" trl="N">
+  <value column="Name" original="Payment Selection Detail">Detalle de Selección de Pagos</value>
+  <value column="Description" original="Show a Detail of Payment Selection">Muestra un Detalle de Selección de Pagos</value>
+  <value column="Help" original="Use this report for watch all payment selection and lines from query criteria">Use este reporte para ver todas las selecciones de pagos y líneas según el criterio de consulta</value>
+  <value column="UUID" original="8baedca0-e932-11e9-a215-0242ac110002">8bb574ca-e932-11e9-a215-0242ac110002</value>
+ </row>
+ <row id="54321" trl="N">
+  <value column="Name" original="Order (RMA) Create From">Crear (Orden de Devolución) Desde Entrega / Recibo</value>
+  <value column="Description" original="Create RMA from Shippment / Receipt">Crear (Orden de Devolución) Desde Entrega / Recibo</value>
+  <value column="Help" original="">Crea una Orden de Devolución desde las líneas de Entrega / Recibo</value>
+  <value column="UUID" original="d6e2650e-ec64-11e9-aaf0-0242ac110002">d6e64c64-ec64-11e9-aaf0-0242ac110002</value>
+ </row>
+ <row id="54322" trl="N">
+  <value column="Name" original="Order (Return) Create From Shipment / Receipt">Crear Orden de Devolución desde Entrega / Recibo</value>
+  <value column="Description" original="Process for call Smart Browser for Create From Shipment / Receipt">Proceso para llamar el visor de Crear Autorización de Devolución desde Entrega o Recibo en Almacén</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="90c12e52-ec5f-11e9-89f0-0242ac110002">90c90424-ec5f-11e9-89f0-0242ac110002</value>
+ </row>
+ <row id="54323" trl="N">
+  <value column="Name" original="Create Order From Return Order">Crear Orden desde Orden de Devolución</value>
+  <value column="Description" original="Create a new Order from other order like Return Order">Crear Orden desde Orden de Devolución generada</value>
+  <value column="Help" original="">Crea una o varoas Órdenes de Venta / Compra desde Órdenes de Devolución</value>
+  <value column="UUID" original="82f8dd14-ee27-11e9-8ea2-0242ac110002">82fc5930-ee27-11e9-8ea2-0242ac110002</value>
+ </row>
+ <row id="54324" trl="N">
+  <value column="Name" original="Create Order from Return Order">Crear Orden desde Orden de Devolución</value>
+  <value column="Description" original="Create Order From Return Order Generated">Crear Orden de Venta / Compra basada en Orden de Devolución</value>
+  <value column="Help" original="This Process call a browser for create a order from a return order">Este visor permite Crear Orden de Venta / Compra basado en una Orden de Devolución</value>
+  <value column="UUID" original="181c8786-ee2a-11e9-a8dc-0242ac110002">1823a4d0-ee2a-11e9-a8dc-0242ac110002</value>
+ </row>
+ <row id="54325" trl="N">
+  <value column="Name" original="Material Return Create From Return Order">Crear Devolución desde Orden de Devolución</value>
+  <value column="Description" original="Create Return from Order (RMA)">Crear Devolución desde Orden de Devolución</value>
+  <value column="Help" original="">Crea las líneas de la Devolución desde una Orden de Devolución asociada al Socio de Negocio</value>
+  <value column="UUID" original="d2ed9354-ec93-11e9-a090-0242ac110002">d2f08ff0-ec93-11e9-a090-0242ac110002</value>
+ </row>
+ <row id="54326" trl="N">
+  <value column="Name" original="Return Create From Order (RMA)">Crear Devolución desde Orden (ADM)</value>
+  <value column="Description" original="Process for call Smart Browser for Create From Order (RMA)">Proceso para llamar el visor de Crear Devolución desde Orden (ADM)</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="81415bac-ec94-11e9-b1e6-0242ac110002">8145e726-ec94-11e9-b1e6-0242ac110002</value>
+ </row>
+ <row id="54351" trl="N">
+  <value column="Name" original="ARC">ARC</value>
+  <value column="Description" original="Voucher Multiple Accumulated Withholdings (ARC)">Comprobante de Retenciones Acumuladas (ARC)</value>
+  <value column="Help" original="The ARC is a proof of accumulated withholdings of the ISLR during the fiscal year, which employers must deliver to workers in the terms provided in article 24 of Decree 1808 of the year 1997 through which the Regulation of the Law of ISLR in Retention Matters.&#10;&#10;Withholding agents in general are obliged to give vouchers to those who practice them. In the case of the employers, the regulatory norm expressly establishes that in the voucher corresponding to the last retention of the exercise that they make to the natural persons resident or not in the Country, beneficiaries of salaries, salaries and other similar remuneration, the sum of the amount paid and the total withheld in the annual period.&#10;&#10;It is this last proof of retention that is called ARC.">El ARC es un comprobante de retenciones acumuladas del ISLR en el lapso del ejercicio fiscal, que los patronos deben entregar a los trabajadores en los términos dispuestos en el artículo 24 del Decreto 1.808 del año 1997 mediante el cual se dictó el Reglamento de la Ley de ISLR en Materia de Retenciones.
+
+Los agentes de retención en general están obligados a entregar comprobantes a quienes les sean practicadas. En el caso de los patronos la norma reglamentaria establece expresamente que en el comprobante correspondiente a la última retención del ejercicio que hagan a las personas naturales residentes o no en el País, beneficiarias de sueldos, salarios y demás remuneraciones similares, se indicará la suma de lo pagado y el total retenido en el lapso anual.
+
+Es este último comprobante de retención al que se le denomina ARC.</value>
+  <value column="UUID" original="313d7d20-9c45-4da3-b185-1cf9221f095c">9c04ea4f-afe0-4630-8453-d8164e823778</value>
+ </row>
+ <row id="54355" trl="N">
+  <value column="Name" original="Payment Receipt">Recibo de Pago de Nómina</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="92f9c2d6-0bcd-4ebe-b144-d630e4b6ef47">4140522b-7db8-4b75-b3d2-ef94921d3011</value>
+ </row>
+ <row id="54356" trl="N">
+  <value column="Name" original="Payment Receipt Net Payment">Recibo de Pago (Neto a Pagar)</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="04ccb7dc-cf3a-11e9-bb02-0242ac110002">04d18bc2-cf3a-11e9-bb02-0242ac110002</value>
+ </row>
+ <row id="54357" trl="N">
+  <value column="Name" original="HR ARCV">ARCV (RRHH)</value>
+  <value column="Description" original="Proof of Various Accumulated Withholdings. ARC-V">Comprobante de Retenciones Acumuladas Varias. ARC-V</value>
+  <value column="Help" original="The ARC is the proof that reflects all payments and withholding taxes made by a company to the Natural Person, and this is the support of the Definitive Income Tax Declaration (ISLR). This voucher must include all of the regular or accidental net enrichment, derived from the provision of personal services under a dependency relationship, other than per diem and food allowances.">El ARC es el comprobante donde se reflejan todos los pagos y retenciones de impuestos realizados por una empresa a la Persona Natural, y este es el soporte de la Declaración Definitiva de Impuesto Sobre la Renta (ISLR). Este comprobante debe incluir la totalidad del enriquecimiento neto regular o accidental, derivado de las prestaciones de servicios personales bajo relación de dependencia, distinta a viáticos y bonos de alimentación.</value>
+  <value column="UUID" original="a96f357b-e2f6-4ba0-ba34-ccb21ef3b9be">98cc0341-ab25-42ad-bc7e-6dcfaf76f9c2</value>
+ </row>
+ <row id="54358" trl="N">
+  <value column="Name" original="ARC Detail">ARC Detallado</value>
+  <value column="Description" original="Voucher Multiple Accumulated Withholdings (ARC)">Comprobante de Retenciones Acumuladas (ARC)</value>
+  <value column="Help" original="The ARC is a proof of accumulated withholdings of the ISLR during the fiscal year, which employers must deliver to workers in the terms provided in article 24 of Decree 1808 of the year 1997 through which the Regulation of the Law of ISLR in Retention Matters.&#10;&#10;Withholding agents in general are obliged to give vouchers to those who practice them. In the case of the employers, the regulatory norm expressly establishes that in the voucher corresponding to the last retention of the exercise that they make to the natural persons resident or not in the Country, beneficiaries of salaries, salaries and other similar remuneration, the sum of the amount paid and the total withheld in the annual period.&#10;&#10;It is this last proof of retention that is called ARC.">El ARC es un comprobante de retenciones acumuladas del ISLR en el lapso del ejercicio fiscal, que los patronos deben entregar a los trabajadores en los términos dispuestos en el artículo 24 del Decreto 1.808 del año 1997 mediante el cual se dictó el Reglamento de la Ley de ISLR en Materia de Retenciones.
+
+Los agentes de retención en general están obligados a entregar comprobantes a quienes les sean practicadas. En el caso de los patronos la norma reglamentaria establece expresamente que en el comprobante correspondiente a la última retención del ejercicio que hagan a las personas naturales residentes o no en el País, beneficiarias de sueldos, salarios y demás remuneraciones similares, se indicará la suma de lo pagado y el total retenido en el lapso anual.
+
+Es este último comprobante de retención al que se le denomina ARC.</value>
+  <value column="UUID" original="2a98be92-4aac-4ddd-bbc6-2fb3f19301a6">949ded6c-b2b8-42f0-99cf-f5bf2c9c97ac</value>
+ </row>
+ <row id="54361" trl="N">
+  <value column="Name" original="POS Opening">Apertura de Punto de Venta</value>
+  <value column="Description" original="Opening POS from bank transfer">Apertura de Punto de Venta desde transferencia</value>
+  <value column="Help" original="Use this process for make a cash opening for POS">Use este proceso para crear la apertura del punto de venta</value>
+  <value column="UUID" original="e5947e4e-c6d9-11e9-b32d-0242ac110002">e67675ba-c6d9-11e9-b32d-0242ac110002</value>
+ </row>
+ <row id="54362" trl="N">
+  <value column="Name" original="Withholding Send">Envíar Retenciones</value>
+  <value column="Description" original="">Permite Envíar las Retenciones Generadas via EMail</value>
+  <value column="Help" original="">Permite Envíar las Retenciones Generadas via EMail</value>
+  <value column="UUID" original="2ef28164-2566-4ba6-9807-9eb2be00c660">a84a00eb-162a-4fdf-9deb-bbf413d94ccf</value>
+ </row>
+ <row id="54363" trl="N">
+  <value column="Name" original="Withholding Send">Envíar Retenciones</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="7cf9e492-8f83-440b-be16-f6a12228f990">3396a1f7-747e-4194-8539-5968b7ed6b95</value>
+ </row>
+ <row id="54364" trl="Y">
+  <value column="Name" original="Generate Invoice from Payment">Generar una factura a partir del pago</value>
+  <value column="Description" original="Allows to generate an invoice from the payment">Permite generar una factura a partir del pago.</value>
+  <value column="Help" original="The process allows generating an Invoice from the a Payment, the payment should be with the Document Status as Completed, unallocated and have not a charge">El proceso permite generar una Factura a partir de un pago, el pago debe estar con el estado de documento como completado, sin asignar y sin cargo</value>
+  <value column="UUID" original="614fe12f-fc31-45b9-b66f-26e23230827c">478a9476-815e-41f2-8135-c23931a1c31b</value>
+ </row>
+ <row id="54365" trl="N">
+  <value column="Name" original="Order (RMA) Create From Invoice">Crear (Orden de Devolución) Desde Factura</value>
+  <value column="Description" original="Create RMA from Invoice">Crear (Orden de Devolución) Desde Factura</value>
+  <value column="Help" original="">Crea una Orden de Devolución desde las líneas de Factura</value>
+  <value column="UUID" original="efe8d477-47e4-4f2b-a58a-83d26d5314e9">50858524-836d-4ca6-9202-7fb712bc0b0d</value>
+ </row>
+ <row id="54371" trl="N">
+  <value column="Name" original="Deliver Assets">Entrega de Activos</value>
+  <value column="Description" original="Deliver Assets for Business Partners">Entrega de Activos a Socios de Negocio</value>
+  <value column="Help" original="Deliver a Asset to Business Partner like Tools, Vehicles and others">Entrega Activos como Herramientas, Vehículos y otros a un Socio de Negocio</value>
+  <value column="UUID" original="272548b7-845b-4d09-8507-ee76eafd63ea">15e538f9-6459-4264-bd40-682cfee2b78b</value>
+ </row>
+ <row id="54376" trl="N">
+  <value column="Name" original="Create From Table">Crear desde Tabla</value>
+  <value column="Description" original="Create Format Lines from Table">Crea las Lineas del Formato de Exportación desde la Tabla Referenciada</value>
+  <value column="Help" original="This process create lines from columns of referenced table, note that you can remove before create lines">Este proceso crea las lineas del formato de exportación desde las columnas de la tabla referenciada, note que se pueden eliminar antes de crear si así lo desea</value>
+  <value column="UUID" original="fa29b22e-e520-4939-a409-f6905630ed39">d753853a-6bb0-4d37-a511-0f77488ae383</value>
+ </row>
+ <row id="54377" trl="N">
+  <value column="Name" original="Create From Table">Crear desde Tabla</value>
+  <value column="Description" original="Create Format Lines from Table">Crea las Lineas del Formato de Exportación desde la Tabla Referenciada</value>
+  <value column="Help" original="This process create lines from columns of referenced table, note that you can remove before create lines">Este proceso crea las lineas del formato de exportación desde las columnas de la tabla referenciada, note que se pueden eliminar antes de crear si así lo desea</value>
+  <value column="UUID" original="30271b42-95ac-4187-8a76-b687e86ea52f">029542f1-da65-42d8-8095-cbb213fb90d2</value>
+ </row>
+ <row id="54380" trl="N">
+  <value column="Name" original="Employment Verification letter">Constancia de Trabajo</value>
+  <value column="Description" original="The Employment verification letter, confirm a person is or was employed by this company.">La Constancia de Trabajo, confirma que una persona trabaja en esta organizacion</value>
+  <value column="Help" original="This Document must record that a person has been working in this institution in a job since a certain date and for a certain salary.">Este Documento que hacer constar que una persona ha estado trabajando en esta institución en un puestos de trabajo desde una fecha determinada y por un salario determinados.</value>
+  <value column="UUID" original="88676871-077a-42ba-b764-bdc8e0b34567">926e13b7-a136-4cba-bcd5-2b588f5a3f2b</value>
+ </row>
+ <row id="54381" trl="N">
+  <value column="Name" original="Employment Verification Unsigned letter">Constancia de Trabajo sin Firma</value>
+  <value column="Description" original="The Employment verification letter, confirm a person is or was employed by this company.">La Constancia de Trabajo, confirma que una persona trabaja en esta organizacion</value>
+  <value column="Help" original="This Document must record that a person has been working in this institution in a job since a certain date and for a certain salary.">Este Documento que hacer constar que una persona ha estado trabajando en esta institución en un puestos de trabajo desde una fecha determinada y por un salario determinados.</value>
+  <value column="UUID" original="84daf98b-11b2-4d05-b354-3e289201f71a">30bc74fa-5bac-425f-9961-ea492766152d</value>
+ </row>
+ <row id="54394" trl="N">
+  <value column="Name" original="Daily Invoice (Summary)">Facturación Diaria (Resumida)</value>
+  <value column="Description" original="Invoice Report per Day">Reportar facturación diaria resumida</value>
+  <value column="Help" original="Invoiced amount by Organization and Sales Rep">Con este reporte usted puede ver un resumen diario de las ventas realizadas para documentos fiscales, note que este reporte se usa para la declaración municipio</value>
+  <value column="UUID" original="23ad62a1-3ec0-43ef-891f-546a958a19f7">0b8a3fd2-ab31-4108-9250-5807e64033d4</value>
+ </row>
+ <row id="54395" trl="N">
+  <value column="Name" original="Copy From Customized Tab">Copiar Pestaña SaaS desde Otra</value>
+  <value column="Description" original="Copy a ASP Tab from other Customized Tab">Copia la pestaña actual desde otra pestaña personalizada</value>
+  <value column="Help" original="This process allows copy all fields of tab from other customized tab">Este proceso permite copiar todos los campos de la pestaña actual desde otra pestaña personalizada</value>
+  <value column="UUID" original="6795a581-a827-45ca-bd25-5eba22dc8851">66e9c306-9798-46b4-b5d0-02aabf1f6bc5</value>
+ </row>
+ <row id="54398" trl="N">
+  <value column="Name" original="Copy Window From Role">Copiar Ventanas desde Otro Perfil</value>
+  <value column="Description" original="Copy windows from other role">Copiar Ventanas desde Otro Perfil</value>
+  <value column="Help" original="This Smart Browser allows copy windows from other role, note that if it not exist here is because already added to current role or was disabled">Este Visor permite copiar ventanas desde otro perfil, note que si no existe alguna ventana en la lista es porque ya fue agregada al perfil actual o está deshabilitada</value>
+  <value column="UUID" original="0a63dc1b-404e-423c-81b0-63c4b89993ea">3e8ac477-baa6-4949-b285-30f16381e0bd</value>
+ </row>
+ <row id="54399" trl="N">
+  <value column="Name" original="Copy Window From Role">Copiar Ventanas desde otro Perfil</value>
+  <value column="Description" original="Copy windows from other role">Copiar Ventanas desde otro Perfil</value>
+  <value column="Help" original="This Smart Browser allows copy windows from other role, note that if it not exist here is because already added to current role or was disabled">Este Visor permite copiar ventanas desde otro perfil, note que si no existe alguna ventana en la lista es porque ya fue agregada al perfil actual o está deshabilitada</value>
+  <value column="UUID" original="ee06a5c0-09a9-4366-ae3e-af36d5e72487">9815a0cd-1e0e-4aef-bf4d-a73dc7ff446e</value>
+ </row>
+ <row id="54400" trl="N">
+  <value column="Name" original="Copy Browser From Role">Copiar Visor desde otro Perfil</value>
+  <value column="Description" original="Copy browsers from other role">Copiar Visor desde otro Perfil</value>
+  <value column="Help" original="This Smart Browser allows copy browsers from other role, note that if it not exist here is because already added to current role or was disabled">Este Visor permite copiar visores desde otro perfil, note que si no existe algun visor en la lista es porque ya fue agregada al perfil actual o está deshabilitada</value>
+  <value column="UUID" original="2f517e7d-de5b-4dd3-86b8-b6981bdadf1b">c4553de6-3c52-436e-a99f-bd2fd9c0d844</value>
+ </row>
+ <row id="54401" trl="N">
+  <value column="Name" original="Copy Browser From Role">Copiar Visor desde otro Perfil</value>
+  <value column="Description" original="Copy browsers from other role">Copiar Visor desde otro Perfil</value>
+  <value column="Help" original="This Smart Browser allows copy browsers from other role, note that if it not exist here is because already added to current role or was disabled">Este Visor permite copiar visores desde otro perfil, note que si no existe algun visor en la lista es porque ya fue agregada al perfil actual o está deshabilitada</value>
+  <value column="UUID" original="84817719-c9e2-4288-8a5d-e9f2c66af6ee">b778c2da-7f23-4e0d-a7b3-57dbe06303c9</value>
+ </row>
+ <row id="54402" trl="N">
+  <value column="Name" original="Copy Forms From Role">Copiar Forma desde otro Perfil</value>
+  <value column="Description" original="Copy forms from other role">Copiar Forma desde otro Perfil</value>
+  <value column="Help" original="This Smart Forms allows copy forms from other role, note that if it not exist here is because already added to current role or was disabled">Este Visor permite copiar Formas desde otro perfil, note que si no existe alguna forma en la lista es porque ya fue agregada al perfil actual o está deshabilitada</value>
+  <value column="UUID" original="f8ea83ee-b25e-402f-a879-3d17920be519">bab9649b-309c-49e1-a9e7-e1375330c70f</value>
+ </row>
+ <row id="54403" trl="N">
+  <value column="Name" original="Copy Form From Role">Copiar Forma desde otro Perfil</value>
+  <value column="Description" original="Copy forms from other role">Copiar Forma desde otro Perfil</value>
+  <value column="Help" original="This Smart Browser allows copy forms from other role, note that if it not exist here is because already added to current role or was disabled">Este Visor permite copiar Formas desde otro perfil, note que si no existe alguna forma en la lista es porque ya fue agregada al perfil actual o está deshabilitada</value>
+  <value column="UUID" original="aa76e5d0-4a06-4e12-a779-760d5c2b1e86">d3627a69-6453-4bef-ba2a-1de81e8098d2</value>
+ </row>
+ <row id="54404" trl="N">
+  <value column="Name" original="Create from Document Actions">Crear Perfil desde Acción de Documento</value>
+  <value column="Description" original="Create Role from Document Actions">Crear Perfil desde Acción de Documento</value>
+  <value column="Help" original="This Browser allows create Document Actions from Document Types, note that if it not exists is because already exists inside role">Este visor permite crear el perfil desde acciones de documentos relacionadas a tipos de documentos, note que si no se muestra es porque se encuentra deshabilitado o ya existe en el perfil</value>
+  <value column="UUID" original="8b7c557e-40ae-4695-badc-b4e7aceb920f">6432e5e8-142e-48bb-98ac-a21a25669021</value>
+ </row>
+ <row id="54405" trl="N">
+  <value column="Name" original="Create from Document Actions">Crear Perfil desde Acción de Documento</value>
+  <value column="Description" original="Create Role from Document Actions">Crear Perfil desde Acción de Documento</value>
+  <value column="Help" original="This Browser allows create Document Actions from Document Types, note that if it not exists is because already exists inside role">Este visor permite crear el perfil desde acciones de documentos relacionadas a tipos de documentos, note que si no se muestra es porque se encuentra deshabilitado o ya existe en el perfil</value>
+  <value column="UUID" original="2f3fe72c-eaa7-4da5-badb-3804ac992c95">b375523c-d304-4f68-9a7e-8afb49937899</value>
+ </row>
+ <row id="54407" trl="N">
+  <value column="Name" original="Delete Temporary Tables">Eliminar Tablas Temporales</value>
+  <value column="Description" original="This process delete all tables flagged as temporary tables or that beginning with &quot;T_&quot;&lt;Name&gt;"><![CDATA[Este proceso elimina todas las tablas marcadas como temporales o que su nombre inicia con "T_"<Nombre>]]></value>
+  <value column="Help" original="Note that all records inserted for all temporary tables will be deleted">Note que todos los registros insertados para todas las tablas temporales serán eliminados</value>
+  <value column="UUID" original="520213d5-29c5-41e9-8f1d-184f85bd29fd">af5ea4c1-1a3e-495a-b082-9a6beda793d5</value>
+ </row>
+ <row id="54408" trl="N">
+  <value column="Name" original="Close Expired Sessions">Cerrar Sesiones Expiradas</value>
+  <value column="Description" original="Close Expired Sessions automatically">Cierra Automáticamente todas las Sesiones Expiradas</value>
+  <value column="Help" original="All sessions that already expired yet will be closed (mark as processed) automatically">Todas las sesiones que ya hayan expirado serán cerradas (marcadas como procesadas) automáticamente</value>
+  <value column="UUID" original="03c5c448-02f1-4553-ab3c-f1c0ce747bff">afd1b867-df88-4d29-a355-b99ea8fc2f65</value>
+ </row>
+ <row id="54409" trl="N">
+  <value column="Name" original="Copy Process from other ASP">Copiar Procesos desde SaaS</value>
+  <value column="Description" original="Copy Custom Process from other ASP">Copia los Procesos desde otro SaaS</value>
+  <value column="Help" original="This Browser allows copy selected process from other ASP">Este visor permite copiar procesos personalizados desde otro SaaS</value>
+  <value column="UUID" original="770c65d3-c9d6-4a6d-b3c2-1816dde73a18">31219bfa-a9d0-494e-b869-3a13f6431556</value>
+ </row>
+ <row id="54410" trl="N">
+  <value column="Name" original="Copy Process from other ASP">Copiar Procesos desde SaaS</value>
+  <value column="Description" original="Copy Custom Process from other ASP">Copia los Procesos desde otro SaaS</value>
+  <value column="Help" original="This Browser allows copy selected process from other ASP">Este visor permite copiar procesos personalizados desde otro SaaS</value>
+  <value column="UUID" original="986b904e-c770-4e56-b045-948dbcc8ef22">c692fc36-703a-4de9-b241-afe7ec708940</value>
+ </row>
+ <row id="54411" trl="N">
+  <value column="Name" original="Copy Browser from other ASP">Copiar Visores desde SaaS</value>
+  <value column="Description" original="Copy Browser from other ASP">Copiar los Visores desde SaaS</value>
+  <value column="Help" original="This Browser allows copy selected smart browser from other ASP">Este visor permite copiar visores inteligentes personalizados desde otro SaaS</value>
+  <value column="UUID" original="055adad5-467b-4594-b598-f1fc3f62ea15">23eb8a2a-339c-4959-b066-65bf4dffa27c</value>
+ </row>
+ <row id="54413" trl="N">
+  <value column="Name" original="Copy Browser from other ASP">Copiar Visores desde SaaS</value>
+  <value column="Description" original="Copy Browser from other ASP">Copiar los Visores desde SaaS</value>
+  <value column="Help" original="This Browser allows copy selected smart browser from other ASP">Este visor permite copiar visores inteligentes personalizados desde otro SaaS</value>
+  <value column="UUID" original="a38e3dda-b93c-40df-80f6-4bce2eb9af37">0ed58c02-3167-494e-b2e1-dfae85e8980a</value>
+ </row>
+ <row id="54414" trl="N">
+  <value column="Name" original="Copy Window from other ASP">Copiar Ventanas desde SaaS</value>
+  <value column="Description" original="Copy Window from other ASP">Copiar los Ventanas desde SaaS</value>
+  <value column="Help" original="This Window allows copy selected window from other ASP">Este visor permite copiar ventanas inteligentes personalizados desde otro SaaS</value>
+  <value column="UUID" original="7c8d6c14-c1de-4ac7-a828-d4caf557070e">ae20d88b-5aff-4600-a28b-2c47e5baec64</value>
+ </row>
+ <row id="54415" trl="N">
+  <value column="Name" original="Copy Window from other ASP">Copiar Ventanas desde SaaS</value>
+  <value column="Description" original="Copy Window from other ASP">Copiar los Ventanas desde SaaS</value>
+  <value column="Help" original="This Window allows copy selected window from other ASP">Este visor permite copiar ventanas inteligentes personalizados desde otro SaaS</value>
+  <value column="UUID" original="f67ecda0-d0a7-4b7d-8f2c-dd3872359733">25cc5876-30ce-43b5-b95f-45d3bc1448ed</value>
+ </row>
+ <row id="54426" trl="N">
+  <value column="Name" original="Process Package">Process Package</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="179f22b0-ba9b-45a1-a4ac-6abe39fff8df">1add2646-b81d-4243-8bfa-eba0da924215</value>
+ </row>
+ <row id="54427" trl="N">
+  <value column="Name" original="Generate Sales Invoice from Freight Order">Generar Documento por Cobrar desde Orden de Flete</value>
+  <value column="Description" original="This Smart Browse allow select Freight Orders to Invoice">Esta consulta permite seleccionar las Órdenes de Flete para generar Facturas de Clientes</value>
+  <value column="Help" original="If a Freight not exists then is possible that it is not completed or already exists in a Invoice">Si una Orden de Flete no se encuentra en la lista es probable que no esté completa o ya exista en una Factura de Cliente</value>
+  <value column="UUID" original="fdc738ce-087e-4f83-976a-043d37020309">090a6551-4a95-4022-8d7d-10fc42987ac3</value>
+ </row>
+ <row id="54428" trl="N">
+  <value column="Name" original="Generate AP Invoice from Freight Order">Crear Lineas de Documento por Pagar desde Orden de Flete</value>
+  <value column="Description" original="This Smart Browse allow select Freight Orders to Invoice">Esta consulta permite seleccionar las Órdenes de Flete para generar Facturas de Cuentas por Pagar</value>
+  <value column="Help" original="If a Freight not exists then is possible that it is not completed or already exists in a Invoice">Si una Orden de Flete no se encuentra en la lista es probable que no esté completa o ya exista en una Factura de Cuentas por Pagar</value>
+  <value column="UUID" original="83c92a5b-c692-4ce4-92bf-90e55c2137e5">198f9899-b811-4870-ab9f-5f47b76d7b3a</value>
+ </row>
+ <row id="54429" trl="N">
+  <value column="Name" original="Generate AP Invoice from Freight Order">Crear Lineas de Documento por Pagar desde Orden de Flete</value>
+  <value column="Description" original="This Smart Browse allow select Freight Orders to Invoice">Esta consulta permite seleccionar las Órdenes de Flete para generar Facturas de Cuentas por Pagar</value>
+  <value column="Help" original="If a Freight not exists then is possible that it is not completed or already exists in a Invoice">Si una Orden de Flete no se encuentra en la lista es probable que no esté completa o ya exista en una Factura de Cuentas por Pagar</value>
+  <value column="UUID" original="3e4781cf-0785-4cb1-9799-992776242ac5">f38a1174-6696-4b87-8bad-b6243285199b</value>
+ </row>
+ <row id="54430" trl="N">
+  <value column="Name" original="Create Freight Order From Package">Crear Orden de Flete desde Paquete</value>
+  <value column="Description" original="This Smart Browse allow select Packages to ship or allocate to Freight Order">Esta consulta permite seleccionar los Paquetes para Generar una Orden de Flete</value>
+  <value column="Help" original="If a Package not exists then is possible that it is not completed or already exists in a Freight Order">Si un Paquete no se encuentra en la lista es probable que no esté completo o ya exista en una Orden de Flete</value>
+  <value column="UUID" original="047b738f-3105-4cc7-bb7b-4aad1faa3c4e">4e4c4ad3-bd20-40b2-836f-ea22fa75e75f</value>
  </row>
  <row id="90001" trl="Y">
   <value column="Name" original="SB_InvoiceGenerateFromOrderLine">SB_InvoiceGenerateFromOrderLine</value>

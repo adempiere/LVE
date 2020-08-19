@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!--ADempiere(r) Release 3.9.2_2019-05-03 -Smart Suite ERP,CRM and SCM- (c) 1999-2019 ADempiere(r); Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_MX" table="AD_Reference">
+<!--ADempiere(r) Release 3.9.3_2019-12-01 - Smart Suite ERP,CRM and SCM - (c) 1999-2019 ADempiere(r) Implementation: ADempiere - Supported by ADempiere community--><!--<!DOCTYPE adempiereTrl PUBLIC "-//ComPiere, Inc.//DTD Adempiere Translation 1.0//EN" "http://www.adempiere.net/dtd/adempiereTrl.dtd">--><adempiereTrl language="es_MX" table="AD_Reference">
  <row id="1" trl="Y">
   <value column="Name" original="AD_Reference Data Types">AD_Reference Data Types</value>
   <value column="Description" original="Data Type selection">Selección de tipo de datos</value>
@@ -3511,6 +3511,132 @@
   <value column="Help" original=""/>
   <value column="UUID" original="a47ec0a0-fb40-11e8-a479-7a0060f0aa01"/>
  </row>
+ <row id="54011" trl="N">
+  <value column="Name" original="FM_ProductCategory Type">FM_ProductCategory Type</value>
+  <value column="Description" original="Parent Type">Parent Type</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54012" trl="N">
+  <value column="Name" original="FM_StatusType Type">FM_StatusType Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54014" trl="N">
+  <value column="Name" original="FM_FunctionalApplicability EventType">FM_FunctionalApplicability Event Type</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54015" trl="N">
+  <value column="Name" original="DunningInterest_ID reference">DunningInterest_ID reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54019" trl="N">
+  <value column="Name" original="_Loan Frequency">_Loan Frequency</value>
+  <value column="Description" original="Processor Loan Frequency">Processor Loan Frequency</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54020" trl="N">
+  <value column="Name" original="FM_TransactionType Supported Transaction">FM_TransactionType Supported Transaction</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54022" trl="N">
+  <value column="Name" original="RelType FM_Agreement =&gt; C_Payment_ID Payments"><![CDATA[RelType FM_Agreement => C_Payment_ID Payments]]></value>
+  <value column="Description" original="Finds Payment for it Loan">Finds Payment for it Loan</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54023" trl="N">
+  <value column="Name" original="RelType FM_Agreement &lt;= C_Payment_ID"><![CDATA[RelType FM_Agreement <= C_Payment_ID]]></value>
+  <value column="Description" original="Finds FM_Agreement_IDs for a given C_Payment_ID">Finds FM_Agreement_IDs for a given C_Payment_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54024" trl="N">
+  <value column="Name" original="RelType FM_Agreement =&gt; C_PaySelection_ID Payments"><![CDATA[RelType FM_Agreement => C_PaySelection_ID Payments]]></value>
+  <value column="Description" original="Finds Payment Selection for it Loan">Finds Payment Selection for it Loan</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54025" trl="N">
+  <value column="Name" original="RelType FM_Agreement &lt;= C_PaySelection_ID"><![CDATA[RelType FM_Agreement <= C_PaySelection_ID]]></value>
+  <value column="Description" original="Finds FM_Agreement_IDs for a given C_PaySelection_ID">Finds FM_Agreement_IDs for a given C_PaySelection_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54026" trl="N">
+  <value column="Name" original="FM_Amortization reference">FM_Amortization reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54027" trl="N">
+  <value column="Name" original="RelType FM_Agreement =&gt; C_Invoice_ID Invoice Customer"><![CDATA[RelType FM_Agreement => C_Invoice_ID Invoice Customer]]></value>
+  <value column="Description" original="Finds Invoice Customer for it Loan">Finds Invoice Customer for it Loan</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54028" trl="N">
+  <value column="Name" original="RelType FM_Agreement &lt;= C_Invoice_ID"><![CDATA[RelType FM_Agreement <= C_Invoice_ID]]></value>
+  <value column="Description" original="Finds FM_Agreement_IDs for a given C_Invoice_ID">Finds FM_Agreement_IDs for a given C_Invoice_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54038" trl="N">
+  <value column="Name" original="FM_Account reference">FM_Account reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54039" trl="N">
+  <value column="Name" original="FM_Agreement reference">FM_Agreement reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54042" trl="N">
+  <value column="Name" original="RelType FM_Agreement =&gt; FM_Batch_ID Batchs"><![CDATA[RelType FM_Agreement => FM_Batch_ID Batchs]]></value>
+  <value column="Description" original="Finds Batchs from Agreement">Finds Batchs from Agreement</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54043" trl="N">
+  <value column="Name" original="RelType FM_Agreement &lt;= FM_Batch_ID"><![CDATA[RelType FM_Agreement <= FM_Batch_ID]]></value>
+  <value column="Description" original="Finds FM_Agreement_IDs for a given FM_Batch_ID">Finds FM_Agreement_IDs for a given FM_Batch_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54044" trl="N">
+  <value column="Name" original="RelType C_Invoice =&gt; FM_Batch_ID Financial Batchs"><![CDATA[RelType C_Invoice => FM_Batch_ID Batchs]]></value>
+  <value column="Description" original="Finds Batchs from Invoice">Finds Batchs from Invoice</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54045" trl="N">
+  <value column="Name" original="RelType C_Invoice (Customer) &lt;= FM_Batch_ID"><![CDATA[RelType C_Invoice (Customer) <= FM_Batch_ID]]></value>
+  <value column="Description" original="Finds C_Invoice_IDs for a given FM_Batch_ID">Finds C_Invoice_IDs for a given FM_Batch_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54046" trl="N">
+  <value column="Name" original="FM_Batch">FM_Batch</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
+ <row id="54047" trl="N">
+  <value column="Name" original="FM_Rate reference">FM_Rate reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original=""/>
+ </row>
  <row id="54058" trl="N">
   <value column="Name" original="C_DocType PO">C_DocType PO</value>
   <value column="Description" original=""/>
@@ -3522,6 +3648,30 @@
   <value column="Description" original=""/>
   <value column="Help" original=""/>
   <value column="UUID" original="431166fa-3098-11e9-8dcd-63e1650d7d8c"/>
+ </row>
+ <row id="54065" trl="N">
+  <value column="Name" original="HR_Employee reference">HR_Employee reference</value>
+  <value column="Description" original="Business Partners who are Employee">Business Partners who are Employee</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="9e42571c-12c7-11e9-a86a-73ac0288a067"/>
+ </row>
+ <row id="54066" trl="N">
+  <value column="Name" original="HR_ShiftIncidence In/Out">HR_ShiftIncidence In/Out</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="0774d188-12c8-11e9-94f7-c3c147afb284"/>
+ </row>
+ <row id="54067" trl="N">
+  <value column="Name" original="HR_AttendanceRecord reference">HR_AttendanceRecord reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="433aaabc-12c8-11e9-95b8-8f52a30ce11e"/>
+ </row>
+ <row id="54068" trl="N">
+  <value column="Name" original="HR_Incidence reference">HR_Incidence reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="43df5328-12c8-11e9-95bc-3b1cef47df6b"/>
  </row>
  <row id="54071" trl="N">
   <value column="Name" original="TokenType reference">TokenType reference</value>
@@ -3673,6 +3823,12 @@
   <value column="Help" original=""/>
   <value column="UUID" original="eff11e0c-9f69-11e9-8358-0242ac110002">f000c280-9f69-11e9-8358-0242ac110002</value>
  </row>
+ <row id="54158" trl="N">
+  <value column="Name" original="HR_Period reference">HR_Period reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="09f81dd2-a1f4-11e9-a72a-0242ac110002">09faa386-a1f4-11e9-a72a-0242ac110002</value>
+ </row>
  <row id="54159" trl="N">
   <value column="Name" original="WM_InOutBound reference">WM_InOutBound reference</value>
   <value column="Description" original=""/>
@@ -3708,5 +3864,101 @@
   <value column="Description" original=""/>
   <value column="Help" original=""/>
   <value column="UUID" original="41c2da2c-d2b9-11e9-bc68-0242ac110002">41fc2552-d2b9-11e9-bc68-0242ac110002</value>
+ </row>
+ <row id="54172" trl="N">
+  <value column="Name" original="TrxType (Bank Charge or Unidentified Payment)">TrxType (Bank Charge or Unidentified Payment)</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="d96e1970-dab3-11e9-be17-0242ac110002">d97163b4-dab3-11e9-be17-0242ac110002</value>
+ </row>
+ <row id="54173" trl="N">
+  <value column="Name" original="TrxType (Select or Create Payment)">TrxType (Select or Create Payment)</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="93ad0f5c-ddb7-11e9-9da7-0242ac110003">93b08f24-ddb7-11e9-9da7-0242ac110003</value>
+ </row>
+ <row id="54174" trl="N">
+  <value column="Name" original="RelType C_Payment (Unidentified) =&gt; C_Payment_ID (Identify)"><![CDATA[Payment (Unidentified) <-> Payment (Identify)]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="2a96ba14-de2e-11e9-981e-0242ac110002">2abe48ae-de2e-11e9-981e-0242ac110002</value>
+ </row>
+ <row id="54175" trl="N">
+  <value column="Name" original="RelType C_Payment (Identify) &lt;= C_Payment_ID (Unidentified)"><![CDATA[RelType C_Payment (Identify) <= C_Payment_ID (Unidentified)]]></value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="59b3cf1c-de2e-11e9-981e-0242ac110002">59d501dc-de2e-11e9-981e-0242ac110002</value>
+ </row>
+ <row id="54177" trl="N">
+  <value column="Name" original="RelType C_Payment (Unidentified) &lt;= C_BankStatement_ID"><![CDATA[RelType C_Payment (Unidentified) <= C_BankStatement_ID]]></value>
+  <value column="Description" original="Finds C_Payment_IDs for a given C_BankStatement_ID">Finds C_Payment_IDs for a given C_BankStatement_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="0be4337a-de2f-11e9-8b40-0242ac110002">0c009952-de2f-11e9-8b40-0242ac110002</value>
+ </row>
+ <row id="54178" trl="N">
+  <value column="Name" original="RelType C_Payment (Identified) &lt;= C_BankStatement_ID"><![CDATA[RelType C_Payment (Identified) <= C_BankStatement_ID]]></value>
+  <value column="Description" original="Finds C_Payment_IDs for a given C_BankStatement_ID">Finds C_Payment_IDs for a given C_BankStatement_ID</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ce904396-de2f-11e9-9525-0242ac110002">ceb8b04c-de2f-11e9-9525-0242ac110002</value>
+ </row>
+ <row id="54179" trl="N">
+  <value column="Name" original="Aliquot Type">Tipo de alícuota</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="7c979fbc-e064-11e9-b70a-0242ac110002">7ccb3502-e064-11e9-b70a-0242ac110002</value>
+ </row>
+ <row id="54180" trl="N">
+  <value column="Name" original="C_BP_SalesGroup reference">C_BP_SalesGroup reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="55364ad9-fb04-47e9-8990-eaf0171ef265">50112d7e-7c76-470b-94da-72f003718ab7</value>
+ </row>
+ <row id="54181" trl="N">
+  <value column="Name" original="C_BP_AccountType reference">C_BP_AccountType reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="654ac21b-300f-4c5e-a280-a6263f6fa33b">68adc14b-af07-4280-ae53-89a7d66832d9</value>
+ </row>
+ <row id="54182" trl="N">
+  <value column="Name" original="C_BP_Segment reference">C_BP_Segment reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="63087d7f-d229-4fc8-9eb2-7527e1b021ab">f3b92ee4-aa62-4df6-b2c6-52c4295695a5</value>
+ </row>
+ <row id="54183" trl="N">
+  <value column="Name" original="C_BP_IndustryType reference">C_BP_IndustryType reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="ede197f3-94e3-4f41-a89b-c47e43d66370">3e718deb-169f-4f9a-993c-da9ebb082917</value>
+ </row>
+ <row id="54184" trl="N">
+  <value column="Name" original="M_InOutLine (RMA)">M_InOutLine (RMA)</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="15c308f6-ec5f-11e9-b816-0242ac110002">15cac37a-ec5f-11e9-b816-0242ac110002</value>
+ </row>
+ <row id="54214" trl="N">
+  <value column="Name" original="ASP_Level reference">ASP_Level reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="d90bb8fd-65de-46f3-bfd9-9d75ea9e7782">3c58c4dc-debf-47ce-b5bd-076c5367a014</value>
+ </row>
+ <row id="54220" trl="N">
+  <value column="Name" original="M_Package reference">M_Package reference</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="30696579-e824-4235-9090-613e56b188fd">68bba9e4-9857-418c-8e25-0c2451a100a8</value>
+ </row>
+ <row id="54221" trl="N">
+  <value column="Name" original="M_FreightCategory FreightCalculationType">M_FreightCategory FreightCalculationType</value>
+  <value column="Description" original=""/>
+  <value column="Help" original=""/>
+  <value column="UUID" original="d4aeb384-baf1-494c-8d2a-4c03dc1f8bb0">a612f45e-b4e7-4845-945c-841971e4a6a7</value>
+ </row>
+ <row id="54222" trl="N">
+  <value column="Name" original="DD_FreightLine reference">DD_FreightLine reference</value>
+  <value column="Description" original="Freight Line reference">Freight Line reference</value>
+  <value column="Help" original=""/>
+  <value column="UUID" original="4bc02c66-c05d-49b4-8dea-784d08f82a97">c6ed1d57-1098-493d-96a6-a51850b0d68d</value>
  </row>
 </adempiereTrl>
