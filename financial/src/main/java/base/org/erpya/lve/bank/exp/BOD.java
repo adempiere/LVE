@@ -315,8 +315,7 @@ public class BOD extends LVEPaymentExportList {
 					}
 				}
 				//	Document No
-				String documentReference = documentNo.substring(0, 20);
-				documentNo = rightPadding(documentReference, 20, " ");
+				documentNo = rightPadding(documentNo, 20, " ");
 				//	Reference Amount
 				String documentAmountAsString = String.format("%.2f", documentAmount.abs()).replace(".", "").replace(",", "");
 				documentAmountAsString = leftPadding(documentAmountAsString, 15, "0", true);
