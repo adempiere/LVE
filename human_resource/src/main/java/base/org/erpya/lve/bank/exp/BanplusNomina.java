@@ -140,7 +140,7 @@ public class BanplusNomina extends LVEPaymentExportList {
 						if(bpAccount != null) {
 							String bPName = processValue(bpAccount.getA_Name());
 							bPName = bPName.substring(0, bPName.length() >= 40? 40: bPName.length());
-							bPName = leftPadding(bPName, 40, "", true);
+							bPName = rightPadding(bPName, 40, " ", true);
 							
 							String bPTaxId = bpAccount.getA_Ident_SSN();
 							//	Process Person Type
