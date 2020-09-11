@@ -82,5 +82,6 @@ public class ColumnsAdded {
 	public static final String COLUMNNAME_BankClientNo = "BankClientNo";
 	/**SICA Code (Sistema Integral de Control Agroalimentario)*/
 	public static final String COLUMNNAME_SICACode = "SICACode";
-	
+	/**BANAVIH Code */
+	public static final String COLUMNNAME_BANAVIHCode = "BANAVIHCode";
 }
