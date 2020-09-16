@@ -29,7 +29,6 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang.StringUtils;
 import org.compiere.model.MBPartner;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
