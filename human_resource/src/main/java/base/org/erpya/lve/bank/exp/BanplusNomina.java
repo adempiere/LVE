@@ -101,7 +101,7 @@ public class BanplusNomina extends LVEPaymentExportList {
 				addError(Msg.parseTranslation(Env.getCtx(), "@TaxID@ @NotFound@: " + org.getValue() + " - " + org.getName()));
 			}
 			//	Payment Amount
-			String totalAmtAsString = String.format("%.2f", getTotalAmount(checks).abs()).replace(".", "");
+			String totalAmtAsString = String.format("%.2f", getTotalAmount(checks).abs()).replace(".", ",");
 			if(totalAmtAsString.length() > 18) {
 				addError(Msg.parseTranslation(Env.getCtx(), "@PayAmt@ > @InValid@"));
 			}
