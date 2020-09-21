@@ -31,6 +31,7 @@ import java.util.stream.Collectors;
 
 import org.compiere.model.MBPartner;
 import org.compiere.model.MOrg;
+import org.compiere.model.MOrgInfo;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
@@ -99,7 +100,7 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 			pathName
 			    .append(PAYROLL_CONSTANT)
 				//	Payroll Account
-				.append(MOrgInfo.get(getCtx(), pdl.getAD_Org_ID()).get_ValueAsString(ColumnsAdded.COLUMNNAME_BANAVIHCode))
+				.append(MOrgInfo.get(getCtx(), pdl.getAD_Org_ID(), null).get_ValueAsString(ColumnsAdded.COLUMNNAME_BANAVIHCode))
 				//	Accounting Date in format MM YYYY
 				.append(new SimpleDateFormat("MMyyyy").format(pdl.getDateAcct()));
 			
