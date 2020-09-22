@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Remove Process for Generate Sales Withholding" ReleaseNo="3.9.4" SeqNo="81000580">
+    <Comments>Remove Process for Generate Sales Withholding</Comments>
+    <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
+      <SQLStatement>DELETE FROM AD_PInstance WHERE AD_Process_ID=54308;</SQLStatement>
+      <RollbackStatement>DELETE FROM AD_PInstance WHERE AD_Process_ID=54308;</RollbackStatement>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="53660" Action="D" Record_ID="318" Table="AD_Table_Process">
+        <Data AD_Column_ID="69641" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="69642" Column="Created" isNewNull="true" oldValue="2019-09-11 20:41:40.0"/>
+        <Data AD_Column_ID="69643" Column="Updated" isNewNull="true" oldValue="2019-09-11 20:41:40.0"/>
+        <Data AD_Column_ID="69648" Column="AD_Table_ID" oldValue="318">318</Data>
+        <Data AD_Column_ID="69647" Column="AD_Process_ID" oldValue="54308">54308</Data>
+        <Data AD_Column_ID="69640" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="69649" Column="EntityType" isNewNull="true" oldValue="LVE"/>
+        <Data AD_Column_ID="69639" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="69645" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="69644" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="84427" Column="UUID" isNewNull="true" oldValue="9d1f17fe-d517-11e9-819d-0242ac110002"/>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="286" Action="D" Record_ID="57157" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created" isNewNull="true" oldValue="2020-08-21 11:44:20.439394"/>
+        <Data AD_Column_ID="2835" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2838" Column="Updated" isNewNull="true" oldValue="2020-08-21 11:45:42.713829"/>
+        <Data AD_Column_ID="2840" Column="Name" isNewNull="true" oldValue="F. Documento"/>
+        <Data AD_Column_ID="2842" Column="IsTranslated" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2841" Column="Description" isNewNull="true" oldValue="Fecha del documento"/>
+        <Data AD_Column_ID="3743" Column="Help" isNewNull="true" oldValue="La fecha del documento indica la fecha en que el documento fue generado. Puede o no ser la misma que la fecha contable."/>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID" oldValue="57157">57157</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2837" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2832" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="84386" Column="UUID" isNewNull="true" isOldNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="285" Action="D" Record_ID="57157" Table="AD_Process_Para">
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2820" Column="Updated" isNewNull="true" oldValue="2019-10-11 19:40:17.0"/>
+        <Data AD_Column_ID="2822" Column="Name" isNewNull="true" oldValue="Document Date"/>
+        <Data AD_Column_ID="2817" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2830" Column="IsRange" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2818" Column="Created" isNewNull="true" oldValue="2019-09-23 16:37:06.0"/>
+        <Data AD_Column_ID="3738" Column="IsMandatory" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName" isNewNull="true" oldValue="DateDoc"/>
+        <Data AD_Column_ID="2823" Column="Description" isNewNull="true" oldValue="Date of the Document"/>
+        <Data AD_Column_ID="2824" Column="Help" isNewNull="true" oldValue="The Document Date indicates the date the document was generated.  It may or may not be the same as the accounting date."/>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true" oldValue="@IsSOTrx@=Y"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID" isNewNull="true" oldValue="57157"/>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="7728" Column="EntityType" isNewNull="true" oldValue="LVE"/>
+        <Data AD_Column_ID="3737" Column="FieldLength" isNewNull="true" oldValue="7"/>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID" isNewNull="true" oldValue="54308"/>
+        <Data AD_Column_ID="2819" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID" isNewNull="true" oldValue="15"/>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo" isNewNull="true" oldValue="80"/>
+        <Data AD_Column_ID="2821" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID" isNewNull="true" oldValue="265"/>
+        <Data AD_Column_ID="84385" Column="UUID" isNewNull="true" oldValue="0f2c61e8-de42-11e9-a5b4-0242ac110002"/>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="286" Action="D" Record_ID="57109" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created" isNewNull="true" oldValue="2020-08-21 11:44:20.439394"/>
+        <Data AD_Column_ID="2835" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2838" Column="Updated" isNewNull="true" oldValue="2020-08-21 11:45:42.713829"/>
+        <Data AD_Column_ID="2840" Column="Name" isNewNull="true" oldValue="No. del Documento"/>
+        <Data AD_Column_ID="2842" Column="IsTranslated" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2841" Column="Description" isNewNull="true" oldValue="Número de secuencia del documento para cada documento"/>
+        <Data AD_Column_ID="3743" Column="Help" isNewNull="true" oldValue="El número del documento es usualmente generado en automático por el sistema y determinado por el tipo del documento. Si el documento no se salva; el número preliminar se despliega entre El número del documento es usualmente generado en automático por el sistema y determinado por el tipo del documento. Si el documento no se salva; el número preliminar se despliega entre &quot;&lt;&gt;&quot;.&#10;&#10; Si el tipo de documento de su documento no tiene secuencia automatica definida, el campo está vacío si usted crea un nuevo doc. Esto es para documentos los cuales usualmente tiene un número externo (Como factura de proveedor). Si usted deja este campo vacío, el sistema generará un número de doc para usted."/>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID" oldValue="57109">57109</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2837" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2832" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="84386" Column="UUID" isNewNull="true" isOldNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="60" StepType="AD">
+      <PO AD_Table_ID="285" Action="D" Record_ID="57109" Table="AD_Process_Para">
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName" isNewNull="true" oldValue="DocumentNo"/>
+        <Data AD_Column_ID="2823" Column="Description" isNewNull="true" oldValue="Document sequence number of the document"/>
+        <Data AD_Column_ID="2824" Column="Help" isNewNull="true" oldValue="The document number is usually automatically generated by the system and determined by the document type of the document. If the document is not saved, the preliminary number is displayed in &quot;&lt;&gt;&quot;.&#10;&#10;If the document type of your document has no automatic document sequence defined, the field is empty if you create a new document. This is for documents which usually have an external number (like vendor invoice).  If you leave the field empty, the system will generate a document number for you. The document sequence used for this fallback number is defined in the &quot;Maintain Sequence&quot; window with the name &quot;DocumentNo_&lt;TableName&gt;&quot;, where TableName is the actual name of the table (e.g. C_Order)."/>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true" oldValue="@IsSOTrx@=Y"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID" isNewNull="true" oldValue="57109"/>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="7728" Column="EntityType" isNewNull="true" oldValue="LVE"/>
+        <Data AD_Column_ID="3737" Column="FieldLength" isNewNull="true" oldValue="30"/>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID" isNewNull="true" oldValue="54308"/>
+        <Data AD_Column_ID="2819" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID" isNewNull="true" oldValue="10"/>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo" isNewNull="true" oldValue="70"/>
+        <Data AD_Column_ID="2821" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID" isNewNull="true" oldValue="290"/>
+        <Data AD_Column_ID="84385" Column="UUID" isNewNull="true" oldValue="75fbe40e-d517-11e9-819d-0242ac110002"/>
+        <Data AD_Column_ID="2820" Column="Updated" isNewNull="true" oldValue="2019-10-11 19:40:17.0"/>
+        <Data AD_Column_ID="2822" Column="Name" isNewNull="true" oldValue="Document No"/>
+        <Data AD_Column_ID="2817" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2830" Column="IsRange" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2818" Column="Created" isNewNull="true" oldValue="2019-09-12 00:40:34.0"/>
+        <Data AD_Column_ID="3738" Column="IsMandatory" isNewNull="true" oldValue="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="70" StepType="AD">
+      <PO AD_Table_ID="286" Action="D" Record_ID="57108" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created" isNewNull="true" oldValue="2020-08-21 11:44:20.439394"/>
+        <Data AD_Column_ID="2835" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2838" Column="Updated" isNewNull="true" oldValue="2020-08-21 11:45:42.713829"/>
+        <Data AD_Column_ID="2840" Column="Name" isNewNull="true" oldValue="Monto de Retención"/>
+        <Data AD_Column_ID="2842" Column="IsTranslated" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2841" Column="Description" isNewNull="true" oldValue="Monto de Retención aplicada"/>
+        <Data AD_Column_ID="3743" Column="Help" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID" oldValue="57108">57108</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2837" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2832" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="84386" Column="UUID" isNewNull="true" isOldNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="80" StepType="AD">
+      <PO AD_Table_ID="285" Action="D" Record_ID="57108" Table="AD_Process_Para">
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2820" Column="Updated" isNewNull="true" oldValue="2019-10-14 18:16:46.0"/>
+        <Data AD_Column_ID="2822" Column="Name" isNewNull="true" oldValue="Withholding Amt"/>
+        <Data AD_Column_ID="2817" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2830" Column="IsRange" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2818" Column="Created" isNewNull="true" oldValue="2019-09-12 00:40:24.0"/>
+        <Data AD_Column_ID="3738" Column="IsMandatory" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName" isNewNull="true" oldValue="WithholdingAmt"/>
+        <Data AD_Column_ID="2823" Column="Description" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2824" Column="Help" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true" oldValue="@IsSOTrx@=Y"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID" isNewNull="true" oldValue="57108"/>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="7728" Column="EntityType" isNewNull="true" oldValue="LVE"/>
+        <Data AD_Column_ID="3737" Column="FieldLength" isNewNull="true" oldValue="10"/>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID" isNewNull="true" oldValue="54308"/>
+        <Data AD_Column_ID="2819" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID" isNewNull="true" oldValue="12"/>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo" isNewNull="true" oldValue="60"/>
+        <Data AD_Column_ID="2821" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID" isNewNull="true" oldValue="61063"/>
+        <Data AD_Column_ID="84385" Column="UUID" isNewNull="true" oldValue="701f71ae-d517-11e9-819d-0242ac110002"/>
+      </PO>
+    </Step>
+    <Step SeqNo="90" StepType="AD">
+      <PO AD_Table_ID="286" Action="D" Record_ID="57106" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created" isNewNull="true" oldValue="2020-08-21 11:44:20.439394"/>
+        <Data AD_Column_ID="2835" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2838" Column="Updated" isNewNull="true" oldValue="2020-08-21 11:45:42.713829"/>
+        <Data AD_Column_ID="2840" Column="Name" isNewNull="true" oldValue="Porcentaje de Retención"/>
+        <Data AD_Column_ID="2842" Column="IsTranslated" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2841" Column="Description" isNewNull="true" oldValue="Porcentaje de Retención aplicado al documento"/>
+        <Data AD_Column_ID="3743" Column="Help" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID" oldValue="57106">57106</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2837" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2832" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="84386" Column="UUID" isNewNull="true" isOldNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="100" StepType="AD">
+      <PO AD_Table_ID="285" Action="D" Record_ID="57106" Table="AD_Process_Para">
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2820" Column="Updated" isNewNull="true" oldValue="2019-10-14 18:16:48.0"/>
+        <Data AD_Column_ID="2822" Column="Name" isNewNull="true" oldValue="Withholding Rate"/>
+        <Data AD_Column_ID="2817" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2830" Column="IsRange" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2818" Column="Created" isNewNull="true" oldValue="2019-09-12 00:39:19.0"/>
+        <Data AD_Column_ID="3738" Column="IsMandatory" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName" isNewNull="true" oldValue="WithholdingRate"/>
+        <Data AD_Column_ID="2823" Column="Description" isNewNull="true" oldValue="Withholding Rate applied to Document"/>
+        <Data AD_Column_ID="2824" Column="Help" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true" oldValue="@IsSOTrx@=Y"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID" isNewNull="true" oldValue="57106"/>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="7728" Column="EntityType" isNewNull="true" oldValue="LVE"/>
+        <Data AD_Column_ID="3737" Column="FieldLength" isNewNull="true" oldValue="10"/>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID" isNewNull="true" oldValue="54308"/>
+        <Data AD_Column_ID="2819" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID" isNewNull="true" oldValue="12"/>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo" isNewNull="true" oldValue="50"/>
+        <Data AD_Column_ID="2821" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID" isNewNull="true" oldValue="61072"/>
+        <Data AD_Column_ID="84385" Column="UUID" isNewNull="true" oldValue="494496d6-d517-11e9-be1e-0242ac110002"/>
+      </PO>
+    </Step>
+    <Step SeqNo="110" StepType="AD">
+      <PO AD_Table_ID="286" Action="D" Record_ID="57105" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created" isNewNull="true" oldValue="2020-08-21 11:44:20.439394"/>
+        <Data AD_Column_ID="2835" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2838" Column="Updated" isNewNull="true" oldValue="2020-08-21 11:45:42.713829"/>
+        <Data AD_Column_ID="2840" Column="Name" isNewNull="true" oldValue="Monto Base"/>
+        <Data AD_Column_ID="2842" Column="IsTranslated" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2841" Column="Description" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3743" Column="Help" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID" oldValue="57105">57105</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2837" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2832" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="84386" Column="UUID" isNewNull="true" isOldNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="120" StepType="AD">
+      <PO AD_Table_ID="285" Action="D" Record_ID="57105" Table="AD_Process_Para">
+        <Data AD_Column_ID="81287" Column="IsInfoOnly" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2820" Column="Updated" isNewNull="true" oldValue="2019-10-11 19:40:18.0"/>
+        <Data AD_Column_ID="2822" Column="Name" isNewNull="true" oldValue="A_Base_Amount"/>
+        <Data AD_Column_ID="2817" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2830" Column="IsRange" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2818" Column="Created" isNewNull="true" oldValue="2019-09-12 00:38:15.0"/>
+        <Data AD_Column_ID="3738" Column="IsMandatory" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName" isNewNull="true" oldValue="A_Base_Amount"/>
+        <Data AD_Column_ID="2823" Column="Description" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2824" Column="Help" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true" oldValue="@IsSOTrx@=Y"/>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID" isNewNull="true" oldValue="57105"/>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="7728" Column="EntityType" isNewNull="true" oldValue="LVE"/>
+        <Data AD_Column_ID="3737" Column="FieldLength" isNewNull="true" oldValue="22"/>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID" isNewNull="true" oldValue="54308"/>
+        <Data AD_Column_ID="2819" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID" isNewNull="true" oldValue="12"/>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo" isNewNull="true" oldValue="40"/>
+        <Data AD_Column_ID="2821" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID" isNewNull="true" oldValue="53498"/>
+        <Data AD_Column_ID="84385" Column="UUID" isNewNull="true" oldValue="232f16f6-d517-11e9-b026-0242ac110002"/>
+      </PO>
+    </Step>
+    <Step SeqNo="130" StepType="AD">
+      <PO AD_Table_ID="286" Action="D" Record_ID="57154" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created" isNewNull="true" oldValue="2020-08-21 11:44:20.439394"/>
+        <Data AD_Column_ID="2835" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2838" Column="Updated" isNewNull="true" oldValue="2020-08-21 11:45:42.713829"/>
+        <Data AD_Column_ID="2840" Column="Name" isNewNull="true" oldValue="Retención "/>
+        <Data AD_Column_ID="2842" Column="IsTranslated" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2841" Column="Description" isNewNull="true" oldValue="Conservación de parte de una cantidad que se debe pagar para garantizar el cumplimiento de alguna obligación, generalmente de tipo fiscal."/>
+        <Data AD_Column_ID="3743" Column="Help" isNewNull="true" oldValue="La retención es la cantidad que se retiene de un sueldo, salario u otra percepción para el pago de un impuesto, de deudas en virtud de embargo, es decir, te retienen ahora para asegurar el pago del impuesto."/>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID" oldValue="57154">57154</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2837" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2832" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="84386" Column="UUID" isNewNull="true" isOldNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="140" StepType="AD">
+      <PO AD_Table_ID="285" Action="D" Record_ID="57154" Table="AD_Process_Para">
+        <Data AD_Column_ID="2820" Column="Updated" isNewNull="true" oldValue="2019-10-14 18:16:42.0"/>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="7728" Column="EntityType" isNewNull="true" oldValue="WHH"/>
+        <Data AD_Column_ID="3737" Column="FieldLength" isNewNull="true" oldValue="10"/>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID" isNewNull="true" oldValue="54308"/>
+        <Data AD_Column_ID="2819" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID" isNewNull="true" oldValue="19"/>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true" oldValue="52730"/>
+        <Data AD_Column_ID="2826" Column="SeqNo" isNewNull="true" oldValue="30"/>
+        <Data AD_Column_ID="2821" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID" isNewNull="true" oldValue="61055"/>
+        <Data AD_Column_ID="84385" Column="UUID" isNewNull="true" oldValue="807e8418-de3b-11e9-a114-0242ac110002"/>
+        <Data AD_Column_ID="2822" Column="Name" isNewNull="true" oldValue="Withholding "/>
+        <Data AD_Column_ID="2817" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2830" Column="IsRange" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2818" Column="Created" isNewNull="true" oldValue="2019-09-23 15:51:12.0"/>
+        <Data AD_Column_ID="3738" Column="IsMandatory" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName" isNewNull="true" oldValue="WH_Definition_ID"/>
+        <Data AD_Column_ID="2823" Column="Description" isNewNull="true" oldValue="Withholding Definition is used for define a withholding rule for BP"/>
+        <Data AD_Column_ID="2824" Column="Help" isNewNull="true" oldValue="Withholding is the amount that is withheld from a salary, salary or other collection for the payment of a tax, of debts under the embargo, that is, you are now withheld to secure the payment of the tax."/>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true" oldValue="@IsSOTrx@=Y"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID" isNewNull="true" oldValue="57154"/>
+      </PO>
+    </Step>
+    <Step SeqNo="150" StepType="AD">
+      <PO AD_Table_ID="286" Action="D" Record_ID="57156" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created" isNewNull="true" oldValue="2020-08-21 11:44:20.439394"/>
+        <Data AD_Column_ID="2835" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2838" Column="Updated" isNewNull="true" oldValue="2020-08-21 11:45:42.713829"/>
+        <Data AD_Column_ID="2840" Column="Name" isNewNull="true" oldValue="Funcionalidades"/>
+        <Data AD_Column_ID="2842" Column="IsTranslated" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2841" Column="Description" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3743" Column="Help" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID" oldValue="57156">57156</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2837" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2832" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="84386" Column="UUID" isNewNull="true" isOldNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="160" StepType="AD">
+      <PO AD_Table_ID="285" Action="D" Record_ID="57156" Table="AD_Process_Para">
+        <Data AD_Column_ID="2819" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2820" Column="Updated" isNewNull="true" oldValue="2019-10-14 18:16:39.0"/>
+        <Data AD_Column_ID="2822" Column="Name" isNewNull="true" oldValue="Withholding Setting"/>
+        <Data AD_Column_ID="2817" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2830" Column="IsRange" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2818" Column="Created" isNewNull="true" oldValue="2019-09-23 15:51:17.0"/>
+        <Data AD_Column_ID="3738" Column="IsMandatory" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName" isNewNull="true" oldValue="WH_Setting_ID"/>
+        <Data AD_Column_ID="2823" Column="Description" isNewNull="true" oldValue="specifies the setting to each applied withholding"/>
+        <Data AD_Column_ID="2824" Column="Help" isNewNull="true" oldValue="in this sale the functionalities are specified to each applied withholding."/>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true" oldValue="@IsSOTrx@=Y"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID" isNewNull="true" oldValue="57156"/>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="7728" Column="EntityType" isNewNull="true" oldValue="WHH"/>
+        <Data AD_Column_ID="3737" Column="FieldLength" isNewNull="true" oldValue="10"/>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID" isNewNull="true" oldValue="54308"/>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID" isNewNull="true" oldValue="19"/>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true" oldValue="52728"/>
+        <Data AD_Column_ID="2826" Column="SeqNo" isNewNull="true" oldValue="20"/>
+        <Data AD_Column_ID="2821" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID" isNewNull="true" oldValue="61064"/>
+        <Data AD_Column_ID="84385" Column="UUID" isNewNull="true" oldValue="82c7b190-de3b-11e9-a114-0242ac110002"/>
+      </PO>
+    </Step>
+    <Step SeqNo="170" StepType="AD">
+      <PO AD_Table_ID="287" Action="D" Record_ID="0" Table="AD_Process_Trl">
+        <Data AD_Column_ID="2847" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="2850" Column="Updated" isNewNull="true" oldValue="2020-08-21 11:44:29.0"/>
+        <Data AD_Column_ID="2848" Column="Created" isNewNull="true" oldValue="2020-08-21 11:44:20.524191"/>
+        <Data AD_Column_ID="2853" Column="Description" isNewNull="true" oldValue="Procesar Retenciones CxC"/>
+        <Data AD_Column_ID="2854" Column="Help" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2855" Column="IsTranslated" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="2852" Column="Name" isNewNull="true" oldValue="Procesar Retenciones CxC"/>
+        <Data AD_Column_ID="2846" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2845" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2851" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2844" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="2843" Column="AD_Process_ID" oldValue="54308">54308</Data>
+        <Data AD_Column_ID="2849" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="84387" Column="UUID" isNewNull="true" oldValue="70d87708-de3b-11e9-b984-0242ac110002"/>
+      </PO>
+    </Step>
+    <Step SeqNo="180" StepType="AD">
+      <PO AD_Table_ID="284" Action="D" Record_ID="54308" Table="AD_Process">
+        <Data AD_Column_ID="4374" Column="AD_ReportView_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="56515" Column="AD_Form_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="5790" Column="AccessLevel" isNewNull="true" oldValue="3"/>
+        <Data AD_Column_ID="14084" Column="IsServerProcess" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="78843" Column="GenerateClass" isNewNull="true" oldValue="N"/>
+        <Data AD_Column_ID="7752" Column="AD_PrintFormat_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="84383" Column="UUID" isNewNull="true" oldValue="7077ade2-de3b-11e9-b984-0242ac110002"/>
+        <Data AD_Column_ID="4656" Column="Classname" isNewNull="true" oldValue="org.erpya.lve.process.ARWithholdingProcess"/>
+        <Data AD_Column_ID="2811" Column="Help" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="12458" Column="IsBetaFunctionality" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="3371" Column="IsReport" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="6653" Column="Statistic_Seconds" isNewNull="true" oldValue="43"/>
+        <Data AD_Column_ID="6652" Column="Statistic_Count" isNewNull="true" oldValue="34"/>
+        <Data AD_Column_ID="2802" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="2808" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2806" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="2801" Column="AD_Process_ID" isNewNull="true" oldValue="54308"/>
+        <Data AD_Column_ID="2803" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="11834" Column="AD_Workflow_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2813" Column="ProcedureName" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="63488" Column="AD_Browse_ID" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="6485" Column="EntityType" isNewNull="true" oldValue="LVE"/>
+        <Data AD_Column_ID="50182" Column="JasperReport" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="2805" Column="Created" isNewNull="true" oldValue="2019-09-23 15:50:45.0"/>
+        <Data AD_Column_ID="2807" Column="Updated" isNewNull="true" oldValue="2020-02-29 15:00:20.0"/>
+        <Data AD_Column_ID="4214" Column="IsDirectPrint" isNewNull="true" oldValue="false"/>
+        <Data AD_Column_ID="57920" Column="CopyFromProcess" isNewNull="true" oldValue="N"/>
+        <Data AD_Column_ID="2804" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="50181" Column="ShowHelp" isNewNull="true" oldValue="Y"/>
+        <Data AD_Column_ID="2809" Column="Name" isNewNull="true" oldValue="Withholding Process for AR Invoice / AR Credit Memo"/>
+        <Data AD_Column_ID="2810" Column="Description" isNewNull="true" oldValue="Withholding Process for AR Invoice / AR Credit Memo"/>
+        <Data AD_Column_ID="4023" Column="Value" isNewNull="true" oldValue="Withholding Process (ARI / ARC)"/>
+        <Data AD_Column_ID="11563" Column="WorkflowValue" isNewNull="true" isOldNull="true"/>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>

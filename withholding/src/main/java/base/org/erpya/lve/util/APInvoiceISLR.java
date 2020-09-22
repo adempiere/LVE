@@ -21,6 +21,7 @@ import java.text.NumberFormat;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.compiere.model.I_C_Invoice;
@@ -30,6 +31,7 @@ import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceLine;
+import org.compiere.model.MOrg;
 import org.compiere.model.MProduct;
 import org.compiere.model.Query;
 import org.compiere.util.Env;
@@ -70,6 +72,8 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	private static BigDecimal FACTOR = new BigDecimal(83.3334);
 	/**Currency Precision */
 	int curPrecision = 0 ;
+	/**Manual Withholding*/
+	private boolean isManual = false;
 	
 	@Override
 	public boolean isValid() {
@@ -85,8 +89,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 			MCurrency currency = (MCurrency) invoice.getC_Currency();
 			curPrecision = currency.getStdPrecision();
 		}
-		//	Add reference
-		setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
+		
 		
 		MLVEWithholdingTax currentWHTax = MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID(),MLVEWithholdingTax.TYPE_ISLR);
 		//	Validate if exists Withholding Tax Definition for client
@@ -112,57 +115,78 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 			addLog("@C_DocType_ID@ @NotFound@");
 			isValid = false;
 		}
-		//	Validate AP only
-		if(documentType!=null 
-				&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)
-					&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo)) {
-			addLog("@APDocumentRequired@");
+		//	Validate AP/AR Invoice only
+		if(!documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)
+				&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo)
+					&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARInvoice)
+						&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARCreditMemo)) {
+			addLog("@APDocumentRequired@ / @ARDocumentRequired@");
 			isValid = false;
 		}
 		//	Validate Person Type
 		businessPartner = (MBPartner) invoice.getC_BPartner();
-		bpartnerPersonType = businessPartner.get_ValueAsString(ColumnsAdded.COLUMNNAME_PersonType);
-		if(Util.isEmpty(bpartnerPersonType)) {
-			addLog("@" + ColumnsAdded.COLUMNNAME_PersonType + "@ @NotFound@ @C_BPartner_ID@ " + businessPartner.getValue() + " - " + businessPartner.getName());
-			isValid = false;
-		}
-		//	Validate Exempt Business Partner
-		if(businessPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingRentalExempt)) {
-			isValid = false;
-			addLog("@C_BPartner_ID@ @IsWithholdingRentalExempt@");
-		}
-		//	Validate Withholding Definition
-		setConcepts();
-		if (conceptsToApply.size()==0) {
-			isValid = false;
-			addLog("@NotFound@ @WithholdingRentalConcept_ID@");
-		}
 		
-		//	Validate Tribute Unit
-		//MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), invoice.getAD_Org_ID());
-		if (currentWHTax!=null)
-			tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(invoice.getDateInvoiced());
+		//Valid Business Partner
+		Optional.ofNullable(invoice)
+				.ifPresent(invoice ->{
+					//Add reference
+					setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
+					setReturnValue(I_WH_Withholding.COLUMNNAME_AD_Org_ID, invoice.getAD_Org_ID());
+					if (invoice.isSOTrx()) {
+						isManual = true;
+						Optional.ofNullable(MOrg.get(getContext(), invoice.getAD_Org_ID()))
+								.ifPresent(org ->{
+								businessPartner = MBPartner.get(getContext(), org.getLinkedC_BPartner_ID(invoice.get_TrxName()));
+						});
+					}
+				});
 		
-		if(tributeUnitAmount.equals(Env.ZERO)) {
-			addLog("@TributeUnit@ (@Rate@ @NotFound@)");
+		if (businessPartner==null) {
+			addLog("@C_BPartner_ID@ @NotFound@");
 			isValid = false;
-		}
-		
-		String errorMessage = setRates();
-		
-		if (errorMessage!=null
-				&& !errorMessage.isEmpty()) {
-			if (!conceptsToApply.entrySet().stream().anyMatch((rateToApply) -> rateToApply.getValue().isGenerateDocument()))
+		}else {		
+			bpartnerPersonType = businessPartner.get_ValueAsString(ColumnsAdded.COLUMNNAME_PersonType);
+			if(Util.isEmpty(bpartnerPersonType)) {
+				addLog("@" + ColumnsAdded.COLUMNNAME_PersonType + "@ @NotFound@ @C_BPartner_ID@ " + businessPartner.getValue() + " - " + businessPartner.getName());
 				isValid = false;
+			}
+			//	Validate Exempt Business Partner
+			if(businessPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingRentalExempt)) {
+				isValid = false;
+				addLog("@C_BPartner_ID@ @IsWithholdingRentalExempt@");
+			}
+			//	Validate Withholding Definition
+			setConcepts();
+			if (conceptsToApply.size()==0) {
+				isValid = false;
+				addLog("@NotFound@ @WithholdingRentalConcept_ID@");
+			}
 			
-			addLog(errorMessage);
+			//	Validate Tribute Unit
+			//MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), invoice.getAD_Org_ID());
+			if (currentWHTax!=null)
+				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(invoice.getDateInvoiced());
+			
+			if(tributeUnitAmount.equals(Env.ZERO)) {
+				addLog("@TributeUnit@ (@Rate@ @NotFound@)");
+				isValid = false;
+			}
+			
+			String errorMessage = setRates();
+			
+			if (errorMessage!=null
+					&& !errorMessage.isEmpty()) {
+				if (!conceptsToApply.entrySet().stream().anyMatch((rateToApply) -> rateToApply.getValue().isGenerateDocument()))
+					isValid = false;
+				
+				addLog(errorMessage);
+			}
+	
+			//Validate if Document is Generated
+			if (isGenerated()) {
+				isValid = false;
+			}
 		}
-
-		//Validate if Document is Generated
-		if (isGenerated()) {
-			isValid = false;
-		}
-
 		return isValid;
 	}
 
@@ -197,6 +221,8 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 							setReturnValue(ColumnsAdded.COLUMNNAME_Subtrahend, conceptSetting.getAmtSubtract());
 							setReturnValue(ColumnsAdded.COLUMNNAME_IsCumulativeWithholding, conceptSetting.isCumulative());
 							setReturnValue(ColumnsAdded.COLUMNNAME_IsSimulation, !conceptSetting.isValid());
+							setReturnValue(MWHWithholding.COLUMNNAME_IsManual, isManual);
+							
 							int WHThirdParty_ID = invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
 							if (WHThirdParty_ID != 0)
 								setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);

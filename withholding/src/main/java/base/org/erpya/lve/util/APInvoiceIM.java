@@ -17,12 +17,14 @@ package org.erpya.lve.util;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.Optional;
 
 import org.compiere.model.I_C_Invoice;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
+import org.compiere.model.MOrg;
 import org.compiere.model.Query;
 import org.compiere.util.Env;
 import org.erpya.lve.model.MLVEList;
@@ -55,6 +57,9 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 	private MLVEListVersion rateToApply= null;
 	/**Currency Precision */
 	int curPrecision = 0 ;
+	/**Manual Withholding*/
+	private boolean isManual = false;
+	
 	/**Base Amount*/
 	private BigDecimal baseAmount = Env.ZERO;
 	@Override
@@ -67,64 +72,87 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 		}
 		invoice = (MInvoice) getDocument();
 		businessPartner = (MBPartner) invoice.getC_BPartner();
-		if (invoice!=null) {
-			MCurrency currency = (MCurrency) invoice.getC_Currency();
-			curPrecision = currency.getStdPrecision();
-			baseAmount = invoice.getTotalLines();
-		}
-		//	Add reference
-		setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
-		MLVEWithholdingTax currentWHTax = MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID(),MLVEWithholdingTax.TYPE_ImpuestoMunicipal);
-		//	Validate if exists Withholding Tax Definition for client
-		if(currentWHTax == null) {
-			addLog("@LVE_WithholdingTax_ID@ @NotFound@");
-			isValid = false;
-		}
 		
-		//	Validate if withholding if exclude for client
-		if(currentWHTax!=null 
-				&& currentWHTax.isClientExcluded()) {
-			addLog("@IsClientExcluded@ " + currentWHTax.getName());
-			isValid = false;
-		}
-		//	Validate Reversal
-		if(invoice.isReversal()) {
-			addLog("@C_Invoice_ID@ @Voided@");
-			isValid = false;
-		}
-		MDocType documentType = MDocType.get(getContext(), invoice.getC_DocTypeTarget_ID());
-		if(documentType == null) {
-			addLog("@C_DocType_ID@ @NotFound@");
-			isValid = false;
-		}
-		//	Validate AP only
-		if(documentType!=null 
-				&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)
-					&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo)) {
-			addLog("@APDocumentRequired@");
-			isValid = false;
-		}
-		//	Validate Exempt Business Partner
-		if(businessPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingMunicipalExempt)) {
-			isValid = false;
-			addLog("@C_BPartner_ID@ @IsWithholdingMunicipalExempt@");
-		}
-		//	Validate Withholding Definition
-		setActivity();
-		if (activityToApply==null) {
-			isValid = false;
-			addLog("@NotFound@ @BusinessActivity_ID@");
-		}
+		//Valid Business Partner
+		Optional.ofNullable(invoice)
+				.ifPresent(invoice ->{
+					//Add reference
+					setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
+					setReturnValue(I_WH_Withholding.COLUMNNAME_AD_Org_ID, invoice.getAD_Org_ID());
+					if (invoice.isSOTrx()) {
+						isManual = true;
+						Optional.ofNullable(MOrg.get(getContext(), invoice.getAD_Org_ID()))
+								.ifPresent(org ->{
+								businessPartner = MBPartner.get(getContext(), org.getLinkedC_BPartner_ID(invoice.get_TrxName()));
+						});
+					}
+				});
 		
-		setRate();
-		if (rateToApply == null) {
+		if (businessPartner==null) {
+			addLog("@C_BPartner_ID@ @NotFound@");
 			isValid = false;
-			addLog("@NotFound@ @WithholdingMunicipalRate_ID@");
-		}
-		
-		//Validate if Document is Generated
-		if (isGenerated()) {
-			isValid = false;
+		}else {
+			
+			if (invoice!=null) {
+				MCurrency currency = (MCurrency) invoice.getC_Currency();
+				curPrecision = currency.getStdPrecision();
+				baseAmount = invoice.getTotalLines();
+			}
+			//	Add reference
+			setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
+			MLVEWithholdingTax currentWHTax = MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID(),MLVEWithholdingTax.TYPE_ImpuestoMunicipal);
+			//	Validate if exists Withholding Tax Definition for client
+			if(currentWHTax == null) {
+				addLog("@LVE_WithholdingTax_ID@ @NotFound@");
+				isValid = false;
+			}
+			
+			//	Validate if withholding if exclude for client
+			if(currentWHTax!=null 
+					&& currentWHTax.isClientExcluded()) {
+				addLog("@IsClientExcluded@ " + currentWHTax.getName());
+				isValid = false;
+			}
+			//	Validate Reversal
+			if(invoice.isReversal()) {
+				addLog("@C_Invoice_ID@ @Voided@");
+				isValid = false;
+			}
+			MDocType documentType = MDocType.get(getContext(), invoice.getC_DocTypeTarget_ID());
+			if(documentType == null) {
+				addLog("@C_DocType_ID@ @NotFound@");
+				isValid = false;
+			}
+			//	Validate AP/AR Invoice only
+			if(!documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)
+					&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo)
+						&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARInvoice)
+							&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARCreditMemo)) {
+				addLog("@APDocumentRequired@ / @ARDocumentRequired@");
+				isValid = false;
+			}
+			//	Validate Exempt Business Partner
+			if(businessPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingMunicipalExempt)) {
+				isValid = false;
+				addLog("@C_BPartner_ID@ @IsWithholdingMunicipalExempt@");
+			}
+			//	Validate Withholding Definition
+			setActivity();
+			if (activityToApply==null) {
+				isValid = false;
+				addLog("@NotFound@ @BusinessActivity_ID@");
+			}
+			
+			setRate();
+			if (rateToApply == null) {
+				isValid = false;
+				addLog("@NotFound@ @WithholdingMunicipalRate_ID@");
+			}
+			
+			//Validate if Document is Generated
+			if (isGenerated()) {
+				isValid = false;
+			}
 		}
 		
 		return isValid;
@@ -146,6 +174,7 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 				addWithholdingAmount(baseAmount.multiply(rate,MathContext.DECIMAL128)
 												.setScale(curPrecision,BigDecimal.ROUND_HALF_UP));
 				addDescription(activityToApply.getName());
+				setReturnValue(MWHWithholding.COLUMNNAME_IsManual, isManual);
 				
 				int WHThirdParty_ID = invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
 				if (WHThirdParty_ID != 0)
