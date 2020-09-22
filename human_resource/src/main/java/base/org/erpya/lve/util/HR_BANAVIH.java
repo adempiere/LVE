@@ -25,12 +25,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 
 import org.compiere.model.MBPartner;
-import org.compiere.model.MOrg;
+import org.compiere.model.MOrgInfo;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
@@ -92,16 +93,16 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 		int m_Current_BPartner_ID = 0;
 		if (getDetail() == null || getDetail().isEmpty())
 			return false;
-		X_RV_HR_ProcessDetail pdl = getDetail().get(0);
+		Optional<X_RV_HR_ProcessDetail> processDetail = getDetail().stream().findFirst();
 		try {
 			//	Set new File Name
 			StringBuffer pathName = new StringBuffer();
 			pathName
 			    .append(PAYROLL_CONSTANT)
 				//	Payroll Account
-				.append(MOrg.get(getCtx(), pdl.getAD_Org_ID()).get_ValueAsString(ColumnsAdded.COLUMNNAME_BANAVIHCode))
+				.append(MOrgInfo.get(getCtx(), processDetail.get().getAD_Org_ID(),processDetail.get().get_TrxName()).get_ValueAsString(ColumnsAdded.COLUMNNAME_BANAVIHCode))
 				//	Accounting Date in format MM YYYY
-				.append(new SimpleDateFormat("MMyyyy").format(pdl.getDateAcct()));
+				.append(new SimpleDateFormat("MMyyyy").format(processDetail.get().getDateAcct()));
 			
 			m_NameFile = pathName.toString();
 			
