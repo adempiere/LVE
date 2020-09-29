@@ -57,7 +57,8 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 	private List<MInvoiceTax> taxes;
 	/**Manual Withholding*/
 	private boolean isManual = false;
-	
+	/**Withholding Rate*/
+	BigDecimal withholdingRate = Env.ZERO;
 	@Override
 	public boolean isValid() {
 		boolean isValid = true;
@@ -87,8 +88,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 		if (businessPartner==null) {
 			addLog("@C_BPartner_ID@ @NotFound@");
 			isValid = false;
-			} else {
-			
+		} else {
 			//	Add reference
 			setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
 			MLVEWithholdingTax currentWHTax = MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID(),MLVEWithholdingTax.TYPE_IVA);
@@ -145,7 +145,8 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 				addLog("@" + ColumnsAdded.COLUMNNAME_WithholdingTaxRate_ID + "@ @NotFound@");
 				isValid = false;
 			} else {
-				setWithholdingRate(MLVEList.get(getContext(), withholdingRateId).getListVersionAmount(invoice.getDateInvoiced()));
+				withholdingRate = MLVEList.get(getContext(), withholdingRateId).getListVersionAmount(invoice.getDateInvoiced());
+				setWithholdingRate(withholdingRate);
 			}
 			//	Validate Tax
 			if(getWithholdingRate().equals(Env.ZERO)) {
@@ -187,6 +188,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 	public String run() {
 		//	Iterate
 		taxes.forEach(invoiceTax -> {
+			setWithholdingRate(withholdingRate);
 			addBaseAmount(invoiceTax.getTaxAmt());
 			addWithholdingAmount(invoiceTax.getTaxAmt().multiply(getWithholdingRate(true)));
 			MTax tax = MTax.get(getContext(), invoiceTax.getC_Tax_ID());
@@ -195,6 +197,8 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			int WHThirdParty_ID = invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
 			if (WHThirdParty_ID != 0)
 				setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
+			setReturnValue(MWHWithholding.COLUMNNAME_C_Tax_ID, invoiceTax.getC_Tax_ID());
+			saveResult();
 			
 		});
 		return null;

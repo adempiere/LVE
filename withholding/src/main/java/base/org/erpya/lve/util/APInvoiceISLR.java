@@ -342,7 +342,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 				whConceptSetting.setRateToApply(rateToApply);
 				whConceptSetting.setVarRateToApply(varRateToApply);	
 				whConceptSetting.setAmtSubtract(subtractAmt);
-				whConceptSetting.setCumulative(rateToApply.get_ValueAsBoolean("IsCumulativeWithholding"));
+				whConceptSetting.setCumulative(rateToApply.isCumulativeWithholding());
 				if (varRateToApply!=null)
 					whConceptSetting.setRate((BigDecimal)varRateToApply.get_Value(ColumnsAdded.COLUMNNAME_VariableRate));
 				else
