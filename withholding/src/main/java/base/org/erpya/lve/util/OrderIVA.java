@@ -21,11 +21,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.compiere.model.I_C_Invoice;
+import org.compiere.model.I_C_Order;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MDocType;
-import org.compiere.model.MInvoice;
-import org.compiere.model.MInvoiceTax;
+import org.compiere.model.MOrder;
+import org.compiere.model.MOrderTax;
 import org.compiere.model.MOrg;
 import org.compiere.model.MTax;
 import org.compiere.model.Query;
@@ -44,17 +44,17 @@ import org.spin.util.AbstractWithholdingSetting;
  * 	@author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
  *  @contributor Carlos Parada, cparada@erpya.com, ERPCyA http://www.erpya.com
  */
-public class APInvoiceIVA extends AbstractWithholdingSetting {
+public class OrderIVA extends AbstractWithholdingSetting {
 
-	public APInvoiceIVA(MWHSetting setting) {
+	public OrderIVA(MWHSetting setting) {
 		super(setting);
 	}
-	/**	Current Invoice	*/
-	private MInvoice invoice;
+	/**	Current order	*/
+	private MOrder order;
 	/**	Current Business Partner	*/
 	private MBPartner businessPartner;
 	/**	Taxes	*/
-	private List<MInvoiceTax> taxes;
+	private List<MOrderTax> taxes;
 	/**Manual Withholding*/
 	private boolean isManual = false;
 	/**Withholding Rate*/
@@ -63,24 +63,24 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 	public boolean isValid() {
 		boolean isValid = true;
 		//	Validate Document
-		if(getDocument().get_Table_ID() != I_C_Invoice.Table_ID) {
-			addLog("@C_Invoice_ID@ @NotFound@");
+		if(getDocument().get_Table_ID() != I_C_Order.Table_ID) {
+			addLog("@C_Order_ID@ @NotFound@");
 			isValid = false;
 		}
-		invoice = (MInvoice) getDocument();
-		businessPartner = (MBPartner) invoice.getC_BPartner();
+		order = (MOrder) getDocument();
+		businessPartner = (MBPartner) order.getC_BPartner();
 		
 		//Valid Business Partner
-		Optional.ofNullable(invoice)
-				.ifPresent(invoice ->{
+		Optional.ofNullable(order)
+				.ifPresent(order ->{
 					//Add reference
-					setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
-					setReturnValue(I_WH_Withholding.COLUMNNAME_AD_Org_ID, invoice.getAD_Org_ID());
-					if (invoice.isSOTrx()) {
+					setReturnValue(I_WH_Withholding.COLUMNNAME_SourceOrder_ID, order.getC_Order_ID());
+					setReturnValue(I_WH_Withholding.COLUMNNAME_AD_Org_ID, order.getAD_Org_ID());
+					if (order.isSOTrx()) {
 						isManual = true;
-						Optional.ofNullable(MOrg.get(getContext(), invoice.getAD_Org_ID()))
+						Optional.ofNullable(MOrg.get(getContext(), order.getAD_Org_ID()))
 								.ifPresent(org ->{
-								businessPartner = MBPartner.get(getContext(), org.getLinkedC_BPartner_ID(invoice.get_TrxName()));
+								businessPartner = MBPartner.get(getContext(), org.getLinkedC_BPartner_ID(order.get_TrxName()));
 						});
 					}
 				});
@@ -90,7 +90,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			isValid = false;
 		} else {
 			//	Add reference
-			setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
+			setReturnValue(I_WH_Withholding.COLUMNNAME_SourceOrder_ID, order.getC_Order_ID());
 			MLVEWithholdingTax currentWHTax = MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID(),MLVEWithholdingTax.TYPE_IVA);
 			//	Validate if exists Withholding Tax Definition for client
 			if(currentWHTax == null) {
@@ -106,26 +106,24 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			}
 			
 			//	Validate Reversal
-			if(invoice.isReversal()) {
-				addLog("@C_Invoice_ID@ @Voided@");
+			if(!order.getDocStatus().equals(MOrder.DOCSTATUS_Completed)) {
+				addLog("@Invalid@ @C_Order_ID@ @DocStatus@");
 				isValid = false;
 			}
-			MDocType documentType = MDocType.get(getContext(), invoice.getC_DocTypeTarget_ID());
+			
+			MDocType documentType = MDocType.get(getContext(), order.getC_DocTypeTarget_ID());
 			if(documentType == null) {
 				addLog("@C_DocType_ID@ @NotFound@");
 				isValid = false;
 			}
-			//	Validate AP/AR Invoice only
-			if(documentType!=null 
-					&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)
-						&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo)
-							&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARInvoice)
-								&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARCreditMemo)) {
-				addLog("@APDocumentRequired@ / @ARDocumentRequired@");
+			//	Validate Purchase Order only
+			if(documentType!=null && 
+					!documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_PurchaseOrder)) {
+				addLog("@NotFound@ @DocBaseType@");
 				isValid = false;
 			}
 			//	Validate Exempt Document
-			if(invoice.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingTaxExempt)) {
+			if(order.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingTaxExempt)) {
 				isValid = false;
 				addLog("@DocumentWithholdingTaxExempt@");
 			}
@@ -135,7 +133,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 				addLog("@BPartnerWithholdingTaxExempt@");
 			}
 			//	Validate Withholding Definition
-			//MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), invoice.getAD_Org_ID());
+			//MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), order.getAD_Org_ID());
 			int withholdingRateId = businessPartner.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingTaxRate_ID);
 			if(withholdingRateId == 0
 					&& currentWHTax!=null) {
@@ -146,7 +144,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 				addLog("@" + ColumnsAdded.COLUMNNAME_WithholdingTaxRate_ID + "@ @NotFound@");
 				isValid = false;
 			} else {
-				withholdingRate = MLVEList.get(getContext(), withholdingRateId).getListVersionAmount(invoice.getDateInvoiced());
+				withholdingRate = MLVEList.get(getContext(), withholdingRateId).getListVersionAmount(order.getDateOrdered());
 				setWithholdingRate(withholdingRate);
 			}
 			//	Validate Tax
@@ -158,18 +156,18 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			
 			BigDecimal tributeUnitAmount = Env.ZERO;
 			if (currentWHTax != null)
-				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(invoice.getDateInvoiced());
+				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(order.getDateOrdered());
 			
 			if(tributeUnitAmount.equals(Env.ZERO)) {
 				addLog("@TributeUnit@ (@Rate@ @NotFound@)");
 				isValid = false;
 			}
 			//	Validate if it have taxes
-			taxes = Arrays.asList(invoice.getTaxes(false))
+			taxes = Arrays.asList(order.getTaxes(false))
 				.stream()
-				.filter(invoiceTax -> MTax.get(getContext(), invoiceTax.getC_Tax_ID()).get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingTaxApplied) 
-						&& invoiceTax.getTaxAmt() != null 
-						&& invoiceTax.getTaxAmt().compareTo(Env.ZERO) > 0)
+				.filter(orderTax -> MTax.get(getContext(), orderTax.getC_Tax_ID()).get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingTaxApplied) 
+						&& orderTax.getTaxAmt() != null 
+						&& orderTax.getTaxAmt().compareTo(Env.ZERO) > 0)
 				.collect(Collectors.toList());
 			if(taxes.size() == 0) {
 				addLog("@NoTaxesForWithholding@");
@@ -188,17 +186,18 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 	@Override
 	public String run() {
 		//	Iterate
-		taxes.forEach(invoiceTax -> {
+		taxes.forEach(orderTax -> {
 			setWithholdingRate(withholdingRate);
-			addBaseAmount(invoiceTax.getTaxAmt());
-			addWithholdingAmount(invoiceTax.getTaxAmt().multiply(getWithholdingRate(true)));
-			MTax tax = MTax.get(getContext(), invoiceTax.getC_Tax_ID());
+			addBaseAmount(orderTax.getTaxAmt());
+			addWithholdingAmount(orderTax.getTaxAmt().multiply(getWithholdingRate(true)));
+			MTax tax = MTax.get(getContext(), orderTax.getC_Tax_ID());
 			addDescription(tax.getName() + " @Processed@");
 			setReturnValue(MWHWithholding.COLUMNNAME_IsManual, isManual);
-			int WHThirdParty_ID = invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
+			int WHThirdParty_ID = order.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
 			if (WHThirdParty_ID != 0)
 				setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
-			setReturnValue(MWHWithholding.COLUMNNAME_C_Tax_ID, invoiceTax.getC_Tax_ID());
+			setReturnValue(MWHWithholding.COLUMNNAME_C_Tax_ID, orderTax.getC_Tax_ID());
+			setReturnValue(MWHWithholding.COLUMNNAME_IsSimulation, true);
 			saveResult();
 			
 		});
@@ -210,14 +209,14 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 	 * @return
 	 */
 	private boolean isGenerated() {
-		if (invoice!=null) 
-			return new Query(getContext(), MWHWithholding.Table_Name, "SourceInvoice_ID = ? "
+		if (order!=null) 
+			return new Query(getContext(), MWHWithholding.Table_Name, "SourceOrder_ID = ? "
 																	+ "AND WH_Definition_ID = ? "
 																	+ "AND WH_Setting_ID = ? "
 																	+ "AND Processed = 'Y' "
-																	+ "AND IsSimulation='N'"
+																	+ "AND IsSimulation='Y'"
 																	+ "AND DocStatus IN (?,?)" , getTransactionName())
-						.setParameters(invoice.get_ID(),getDefinition().get_ID(),getSetting().get_ID(),MWHWithholding.DOCSTATUS_Completed,MWHWithholding.DOCSTATUS_Closed)
+						.setParameters(order.get_ID(),getDefinition().get_ID(),getSetting().get_ID(),MWHWithholding.DOCSTATUS_Completed,MWHWithholding.DOCSTATUS_Closed)
 						.match();
 		return false;
 	}

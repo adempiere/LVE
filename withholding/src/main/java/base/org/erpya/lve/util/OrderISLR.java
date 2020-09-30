@@ -24,13 +24,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
-import org.compiere.model.I_C_Invoice;
+import org.compiere.model.I_C_Order;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MCharge;
 import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
-import org.compiere.model.MInvoice;
-import org.compiere.model.MInvoiceLine;
+import org.compiere.model.MOrder;
+import org.compiere.model.MOrderLine;
 import org.compiere.model.MOrg;
 import org.compiere.model.MProduct;
 import org.compiere.model.Query;
@@ -53,19 +53,19 @@ import org.spin.util.AbstractWithholdingSetting;
  * 	@author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
  *  @contributor Carlos Parada, cparada@erpya.com, ERPCyA http://www.erpya.com
  */
-public class APInvoiceISLR extends AbstractWithholdingSetting {
+public class OrderISLR extends AbstractWithholdingSetting {
 
-	public APInvoiceISLR(MWHSetting setting) {
+	public OrderISLR(MWHSetting setting) {
 		super(setting);
 	}
-	/**	Current Invoice	*/
-	private MInvoice invoice;
+	/**	Current Order	*/
+	private MOrder order;
 	/**	Current Business Partner	*/
 	private MBPartner businessPartner;
 	/**Person Type*/
 	private String bpartnerPersonType = null;
 	/**	Withholding Rental Exempt for Business Partner	*/
-	private HashMap<MLVEList,WHConceptSetting> conceptsToApply = new HashMap<MLVEList,WHConceptSetting>();
+	private HashMap<MLVEList,WHConceptSettingOrder> conceptsToApply = new HashMap<MLVEList,WHConceptSettingOrder>();
 	/**Tribute Unit Amount */
 	BigDecimal tributeUnitAmount = Env.ZERO;
 	/**Factor*/
@@ -79,17 +79,16 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	public boolean isValid() {
 		boolean isValid = true;
 		//	Validate Document
-		if(getDocument().get_Table_ID() != I_C_Invoice.Table_ID) {
-			addLog("@C_Invoice_ID@ @NotFound@");
+		if(getDocument().get_Table_ID() != I_C_Order.Table_ID) {
+			addLog("@C_Order_ID@ @NotFound@");
 			isValid = false;
 		}
-		invoice = (MInvoice) getDocument();
+		order = (MOrder) getDocument();
 		
-		if (invoice!=null) {
-			MCurrency currency = (MCurrency) invoice.getC_Currency();
+		if (order!=null) {
+			MCurrency currency = (MCurrency) order.getC_Currency();
 			curPrecision = currency.getStdPrecision();
 		}
-		
 		
 		MLVEWithholdingTax currentWHTax = MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID(),MLVEWithholdingTax.TYPE_ISLR);
 		//	Validate if exists Withholding Tax Definition for client
@@ -106,38 +105,35 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 		}
 	
 		//	Validate Reversal
-		if(invoice.isReversal()) {
-			addLog("@C_Invoice_ID@ @Voided@");
+		if(!order.getDocStatus().equals(MOrder.DOCSTATUS_Completed)) {
+			addLog("@Invalid@ @C_Order_ID@ @DocStatus@");
 			isValid = false;
 		}
-		MDocType documentType = MDocType.get(getContext(), invoice.getC_DocTypeTarget_ID());
+		MDocType documentType = MDocType.get(getContext(), order.getC_DocTypeTarget_ID());
 		if(documentType == null) {
 			addLog("@C_DocType_ID@ @NotFound@");
 			isValid = false;
 		}
-		//	Validate AP/AR Invoice only
-		if(documentType!=null 
-				&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)
-					&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo)
-						&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARInvoice)
-							&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARCreditMemo)) {
-			addLog("@APDocumentRequired@ / @ARDocumentRequired@");
+		//	Validate Purchase Order only
+		if(documentType!=null && 
+				!documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_PurchaseOrder)) {
+			addLog("@NotFound@ @DocBaseType@");
 			isValid = false;
 		}
 		//	Validate Person Type
-		businessPartner = (MBPartner) invoice.getC_BPartner();
+		businessPartner = (MBPartner) order.getC_BPartner();
 		
 		//Valid Business Partner
-		Optional.ofNullable(invoice)
-				.ifPresent(invoice ->{
+		Optional.ofNullable(order)
+				.ifPresent(order ->{
 					//Add reference
-					setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
-					setReturnValue(I_WH_Withholding.COLUMNNAME_AD_Org_ID, invoice.getAD_Org_ID());
-					if (invoice.isSOTrx()) {
+					setReturnValue(I_WH_Withholding.COLUMNNAME_SourceOrder_ID, order.getC_Order_ID());
+					setReturnValue(I_WH_Withholding.COLUMNNAME_AD_Org_ID, order.getAD_Org_ID());
+					if (order.isSOTrx()) {
 						isManual = true;
-						Optional.ofNullable(MOrg.get(getContext(), invoice.getAD_Org_ID()))
+						Optional.ofNullable(MOrg.get(getContext(), order.getAD_Org_ID()))
 								.ifPresent(org ->{
-								businessPartner = MBPartner.get(getContext(), org.getLinkedC_BPartner_ID(invoice.get_TrxName()));
+								businessPartner = MBPartner.get(getContext(), org.getLinkedC_BPartner_ID(order.get_TrxName()));
 						});
 					}
 				});
@@ -164,9 +160,9 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 			}
 			
 			//	Validate Tribute Unit
-			//MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), invoice.getAD_Org_ID());
+			//MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), order.getAD_Org_ID());
 			if (currentWHTax!=null)
-				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(invoice.getDateInvoiced());
+				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(order.getDateOrdered());
 			
 			if(tributeUnitAmount.equals(Env.ZERO)) {
 				addLog("@TributeUnit@ (@Rate@ @NotFound@)");
@@ -198,7 +194,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 						.filter((rateToApply) -> rateToApply.getValue().isGenerateDocument())
 						.forEach(rateToApply  -> {
 						
-						WHConceptSetting conceptSetting = rateToApply.getValue();
+						WHConceptSettingOrder conceptSetting = rateToApply.getValue();
 						BigDecimal rate = conceptSetting.getRate();
 						setReturnValue(ColumnsAdded.COLUMNNAME_WithholdingRentalRate_ID, conceptSetting.getRateToApply().getLVE_ListVersion_ID());
 						if (conceptSetting.isVarRate()) 
@@ -224,9 +220,11 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 							setReturnValue(ColumnsAdded.COLUMNNAME_IsSimulation, !conceptSetting.isValid());
 							setReturnValue(MWHWithholding.COLUMNNAME_IsManual, isManual);
 							
-							int WHThirdParty_ID = invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
+							int WHThirdParty_ID = order.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
 							if (WHThirdParty_ID != 0)
 								setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
+							
+							setReturnValue(MWHWithholding.COLUMNNAME_IsSimulation, true);
 							
 							saveResult();
 						}
@@ -238,18 +236,18 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	}
 	
 	/**
-	 * Set concepts from invoice document
+	 * Set concepts from order document
 	 */
 	private void setConcepts() {
-		if (invoice!=null) {
-			if (invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) {
-				conceptsToApply.put(MLVEList.get(getContext(), invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)),
-												 new WHConceptSetting(invoice.getTotalLines()));
+		if (order!=null) {
+			if (order.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) {
+				conceptsToApply.put(MLVEList.get(getContext(), order.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)),
+												 new WHConceptSettingOrder(order.getTotalLines()));
 				return;
 			}
 			
-			MInvoiceLine[] iLines = invoice.getLines();
-			for (MInvoiceLine line : iLines) {
+			MOrderLine[] oLines = order.getLines();
+			for (MOrderLine line : oLines) {
 				//Search concept for product
 				MLVEList list = null;
 				if (line.getM_Product_ID()!=0) {
@@ -266,7 +264,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 				
 				if (list!=null)
 					conceptsToApply.compute(list, (concept, rateToApply) -> 
-						rateToApply == null ? new WHConceptSetting(line.getLineNetAmt()): rateToApply.addAmtBase(line.getLineNetAmt()));
+						rateToApply == null ? new WHConceptSettingOrder(line.getLineNetAmt()): rateToApply.addAmtBase(line.getLineNetAmt()));
 			}
 		}
 	}
@@ -281,7 +279,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	    resultMessage.set("");
 	    conceptsToApply.forEach((whConcept,whConceptSetting) ->{
 	    	
-	    	MLVEListVersion rateToApply = whConcept.getValidVersionInstance(invoice.getDateInvoiced(), ColumnsAdded.COLUMNNAME_PersonType, bpartnerPersonType);
+	    	MLVEListVersion rateToApply = whConcept.getValidVersionInstance(order.getDateOrdered(), ColumnsAdded.COLUMNNAME_PersonType, bpartnerPersonType);
 	    	MLVEListLine varRateToApply = null;
 	    	BigDecimal subtractAmt = Env.ZERO;
 			if (rateToApply!=null) {
@@ -360,14 +358,14 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	 * @return
 	 */
 	private boolean isGenerated() {
-		if (invoice!=null) 
-			return new Query(getContext(), MWHWithholding.Table_Name, "SourceInvoice_ID = ? "
+		if (order!=null) 
+			return new Query(getContext(), MWHWithholding.Table_Name, "SourceOrder_ID = ? "
 																	+ "AND WH_Definition_ID = ? "
 																	+ "AND WH_Setting_ID = ? "
 																	+ "AND Processed = 'Y' "
-																	+ "AND IsSimulation='N'"
+																	+ "AND IsSimulation='Y'"
 																	+ "AND DocStatus IN (?,?)" , getTransactionName())
-						.setParameters(invoice.get_ID(),getDefinition().get_ID(),getSetting().get_ID(),MWHWithholding.DOCSTATUS_Completed,MWHWithholding.DOCSTATUS_Closed)
+						.setParameters(order.get_ID(),getDefinition().get_ID(),getSetting().get_ID(),MWHWithholding.DOCSTATUS_Completed,MWHWithholding.DOCSTATUS_Closed)
 						.match();
 		return false;
 	}
@@ -378,7 +376,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
  * @author Carlos Parada, cparada@erpya.com 
  * Withholding Concept Settings to apply
  */
-class WHConceptSetting{
+class WHConceptSettingOrder{
 	private MLVEListVersion rateToApply = null;
 	private MLVEListLine varRateToApply = null;
 	private BigDecimal amtBase = Env.ZERO;
@@ -392,7 +390,7 @@ class WHConceptSetting{
 	 * Constructor
 	 * @param amtBase
 	 */
-	public WHConceptSetting(BigDecimal amtBase) {
+	public WHConceptSettingOrder(BigDecimal amtBase) {
 		setAmtBase(amtBase);
 	}
 	
@@ -410,7 +408,7 @@ class WHConceptSetting{
 	 * @param amt
 	 * @return
 	 */
-	public WHConceptSetting addAmtBase(BigDecimal amt) {
+	public WHConceptSettingOrder addAmtBase(BigDecimal amt) {
 		if (amt!=null)
 			this.amtBase = (this.amtBase == null ? Env.ZERO : this.amtBase).add(amt);
 		return this;
@@ -546,7 +544,6 @@ class WHConceptSetting{
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "Rate = " + getRate()
 				+ ",AmtBase = " + getAmtBase()
 				+ ",Subtract = " + getAmtSubtract()
