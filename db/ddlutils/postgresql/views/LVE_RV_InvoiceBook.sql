@@ -48,14 +48,16 @@ CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
     i.C_Invoice_ID AS Document_ID ,
     COALESCE(it.C_Tax_ID, 0) AS C_Tax_ID,
     (i.C_Invoice_ID::VARCHAR || COALESCE(it.C_Tax_ID, 0)::VARCHAR) AS DocumentTax_ID,
-    it.AliquotType
+    it.AliquotType,
+	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal
    FROM C_Invoice i
      LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
      JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
      JOIN C_BPartner bp ON i.C_BPartner_ID = bp.C_BPartner_ID
-     JOIN AD_OrgInfo oi ON oi.AD_Org_ID = i.AD_Org_ID
-     JOIN AD_Client c ON i.AD_Client_ID = c.AD_Client_ID
-     JOIN AD_ClientInfo ci ON c.AD_Client_ID = ci.AD_Client_ID
+	 JOIN AD_Org o ON o.AD_Org_ID = i.AD_Org_ID
+     JOIN AD_OrgInfo oi ON oi.AD_Org_ID = COALESCE(o.Parent_Org_ID,o.AD_Org_ID)
+	 JOIN AD_Org c ON (c.AD_Org_ID = oi.AD_Org_ID)
+     JOIN AD_ClientInfo ci ON i.AD_Client_ID = ci.AD_Client_ID
      JOIN C_AcctSchema asch ON ci.C_AcctSchema1_ID = asch.C_AcctSchema_ID
      LEFT JOIN ( SELECT 
 				sum(
@@ -161,10 +163,12 @@ UNION ALL
     i.C_Invoice_ID AS Document_ID ,
     0 AS C_Tax_ID,
     (i.C_Invoice_ID::VARCHAR || '0') AS DocumentTax_ID,
-    '' AS AliquotType
+    '' AS AliquotType,
+	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal
    FROM C_Invoice i
-     JOIN AD_Client c ON i.AD_Client_ID = c.AD_Client_ID
-     JOIN AD_OrgInfo oi ON oi.AD_Org_ID = i.AD_Org_ID
+     JOIN AD_Org o ON o.AD_Org_ID = i.AD_Org_ID
+     JOIN AD_OrgInfo oi ON oi.AD_Org_ID = COALESCE(o.Parent_Org_ID,o.AD_Org_ID)
+	 JOIN AD_Org c ON (c.AD_Org_ID = oi.AD_Org_ID)
      LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
 	 INNER JOIN C_Year y ON (y.C_Year_ID = p.C_Year_ID)
      JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
