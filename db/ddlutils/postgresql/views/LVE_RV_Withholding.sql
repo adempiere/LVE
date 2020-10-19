@@ -69,7 +69,7 @@ FROM (
 		whc.PersonType,
 		dtWhDoc.DocumentNote,
 		dtWhDoc.PrintName,
-		COALESCE(it.ExemptAmt,0) ExemptAmt,
+		COALESCE(et.ExemptAmt,0) ExemptAmt,
 		COALESCE(whDec.IsDeclared, 'N') IsDeclared,
 		bp.TaxID,
 		oi.TaxID OrgValue,
@@ -104,15 +104,17 @@ FROM (
 			   INNER JOIN C_InvoiceLine il ON (i.C_Invoice_ID = il.InvoiceToAllocate_ID)
 			  )affectedLineDoc ON (affectedLineDoc.C_Invoice_ID = origDoc.C_Invoice_ID)
 	LEFT JOIN (SELECT it.C_Invoice_ID,
-						SUM(it.TaxAmt) TaxAmt,
-						SUM(CASE WHEN et.TaxAmt = 0 THEN et.TaxBaseAmt ELSE 0 END) ExemptAmt, 
+						SUM(it.TaxAmt) TaxAmt, 
 						SUM(CASE WHEN it.TaxAmt != 0 THEN it.TaxBaseAmt ELSE 0 END) TaxBaseAmt, 
 						t.Rate,
 			   			t.C_Tax_ID
 			   FROM C_InvoiceTax it 
-			   INNER JOIN C_Tax t ON it.C_Tax_ID = t.C_Tax_ID
-			   INNER JOIN C_InvoiceTax et ON (et.C_Invoice_ID = it.C_Invoice_ID AND et.C_Tax_ID != it.C_Tax_ID)
-			   GROUP BY it.C_Invoice_ID, t.Rate, t.C_Tax_ID) it ON it.C_Invoice_ID = origDoc.C_Invoice_ID AND wh.C_Tax_ID = it.C_Tax_ID
+			   LEFT JOIN C_Tax t ON (it.C_Tax_ID = t.C_Tax_ID)
+			   GROUP BY it.C_Invoice_ID, t.Rate, t.C_Tax_ID) it ON (it.C_Invoice_ID = origDoc.C_Invoice_ID AND wh.C_Tax_ID = it.C_Tax_ID)
+	LEFT JOIN (SELECT it.C_Invoice_ID,
+						SUM(CASE WHEN it.TaxAmt = 0 THEN it.TaxBaseAmt ELSE 0 END) ExemptAmt
+			   FROM C_InvoiceTax it 
+			   GROUP BY it.C_Invoice_ID) et ON (et.C_Invoice_ID = origDoc.C_Invoice_ID)
 	LEFT JOIN LVE_ListVersion whc ON (whc.LVE_ListVersion_ID = wh.WithholdingRentalRate_ID)
 	LEFT JOIN LVE_List whconcept ON ((whc.LVE_List_ID = whconcept.LVE_List_ID))
 	LEFT JOIN (SELECT C_Invoice_ID,'Y'::VARCHAR IsDeclared FROM C_Invoice i WHERE DocStatus IN ('CO','CL')) whDec ON (whDec.C_Invoice_ID = wh.WithholdingDeclaration_ID)
