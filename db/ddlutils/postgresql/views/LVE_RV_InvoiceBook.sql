@@ -49,7 +49,8 @@ CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
     COALESCE(it.C_Tax_ID, 0) AS C_Tax_ID,
     (i.C_Invoice_ID::VARCHAR || COALESCE(it.C_Tax_ID, 0)::VARCHAR) AS DocumentTax_ID,
     it.AliquotType,
-	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal
+	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal,
+	bp.IsTaxPayer
    FROM C_Invoice i
      LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
      JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
@@ -164,7 +165,8 @@ UNION ALL
     0 AS C_Tax_ID,
     (i.C_Invoice_ID::VARCHAR || '0') AS DocumentTax_ID,
     '' AS AliquotType,
-	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal
+	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal,
+	bp.IsTaxPayer
    FROM C_Invoice i
      JOIN AD_Org o ON o.AD_Org_ID = i.AD_Org_ID
      JOIN AD_OrgInfo oi ON oi.AD_Org_ID = COALESCE(o.Parent_Org_ID,o.AD_Org_ID)

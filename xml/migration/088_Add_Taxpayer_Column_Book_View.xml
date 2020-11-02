@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Add Taxpayer Column on Book View" ReleaseNo="3.9.4" SeqNo="81000640">
+    <Comments>Add Taxpayer Column on Book View</Comments>
+    <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
+      <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
+ SELECT i.AD_Client_ID,
+    i.AD_Org_ID,
+    i.C_Invoice_ID,
+        CASE
+            WHEN dt.FiscalDocumentType IN ('02', '03') THEN i.DateInvoiced + '01:00:00'::inteRVal
+            ELSE i.DateInvoiced
+        End AS DateInvoiced,
+    i.DateAcct,
+    i.ControlNo,
+    i.DocumentNo,
+    dt.C_DocType_ID,
+    dt.FiscalDocumentType,
+    bp.C_BPartner_ID,
+    bp.Name,
+    bp.TaxID,
+    i.GrandTotal,
+    itsum.Exempt,
+    itsum.Taxable,
+    it.TaxAmt,
+    it.TaxBaseAmt,
+    it.Rate,
+    i.IsSOTrx,
+    i.C_Currency_ID,
+    asch.C_Currency_ID AS AcctSchemaCurrency_ID,
+    wt.Record_ID,
+    wt.Name AS WHTName,
+	CASE
+		WHEN wt.Record_ID = iwh.Record_ID THEN iwh.WHTaxAmt
+		ELSE NULL
+	End AS WHTaxAmt,
+	CASE
+		WHEN wt.Record_ID = iwh.Record_ID THEN iwh.whDocumentNo
+		ELSE NULL
+	End AS whDocumentNo,
+    CurrencyRate(i.C_Currency_ID, asch.C_Currency_ID, i.DateInvoiced, i.C_ConversionType_ID, i.AD_Client_ID, i.AD_Org_ID) AS CurrencyRate,
+    i.DocStatus,
+    i.IsFiscalDocument,
+    p.C_Period_ID,
+    p.StartDate,
+    p.EndDate,
+    iaffected.affectedDocumentNo,
+    dt.DocBaseType,
+    bp.PersonType AS PersonTypevalue,
+    c.Name AS ClientName,
+    oi.TaxID AS OrgTaxID,
+    NULL::VARCHAR ImportDocNo,
+    i.C_Invoice_ID AS Document_ID ,
+    COALESCE(it.C_Tax_ID, 0) AS C_Tax_ID,
+    (i.C_Invoice_ID::VARCHAR || COALESCE(it.C_Tax_ID, 0)::VARCHAR) AS DocumentTax_ID,
+    it.AliquotType,
+	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal,
+	bp.IsTaxPayer
+   FROM C_Invoice i
+     LEFT JOIN C_Period p ON i.DateAcct &gt;= p.StartDate AND i.DateAcct &lt;= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+     JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
+     JOIN C_BPartner bp ON i.C_BPartner_ID = bp.C_BPartner_ID
+	 JOIN AD_Org o ON o.AD_Org_ID = i.AD_Org_ID
+     JOIN AD_OrgInfo oi ON oi.AD_Org_ID = COALESCE(o.Parent_Org_ID,o.AD_Org_ID)
+	 JOIN AD_Org c ON (c.AD_Org_ID = oi.AD_Org_ID)
+     JOIN AD_ClientInfo ci ON i.AD_Client_ID = ci.AD_Client_ID
+     JOIN C_AcctSchema asch ON ci.C_AcctSchema1_ID = asch.C_AcctSchema_ID
+     LEFT JOIN ( SELECT 
+				sum(
+                CASE
+                    WHEN t.Rate = 0 THEN it.TaxBaseAmt
+                    ELSE 0
+                END) AS Exempt,
+            	sum(CASE
+                    WHEN t.Rate &lt;&gt; 0 THEN it.TaxBaseAmt
+                    ELSE 0
+                End) AS Taxable,
+            	it.C_Invoice_ID
+           FROM C_InvoiceTax it
+             JOIN C_Tax t ON it.C_Tax_ID = t.C_Tax_ID
+          GROUP BY it.C_Invoice_ID) itsum ON i.C_Invoice_ID = itsum.C_Invoice_ID
+     LEFT JOIN ( SELECT sum(it.TaxAmt) AS TaxAmt,
+            			sum(it.TaxBaseAmt) AS TaxBaseAmt,
+            			it.C_Invoice_ID,
+            			t.Rate,
+            			it.C_Tax_ID,
+            			t.AliquotType
+           		FROM C_InvoiceTax it
+             	JOIN C_Tax t ON it.C_Tax_ID = t.C_Tax_ID
+          		WHERE t.Rate &lt;&gt; 0
+          		GROUP BY it.C_Invoice_ID, t.Rate, it.C_Tax_ID, t.AliquotType) it ON i.C_Invoice_ID = it.C_Invoice_ID
+     LEFT JOIN (SELECT il.LineNetAmt AS WHTaxAmt,
+            			il.InvoiceToAllocate_ID AS C_Invoice_ID,
+            			i.DocumentNo AS WHDocumentNo,
+            			wt.WH_Type_ID AS Record_ID, 
+            			p.C_Period_ID,
+						CASE WHEN whd.WHThirdParty_ID &gt; 0 THEN 'Y' ELSE 'N' END IsThirdParty
+           		FROM C_Invoice i
+             	LEFT JOIN C_Period p ON i.DateAcct &gt;= p.StartDate AND i.DateAcct &lt;= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+             	JOIN C_InvoiceLine il ON i.C_Invoice_ID = il.C_Invoice_ID
+             	JOIN WH_Withholding whd ON (whd.C_InvoiceLine_ID = il.C_InvoiceLine_ID)
+				JOIN WH_Setting whs ON (whs.WH_Setting_ID = whd.WH_Setting_ID)
+				JOIN WH_Type wt ON (whs.WH_Type_ID = wt.WH_Type_ID AND wt.IsFiscalDocument = 'Y')
+          WHERE i.DocStatus IN ('CO', 'CL')
+		  GROUP BY
+		    il.LineNetAmt,
+			il.InvoiceToAllocate_ID,
+			i.DocumentNo,
+			wt.WH_Type_ID, 
+			p.C_Period_ID,
+			whd.WHThirdParty_ID) iwh ON i.C_Invoice_ID = iwh.C_Invoice_ID AND p.C_Period_ID = iwh.C_Period_ID
+     LEFT JOIN ( SELECT il.C_Invoice_ID,
+            			max(i.DocumentNo) AS AffectedDocumentNo
+           		 FROM C_Invoice i 
+             	 JOIN C_InvoiceLine il ON i.C_Invoice_ID = il.InvoiceToAllocate_ID
+          		 WHERE i.DocStatus IN ('CO', 'CL')
+          		 GROUP BY il.C_Invoice_ID) iaffected ON i.C_Invoice_ID = iaffected.C_Invoice_ID,
+   ( SELECT wt.AD_Client_ID,
+             wt.AD_Org_ID,
+             wt.Name,
+            wt.WH_Type_ID AS Record_ID
+      FROM WH_Type wt 
+   	 WHERE IsFiscalDocument = 'Y') wt
+  WHERE wt.AD_Client_ID = c.AD_Client_ID
+UNION ALL
+ SELECT i.AD_Client_ID,
+    i.AD_Org_ID,
+    i.C_Invoice_ID,
+    i.DateInvoiced,
+    iwh.DateAcct,
+    i.ControlNo,
+    i.DocumentNo,
+    dt.C_DocType_ID,
+    dt.FiscalDocumentType,
+    bp.C_BPartner_ID,
+    bp.Name,
+    bp.TaxID,
+    0.00 AS GrandTotal,
+    0.00 AS Exempt,
+    0.00 AS Taxable,
+    0.00 AS TaxAmt,
+    0.00 AS TaxBaseAmt,
+    0.00 AS Rate,
+    i.IsSOTrx,
+    i.C_Currency_ID,
+    i.C_Currency_ID AS AcctSchemaCurrency_ID,
+    wt.Record_ID,
+    wt.Name AS WHTName,
+	CASE
+		WHEN wt.Record_ID = iwh.WH_Type_ID THEN iwh.WHTaxAmt
+		ELSE NULL
+	End AS WHTaxAmt,
+    CASE
+		WHEN wt.Record_ID = iwh.WH_Type_ID THEN iwh.whDocumentNo
+		ELSE NULL
+    End AS whDocumentNo,
+    1 AS CurrencyRate,
+    i.DocStatus,
+    i.IsFiscalDocument,
+    iwh.C_Period_ID,
+    iwh.StartDate,
+    iwh.EndDate,
+    NULL AS affectedDocumentNo,
+    dt.DocBaseType,
+    bp.PersonType AS PersonTypevalue,
+    c.Name AS ClientName,
+    oi.TaxID AS OrgTaxID,
+    NULL::VARCHAR ImportDocNo,
+    i.C_Invoice_ID AS Document_ID ,
+    0 AS C_Tax_ID,
+    (i.C_Invoice_ID::VARCHAR || '0') AS DocumentTax_ID,
+    '' AS AliquotType,
+	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal,
+	bp.IsTaxPayer
+   FROM C_Invoice i
+     JOIN AD_Org o ON o.AD_Org_ID = i.AD_Org_ID
+     JOIN AD_OrgInfo oi ON oi.AD_Org_ID = COALESCE(o.Parent_Org_ID,o.AD_Org_ID)
+	 JOIN AD_Org c ON (c.AD_Org_ID = oi.AD_Org_ID)
+     LEFT JOIN C_Period p ON i.DateAcct &gt;= p.StartDate AND i.DateAcct &lt;= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+	 INNER JOIN C_Year y ON (y.C_Year_ID = p.C_Year_ID)
+     JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
+     JOIN C_BPartner bp ON i.C_BPartner_ID = bp.C_BPartner_ID
+     JOIN ( SELECT il.LineNetAmt AS WHTaxAmt,
+            		il.InvoiceToAllocate_ID AS C_Invoice_ID,
+					i.DocumentNo AS whDocumentNo,
+					wt.WH_Type_ID,
+					p.C_Period_ID,
+					p.StartDate,
+					p.EndDate,
+		   			y.C_Calendar_ID,
+					i.DateAcct,
+					i.DateInvoiced,
+					CASE WHEN whd.WHThirdParty_ID &gt; 0 THEN 'Y' ELSE 'N' END IsThirdParty
+           	FROM C_Invoice i
+            LEFT JOIN C_Period p ON i.DateAcct &gt;= p.StartDate AND i.DateAcct &lt;= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+		   	INNER JOIN C_Year y ON (y.C_Year_ID = p.C_Year_ID)
+            JOIN C_InvoiceLine il ON i.C_Invoice_ID = il.C_Invoice_ID
+            JOIN WH_Withholding whd ON whd.C_InvoiceLine_ID = il.C_InvoiceLine_ID
+		    JOIN WH_Setting whs ON (whs.WH_Setting_ID = whd.WH_Setting_ID)
+            JOIN WH_Type wt ON (whs.WH_Type_ID = wt.WH_Type_ID AND wt.IsFiscalDocument = 'Y')
+          WHERE i.DocStatus IN ('CO', 'CL')
+		  GROUP BY il.LineNetAmt,
+            		il.InvoiceToAllocate_ID,
+					i.DocumentNo,
+					wt.WH_Type_ID,
+					p.C_Period_ID,
+					p.StartDate,
+					p.EndDate,
+		   			y.C_Calendar_ID,
+					i.DateAcct,
+					i.DateInvoiced,
+		   			whd.WHThirdParty_ID
+		  ) iwh ON i.C_Invoice_ID = iwh.C_Invoice_ID AND p.C_Period_ID &lt;&gt; iwh.C_Period_ID AND y.C_Calendar_ID = iwh.C_Calendar_ID,
+    ( SELECT wt.AD_Client_ID,
+             wt.AD_Org_ID,
+             wt.Name,
+            wt.WH_Type_ID AS Record_ID
+      FROM WH_Type wt 
+	 WHERE IsFiscalDocument = 'Y') wt
+  WHERE wt.AD_Client_ID = c.AD_Client_ID
+;</SQLStatement>
+      <RollbackStatement>DROP VIEW LVE_RV_InvoiceBook;
+CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
+ SELECT i.AD_Client_ID,
+    i.AD_Org_ID,
+    i.C_Invoice_ID,
+        CASE
+            WHEN dt.FiscalDocumentType IN ('02', '03') THEN i.DateInvoiced + '01:00:00'::inteRVal
+            ELSE i.DateInvoiced
+        End AS DateInvoiced,
+    i.DateAcct,
+    i.ControlNo,
+    i.DocumentNo,
+    dt.C_DocType_ID,
+    dt.FiscalDocumentType,
+    bp.C_BPartner_ID,
+    bp.Name,
+    bp.TaxID,
+    i.GrandTotal,
+    itsum.Exempt,
+    itsum.Taxable,
+    it.TaxAmt,
+    it.TaxBaseAmt,
+    it.Rate,
+    i.IsSOTrx,
+    i.C_Currency_ID,
+    asch.C_Currency_ID AS AcctSchemaCurrency_ID,
+    wt.Record_ID,
+    wt.Name AS WHTName,
+	CASE
+		WHEN wt.Record_ID = iwh.Record_ID THEN iwh.WHTaxAmt
+		ELSE NULL
+	End AS WHTaxAmt,
+	CASE
+		WHEN wt.Record_ID = iwh.Record_ID THEN iwh.whDocumentNo
+		ELSE NULL
+	End AS whDocumentNo,
+    CurrencyRate(i.C_Currency_ID, asch.C_Currency_ID, i.DateInvoiced, i.C_ConversionType_ID, i.AD_Client_ID, i.AD_Org_ID) AS CurrencyRate,
+    i.DocStatus,
+    i.IsFiscalDocument,
+    p.C_Period_ID,
+    p.StartDate,
+    p.EndDate,
+    iaffected.affectedDocumentNo,
+    dt.DocBaseType,
+    bp.PersonType AS PersonTypevalue,
+    c.Name AS ClientName,
+    oi.TaxID AS OrgTaxID,
+    NULL::VARCHAR ImportDocNo,
+    i.C_Invoice_ID AS Document_ID ,
+    COALESCE(it.C_Tax_ID, 0) AS C_Tax_ID,
+    (i.C_Invoice_ID::VARCHAR || COALESCE(it.C_Tax_ID, 0)::VARCHAR) AS DocumentTax_ID,
+    it.AliquotType,
+	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal
+   FROM C_Invoice i
+     LEFT JOIN C_Period p ON i.DateAcct &gt;= p.StartDate AND i.DateAcct &lt;= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+     JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
+     JOIN C_BPartner bp ON i.C_BPartner_ID = bp.C_BPartner_ID
+	 JOIN AD_Org o ON o.AD_Org_ID = i.AD_Org_ID
+     JOIN AD_OrgInfo oi ON oi.AD_Org_ID = COALESCE(o.Parent_Org_ID,o.AD_Org_ID)
+	 JOIN AD_Org c ON (c.AD_Org_ID = oi.AD_Org_ID)
+     JOIN AD_ClientInfo ci ON i.AD_Client_ID = ci.AD_Client_ID
+     JOIN C_AcctSchema asch ON ci.C_AcctSchema1_ID = asch.C_AcctSchema_ID
+     LEFT JOIN ( SELECT 
+				sum(
+                CASE
+                    WHEN t.Rate = 0 THEN it.TaxBaseAmt
+                    ELSE 0
+                END) AS Exempt,
+            	sum(CASE
+                    WHEN t.Rate &lt;&gt; 0 THEN it.TaxBaseAmt
+                    ELSE 0
+                End) AS Taxable,
+            	it.C_Invoice_ID
+           FROM C_InvoiceTax it
+             JOIN C_Tax t ON it.C_Tax_ID = t.C_Tax_ID
+          GROUP BY it.C_Invoice_ID) itsum ON i.C_Invoice_ID = itsum.C_Invoice_ID
+     LEFT JOIN ( SELECT sum(it.TaxAmt) AS TaxAmt,
+            			sum(it.TaxBaseAmt) AS TaxBaseAmt,
+            			it.C_Invoice_ID,
+            			t.Rate,
+            			it.C_Tax_ID,
+            			t.AliquotType
+           		FROM C_InvoiceTax it
+             	JOIN C_Tax t ON it.C_Tax_ID = t.C_Tax_ID
+          		WHERE t.Rate &lt;&gt; 0
+          		GROUP BY it.C_Invoice_ID, t.Rate, it.C_Tax_ID, t.AliquotType) it ON i.C_Invoice_ID = it.C_Invoice_ID
+     LEFT JOIN (SELECT il.LineNetAmt AS WHTaxAmt,
+            			il.InvoiceToAllocate_ID AS C_Invoice_ID,
+            			i.DocumentNo AS WHDocumentNo,
+            			wt.WH_Type_ID AS Record_ID, 
+            			p.C_Period_ID,
+						CASE WHEN whd.WHThirdParty_ID &gt; 0 THEN 'Y' ELSE 'N' END IsThirdParty
+           		FROM C_Invoice i
+             	LEFT JOIN C_Period p ON i.DateAcct &gt;= p.StartDate AND i.DateAcct &lt;= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+             	JOIN C_InvoiceLine il ON i.C_Invoice_ID = il.C_Invoice_ID
+             	JOIN WH_Withholding whd ON (whd.C_InvoiceLine_ID = il.C_InvoiceLine_ID)
+				JOIN WH_Setting whs ON (whs.WH_Setting_ID = whd.WH_Setting_ID)
+				JOIN WH_Type wt ON (whs.WH_Type_ID = wt.WH_Type_ID AND wt.IsFiscalDocument = 'Y')
+          WHERE i.DocStatus IN ('CO', 'CL')
+		  GROUP BY
+		    il.LineNetAmt,
+			il.InvoiceToAllocate_ID,
+			i.DocumentNo,
+			wt.WH_Type_ID, 
+			p.C_Period_ID,
+			whd.WHThirdParty_ID) iwh ON i.C_Invoice_ID = iwh.C_Invoice_ID AND p.C_Period_ID = iwh.C_Period_ID
+     LEFT JOIN ( SELECT il.C_Invoice_ID,
+            			max(i.DocumentNo) AS AffectedDocumentNo
+           		 FROM C_Invoice i 
+             	 JOIN C_InvoiceLine il ON i.C_Invoice_ID = il.InvoiceToAllocate_ID
+          		 WHERE i.DocStatus IN ('CO', 'CL')
+          		 GROUP BY il.C_Invoice_ID) iaffected ON i.C_Invoice_ID = iaffected.C_Invoice_ID,
+   ( SELECT wt.AD_Client_ID,
+             wt.AD_Org_ID,
+             wt.Name,
+            wt.WH_Type_ID AS Record_ID
+      FROM WH_Type wt 
+   	 WHERE IsFiscalDocument = 'Y') wt
+  WHERE wt.AD_Client_ID = c.AD_Client_ID
+UNION ALL
+ SELECT i.AD_Client_ID,
+    i.AD_Org_ID,
+    i.C_Invoice_ID,
+    i.DateInvoiced,
+    iwh.DateAcct,
+    i.ControlNo,
+    i.DocumentNo,
+    dt.C_DocType_ID,
+    dt.FiscalDocumentType,
+    bp.C_BPartner_ID,
+    bp.Name,
+    bp.TaxID,
+    0.00 AS GrandTotal,
+    0.00 AS Exempt,
+    0.00 AS Taxable,
+    0.00 AS TaxAmt,
+    0.00 AS TaxBaseAmt,
+    0.00 AS Rate,
+    i.IsSOTrx,
+    i.C_Currency_ID,
+    i.C_Currency_ID AS AcctSchemaCurrency_ID,
+    wt.Record_ID,
+    wt.Name AS WHTName,
+	CASE
+		WHEN wt.Record_ID = iwh.WH_Type_ID THEN iwh.WHTaxAmt
+		ELSE NULL
+	End AS WHTaxAmt,
+    CASE
+		WHEN wt.Record_ID = iwh.WH_Type_ID THEN iwh.whDocumentNo
+		ELSE NULL
+    End AS whDocumentNo,
+    1 AS CurrencyRate,
+    i.DocStatus,
+    i.IsFiscalDocument,
+    iwh.C_Period_ID,
+    iwh.StartDate,
+    iwh.EndDate,
+    NULL AS affectedDocumentNo,
+    dt.DocBaseType,
+    bp.PersonType AS PersonTypevalue,
+    c.Name AS ClientName,
+    oi.TaxID AS OrgTaxID,
+    NULL::VARCHAR ImportDocNo,
+    i.C_Invoice_ID AS Document_ID ,
+    0 AS C_Tax_ID,
+    (i.C_Invoice_ID::VARCHAR || '0') AS DocumentTax_ID,
+    '' AS AliquotType,
+	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal
+   FROM C_Invoice i
+     JOIN AD_Org o ON o.AD_Org_ID = i.AD_Org_ID
+     JOIN AD_OrgInfo oi ON oi.AD_Org_ID = COALESCE(o.Parent_Org_ID,o.AD_Org_ID)
+	 JOIN AD_Org c ON (c.AD_Org_ID = oi.AD_Org_ID)
+     LEFT JOIN C_Period p ON i.DateAcct &gt;= p.StartDate AND i.DateAcct &lt;= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+	 INNER JOIN C_Year y ON (y.C_Year_ID = p.C_Year_ID)
+     JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
+     JOIN C_BPartner bp ON i.C_BPartner_ID = bp.C_BPartner_ID
+     JOIN ( SELECT il.LineNetAmt AS WHTaxAmt,
+            		il.InvoiceToAllocate_ID AS C_Invoice_ID,
+					i.DocumentNo AS whDocumentNo,
+					wt.WH_Type_ID,
+					p.C_Period_ID,
+					p.StartDate,
+					p.EndDate,
+		   			y.C_Calendar_ID,
+					i.DateAcct,
+					i.DateInvoiced,
+					CASE WHEN whd.WHThirdParty_ID &gt; 0 THEN 'Y' ELSE 'N' END IsThirdParty
+           	FROM C_Invoice i
+            LEFT JOIN C_Period p ON i.DateAcct &gt;= p.StartDate AND i.DateAcct &lt;= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
+		   	INNER JOIN C_Year y ON (y.C_Year_ID = p.C_Year_ID)
+            JOIN C_InvoiceLine il ON i.C_Invoice_ID = il.C_Invoice_ID
+            JOIN WH_Withholding whd ON whd.C_InvoiceLine_ID = il.C_InvoiceLine_ID
+		    JOIN WH_Setting whs ON (whs.WH_Setting_ID = whd.WH_Setting_ID)
+            JOIN WH_Type wt ON (whs.WH_Type_ID = wt.WH_Type_ID AND wt.IsFiscalDocument = 'Y')
+          WHERE i.DocStatus IN ('CO', 'CL')
+		  GROUP BY il.LineNetAmt,
+            		il.InvoiceToAllocate_ID,
+					i.DocumentNo,
+					wt.WH_Type_ID,
+					p.C_Period_ID,
+					p.StartDate,
+					p.EndDate,
+		   			y.C_Calendar_ID,
+					i.DateAcct,
+					i.DateInvoiced,
+		   			whd.WHThirdParty_ID
+		  ) iwh ON i.C_Invoice_ID = iwh.C_Invoice_ID AND p.C_Period_ID &lt;&gt; iwh.C_Period_ID AND y.C_Calendar_ID = iwh.C_Calendar_ID,
+    ( SELECT wt.AD_Client_ID,
+             wt.AD_Org_ID,
+             wt.Name,
+            wt.WH_Type_ID AS Record_ID
+      FROM WH_Type wt 
+	 WHERE IsFiscalDocument = 'Y') wt
+  WHERE wt.AD_Client_ID = c.AD_Client_ID
+;</RollbackStatement>
+    </Step>
+  </Migration>
+</Migrations>
