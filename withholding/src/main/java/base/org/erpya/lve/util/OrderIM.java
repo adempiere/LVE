@@ -19,11 +19,11 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.Optional;
 
-import org.compiere.model.I_C_Invoice;
+import org.compiere.model.I_C_Order;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
-import org.compiere.model.MInvoice;
+import org.compiere.model.MOrder;
 import org.compiere.model.MOrg;
 import org.compiere.model.Query;
 import org.compiere.util.Env;
@@ -42,13 +42,13 @@ import org.spin.util.AbstractWithholdingSetting;
  * 	@author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
  *  @contributor Carlos Parada, cparada@erpya.com, ERPCyA http://www.erpya.com
  */
-public class APInvoiceIM extends AbstractWithholdingSetting {
+public class OrderIM extends AbstractWithholdingSetting {
 
-	public APInvoiceIM(MWHSetting setting) {
+	public OrderIM(MWHSetting setting) {
 		super(setting);
 	}
-	/**	Current Invoice	*/
-	private MInvoice invoice;
+	/**	Current Order	*/
+	private MOrder order;
 	/**	Current Business Partner	*/
 	private MBPartner businessPartner;
 	/**	Withholding Rental Exempt for Business Partner	*/
@@ -66,24 +66,24 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 	public boolean isValid() {
 		boolean isValid = true;
 		//	Validate Document
-		if(getDocument().get_Table_ID() != I_C_Invoice.Table_ID) {
-			addLog("@C_Invoice_ID@ @NotFound@");
+		if(getDocument().get_Table_ID() != I_C_Order.Table_ID) {
+			addLog("@C_Order_ID@ @NotFound@");
 			isValid = false;
 		}
-		invoice = (MInvoice) getDocument();
-		businessPartner = (MBPartner) invoice.getC_BPartner();
+		order = (MOrder) getDocument();
+		businessPartner = (MBPartner) order.getC_BPartner();
 		
 		//Valid Business Partner
-		Optional.ofNullable(invoice)
-				.ifPresent(invoice ->{
+		Optional.ofNullable(order)
+				.ifPresent(order ->{
 					//Add reference
-					setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
-					setReturnValue(I_WH_Withholding.COLUMNNAME_AD_Org_ID, invoice.getAD_Org_ID());
-					if (invoice.isSOTrx()) {
+					setReturnValue(I_WH_Withholding.COLUMNNAME_SourceOrder_ID, order.getC_Order_ID());
+					setReturnValue(I_WH_Withholding.COLUMNNAME_AD_Org_ID, order.getAD_Org_ID());
+					if (order.isSOTrx()) {
 						isManual = true;
-						Optional.ofNullable(MOrg.get(getContext(), invoice.getAD_Org_ID()))
+						Optional.ofNullable(MOrg.get(getContext(), order.getAD_Org_ID()))
 								.ifPresent(org ->{
-								businessPartner = MBPartner.get(getContext(), org.getLinkedC_BPartner_ID(invoice.get_TrxName()));
+								businessPartner = MBPartner.get(getContext(), org.getLinkedC_BPartner_ID(order.get_TrxName()));
 						});
 					}
 				});
@@ -93,13 +93,13 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 			isValid = false;
 		}else {
 			
-			if (invoice!=null) {
-				MCurrency currency = (MCurrency) invoice.getC_Currency();
+			if (order!=null) {
+				MCurrency currency = (MCurrency) order.getC_Currency();
 				curPrecision = currency.getStdPrecision();
-				baseAmount = invoice.getTotalLines();
+				baseAmount = order.getTotalLines();
 			}
 			//	Add reference
-			setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoice.getC_Invoice_ID());
+			setReturnValue(I_WH_Withholding.COLUMNNAME_SourceOrder_ID, order.getC_Order_ID());
 			MLVEWithholdingTax currentWHTax = MLVEWithholdingTax.getFromClient(getContext(), getDocument().getAD_Org_ID(),MLVEWithholdingTax.TYPE_ImpuestoMunicipal);
 			//	Validate if exists Withholding Tax Definition for client
 			if(currentWHTax == null) {
@@ -114,22 +114,20 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 				isValid = false;
 			}
 			//	Validate Reversal
-			if(invoice.isReversal()) {
-				addLog("@C_Invoice_ID@ @Voided@");
+			if(!order.getDocStatus().equals(MOrder.DOCSTATUS_Completed)) {
+				addLog("@Invalid@ @C_Order_ID@ @DocStatus@");
 				isValid = false;
 			}
-			MDocType documentType = MDocType.get(getContext(), invoice.getC_DocTypeTarget_ID());
+			
+			MDocType documentType = MDocType.get(getContext(), order.getC_DocTypeTarget_ID());
 			if(documentType == null) {
 				addLog("@C_DocType_ID@ @NotFound@");
 				isValid = false;
 			}
-			//	Validate AP/AR Invoice only
-			if(documentType!=null 
-					&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)
-						&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo)
-							&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARInvoice)
-								&& !documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARCreditMemo)) {
-				addLog("@APDocumentRequired@ / @ARDocumentRequired@");
+			//	Validate Purchase Order only
+			if(documentType!=null && 
+					!documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_PurchaseOrder)) {
+				addLog("@NotFound@ @DocBaseType@");
 				isValid = false;
 			}
 			//	Validate Exempt Business Partner
@@ -177,10 +175,11 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 				addDescription(activityToApply.getName());
 				setReturnValue(MWHWithholding.COLUMNNAME_IsManual, isManual);
 				
-				int WHThirdParty_ID = invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
+				int WHThirdParty_ID = order.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
 				if (WHThirdParty_ID != 0)
 					setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
 				
+				setReturnValue(MWHWithholding.COLUMNNAME_IsSimulation, true);
 				saveResult();
 			}
 		}
@@ -193,7 +192,7 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 	}
 	
 	/**
-	 * Set concepts from invoice document
+	 * Set concepts from order document
 	 */
 	private void setActivity() {
 		if (businessPartner!=null) {
@@ -218,14 +217,14 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 	 * @return
 	 */
 	private boolean isGenerated() {
-		if (invoice!=null) 
-			return new Query(getContext(), MWHWithholding.Table_Name, "SourceInvoice_ID = ? "
+		if (order!=null) 
+			return new Query(getContext(), MWHWithholding.Table_Name, "SourceOrder_ID = ? "
 																	+ "AND WH_Definition_ID = ? "
 																	+ "AND WH_Setting_ID = ? "
 																	+ "AND Processed = 'Y' "
-																	+ "AND IsSimulation='N'"
+																	+ "AND IsSimulation='Y'"
 																	+ "AND DocStatus IN (?,?)" , getTransactionName())
-						.setParameters(invoice.get_ID(),getDefinition().get_ID(),getSetting().get_ID(),MWHWithholding.DOCSTATUS_Completed,MWHWithholding.DOCSTATUS_Closed)
+						.setParameters(order.get_ID(),getDefinition().get_ID(),getSetting().get_ID(),MWHWithholding.DOCSTATUS_Completed,MWHWithholding.DOCSTATUS_Closed)
 						.match();
 		return false;
 	}
