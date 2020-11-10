@@ -82,7 +82,8 @@ public class OrderIVA extends AbstractWithholdingSetting {
 								.ifPresent(org ->{
 								businessPartner = MBPartner.get(getContext(), org.getLinkedC_BPartner_ID(order.get_TrxName()));
 						});
-					}
+					}else
+						isManual = false;
 				});
 		
 		if (businessPartner==null) {

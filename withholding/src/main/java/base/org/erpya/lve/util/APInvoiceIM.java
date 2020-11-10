@@ -85,7 +85,8 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 								.ifPresent(org ->{
 								businessPartner = MBPartner.get(getContext(), org.getLinkedC_BPartner_ID(invoice.get_TrxName()));
 						});
-					}
+					}else
+						isManual = false;
 				});
 		
 		if (businessPartner==null) {
