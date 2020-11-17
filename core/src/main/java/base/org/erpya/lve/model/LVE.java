@@ -283,6 +283,7 @@ public class LVE implements ModelValidator {
 					if(Util.isEmpty(taxId)) {
 						businessPartner.setTaxID(businessPartner.getValue().trim().toUpperCase());
 					}
+					businessPartner.setAD_Org_ID(0);
 				}
 				if(type == TYPE_AFTER_CHANGE) {
 					//	Validate without values
@@ -299,6 +300,8 @@ public class LVE implements ModelValidator {
 						if(!Util.isEmpty(businessPartner.getTaxID())) {
 							businessPartner.setTaxID(businessPartner.getTaxID().trim().toUpperCase());
 						}
+					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_AD_Org_ID)) {
+						businessPartner.setAD_Org_ID(0);
 					}
 				}
 			}else if (po.get_TableName().equals(MWHWithholding.Table_Name)) {
