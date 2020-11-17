@@ -281,23 +281,23 @@ public class LVE implements ModelValidator {
 					String taxId = businessPartner.getTaxID();
 					//	For Tax ID
 					if(Util.isEmpty(taxId)) {
-						businessPartner.setTaxID(businessPartner.getValue().trim());
+						businessPartner.setTaxID(businessPartner.getValue().trim().toUpperCase());
 					}
 				}
 				if(type == TYPE_AFTER_CHANGE) {
 					//	Validate without values
 					if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
 						if(!Util.isEmpty(businessPartner.getValue())) {
-							businessPartner.setValue(businessPartner.getValue().trim());
+							businessPartner.setValue(businessPartner.getValue().trim().toUpperCase());
 						}
 						String taxId = businessPartner.getTaxID();
 						//	For Tax ID
 						if(Util.isEmpty(taxId)) {
-							businessPartner.setTaxID(businessPartner.getValue());
+							businessPartner.setTaxID(businessPartner.getValue().toUpperCase());
 						}
 					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_TaxID)) {
 						if(!Util.isEmpty(businessPartner.getTaxID())) {
-							businessPartner.setTaxID(businessPartner.getTaxID().trim());
+							businessPartner.setTaxID(businessPartner.getTaxID().trim().toUpperCase());
 						}
 					}
 				}
