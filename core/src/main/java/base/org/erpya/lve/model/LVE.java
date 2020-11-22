@@ -281,25 +281,22 @@ public class LVE implements ModelValidator {
 					String taxId = businessPartner.getTaxID();
 					//	For Tax ID
 					if(Util.isEmpty(taxId)) {
-						businessPartner.setTaxID(businessPartner.getValue().trim().toUpperCase());
+						businessPartner.setTaxID(Optional.ofNullable(businessPartner.getValue()).orElse("").trim().toUpperCase());
 					}
 					businessPartner.setAD_Org_ID(0);
 				}
 				if(type == TYPE_AFTER_CHANGE) {
 					//	Validate without values
 					if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
-						if(!Util.isEmpty(businessPartner.getValue())) {
-							businessPartner.setValue(businessPartner.getValue().trim().toUpperCase());
-						}
-						String taxId = businessPartner.getTaxID();
+						String value = Optional.ofNullable(businessPartner.getValue()).orElse("");
+						String taxId = Optional.ofNullable(businessPartner.getTaxID()).orElse("");
+						businessPartner.setValue(value.trim().toUpperCase());
 						//	For Tax ID
 						if(Util.isEmpty(taxId)) {
 							businessPartner.setTaxID(businessPartner.getValue().toUpperCase());
 						}
 					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_TaxID)) {
-						if(!Util.isEmpty(businessPartner.getTaxID())) {
-							businessPartner.setTaxID(businessPartner.getTaxID().trim().toUpperCase());
-						}
+						businessPartner.setTaxID(Optional.ofNullable(businessPartner.getTaxID()).orElse("").trim().toUpperCase());
 					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_AD_Org_ID)) {
 						businessPartner.setAD_Org_ID(0);
 					}
