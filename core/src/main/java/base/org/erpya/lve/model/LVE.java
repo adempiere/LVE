@@ -257,7 +257,8 @@ public class LVE implements ModelValidator {
 			//	Validate if exist a fiscal document for order
 			if (po.get_TableName().equals(MOrder.Table_Name)) {
 				MOrder order = (MOrder) po;
-				if(order.isSOTrx()) {
+				if(order.isSOTrx()
+						&& order.getC_POS_ID() <= 0) {
 					List<MInvoice> invoices = new Query(order.getCtx(), I_C_Invoice.Table_Name, "DocStatus IN('CO', 'CL') "
 							+ "AND EXISTS(SELECT 1 FROM C_InvoiceLine il "
 							+ "			INNER JOIN C_OrderLine ol ON(ol.C_OrderLine_ID = il.C_OrderLine_ID) "
