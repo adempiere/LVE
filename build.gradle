@@ -19,7 +19,7 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-def libraryVersion = '1.1.7'
+def libraryVersion = '1.1.8'
 sourceSets {
     main {
          java {
