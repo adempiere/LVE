@@ -22,9 +22,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.adempiere.exceptions.AdempiereException;
 import org.compiere.model.I_C_BPartner;
+import org.compiere.model.I_C_Invoice;
 import org.compiere.model.I_I_BPartner;
 import org.compiere.model.I_I_Invoice;
+import org.compiere.model.I_M_InOut;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MClient;
 import org.compiere.model.MDocType;
@@ -32,6 +35,7 @@ import org.compiere.model.MInOut;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceLine;
 import org.compiere.model.MMovement;
+import org.compiere.model.MOrder;
 import org.compiere.model.MOrderLine;
 import org.compiere.model.ModelValidationEngine;
 import org.compiere.model.ModelValidator;
@@ -80,6 +84,7 @@ public class LVE implements ModelValidator {
 		
 		engine.addModelChange(MInvoice.Table_Name, this);
 		engine.addDocValidate(MInOut.Table_Name, this);
+		engine.addDocValidate(MOrder.Table_Name, this);
 		engine.addDocValidate(MMovement.Table_Name, this);
 		engine.addModelChange(MBPartner.Table_Name, this);
 		engine.addModelChange(MWHWithholding.Table_Name, this);
@@ -245,6 +250,54 @@ public class LVE implements ModelValidator {
 				}
 				//	Save
 				movement.saveEx();
+			}
+		} else if(timing == TIMING_BEFORE_VOID
+				|| timing == TIMING_BEFORE_REVERSECORRECT
+				|| timing == TIMING_BEFORE_REVERSEACCRUAL) {
+			//	Validate if exist a fiscal document for order
+			if (po.get_TableName().equals(MOrder.Table_Name)) {
+				MOrder order = (MOrder) po;
+				if(order.isSOTrx()) {
+					List<MInvoice> invoices = new Query(order.getCtx(), I_C_Invoice.Table_Name, "DocStatus IN('CO', 'CL') "
+							+ "AND EXISTS(SELECT 1 FROM C_InvoiceLine il "
+							+ "			INNER JOIN C_OrderLine ol ON(ol.C_OrderLine_ID = il.C_OrderLine_ID) "
+							+ "			WHERE il.C_Invoice_ID = C_Invoice.C_Invoice_ID "
+							+ "			AND ol.C_Order_ID = ?)", order.get_TrxName())
+							.setParameters(order.getC_Order_ID())
+							.setClient_ID()
+							.<MInvoice>list();
+					if(invoices != null
+							&& invoices.size() > 0) {
+						StringBuffer message = new StringBuffer();
+						invoices.forEach(invoice -> {
+							if(message.length() > 0) {
+								message.append(Env.NL);
+							}
+							message.append(invoice.getDocumentNo());
+						});
+						throw new AdempiereException("@SQLErrorReferenced@ @C_Invoice_ID@ " + Env.NL + message);
+					}
+					//	For Delivery
+					List<MInOut> deliveries = new Query(order.getCtx(), I_M_InOut.Table_Name, "DocStatus IN('CO', 'CL') "
+							+ "AND EXISTS(SELECT 1 FROM M_InOutLine il "
+							+ "			INNER JOIN C_OrderLine ol ON(ol.C_OrderLine_ID = il.C_OrderLine_ID) "
+							+ "			WHERE il.M_InOut_ID = M_InOut.M_InOut_ID "
+							+ "			AND ol.C_Order_ID = ?)", order.get_TrxName())
+							.setParameters(order.getC_Order_ID())
+							.setClient_ID()
+							.<MInOut>list();
+					if(deliveries != null
+							&& deliveries.size() > 0) {
+						StringBuffer message = new StringBuffer();
+						deliveries.forEach(delivery -> {
+							if(message.length() > 0) {
+								message.append(Env.NL);
+							}
+							message.append(delivery.getDocumentNo());
+						});
+						throw new AdempiereException("@SQLErrorReferenced@ @M_InOut_ID@ " + Env.NL + message);
+					}
+				}
 			}
 		}
 		//
