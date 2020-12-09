@@ -313,7 +313,8 @@ public class LVE implements ModelValidator {
 			if (po.get_TableName().equals(MInvoice.Table_Name)) {
 				MInvoice invoice = (MInvoice) po;
 				
-				if(invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0) {
+				if(invoice.is_ValueChanged(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID)
+						&& invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0) {
 					for(MInvoiceLine line : invoice.getLines()) {
 						if(line.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) == 0) {
 							line.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID, invoice.get_Value(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID));
