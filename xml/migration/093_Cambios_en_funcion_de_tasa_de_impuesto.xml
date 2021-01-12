@@ -1,4 +1,8 @@
--- FUNCTION: adempiere.taxrateat(numeric, timestamp without time zone, character varying)
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Cambios en funcion de tasa de impuesto" ReleaseNo="3.9.4" SeqNo="81000690">
+    <Step DBType="Postgres" Parse="N" SeqNo="10" StepType="SQL">
+      <SQLStatement>-- FUNCTION: adempiere.taxrateat(numeric, timestamp without time zone, character varying)
 
 -- DROP FUNCTION adempiere.taxrateat(numeric, timestamp without time zone, character varying);
 /*************************************************************************
@@ -32,7 +36,7 @@ BEGIN
 SELECT t.Rate INTO v_CurrentTax
 FROM C_Tax t
 WHERE t.C_TaxCategory_ID = p_C_TaxCategory_ID 
-AND t.ValidFrom <= p_ValidFrom
+AND t.ValidFrom &lt;= p_ValidFrom
 AND (t.IsSalesTax = issotrx 
 OR 
 (issotrx = 'Y' AND (t.SOPOType = 'B' OR t.SOPOType = 'S'))
@@ -49,4 +53,7 @@ END IF;
 -- Default Return
 RETURN  v_CurrentTax;
 END
-$BODY$;
+$BODY$;</SQLStatement>
+    </Step>
+  </Migration>
+</Migrations>
