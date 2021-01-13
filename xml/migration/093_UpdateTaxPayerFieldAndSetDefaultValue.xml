@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Update TaxPayer Field for Business Partner" ReleaseNo="3.9.4" SeqNo="81000690">
+    <Comments>Update TaxPayer Field for Business Partner</Comments>
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="101" Action="U" Record_ID="97211" Table="AD_Column">
+        <Data AD_Column_ID="117" Column="DefaultValue" isOldNull="true">N</Data>
+      </PO>
+    </Step>
+    <Step DBType="ALL" Parse="Y" SeqNo="20" StepType="SQL">
+      <SQLStatement>UPDATE C_BPartner SET IsTaxPayer = 'N' WHERE IsTaxPayer IS NULL;</SQLStatement>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="277" Action="U" Record_ID="0" Table="AD_Element_Trl">
+        <Data AD_Column_ID="2638" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="2646" Column="Name" oldValue="Taxpayer">Contribuyente</Data>
+        <Data AD_Column_ID="4300" Column="PrintName" oldValue="Taxpayer">Contribuyente</Data>
+        <Data AD_Column_ID="2637" Column="AD_Element_ID" oldValue="61515">61515</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
