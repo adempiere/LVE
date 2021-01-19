@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Se elimina columna DocStatus en vista resumen de factura" ReleaseNo="3.9.4" SeqNo="81000530">
+  <Migration EntityType="LVE" Name="Se elimina columna DocStatus en vista resumen de factura" ReleaseNo="1.0" SeqNo="81000530">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="286" Action="D" Record_ID="57681" Table="AD_Process_Para_Trl">
         <Data AD_Column_ID="2836" Column="Created" isNewNull="true" oldValue="2020-06-15 13:00:04.0"/>

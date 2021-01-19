@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add view LVE_RV_WH_Invoice_Header" ReleaseNo="3.9.3" SeqNo="81000350">
+  <Migration EntityType="LVE" Name="Add view LVE_RV_WH_Invoice_Header" ReleaseNo="1.0" SeqNo="81000350">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="100" Action="I" Record_ID="54673" Table="AD_Table">
         <Data AD_Column_ID="546" Column="Updated">2019-09-24 10:50:25.517</Data>

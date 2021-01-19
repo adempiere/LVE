@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Remove Process for Generate Sales Withholding" ReleaseNo="3.9.4" SeqNo="81000580">
+  <Migration EntityType="LVE" Name="Remove Process for Generate Sales Withholding" ReleaseNo="1.0" SeqNo="81000580">
     <Comments>Remove Process for Generate Sales Withholding</Comments>
     <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
       <SQLStatement>DELETE FROM AD_PInstance WHERE AD_Process_ID=54308;</SQLStatement>

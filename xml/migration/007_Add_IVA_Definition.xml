@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Agregar Configuración de Retención de IVA" ReleaseNo="3.9.3" SeqNo="71000000">
+  <Migration EntityType="LVE" Name="Agregar Configuración de Retención de IVA" ReleaseNo="1.0" SeqNo="71000000">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="102" Action="I" Record_ID="54146" Table="AD_Reference">
         <Data AD_Column_ID="556" Column="Updated">2019-06-14 18:42:15.837</Data>

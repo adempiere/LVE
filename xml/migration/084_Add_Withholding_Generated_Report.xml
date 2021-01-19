@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add Withholding Generated Report" ReleaseNo="3.9.4" SeqNo="81000600">
+  <Migration EntityType="LVE" Name="Add Withholding Generated Report" ReleaseNo="1.0" SeqNo="81000600">
     <Comments>Add Withholding Generated Report</Comments>
     <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
       <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_WithholdingGenerated AS 

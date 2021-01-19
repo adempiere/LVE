@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Cambios en IVA" ReleaseNo="" SeqNo="81000020">
+  <Migration EntityType="LVE" Name="Cambios en IVA" ReleaseNo="1.0" SeqNo="81000020">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="107" Action="U" Record_ID="94804" Table="AD_Field">
         <Data AD_Column_ID="74868" Column="IsAllowCopy" oldValue="true">false</Data>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add Price List Report" ReleaseNo="3.9.3" SeqNo="81000210">
+  <Migration EntityType="LVE" Name="Add Price List Report" ReleaseNo="1.0" SeqNo="81000210">
           <Step DBType="Postgres" Parse="N" SeqNo="10" StepType="SQL">
       <SQLStatement>-- FUNCTION: adempiere.productpricelastchange(numeric, numeric, numeric, timestamp without time zone)
 

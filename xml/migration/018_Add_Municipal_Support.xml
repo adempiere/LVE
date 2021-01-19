@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Soporte para Impuesto Municipal" ReleaseNo="" SeqNo="81000090">
+  <Migration EntityType="LVE" Name="Soporte para Impuesto Municipal" ReleaseNo="1.0" SeqNo="81000090">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61097" Table="AD_Element">
         <Data AD_Column_ID="2600" Column="Updated">2019-06-24 11:35:37.836</Data>

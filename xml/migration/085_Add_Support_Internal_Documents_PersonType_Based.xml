@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add Support to Internal Based In Person Type" ReleaseNo="3.9.4" SeqNo="81000610">
+  <Migration EntityType="LVE" Name="Add Support to Internal Based In Person Type" ReleaseNo="1.0" SeqNo="81000610">
     <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
       <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
  SELECT i.AD_Client_ID,

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add HR Fields for Company" ReleaseNo="3.9.3" SeqNo="81000180">
+  <Migration EntityType="LVE" Name="Add HR Fields for Company" ReleaseNo="1.0" SeqNo="81000180">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61154" Table="AD_Element">
         <Data AD_Column_ID="2600" Column="Updated">2019-09-01 20:06:18.593</Data>

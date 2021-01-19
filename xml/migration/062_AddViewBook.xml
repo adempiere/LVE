@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add Book View" ReleaseNo="3.9.3" SeqNo="81000400">
+  <Migration EntityType="LVE" Name="Add Book View" ReleaseNo="1.0" SeqNo="81000400">
     <Step DBType="Postgres" Parse="N" SeqNo="10" StepType="SQL">
       <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
  SELECT i.AD_Client_ID,

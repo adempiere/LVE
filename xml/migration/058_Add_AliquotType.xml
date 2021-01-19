@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add Aliquot Type" ReleaseNo="3.9.3" SeqNo="81000360">
+  <Migration EntityType="LVE" Name="Add Aliquot Type" ReleaseNo="1.0" SeqNo="81000360">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="102" Action="I" Record_ID="54179" Table="AD_Reference">
         <Data AD_Column_ID="556" Column="Updated">2019-09-26 09:49:39.857</Data>

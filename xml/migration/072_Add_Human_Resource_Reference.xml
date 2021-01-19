@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add Human Resource Manager reference" ReleaseNo="3.9.4" SeqNo="81000480">
+  <Migration EntityType="LVE" Name="Add Human Resource Manager reference" ReleaseNo="1.0" SeqNo="81000480">
     <Comments>Add Human Resource Manager reference to organizaation information</Comments>
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="U" Record_ID="61269" Table="AD_Element">

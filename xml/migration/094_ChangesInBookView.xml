@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Changes in View for Fiscal Books" ReleaseNo="3.9.4" SeqNo="81000700">
+  <Migration EntityType="LVE" Name="Changes in View for Fiscal Books" ReleaseNo="1.0" SeqNo="81000700">
     <Comments>Changes in View for Fiscal Books</Comments>
     <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
       <SQLStatement>DROP VIEW IF EXISTS LVE_RV_InvoiceBook;

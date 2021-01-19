@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Cambio de ISLR en Retencion" ReleaseNo="" SeqNo="81000080">
+  <Migration EntityType="LVE" Name="Cambio de ISLR en Retencion" ReleaseNo="1.0" SeqNo="81000080">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="277" Action="U" Record_ID="0" Table="AD_Element_Trl">
         <Data AD_Column_ID="2638" Column="AD_Language" oldValue="es_MX">es_MX</Data>

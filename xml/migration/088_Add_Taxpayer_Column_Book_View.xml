@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add Taxpayer Column on Book View" ReleaseNo="3.9.4" SeqNo="81000640">
+  <Migration EntityType="LVE" Name="Add Taxpayer Column on Book View" ReleaseNo="1.0" SeqNo="81000640">
     <Comments>Add Taxpayer Column on Book View</Comments>
     <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
       <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS

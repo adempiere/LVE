@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add Converted Amount for LVE_RV_C_Invoice_Day_Summary view" ReleaseNo="3.9.4" SeqNo="81000520">
+  <Migration EntityType="LVE" Name="Add Converted Amount for LVE_RV_C_Invoice_Day_Summary view" ReleaseNo="1.0" SeqNo="81000520">
     <Comments>Add Converted Amount for view of summary amount of invoices</Comments>
     <Step DBType="Postgres" Parse="N" SeqNo="10" StepType="SQL">
       <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_C_Invoice_Day_Summary

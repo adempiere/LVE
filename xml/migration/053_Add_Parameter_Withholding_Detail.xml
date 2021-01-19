@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Se agregan Parametro a Vista de Retenciones" ReleaseNo="3.9.3" SeqNo="81000300">
+  <Migration EntityType="LVE" Name="Se agregan Parametro a Vista de Retenciones" ReleaseNo="1.0" SeqNo="81000300">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="285" Action="I" Record_ID="57138" Table="AD_Process_Para">
         <Data AD_Column_ID="2820" Column="Updated">2019-09-16 14:56:01.106</Data>

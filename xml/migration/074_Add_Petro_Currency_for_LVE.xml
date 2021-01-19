@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add Petro Currency for LVE" ReleaseNo="3.9.4" SeqNo="81000500">
+  <Migration EntityType="LVE" Name="Add Petro Currency for LVE" ReleaseNo="1.0" SeqNo="81000500">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="141" Action="I" Record_ID="50002" Table="C_Currency">
         <Data AD_Column_ID="794" Column="Updated">2020-05-28 14:48:14.681</Data>

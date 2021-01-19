@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Cambios de Unidad Tributaria" ReleaseNo="" SeqNo="81000010">
+  <Migration EntityType="LVE" Name="Cambios de Unidad Tributaria" ReleaseNo="1.0" SeqNo="81000010">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="107" Action="U" Record_ID="94819" Table="AD_Field">
         <Data AD_Column_ID="53265" Column="DefaultValue" isOldNull="true">@SQL=SELECT MAX(l.LVE_List_ID) DefaultValue FROM LVE_List l WHERE EXISTS(SELECT 1 FROM AD_ClientInfo c WHERE c.AD_Client_ID = @#AD_Client_ID@ AND c.TributeUnitType_ID = l.LVE_ListType_ID)</Data>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add ControlNo And Document Affected on Import Invoice" ReleaseNo="" SeqNo="81000210">
+  <Migration EntityType="LVE" Name="Add ControlNo And Document Affected on Import Invoice" ReleaseNo="1.0" SeqNo="81000210">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94524" Table="AD_Column">
         <Data AD_Column_ID="112" Column="Description" isNewNull="true"/>

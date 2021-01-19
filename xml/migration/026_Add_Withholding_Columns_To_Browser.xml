@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Se agregan columnas nuevas a smartbrowser de retenciones" ReleaseNo="" SeqNo="81000160">
+  <Migration EntityType="LVE" Name="Se agregan columnas nuevas a smartbrowser de retenciones" ReleaseNo="1.0" SeqNo="81000160">
     <Step SeqNo="670" StepType="AD">
       <PO AD_Table_ID="53232" Action="I" Record_ID="66790" Table="AD_View_Column">
         <Data AD_Column_ID="84462" Column="UUID">4cb582f4-9dd0-11e9-8514-0242ac140003</Data>

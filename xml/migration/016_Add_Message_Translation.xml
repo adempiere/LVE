@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Se agrega Traducción de Mensaje" ReleaseNo="3.9.3" SeqNo="81000070">
+  <Migration EntityType="LVE" Name="Se agrega Traducción de Mensaje" ReleaseNo="1.0" SeqNo="81000070">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="109" Action="I" Record_ID="53635" Table="AD_Message">
         <Data AD_Column_ID="588" Column="IsActive">true</Data>

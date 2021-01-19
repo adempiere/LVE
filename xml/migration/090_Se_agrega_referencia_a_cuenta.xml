@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add Reference Value for Accounting" ReleaseNo="3.9.4" SeqNo="81000660">
+  <Migration EntityType="LVE" Name="Add Reference Value for Accounting" ReleaseNo="1.0" SeqNo="81000660">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="102" Action="I" Record_ID="54254" Table="AD_Reference">
         <Data AD_Column_ID="556" Column="Updated">2020-12-04 16:25:58.824</Data>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Agregar ISLR Variable por UT" ReleaseNo="" SeqNo="81000040">
+  <Migration EntityType="LVE" Name="Agregar ISLR Variable por UT" ReleaseNo="1.0" SeqNo="81000040">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61087" Table="AD_Element">
         <Data AD_Column_ID="2600" Column="Updated">2019-06-19 18:55:26.249</Data>

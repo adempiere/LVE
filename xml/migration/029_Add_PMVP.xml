@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add PMVP" ReleaseNo="3.9.3" SeqNo="81000200">
+  <Migration EntityType="LVE" Name="Add PMVP" ReleaseNo="1.0" SeqNo="81000200">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61181" Table="AD_Element">
         <Data AD_Column_ID="2600" Column="Updated">2019-09-02 14:30:51.083</Data>

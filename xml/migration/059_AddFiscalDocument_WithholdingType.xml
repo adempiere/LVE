@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add Fiscal Document Check on Withholding Type" ReleaseNo="3.9.3" SeqNo="81000370">
+  <Migration EntityType="LVE" Name="Add Fiscal Document Check on Withholding Type" ReleaseNo="1.0" SeqNo="81000370">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94631" Table="AD_Column">
         <Data AD_Column_ID="125" Column="IsTranslated">false</Data>

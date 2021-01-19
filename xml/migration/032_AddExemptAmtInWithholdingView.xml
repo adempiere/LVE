@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add Exempt Amount in Withholding View" ReleaseNo="3.9.3" SeqNo="81000230">
+  <Migration EntityType="LVE" Name="Add Exempt Amount in Withholding View" ReleaseNo="1.0" SeqNo="81000230">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61185" Table="AD_Element">
         <Data AD_Column_ID="6484" Column="EntityType">LVE</Data>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add fields to Import Business Partner" ReleaseNo="" SeqNo="81000412">
+  <Migration EntityType="LVE" Name="Add fields to Import Business Partner" ReleaseNo="1.0" SeqNo="81000412">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="95525" Table="AD_Column">
         <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Agregar ISLR" ReleaseNo="" SeqNo="81000030">
+  <Migration EntityType="LVE" Name="Agregar ISLR" ReleaseNo="1.0" SeqNo="81000030">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="746" Action="U" Record_ID="0" Table="AD_Table_Trl">
         <Data AD_Column_ID="12716" Column="Name" oldValue="Configuración de Retención de I.V.A">Configuración de Retención</Data>

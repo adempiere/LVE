@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Reporte ARC" ReleaseNo="3.9.3" SeqNo="81000440">
+  <Migration EntityType="LVE" Name="Reporte ARC" ReleaseNo="1.0" SeqNo="81000440">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="284" Action="I" Record_ID="54351" Table="AD_Process">
         <Data AD_Column_ID="7752" Column="AD_PrintFormat_ID" isNewNull="true"/>

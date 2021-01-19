@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Se corrige traducción de menu" ReleaseNo="3.9.3" SeqNo="81000330">
+  <Migration EntityType="LVE" Name="Se corrige traducción de menu" ReleaseNo="1.0" SeqNo="81000330">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="120" Action="U" Record_ID="54335" Table="AD_Menu_Trl">
         <Data AD_Column_ID="247" Column="Name" oldValue="Location Venezuela">Localización Venezuela</Data>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Cambios en funcion de tasa de impuesto" ReleaseNo="3.9.4" SeqNo="81000690">
+  <Migration EntityType="LVE" Name="Cambios en funcion de tasa de impuesto" ReleaseNo="1.0" SeqNo="81000690">
     <Step DBType="Postgres" Parse="N" SeqNo="10" StepType="SQL">
       <SQLStatement>-- FUNCTION: adempiere.taxrateat(numeric, timestamp without time zone, character varying)
 

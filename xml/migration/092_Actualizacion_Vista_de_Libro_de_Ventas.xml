@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Actualizacion Vista de Libro de Ventas" ReleaseNo="3.9.4" SeqNo="81000680">
+  <Migration EntityType="LVE" Name="Actualizacion Vista de Libro de Ventas" ReleaseNo="1.0" SeqNo="81000680">
     <Step DBType="Postgres" Parse="N" SeqNo="10" StepType="SQL">
       <SQLStatement>DROP VIEW IF EXISTS LVE_RV_InvoiceBook;</SQLStatement>
     </Step>

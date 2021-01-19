@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Cambios en Descripcion de Procesos" ReleaseNo="3.9.4" SeqNo="81000540">
+  <Migration EntityType="LVE" Name="Cambios en Descripcion de Procesos" ReleaseNo="1.0" SeqNo="81000540">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="284" Action="U" Record_ID="54310" Table="AD_Process">
         <Data AD_Column_ID="2811" Column="Help" isOldNull="true">VAT Law Regulation (Decree 206 07-09-1999)

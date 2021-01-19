@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Se agrega Recibo de Pago de Nómina (Neto a Pagar)" ReleaseNo="3.9.3" SeqNo="81000450">
+  <Migration EntityType="LVE" Name="Se agrega Recibo de Pago de Nómina (Neto a Pagar)" ReleaseNo="1.0" SeqNo="81000450">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="284" Action="I" Record_ID="54356" Table="AD_Process">
         <Data AD_Column_ID="4656" Column="Classname" isNewNull="true"/>

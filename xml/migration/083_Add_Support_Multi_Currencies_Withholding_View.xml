@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add Support Multi Currencies in Withholding View" ReleaseNo="3.9.4" SeqNo="81000590">
+  <Migration EntityType="LVE" Name="Add Support Multi Currencies in Withholding View" ReleaseNo="1.0" SeqNo="81000590">
     <Comments>Changes in Withholding View for Support Multi Currencies</Comments>
     <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
       <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_Withholding AS 

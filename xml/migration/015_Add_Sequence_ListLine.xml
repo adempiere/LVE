@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Se agrega secuencia en la lista LVE" ReleaseNo="3.9.3" SeqNo="81000060">
+  <Migration EntityType="LVE" Name="Se agrega secuencia en la lista LVE" ReleaseNo="1.0" SeqNo="81000060">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="93833" Table="AD_Column">
         <Data AD_Column_ID="112" Column="Description">Method of ordering records; lowest number comes first</Data>

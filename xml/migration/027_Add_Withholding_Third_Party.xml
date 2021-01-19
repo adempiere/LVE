@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add Withholding Third Party" ReleaseNo="" SeqNo="81000170">
+  <Migration EntityType="LVE" Name="Add Withholding Third Party" ReleaseNo="1.0" SeqNo="81000170">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61153" Table="AD_Element">
         <Data AD_Column_ID="2600" Column="Updated">2019-09-01 17:48:07.661</Data>

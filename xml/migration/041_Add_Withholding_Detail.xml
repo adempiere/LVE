@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Se agrega Reporte Detalle de Retención" ReleaseNo="3.9.3" SeqNo="81000260">
+  <Migration EntityType="LVE" Name="Se agrega Reporte Detalle de Retención" ReleaseNo="1.0" SeqNo="81000260">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="746" Action="U" Record_ID="0" Table="AD_Table_Trl">
         <Data AD_Column_ID="12716" Column="Name" oldValue="LVE_RV_Withholding">Detalle de Retenciones</Data>

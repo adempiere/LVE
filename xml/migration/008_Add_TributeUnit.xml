@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Agregar Unidad Tributaria" ReleaseNo="" SeqNo="81000000">
+  <Migration EntityType="LVE" Name="Agregar Unidad Tributaria" ReleaseNo="1.0" SeqNo="81000000">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61079" Table="AD_Element">
         <Data AD_Column_ID="2600" Column="Updated">2019-06-14 20:08:10.417</Data>

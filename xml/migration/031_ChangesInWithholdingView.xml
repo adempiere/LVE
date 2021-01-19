@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Changes in Withholding View" ReleaseNo="" SeqNo="81000220">
+  <Migration EntityType="LVE" Name="Changes in Withholding View" ReleaseNo="1.0" SeqNo="81000220">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="101" Action="I" Record_ID="94544" Table="AD_Column">
         <Data AD_Column_ID="110" Column="Version">0</Data>
