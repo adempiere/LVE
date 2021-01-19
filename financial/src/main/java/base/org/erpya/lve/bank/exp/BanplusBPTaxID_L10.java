@@ -129,7 +129,8 @@ public class BanplusBPTaxID_L10 extends LVEPaymentExportList {
 								else
 									personType = "04";
 								bPTaxId = bPTaxId.replaceAll("\\D+","");
-								bPTaxId = bPTaxId.substring(0, bPTaxId.length() >= 10? 10: bPTaxId.length());
+								bPTaxId = String.format("%1$" + 10 + "s", bPTaxId);
+								bPTaxId = bPTaxId.substring(0, 10);
 							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@BPTaxID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
