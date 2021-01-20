@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Se agrega Configuracion para LVE" ReleaseNo="1.0" SeqNo="81000740">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="54786" Action="I" Record_ID="50016" Table="AD_SetupDefinition">
+        <Data AD_Column_ID="97368" Column="Created">2021-01-20 10:16:14.343</Data>
+        <Data AD_Column_ID="97364" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="97365" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="97366" Column="AD_SetupDefinition_ID">50016</Data>
+        <Data AD_Column_ID="97367" Column="Classname">org.erpya.lve.setup.LVEDeploy</Data>
+        <Data AD_Column_ID="97369" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="97370" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="97371" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="97372" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="97373" Column="IsActive">true</Data>
+        <Data AD_Column_ID="97374" Column="Name">Venezuela Location Deployment</Data>
+        <Data AD_Column_ID="97375" Column="Updated">2021-01-20 10:16:14.343</Data>
+        <Data AD_Column_ID="97376" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="97377" Column="UUID">5b5a3cd1-46bb-4e06-ad41-dfa1c0d69824</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="54786" Action="I" Record_ID="50018" Table="AD_SetupDefinition">
+        <Data AD_Column_ID="97368" Column="Created">2021-01-20 10:17:04.769</Data>
+        <Data AD_Column_ID="97364" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="97365" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="97366" Column="AD_SetupDefinition_ID">50018</Data>
+        <Data AD_Column_ID="97367" Column="Classname">org.erpya.lve.setup.LVETaxDiscount</Data>
+        <Data AD_Column_ID="97369" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="97370" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="97371" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="97372" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="97373" Column="IsActive">true</Data>
+        <Data AD_Column_ID="97374" Column="Name">Venezuela Location (Tax Discount) Deployment</Data>
+        <Data AD_Column_ID="97375" Column="Updated">2021-01-20 10:17:04.769</Data>
+        <Data AD_Column_ID="97376" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="97377" Column="UUID">c6a82ade-9869-46e8-98f8-e2fb0d33ac9f</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="54786" Action="I" Record_ID="50019" Table="AD_SetupDefinition">
+        <Data AD_Column_ID="97368" Column="Created">2021-01-20 10:17:25.755</Data>
+        <Data AD_Column_ID="97364" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="97365" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="97366" Column="AD_SetupDefinition_ID">50019</Data>
+        <Data AD_Column_ID="97367" Column="Classname">org.erpya.lve.setup.FinancialBigTransactionTaxDeploy</Data>
+        <Data AD_Column_ID="97369" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="97370" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="97371" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="97372" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="97373" Column="IsActive">true</Data>
+        <Data AD_Column_ID="97374" Column="Name">Venezuela Location (Big Transaction Tax) Deployment</Data>
+        <Data AD_Column_ID="97375" Column="Updated">2021-01-20 10:17:25.755</Data>
+        <Data AD_Column_ID="97376" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="97377" Column="UUID">82925f34-2315-4b90-bdac-a456d52eb876</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
