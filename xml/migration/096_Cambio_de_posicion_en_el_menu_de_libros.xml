@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Cambio de posición en el menu de libros" ReleaseNo="1.0" SeqNo="81000720">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="452" Action="U" Record_ID="54665" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54665">54665</Data>
+        <Data AD_Column_ID="6155" Column="Parent_ID" oldValue="0">54335</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="1">13</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="452" Action="U" Record_ID="54336" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54336">54336</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="13">14</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="452" Action="U" Record_ID="54199" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54199">54199</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="14">15</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="452" Action="U" Record_ID="54198" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54198">54198</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="15">16</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="452" Action="U" Record_ID="54666" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54666">54666</Data>
+        <Data AD_Column_ID="6155" Column="Parent_ID" oldValue="0">54335</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="0">14</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="60" StepType="AD">
+      <PO AD_Table_ID="452" Action="U" Record_ID="54336" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54336">54336</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="14">15</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="70" StepType="AD">
+      <PO AD_Table_ID="452" Action="U" Record_ID="54199" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54199">54199</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="15">16</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="80" StepType="AD">
+      <PO AD_Table_ID="452" Action="U" Record_ID="54198" Table="AD_TreeNodeMM">
+        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54198">54198</Data>
+        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="16">17</Data>
+        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>

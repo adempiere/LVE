@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="D" Name="Se elimina Validador de modelo por defecto" ReleaseNo="1.0" SeqNo="81000730">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="53014" Action="D" Record_ID="50028" Table="AD_ModelValidator">
+        <Data AD_Column_ID="53253" Column="AD_ModelValidator_ID" isNewNull="true" oldValue="50028"/>
+        <Data AD_Column_ID="53259" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="53255" Column="Created" isNewNull="true" oldValue="2018-08-08 00:58:58.0"/>
+        <Data AD_Column_ID="53257" Column="Updated" isNewNull="true" oldValue="2018-08-08 00:58:58.0"/>
+        <Data AD_Column_ID="53254" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="53264" Column="ModelValidationClass" isNewNull="true" oldValue="org.erpya.lve.model.TaxDiscount"/>
+        <Data AD_Column_ID="53262" Column="Help" isNewNull="true" oldValue="Cuando el pago es electrnico y el monto se encuentra entre 0 y 2.000.000 se aplica un 9% de Impuesto Cuando el pago es electrnico y el monto es mayor a 2.000.000 se aplica un 7% de Impuesto"/>
+        <Data AD_Column_ID="53261" Column="Description" isNewNull="true" oldValue="Utilizado para la Rebaja de Impuesto"/>
+        <Data AD_Column_ID="53260" Column="Name" isNewNull="true" oldValue="Validador para Descuento de Impuesto"/>
+        <Data AD_Column_ID="53256" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="53258" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="53263" Column="EntityType" isNewNull="true" oldValue="LVE"/>
+        <Data AD_Column_ID="54094" Column="SeqNo" isNewNull="true" oldValue="1"/>
+        <Data AD_Column_ID="84352" Column="UUID" isNewNull="true" oldValue="c14e1b84-128f-11e9-a443-5323dbc0e17b"/>
+        <Data AD_Column_ID="53252" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="53014" Action="D" Record_ID="50029" Table="AD_ModelValidator">
+        <Data AD_Column_ID="53253" Column="AD_ModelValidator_ID" isNewNull="true" oldValue="50029"/>
+        <Data AD_Column_ID="53259" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="53255" Column="Created" isNewNull="true" oldValue="2018-08-08 00:58:58.0"/>
+        <Data AD_Column_ID="53257" Column="Updated" isNewNull="true" oldValue="2018-08-08 00:58:58.0"/>
+        <Data AD_Column_ID="53254" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="53264" Column="ModelValidationClass" isNewNull="true" oldValue="org.erpya.lve.model.FinancialBigTransactionTax"/>
+        <Data AD_Column_ID="53262" Column="Help" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="53261" Column="Description" isNewNull="true" oldValue="Utilizado para el calculo del Impuesto a las Grandes Transacciones Financieras"/>
+        <Data AD_Column_ID="53260" Column="Name" isNewNull="true" oldValue="Validador para IGTF"/>
+        <Data AD_Column_ID="53256" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="53258" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="53263" Column="EntityType" isNewNull="true" oldValue="LVE"/>
+        <Data AD_Column_ID="54094" Column="SeqNo" isNewNull="true" oldValue="2"/>
+        <Data AD_Column_ID="84352" Column="UUID" isNewNull="true" oldValue="c14e41c2-128f-11e9-a444-47796db0f746"/>
+        <Data AD_Column_ID="53252" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="53014" Action="D" Record_ID="50039" Table="AD_ModelValidator">
+        <Data AD_Column_ID="53253" Column="AD_ModelValidator_ID" isNewNull="true" oldValue="50039"/>
+        <Data AD_Column_ID="53259" Column="IsActive" isNewNull="true" oldValue="true"/>
+        <Data AD_Column_ID="53255" Column="Created" isNewNull="true" oldValue="2018-08-08 00:58:58.0"/>
+        <Data AD_Column_ID="53257" Column="Updated" isNewNull="true" oldValue="2018-08-08 00:58:58.0"/>
+        <Data AD_Column_ID="53254" Column="AD_Org_ID" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="53264" Column="ModelValidationClass" isNewNull="true" oldValue="org.erpya.lve.model.LVE"/>
+        <Data AD_Column_ID="53262" Column="Help" isNewNull="true" isOldNull="true"/>
+        <Data AD_Column_ID="53261" Column="Description" isNewNull="true" oldValue="Utilizado para funcionalidad básica de Localización"/>
+        <Data AD_Column_ID="53260" Column="Name" isNewNull="true" oldValue="Validador para Core de Localización Venezuela"/>
+        <Data AD_Column_ID="53256" Column="CreatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="53258" Column="UpdatedBy" isNewNull="true" oldValue="100"/>
+        <Data AD_Column_ID="53263" Column="EntityType" isNewNull="true" oldValue="LVE"/>
+        <Data AD_Column_ID="54094" Column="SeqNo" isNewNull="true" oldValue="0"/>
+        <Data AD_Column_ID="84352" Column="UUID" isNewNull="true" oldValue="c14e4320-128f-11e9-a445-8302075b487e"/>
+        <Data AD_Column_ID="53252" Column="AD_Client_ID" isNewNull="true" oldValue="0"/>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
