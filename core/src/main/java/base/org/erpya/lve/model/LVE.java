@@ -15,6 +15,7 @@
  ************************************************************************************/
 package org.erpya.lve.model;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -37,6 +38,7 @@ import org.compiere.model.MInvoiceLine;
 import org.compiere.model.MMovement;
 import org.compiere.model.MOrder;
 import org.compiere.model.MOrderLine;
+import org.compiere.model.MTax;
 import org.compiere.model.ModelValidationEngine;
 import org.compiere.model.ModelValidator;
 import org.compiere.model.PO;
@@ -208,7 +210,11 @@ public class LVE implements ModelValidator {
 							.stream()
 							.filter(invoiceLine -> invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0)
 							.forEach(invoiceLine -> {
-								allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID), invoiceLine.getLineTotalAmt(), Env.ZERO, Env.ZERO);
+								Optional.ofNullable(MTax.get(invoiceLine.getCtx(), invoiceLine.getC_Tax_ID())).ifPresent(tax ->{
+									BigDecimal amountToAllocate = invoiceLine.getLineNetAmt();
+									amountToAllocate = amountToAllocate.add(tax.calculateTax(amountToAllocate, invoiceLine.isTaxIncluded(), invoiceLine.getPrecision()));
+									allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID), amountToAllocate, Env.ZERO, Env.ZERO);
+								});
 							});
 						//	Create Allocation
 						allocationManager.createAllocation();
