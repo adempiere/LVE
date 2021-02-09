@@ -346,7 +346,7 @@ public class LVE implements ModelValidator {
 					}
 					businessPartner.setAD_Org_ID(0);
 				}
-				if(type == TYPE_AFTER_CHANGE) {
+				if(type == TYPE_BEFORE_CHANGE) {
 					//	Validate without values
 					if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
 						String value = Optional.ofNullable(businessPartner.getValue()).orElse("");
