@@ -39,7 +39,7 @@ import org.compiere.util.Msg;
 import org.compiere.util.Util;
 import org.eevolution.model.MHRMovement;
 import org.eevolution.model.MHRProcess;
-import org.erpya.lve.util.ColumnsAdded;
+import org.erpya.lve.util.LVEUtil;
 
 /**
  * 	Implementation for Export Payment from Mercantil bank for Payroll
@@ -83,7 +83,7 @@ public class MercantilNomina extends LVEPaymentExportList {
 			//	Bank Client No
 			String bankClientNo = "";
 			if(!Util.isEmpty(bank.get_ValueAsString("BankClientNo"))) {
-				bankClientNo = processValue(bank.get_ValueAsString(ColumnsAdded.COLUMNNAME_BankClientNo));
+				bankClientNo = processValue(bank.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo));
 				bankClientNo = leftPadding(bankClientNo, 6, "0", true);
 			} else {
 				addError(Msg.parseTranslation(Env.getCtx(), "@BankClientNo@ @NotFound@"));

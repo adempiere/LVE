@@ -17,11 +17,15 @@
  *****************************************************************************/
 package org.erpya.lve.util;
 
+import java.util.Optional;
+
+import org.compiere.util.Util;
+
 /**
  * Added for hamdle custom columns for ADempiere core
  * @author Yamel Senih, ysenih@erpya.com, ERPCyA http://www.erpya.com
  */
-public class ColumnsAdded {
+public class LVEUtil {
 	/**	Invoice to Allocate	*/
 	public static final String COLUMNNAME_InvoiceToAllocate_ID = "InvoiceToAllocate_ID";
 	/**	Fiscal Document	*/
@@ -84,4 +88,16 @@ public class ColumnsAdded {
 	public static final String COLUMNNAME_SICACode = "SICACode";
 	/**BANAVIH Code */
 	public static final String COLUMNNAME_BANAVIHCode = "BANAVIHCode";
+	
+	/**
+	 * Process Business Partner Value
+	 * @param value
+	 * @return
+	 */
+	public static String processBusinessPartnerValue(String value) {
+		return Optional.ofNullable(value).orElse("")
+				.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ@,$;()!_%#*./?-]", "")
+				.trim()
+				.toUpperCase();
+	}
 }

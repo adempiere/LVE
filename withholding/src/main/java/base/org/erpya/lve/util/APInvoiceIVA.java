@@ -126,25 +126,25 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 				isValid = false;
 			}
 			//	Validate Exempt Document
-			if(invoice.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingTaxExempt)) {
+			if(invoice.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsWithholdingTaxExempt)) {
 				isValid = false;
 				addLog("@DocumentWithholdingTaxExempt@");
 			}
 			//	Validate Exempt Business Partner
-			if(businessPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingTaxExempt)) {
+			if(businessPartner.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsWithholdingTaxExempt)) {
 				isValid = false;
 				addLog("@BPartnerWithholdingTaxExempt@");
 			}
 			//	Validate Withholding Definition
 			//MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), invoice.getAD_Org_ID());
-			int withholdingRateId = businessPartner.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingTaxRate_ID);
+			int withholdingRateId = businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingTaxRate_ID);
 			if(withholdingRateId == 0
 					&& currentWHTax!=null) {
 				withholdingRateId = currentWHTax.getDefaultWithholdingRate_ID();
 			}
 			//	Validate Definition
 			if(withholdingRateId == 0) {
-				addLog("@" + ColumnsAdded.COLUMNNAME_WithholdingTaxRate_ID + "@ @NotFound@");
+				addLog("@" + LVEUtil.COLUMNNAME_WithholdingTaxRate_ID + "@ @NotFound@");
 				isValid = false;
 			} else {
 				withholdingRate = MLVEList.get(getContext(), withholdingRateId).getListVersionAmount(invoice.getDateInvoiced());
@@ -168,7 +168,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			//	Validate if it have taxes
 			taxes = Arrays.asList(invoice.getTaxes(false))
 				.stream()
-				.filter(invoiceTax -> MTax.get(getContext(), invoiceTax.getC_Tax_ID()).get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingTaxApplied) 
+				.filter(invoiceTax -> MTax.get(getContext(), invoiceTax.getC_Tax_ID()).get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsWithholdingTaxApplied) 
 						&& invoiceTax.getTaxAmt() != null 
 						&& invoiceTax.getTaxAmt().compareTo(Env.ZERO) > 0)
 				.collect(Collectors.toList());
@@ -196,9 +196,9 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			MTax tax = MTax.get(getContext(), invoiceTax.getC_Tax_ID());
 			addDescription(tax.getName() + " @Processed@");
 			setReturnValue(MWHWithholding.COLUMNNAME_IsManual, isManual);
-			int WHThirdParty_ID = invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
+			int WHThirdParty_ID = invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_WHThirdParty_ID);
 			if (WHThirdParty_ID != 0)
-				setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
+				setReturnValue(LVEUtil.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
 			setReturnValue(MWHWithholding.COLUMNNAME_C_Tax_ID, invoiceTax.getC_Tax_ID());
 			saveResult();
 			

@@ -29,7 +29,7 @@ import org.compiere.process.ImportInvoice;
 import org.compiere.util.CLogger;
 import org.compiere.util.DB;
 import org.compiere.util.Msg;
-import org.erpya.lve.util.ColumnsAdded;
+import org.erpya.lve.util.LVEUtil;
 
 /**
  * 	Add Default Model Validator for import process on Location Venezuela
@@ -52,7 +52,7 @@ public class LVEImport implements ImportValidator{
 								&& timing == ImportValidator.TIMING_BEFORE_IMPORT) {
 						X_I_Invoice impInvoice = (X_I_Invoice)importModel;
 						MInvoice invoice = (MInvoice) targetModel;
-						invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_ControlNo, impInvoice.get_ValueAsString(ColumnsAdded.COLUMNNAME_ControlNo));
+						invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_ControlNo, impInvoice.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo));
 					}
 					
 					if (targetModel!=null
@@ -61,11 +61,11 @@ public class LVEImport implements ImportValidator{
 						X_I_Invoice impInvoice = (X_I_Invoice)importModel;
 						MInvoiceLine invoiceLine = (MInvoiceLine) targetModel;
 						MInvoice sourceInvoice = new Query(impInvoice.getCtx(), MInvoice.Table_Name, "C_BPartner_ID = ? AND DocumentNo = ?", impInvoice.get_TrxName())
-													.setParameters(impInvoice.getC_BPartner_ID(),impInvoice.get_ValueAsString(ColumnsAdded.COLUMNNAME_AffectedDocumentNo))
+													.setParameters(impInvoice.getC_BPartner_ID(),impInvoice.get_ValueAsString(LVEUtil.COLUMNNAME_AffectedDocumentNo))
 													.first();
 						if (sourceInvoice!=null
 								&& sourceInvoice.get_ID()>0)
-							invoiceLine.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID, sourceInvoice.get_ID());
+							invoiceLine.set_ValueOfColumn(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID, sourceInvoice.get_ID());
 					}
 				}else if (process instanceof ImportBPartner) {
 					X_I_BPartner impBPartner = (X_I_BPartner)importModel;
@@ -74,17 +74,17 @@ public class LVEImport implements ImportValidator{
 						if (targetModel!=null
 								&& targetModel instanceof MBPartner) {
 							MBPartner bPartner = (MBPartner) targetModel;
-							bPartner.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_PersonType, impBPartner.get_Value(ColumnsAdded.COLUMNNAME_PersonType));
-							bPartner.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsWithholdingTaxExempt, impBPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingTaxExempt));
-							bPartner.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_WithholdingTaxRate_ID, impBPartner.get_Value(ColumnsAdded.COLUMNNAME_WithholdingTaxRate_ID));
-							bPartner.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsWithholdingRentalExempt, impBPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingRentalExempt));
-							bPartner.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsWithholdingMunicipalExempt, impBPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingMunicipalExempt));
-							bPartner.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_BusinessActivity_ID, impBPartner.get_Value(ColumnsAdded.COLUMNNAME_BusinessActivity_ID));
-							bPartner.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_WithholdingMunicipalRate_ID, impBPartner.get_Value(ColumnsAdded.COLUMNNAME_WithholdingMunicipalRate_ID));
+							bPartner.set_ValueOfColumn(LVEUtil.COLUMNNAME_PersonType, impBPartner.get_Value(LVEUtil.COLUMNNAME_PersonType));
+							bPartner.set_ValueOfColumn(LVEUtil.COLUMNNAME_IsWithholdingTaxExempt, impBPartner.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsWithholdingTaxExempt));
+							bPartner.set_ValueOfColumn(LVEUtil.COLUMNNAME_WithholdingTaxRate_ID, impBPartner.get_Value(LVEUtil.COLUMNNAME_WithholdingTaxRate_ID));
+							bPartner.set_ValueOfColumn(LVEUtil.COLUMNNAME_IsWithholdingRentalExempt, impBPartner.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsWithholdingRentalExempt));
+							bPartner.set_ValueOfColumn(LVEUtil.COLUMNNAME_IsWithholdingMunicipalExempt, impBPartner.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsWithholdingMunicipalExempt));
+							bPartner.set_ValueOfColumn(LVEUtil.COLUMNNAME_BusinessActivity_ID, impBPartner.get_Value(LVEUtil.COLUMNNAME_BusinessActivity_ID));
+							bPartner.set_ValueOfColumn(LVEUtil.COLUMNNAME_WithholdingMunicipalRate_ID, impBPartner.get_Value(LVEUtil.COLUMNNAME_WithholdingMunicipalRate_ID));
 						}else if (targetModel!=null
 								&& targetModel instanceof MBPartnerLocation) {
 							MBPartnerLocation bPartnerLocation = (MBPartnerLocation) targetModel;
-							bPartnerLocation.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_SICACode, impBPartner.get_Value(ColumnsAdded.COLUMNNAME_SICACode));
+							bPartnerLocation.set_ValueOfColumn(LVEUtil.COLUMNNAME_SICACode, impBPartner.get_Value(LVEUtil.COLUMNNAME_SICACode));
 						}
 					}
 				}

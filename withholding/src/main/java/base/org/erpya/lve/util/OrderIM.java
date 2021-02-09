@@ -132,7 +132,7 @@ public class OrderIM extends AbstractWithholdingSetting {
 				isValid = false;
 			}
 			//	Validate Exempt Business Partner
-			if(businessPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingMunicipalExempt)) {
+			if(businessPartner.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsWithholdingMunicipalExempt)) {
 				isValid = false;
 				addLog("@C_BPartner_ID@ @IsWithholdingMunicipalExempt@");
 			}
@@ -176,9 +176,9 @@ public class OrderIM extends AbstractWithholdingSetting {
 				addDescription(activityToApply.getName());
 				setReturnValue(MWHWithholding.COLUMNNAME_IsManual, isManual);
 				
-				int WHThirdParty_ID = order.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
+				int WHThirdParty_ID = order.get_ValueAsInt(LVEUtil.COLUMNNAME_WHThirdParty_ID);
 				if (WHThirdParty_ID != 0)
-					setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
+					setReturnValue(LVEUtil.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
 				
 				setReturnValue(MWHWithholding.COLUMNNAME_IsSimulation, true);
 				saveResult();
@@ -197,8 +197,8 @@ public class OrderIM extends AbstractWithholdingSetting {
 	 */
 	private void setActivity() {
 		if (businessPartner!=null) {
-			if (businessPartner.get_ValueAsInt(ColumnsAdded.COLUMNNAME_BusinessActivity_ID)!=0)
-				activityToApply = new MLVEList(getContext(), businessPartner.get_ValueAsInt(ColumnsAdded.COLUMNNAME_BusinessActivity_ID), businessPartner.get_TrxName());
+			if (businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_BusinessActivity_ID)!=0)
+				activityToApply = new MLVEList(getContext(), businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_BusinessActivity_ID), businessPartner.get_TrxName());
 		}
 	}
 	
@@ -207,8 +207,8 @@ public class OrderIM extends AbstractWithholdingSetting {
 	 */
 	private void setRate() {
 		if (businessPartner!=null) {
-			if (businessPartner.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingMunicipalRate_ID)!=0)
-				rateToApply = new MLVEListVersion(getContext(), businessPartner.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingMunicipalRate_ID), businessPartner.get_TrxName());
+			if (businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingMunicipalRate_ID)!=0)
+				rateToApply = new MLVEListVersion(getContext(), businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingMunicipalRate_ID), businessPartner.get_TrxName());
 		}
 		
 	}

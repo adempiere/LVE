@@ -37,7 +37,7 @@ import org.compiere.model.PO;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.TimeUtil;
-import org.erpya.lve.util.ColumnsAdded;
+import org.erpya.lve.util.LVEUtil;
 
 /**
  * 	Class added from standard values
@@ -96,10 +96,10 @@ public class TaxDiscount implements ModelValidator {
 					if(invoice.getReversal_ID() == 0) {
 						//	Set List Identifier
 						setListId(invoice);
-						int invoiceToAllocateId = invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID);
+						int invoiceToAllocateId = invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID);
 						if(invoiceToAllocateId <= 0) {
 							for(MInvoiceLine line : invoice.getLines()) {
-								invoiceToAllocateId = line.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID);
+								invoiceToAllocateId = line.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID);
 								if(invoiceToAllocateId > 0) {
 									break;
 								}
@@ -396,6 +396,6 @@ public class TaxDiscount implements ModelValidator {
 	 */
 	private boolean isHasSpecialTax(MTax tax) {
 		MTaxCategory taxCategory = (MTaxCategory) tax.getC_TaxCategory();
-		return taxCategory.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsHasSpecialTax);
+		return taxCategory.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsHasSpecialTax);
 	}
 }

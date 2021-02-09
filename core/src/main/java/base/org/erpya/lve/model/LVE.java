@@ -47,7 +47,7 @@ import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
 import org.erpya.lve.util.AllocationManager;
-import org.erpya.lve.util.ColumnsAdded;
+import org.erpya.lve.util.LVEUtil;
 import org.erpya.lve.util.DocumentTypeSequence;
 import org.spin.model.MWHWithholding;
 
@@ -115,14 +115,14 @@ public class LVE implements ModelValidator {
 			if (po.get_TableName().equals(MInvoice.Table_Name)) {
 				MInvoice invoice = (MInvoice) po;
 				if(invoice.isReversal()) {
-					invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument, false);
+					invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_IsFiscalDocument, false);
 					//	Save
 					invoice.saveEx();
 				} else {
 					//	For credit memo and invoice to allocated
 					MDocType documentType = MDocType.get(invoice.getCtx(), invoice.getC_DocTypeTarget_ID());
 					//	For credit Memo
-					if(invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) == 0 
+					if(invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID) == 0 
 							&& (documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo) || documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARCreditMemo))) {
 						Optional.ofNullable(invoice.getC_Order()).ifPresent(returnOrder -> {
 							MDocType returnOrderSubType = MDocType.get(invoice.getCtx(), returnOrder.getC_DocType_ID());
@@ -131,7 +131,7 @@ public class LVE implements ModelValidator {
 								Map<Integer, Integer> invoiceToAllocate = new HashMap<>();
 								Map<Integer, Integer> invoiceLinesAllocated = new HashMap<>();
 								List<MInvoiceLine> creditMemoLines = Arrays.asList(invoice.getLines());
-								if(creditMemoLines.stream().filter(invoiceLine -> invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0).count() == 0) {
+								if(creditMemoLines.stream().filter(invoiceLine -> invoiceLine.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID) != 0).count() == 0) {
 									creditMemoLines
 									.stream()
 									.filter(creditMemoLine -> creditMemoLine.getC_OrderLine_ID() != 0)
@@ -160,14 +160,14 @@ public class LVE implements ModelValidator {
 								}
 								//	Set from parent or child
 								if(invoiceToAllocate.size() == 1) {
-									invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID, invoiceToAllocate.keySet().stream().findFirst().get());
+									invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID, invoiceToAllocate.keySet().stream().findFirst().get());
 									invoice.saveEx();
 								} else if(invoiceToAllocate.size() > 0) {
 									creditMemoLines
 										.forEach(invoiceLine -> {
 											int invoiceToAllocateId = invoiceLinesAllocated.get(invoiceLine.getC_InvoiceLine_ID());
 											if(invoiceToAllocateId != 0) {
-												invoiceLine.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID, invoiceToAllocateId);
+												invoiceLine.set_ValueOfColumn(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID, invoiceToAllocateId);
 												invoiceLine.saveEx();
 											}
 										});
@@ -182,13 +182,13 @@ public class LVE implements ModelValidator {
 				MInvoice invoice = (MInvoice) po;
 				if(!invoice.isReversal()) {
 					MDocType documentType = MDocType.get(invoice.getCtx(), invoice.getC_DocTypeTarget_ID());
-					invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument,
-							documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsFiscalDocument));
+					invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_IsFiscalDocument,
+							documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsFiscalDocument));
 					//	Set Control No
-					if(!documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsSetControlNoOnPrint)
-							&& Util.isEmpty(invoice.get_ValueAsString(ColumnsAdded.COLUMNNAME_ControlNo))) {
+					if(!documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsSetControlNoOnPrint)
+							&& Util.isEmpty(invoice.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo))) {
 						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType);
-						invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_ControlNo, sequence.getControlNo());
+						invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_ControlNo, sequence.getControlNo());
 					}
 					//Set Document Number for Withholding
 					if (new Query(invoice.getCtx(), MWHWithholding.Table_Name, "C_Invoice_ID = ? AND IsManual = 'N'", invoice.get_TrxName()).setParameters(invoice.getC_Invoice_ID()).match()) {
@@ -204,16 +204,16 @@ public class LVE implements ModelValidator {
 						invoice.setDocumentNo(prefix + String.format("%1$" + 8 + "s", docNo).replace(" ", "0"));
 					}
 					//	Create Allocation
-					if(documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsAllocateInvoice)) {
+					if(documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsAllocateInvoice)) {
 						AllocationManager allocationManager = new AllocationManager(invoice);
 						Arrays.asList(invoice.getLines())
 							.stream()
-							.filter(invoiceLine -> invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0)
+							.filter(invoiceLine -> invoiceLine.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID) != 0)
 							.forEach(invoiceLine -> {
 								Optional.ofNullable(MTax.get(invoiceLine.getCtx(), invoiceLine.getC_Tax_ID())).ifPresent(tax ->{
 									BigDecimal amountToAllocate = invoiceLine.getLineNetAmt();
 									amountToAllocate = amountToAllocate.add(tax.calculateTax(amountToAllocate, invoiceLine.isTaxIncluded(), invoiceLine.getPrecision()));
-									allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID), amountToAllocate, Env.ZERO, Env.ZERO);
+									allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID), amountToAllocate, Env.ZERO, Env.ZERO);
 								});
 							});
 						//	Create Allocation
@@ -225,16 +225,16 @@ public class LVE implements ModelValidator {
 			} else if(po.get_TableName().equals(MInOut.Table_Name)) {
 				MInOut shipment = (MInOut) po;
 				if(shipment.isReversal()) {
-					shipment.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument, false);
+					shipment.set_ValueOfColumn(LVEUtil.COLUMNNAME_IsFiscalDocument, false);
 				} else {
 					MDocType documentType = (MDocType) shipment.getC_DocType();
-					shipment.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument,
-							documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsFiscalDocument));
+					shipment.set_ValueOfColumn(LVEUtil.COLUMNNAME_IsFiscalDocument,
+							documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsFiscalDocument));
 					//	Set Control No
-					if(!documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsSetControlNoOnPrint)
-							&& Util.isEmpty(shipment.get_ValueAsString(ColumnsAdded.COLUMNNAME_ControlNo))) {
+					if(!documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsSetControlNoOnPrint)
+							&& Util.isEmpty(shipment.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo))) {
 						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType);
-						shipment.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_ControlNo, sequence.getControlNo());
+						shipment.set_ValueOfColumn(LVEUtil.COLUMNNAME_ControlNo, sequence.getControlNo());
 					}
 				}
 				//	Save
@@ -242,16 +242,16 @@ public class LVE implements ModelValidator {
 			} else if(po.get_TableName().equals(MMovement.Table_Name)) {
 				MMovement movement = (MMovement) po;
 				if(movement.isReversal()) {
-					movement.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument, false);
+					movement.set_ValueOfColumn(LVEUtil.COLUMNNAME_IsFiscalDocument, false);
 				} else {
 					MDocType documentType = (MDocType) movement.getC_DocType();
-					movement.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_IsFiscalDocument,
-							documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsFiscalDocument));
+					movement.set_ValueOfColumn(LVEUtil.COLUMNNAME_IsFiscalDocument,
+							documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsFiscalDocument));
 					//	Set Control No
-					if(!documentType.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsSetControlNoOnPrint)
-							&& Util.isEmpty(movement.get_ValueAsString(ColumnsAdded.COLUMNNAME_ControlNo))) {
+					if(!documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsSetControlNoOnPrint)
+							&& Util.isEmpty(movement.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo))) {
 						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType);
-						movement.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_ControlNo, sequence.getControlNo());
+						movement.set_ValueOfColumn(LVEUtil.COLUMNNAME_ControlNo, sequence.getControlNo());
 					}
 				}
 				//	Save
@@ -319,50 +319,43 @@ public class LVE implements ModelValidator {
 			if (po.get_TableName().equals(MInvoice.Table_Name)) {
 				MInvoice invoice = (MInvoice) po;
 				
-				if(invoice.is_ValueChanged(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID)
-						&& invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0) {
+				if(invoice.is_ValueChanged(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID)
+						&& invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID) != 0) {
 					for(MInvoiceLine line : invoice.getLines()) {
-						if(line.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) == 0) {
-							line.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID, invoice.get_Value(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID));
+						if(line.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID) == 0) {
+							line.set_ValueOfColumn(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID, invoice.get_Value(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID));
 							line.saveEx();
 						}
 					}
 				}
-				if (invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID)==0) {
+				if (invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_WHThirdParty_ID)==0) {
 					if (invoice.getC_BPartner_ID()>0) {
-						int WHThirdParty_ID = ((MBPartner)invoice.getC_BPartner()).get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
+						int WHThirdParty_ID = ((MBPartner)invoice.getC_BPartner()).get_ValueAsInt(LVEUtil.COLUMNNAME_WHThirdParty_ID);
 						if (WHThirdParty_ID != 0)
-							invoice.set_ValueOfColumn(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
+							invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
 					}
 				}
 			} else if(po.get_TableName().equals(MBPartner.Table_Name)) {
 				MBPartner businessPartner = (MBPartner) po;
 				if(type == TYPE_BEFORE_NEW
-						|| businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
-					String taxId = businessPartner.getTaxID();
-					//	For Tax ID
-					if(Util.isEmpty(taxId)) {
-						businessPartner.setTaxID(Optional.ofNullable(businessPartner.getValue()).orElse("").trim().toUpperCase());
-					}
-					businessPartner.setAD_Org_ID(0);
-				}
-				if(type == TYPE_BEFORE_CHANGE) {
+						|| type == TYPE_BEFORE_CHANGE) {
 					//	Validate without values
 					if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
-						String value = Optional.ofNullable(businessPartner.getValue()).orElse("");
-						String taxId = Optional.ofNullable(businessPartner.getTaxID()).orElse("");
-						businessPartner.setValue(value.trim().toUpperCase());
+						String value = LVEUtil.processBusinessPartnerValue(businessPartner.getValue());
+						String taxId = LVEUtil.processBusinessPartnerValue(businessPartner.getTaxID());
+						businessPartner.setValue(value);
 						//	For Tax ID
 						if(Util.isEmpty(taxId)) {
-							businessPartner.setTaxID(businessPartner.getValue().toUpperCase());
+							businessPartner.setTaxID(value);
 						}
 					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_TaxID)) {
-						businessPartner.setTaxID(Optional.ofNullable(businessPartner.getTaxID()).orElse("").trim().toUpperCase());
+						String taxId = LVEUtil.processBusinessPartnerValue(businessPartner.getTaxID());
+						businessPartner.setTaxID(taxId);
 					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_AD_Org_ID)) {
 						businessPartner.setAD_Org_ID(0);
 					}
 				}
-			}else if (po.get_TableName().equals(MWHWithholding.Table_Name)) {
+			} else if (po.get_TableName().equals(MWHWithholding.Table_Name)) {
 				MWHWithholding withholding = (MWHWithholding) po;
 				MInvoiceLine invoiceLine = new Query(withholding.getCtx(), MInvoiceLine.Table_Name, "C_InvoiceLine_ID = ?", withholding.get_TrxName())
 												.setParameters(withholding.getC_InvoiceLine_ID())

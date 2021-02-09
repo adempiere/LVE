@@ -26,7 +26,7 @@ import org.compiere.model.MClientInfo;
 import org.compiere.model.Query;
 import org.compiere.util.CCache;
 import org.compiere.util.Env;
-import org.erpya.lve.util.ColumnsAdded;
+import org.erpya.lve.util.LVEUtil;
 
 /**
  * Withholding Tax for Venezuela
@@ -130,7 +130,7 @@ public class MLVEWithholdingTax extends X_LVE_WithholdingTax {
 		if(tributeUnitDefinition == null) {
 			tributeUnitDefinition = new Query(getCtx(), I_LVE_List.Table_Name, I_LVE_List.COLUMNNAME_LVE_ListType_ID + " = ?", get_TableName())
 				.setClient_ID()
-				.setParameters(MClientInfo.get(getCtx()).get_ValueAsInt(ColumnsAdded.COLUMNNAME_TributeUnitType_ID))
+				.setParameters(MClientInfo.get(getCtx()).get_ValueAsInt(LVEUtil.COLUMNNAME_TributeUnitType_ID))
 				.setOnlyActiveRecords(true)
 				.first();
 		}

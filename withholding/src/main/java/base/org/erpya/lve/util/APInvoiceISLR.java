@@ -147,13 +147,13 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 			addLog("@C_BPartner_ID@ @NotFound@");
 			isValid = false;
 		}else {		
-			bpartnerPersonType = businessPartner.get_ValueAsString(ColumnsAdded.COLUMNNAME_PersonType);
+			bpartnerPersonType = businessPartner.get_ValueAsString(LVEUtil.COLUMNNAME_PersonType);
 			if(Util.isEmpty(bpartnerPersonType)) {
-				addLog("@" + ColumnsAdded.COLUMNNAME_PersonType + "@ @NotFound@ @C_BPartner_ID@ " + businessPartner.getValue() + " - " + businessPartner.getName());
+				addLog("@" + LVEUtil.COLUMNNAME_PersonType + "@ @NotFound@ @C_BPartner_ID@ " + businessPartner.getValue() + " - " + businessPartner.getName());
 				isValid = false;
 			}
 			//	Validate Exempt Business Partner
-			if(businessPartner.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsWithholdingRentalExempt)) {
+			if(businessPartner.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsWithholdingRentalExempt)) {
 				isValid = false;
 				addLog("@C_BPartner_ID@ @IsWithholdingRentalExempt@");
 			}
@@ -201,9 +201,9 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 						
 						WHConceptSetting conceptSetting = rateToApply.getValue();
 						BigDecimal rate = conceptSetting.getRate();
-						setReturnValue(ColumnsAdded.COLUMNNAME_WithholdingRentalRate_ID, conceptSetting.getRateToApply().getLVE_ListVersion_ID());
+						setReturnValue(LVEUtil.COLUMNNAME_WithholdingRentalRate_ID, conceptSetting.getRateToApply().getLVE_ListVersion_ID());
 						if (conceptSetting.isVarRate()) 
-							setReturnValue(ColumnsAdded.COLUMNNAME_WithholdingVariableRate_ID, conceptSetting.getVarRateToApply().getLVE_ListLine_ID());
+							setReturnValue(LVEUtil.COLUMNNAME_WithholdingVariableRate_ID, conceptSetting.getVarRateToApply().getLVE_ListLine_ID());
 						
 						if (rate==null) 
 							rate = Env.ZERO;
@@ -220,14 +220,14 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 								addWithholdingAmount(Env.ZERO);
 							
 							addDescription(rateToApply.getKey().getName());
-							setReturnValue(ColumnsAdded.COLUMNNAME_Subtrahend, conceptSetting.getAmtSubtract());
-							setReturnValue(ColumnsAdded.COLUMNNAME_IsCumulativeWithholding, conceptSetting.isCumulative());
-							setReturnValue(ColumnsAdded.COLUMNNAME_IsSimulation, !conceptSetting.isValid());
+							setReturnValue(LVEUtil.COLUMNNAME_Subtrahend, conceptSetting.getAmtSubtract());
+							setReturnValue(LVEUtil.COLUMNNAME_IsCumulativeWithholding, conceptSetting.isCumulative());
+							setReturnValue(LVEUtil.COLUMNNAME_IsSimulation, !conceptSetting.isValid());
 							setReturnValue(MWHWithholding.COLUMNNAME_IsManual, isManual);
 							
-							int WHThirdParty_ID = invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WHThirdParty_ID);
+							int WHThirdParty_ID = invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_WHThirdParty_ID);
 							if (WHThirdParty_ID != 0)
-								setReturnValue(ColumnsAdded.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
+								setReturnValue(LVEUtil.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
 							
 							saveResult();
 						}
@@ -243,8 +243,8 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	 */
 	private void setConcepts() {
 		if (invoice!=null) {
-			if (invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) {
-				conceptsToApply.put(MLVEList.get(getContext(), invoice.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)),
+			if (invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingRentalConcept_ID)!=0) {
+				conceptsToApply.put(MLVEList.get(getContext(), invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingRentalConcept_ID)),
 												 new WHConceptSetting(invoice.getTotalLines()));
 				return;
 			}
@@ -255,14 +255,14 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 				MLVEList list = null;
 				if (line.getM_Product_ID()!=0) {
 					MProduct product = (MProduct)line.getM_Product();
-					if (product.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) 
-						list = MLVEList.get(getContext(), product.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID));
+					if (product.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingRentalConcept_ID)!=0) 
+						list = MLVEList.get(getContext(), product.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingRentalConcept_ID));
 				}
 				
 				if (line.getC_Charge_ID()!=0) {
 					MCharge charge = (MCharge)line.getC_Charge();
-					if (charge.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID)!=0) 
-						list = MLVEList.get(getContext(), charge.get_ValueAsInt(ColumnsAdded.COLUMNNAME_WithholdingRentalConcept_ID));
+					if (charge.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingRentalConcept_ID)!=0) 
+						list = MLVEList.get(getContext(), charge.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingRentalConcept_ID));
 				}
 				
 				if (list!=null)
@@ -282,12 +282,12 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	    resultMessage.set("");
 	    conceptsToApply.forEach((whConcept,whConceptSetting) ->{
 	    	
-	    	MLVEListVersion rateToApply = whConcept.getValidVersionInstance(invoice.getDateInvoiced(), ColumnsAdded.COLUMNNAME_PersonType, bpartnerPersonType);
+	    	MLVEListVersion rateToApply = whConcept.getValidVersionInstance(invoice.getDateInvoiced(), LVEUtil.COLUMNNAME_PersonType, bpartnerPersonType);
 	    	MLVEListLine varRateToApply = null;
 	    	BigDecimal subtractAmt = Env.ZERO;
 			if (rateToApply!=null) {
 				
-				if (rateToApply.get_ValueAsBoolean(ColumnsAdded.COLUMNNAME_IsVariableRate)) {
+				if (rateToApply.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsVariableRate)) {
 					List<MLVEListLine> varRate= rateToApply.getListLine();
 					if (varRate!=null) {
 						varRateToApply = varRate.stream()
@@ -346,7 +346,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 				whConceptSetting.setAmtSubtract(subtractAmt);
 				whConceptSetting.setCumulative(rateToApply.isCumulativeWithholding());
 				if (varRateToApply!=null)
-					whConceptSetting.setRate((BigDecimal)varRateToApply.get_Value(ColumnsAdded.COLUMNNAME_VariableRate));
+					whConceptSetting.setRate((BigDecimal)varRateToApply.get_Value(LVEUtil.COLUMNNAME_VariableRate));
 				else
 					whConceptSetting.setRate(rateToApply.getAmount());
 			}else

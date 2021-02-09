@@ -100,7 +100,7 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 			pathName
 			    .append(PAYROLL_CONSTANT)
 				//	Payroll Account
-				.append(MOrgInfo.get(getCtx(), processDetail.get().getAD_Org_ID(),processDetail.get().get_TrxName()).get_ValueAsString(ColumnsAdded.COLUMNNAME_BANAVIHCode))
+				.append(MOrgInfo.get(getCtx(), processDetail.get().getAD_Org_ID(),processDetail.get().get_TrxName()).get_ValueAsString(LVEUtil.COLUMNNAME_BANAVIHCode))
 				//	Accounting Date in format MM YYYY
 				.append(new SimpleDateFormat("MMyyyy").format(processDetail.get().getDateAcct()));
 			

@@ -296,9 +296,9 @@ public class AllocationManager {
 		AllocationManager allocationManager = new AllocationManager(invoice);
 		Arrays.asList(invoice.getLines())
 		.stream()
-		.filter(invoiceLine -> invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID) != 0)
+		.filter(invoiceLine -> invoiceLine.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID) != 0)
 		.forEach(invoiceLine -> {
-			allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt(ColumnsAdded.COLUMNNAME_InvoiceToAllocate_ID), invoiceLine.getLineNetAmt(), Env.ZERO, Env.ZERO);
+			allocationManager.addAllocateDocument(invoiceLine.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID), invoiceLine.getLineNetAmt(), Env.ZERO, Env.ZERO);
 		});
 		//	Create Allocation
 		allocationManager.createAllocation();
