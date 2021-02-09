@@ -19,8 +19,6 @@ package org.erpya.lve.util;
 
 import java.util.Optional;
 
-import org.compiere.util.Util;
-
 /**
  * Added for hamdle custom columns for ADempiere core
  * @author Yamel Senih, ysenih@erpya.com, ERPCyA http://www.erpya.com
