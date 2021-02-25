@@ -68,29 +68,29 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 	private static final int     EM_END_DATE 		= 7;
 	
 	/**	Constant Payroll						*/
-	private final String		PAYROLL_CONSTANT	= "N";
+	private final String		PAYROLL_CONSTANT= "N";
 	/**	Separator								*/
-	private final String 		SEPARATOR 			= ",";
+	private final String 		SEPARATOR 		= ",";
 	/**	Date Format								*/
-	private SimpleDateFormat 	m_DateFormat 		= null;
+	private SimpleDateFormat 	dateFormat 		= null;
 	/**	Current Amount							*/
-	private BigDecimal 			m_CurrentAmt		= null;
+	private BigDecimal 			currentAmount	= null;
 	/**	Current Process Report Line				*/
-	private X_RV_HR_ProcessDetail 	m_Current_Pdl 	= null;
+	private X_RV_HR_ProcessDetail 	currentProcessDetail = null;
 	/**	File Writer								*/
-	private FileWriter 				m_FileWriter	= null;
+	private FileWriter 				fileWriter	= null;
 	/**	Number Lines							*/
-	private int 					m_NoLines 		= 0;
+	private int 					lines 	= 0;
 	/** Name File								*/
-	private String 					m_NameFile		= "Temp"; 
+	private String 					fileName	= "Temp"; 
 	
 	
 	@Override
 	public boolean exportToFile(File file) {
 		//	Date Format
-		m_DateFormat = new SimpleDateFormat("ddMMyyyy");
+		dateFormat = new SimpleDateFormat("ddMMyyyy");
 		//	Current Business Partner
-		int m_Current_BPartner_ID = 0;
+		int currentBusinessPartnerId = 0;
 		if (getDetail() == null || getDetail().isEmpty())
 			return false;
 		Optional<X_RV_HR_ProcessDetail> processDetail = getDetail().stream().findFirst();
@@ -103,17 +103,16 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 				.append(MOrgInfo.get(getCtx(), processDetail.get().getAD_Org_ID(),processDetail.get().get_TrxName()).get_ValueAsString(LVEUtil.COLUMNNAME_BANAVIHCode))
 				//	Accounting Date in format MM YYYY
 				.append(new SimpleDateFormat("MMyyyy").format(processDetail.get().getDateAcct()));
-			
-			m_NameFile = pathName.toString();
-			
+			fileName = pathName.toString();
 		} catch (Exception e) {
 			s_log.log(Level.WARNING, "Could not delete ", e);
 		}
 		try {
 			//	
-			m_FileWriter = new FileWriter(file);
+			Optional.ofNullable(file).ifPresent(fileToDelete -> fileToDelete.deleteOnExit());
+			fileWriter = new FileWriter(file);
 			//  write header
-			m_NoLines ++;
+			lines ++;
 			//  write lines
 			Map<Integer, List<X_RV_HR_ProcessDetail>> det = getDetail().stream().collect(Collectors.groupingBy(X_RV_HR_ProcessDetail::getC_BPartner_ID));
 			
@@ -121,18 +120,18 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 				if (detail == null)
 					continue;
 				//	Verify Current Business Partner and Month
-				if(m_Current_BPartner_ID != detail.getKey()) {
+				if(currentBusinessPartnerId != detail.getKey()) {
 					writeLine();
-					m_Current_Pdl = detail.getValue().get(0);
-					m_Current_BPartner_ID = detail.getKey();
-					m_CurrentAmt = detail.getValue().stream().map(x -> x.getAmount()).reduce(BigDecimal.ZERO, BigDecimal::add);
+					currentProcessDetail = detail.getValue().get(0);
+					currentBusinessPartnerId = detail.getKey();
+					currentAmount = detail.getValue().stream().map(x -> x.getAmount()).reduce(BigDecimal.ZERO, BigDecimal::add);
 				} 
 			}   
 			//  write last line
 			writeLine();
 			//	Close
-			m_FileWriter.flush();
-			m_FileWriter.close();
+			fileWriter.flush();
+			fileWriter.close();
 			
 		} catch (Exception e) {
 			//err.append(e.toString());
@@ -151,24 +150,24 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 	 */
 	private void writeLine() throws IOException {
 		//	Valid Null Value
-		if(m_Current_Pdl == null)
+		if(currentProcessDetail == null)
 			return;
 		//	Process Business Partner
-		Map<Integer,String> bpInfo = processBPartner(m_Current_Pdl.getC_BPartner_ID(), m_Current_Pdl.get_TrxName());
+		Map<Integer,String> bpInfo = processBPartner(currentProcessDetail.getC_BPartner_ID(), currentProcessDetail.get_TrxName());
 		//	Line
 		if(bpInfo == null)
 			return;
 		StringBuffer line = new StringBuffer();
 		//	Amount
-		if(m_CurrentAmt == null)
-			m_CurrentAmt = Env.ZERO;
+		if(currentAmount == null)
+			currentAmount = Env.ZERO;
 		
-		String currentAmt = m_CurrentAmt.toString().replace(",", ".").replace(".", "");
+		String currentAmt = currentAmount.toString().replace(",", ".").replace(".", "");
 		if(currentAmt.length() > 11)
 			currentAmt = currentAmt.substring(0, 24);
 		
 		//	New Line
-		if(m_NoLines > 1)
+		if(lines > 1)
 			line.append(Env.NL);
 		//	Nationality
 		line.append(bpInfo.get(BP_NATIONALITY))
@@ -197,8 +196,8 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 			//	Employee End Date
 			.append(bpInfo.get(EM_END_DATE));
 		//	Write Line
-		m_FileWriter.write(line.toString());
-		m_NoLines ++;
+		fileWriter.write(line.toString());
+		lines ++;
 	}
 	
 	/**
@@ -285,11 +284,11 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 		if(employee == null)
 			return null;
 		//	Get Start Date
-		String startDate = m_DateFormat.format(employee.getStartDate());
+		String startDate = dateFormat.format(employee.getStartDate());
 		String endDate = "";
 		//	Get End Date
 		if(employee.getEndDate() != null)
-			endDate = m_DateFormat.format(employee.getEndDate());
+			endDate = dateFormat.format(employee.getEndDate());
 
 		String bPTaxId = bpartner.getValue();
 		String personType = bPTaxId.substring(0, 1);
@@ -317,7 +316,7 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 	
 	@Override
 	public String getFileName() {
-		return m_NameFile;
+		return fileName;
 	}
 }
 

@@ -37,7 +37,6 @@ import org.compiere.util.Msg;
 import org.compiere.util.Util;
 import org.eevolution.model.MHRMovement;
 import org.eevolution.model.MHRProcess;
-import org.erpya.lve.util.LVEUtil;
 
 /**
  * 	Implementation for Export Payment from Mercantil bank for Payroll
