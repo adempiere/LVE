@@ -86,6 +86,8 @@ public class LVEUtil {
 	public static final String COLUMNNAME_SICACode = "SICACode";
 	/**BANAVIH Code */
 	public static final String COLUMNNAME_BANAVIHCode = "BANAVIHCode";
+	/**Recalculate Price on Invoice	*/
+	public static final String COLUMNNAME_IsReCalculatePriceOnInvoice = "IsReCalculatePriceOnInvoice";
 	
 	/**
 	 * Process Business Partner Value

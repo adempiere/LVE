@@ -111,7 +111,25 @@ public class LVE implements ModelValidator {
 	@Override
 	public String docValidate(PO po, int timing) {
 		//	
-		if(timing == TIMING_BEFORE_COMPLETE) {
+		if(timing == TIMING_BEFORE_PREPARE) {
+			if (po.get_TableName().equals(MInvoice.Table_Name)) {
+				MInvoice invoice = (MInvoice) po;
+				if(!invoice.isReversal()) {
+					Optional.ofNullable((MOrder) invoice.getC_Order()).ifPresent(salesOrder -> {
+						MDocType orderDocumentType = MDocType.get(salesOrder.getCtx(), salesOrder.getC_DocTypeTarget_ID());
+						if(orderDocumentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsReCalculatePriceOnInvoice)) {
+							Arrays.asList(invoice.getLines(true))
+								.stream()
+								.filter(invoiceLine -> invoiceLine.getM_Product_ID() > 0)
+								.forEach(invoiceLine -> {
+									invoiceLine.setPrice(invoice.getM_PriceList_ID(), invoice.getC_BPartner_ID());
+									invoiceLine.saveEx();
+								});
+						}
+					});
+				}
+			}
+		} else if(timing == TIMING_BEFORE_COMPLETE) {
 			if (po.get_TableName().equals(MInvoice.Table_Name)) {
 				MInvoice invoice = (MInvoice) po;
 				if(invoice.isReversal()) {
@@ -121,6 +139,18 @@ public class LVE implements ModelValidator {
 				} else {
 					//	For credit memo and invoice to allocated
 					MDocType documentType = MDocType.get(invoice.getCtx(), invoice.getC_DocTypeTarget_ID());
+					Optional.ofNullable((MOrder) invoice.getC_Order()).ifPresent(salesOrder -> {
+						MDocType orderDocumentType = MDocType.get(salesOrder.getCtx(), salesOrder.getC_DocTypeTarget_ID());
+						if(orderDocumentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsReCalculatePriceOnInvoice)) {
+							Arrays.asList(invoice.getLines(true))
+								.stream()
+								.filter(invoiceLine -> invoiceLine.getM_Product_ID() > 0)
+								.forEach(invoiceLine -> {
+									invoiceLine.setPrice(invoice.getM_PriceList_ID(), invoice.getC_BPartner_ID());
+									invoiceLine.saveEx();
+								});
+						}
+					});
 					//	For credit Memo
 					if(invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID) == 0 
 							&& (documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo) || documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_ARCreditMemo))) {
