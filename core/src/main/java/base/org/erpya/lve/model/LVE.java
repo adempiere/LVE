@@ -83,11 +83,11 @@ public class LVE implements ModelValidator {
 		}
 		// Add Timing change in C_Order and C_Invoice
 		engine.addDocValidate(MInvoice.Table_Name, this);
-		
-		engine.addModelChange(MInvoice.Table_Name, this);
 		engine.addDocValidate(MInOut.Table_Name, this);
 		engine.addDocValidate(MOrder.Table_Name, this);
 		engine.addDocValidate(MMovement.Table_Name, this);
+		
+		engine.addModelChange(MInvoice.Table_Name, this);
 		engine.addModelChange(MBPartner.Table_Name, this);
 		engine.addModelChange(MWHWithholding.Table_Name, this);
 		engine.addModelChange(MInvoiceLine.Table_Name, this);
@@ -365,7 +365,21 @@ public class LVE implements ModelValidator {
 							invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
 					}
 				}
-			} else if(po.get_TableName().equals(MBPartner.Table_Name)) {
+			}if (po.get_TableName().equals(MInvoiceLine.Table_Name)) {
+				MInvoiceLine invoiceLine = (MInvoiceLine) po;
+				MInvoice invoice = invoiceLine.getParent();
+				if (invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID)!= 0
+						&& invoiceLine.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID) == 0) 
+					invoiceLine.set_ValueOfColumn(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID, invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID));
+				else if(invoiceLine.is_ValueChanged(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID)
+						&& invoiceLine.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID) != 0
+							&& invoiceLine.getParent().get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID)!= 0
+								&& invoiceLine.getParent().get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID)!= invoiceLine.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID)) {
+					invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID, invoiceLine.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID));
+					invoice.save();
+				}
+			}
+			else if(po.get_TableName().equals(MBPartner.Table_Name)) {
 				MBPartner businessPartner = (MBPartner) po;
 				if(type == TYPE_BEFORE_NEW
 						|| type == TYPE_BEFORE_CHANGE) {

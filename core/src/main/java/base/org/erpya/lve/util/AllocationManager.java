@@ -21,13 +21,14 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.concurrent.atomic.AtomicReference;
 
 import org.adempiere.exceptions.AdempiereException;
 import org.compiere.model.MAllocationHdr;
 import org.compiere.model.MAllocationLine;
-import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
 import org.compiere.process.DocAction;
 import org.compiere.util.Env;
@@ -118,7 +119,7 @@ public class AllocationManager {
 	 * @return
 	 */
 	public AllocationManager addAllocateDocument(MInvoice invoiceToAllocate) {
-		return addAllocateDocument(invoiceToAllocate.getC_Invoice_ID(), invoiceToAllocate.getOpenAmt(), Env.ZERO, Env.ZERO);
+		return addAllocateDocument(invoiceToAllocate.getC_Invoice_ID(), getOpenAmt(invoiceToAllocate), Env.ZERO, Env.ZERO);
 	}
 	
 	/**
@@ -152,35 +153,23 @@ public class AllocationManager {
 	}
 	
 	/**
-	 * Get Multiplier from document
+	 * Get Multiplier By Credit / Debit 
 	 * @param invoice
 	 * @return
 	 */
 	private BigDecimal getMultiplier(MInvoice invoice) {
-		BigDecimal multiplier = Env.ONE;
-		//	Get Multiplier
-		if(invoice.isCreditMemo()) {
-			return multiplier.negate();
-		}
 		//	Default
-		return multiplier;
+		return (invoice.isCreditMemo() ? Env.ONE.negate() : Env.ONE);
 	}
 	
 	/**
-	 * Get Multiplier AP
+	 * Get Multiplier by Sales Transaction
 	 * @param invoice
 	 * @return
 	 */
-	private BigDecimal getMultiplierAP(MInvoice invoice) {
-		MDocType documentType = MDocType.get(getContext(), invoice.getC_DocTypeTarget_ID());
-		BigDecimal multiplier = Env.ONE;
-		//	For AP transactions
-		if(documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APInvoice)
-				|| documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_APCreditMemo)) {
-			return multiplier.negate();
-		}
+	private BigDecimal getMultiplierSOTrx(MInvoice invoice) {
 		//	Default
-		return multiplier;
+		return (invoice.isSOTrx() ? Env.ONE.negate() : Env.ONE);
 	}
 	
 	/**
@@ -205,33 +194,41 @@ public class AllocationManager {
 			//	OverUnderAmt needs to be in Allocation Currency
 			int invoiceToAllocateId = allocationSet.getKey();
 			MInvoice invoiceToAllocate = new MInvoice(getContext(), invoiceToAllocateId, getTransactionName());
-			BigDecimal multiplier = getMultiplier(invoiceToAllocate);
-			BigDecimal multiplierAP = getMultiplierAP(invoiceToAllocate);
-			BigDecimal openAmount = invoiceToAllocate.getOpenAmt().multiply(multiplierAP);
-			BigDecimal appliedAmount = allocationSet.getValue().getAppliedAmount().multiply(multiplier).multiply(multiplierAP);
-			BigDecimal discountAmmount = allocationSet.getValue().getDiscountAmount().multiply(multiplier).multiply(multiplierAP);
-			BigDecimal writeOffAmount = allocationSet.getValue().getWriteOffAmount().multiply(multiplier).multiply(multiplierAP);
+			BigDecimal multiplier = getMultiplier(document);
+			BigDecimal multiplierSO = getMultiplierSOTrx(document);
+			BigDecimal multiplierSOCreditMemo = Env.ONE;
+
+			if (document.isCreditMemo()
+					&& document.isSOTrx())
+				multiplierSOCreditMemo =multiplierSOCreditMemo.negate();
+			
+			BigDecimal openAmount = getOpenAmt(invoiceToAllocate);
+			openAmount = openAmount.multiply(multiplier).multiply(multiplierSO).multiply(multiplierSOCreditMemo);
+			BigDecimal appliedAmount = allocationSet.getValue().getAppliedAmount().multiply(multiplier).multiply(multiplierSO);
+			BigDecimal discountAmmount = allocationSet.getValue().getDiscountAmount().multiply(multiplier).multiply(multiplierSO);
+			BigDecimal writeOffAmount = allocationSet.getValue().getWriteOffAmount().multiply(multiplier).multiply(multiplierSO);
 			//	Calculate over under amount
 			BigDecimal overUnderAmount = openAmount
-					.subtract(appliedAmount)
-					.subtract(discountAmmount)
-					.subtract(writeOffAmount);
+					.add(appliedAmount)
+					.add(discountAmmount)
+					.add(writeOffAmount);
+			if (!invoiceToAllocate.isSOTrx())
+				overUnderAmount= overUnderAmount.multiply(multiplier).multiply(multiplierSO.negate());
+			else 
+				overUnderAmount= overUnderAmount.multiply(multiplier).multiply(multiplierSO).multiply(multiplierSOCreditMemo);
 			//	Add Line
 			MAllocationLine allocationLine = new MAllocationLine(allocation, appliedAmount, discountAmmount, writeOffAmount, overUnderAmount);
 			allocationLine.setDocInfo(invoiceToAllocate.getC_BPartner_ID(), invoiceToAllocate.getC_Order_ID(), invoiceToAllocate.getC_Invoice_ID());
 			allocationLine.saveEx();
 			//	Add allocation
-			summaryAppliedAmount = summaryAppliedAmount.add(allocationSet.getValue().getAppliedAmount());
+			summaryAppliedAmount = summaryAppliedAmount.add(appliedAmount);
 		}
 		//	Add allocation for initial document
-		BigDecimal multiplier = getMultiplier(document);
-		BigDecimal multiplierAP = getMultiplierAP(document);
-		BigDecimal openAmount = document.getOpenAmt().multiply(multiplierAP);
-		summaryAppliedAmount = summaryAppliedAmount.multiply(multiplier).multiply(multiplierAP);
+		BigDecimal openAmount = getOpenAmt(document);
+		openAmount = openAmount.multiply(getMultiplierSOTrx(document));
+		summaryAppliedAmount = summaryAppliedAmount.negate();
 		BigDecimal overUnderAmount = openAmount
-				.subtract(summaryAppliedAmount)
-				.subtract(Env.ZERO)
-				.subtract(Env.ZERO);
+				.add(summaryAppliedAmount);
 		MAllocationLine allocationLine = new MAllocationLine(allocation, summaryAppliedAmount, Env.ZERO, Env.ZERO, overUnderAmount);
 		allocationLine.setDocInfo(document.getC_BPartner_ID(), document.getC_Order_ID(), document.getC_Invoice_ID());
 		allocationLine.saveEx();
@@ -239,6 +236,27 @@ public class AllocationManager {
 			throw new AdempiereException("@ProcessFailed@: " + allocation.getProcessMsg()); //@Trifon
 		}
 		allocation.saveEx();
+	}
+	
+	/**
+	 * Get Open Amount
+	 * @param invoice
+	 * @return
+	 */
+	private BigDecimal getOpenAmt(MInvoice invoice) {
+		Optional<MInvoice> maybeInvoice = Optional.ofNullable(invoice);
+		AtomicReference<BigDecimal> openAmt = new AtomicReference<>(Env.ZERO); 
+		maybeInvoice.ifPresent(inv->{
+			if (!inv.isPaid()) {
+				openAmt.set(inv.getGrandTotal());
+				Optional<BigDecimal> maybeAmt= Optional.ofNullable(inv.getAllocatedAmt(true));
+				maybeAmt.ifPresent(allocAmt -> openAmt.set(openAmt.get().subtract(allocAmt)));
+				if (inv.isCreditMemo())
+					openAmt.set(openAmt.get().negate());
+			}
+		});
+		
+		return openAmt.get();
 	}
 
 	/**
