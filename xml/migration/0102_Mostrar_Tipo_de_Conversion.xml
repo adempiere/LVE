@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Mostrar Tipo de Conversion" ReleaseNo="1.0" SeqNo="81000780">
+    <Step DBType="ALL" Parse="N" SeqNo="10" StepType="SQL">
+      <SQLStatement>UPDATE AD_Field SET DisplayLogic = NULL WHERE EXISTS(SELECT 1 FROM AD_Column c WHERE c.AD_Column_ID = AD_Field.AD_Column_ID AND c.ColumnName IN('C_ConversionType_ID'))</SQLStatement>
+    </Step>
+  </Migration>
+</Migrations>
