@@ -96,8 +96,7 @@ public class LVEUtil {
 	 */
 	public static String processBusinessPartnerValue(String value) {
 		return Optional.ofNullable(value).orElse("")
-				.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ@,$;()!_%#*./?-]", "")
-				.trim()
+				.replaceAll("[^0-9JVEGjveg]", "")
 				.toUpperCase();
 	}
 }
