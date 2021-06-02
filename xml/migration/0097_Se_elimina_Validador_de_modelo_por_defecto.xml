@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Se elimina Validador de modelo por defecto" ReleaseNo="1.0" SeqNo="81000730">
+  <Migration EntityType="LVE" Name="Se elimina Validador de modelo por defecto" ReleaseNo="1.0" SeqNo="81000730">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="53014" Action="D" Record_ID="50028" Table="AD_ModelValidator">
         <Data AD_Column_ID="53253" Column="AD_ModelValidator_ID" isNewNull="true" oldValue="50028"/>
