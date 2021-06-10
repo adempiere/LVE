@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Soporte a Ley de ISLR art. 16 paragrafo primero" ReleaseNo="1.0" SeqNo="81000780">
+    <Comments>https://github.com/adempiere/LVE/issues/36</Comments>
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="107" Action="U" Record_ID="94882" Table="AD_Field">
+        <Data AD_Column_ID="177" Column="DisplayLogic" isNewNull="true" oldValue="@ProductType@!I"/>
+        <Data AD_Column_ID="53265" Column="DefaultValue" isNewNull="true" oldValue="@ProductType@!I"/>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
