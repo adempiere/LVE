@@ -137,10 +137,10 @@
     <Step SeqNo="80" StepType="AD">
       <PO AD_Table_ID="277" Action="U" Record_ID="0" Table="AD_Element_Trl">
         <Data AD_Column_ID="2638" Column="AD_Language" oldValue="es_MX">es_MX</Data>
-        <Data AD_Column_ID="2648" Column="Help" isOldNull="true">Porcentage de Monto Base para aplicar la retención configurada</Data>
-        <Data AD_Column_ID="2646" Column="Name" oldValue="Withholding Base Rate">Porcentage de Monto Base</Data>
-        <Data AD_Column_ID="2647" Column="Description" oldValue="Withholding Base Rate">Porcentage de Monto Base</Data>
-        <Data AD_Column_ID="4300" Column="PrintName" oldValue="Withholding Base Rate">Porcentage de Monto Base</Data>
+        <Data AD_Column_ID="2648" Column="Help" isOldNull="true">Porcentaje de Monto Base para aplicar la retención configurada</Data>
+        <Data AD_Column_ID="2646" Column="Name" oldValue="Withholding Base Rate">Porcentaje de Monto Base</Data>
+        <Data AD_Column_ID="2647" Column="Description" oldValue="Withholding Base Rate">Porcentaje de Monto Base</Data>
+        <Data AD_Column_ID="4300" Column="PrintName" oldValue="Withholding Base Rate">Porcentaje de Monto Base</Data>
         <Data AD_Column_ID="2637" Column="AD_Element_ID" oldValue="61143">61143</Data>
       </PO>
     </Step>
