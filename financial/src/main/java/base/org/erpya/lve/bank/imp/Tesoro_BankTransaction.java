@@ -43,7 +43,7 @@ public class Tesoro_BankTransaction extends BankTransactionAbstract {
 	/**	Amount	*/
 	public static final String LINE_TRANSACTION_Amount = "Amount";
 	/**	Start Column Index	*/
-	private static final char START_CHAR_VALUE = ',';
+	private static final char START_CHAR_VALUE = '	';
 	/**	Debt Constant	*/
 	public static final String DEBT = "DR";
 	/**	Credit Constant	*/
