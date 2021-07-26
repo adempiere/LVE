@@ -178,7 +178,9 @@ public class LVE implements ModelValidator {
 													+ "FROM C_OrderLine oLine "
 													+ "INNER JOIN M_InOutLine iol ON (oLine.Ref_InOutLine_ID = iol.M_InOutLine_ID) "
 													+ "WHERE oLine.C_OrderLine_ID = ? AND iol.C_OrderLine_ID = C_InvoiceLine.C_OrderLine_ID "
-													+ ")", 
+													+ ") "
+													+ "AND EXISTS(SELECT 1 FROM C_Invoice i WHERE i.C_Invoice_ID = C_InvoiceLine.C_Invoice_ID AND i.DocStatus IN ('CO','CL'))"
+													, 
 													creditMemoLine.get_TrxName())
 												.setParameters(creditMemoLine.getC_OrderLine_ID())
 												.first()).ifPresent(sourceInvoiceLine -> {
