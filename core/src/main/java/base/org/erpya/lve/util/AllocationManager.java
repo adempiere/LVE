@@ -145,7 +145,7 @@ public class AllocationManager {
 		}
 		//validate if not allocated
 		MInvoice invoiceToAllocated = MInvoice.get(getContext(), invoiceToAllocateId);
-		if (invoiceToAllocated.testAllocation())
+		if (invoiceToAllocated.isPaid())
 			return this;
 		
 		documentsToAllocate.put(invoiceToAllocateId, value);
