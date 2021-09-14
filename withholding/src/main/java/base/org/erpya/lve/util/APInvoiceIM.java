@@ -224,7 +224,7 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 																	+ "AND WH_Definition_ID = ? "
 																	+ "AND WH_Setting_ID = ? "
 																	+ "AND Processed = 'Y' "
-																	+ "AND IsSimulation='N'"
+																	+ "AND IsSimulation='N' "
 																	+ "AND DocStatus IN (?,?)" , getTransactionName())
 						.setParameters(invoice.get_ID(),getDefinition().get_ID(),getSetting().get_ID(),MWHWithholding.DOCSTATUS_Completed,MWHWithholding.DOCSTATUS_Closed)
 						.match();
