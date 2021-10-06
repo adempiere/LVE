@@ -128,7 +128,7 @@ public class MLVEWithholdingTax extends X_LVE_WithholdingTax {
 	public MLVEListVersion getValidTributeUnitInstance(Timestamp validFrom) {
 		MLVEListVersion tributeUnit = null;
 		if(tributeUnitDefinition == null) {
-			tributeUnitDefinition = new Query(getCtx(), I_LVE_List.Table_Name, I_LVE_List.COLUMNNAME_LVE_ListType_ID + " = ?", get_TableName())
+			tributeUnitDefinition = new Query(getCtx(), I_LVE_List.Table_Name, I_LVE_List.COLUMNNAME_LVE_ListType_ID + " = ?", get_TrxName())
 				.setClient_ID()
 				.setParameters(MClientInfo.get(getCtx()).get_ValueAsInt(LVEUtil.COLUMNNAME_TributeUnitType_ID))
 				.setOnlyActiveRecords(true)
