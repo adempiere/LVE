@@ -159,7 +159,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 			
 			BigDecimal tributeUnitAmount = Env.ZERO;
 			if (currentWHTax != null)
-				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(invoice.getDateInvoiced());
+				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(invoice.getDateAcct());
 			
 			if(tributeUnitAmount.equals(Env.ZERO)) {
 				addLog("@TributeUnit@ (@Rate@ @NotFound@)");

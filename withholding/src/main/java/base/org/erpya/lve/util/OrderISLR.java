@@ -163,7 +163,7 @@ public class OrderISLR extends AbstractWithholdingSetting {
 			//	Validate Tribute Unit
 			//MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), order.getAD_Org_ID());
 			if (currentWHTax!=null)
-				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(order.getDateOrdered());
+				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(order.getDateAcct());
 			
 			if(tributeUnitAmount.equals(Env.ZERO)) {
 				addLog("@TributeUnit@ (@Rate@ @NotFound@)");

@@ -157,7 +157,7 @@ public class OrderIVA extends AbstractWithholdingSetting {
 			
 			BigDecimal tributeUnitAmount = Env.ZERO;
 			if (currentWHTax != null)
-				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(order.getDateOrdered());
+				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(order.getDateAcct());
 			
 			if(tributeUnitAmount.equals(Env.ZERO)) {
 				addLog("@TributeUnit@ (@Rate@ @NotFound@)");
