@@ -397,7 +397,8 @@ public class LVE implements ModelValidator {
 					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_TaxID)) {
 						String taxId = LVEUtil.processBusinessPartnerValue(businessPartner.getTaxID());
 						businessPartner.setTaxID(taxId);
-					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_AD_Org_ID)) {
+					} 
+					if(type == TYPE_BEFORE_NEW) {
 						businessPartner.setAD_Org_ID(0);
 					}
 				}
