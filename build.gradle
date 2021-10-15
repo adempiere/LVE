@@ -19,7 +19,7 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-def libraryVersion = '1.4.1'
+def libraryVersion = '1.4.2'
 def entityType = 'LVE'
 sourceSets {
     main {
