@@ -88,6 +88,8 @@ public class LVEUtil {
 	public static final String COLUMNNAME_BANAVIHCode = "BANAVIHCode";
 	/**Recalculate Price on Invoice	*/
 	public static final String COLUMNNAME_IsReCalculatePriceOnInvoice = "IsReCalculatePriceOnInvoice";
+	/**Withholding Business Partner for Organization*/
+	public static final String COLUMNNAME_WH_BPartner_ID = "WH_BPartner_ID";
 	
 	/**
 	 * Process Business Partner Value

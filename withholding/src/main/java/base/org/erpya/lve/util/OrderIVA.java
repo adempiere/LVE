@@ -27,6 +27,7 @@ import org.compiere.model.MDocType;
 import org.compiere.model.MOrder;
 import org.compiere.model.MOrderTax;
 import org.compiere.model.MOrg;
+import org.compiere.model.MOrgInfo;
 import org.compiere.model.MTax;
 import org.compiere.model.Query;
 import org.compiere.util.Env;
@@ -78,9 +79,9 @@ public class OrderIVA extends AbstractWithholdingSetting {
 					setReturnValue(I_WH_Withholding.COLUMNNAME_AD_Org_ID, order.getAD_Org_ID());
 					if (order.isSOTrx()) {
 						isManual = true;
-						Optional.ofNullable(MOrg.get(getContext(), order.getAD_Org_ID()))
-								.ifPresent(org ->{
-								businessPartner = MBPartner.get(getContext(), org.getLinkedC_BPartner_ID(order.get_TrxName()));
+						Optional.ofNullable(MOrgInfo.get(getContext(), order.getAD_Org_ID(), order.get_TrxName()))
+								.ifPresent(orgInfo ->{
+								businessPartner = MBPartner.get(getContext(), orgInfo.get_ValueAsInt(LVEUtil.COLUMNNAME_WH_BPartner_ID));
 						});
 					}else
 						isManual = false;
