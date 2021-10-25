@@ -26,6 +26,7 @@ import java.util.Optional;
 import org.adempiere.exceptions.AdempiereException;
 import org.compiere.model.I_C_BPartner;
 import org.compiere.model.I_C_Invoice;
+import org.compiere.model.I_C_Order;
 import org.compiere.model.I_I_BPartner;
 import org.compiere.model.I_I_Invoice;
 import org.compiere.model.I_M_InOut;
@@ -335,6 +336,29 @@ public class LVE implements ModelValidator {
 							message.append(delivery.getDocumentNo());
 						});
 						throw new AdempiereException("@SQLErrorReferenced@ @M_InOut_ID@ " + Env.NL + message);
+					}
+				}
+			} else if (po.get_TableName().equals(MInOut.Table_Name)) {
+				MInOut shipmentReceipt = (MInOut) po;
+				if(shipmentReceipt.isProcessed()) {
+					List<MOrder> orders = new Query(shipmentReceipt.getCtx(), I_C_Order.Table_Name, "DocStatus NOT IN ('CO') "
+							+ "AND EXISTS(SELECT 1 FROM C_OrderLine ol "
+							+ "			INNER JOIN M_InOutLine iol ON(iol.C_OrderLine_ID = ol.C_OrderLine_ID) "
+							+ "			WHERE ol.C_Order_ID = C_Order.C_Order_ID "
+							+ "			AND iol.M_InOut_ID = ?)", shipmentReceipt.get_TrxName())
+							.setParameters(shipmentReceipt.getM_InOut_ID())
+							.setClient_ID()
+							.<MOrder>list();
+					if(orders != null
+							&& orders.size() > 0) {
+						StringBuffer message = new StringBuffer();
+						orders.forEach(invoice -> {
+							if(message.length() > 0) {
+								message.append(Env.NL);
+							}
+							message.append(invoice.getDocumentNo());
+						});
+						throw new AdempiereException("@CreateShipment.OrderNotCompleted@: " + Env.NL + message);
 					}
 				}
 			}
