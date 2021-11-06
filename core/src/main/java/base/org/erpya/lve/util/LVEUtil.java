@@ -18,6 +18,13 @@
 package org.erpya.lve.util;
 
 import java.util.Optional;
+import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.adempiere.exceptions.AdempiereException;
+import org.compiere.model.MSysConfig;
+import org.compiere.util.Util;
 
 /**
  * Added for hamdle custom columns for ADempiere core
@@ -90,13 +97,28 @@ public class LVEUtil {
 	public static final String COLUMNNAME_IsReCalculatePriceOnInvoice = "IsReCalculatePriceOnInvoice";
 	/**Withholding Business Partner for Organization*/
 	public static final String COLUMNNAME_WH_BPartner_ID = "WH_BPartner_ID";
+	/**	Validate Value for Business partner	*/
+	public static final String ENABLE_CODE_TYPE_VALIDATION = "ENABLE_CODE_TYPE_VALIDATION";
 	
 	/**
 	 * Process Business Partner Value
 	 * @param value
 	 * @return
 	 */
-	public static String processBusinessPartnerValue(String value) {
+	public static String processBusinessPartnerValue(Properties context, int clientId, int organizationId, String value) {
+		if(Util.isEmpty(value)) {
+			value = "";
+		}
+		boolean isValidationEnabled = MSysConfig.getBooleanValue(ENABLE_CODE_TYPE_VALIDATION, false, clientId, organizationId);
+		//	Validate
+		if(isValidationEnabled) {
+			Matcher matcher = Pattern.compile("[^0-9JVEGjveg]", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value);
+			if(matcher.find()) {
+				//	Error
+				throw new AdempiereException("@LVEInvalidBPValue@");
+			}
+		}
+		//	Default
 		return Optional.ofNullable(value).orElse("")
 				.replaceAll("[^0-9JVEGjveg]", "")
 				.toUpperCase();

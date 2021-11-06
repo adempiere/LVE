@@ -411,15 +411,15 @@ public class LVE implements ModelValidator {
 						|| type == TYPE_BEFORE_CHANGE) {
 					//	Validate without values
 					if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
-						String value = LVEUtil.processBusinessPartnerValue(businessPartner.getValue());
-						String taxId = LVEUtil.processBusinessPartnerValue(businessPartner.getTaxID());
+						String value = LVEUtil.processBusinessPartnerValue(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getValue());
+						String taxId = LVEUtil.processBusinessPartnerValue(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getTaxID());
 						businessPartner.setValue(value);
 						//	For Tax ID
 						if(Util.isEmpty(taxId)) {
 							businessPartner.setTaxID(value);
 						}
 					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_TaxID)) {
-						String taxId = LVEUtil.processBusinessPartnerValue(businessPartner.getTaxID());
+						String taxId = LVEUtil.processBusinessPartnerValue(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getTaxID());
 						businessPartner.setTaxID(taxId);
 					} 
 					if(type == TYPE_BEFORE_NEW) {

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="D" Name="Add Validation for Business Partner Value" ReleaseNo="1.0" SeqNo="81000810">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="109" Action="I" Record_ID="53709" Table="AD_Message">
+        <Data AD_Column_ID="6766" Column="Value">LVEInvalidBPValue</Data>
+        <Data AD_Column_ID="84346" Column="UUID">73cbc863-b532-4907-8b48-b5bbbaa05455</Data>
+        <Data AD_Column_ID="592" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="591" Column="Updated">2021-11-06 12:33:14.814</Data>
+        <Data AD_Column_ID="197" Column="MsgType">I</Data>
+        <Data AD_Column_ID="199" Column="MsgTip" isNewNull="true"/>
+        <Data AD_Column_ID="198" Column="MsgText">Invalid Business Partner Value Format
+You should use the format [V, J, G, E][00000000]</Data>
+        <Data AD_Column_ID="588" Column="IsActive">true</Data>
+        <Data AD_Column_ID="7716" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="590" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="589" Column="Created">2021-11-06 12:33:14.814</Data>
+        <Data AD_Column_ID="392" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="6765" Column="AD_Message_ID">53709</Data>
+        <Data AD_Column_ID="391" Column="AD_Client_ID">0</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="119" Action="I" Record_ID="0" Table="AD_Message_Trl">
+        <Data AD_Column_ID="84347" Column="UUID">8406d240-17ec-45c1-bc0f-1acfa79caf22</Data>
+        <Data AD_Column_ID="612" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="611" Column="Updated">2021-11-06 12:33:15.862</Data>
+        <Data AD_Column_ID="343" Column="MsgTip" isNewNull="true"/>
+        <Data AD_Column_ID="342" Column="MsgText">Invalid Business Partner Value Format
+You should use the format [V, J, G, E][00000000]</Data>
+        <Data AD_Column_ID="344" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="608" Column="IsActive">true</Data>
+        <Data AD_Column_ID="610" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="609" Column="Created">2021-11-06 12:33:15.862</Data>
+        <Data AD_Column_ID="1193" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="6767" Column="AD_Message_ID">53709</Data>
+        <Data AD_Column_ID="341" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="1192" Column="AD_Client_ID">0</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="119" Action="U" Record_ID="0" Table="AD_Message_Trl">
+        <Data AD_Column_ID="342" Column="MsgText" oldValue="Invalid Business Partner Value Format&#10;You should use the format [V, J, G, E][00000000]">Formato de C.I./R.I.F No Válido
+Debería usarl el formato [V, J, G, E][00000000]
+Ejemplo: V20000000 / J400000000</Data>
+        <Data AD_Column_ID="6767" Column="AD_Message_ID" oldValue="53709">53709</Data>
+        <Data AD_Column_ID="341" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="109" Action="U" Record_ID="53709" Table="AD_Message">
+        <Data AD_Column_ID="198" Column="MsgText" oldValue="Invalid Business Partner Value Format&#10;You should use the format [V, J, G, E][00000000]">Invalid Business Partner Value Format
+You should use the format [V, J, G, E][00000000]
+Example: V20000000 / J400000000</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="50009" Action="I" Record_ID="50157" Table="AD_SysConfig">
+        <Data AD_Column_ID="50196" Column="Value">N</Data>
+        <Data AD_Column_ID="84421" Column="UUID">48170ce1-154b-4ca3-beb3-c066094284ed</Data>
+        <Data AD_Column_ID="50193" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="50191" Column="Updated">2021-11-06 12:36:07.731</Data>
+        <Data AD_Column_ID="50195" Column="Name">ENABLE_CODE_TYPE_VALIDATION</Data>
+        <Data AD_Column_ID="50194" Column="IsActive">true</Data>
+        <Data AD_Column_ID="53270" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="50197" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="50192" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="50190" Column="Created">2021-11-06 12:36:07.731</Data>
+        <Data AD_Column_ID="53271" Column="ConfigurationLevel">O</Data>
+        <Data AD_Column_ID="50187" Column="AD_SysConfig_ID">50157</Data>
+        <Data AD_Column_ID="50189" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="50188" Column="AD_Client_ID">0</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
