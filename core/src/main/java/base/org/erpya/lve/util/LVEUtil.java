@@ -109,11 +109,26 @@ public class LVEUtil {
 		if(Util.isEmpty(value)) {
 			value = "";
 		}
+		value = value.trim();
 		boolean isValidationEnabled = MSysConfig.getBooleanValue(ENABLE_CODE_TYPE_VALIDATION, false, clientId, organizationId);
 		//	Validate
 		if(isValidationEnabled) {
+			//	validate length
+			if(value.length() < 6 || value.length() > 10) {
+				throw new AdempiereException("@LVEInvalidBPValue@");
+			}
 			Matcher matcher = Pattern.compile("[^0-9JVEGjveg]", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value);
 			if(matcher.find()) {
+				//	Error
+				throw new AdempiereException("@LVEInvalidBPValue@");
+			}
+			//	Validate segments
+			Matcher matcherforKey = Pattern.compile("^[JVEGjveg]+$", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value.substring(0,  1));
+			if(!matcherforKey.find()) {
+				//	Error
+				throw new AdempiereException("@LVEInvalidBPValue@");
+			}
+			if(!value.matches("[+-]?\\d*(\\.\\d+)?")) {
 				//	Error
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
