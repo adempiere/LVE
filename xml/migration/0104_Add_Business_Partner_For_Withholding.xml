@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add Business Partner For Withholding" ReleaseNo="1.0" SeqNo="81000800">
+  <Migration EntityType="LVE" Name="Add Business Partner For Withholding" ReleaseNo="1.0" SeqNo="81000800">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="61859" Table="AD_Element">
         <Data AD_Column_ID="2600" Column="Updated">2021-10-20 19:56:20.472</Data>
