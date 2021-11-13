@@ -109,6 +109,7 @@ public class LVEUtil {
 		if(Util.isEmpty(value)) {
 			value = "";
 		}
+		//	Trim it
 		value = value.trim();
 		boolean isValidationEnabled = MSysConfig.getBooleanValue(ENABLE_CODE_TYPE_VALIDATION, false, clientId, organizationId);
 		//	Validate
@@ -128,7 +129,7 @@ public class LVEUtil {
 				//	Error
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
-			if(!value.matches("[+-]?\\d*(\\.\\d+)?")) {
+			if(!value.substring(1,  value.length() -1).matches("[+-]?\\d*(\\.\\d+)?")) {
 				//	Error
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
