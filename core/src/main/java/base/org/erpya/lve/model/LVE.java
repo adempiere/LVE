@@ -211,6 +211,15 @@ public class LVE implements ModelValidator {
 				}
 			}
 		} else if(timing == TIMING_AFTER_COMPLETE)	{
+			if (po.get_TableName().equals(MOrder.Table_Name)) {
+				MOrder order = (MOrder) po;
+				if(order.isReplication()) {
+					MInvoice invoice = new MInvoice(order.getCtx(), order.getC_Invoice_ID(), order.get_TrxName());
+					invoice.setReplication(true);
+					invoice.setIsPaid(false);
+					invoice.save();
+				}
+			}
 			if (po.get_TableName().equals(MInvoice.Table_Name)) {
 				MInvoice invoice = (MInvoice) po;
 				if(!invoice.isReversal()) {
@@ -441,7 +450,7 @@ public class LVE implements ModelValidator {
 			// Set Is Paid for Auto Allocation Invoice Documents
 			if (po.get_TableName().equals(MInvoice.Table_Name)) {
 				MInvoice invoice = (MInvoice) po;
-				if (invoice.is_ValueChanged(MInvoice.COLUMNNAME_DocStatus)
+				if (!invoice.isReplication() && invoice.is_ValueChanged(MInvoice.COLUMNNAME_DocStatus)
 						&& invoice.getDocStatus().equals(MInvoice.DOCSTATUS_Completed)
 							&& invoice.testAllocation()){
 					invoice.save();
