@@ -115,7 +115,7 @@ public class LVEUtil {
 		//	Validate
 		if(isValidationEnabled) {
 			//	validate length
-			if(value.length() < 6 || value.length() > 10) {
+			if(value.length() < 6 || value.length() > 11) {
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
 			Matcher matcher = Pattern.compile("[^0-9JVEGjveg]", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value);
