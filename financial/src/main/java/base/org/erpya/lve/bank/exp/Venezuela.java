@@ -68,6 +68,7 @@ public class Venezuela extends LVEPaymentExportList {
 			MBankAccount bankAccount = (MBankAccount) paySelection.getC_BankAccount();
 			MCurrency currency = MCurrency.get(Env.getCtx(), bankAccount.getC_Currency_ID());
 			MOrgInfo orgInfo = MOrgInfo.get(paySelection.getCtx(), paySelection.getAD_Org_ID(), paySelection.get_TrxName());
+			MOrg org = MOrg.get(Env.getCtx(), orgInfo.getAD_Org_ID());
 			MClient client = MClient.get(orgInfo.getCtx(), orgInfo.getAD_Client_ID());
 			MBank bank = MBank.get(bankAccount.getCtx(), bankAccount.getC_Bank_ID());
 			//	Time Format
@@ -94,10 +95,18 @@ public class Venezuela extends LVEPaymentExportList {
 				orgTaxId = orgTaxId.replaceAll("\\D+","");
 				orgTaxId = leftPadding(orgTaxId, 9, "0", true);
 			} else {
-				addError(Msg.parseTranslation(Env.getCtx(), "@TaxID@ @NotFound@: " + client.getName()));
+				addError(Msg.parseTranslation(Env.getCtx(), "@TaxID@ @NotFound@: " + org.getName()));
 			}
 			//	Client Name
-			String orgName = processValue(client.getName());
+			String orgName = "";
+			boolean isMultiClient = MSysConfig.getBooleanValue(LVEUtil.ENABLE_MULTI_CLIENT, false, orgInfo.getAD_Client_ID(), orgInfo.getAD_Org_ID());
+			//	Client Name
+			if(isMultiClient) {
+				orgName = processValue(org.getName());
+			} 
+			else { 
+				orgName = processValue(client.getName());
+			}
 			orgName = rightPadding(orgName, 35, " ", true);
 			//	Payment Date
 			String paymentDate = dateFormat.format(paySelection.getPayDate());
