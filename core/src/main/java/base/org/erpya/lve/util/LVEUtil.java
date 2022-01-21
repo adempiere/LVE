@@ -99,6 +99,8 @@ public class LVEUtil {
 	public static final String COLUMNNAME_WH_BPartner_ID = "WH_BPartner_ID";
 	/**	Validate Value for Business partner	*/
 	public static final String ENABLE_CODE_TYPE_VALIDATION = "ENABLE_CODE_TYPE_VALIDATION";
+	/**	Validate Value for Multi Client	*/
+	public static final String ENABLE_MULTI_CLIENT = "ENABLE_MULTI_CLIENT";
 	
 	/**
 	 * Process Business Partner Value
