@@ -33,6 +33,7 @@ import org.compiere.model.MOrgInfo;
 import org.compiere.model.MPaySelection;
 import org.compiere.model.MPaySelectionCheck;
 import org.compiere.model.MPayment;
+import org.compiere.model.MSysConfig;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Msg;
@@ -44,6 +45,9 @@ import org.erpya.lve.util.LVEUtil;
  * 	@author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
  *		<a href="https://github.com/adempiere/LVE/issues/1">
  * 		@see FR [ 1 ] Initial commit</a>
+ *  @author Edwin Betancourt EdwinBetanc0ut@outlook.com
+ *		<a href="https://github.com/adempiere/LVE/issues/43">
+ * 		@see FR [ 43 ] Error en la clase exportador del txt del Banco de Venezuela</a>
  */
 public class Venezuela extends LVEPaymentExportList {
 
