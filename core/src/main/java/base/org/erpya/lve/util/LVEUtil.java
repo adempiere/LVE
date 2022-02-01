@@ -31,6 +31,14 @@ import org.compiere.util.Util;
  * @author Yamel Senih, ysenih@erpya.com, ERPCyA http://www.erpya.com
  */
 public class LVEUtil {
+	/**	Fiscal Currency	*/
+	public static final String COLUMNNAME_LVE_FiscalCurrency_ID = "LVE_FiscalCurrency_ID";
+	/**	Invoice Currency	*/
+	public static final String COLUMNNAME_LVE_InvoiceCurrency_ID = "LVE_InvoiceCurrency_ID";
+	/**	Invoice generated with organization currency	*/
+	public static final String COLUMNNAME_IsInvoicedWithOrgCurrency = "IsInvoicedWithOrgCurrency";
+	/**	Client As Organization	*/
+	public static final String COLUMNNAME_IsClientAsOrganization = "IsClientAsOrganization";
 	/**	Invoice to Allocate	*/
 	public static final String COLUMNNAME_InvoiceToAllocate_ID = "InvoiceToAllocate_ID";
 	/**	Fiscal Document	*/
