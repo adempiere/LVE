@@ -33,7 +33,6 @@ import org.compiere.model.MOrgInfo;
 import org.compiere.model.MPaySelection;
 import org.compiere.model.MPaySelectionCheck;
 import org.compiere.model.MPayment;
-import org.compiere.model.MSysConfig;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Msg;
@@ -102,16 +101,12 @@ public class Venezuela extends LVEPaymentExportList {
 				addError(Msg.parseTranslation(Env.getCtx(), "@TaxID@ @NotFound@: " + org.getName()));
 			}
 			//	Client Name
-			String orgName = "";
-			boolean isMultiClient = MSysConfig.getBooleanValue(LVEUtil.ENABLE_MULTI_CLIENT, false, orgInfo.getAD_Client_ID(), orgInfo.getAD_Org_ID());
-			//	Client Name
-			if(isMultiClient) {
-				orgName = processValue(org.getName());
-			} 
-			else { 
-				orgName = processValue(client.getName());
+			String clientName = client.getName();
+			if(orgInfo.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsClientAsOrganization)) {
+				clientName = org.getName();
 			}
-			orgName = rightPadding(orgName, 35, " ", true);
+			clientName = processValue(client.getName());
+			clientName = rightPadding(clientName, 35, " ", true);
 			//	Payment Date
 			String paymentDate = dateFormat.format(paySelection.getPayDate());
 			//	Now
@@ -206,7 +201,7 @@ public class Venezuela extends LVEPaymentExportList {
 						.append(documentNo)		//	Document No
 						.append(orgPersonType)	//  Person Type
 						.append(orgTaxId)		// 	Tax ID
-						.append(orgName)		// 	Client Name
+						.append(clientName)		// 	Client Name
 						.append(paymentDate)	//	Payment Date
 						.append(constant2)		// 	Account Type
 						.append(bankAccountNo)	//	Bank Account No

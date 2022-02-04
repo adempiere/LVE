@@ -17,28 +17,21 @@ package org.erpya.lve.bank.exp;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.compiere.model.MBPBankAccount;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MBank;
 import org.compiere.model.MBankAccount;
-import org.compiere.model.MCurrency;
 import org.compiere.model.MOrg;
-import org.compiere.model.MOrgInfo;
 import org.compiere.model.MPaySelection;
 import org.compiere.model.MPaySelectionCheck;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Msg;
 import org.compiere.util.Util;
-import org.eevolution.model.MHRMovement;
-import org.eevolution.model.MHRProcess;
 
 /**
  * 	Implementation for Export Payment from Mercantil bank for Payroll

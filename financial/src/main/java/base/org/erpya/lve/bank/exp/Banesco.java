@@ -28,6 +28,7 @@ import org.compiere.model.MBank;
 import org.compiere.model.MBankAccount;
 import org.compiere.model.MClient;
 import org.compiere.model.MCurrency;
+import org.compiere.model.MOrg;
 import org.compiere.model.MOrgInfo;
 import org.compiere.model.MPaySelection;
 import org.compiere.model.MPaySelectionCheck;
@@ -36,6 +37,7 @@ import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Msg;
 import org.compiere.util.Util;
+import org.erpya.lve.util.LVEUtil;
 
 /**
  * 	Implementation for Export Payment from Banesco bank
@@ -91,6 +93,15 @@ public class Banesco extends LVEPaymentExportList {
 			MCurrency currency = MCurrency.get(Env.getCtx(), bankAccount.getC_Currency_ID());
 			MOrgInfo orgInfo = MOrgInfo.get(paySelection.getCtx(), paySelection.getAD_Org_ID(), paySelection.get_TrxName());
 			MClient client = MClient.get(orgInfo.getCtx(), orgInfo.getAD_Client_ID());
+			//	Process Organization Tax ID
+			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
+			orgTaxId = rightPadding(orgTaxId, 17, " ").toUpperCase();
+			String clientName = client.getName();
+			if(orgInfo.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsClientAsOrganization)) {
+				clientName = MOrg.get(orgInfo.getCtx(), orgInfo.getAD_Org_ID()).getName();
+			}
+			clientName = processValue(client.getName());
+			clientName = rightPadding(clientName, 35, " ", true);
 			MBank bank = MBank.get(bankAccount.getCtx(), bankAccount.getC_Bank_ID());
 			//	Format Date Header
 			SimpleDateFormat headerFormat = new SimpleDateFormat(HEADER_DATE_FORMAT);
@@ -126,7 +137,7 @@ public class Banesco extends LVEPaymentExportList {
 			registerType = "01";
 			header = new StringBuffer();
 			//	Header
-			header.append(CRLF)							//	New Line
+			header.append(CRLF)								//	New Line
 				.append(registerType)						//  Type Register
 				.append(transactionType)					//	Type Transaction
 				.append(descriptionCode)					//  Description Code
@@ -143,11 +154,6 @@ public class Banesco extends LVEPaymentExportList {
 			debtReferenceNo = debtReferenceNo.substring(0, debtReferenceNo.length() >= 8? 8: debtReferenceNo.length());
 			debtReferenceNo = debtReferenceNo.replaceAll("\\D+","");
 			debtReferenceNo = rightPadding(debtReferenceNo, 30, " ");
-			//	Process Organization Tax ID
-			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
-			orgTaxId = rightPadding(orgTaxId, 17, " ").toUpperCase();
-			String clientName = processValue(client.getName());
-			clientName = rightPadding(clientName, 35, " ", true);
 			//	Payment Amount
 			String totalAmtAsString = String.format("%.2f", totalPaymentAmount).replace(".", "").replace(",", "");
 			totalAmtAsString = leftPadding(totalAmtAsString, 15, "0");
