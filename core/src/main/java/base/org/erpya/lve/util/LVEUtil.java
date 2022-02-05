@@ -38,7 +38,7 @@ public class LVEUtil {
 	/**	Invoice generated with organization currency	*/
 	public static final String COLUMNNAME_IsInvoicedWithOrgCurrency = "IsInvoicedWithOrgCurrency";
 	/**	Client As Organization	*/
-	public static final String COLUMNNAME_IsClientAsOrganization = "IsClientAsOrganization";
+	public static final String COLUMNNAME_IsDefinedAsClient = "IsDefinedAsClient";
 	/**	Invoice to Allocate	*/
 	public static final String COLUMNNAME_InvoiceToAllocate_ID = "InvoiceToAllocate_ID";
 	/**	Fiscal Document	*/

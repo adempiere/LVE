@@ -97,7 +97,7 @@ public class Banesco extends LVEPaymentExportList {
 			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 			orgTaxId = rightPadding(orgTaxId, 17, " ").toUpperCase();
 			String clientName = client.getName();
-			if(orgInfo.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsClientAsOrganization)) {
+			if(orgInfo.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsDefinedAsClient)) {
 				clientName = MOrg.get(orgInfo.getCtx(), orgInfo.getAD_Org_ID()).getName();
 			}
 			clientName = processValue(client.getName());

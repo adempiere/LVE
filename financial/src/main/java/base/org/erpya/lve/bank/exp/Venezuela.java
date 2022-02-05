@@ -102,7 +102,7 @@ public class Venezuela extends LVEPaymentExportList {
 			}
 			//	Client Name
 			String clientName = client.getName();
-			if(orgInfo.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsClientAsOrganization)) {
+			if(orgInfo.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsDefinedAsClient)) {
 				clientName = org.getName();
 			}
 			clientName = processValue(client.getName());
