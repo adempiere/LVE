@@ -19,7 +19,7 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-def libraryVersion = '1.5.5'
+def libraryVersion = '1.5.6'
 def entityType = 'LVE'
 sourceSets {
     main {
@@ -37,7 +37,7 @@ dependencies {
 jar {
     manifest {
         attributes('Implementation-Title': project.name,
-                   'Implementation-Version': project.version, 
+                   'Implementation-Version': project.version,
                    "EntityType": entityType)
     }
 }
