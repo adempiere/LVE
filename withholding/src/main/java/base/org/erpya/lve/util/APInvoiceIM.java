@@ -24,7 +24,6 @@ import org.compiere.model.MBPartner;
 import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
-import org.compiere.model.MOrg;
 import org.compiere.model.MOrgInfo;
 import org.compiere.model.Query;
 import org.compiere.util.Env;

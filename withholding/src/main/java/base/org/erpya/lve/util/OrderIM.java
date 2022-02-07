@@ -24,7 +24,6 @@ import org.compiere.model.MBPartner;
 import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
 import org.compiere.model.MOrder;
-import org.compiere.model.MOrg;
 import org.compiere.model.MOrgInfo;
 import org.compiere.model.Query;
 import org.compiere.util.Env;
@@ -224,7 +223,7 @@ public class OrderIM extends AbstractWithholdingSetting {
 																	+ "AND WH_Definition_ID = ? "
 																	+ "AND WH_Setting_ID = ? "
 																	+ "AND Processed = 'Y' "
-																	+ "AND IsSimulation='Y'"
+																	+ "AND IsSimulation='Y' "
 																	+ "AND DocStatus IN (?,?)" , getTransactionName())
 						.setParameters(order.get_ID(),getDefinition().get_ID(),getSetting().get_ID(),MWHWithholding.DOCSTATUS_Completed,MWHWithholding.DOCSTATUS_Closed)
 						.match();

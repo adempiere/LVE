@@ -26,7 +26,6 @@ import org.compiere.model.MBPartner;
 import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceTax;
-import org.compiere.model.MOrg;
 import org.compiere.model.MOrgInfo;
 import org.compiere.model.MTax;
 import org.compiere.model.Query;
@@ -217,7 +216,7 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 																	+ "AND WH_Definition_ID = ? "
 																	+ "AND WH_Setting_ID = ? "
 																	+ "AND Processed = 'Y' "
-																	+ "AND IsSimulation='N'"
+																	+ "AND IsSimulation='N' "
 																	+ "AND DocStatus IN (?,?)" , getTransactionName())
 						.setParameters(invoice.get_ID(),getDefinition().get_ID(),getSetting().get_ID(),MWHWithholding.DOCSTATUS_Completed,MWHWithholding.DOCSTATUS_Closed)
 						.match();
