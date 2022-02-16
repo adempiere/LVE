@@ -114,12 +114,6 @@ public class OrderISLR extends AbstractWithholdingSetting {
 			addLog("@C_DocType_ID@ @NotFound@");
 			isValid = false;
 		}
-		//	Validate Purchase Order only
-		if(documentType!=null && 
-				!documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_PurchaseOrder)) {
-			addLog("@NotFound@ @DocBaseType@");
-			isValid = false;
-		}
 		//	Validate Person Type
 		businessPartner = (MBPartner) order.getC_BPartner();
 		

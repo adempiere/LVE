@@ -92,9 +92,8 @@ public class OrderIM extends AbstractWithholdingSetting {
 		if (businessPartner==null) {
 			addLog("@C_BPartner_ID@ @NotFound@");
 			isValid = false;
-		}else {
-			
-			if (order!=null) {
+		} else {
+			if (order != null) {
 				MCurrency currency = (MCurrency) order.getC_Currency();
 				curPrecision = currency.getStdPrecision();
 				baseAmount = order.getTotalLines();
@@ -123,12 +122,6 @@ public class OrderIM extends AbstractWithholdingSetting {
 			MDocType documentType = MDocType.get(getContext(), order.getC_DocTypeTarget_ID());
 			if(documentType == null) {
 				addLog("@C_DocType_ID@ @NotFound@");
-				isValid = false;
-			}
-			//	Validate Purchase Order only
-			if(documentType!=null && 
-					!documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_PurchaseOrder)) {
-				addLog("@NotFound@ @DocBaseType@");
 				isValid = false;
 			}
 			//	Validate Exempt Business Partner

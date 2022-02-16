@@ -117,12 +117,6 @@ public class OrderIVA extends AbstractWithholdingSetting {
 				addLog("@C_DocType_ID@ @NotFound@");
 				isValid = false;
 			}
-			//	Validate Purchase Order only
-			if(documentType!=null && 
-					!documentType.getDocBaseType().equals(MDocType.DOCBASETYPE_PurchaseOrder)) {
-				addLog("@NotFound@ @DocBaseType@");
-				isValid = false;
-			}
 			//	Validate Exempt Document
 			if(order.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsWithholdingTaxExempt)) {
 				isValid = false;
