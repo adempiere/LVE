@@ -22,9 +22,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.compiere.model.I_C_Order;
+import org.compiere.model.I_C_OrderLine;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MDocType;
 import org.compiere.model.MOrder;
+import org.compiere.model.MOrderLine;
 import org.compiere.model.MOrderTax;
 import org.compiere.model.MOrgInfo;
 import org.compiere.model.MPayment;
@@ -48,9 +50,9 @@ import org.spin.util.AbstractWithholdingSetting;
  * 	@author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
  *  @contributor Carlos Parada, cparada@erpya.com, ERPCyA http://www.erpya.com
  */
-public class POSOrderIVA extends AbstractWithholdingSetting {
+public class POSOrderIVABase extends AbstractWithholdingSetting {
 
-	public POSOrderIVA(MWHSetting setting) {
+	public POSOrderIVABase(MWHSetting setting) {
 		super(setting);
 	}
 	/**	Current order	*/
@@ -67,11 +69,17 @@ public class POSOrderIVA extends AbstractWithholdingSetting {
 	public boolean isValid() {
 		boolean isValid = true;
 		//	Validate Document
-		if(getDocument().get_Table_ID() != I_C_Order.Table_ID) {
+		if(getDocument().get_Table_ID() != I_C_OrderLine.Table_ID
+				&& getDocument().get_Table_ID() != I_C_Order.Table_ID) {
 			addLog("@C_Order_ID@ @NotFound@");
 			isValid = false;
 		}
-		order = (MOrder) getDocument();
+		if(getDocument().get_Table_ID() == I_C_OrderLine.Table_ID) {
+			MOrderLine orderLine = (MOrderLine) getDocument();
+			order = orderLine.getParent();
+		} else {
+			order = (MOrder) getDocument();
+		}
 		businessPartner = (MBPartner) order.getC_BPartner();
 		//	Validate Processed
 		if(order.isProcessed()) {
@@ -197,21 +205,21 @@ public class POSOrderIVA extends AbstractWithholdingSetting {
 			setReturnValue(MWHWithholding.COLUMNNAME_C_Tax_ID, orderTax.getC_Tax_ID());
 			setReturnValue(MWHWithholding.COLUMNNAME_IsSimulation, true);
 		});
-		savePaymentReference();
 		return null;
 	}
 	
 	/**
 	 * Save payment reference from withholding calculation
 	 */
-	private void savePaymentReference() {
+	protected void savePaymentReference(boolean createIfNotExists) {
 		if(Optional.ofNullable(getWithholdingAmount()).orElse(Env.ZERO).compareTo(Env.ZERO) > 0) {
 			//	Add backward compatibility
 			MTable paymentReferenceDefinition = MTable.get(getContext(), "C_POSPaymentReference");
 			if(paymentReferenceDefinition != null) {
 				PO paymentReferenceToCreate = new Query(getContext(), "C_POSPaymentReference", "C_Order_ID = ? AND TenderType = ?", getTransactionName()).setParameters(order.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo).first();
-				if(paymentReferenceToCreate == null
-						|| paymentReferenceToCreate.get_ID() <= 0) {
+				if(createIfNotExists
+						&& (paymentReferenceToCreate == null
+							|| paymentReferenceToCreate.get_ID() <= 0)) {
 					paymentReferenceToCreate = paymentReferenceDefinition.getPO(0, getTransactionName());
 					paymentReferenceToCreate.set_ValueOfColumn("Amount", getWithholdingAmount());
 					paymentReferenceToCreate.set_ValueOfColumn("AmtSource", getWithholdingAmount());
@@ -225,7 +233,9 @@ public class POSOrderIVA extends AbstractWithholdingSetting {
 					paymentReferenceToCreate.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
 					paymentReferenceToCreate.set_ValueOfColumn("Description", Msg.parseTranslation(getContext(), getProcessDescription()));
 					paymentReferenceToCreate.set_ValueOfColumn("PayDate", order.getDateOrdered());
-				} else {
+					paymentReferenceToCreate.saveEx();
+				} else if(paymentReferenceToCreate != null
+						&& paymentReferenceToCreate.get_ID() > 0) {
 					paymentReferenceToCreate.set_ValueOfColumn("Amount", getWithholdingAmount());
 					paymentReferenceToCreate.set_ValueOfColumn("AmtSource", getWithholdingAmount());
 					paymentReferenceToCreate.set_ValueOfColumn("C_BPartner_ID", order.getC_BPartner_ID());
@@ -236,8 +246,8 @@ public class POSOrderIVA extends AbstractWithholdingSetting {
 					paymentReferenceToCreate.set_ValueOfColumn("IsReceipt", true);
 					paymentReferenceToCreate.set_ValueOfColumn("Description", Msg.parseTranslation(getContext(), getProcessDescription()));
 					paymentReferenceToCreate.set_ValueOfColumn("PayDate", order.getDateOrdered());
+					paymentReferenceToCreate.saveEx();
 				}
-				paymentReferenceToCreate.saveEx();
 			}
 			//	Clear
 			setWithholdingRate(Env.ZERO);

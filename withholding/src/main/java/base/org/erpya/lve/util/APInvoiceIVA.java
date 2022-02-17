@@ -72,7 +72,11 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 		}
 		invoice = (MInvoice) getDocument();
 		businessPartner = (MBPartner) invoice.getC_BPartner();
-		
+		if(!businessPartner.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsTaxpayer)
+				&& invoice.isSOTrx()) {
+			addLog("@C_BPartner_ID@ @" + LVEUtil.COLUMNNAME_IsTaxpayer + "@ @NotFound@");
+			isValid = false;
+		}
 		//Valid Business Partner
 		Optional.ofNullable(invoice)
 				.ifPresent(invoice ->{
