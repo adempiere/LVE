@@ -23,7 +23,7 @@ CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
     it.Rate,
     i.IsSOTrx,
     i.C_Currency_ID,
-    asch.C_Currency_ID AS AcctSchemaCurrency_ID,
+    oi.LVE_FiscalCurrency_ID AS AcctSchemaCurrency_ID,
     wt.Record_ID,
     wt.Name AS WHTName,
 	CASE
@@ -34,7 +34,7 @@ CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
 		WHEN wt.Record_ID = iwh.Record_ID THEN iwh.whDocumentNo
 		ELSE NULL
 	End AS whDocumentNo,
-    CurrencyRate(i.C_Currency_ID, asch.C_Currency_ID, i.DateAcct, i.C_ConversionType_ID, i.AD_Client_ID, i.AD_Org_ID) AS CurrencyRate,
+    CurrencyRate(i.C_Currency_ID, oi.LVE_FiscalCurrency_ID, i.DateAcct, i.C_ConversionType_ID, i.AD_Client_ID, i.AD_Org_ID) AS CurrencyRate,
     i.DocStatus,
     i.IsFiscalDocument,
     p.C_Period_ID,
@@ -52,7 +52,7 @@ CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
     it.AliquotType,
 	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal,
 	bp.IsTaxPayer,
-	CurrencyRate(iwh.C_Currency_ID, asch.C_Currency_ID, iwh.DateAcct, iwh.C_ConversionType_ID, i.AD_Client_ID, iwh.AD_Org_ID) AS WHCurrencyRate
+	CurrencyRate(iwh.C_Currency_ID, oi.LVE_FiscalCurrency_ID, iwh.DateAcct, iwh.C_ConversionType_ID, i.AD_Client_ID, iwh.AD_Org_ID) AS WHCurrencyRate
    FROM C_Invoice i
      LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
      INNER JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
@@ -60,8 +60,6 @@ CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
 	 INNER JOIN AD_Org o ON o.AD_Org_ID = i.AD_Org_ID
      INNER JOIN AD_OrgInfo oi ON oi.AD_Org_ID = COALESCE(o.Parent_Org_ID,o.AD_Org_ID)
 	 INNER JOIN AD_Org c ON (c.AD_Org_ID = oi.AD_Org_ID)
-     INNER JOIN AD_ClientInfo ci ON i.AD_Client_ID = ci.AD_Client_ID
-     INNER JOIN C_AcctSchema asch ON ci.C_AcctSchema1_ID = asch.C_AcctSchema_ID
      LEFT JOIN ( SELECT 
 				sum(
                 CASE
@@ -148,7 +146,7 @@ UNION ALL
     0.00 AS Rate,
     i.IsSOTrx,
     i.C_Currency_ID,
-    i.C_Currency_ID AS AcctSchemaCurrency_ID,
+    oi.LVE_FiscalCurrency_ID AS AcctSchemaCurrency_ID,
     wt.Record_ID,
     wt.Name AS WHTName,
 	CASE
@@ -177,13 +175,11 @@ UNION ALL
     '' AS AliquotType,
 	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal,
 	bp.IsTaxPayer,
-	CurrencyRate(iwh.C_Currency_ID, asch.C_Currency_ID, iwh.DateAcct, iwh.C_ConversionType_ID, i.AD_Client_ID, iwh.AD_Org_ID) AS WHCurrencyRate
+	CurrencyRate(iwh.C_Currency_ID, oi.LVE_FiscalCurrency_ID, iwh.DateAcct, iwh.C_ConversionType_ID, i.AD_Client_ID, iwh.AD_Org_ID) AS WHCurrencyRate
    FROM C_Invoice i
      INNER JOIN AD_Org o ON o.AD_Org_ID = i.AD_Org_ID
      INNER JOIN AD_OrgInfo oi ON oi.AD_Org_ID = COALESCE(o.Parent_Org_ID,o.AD_Org_ID)
 	 INNER JOIN AD_Org c ON (c.AD_Org_ID = oi.AD_Org_ID)
-	 INNER JOIN AD_ClientInfo ci ON i.AD_Client_ID = ci.AD_Client_ID
-     INNER JOIN C_AcctSchema asch ON ci.C_AcctSchema1_ID = asch.C_AcctSchema_ID
      LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
 	 INNER JOIN C_Year y ON (y.C_Year_ID = p.C_Year_ID)
      INNER JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
