@@ -100,7 +100,7 @@ public class Banesco extends LVEPaymentExportList {
 			if(orgInfo.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsDefinedAsClient)) {
 				clientName = MOrg.get(orgInfo.getCtx(), orgInfo.getAD_Org_ID()).getName();
 			}
-			clientName = processValue(client.getName());
+			clientName = processValue(clientName);
 			clientName = rightPadding(clientName, 35, " ", true);
 			MBank bank = MBank.get(bankAccount.getCtx(), bankAccount.getC_Bank_ID());
 			//	Format Date Header

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Se actualiza por defecto el valor a la moneda fiscal" ReleaseNo="1.0" SeqNo="81000870">
+    <Step DBType="ALL" Parse="N" SeqNo="10" StepType="SQL">
+      <SQLStatement>UPDATE AD_OrgInfo SET LVE_FiscalCurrency_ID = 50003</SQLStatement>
+    </Step>
+  </Migration>
+</Migrations>
