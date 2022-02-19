@@ -218,7 +218,7 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 			if(paymentReferenceDefinition != null) {
 				PO paymentReferenceToCreate = new Query(getContext(), "C_POSPaymentReference", "C_Order_ID = ? AND TenderType = ?", getTransactionName()).setParameters(order.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo).first();
 				int defaultPaymentMethodId = new Query(getContext(), "C_POSPaymentTypeAllocation", "C_POS_ID = ? AND EXISTS(SELECT 1 FROM C_PaymentMethod pm WHERE pm.C_PaymentMethod_ID = C_POSPaymentTypeAllocation.C_PaymentMethod_ID AND TenderType = ?)", getTransactionName())
-						.setParameters(order.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo)
+						.setParameters(order.getC_POS_ID(), MPayment.TENDERTYPE_CreditMemo)
 						.setOnlyActiveRecords(true)
 						.firstId();
 				if(createIfNotExists
