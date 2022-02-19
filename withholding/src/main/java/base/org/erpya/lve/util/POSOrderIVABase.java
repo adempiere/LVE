@@ -217,6 +217,10 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 			MTable paymentReferenceDefinition = MTable.get(getContext(), "C_POSPaymentReference");
 			if(paymentReferenceDefinition != null) {
 				PO paymentReferenceToCreate = new Query(getContext(), "C_POSPaymentReference", "C_Order_ID = ? AND TenderType = ?", getTransactionName()).setParameters(order.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo).first();
+				int defaultPaymentMethodId = new Query(getContext(), "C_POSPaymentTypeAllocation", "C_POS_ID = ? AND EXISTS(SELECT 1 FROM C_PaymentMethod pm WHERE pm.C_PaymentMethod_ID = C_POSPaymentTypeAllocation.C_PaymentMethod_ID AND TenderType = ?)", getTransactionName())
+						.setParameters(order.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo)
+						.setOnlyActiveRecords(true)
+						.firstId();
 				if(createIfNotExists
 						&& (paymentReferenceToCreate == null
 							|| paymentReferenceToCreate.get_ID() <= 0)) {
@@ -231,6 +235,9 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 					paymentReferenceToCreate.set_ValueOfColumn("SalesRep_ID", order.getSalesRep_ID());
 					paymentReferenceToCreate.set_ValueOfColumn("IsReceipt", true);
 					paymentReferenceToCreate.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
+					if(defaultPaymentMethodId > 0) {
+						paymentReferenceToCreate.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
+					}
 					paymentReferenceToCreate.set_ValueOfColumn("Description", Msg.parseTranslation(getContext(), getProcessDescription()));
 					paymentReferenceToCreate.set_ValueOfColumn("PayDate", order.getDateOrdered());
 					paymentReferenceToCreate.saveEx();
