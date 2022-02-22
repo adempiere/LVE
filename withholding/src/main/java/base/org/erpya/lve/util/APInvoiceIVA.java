@@ -230,7 +230,8 @@ public class APInvoiceIVA extends AbstractWithholdingSetting {
 				PO paymentReferenceToCreate = new Query(getContext(), "C_POSPaymentReference", "C_Order_ID = ? AND TenderType = ?", getTransactionName()).setParameters(invoice.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo).first();
 				if(paymentReferenceToCreate != null
 						&& paymentReferenceToCreate.get_ID() > 0) {
-					paymentReferenceToCreate.deleteEx(true);
+					paymentReferenceToCreate.set_ValueOfColumn("Processed", true);
+					paymentReferenceToCreate.saveEx();
 				}
 			}
 		}
