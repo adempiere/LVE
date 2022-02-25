@@ -65,7 +65,7 @@ public class OrderIVA extends AbstractWithholdingSetting {
 		//	Validate Document
 		if(getDocument().get_Table_ID() != I_C_Order.Table_ID) {
 			addLog("@C_Order_ID@ @NotFound@");
-			isValid = false;
+			return false;
 		}
 		order = (MOrder) getDocument();
 		businessPartner = (MBPartner) order.getC_BPartner();
