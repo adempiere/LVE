@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Add TXT Araure Paez" ReleaseNo="3.9.4" SeqNo="81000900">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="109" Action="I" Record_ID="53720" Table="AD_Message">
+        <Data AD_Column_ID="84346" Column="UUID">73174fe3-f220-4fd3-86d0-2a2e854e3823</Data>
+        <Data AD_Column_ID="592" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="590" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="6765" Column="AD_Message_ID">53720</Data>
+        <Data AD_Column_ID="7716" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="391" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="392" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="199" Column="MsgTip">Export file format for Withholding Tax applied to documents</Data>
+        <Data AD_Column_ID="6766" Column="Value">FileIMAraureTXT</Data>
+        <Data AD_Column_ID="197" Column="MsgType">I</Data>
+        <Data AD_Column_ID="591" Column="Updated">2022-03-09 10:35:42.92</Data>
+        <Data AD_Column_ID="198" Column="MsgText">Withholding Tax Declaration Araure (txt)</Data>
+        <Data AD_Column_ID="589" Column="Created">2022-03-09 10:35:42.92</Data>
+        <Data AD_Column_ID="588" Column="IsActive">true</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="119" Action="I" Record_ID="0" Table="AD_Message_Trl">
+        <Data AD_Column_ID="84347" Column="UUID">9e2445d0-88ca-49c1-94bf-5ecf5ed4d03c</Data>
+        <Data AD_Column_ID="612" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="6767" Column="AD_Message_ID">53720</Data>
+        <Data AD_Column_ID="341" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="610" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="1193" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="1192" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="343" Column="MsgTip">Export file format for Withholding Tax applied to documents</Data>
+        <Data AD_Column_ID="342" Column="MsgText">Withholding Tax Declaration Araure (txt)</Data>
+        <Data AD_Column_ID="344" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="608" Column="IsActive">true</Data>
+        <Data AD_Column_ID="611" Column="Updated">2022-03-09 10:35:44.012</Data>
+        <Data AD_Column_ID="609" Column="Created">2022-03-09 10:35:44.012</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="119" Action="U" Record_ID="0" Table="AD_Message_Trl">
+        <Data AD_Column_ID="6767" Column="AD_Message_ID" oldValue="53720">53720</Data>
+        <Data AD_Column_ID="341" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="343" Column="MsgTip" oldValue="Export file format for Withholding Tax applied to documents">Exporta el archivo de declaración de Impuesto Municipal de la Alcaldía de Araure, estado Portuguesa</Data>
+        <Data AD_Column_ID="342" Column="MsgText" oldValue="Withholding Tax Declaration Araure (txt)">Declaración de I.M de Alcaldía de Araure (txt)</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="109" Action="I" Record_ID="53721" Table="AD_Message">
+        <Data AD_Column_ID="84346" Column="UUID">8aaef777-ecf6-4aae-96c9-5acfbc5bcb68</Data>
+        <Data AD_Column_ID="592" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="590" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="6765" Column="AD_Message_ID">53721</Data>
+        <Data AD_Column_ID="7716" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="391" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="392" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="199" Column="MsgTip">Export file format for Withholding Tax applied to documents</Data>
+        <Data AD_Column_ID="6766" Column="Value">FileIMPaezTXT</Data>
+        <Data AD_Column_ID="197" Column="MsgType">I</Data>
+        <Data AD_Column_ID="591" Column="Updated">2022-03-09 10:38:27.653</Data>
+        <Data AD_Column_ID="198" Column="MsgText">Withholding Tax Declaration Paez (txt)</Data>
+        <Data AD_Column_ID="589" Column="Created">2022-03-09 10:38:27.653</Data>
+        <Data AD_Column_ID="588" Column="IsActive">true</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="119" Action="I" Record_ID="0" Table="AD_Message_Trl">
+        <Data AD_Column_ID="84347" Column="UUID">e73f9b3e-0b05-4113-bb6e-b0265c0f370e</Data>
+        <Data AD_Column_ID="612" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="6767" Column="AD_Message_ID">53721</Data>
+        <Data AD_Column_ID="341" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="610" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="1193" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="1192" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="343" Column="MsgTip">Export file format for Withholding Tax applied to documents</Data>
+        <Data AD_Column_ID="342" Column="MsgText">Withholding Tax Declaration Paez (txt)</Data>
+        <Data AD_Column_ID="344" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="608" Column="IsActive">true</Data>
+        <Data AD_Column_ID="611" Column="Updated">2022-03-09 10:38:28.42</Data>
+        <Data AD_Column_ID="609" Column="Created">2022-03-09 10:38:28.42</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="60" StepType="AD">
+      <PO AD_Table_ID="119" Action="U" Record_ID="0" Table="AD_Message_Trl">
+        <Data AD_Column_ID="6767" Column="AD_Message_ID" oldValue="53721">53721</Data>
+        <Data AD_Column_ID="341" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="343" Column="MsgTip" oldValue="Export file format for Withholding Tax applied to documents">Exporta el archivo de declaración de Impuesto Municipal de la Alcaldía de Páez, estado Portuguesa</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="70" StepType="AD">
+      <PO AD_Table_ID="119" Action="U" Record_ID="0" Table="AD_Message_Trl">
+        <Data AD_Column_ID="6767" Column="AD_Message_ID" oldValue="53721">53721</Data>
+        <Data AD_Column_ID="341" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+        <Data AD_Column_ID="342" Column="MsgText" oldValue="Withholding Tax Declaration Paez (txt)">Declaración de I.M de Alcaldía de Páez (txt)</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>

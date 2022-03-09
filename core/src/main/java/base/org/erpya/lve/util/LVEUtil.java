@@ -111,7 +111,8 @@ public class LVEUtil {
 	public static final String ENABLE_CODE_TYPE_VALIDATION = "ENABLE_CODE_TYPE_VALIDATION";
 	/**	Validate Value for Multi Client	*/
 	public static final String ENABLE_MULTI_CLIENT = "ENABLE_MULTI_CLIENT";
-	
+	/**	Commercial Activity License	*/
+	public static final String COLUMNNAME_LVE_CommercialActivityLicense = "LVE_CommercialActivityLicense";
 	/**
 	 * Process Business Partner Value
 	 * @param value

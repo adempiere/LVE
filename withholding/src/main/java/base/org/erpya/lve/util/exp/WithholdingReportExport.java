@@ -32,5 +32,7 @@ public class WithholdingReportExport extends ReportExport {
 		super(ctx, reportEngine);
 		addExportFormat(new ExportFormatTXT_IVA(ctx, reportEngine));
 		addExportFormat(new ExportFormatXML_ISLR(ctx, reportEngine));
+		addExportFormat(new AraureImpuestoMunicipal_TXT(ctx, reportEngine));
+		addExportFormat(new PaezImpuestoMunicipal_TXT(ctx, reportEngine));
 	}
 }	//	AbstractReportExport
