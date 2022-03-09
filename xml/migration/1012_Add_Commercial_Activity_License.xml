@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add Commercial Activity License" ReleaseNo="3.9.4" SeqNo="81000830">
+  <Migration EntityType="LVE" Name="Add Commercial Activity License" ReleaseNo="3.9.4" SeqNo="81000880">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="276" Action="I" Record_ID="62008" Table="AD_Element">
         <Data AD_Column_ID="84316" Column="UUID">8ede426f-2fe2-465f-b73b-9abd3f04d2a0</Data>
