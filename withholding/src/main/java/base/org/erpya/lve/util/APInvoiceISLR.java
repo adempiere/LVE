@@ -27,6 +27,8 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.compiere.model.I_C_Invoice;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MCharge;
+import org.compiere.model.MClient;
+import org.compiere.model.MConversionRate;
 import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
 import org.compiere.model.MInvoice;
@@ -65,7 +67,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	/**Person Type*/
 	private String bpartnerPersonType = null;
 	/**	Withholding Rental Exempt for Business Partner	*/
-	private HashMap<MLVEList,WHConceptSetting> conceptsToApply = new HashMap<MLVEList,WHConceptSetting>();
+	private HashMap<MLVEList,WHConceptSetting> conceptsToApply = null;
 	/**Tribute Unit Amount */
 	BigDecimal tributeUnitAmount = Env.ZERO;
 	/**Factor*/
@@ -167,7 +169,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 			//	Validate Tribute Unit
 			//MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), invoice.getAD_Org_ID());
 			if (currentWHTax!=null)
-				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(invoice.getDateAcct());
+				tributeUnitAmount = currentWHTax.getValidTributeUnitAmount(invoice.getDateInvoiced());
 			
 			if(tributeUnitAmount.equals(Env.ZERO)) {
 				addLog("@TributeUnit@ (@Rate@ @NotFound@)");
@@ -209,18 +211,18 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 							rate = Env.ZERO;
 						
 						if (rate.compareTo(Env.ZERO)!=0) {
+							BigDecimal amtSubtract = conceptSetting.getAmtSubtract().divide(conceptSetting.getCurrencyRate() ,MathContext.DECIMAL128);
 							setWithholdingRate(rate);
 							rate = getWithholdingRate(true);
 							addBaseAmount(conceptSetting.getAmtBase());
 							if (conceptSetting.isValid())
 								addWithholdingAmount(conceptSetting.getAmtBase().multiply(rate,MathContext.DECIMAL128)
-															.setScale(curPrecision,BigDecimal.ROUND_HALF_UP)
-															.subtract(conceptSetting.getAmtSubtract()));
+															.subtract(amtSubtract));
 							else
 								addWithholdingAmount(Env.ZERO);
 							
 							addDescription(rateToApply.getKey().getName());
-							setReturnValue(LVEUtil.COLUMNNAME_Subtrahend, conceptSetting.getAmtSubtract());
+							setReturnValue(LVEUtil.COLUMNNAME_Subtrahend, amtSubtract);
 							setReturnValue(LVEUtil.COLUMNNAME_IsCumulativeWithholding, conceptSetting.isCumulative());
 							setReturnValue(LVEUtil.COLUMNNAME_IsSimulation, !conceptSetting.isValid());
 							setReturnValue(MWHWithholding.COLUMNNAME_IsManual, isManual);
@@ -242,10 +244,11 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 	 * Set concepts from invoice document
 	 */
 	private void setConcepts() {
+		conceptsToApply = new HashMap<MLVEList,WHConceptSetting>();
 		if (invoice!=null) {
 			if (invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingRentalConcept_ID)!=0) {
 				conceptsToApply.put(MLVEList.get(getContext(), invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingRentalConcept_ID)),
-												 new WHConceptSetting(invoice.getTotalLines()));
+												 new WHConceptSetting(invoice ,invoice.getTotalLines()));
 				return;
 			}
 			
@@ -267,7 +270,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 				
 				if (list!=null)
 					conceptsToApply.compute(list, (concept, rateToApply) -> 
-						rateToApply == null ? new WHConceptSetting(line.getLineNetAmt()): rateToApply.addAmtBase(line.getLineNetAmt()));
+						rateToApply == null ? new WHConceptSetting(invoice, line.getLineNetAmt()): rateToApply.addAmtBase(line.getLineNetAmt()));
 			}
 		}
 	}
@@ -292,8 +295,8 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 					if (varRate!=null) {
 						varRateToApply = varRate.stream()
 								.filter(listLine -> (
-										whConceptSetting.getAmtBase().compareTo(listLine.getMinValue().multiply(tributeUnitAmount))>=0 && 
-											(whConceptSetting.getAmtBase().compareTo(listLine.getMaxValue().multiply(tributeUnitAmount))<=0 
+										whConceptSetting.getAmtBaseConverted().compareTo(listLine.getMinValue().multiply(tributeUnitAmount))>=0 && 
+											(whConceptSetting.getAmtBaseConverted().compareTo(listLine.getMaxValue().multiply(tributeUnitAmount))<=0 
 												|| listLine.getMaxValue().compareTo(Env.ZERO)==0))
 										)
 								.sorted(Comparator.comparing(MLVEListLine::getSeqNo))
@@ -303,15 +306,15 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 						if (varRateToApply==null)
 							varRate.stream()
 									.filter(listLine -> !(
-											whConceptSetting.getAmtBase().compareTo(listLine.getMinValue().multiply(tributeUnitAmount))>=0 && 
-												(whConceptSetting.getAmtBase().compareTo(listLine.getMaxValue().multiply(tributeUnitAmount))<=0 
+											whConceptSetting.getAmtBaseConverted().compareTo(listLine.getMinValue().multiply(tributeUnitAmount))>=0 && 
+												(whConceptSetting.getAmtBaseConverted().compareTo(listLine.getMaxValue().multiply(tributeUnitAmount))<=0 
 													|| listLine.getMaxValue().compareTo(Env.ZERO)==0))
 											)
 									.sorted(Comparator.comparing(MLVEListLine::getSeqNo))
 									.forEach(listLine -> {
 										String minValue =NumberFormat.getInstance().format(listLine.getMinValue().multiply(tributeUnitAmount,MathContext.DECIMAL128));
 										String maxValue =NumberFormat.getInstance().format(listLine.getMaxValue().multiply(tributeUnitAmount,MathContext.DECIMAL128));
-										String baseAmt =NumberFormat.getInstance().format(whConceptSetting.getAmtBase());
+										String baseAmt =NumberFormat.getInstance().format(whConceptSetting.getAmtBaseConverted());
 										resultMessage.set(resultMessage.get()  + (resultMessage.get().isEmpty() ? "" :  "- ") + 
 												"@A_Base_Amount@ < @MinAmt@ @OR@ > @MaxAmt@ (@MinAmt@ = " + minValue+ " - @MaxAmt@ = " + maxValue + "  - @A_Base_Amount@ = " + baseAmt + ") \n");
 									});
@@ -325,7 +328,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 												.divide(Env.ONEHUNDRED,MathContext.DECIMAL128)
 												,MathContext.DECIMAL128)
 												.setScale(curPrecision,BigDecimal.ROUND_HALF_UP);
-						if (whConceptSetting.getAmtBase().compareTo(minValue)>=0) {
+						if (whConceptSetting.getAmtBaseConverted().compareTo(minValue)>=0) {
 							whConceptSetting.setGenerateDocument(true);
 						}else {
 							if (rateToApply.get_ValueAsBoolean("IsCumulativeWithholding")){
@@ -336,7 +339,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 								whConceptSetting.setGenerateDocument(true);
 								whConceptSetting.setValid(false);
 							}
-							resultMessage.set("@A_Base_Amount@ < @MinimumAmt@ ( @MinimumAmt@ = " + minValue + " @A_Base_Amount@ = " + whConceptSetting.getAmtBase() + ") \n");
+							resultMessage.set("@A_Base_Amount@ < @MinimumAmt@ ( @MinimumAmt@ = " + minValue + " @A_Base_Amount@ = " + whConceptSetting.getAmtBaseConverted() + ") \n");
 						}
 					}else 
 						whConceptSetting.setGenerateDocument(true);
@@ -383,17 +386,26 @@ class WHConceptSetting{
 	private MLVEListVersion rateToApply = null;
 	private MLVEListLine varRateToApply = null;
 	private BigDecimal amtBase = Env.ZERO;
+	private BigDecimal amtBaseConverted = Env.ZERO;
 	private BigDecimal amtSubtract = Env.ZERO;
 	private boolean isCumulative = false;
 	private boolean isValid = true;
 	private boolean generateDocument = false;
 	private BigDecimal rate = Env.ZERO;
+	private BigDecimal currencyRate = null;
 	
 	/**
 	 * Constructor
+	 * @param invoice
 	 * @param amtBase
 	 */
-	public WHConceptSetting(BigDecimal amtBase) {
+	public WHConceptSetting(MInvoice invoice,BigDecimal amtBase) {
+		currencyRate = MConversionRate.getRate(invoice.getC_Currency_ID(), 
+												MClient.get(invoice.getCtx()).getC_Currency_ID(), 
+												invoice.getDateAcct(), 
+												invoice.getC_ConversionType_ID(), 
+												invoice.getAD_Client_ID(), 
+												invoice.getAD_Org_ID());
 		setAmtBase(amtBase);
 	}
 	
@@ -402,8 +414,10 @@ class WHConceptSetting{
 	 * @param amtBase
 	 */
 	public void setAmtBase(BigDecimal amtBase) {
-		if (amtBase!=null)
-			this.amtBase = amtBase;
+		Optional.ofNullable(amtBase).ifPresent(amountBase ->{
+			this.amtBase = amountBase;
+			this.amtBaseConverted = Optional.ofNullable(currencyRate).orElse(Env.ONE).multiply(amountBase);
+		});
 	}
 	
 	/**
@@ -412,8 +426,8 @@ class WHConceptSetting{
 	 * @return
 	 */
 	public WHConceptSetting addAmtBase(BigDecimal amt) {
-		if (amt!=null)
-			this.amtBase = (this.amtBase == null ? Env.ZERO : this.amtBase).add(amt);
+		Optional.ofNullable(amt)
+				.ifPresent(amount -> setAmtBase(amount.add(Optional.ofNullable(this.amtBase).orElse(Env.ZERO))));
 		return this;
 	}
 	
@@ -423,6 +437,22 @@ class WHConceptSetting{
 	 */
 	public BigDecimal getAmtBase() {
 		return amtBase;
+	}
+	
+	/**
+	 * Get Amount Base Converted
+	 * @return
+	 */
+	public BigDecimal getAmtBaseConverted() {
+		return amtBaseConverted;
+	}
+	
+	/**
+	 * Get Currency Rate
+	 * @return
+	 */
+	public BigDecimal getCurrencyRate() {
+		return currencyRate;
 	}
 	
 	/**
@@ -547,7 +577,6 @@ class WHConceptSetting{
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "Rate = " + getRate()
 				+ ",AmtBase = " + getAmtBase()
 				+ ",Subtract = " + getAmtSubtract()
