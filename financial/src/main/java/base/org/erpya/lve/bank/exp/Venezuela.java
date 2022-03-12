@@ -86,7 +86,7 @@ public class Venezuela extends LVEPaymentExportList {
 				bankClientNo = bankAccount.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
 			}
 			if(!Util.isEmpty(bankClientNo)) {
-				bankClientNo = processValue(bank.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo));
+				bankClientNo = processValue(bankClientNo);
 				bankClientNo = leftPadding(bankClientNo, 8, "0", true);
 			} else {
 				addError(Msg.parseTranslation(Env.getCtx(), "@BankClientNo@ @NotFound@"));
