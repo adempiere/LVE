@@ -32,6 +32,7 @@ import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Msg;
 import org.compiere.util.Util;
+import org.erpya.lve.util.LVEUtil;
 
 /**
  * 	Implementation for Export Payment from Mercantil bank for Payroll
@@ -59,13 +60,17 @@ public class VenezuelaNomina extends LVEPaymentExportList {
 			MBankAccount bankAccount = (MBankAccount) paySelection.getC_BankAccount();
 			MBank bank = MBank.get(bankAccount.getCtx(), bankAccount.getC_Bank_ID());
 			MOrg org = MOrg.get(paySelection.getCtx(), paySelection.getAD_Org_ID());
-			
-			if(!Util.isEmpty(bank.get_ValueAsString("BankClientNo"))) {
-				bankClientNo = processValue(bank.get_ValueAsString("BankClientNo"));
+			bankClientNo = bank.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
+			if(Util.isEmpty(bankClientNo)) {
+				bankClientNo = bankAccount.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
+			}
+			if(!Util.isEmpty(bankClientNo)) {
+				bankClientNo = processValue(bankClientNo);
 				bankClientNo = leftPadding(bankClientNo, 5, "0", true);
 			} else {
 				addError(Msg.parseTranslation(Env.getCtx(), "@BankClientNo@ @NotFound@"));
 			}
+			
 			//	Fields of Control Register (fixed data)
 			String orgName = org.getName();
 			//	Add padding
