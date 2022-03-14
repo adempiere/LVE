@@ -38,6 +38,7 @@ import org.compiere.util.Msg;
 import org.compiere.util.Util;
 import org.eevolution.model.MHRMovement;
 import org.eevolution.model.MHRProcess;
+import org.erpya.lve.util.LVEUtil;
 
 /**
  * 	Implementation for Export Payment from BOD bank
@@ -88,9 +89,12 @@ public class BOD extends LVEPaymentExportList {
 				addError(Msg.parseTranslation(Env.getCtx(), "@TaxID@ @NotFound@"));
 			}
 			//	Bank Client No
-			String bankClientNo = "";
-			if(!Util.isEmpty(bank.get_ValueAsString("BankClientNo"))) {
-				bankClientNo = processValue(bank.get_ValueAsString("BankClientNo"));
+			String bankClientNo = bankAccount.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
+			if(!Util.isEmpty(bankClientNo)) {
+				bankClientNo = bank.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
+			}
+			if(!Util.isEmpty(bankClientNo)) {
+				bankClientNo = processValue(bankClientNo);
 				bankClientNo = leftPadding(bankClientNo, 17, "0", true);
 			} else {
 				addError(Msg.parseTranslation(Env.getCtx(), "@BankClientNo@ @NotFound@"));

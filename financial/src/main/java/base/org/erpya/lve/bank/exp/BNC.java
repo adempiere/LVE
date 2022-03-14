@@ -16,16 +16,14 @@
 package org.erpya.lve.bank.exp;
 
 import java.io.File;
-import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 import org.compiere.model.MBPBankAccount;
 import org.compiere.model.MBPartner;
-import org.compiere.model.MBank;
 import org.compiere.model.MBankAccount;
-import org.compiere.model.MOrg;
-import org.compiere.model.MOrgInfo;
 import org.compiere.model.MPaySelection;
 import org.compiere.model.MPaySelectionCheck;
 import org.compiere.util.CLogger;
@@ -39,12 +37,15 @@ import org.compiere.util.Util;
  */
 public class BNC extends LVEPaymentExportList {
 
-	/** Logger								*/
-	static private CLogger	s_log = CLogger.getCLogger (MercantilNominaFacil.class);
 	public final static char CR  = (char) 0x0D;
 	public final static char LF  = (char) 0x0A; 
 
 	public final static String CRLF  = "" + CR + LF; 
+	
+	/** Logger								*/
+	private static CLogger	s_log = CLogger.getCLogger (BNC.class);
+	/**	Header Short Format	*/
+	private final String DATE_FORMAT = "yyyyMMdd";
 	
 	@Override
 	public int exportToFile(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
@@ -57,102 +58,121 @@ public class BNC extends LVEPaymentExportList {
 			//	Write header
 			MPaySelection paySelection = (MPaySelection) checks.get(0).getC_PaySelection();
 			MBankAccount bankAccount = (MBankAccount) paySelection.getC_BankAccount();
-			MBank bank = MBank.get(bankAccount.getCtx(), bankAccount.getC_Bank_ID());
-			MOrg org = MOrg.get(paySelection.getCtx(), paySelection.getAD_Org_ID());
-			MOrgInfo orgInfo = MOrgInfo.get(paySelection.getCtx(), paySelection.getAD_Org_ID(), paySelection.get_TrxName());
-			// Bank Identification
-			String bankSwift = "";
-			//	Validate Swift
-			if(!Util.isEmpty(bank.getSwiftCode())) {
-				bankSwift = bank.getSwiftCode();
-				bankSwift = rightPadding(bankSwift, 12, " ", true);
-			} else {
-				addError(Msg.parseTranslation(Env.getCtx(), "@C_Bank_ID@: " + bank.getName() + " @SwiftCode@ @NotFound@"));
-			}
-			//	Fields of Control Register (fixed data)
-			String paymentBatchNo = processValue(paySelection.getDocumentNo());
-			paymentBatchNo = leftPadding(paymentBatchNo, 15, "0", true);
-			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", "")).trim();
-			//	Process Person Type
-			String organizationType = "";
-			if(!Util.isEmpty(orgTaxId)){
-				orgTaxId = orgTaxId.replace("-", "").trim();
-				organizationType = orgTaxId.substring(0, 1);
-				orgTaxId = orgTaxId.replaceAll("\\D+", "");
-			} else {
-				addError(Msg.parseTranslation(Env.getCtx(), "@TaxID@ @NotFound@: " + org.getValue() + " - " + org.getName()));
-			}
-			//	Payment Amount
-			String totalAmtAsString = String.format("%.2f", getTotalAmount(checks).abs()).replace(".", "").replace(",", "");
-			if(totalAmtAsString.length() > 15) {
-				addError(Msg.parseTranslation(Env.getCtx(), "@PayAmt@ > @InValid@"));
-			}
-			totalAmtAsString = leftPadding(totalAmtAsString, 13, "0", true);
-			//	Account No
-			String bankAccountNo = processValue(bankAccount.getAccountNo()).trim();
-			bankAccountNo = bankAccountNo.replace(" ", "");
-			if(bankAccountNo.length() > 20) {
-				bankAccountNo = bankAccountNo.substring(20, bankAccountNo.length());
-			}
-			//	
+			//	Format Date
+			SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
+			// 	Control Register
 			StringBuffer header = new StringBuffer();
-			//	Debt Note
-			header.append("ND ")					//  Constant
-				.append(bankAccountNo)				//	Bank Client No
-				.append(totalAmtAsString)			//  Total Amount
-				.append(organizationType)			//	Organization Type
-				.append(orgTaxId);					//  Tax ID
-			//	Open File
+			//	Set Value Type Register for Control Register
+			String registerType = "C";
+			//	Fields of Debt Register
+			String paymentRequestNo = processValue(paySelection.getDocumentNo());
+			paymentRequestNo = getNumericOnly(paymentRequestNo);
+			paymentRequestNo = leftPadding(paymentRequestNo, 10, "0", true);
+			//	Debt Account
+			AtomicReference<String> debitAccount = new AtomicReference<String>(bankAccount.getAccountNo());
+			if(!Util.isEmpty(debitAccount.get())) {
+				debitAccount.set(leftPadding(debitAccount.get(), 20, "0", true));
+			} else {
+				addError(Msg.parseTranslation(Env.getCtx(), "@AccountNo@ @IsMandatory@"));
+			}
+			//	Payment Quantity
+			String paymentQty = leftPadding(String.valueOf(checks.size()), 5, "0");
+			//	Payment Amount
+			String totalAmtAsString = String.format("%.2f", paySelection.getTotalAmt().abs()).replace(".", "").replace(",", "");
+			if(totalAmtAsString.length() > 15) {
+				addError(Msg.parseTranslation(Env.getCtx(), "@PayAmt@ @Invalid@"));
+			}
+			totalAmtAsString = leftPadding(totalAmtAsString, 15, "0", true);
+			header = new StringBuffer();
+			//	Header
+			header.append(registerType)			//  Type Register
+				.append(paymentQty)				//  Payment Quantity
+				.append(totalAmtAsString)		//	Total Amount
+				.append(paymentRequestNo)		//	Batch Document No
+				.append("S")					//	Error
+				.append("S")					//	Send Email 
+				.append("S")					//	Verify Records 
+				.append("00");					//	Valid 
 			writeLine(header.toString());
+			String payDate = dateFormat.format(paySelection.getPayDate());
 			//  Write Credit Note
 			s_log.fine("Iterate Payments");
 			checks.stream()
 					.filter(paySelectionCheck -> paySelectionCheck != null)
-					.forEach(payselectionCheck -> {
+					.forEach(paySelectionCheck -> {
 						//  BPartner Info
-						MBPartner bpartner = MBPartner.get(payselectionCheck.getCtx(), payselectionCheck.getC_BPartner_ID());
-						MBPBankAccount bpAccount = getBPAccountInfo(payselectionCheck, true);
+						MBPartner bpartner = MBPartner.get(paySelectionCheck.getCtx(), paySelectionCheck.getC_BPartner_ID());
+						MBPBankAccount bpAccount = getBPAccountInfo(paySelectionCheck, true);
 						if(bpAccount != null) {
-							String bPTaxId = bpAccount.getA_Ident_SSN();
+							//	Line Register Type
+							String lineRegisterType = "D";
 							//	Process Person Type
-							String personType = "";
+							String bPPersonType = "";
+							String bPTaxId = bpAccount.getA_Ident_SSN();
 							if(!Util.isEmpty(bPTaxId)){
 								bPTaxId = bPTaxId.replace("-", "").trim();
-								personType = bPTaxId.substring(0, 1);
-								bPTaxId = bPTaxId.replaceAll("\\D+","");
+								bPPersonType = bPTaxId.substring(0, 1);
+								bPTaxId = getNumericOnly(bPTaxId);
 								bPTaxId = leftPadding(bPTaxId, 9, "0", true);
 							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@BPTaxID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
-							//	Process Business Partner Account No
+							//	Process Account Name
+							String bPName = processValue(bpAccount.getA_Name());
+							if(Optional.ofNullable(bPName).isPresent()) {
+								bPName = rightPadding(bPName, 80, " ", true);
+							} else {
+								addError(Msg.parseTranslation(Env.getCtx(), "@A_Name@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
+							}
+							//	Description (Can be filled with document reference)
+							String lineDescription = processValue(getDetail(paySelectionCheck));
+							lineDescription = rightPadding(lineDescription, 30, " ", true);
+							//	BP Account No
 							String bPAccountNo = processValue(bpAccount.getAccountNo());
-							if(!Optional.ofNullable(bPAccountNo).isPresent()) {
+							if(Optional.ofNullable(bPAccountNo).isPresent()) {
+								bPAccountNo = leftPadding(bPAccountNo, 20, "0", true);
+							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@AccountNo@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
-							
 							//	Payment Amount
-							String amountAsString = String.format("%.2f", payselectionCheck.getPayAmt().abs()).replace(".", "").replace(",", "");
+							String amountAsString = String.format("%.2f", paySelectionCheck.getPayAmt().abs()).replace(".", "").replace(",", "");
 							if(amountAsString.length() > 15) {
-								addError(Msg.parseTranslation(Env.getCtx(), "@PayAmt@ > @Valid@: " + bpartner.getValue() + " - " + bpartner.getName()));
+								addError(Msg.parseTranslation(Env.getCtx(), "@PayAmt@ @Invalid@"));
 							}
-							amountAsString = leftPadding(amountAsString, 13, "0", true);
-
+							amountAsString = leftPadding(amountAsString, 15, "0", true);
+							//	Comments
+							String comment = getDetail(paySelectionCheck);
+							if(Util.isEmpty(comment)) {
+								comment = "";
+							}
+							comment = rightPadding(comment, 60, " ", true);
+							//	EMail
+							String bPEmail = "";
+							if(!Util.isEmpty(bpAccount.getA_EMail())) {
+								bPEmail = bpAccount.getA_EMail();
+							}
+							bPEmail = rightPadding(bPEmail, 100, " ", true);
 							//	Write Credit Register
 							StringBuffer line = new StringBuffer();
-							line.append(CRLF)						//	New Line
-								.append("NC ")						//	Constant
-								.append(bPAccountNo)				//  BP Bank Account
-								.append(amountAsString)				//	Payment Amount
-								.append(personType)					//	Type Register	
-								.append(bPTaxId);					//	BP Value
-
+							line.append(Env.NL)					//	New Line
+								.append(lineRegisterType)		//	Type Register
+								.append(payDate)				//	Payment Date
+								.append(debitAccount.get())			//	Debt Account
+								.append(bPAccountNo)			//  BP Bank Account								
+								.append(amountAsString)			// 	Payment Amount
+								.append(comment)				//	Comment
+								.append(bPPersonType)			//	Person Type
+								.append(bPTaxId)				//  BP TaxID
+								.append(bPName)					//	BP Name
+								.append(bPEmail)				//	BP EMail
+								.append(bPPersonType)			//	Person Type
+								.append(bPTaxId);				//  BP TaxID
 							s_log.fine("Write Line");
 							writeLine(line.toString());
 						} else {
 							addError(Msg.parseTranslation(Env.getCtx(), "@C_BP_BankAccount_ID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 						}
 			});
-			//writeDetail();
 			//	
 			closeFileWriter();
 		} catch (Exception e) {
@@ -174,19 +194,5 @@ public class BNC extends LVEPaymentExportList {
 		}
 		//	
 		return value.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ$,;*/áéíóúÁÉÍÓÚñÑ¿¡]", "");
-	}
-	
-	/**
-	 * Get Total Amount of Payments
-	 * @param checks
-	 * @return
-	 */
-	private BigDecimal getTotalAmount(List<MPaySelectionCheck> checks) {
-		BigDecimal totalAmount = Env.ZERO;
-		for(MPaySelectionCheck payment : checks) {
-			totalAmount = totalAmount.add(payment.getPayAmt());
-		}
-		//	Default return
-		return totalAmount;
 	}
 }

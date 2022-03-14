@@ -81,9 +81,9 @@ public class Venezuela extends LVEPaymentExportList {
 			//	Fields of Control Register (fixed data)
 			String sequence = rightPadding("HEADER", 8, " ");
 			//	Bank Client No
-			String bankClientNo = bank.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
+			String bankClientNo = bankAccount.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
 			if(Util.isEmpty(bankClientNo)) {
-				bankClientNo = bankAccount.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
+				bankClientNo = bank.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
 			}
 			if(!Util.isEmpty(bankClientNo)) {
 				bankClientNo = processValue(bankClientNo);

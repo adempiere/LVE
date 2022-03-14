@@ -60,9 +60,9 @@ public class VenezuelaNomina extends LVEPaymentExportList {
 			MBankAccount bankAccount = (MBankAccount) paySelection.getC_BankAccount();
 			MBank bank = MBank.get(bankAccount.getCtx(), bankAccount.getC_Bank_ID());
 			MOrg org = MOrg.get(paySelection.getCtx(), paySelection.getAD_Org_ID());
-			bankClientNo = bank.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
+			bankClientNo = bankAccount.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
 			if(Util.isEmpty(bankClientNo)) {
-				bankClientNo = bankAccount.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
+				bankClientNo = bank.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
 			}
 			if(!Util.isEmpty(bankClientNo)) {
 				bankClientNo = processValue(bankClientNo);
