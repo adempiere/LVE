@@ -17,6 +17,7 @@ package org.erpya.lve.util;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.Optional;
 
 import org.compiere.model.I_C_Invoice;
@@ -173,8 +174,8 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 				setWithholdingRate(rate);
 				rate = getWithholdingRate(true);
 				addBaseAmount(baseAmount);
-				addWithholdingAmount(baseAmount.multiply(rate,MathContext.DECIMAL128)
-												.setScale(curPrecision,BigDecimal.ROUND_HALF_UP));
+				addWithholdingAmount(baseAmount.multiply(rate.multiply(rateToApply.getWithholdingBaseRate().divide(Env.ONEHUNDRED))
+						, MathContext.DECIMAL128).setScale(curPrecision, RoundingMode.HALF_UP));
 				addDescription(activityToApply.getName());
 				setReturnValue(MWHWithholding.COLUMNNAME_IsManual, isManual);
 				
