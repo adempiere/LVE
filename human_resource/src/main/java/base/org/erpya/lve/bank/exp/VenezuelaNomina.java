@@ -44,8 +44,6 @@ public class VenezuelaNomina extends LVEPaymentExportList {
 	static private CLogger	s_log = CLogger.getCLogger (MercantilNominaFacil.class);
 	/**	Header Short Format	*/
 	private final String HEADER_SHORT_DATE_FORMAT = "dd/MM/yy";
-	/**	Bank Client No */
-	private String bankClientNo = "";
 			
 	@Override
 	public int exportToFile(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
@@ -60,17 +58,17 @@ public class VenezuelaNomina extends LVEPaymentExportList {
 			MBankAccount bankAccount = (MBankAccount) paySelection.getC_BankAccount();
 			MBank bank = MBank.get(bankAccount.getCtx(), bankAccount.getC_Bank_ID());
 			MOrg org = MOrg.get(paySelection.getCtx(), paySelection.getAD_Org_ID());
-			bankClientNo = bankAccount.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
-			if(Util.isEmpty(bankClientNo)) {
-				bankClientNo = bank.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
+			String headerBankClientNo = bankAccount.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
+			if(Util.isEmpty(headerBankClientNo)) {
+				headerBankClientNo = bank.get_ValueAsString(LVEUtil.COLUMNNAME_BankClientNo);
 			}
-			if(!Util.isEmpty(bankClientNo)) {
-				bankClientNo = processValue(bankClientNo);
-				bankClientNo = leftPadding(bankClientNo, 5, "0", true);
+			if(!Util.isEmpty(headerBankClientNo)) {
+				headerBankClientNo = processValue(headerBankClientNo);
+				headerBankClientNo = leftPadding(headerBankClientNo, 5, "0", true);
 			} else {
 				addError(Msg.parseTranslation(Env.getCtx(), "@BankClientNo@ @NotFound@"));
 			}
-			
+			String lineBankClientNo = leftPadding(headerBankClientNo, 6, "0", true);
 			//	Fields of Control Register (fixed data)
 			String orgName = org.getName();
 			//	Add padding
@@ -97,8 +95,8 @@ public class VenezuelaNomina extends LVEPaymentExportList {
 				.append(bankAccountNo)			//	Bank Client No
 				.append(constant)				//	Constant
 				.append(payDate)				//	Payment Date
-				.append(totalAmtAsString)
-				.append(bankClientNo);		//  Total Amount
+				.append(totalAmtAsString)		//	Total Amount
+				.append(headerBankClientNo);	//  Bank Client No
 			//	Open File
 			writeLine(header.toString());
 			//  Write Credit Note
@@ -109,7 +107,6 @@ public class VenezuelaNomina extends LVEPaymentExportList {
 						//  BPartner Info
 						MBPartner bpartner = MBPartner.get(payselectionCheck.getCtx(), payselectionCheck.getC_BPartner_ID());
 						MBPBankAccount bpAccount = getBPAccountInfo(payselectionCheck, true);
-						bankClientNo = leftPadding(bankClientNo, 6, "0", true);
 						//addPayrollProcess(payselectionCheck);
 						if(bpAccount != null) {
 							String bPTaxId = bpAccount.getA_Ident_SSN();
@@ -132,19 +129,27 @@ public class VenezuelaNomina extends LVEPaymentExportList {
 							}
 							//	Payment Amount
 							String amountAsString = String.format("%.2f", payselectionCheck.getPayAmt().abs()).replace(".", "").replace(",", "");
-							if(amountAsString.length() > 15) {
+							if(amountAsString.length() > 11) {
 								addError(Msg.parseTranslation(Env.getCtx(), "@PayAmt@ > @Valid@: " + bpartner.getValue() + " - " + bpartner.getName()));
 							}
-							amountAsString = leftPadding(amountAsString, 15, "0", true);
+							amountAsString = leftPadding(amountAsString, 11, "0", true);
+							String accountType = "0";
+							if(!Util.isEmpty(bpAccount.getBankAccountType())
+									&& bpAccount.getBankAccountType().equals(MBankAccount.BANKACCOUNTTYPE_Savings)) {
+								accountType = "1";
+							}
+							String lineConstant = "770";
 							//	Write Credit Register
 							StringBuffer line = new StringBuffer();
 							line.append(Env.NL)						//	New Line
 								.append(constantLine)				//	Constant
 								.append(bPAccountNo)				//	Bank Account
 								.append(amountAsString)				//	Amount
+								.append(accountType)				//	Account Type
+								.append(lineConstant)				//	Constant
 								.append(bPName)						//	BP Value
 								.append(bPTaxId)					//	BP Tax
-								.append(bankClientNo);					//	Constant
+								.append(lineBankClientNo);			//	Customer Account No
 							s_log.fine("Write Line");
 							writeLine(line.toString());
 						} else {
