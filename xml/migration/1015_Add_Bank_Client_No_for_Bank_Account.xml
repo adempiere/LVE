@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Add Bank Client No for Bank Account" ReleaseNo="1.0" SeqNo="81000910">
+  <Migration EntityType="LVE" Name="Add Bank Client No for Bank Account" ReleaseNo="1.0" SeqNo="81000910">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="107" Action="I" Record_ID="102084" Table="AD_Field">
         <Data AD_Column_ID="84320" Column="UUID">63e28927-15b2-407d-b379-865473af7961</Data>

@@ -52,13 +52,15 @@ CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
     it.AliquotType,
 	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal,
 	bp.IsTaxPayer,
-	CurrencyRate(iwh.C_Currency_ID, oi.LVE_FiscalCurrency_ID, iwh.DateAcct, iwh.C_ConversionType_ID, i.AD_Client_ID, iwh.AD_Org_ID) AS WHCurrencyRate
+	CurrencyRate(iwh.C_Currency_ID, oi.LVE_FiscalCurrency_ID, iwh.DateAcct, iwh.C_ConversionType_ID, i.AD_Client_ID, iwh.AD_Org_ID) AS WHCurrencyRate,
+	taxcur.StdPrecision
    FROM C_Invoice i
      LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
      INNER JOIN C_DocType dt ON i.C_DocType_ID = dt.C_DocType_ID
      INNER JOIN C_BPartner bp ON i.C_BPartner_ID = bp.C_BPartner_ID
 	 INNER JOIN AD_Org o ON o.AD_Org_ID = i.AD_Org_ID
      INNER JOIN AD_OrgInfo oi ON oi.AD_Org_ID = COALESCE(o.Parent_Org_ID,o.AD_Org_ID)
+	 LEFT JOIN C_Currency taxcur ON (oi.LVE_FiscalCurrency_ID = taxcur.C_Currency_ID)
 	 INNER JOIN AD_Org c ON (c.AD_Org_ID = oi.AD_Org_ID)
      LEFT JOIN ( SELECT 
 				sum(
@@ -175,10 +177,12 @@ UNION ALL
     '' AS AliquotType,
 	CASE WHEN bp.PersonType IN ('PJND', 'PNNR') THEN 'N' ELSE 'Y' END IsInternal,
 	bp.IsTaxPayer,
-	CurrencyRate(iwh.C_Currency_ID, oi.LVE_FiscalCurrency_ID, iwh.DateAcct, iwh.C_ConversionType_ID, i.AD_Client_ID, iwh.AD_Org_ID) AS WHCurrencyRate
+	CurrencyRate(iwh.C_Currency_ID, oi.LVE_FiscalCurrency_ID, iwh.DateAcct, iwh.C_ConversionType_ID, i.AD_Client_ID, iwh.AD_Org_ID) AS WHCurrencyRate,
+	taxcur.StdPrecision
    FROM C_Invoice i
      INNER JOIN AD_Org o ON o.AD_Org_ID = i.AD_Org_ID
      INNER JOIN AD_OrgInfo oi ON oi.AD_Org_ID = COALESCE(o.Parent_Org_ID,o.AD_Org_ID)
+	 LEFT JOIN C_Currency taxcur ON (oi.LVE_FiscalCurrency_ID = taxcur.C_Currency_ID)
 	 INNER JOIN AD_Org c ON (c.AD_Org_ID = oi.AD_Org_ID)
      LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
 	 INNER JOIN C_Year y ON (y.C_Year_ID = p.C_Year_ID)
