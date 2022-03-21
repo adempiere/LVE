@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add TXT Araure Paez" ReleaseNo="3.9.4" SeqNo="81000900">
+  <Migration EntityType="LVE" Name="Add TXT Araure Paez" ReleaseNo="1.0" SeqNo="81000900">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="109" Action="I" Record_ID="53720" Table="AD_Message">
         <Data AD_Column_ID="84346" Column="UUID">73174fe3-f220-4fd3-86d0-2a2e854e3823</Data>

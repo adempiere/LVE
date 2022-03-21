@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="LVE" Name="Add Org Parameter for Books" ReleaseNo="3.9.4" SeqNo="81000820">
+  <Migration EntityType="LVE" Name="Add Org Parameter for Books" ReleaseNo="1.0" SeqNo="81000820">
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="285" Action="I" Record_ID="58561" Table="AD_Process_Para">
         <Data AD_Column_ID="2820" Column="Updated">2022-02-01 11:41:17.277</Data>
