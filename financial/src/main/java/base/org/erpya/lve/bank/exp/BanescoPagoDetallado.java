@@ -317,7 +317,7 @@ public class BanescoPagoDetallado extends LVEPaymentExportList {
 			//	Totals Register
 			//	Set Value Type Register for Totals Register
 			registerType = "06";
-			String countDebit = leftPadding("1", 15, "0");
+			String countDebit = leftPadding("" + getPaymentQty(), 15, "0");
 			String countCredit = leftPadding("" + getPaymentQty(), 15, "0");
 			//	Write Totals
 			StringBuffer footer = new StringBuffer();
