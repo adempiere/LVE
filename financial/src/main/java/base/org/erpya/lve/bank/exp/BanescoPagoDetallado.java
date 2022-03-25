@@ -156,7 +156,6 @@ public class BanescoPagoDetallado extends LVEPaymentExportList {
 			debtReferenceNo = debtReferenceNo.substring(0, debtReferenceNo.length() >= 8? 8: debtReferenceNo.length());
 			debtReferenceNo = debtReferenceNo.replaceAll("\\D+","");
 			debtReferenceNo = rightPadding(debtReferenceNo, 30, " ");
-			String debtReferenceNoForLine = debtReferenceNo;
 			//	Payment Amount
 			String totalAmtAsString = String.format("%.2f", totalPaymentAmount).replace(".", "").replace(",", "");
 			totalAmtAsString = leftPadding(totalAmtAsString, 15, "0");
@@ -274,7 +273,7 @@ public class BanescoPagoDetallado extends LVEPaymentExportList {
 							StringBuffer line = new StringBuffer();
 							line.append(CRLF)											//	New Line
 								.append(debitRegisterType)								//  Type Register
-								.append(debtReferenceNoForLine)							//	Reference Number
+								.append(documentNo)										//	Reference Number
 								.append(orgTaxIdForLine)								//  Organization Tax ID
 								.append(clientNameForLine)								//  Client Name
 								.append(amountAsString)									//  Total Amount
