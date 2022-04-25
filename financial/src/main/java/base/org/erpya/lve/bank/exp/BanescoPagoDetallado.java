@@ -252,9 +252,9 @@ public class BanescoPagoDetallado extends LVEPaymentExportList {
 							String lineRegisterType = "03";
 							//	Process Document No
 							String documentNo = processValue(paySelectionCheck.getDocumentNo());
-							documentNo = documentNo.substring(0, documentNo.length() >= 8? 8: documentNo.length());
+							documentNo = documentNo.substring(0, documentNo.length() >= 30? 30: documentNo.length());
 							documentNo = documentNo.replaceAll("\\D+","");
-							documentNo = leftPadding(documentNo, 8, "0");
+							documentNo = leftPadding(documentNo, 30, "0");
 							documentNo = rightPadding(documentNo, 30, " ");
 							//	Payment Amount
 							String amountAsString = String.format("%.2f", paySelectionCheck.getPayAmt().abs()).replace(".", "").replace(",", "");
