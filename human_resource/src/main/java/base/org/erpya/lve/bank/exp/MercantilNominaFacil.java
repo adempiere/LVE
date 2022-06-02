@@ -424,4 +424,16 @@ public class MercantilNominaFacil extends LVEPaymentExportList {
 		//	Default return
 		return totalAmount;
 	}
+	
+	/**
+	 * Open File from Payment Selection
+	 * @param file
+	 * @param checks
+	 */
+	public void openFileWriter(File file, List<MPaySelectionCheck> checks) {
+		MPaySelectionCheck check = checks.get(0);
+		MPaySelection paymentSelection = check.getParent();
+		String fileName = getFileName(file, "", paymentSelection.getDocumentNo());
+		openFileWriter(fileName.replaceAll("_", ""));
+	}
 }
