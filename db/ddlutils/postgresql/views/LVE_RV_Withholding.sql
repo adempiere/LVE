@@ -40,7 +40,11 @@ SELECT
 	w.IsManual,
 	w.FiscalDocumentType,
 	ROUND(w.TaxBaseAmt * w.CurrencyRate,w.PricePrecision) TaxBaseAmt,
-	w.Concept_Name
+	w.Concept_Name,
+	w.CurrencyRate,
+	w.C_ConversionType_ID,
+	w.C_Currency_ID,
+	w.PricePrecision
 FROM (
 	SELECT 
 		whDoc.AD_Client_ID,
@@ -85,10 +89,12 @@ FROM (
 		dtOrigDoc.FiscalDocumentType,
 		it.TaxBaseAmt,
 		whconcept.Name Concept_Name,
-		CurrencyRate(origDoc.C_Currency_ID, whDoc.C_Currency_ID, origDoc.DateAcct, origDoc.C_ConversionType_ID, origDoc.AD_Client_ID, origDoc.AD_Org_ID) CurrencyRate,
+		CurrencyRate(origDoc.C_Currency_ID, whDoc.C_Currency_ID, wh.DateAcct, wh.C_ConversionType_ID, origDoc.AD_Client_ID, origDoc.AD_Org_ID) CurrencyRate,
 		pl.PricePrecision,
 		origDoc.C_Currency_ID Doc_C_Currency_ID,
-		whDoc.C_Currency_ID WH_C_Currency_ID 
+		whDoc.C_Currency_ID WH_C_Currency_ID, 
+		wh.C_ConversionType_ID,
+		wh.C_Currency_ID
 	FROM C_Invoice whDoc
 	INNER JOIN C_InvoiceLine whDocLine ON (whDoc.C_Invoice_ID = whDocLine.C_Invoice_ID)
 	INNER JOIN C_BPartner bp ON (whDoc.C_BPartner_ID = bp.C_BPartner_ID)
