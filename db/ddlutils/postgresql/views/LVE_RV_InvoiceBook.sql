@@ -95,7 +95,8 @@ CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
 		   				i.Ad_Org_ID,
 						i.C_Currency_ID,
 		   				i.C_ConversionType_ID,
-						i.DateAcct
+						i.DateAcct,
+						whd.C_Tax_ID
            		FROM C_Invoice i
              	LEFT JOIN C_Period p ON i.DateAcct >= p.StartDate AND i.DateAcct <= p.EndDate AND i.AD_Client_ID = p.AD_Client_ID
              	INNER JOIN C_InvoiceLine il ON i.C_Invoice_ID = il.C_Invoice_ID
@@ -113,7 +114,8 @@ CREATE OR REPLACE VIEW LVE_RV_InvoiceBook AS
 			i.Ad_Org_ID,
 			i.C_Currency_ID,
 		   	i.C_ConversionType_ID,
-			i.DateAcct) iwh ON i.C_Invoice_ID = iwh.C_Invoice_ID AND p.C_Period_ID = iwh.C_Period_ID
+			i.DateAcct,
+			whd.C_Tax_ID) iwh ON i.C_Invoice_ID = iwh.C_Invoice_ID AND p.C_Period_ID = iwh.C_Period_ID AND (COALESCE(iwh.C_Tax_ID,0) = 0 OR (COALESCE(iwh.C_Tax_ID,0) > 0 AND COALESCE(iwh.C_Tax_ID,0) = it.C_Tax_ID))
      LEFT JOIN ( SELECT il.C_Invoice_ID,
             			max(i.DocumentNo) AS AffectedDocumentNo
            		 FROM C_Invoice i 
