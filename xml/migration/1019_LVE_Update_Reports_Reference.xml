@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="LVE Update Reports Reference" ReleaseNo="1.0" SeqNo="81000950">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54351" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:ARCV.jasper">http://viewer.report/LVE/ARCV.jasper</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54358" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:ARCV_Detail.jasper">http://viewer.report/LVE/ARCV_Detail.jasper</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54380" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:inf_HR_EmploymentVerification.jasper">http://viewer.report/LVE/inf_HR_EmploymentVerification.jasper</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54381" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:inf_HR_EmploymentVerificationUnsigned.jasper">http://viewer.report/LVE/inf_HR_EmploymentVerificationUnsigned.jasper</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54355" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:inf_HR_PaymentReceipt.jasper">http://viewer.report/LVE/inf_HR_PaymentReceipt.jasper</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="60" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54460" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:inf_Ledger_Detailed.jasper">http://viewer.report/LVE/inf_Ledger_Detailed.jasper</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="70" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54461" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:inf_Ledger_Summary.jasper">http://viewer.report/LVE/inf_Ledger_Summary.jasper</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="80" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54309" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:inf_PurchaseBook.jrxml">http://viewer.report/LVE/inf_PurchaseBook.jrxml</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="90" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54310" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:inf_SalesBook.jrxml">http://viewer.report/LVE/inf_SalesBook.jrxml</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="100" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54617" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:inf_SalesBookFiscalPrinter.jrxml">http://viewer.report/LVE/inf_SalesBookFiscalPrinter.jrxml</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="110" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54481" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:inf_SalesBookTaxPayer.jrxml">http://viewer.report/LVE/inf_SalesBookTaxPayer.jrxml</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="120" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="54290" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:rpt_ProductPriceList.jasper">http://viewer.report/LVE/rpt_ProductPriceList.jasper</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
