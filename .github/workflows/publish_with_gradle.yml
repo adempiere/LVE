@@ -1,0 +1,51 @@
+# This is a basic workflow to help you get started with Actions
+# This file was contributed by Carlos Parada and Yamel Senih from ERP Consultores y Asociados, C.A
+
+name: Publish With gradle to maven central
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the develop branch
+  release:
+    types: 
+      - published
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+  # Build dist application backend
+  build-app:
+    name: Publish with gradle to maven central
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt-hotspot'
+          java-version: 8
+
+      - name: get adempiere source
+        run: |
+          download_repo="https://github.com/erpcya/adempiere/releases/download/3.9.3-rs-4.3/Adempiere_393LTS.tar.gz"
+          wget $download_repo -c -O Adempiere.tar.gz
+      
+      - name: uncompress file
+        run: tar -xzf Adempiere.tar.gz
+      - name: create dependences folder
+        run: mkdir dependences
+      - name: move dependences
+        run: mv Adempiere/lib/*.jar dependences/
+      - name: move packages
+        run: mv Adempiere/packages/*/lib/*.jar dependences/
+
+      - name: Publish with Gradle
+        run: gradle publish
+        env:
+          ADEMIERE_LIBRARY_VERSION: ${{ github.event.release.tag_name }}
+          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.PGP_SECRET }}
+          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.PGP_PASSPHRASE }}
+          ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.OSSRH_TOKEN }}
+          ORG_GRADLE_PROJECT_sonatypeUsername: ${{ secrets.OSSRH_USERNAME }}

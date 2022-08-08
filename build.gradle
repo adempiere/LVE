@@ -1,31 +1,20 @@
 apply plugin: 'java-library'
 apply plugin: 'maven-publish'
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-    flatDir {
-       dirs 'dependences', 'lib'
-	}
-    maven {
-		url = "https://maven.pkg.github.com/erpcya/Repository"
-        credentials {
-        	username = System.properties['deploy.user'] ?: System.getenv("GITHUB_DEPLOY_USER")
-            password = System.properties['deploy.token'] ?: System.getenv("GITHUB_DEPLOY_TOKEN")
-		}
-	}
-}
+apply plugin: 'signing'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-def libraryVersion = '1.8.5'
-def entityType = 'LVE'
-sourceSets {
-    main {
-         java {
-            srcDirs = ['core/src/main/java/base', 'financial/src/main/java/base', 'withholding/src/main/java/base', 'human_resource/src/main/java/base']
-         }
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+if (JavaVersion.current().isJava8Compatible()) {
+    allprojects {
+        tasks.withType(Javadoc) {
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
     }
 }
 
@@ -34,52 +23,50 @@ dependencies {
 	compileOnly fileTree(dir: 'lib', include: ['*.jar'])
 }
 
-jar {
-    manifest {
-        attributes('Implementation-Title': project.name,
-                   'Implementation-Version': project.version,
-                   "EntityType": entityType)
+sourceSets {
+    main {
+         java {
+            srcDirs = ['core/src/main/java/base', 'financial/src/main/java/base', 'withholding/src/main/java/base', 'human_resource/src/main/java/base']
+         }
     }
 }
 
-//	Create release for project
-task createRelease(type: Zip) {
-   dependsOn build
-   from 'build/libs/'
-   from 'xml/'
-   include '*'
-   include '*/*'
-   archiveName project.name + '.zip'
-   destinationDir(file('build/release/'))
-   doLast {
-        file('build/release/')
-        	.listFiles({file -> file.isFile()} as FileFilter).sort()
-        	.each { File file ->
-            ant.checksum file: file
-        }
-   	}
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+def entityType = 'LVE'
+version = System.getenv("ADEMIERE_LIBRARY_VERSION")
+
+jar {
+    manifest {
+        attributes("Implementation-Title": "A Test of Project",
+                   "Implementation-Version": version, 
+                   "EntityType": entityType)
+    }
 }
 
 publishing {
     repositories {
         maven {
-            url = "https://maven.pkg.github.com/erpcya/Repository"
+            url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
             credentials {
-                username = System.properties['deploy.user'] ?: System.getenv("GITHUB_DEPLOY_USER")
-                password = System.properties['deploy.token'] ?: System.getenv("GITHUB_DEPLOY_TOKEN")
+                username = findProperty("sonatypeUsername")
+                password = findProperty("sonatypePassword")
             }
         }
     }
     publications {
-		mavenJava(MavenPublication) {
-        	groupId 'org.erpya.adempiere.locations'
+        mavenJava(MavenPublication) {
+        	groupId 'io.github.adempiere'
             artifactId 'location-venezuela'
-            version libraryVersion
-           	artifact jar
+            version
+           	from components.java
            	pom {
                 name = 'ADempiere Venezuela Location'
-                description = 'This library have all related to ADempiere Venezuela Location own Laws for Venezuela (Venezuela Freedom :))'
-                 url = 'https://www.erpya.com/'
+                description = 'This library have all related to ADempiere Venezuela Location own Laws for Venezuela'
+                url = 'http://erpya.com/'
                 licenses {
                     license {
                         name = 'GNU General Public License v3.0'
@@ -93,7 +80,19 @@ publishing {
                         email = 'ysenih@erpya.com'
                     }
                 }
+                scm {
+                    connection = 'scm:git:git://github.com/adempiere/LVE.git'
+                    developerConnection = 'scm:git:ssh://github.com/adempiere/LVE.git'
+                    url = 'http://github.com/adempiere/LVE'
+                }
             }
 		}
 	}
+}
+
+signing {
+	def signingKey = findProperty("signingKey")
+    def signingPassword = findProperty("signingPassword")
+    useInMemoryPgpKeys(signingKey, signingPassword)
+    sign publishing.publications.mavenJava
 }
