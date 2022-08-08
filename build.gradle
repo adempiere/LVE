@@ -19,6 +19,7 @@ if (JavaVersion.current().isJava8Compatible()) {
 }
 
 dependencies {
+	api 'io.github.adempiere:withholding-engine:1.2.3'
 	compileOnly fileTree(dir: 'dependences', include: ['*.jar'])
 	compileOnly fileTree(dir: 'lib', include: ['*.jar'])
 }
@@ -41,7 +42,7 @@ version = System.getenv("ADEMIERE_LIBRARY_VERSION")
 
 jar {
     manifest {
-        attributes("Implementation-Title": "A Test of Project",
+        attributes("Implementation-Title": "Venezuela Location for ADempiere",
                    "Implementation-Version": version, 
                    "EntityType": entityType)
     }
