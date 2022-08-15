@@ -233,9 +233,9 @@ public class Venezuela extends LVEPaymentExportList {
 			//	Constant
 			String constant = rightPadding("TOTAL", 8, " ");
 			//	Constant
-			String constant2 = leftPadding("1", 5, "0");
+			String constant2 = leftPadding(String.valueOf(checks.size()), 5, "0");
 			//	Constant
-			String constant3 = leftPadding("1", 5, "0");
+			String constant3 = leftPadding(String.valueOf(checks.size()), 5, "0");
 			//	Payment Amount
 			String totalAsString = String.format("%.2f", paySelection.getTotalAmt().abs()).replace(".", ",");
 			if(totalAsString.length() > 18) {

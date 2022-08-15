@@ -45,7 +45,7 @@ public class BNC extends LVEPaymentExportList {
 	/** Logger								*/
 	private static CLogger	s_log = CLogger.getCLogger (BNC.class);
 	/**	Header Short Format	*/
-	private final String DATE_FORMAT = "yyyyMMdd";
+	private final String DATE_FORMAT = "ddMMyyyy";
 	
 	@Override
 	public int exportToFile(List<MPaySelectionCheck> checks, File file, StringBuffer error) {
@@ -157,7 +157,7 @@ public class BNC extends LVEPaymentExportList {
 							line.append(Env.NL)					//	New Line
 								.append(lineRegisterType)		//	Type Register
 								.append(payDate)				//	Payment Date
-								.append(debitAccount.get())			//	Debt Account
+								.append(debitAccount.get())		//	Debt Account
 								.append(bPAccountNo)			//  BP Bank Account								
 								.append(amountAsString)			// 	Payment Amount
 								.append(comment)				//	Comment
