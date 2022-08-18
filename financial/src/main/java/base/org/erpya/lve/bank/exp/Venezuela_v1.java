@@ -48,10 +48,10 @@ import org.erpya.lve.util.LVEUtil;
  *		<a href="https://github.com/adempiere/LVE/issues/43">
  * 		@see FR [ 43 ] Error en la clase exportador del txt del Banco de Venezuela</a>
  */
-public class Venezuela extends LVEPaymentExportList {
+public class Venezuela_v1 extends LVEPaymentExportList {
 
 	/** Logger								*/
-	static private CLogger	s_log = CLogger.getCLogger (Venezuela.class);
+	static private CLogger	s_log = CLogger.getCLogger (Venezuela_v1.class);
 	/**	Header Short Format	*/
 	private final String SHORT_DATE_FORMAT = "dd/MM/yyyy";
 	public final static char CR  = (char) 0x0D;
@@ -233,9 +233,9 @@ public class Venezuela extends LVEPaymentExportList {
 			//	Constant
 			String constant = rightPadding("TOTAL", 8, " ");
 			//	Constant
-			String constant2 = leftPadding("1", 5, "0");
+			String constant2 = leftPadding(String.valueOf(checks.size()), 5, "0");
 			//	Constant
-			String constant3 = leftPadding("1", 5, "0");
+			String constant3 = leftPadding(String.valueOf(checks.size()), 5, "0");
 			//	Payment Amount
 			String totalAsString = String.format("%.2f", paySelection.getTotalAmt().abs()).replace(".", ",");
 			if(totalAsString.length() > 18) {
