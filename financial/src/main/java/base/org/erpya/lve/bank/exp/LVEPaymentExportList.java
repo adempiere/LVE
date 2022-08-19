@@ -18,6 +18,8 @@ package org.erpya.lve.bank.exp;
 import java.io.File;
 import java.util.List;
 
+import javax.mail.internet.InternetAddress;
+
 import org.compiere.model.MBPBankAccount;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MBank;
@@ -298,5 +300,30 @@ public abstract class LVEPaymentExportList extends PaymentExportList {
 		}
 		//	
 		return value.replaceAll("[+^:&áàäéèëíìïóòöúùñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ,;*./?-]", "").trim();
+	}
+	
+	public String getValidEMail(String eMail) {
+		if(Util.isEmpty(eMail)) {
+			return eMail;
+		}
+		return eMail.replaceAll("[+^.+@.+\\..+$]", "").trim();
+	}
+	
+	/**
+	 * Validate if is numeric
+	 * @param value
+	 * @return
+	 */
+	public boolean isValidEmail(String eMail) {
+		if(Util.isEmpty(eMail)) {
+			return false;
+		}
+		try {
+			InternetAddress emailAddr = new InternetAddress(eMail);
+			emailAddr.validate();
+		} catch (Exception ex) {
+			return false;
+		}
+		return true;
 	}
 }
