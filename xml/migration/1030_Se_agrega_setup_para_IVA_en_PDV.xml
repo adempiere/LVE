@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Se agrega setup para IVA en PDV" ReleaseNo="1.0" SeqNo="81000970">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="54786" Action="I" Record_ID="50060" Table="AD_SetupDefinition">
+        <Data AD_Column_ID="97377" Column="UUID">e2073116-15d1-4420-a97a-9dd8012c81dd</Data>
+        <Data AD_Column_ID="97376" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="97375" Column="Updated">2022-08-24 15:25:57.853</Data>
+        <Data AD_Column_ID="97374" Column="Name">Create POS IVA Definition</Data>
+        <Data AD_Column_ID="97373" Column="IsActive">true</Data>
+        <Data AD_Column_ID="97372" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="97371" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="97370" Column="Description">Create IVA setup for POS Orders</Data>
+        <Data AD_Column_ID="97369" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="97368" Column="Created">2022-08-24 15:25:57.853</Data>
+        <Data AD_Column_ID="97367" Column="Classname">org.erpya.lve.setup.WithholdingPOSIVASetup</Data>
+        <Data AD_Column_ID="97366" Column="AD_SetupDefinition_ID">50060</Data>
+        <Data AD_Column_ID="97365" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="97364" Column="AD_Client_ID">0</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
