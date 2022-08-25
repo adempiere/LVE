@@ -36,9 +36,11 @@ import org.compiere.model.PO;
 import org.compiere.model.Query;
 import org.compiere.util.Env;
 import org.compiere.util.Msg;
+import org.compiere.util.Util;
 import org.erpya.lve.model.MLVEList;
 import org.erpya.lve.model.MLVEWithholdingTax;
 import org.spin.model.I_WH_Withholding;
+import org.spin.model.MCPaymentMethod;
 import org.spin.model.MWHSetting;
 import org.spin.model.MWHWithholding;
 import org.spin.util.AbstractWithholdingSetting;
@@ -65,6 +67,29 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 	private boolean isManual = false;
 	/**Withholding Rate*/
 	BigDecimal withholdingRate = Env.ZERO;
+	/**	Default POS Payment Type	*/
+	private PO defaultPaymentMethodallocated;
+	
+	public PO getDefaultPaymentMethodAllocated() {
+		if(defaultPaymentMethodallocated != null) {
+			return defaultPaymentMethodallocated;
+		}
+		defaultPaymentMethodallocated = new Query(getContext(), "C_POSPaymentTypeAllocation", 
+				"C_POS_ID = ? "
+				+ "AND EXISTS(SELECT 1 FROM C_PaymentMethod pm "
+				+ "WHERE pm.C_PaymentMethod_ID = C_POSPaymentTypeAllocation.C_PaymentMethod_ID "
+				+ "AND pm.TenderType = ? "
+				+ "AND pm.WH_Type_ID = ?)", getTransactionName())
+				.setParameters(order.getC_POS_ID(), MPayment.TENDERTYPE_CreditMemo, getSetting().getWH_Type_ID())
+				.setOnlyActiveRecords(true)
+				.first();
+		return defaultPaymentMethodallocated;
+	}
+
+	public void setDefaultPaymentMethodAllocated(PO defaultPaymentMethodAllocated) {
+		this.defaultPaymentMethodallocated = defaultPaymentMethodAllocated;
+	}
+	
 	@Override
 	public boolean isValid() {
 		boolean isValid = true;
@@ -180,10 +205,10 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 						&& orderTax.getTaxAmt() != null 
 						&& orderTax.getTaxAmt().compareTo(Env.ZERO) > 0)
 				.collect(Collectors.toList());
-			if(taxes.size() == 0) {
-				addLog("@NoTaxesForWithholding@");
-				isValid = false;
-			}
+		}
+		if(getDefaultPaymentMethodAllocated() == null) {
+			addLog("@C_PaymentMethod_ID@ @NotFound@");
+			isValid = false;
 		}
 		return isValid;
 		
@@ -191,6 +216,18 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 
 	@Override
 	public String run() {
+		MTable posPaymentType = MTable.get(getContext(), "C_POSPaymentTypeAllocation");
+		if(posPaymentType != null) {
+			PO paymentTypeAllocation = getDefaultPaymentMethodAllocated();
+			if(Util.isEmpty(paymentTypeAllocation.get_ValueAsString("Name"))) {
+				MCPaymentMethod paymentMethod = MCPaymentMethod.getById(getContext(), paymentTypeAllocation.get_ValueAsInt("C_PaymentMethod_ID"), getTransactionName());
+				if(!Util.isEmpty(paymentMethod.getDescription())) {
+					addDescription(paymentMethod.getDescription() + " @of@ " + order.getDocumentNo());
+				}
+			} else {
+				addDescription(paymentTypeAllocation.get_ValueAsString("Name") + " @of@ " + order.getDocumentNo());
+			}
+		}
 		//	Iterate
 		taxes.forEach(orderTax -> {
 			setWithholdingRate(withholdingRate);
@@ -216,45 +253,38 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 			//	Add backward compatibility
 			MTable paymentReferenceDefinition = MTable.get(getContext(), "C_POSPaymentReference");
 			if(paymentReferenceDefinition != null) {
-				PO paymentReferenceToCreate = new Query(getContext(), "C_POSPaymentReference", "C_Order_ID = ? AND TenderType = ?", getTransactionName()).setParameters(order.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo).first();
-				int defaultPaymentMethodId = new Query(getContext(), "C_POSPaymentTypeAllocation", "C_POS_ID = ? AND EXISTS(SELECT 1 FROM C_PaymentMethod pm WHERE pm.C_PaymentMethod_ID = C_POSPaymentTypeAllocation.C_PaymentMethod_ID AND TenderType = ?)", getTransactionName())
-						.setParameters(order.getC_POS_ID(), MPayment.TENDERTYPE_CreditMemo)
-						.setOnlyActiveRecords(true)
-						.firstId();
+				PO paymentReferenceToCreate = new Query(getContext(), "C_POSPaymentReference", 
+						"C_Order_ID = ? "
+						+ "AND TenderType = ? "
+						+ "AND C_PaymentMethod_ID = ?", getTransactionName())
+						.setClient_ID()
+						.setParameters(order.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo, getDefaultPaymentMethodAllocated().get_ValueAsInt("C_PaymentMethod_ID")).first();
+				//	Create
 				if(createIfNotExists
 						&& (paymentReferenceToCreate == null
 							|| paymentReferenceToCreate.get_ID() <= 0)) {
 					paymentReferenceToCreate = paymentReferenceDefinition.getPO(0, getTransactionName());
+				}
+				if(paymentReferenceToCreate != null) {
 					paymentReferenceToCreate.set_ValueOfColumn("Amount", getWithholdingAmount());
 					paymentReferenceToCreate.set_ValueOfColumn("AmtSource", getWithholdingAmount());
+					paymentReferenceToCreate.set_ValueOfColumn("Base", order.getGrandTotal());
+					paymentReferenceToCreate.set_ValueOfColumn("Rate", getWithholdingRate());
 					paymentReferenceToCreate.set_ValueOfColumn("C_BPartner_ID", order.getC_BPartner_ID());
 					paymentReferenceToCreate.set_ValueOfColumn("C_ConversionType_ID", order.getC_ConversionType_ID());
 					paymentReferenceToCreate.set_ValueOfColumn("C_Currency_ID", order.getC_Currency_ID());
 					paymentReferenceToCreate.set_ValueOfColumn("C_Order_ID", order.getC_Order_ID());
 					paymentReferenceToCreate.set_ValueOfColumn("C_POS_ID", order.getC_POS_ID());
-					paymentReferenceToCreate.set_ValueOfColumn("SalesRep_ID", order.getSalesRep_ID());
+					if(order.getSalesRep_ID() > 0) {
+						paymentReferenceToCreate.set_ValueOfColumn("SalesRep_ID", order.getSalesRep_ID());
+					}
 					paymentReferenceToCreate.set_ValueOfColumn("IsReceipt", true);
 					paymentReferenceToCreate.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
 					paymentReferenceToCreate.set_ValueOfColumn("IsAutoCreatedReference", true);
-					if(defaultPaymentMethodId > 0) {
-						paymentReferenceToCreate.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
-					}
+					paymentReferenceToCreate.set_ValueOfColumn("C_PaymentMethod_ID", getDefaultPaymentMethodAllocated().get_ValueAsInt("C_PaymentMethod_ID"));
+					paymentReferenceToCreate.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
 					paymentReferenceToCreate.set_ValueOfColumn("Description", Msg.parseTranslation(getContext(), getProcessDescription()));
 					paymentReferenceToCreate.set_ValueOfColumn("PayDate", order.getDateOrdered());
-					paymentReferenceToCreate.saveEx();
-				} else if(paymentReferenceToCreate != null
-						&& paymentReferenceToCreate.get_ID() > 0) {
-					paymentReferenceToCreate.set_ValueOfColumn("Amount", getWithholdingAmount());
-					paymentReferenceToCreate.set_ValueOfColumn("AmtSource", getWithholdingAmount());
-					paymentReferenceToCreate.set_ValueOfColumn("C_BPartner_ID", order.getC_BPartner_ID());
-					paymentReferenceToCreate.set_ValueOfColumn("C_ConversionType_ID", order.getC_ConversionType_ID());
-					paymentReferenceToCreate.set_ValueOfColumn("C_Currency_ID", order.getC_Currency_ID());
-					paymentReferenceToCreate.set_ValueOfColumn("C_POS_ID", order.getC_POS_ID());
-					paymentReferenceToCreate.set_ValueOfColumn("SalesRep_ID", order.getSalesRep_ID());
-					paymentReferenceToCreate.set_ValueOfColumn("IsReceipt", true);
-					paymentReferenceToCreate.set_ValueOfColumn("Description", Msg.parseTranslation(getContext(), getProcessDescription()));
-					paymentReferenceToCreate.set_ValueOfColumn("PayDate", order.getDateOrdered());
-					paymentReferenceToCreate.set_ValueOfColumn("IsAutoCreatedReference", true);
 					paymentReferenceToCreate.saveEx();
 				}
 			}
@@ -262,6 +292,20 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 			setWithholdingRate(Env.ZERO);
 			setBaseAmount(Env.ZERO);
 			setWithholdingAmount(Env.ZERO);
+			setDefaultPaymentMethodAllocated(null);
+		} else {
+			MTable paymentReferenceDefinition = MTable.get(getContext(), "C_POSPaymentReference");
+			if(paymentReferenceDefinition != null) {
+				PO paymentReferenceToDelete = new Query(getContext(), "C_POSPaymentReference", 
+						"C_Order_ID = ? "
+						+ "AND TenderType = ? "
+						+ "AND C_PaymentMethod_ID = ?", getTransactionName())
+						.setClient_ID()
+						.setParameters(order.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo, getDefaultPaymentMethodAllocated().get_ValueAsInt("C_PaymentMethod_ID")).first();
+				if(paymentReferenceToDelete != null) {
+					paymentReferenceToDelete.deleteEx(true);
+				}
+			}
 		}
 	}
 }

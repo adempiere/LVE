@@ -20,6 +20,9 @@ import java.util.Properties;
 
 import org.compiere.model.I_C_Order;
 import org.compiere.model.I_C_OrderLine;
+import org.compiere.model.MPayment;
+import org.compiere.model.MTable;
+import org.compiere.model.PO;
 import org.compiere.model.Query;
 import org.compiere.util.DB;
 import org.spin.model.I_WH_Setting;
@@ -96,6 +99,28 @@ public class WithholdingPOSIVASetup implements ISetupDefinition {
 		//	Order Change
 		if(createSettingWithEvent(withHolgingType.getWH_Type_ID(), org.erpya.lve.util.POSOrderIVAChange.class.getName(), MWHSetting.EVENTMODELVALIDATOR_TableBeforeChange, I_C_Order.Table_ID, "IVA-Orden-Modificar", "Retención I.V.A Antes de odificar Orden de Venta", maxSequence)) {
 			maxSequence += 10;
+		}
+		//	Payment Method
+		createPaymentMethod(withHolgingType.getWH_Type_ID());
+	}
+	
+	/**
+	 * Create Payment Method for POS
+	 */
+	private void createPaymentMethod(int withholdingTypeId) {
+		PO paymentMethod = new Query(getCtx(), "C_PaymentMethod", "TenderType = 'M' "
+				+ "AND Value = ?", getTrx_Name())
+				.setParameters("Retencion-IVA")
+				.first();
+		if(paymentMethod == null
+				|| paymentMethod.get_ID() <= 0) {
+			paymentMethod = MTable.get(context, "C_PaymentMethod").getPO(0, getTrx_Name());
+			paymentMethod.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
+			paymentMethod.set_ValueOfColumn("Value", "Retencion-IVA");
+			paymentMethod.set_ValueOfColumn("Name", "Retencion de I.V.A.");
+			paymentMethod.set_ValueOfColumn("Description", "I.V.A. sobre");
+			paymentMethod.set_ValueOfColumn("WH_Type_ID", withholdingTypeId);
+			paymentMethod.saveEx();
 		}
 	}
 	
