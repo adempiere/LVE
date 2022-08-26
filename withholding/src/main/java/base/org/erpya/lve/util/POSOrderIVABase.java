@@ -268,7 +268,7 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 				if(paymentReferenceToCreate != null) {
 					paymentReferenceToCreate.set_ValueOfColumn("Amount", getWithholdingAmount());
 					paymentReferenceToCreate.set_ValueOfColumn("AmtSource", getWithholdingAmount());
-					paymentReferenceToCreate.set_ValueOfColumn("Base", order.getGrandTotal());
+					paymentReferenceToCreate.set_ValueOfColumn("Base", getBaseAmount());
 					paymentReferenceToCreate.set_ValueOfColumn("Rate", getWithholdingRate());
 					paymentReferenceToCreate.set_ValueOfColumn("C_BPartner_ID", order.getC_BPartner_ID());
 					paymentReferenceToCreate.set_ValueOfColumn("C_ConversionType_ID", order.getC_ConversionType_ID());
