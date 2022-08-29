@@ -20,6 +20,8 @@ import java.util.Properties;
 
 import org.compiere.model.I_C_Order;
 import org.compiere.model.I_C_OrderLine;
+import org.compiere.model.I_C_POS;
+import org.compiere.model.MPOS;
 import org.compiere.model.MPayment;
 import org.compiere.model.MTable;
 import org.compiere.model.PO;
@@ -122,6 +124,29 @@ public class WithholdingPOSIVASetup implements ISetupDefinition {
 			paymentMethod.set_ValueOfColumn("WH_Type_ID", withholdingTypeId);
 			paymentMethod.saveEx();
 		}
+		//	
+		if(MTable.getTable_ID("C_POSPaymentTypeAllocation") <= 0) {
+			return;
+		}
+		int paymentMethodId = paymentMethod.get_ID();
+		//	Add for All POS
+		new Query(getCtx(), I_C_POS.Table_Name, "NOT EXISTS(SELECT 1 FROM C_POSPaymentTypeAllocation pm "
+				+ "WHERE pm.C_POS_ID = C_POS.C_POS_ID AND pm.C_PaymentMethod_ID = ?)", getTrx_Name())
+			.setParameters(paymentMethodId)
+			.setOnlyActiveRecords(true)
+			.setClient_ID()
+			.getIDsAsList()
+			.forEach(posId -> {
+				MPOS pos = MPOS.get(getCtx(), posId);
+				PO allocatedPaymentMethod = MTable.get(getCtx(), "C_POSPaymentTypeAllocation").getPO(0, getTrx_Name());
+				allocatedPaymentMethod.setAD_Org_ID(pos.getAD_Org_ID());
+				allocatedPaymentMethod.set_ValueOfColumn("C_POS_ID", posId);
+				allocatedPaymentMethod.set_ValueOfColumn("C_PaymentMethod_ID", paymentMethodId);
+				allocatedPaymentMethod.set_ValueOfColumn("IsPaymentReference", true);
+				allocatedPaymentMethod.set_ValueOfColumn("IsDisplayedFromCollection", false);
+				allocatedPaymentMethod.set_ValueOfColumn("SeqNo", 999);
+				allocatedPaymentMethod.saveEx();
+			});
 	}
 	
 	/**
