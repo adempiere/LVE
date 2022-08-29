@@ -280,7 +280,7 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 					}
 					paymentReferenceToCreate.set_ValueOfColumn("IsReceipt", true);
 					paymentReferenceToCreate.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
-					paymentReferenceToCreate.set_ValueOfColumn("IsAutoCreatedReference", true);
+					paymentReferenceToCreate.set_ValueOfColumn("IsAutoCreatedReference", false);
 					paymentReferenceToCreate.set_ValueOfColumn("C_PaymentMethod_ID", getDefaultPaymentMethodAllocated().get_ValueAsInt("C_PaymentMethod_ID"));
 					paymentReferenceToCreate.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
 					paymentReferenceToCreate.set_ValueOfColumn("Description", Msg.parseTranslation(getContext(), getProcessDescription()));
