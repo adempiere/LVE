@@ -15,7 +15,6 @@
  ************************************************************************************/
 package org.erpya.lve.util;
 
-import org.compiere.model.MOrder;
 import org.compiere.util.Util;
 import org.spin.model.MWHSetting;
 
@@ -36,7 +35,7 @@ public class POSOrderIVAChange extends POSOrderIVABase {
 	public String run() {
 		String error = super.run();
 		if(Util.isEmpty(error)) {
-			savePaymentReference(getDocument().is_ValueChanged(MOrder.COLUMNNAME_C_BPartner_ID));
+			savePaymentReference(true);
 		}
 		return error;
 	}

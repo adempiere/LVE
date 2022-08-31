@@ -199,7 +199,7 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 				isValid = false;
 			}
 			//	Validate if it have taxes
-			taxes = Arrays.asList(order.getTaxes(false))
+			taxes = Arrays.asList(order.getTaxes(true))
 				.stream()
 				.filter(orderTax -> MTax.get(getContext(), orderTax.getC_Tax_ID()).get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsWithholdingTaxApplied) 
 						&& orderTax.getTaxAmt() != null 
