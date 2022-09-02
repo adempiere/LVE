@@ -18,8 +18,10 @@ package org.erpya.lve.bank.exp;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 import org.compiere.model.MBPBankAccount;
 import org.compiere.model.MBPartner;
@@ -35,7 +37,7 @@ import org.compiere.util.Util;
  * 	Implementation for Export Payment from BNC bank for Account Payable
  * 	@author Yamel Senih, ysenih@erpya.com, ERPCyA http://www.erpya.com
  */
-public class BNC extends LVEPaymentExportList {
+public class BNC_v1 extends LVEPaymentExportList {
 
 	public final static char CR  = (char) 0x0D;
 	public final static char LF  = (char) 0x0A; 
@@ -43,7 +45,7 @@ public class BNC extends LVEPaymentExportList {
 	public final static String CRLF  = "" + CR + LF; 
 	
 	/** Logger								*/
-	private static CLogger	s_log = CLogger.getCLogger (BNC.class);
+	private static CLogger	s_log = CLogger.getCLogger (BNC_v1.class);
 	/**	Header Short Format	*/
 	private final String DATE_FORMAT = "ddMMyyyy";
 	
@@ -172,6 +174,77 @@ public class BNC extends LVEPaymentExportList {
 						} else {
 							addError(Msg.parseTranslation(Env.getCtx(), "@C_BP_BankAccount_ID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
 						}
+			});
+			//	Vendor Registration
+			Map<Integer, List<MPaySelectionCheck>> vendors = checks.stream().collect(Collectors.groupingBy(MPaySelectionCheck::getC_BPartner_ID));
+			vendors.entrySet().forEach(vendorCheck -> {
+				MBPartner bpartner = MBPartner.get(Env.getCtx(), vendorCheck.getKey());
+				MPaySelectionCheck check = vendorCheck.getValue().get(0);
+				MBPBankAccount bpAccount = getBPAccountInfo(check, true);
+				if(bpAccount != null) {
+					//	Process Person Type
+					String bPPersonType = "";
+					String bPTaxId = bpAccount.getA_Ident_SSN();
+					if(!Util.isEmpty(bPTaxId)){
+						bPTaxId = bPTaxId.replace("-", "").trim();
+						bPPersonType = bPTaxId.substring(0, 1);
+						bPTaxId = getNumericOnly(bPTaxId);
+						bPTaxId = leftPadding(bPTaxId, 9, "0", true);
+					} else {
+						addError(Msg.parseTranslation(Env.getCtx(), "@BPTaxID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
+					}
+					//	Process Account Name
+					String bPName = processValue(bpAccount.getA_Name());
+					if(Optional.ofNullable(bPName).isPresent()) {
+						bPName = rightPadding(bPName, 80, " ", true);
+					} else {
+						addError(Msg.parseTranslation(Env.getCtx(), "@A_Name@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
+					}
+					//	Description (Can be filled with document reference)
+					String lineDescription = processValue(getDetail(check));
+					lineDescription = rightPadding(lineDescription, 30, " ", true);
+					//	BP Account No
+					String bPAccountNo = processValue(bpAccount.getAccountNo());
+					if(Optional.ofNullable(bPAccountNo).isPresent()) {
+						bPAccountNo = leftPadding(bPAccountNo, 20, "0", true);
+					} else {
+						addError(Msg.parseTranslation(Env.getCtx(), "@AccountNo@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
+					}
+					//	Payment Amount
+					String maximumAmountAsString = leftPadding("", 15, "0", true);
+					//	Comments
+					String comment = getDetail(check);
+					if(Util.isEmpty(comment)) {
+						comment = "";
+					}
+					comment = rightPadding(comment, 60, " ", true);
+					//	EMail
+					String bPEmail = "";
+					if(!Util.isEmpty(bpAccount.getA_EMail())) {
+						bPEmail = bpAccount.getA_EMail();
+					}
+					bPEmail = rightPadding(bPEmail, 100, " ", true);
+					
+					String maximumOperations = "00";
+					String operationsFrequency = "00";
+					//	Write Credit Register
+					StringBuffer line = new StringBuffer();
+					line.append(Env.NL)					//	New Line
+						.append(bPAccountNo)			//  BP Bank Account
+						.append(bPName)					//	BP Name
+						.append(bPPersonType)			//	Person Type
+						.append(bPTaxId)				//  BP TaxID
+						.append(bPPersonType)			//	Person Type
+						.append(bPTaxId)				//  BP TaxID
+						.append(maximumAmountAsString)			// 	Maximum Payment Amount
+						.append(bPEmail)				//	BP EMail
+						.append(maximumOperations)		//	Maximum Operations
+						.append(operationsFrequency);	//	Operation Frequency	
+					s_log.fine("Write Line");
+					writeLine(line.toString());
+				} else {
+					addError(Msg.parseTranslation(Env.getCtx(), "@C_BP_BankAccount_ID@ @NotFound@: " + bpartner.getValue() + " - " + bpartner.getName()));
+				}
 			});
 			//	
 			closeFileWriter();
