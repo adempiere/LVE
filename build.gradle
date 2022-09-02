@@ -19,7 +19,7 @@ if (JavaVersion.current().isJava8Compatible()) {
 }
 
 dependencies {
-	api 'io.github.adempiere:withholding-engine:1.2.6'
+	api 'io.github.adempiere:withholding-engine:1.2.8'
 	compileOnly fileTree(dir: 'dependences', include: ['*.jar'])
 	compileOnly fileTree(dir: 'lib', include: ['*.jar'])
 }

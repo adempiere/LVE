@@ -102,6 +102,10 @@ public class WithholdingPOSIVASetup implements ISetupDefinition {
 		if(createSettingWithEvent(withHolgingType.getWH_Type_ID(), org.erpya.lve.util.POSOrderIVAChange.class.getName(), MWHSetting.EVENTMODELVALIDATOR_TableBeforeChange, I_C_Order.Table_ID, "IVA-Orden-Modificar", "Retención I.V.A Antes de odificar Orden de Venta", maxSequence)) {
 			maxSequence += 10;
 		}
+		//	Order Process
+		if(createSettingWithEvent(withHolgingType.getWH_Type_ID(),org.erpya.lve.util.POSOrderIVAProcess.class.getName(), MWHSetting.EVENTMODELVALIDATOR_DocumentAfterComplete, I_C_Order.Table_ID, "IVA-Orden-Procesar", "Retención I.V.A Después de Procesar Orden de Venta", maxSequence)) {
+			maxSequence += 10;
+		}
 		//	Payment Method
 		createPaymentMethod(withHolgingType.getWH_Type_ID());
 	}
