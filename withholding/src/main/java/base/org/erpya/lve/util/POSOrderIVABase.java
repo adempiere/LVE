@@ -76,6 +76,7 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 		}
 		defaultPaymentMethodallocated = new Query(getContext(), "C_POSPaymentTypeAllocation", 
 				"C_POS_ID = ? "
+				+ "AND IsPaymentReference = 'Y' "
 				+ "AND EXISTS(SELECT 1 FROM C_PaymentMethod pm "
 				+ "WHERE pm.C_PaymentMethod_ID = C_POSPaymentTypeAllocation.C_PaymentMethod_ID "
 				+ "AND pm.TenderType = ? "

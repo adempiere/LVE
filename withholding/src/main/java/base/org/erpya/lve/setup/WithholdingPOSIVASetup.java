@@ -18,6 +18,7 @@ package org.erpya.lve.setup;
 
 import java.util.Properties;
 
+import org.compiere.model.I_C_Invoice;
 import org.compiere.model.I_C_Order;
 import org.compiere.model.I_C_OrderLine;
 import org.compiere.model.I_C_POS;
@@ -106,6 +107,10 @@ public class WithholdingPOSIVASetup implements ISetupDefinition {
 		if(createSettingWithEvent(withHolgingType.getWH_Type_ID(),org.erpya.lve.util.POSOrderIVAProcess.class.getName(), MWHSetting.EVENTMODELVALIDATOR_DocumentAfterComplete, I_C_Order.Table_ID, "IVA-Orden-Procesar", "Retención I.V.A Después de Procesar Orden de Venta", maxSequence)) {
 			maxSequence += 10;
 		}
+		//	After process withholding document
+		if(createSettingWithEvent(withHolgingType.getWH_Type_ID(),org.erpya.lve.util.POSWihholdingIVAProcess.class.getName(), MWHSetting.EVENTMODELVALIDATOR_DocumentBeforeComplete, I_C_Invoice.Table_ID, "IVA-Comprobante-Procesar", "Retención I.V.A Antes de Procesar Comprobante de Retención", maxSequence)) {
+			maxSequence += 10;
+		}
 		//	Payment Method
 		createPaymentMethod(withHolgingType.getWH_Type_ID());
 	}
@@ -121,6 +126,7 @@ public class WithholdingPOSIVASetup implements ISetupDefinition {
 		if(paymentMethod == null
 				|| paymentMethod.get_ID() <= 0) {
 			paymentMethod = MTable.get(context, "C_PaymentMethod").getPO(0, getTrx_Name());
+			paymentMethod.setAD_Org_ID(0);
 			paymentMethod.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
 			paymentMethod.set_ValueOfColumn("Value", "Retencion-IVA");
 			paymentMethod.set_ValueOfColumn("Name", "Retencion de I.V.A.");
@@ -128,28 +134,64 @@ public class WithholdingPOSIVASetup implements ISetupDefinition {
 			paymentMethod.set_ValueOfColumn("WH_Type_ID", withholdingTypeId);
 			paymentMethod.saveEx();
 		}
+		PO payPaymentMethod = new Query(getCtx(), "C_PaymentMethod", "TenderType = 'M' "
+				+ "AND Value = ?", getTrx_Name())
+				.setParameters("Pago-IVA")
+				.first();
+		if(payPaymentMethod == null
+				|| payPaymentMethod.get_ID() <= 0) {
+			payPaymentMethod.setAD_Org_ID(0);
+			payPaymentMethod = MTable.get(context, "C_PaymentMethod").getPO(0, getTrx_Name());
+			payPaymentMethod.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
+			payPaymentMethod.set_ValueOfColumn("Value", "Pago-IVA");
+			payPaymentMethod.set_ValueOfColumn("Name", "Pago de I.V.A.");
+			payPaymentMethod.set_ValueOfColumn("Description", "Pago de I.V.A.");
+			payPaymentMethod.set_ValueOfColumn("WH_Type_ID", withholdingTypeId);
+			payPaymentMethod.set_ValueOfColumn("IsWithholdingExempt", true);
+			payPaymentMethod.saveEx();
+		}
 		//	
 		if(MTable.getTable_ID("C_POSPaymentTypeAllocation") <= 0) {
 			return;
 		}
 		int paymentMethodId = paymentMethod.get_ID();
+		int payPaymentMethodId = payPaymentMethod.get_ID();
 		//	Add for All POS
-		new Query(getCtx(), I_C_POS.Table_Name, "NOT EXISTS(SELECT 1 FROM C_POSPaymentTypeAllocation pm "
-				+ "WHERE pm.C_POS_ID = C_POS.C_POS_ID AND pm.C_PaymentMethod_ID = ?)", getTrx_Name())
-			.setParameters(paymentMethodId)
+		new Query(getCtx(), I_C_POS.Table_Name, null, getTrx_Name())
 			.setOnlyActiveRecords(true)
 			.setClient_ID()
 			.getIDsAsList()
 			.forEach(posId -> {
 				MPOS pos = MPOS.get(getCtx(), posId);
-				PO allocatedPaymentMethod = MTable.get(getCtx(), "C_POSPaymentTypeAllocation").getPO(0, getTrx_Name());
-				allocatedPaymentMethod.setAD_Org_ID(pos.getAD_Org_ID());
-				allocatedPaymentMethod.set_ValueOfColumn("C_POS_ID", posId);
-				allocatedPaymentMethod.set_ValueOfColumn("C_PaymentMethod_ID", paymentMethodId);
-				allocatedPaymentMethod.set_ValueOfColumn("IsPaymentReference", true);
-				allocatedPaymentMethod.set_ValueOfColumn("IsDisplayedFromCollection", false);
-				allocatedPaymentMethod.set_ValueOfColumn("SeqNo", 999);
-				allocatedPaymentMethod.saveEx();
+				PO allocatedPaymentMethod = new Query(getCtx(), "C_POSPaymentTypeAllocation", "C_POS_ID = ? AND C_PaymentMethod_ID = ?" ,getTrx_Name())
+						.setParameters(posId, paymentMethodId)
+						.first();
+				if(allocatedPaymentMethod == null
+						|| allocatedPaymentMethod.get_ID() <= 0) {
+					allocatedPaymentMethod.setAD_Org_ID(pos.getAD_Org_ID());
+					allocatedPaymentMethod.set_ValueOfColumn("C_POS_ID", posId);
+					allocatedPaymentMethod.set_ValueOfColumn("C_PaymentMethod_ID", paymentMethodId);
+					allocatedPaymentMethod.set_ValueOfColumn("IsPaymentReference", true);
+					allocatedPaymentMethod.set_ValueOfColumn("IsDisplayedFromCollection", false);
+					allocatedPaymentMethod.set_ValueOfColumn("SeqNo", 999);
+					allocatedPaymentMethod.saveEx();
+				}
+				//	For payment
+				PO allocatedPayPaymentMethod = new Query(getCtx(), "C_POSPaymentTypeAllocation", "C_POS_ID = ? AND C_PaymentMethod_ID = ?" ,getTrx_Name())
+						.setParameters(posId, payPaymentMethodId)
+						.first();
+				if(allocatedPayPaymentMethod == null
+						|| allocatedPayPaymentMethod.get_ID() <= 0) {
+					allocatedPayPaymentMethod = MTable.get(getCtx(), "C_POSPaymentTypeAllocation").getPO(0, getTrx_Name());
+					allocatedPayPaymentMethod.setAD_Org_ID(pos.getAD_Org_ID());
+					allocatedPayPaymentMethod.set_ValueOfColumn("C_POS_ID", posId);
+					allocatedPayPaymentMethod.set_ValueOfColumn("Name", "Comprobante de I.V.A.");
+					allocatedPayPaymentMethod.set_ValueOfColumn("C_PaymentMethod_ID", payPaymentMethodId);
+					allocatedPayPaymentMethod.set_ValueOfColumn("IsPaymentReference", false);
+					allocatedPayPaymentMethod.set_ValueOfColumn("IsDisplayedFromCollection", true);
+					allocatedPayPaymentMethod.set_ValueOfColumn("SeqNo", 999);
+					allocatedPayPaymentMethod.saveEx();
+				}
 			});
 	}
 	
