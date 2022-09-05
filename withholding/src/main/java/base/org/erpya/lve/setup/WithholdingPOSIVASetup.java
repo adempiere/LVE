@@ -96,11 +96,11 @@ public class WithholdingPOSIVASetup implements ISetupDefinition {
 			maxSequence += 10;
 		}
 		//	Order New
-		if(createSettingWithEvent(withHolgingType.getWH_Type_ID(), org.erpya.lve.util.POSOrderIVANew.class.getName(), MWHSetting.EVENTMODELVALIDATOR_TableBeforeNew, I_C_Order.Table_ID, "IVA-Orden-Crear", "Retención I.V.A Antes de Crear Orden de Venta", maxSequence)) {
+		if(createSettingWithEvent(withHolgingType.getWH_Type_ID(), org.erpya.lve.util.POSOrderIVANew.class.getName(), MWHSetting.EVENTMODELVALIDATOR_TableAfterNew, I_C_Order.Table_ID, "IVA-Orden-Crear", "Retención I.V.A Antes de Crear Orden de Venta", maxSequence)) {
 			maxSequence += 10;
 		}
 		//	Order Change
-		if(createSettingWithEvent(withHolgingType.getWH_Type_ID(), org.erpya.lve.util.POSOrderIVAChange.class.getName(), MWHSetting.EVENTMODELVALIDATOR_TableBeforeChange, I_C_Order.Table_ID, "IVA-Orden-Modificar", "Retención I.V.A Antes de odificar Orden de Venta", maxSequence)) {
+		if(createSettingWithEvent(withHolgingType.getWH_Type_ID(), org.erpya.lve.util.POSOrderIVAChange.class.getName(), MWHSetting.EVENTMODELVALIDATOR_TableAfterChange, I_C_Order.Table_ID, "IVA-Orden-Modificar", "Retención I.V.A Antes de odificar Orden de Venta", maxSequence)) {
 			maxSequence += 10;
 		}
 		//	Order Process

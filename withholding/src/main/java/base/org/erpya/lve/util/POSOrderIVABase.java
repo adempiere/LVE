@@ -97,14 +97,29 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 		//	Validate Document
 		if(getDocument().get_Table_ID() != I_C_OrderLine.Table_ID
 				&& getDocument().get_Table_ID() != I_C_Order.Table_ID) {
-			addLog("@C_Order_ID@ @NotFound@");
-			isValid = false;
+			return false;
+		}
+		String event = getSetting().getEventModelValidator();
+		if(Util.isEmpty(event)) {
+			return false;
 		}
 		if(getDocument().get_Table_ID() == I_C_OrderLine.Table_ID) {
+			if(!(getDocument().is_ValueChanged("LineNetAmt")
+					|| getDocument().is_ValueChanged("C_Tax_ID"))
+					&& !event.equals(MWHSetting.EVENTMODELVALIDATOR_TableAfterNew)) {
+				return false;
+			}
 			MOrderLine orderLine = (MOrderLine) getDocument();
 			order = orderLine.getParent();
 		} else {
+			if(!(getDocument().is_ValueChanged("C_DocTypeTarget_ID")
+					|| getDocument().is_ValueChanged("C_BPartner_ID"))) {
+				return false;
+			}
 			order = (MOrder) getDocument();
+		}
+		if(order.getC_POS_ID() <= 0) {
+			return false;
 		}
 		businessPartner = (MBPartner) order.getC_BPartner();
 		//	Validate Processed
@@ -112,11 +127,8 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 			return false;
 		}
 		if(!businessPartner.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsTaxpayer)) {
+			deleteReference();
 			return false;
-		}
-		if(order.getC_POS_ID() <= 0) {
-			addLog("@C_POS_ID@ @NotFound@");
-			isValid = false;
 		}
 		//Valid Business Partner
 		Optional.ofNullable(order)
@@ -257,7 +269,8 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 				PO paymentReferenceToCreate = new Query(getContext(), "C_POSPaymentReference", 
 						"C_Order_ID = ? "
 						+ "AND TenderType = ? "
-						+ "AND C_PaymentMethod_ID = ?", getTransactionName())
+						+ "AND C_PaymentMethod_ID = ? "
+						+ "AND Processed = 'N'", getTransactionName())
 						.setClient_ID()
 						.setParameters(order.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo, getDefaultPaymentMethodAllocated().get_ValueAsInt("C_PaymentMethod_ID")).first();
 				//	Create
@@ -296,17 +309,24 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 			setWithholdingAmount(Env.ZERO);
 			setDefaultPaymentMethodAllocated(null);
 		} else {
-			MTable paymentReferenceDefinition = MTable.get(getContext(), "C_POSPaymentReference");
-			if(paymentReferenceDefinition != null) {
-				PO paymentReferenceToDelete = new Query(getContext(), "C_POSPaymentReference", 
-						"C_Order_ID = ? "
-						+ "AND TenderType = ? "
-						+ "AND C_PaymentMethod_ID = ?", getTransactionName())
-						.setClient_ID()
-						.setParameters(order.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo, getDefaultPaymentMethodAllocated().get_ValueAsInt("C_PaymentMethod_ID")).first();
-				if(paymentReferenceToDelete != null) {
-					paymentReferenceToDelete.deleteEx(true);
-				}
+			deleteReference();
+		}
+	}
+	
+	/**
+	 * Delete payment reference
+	 */
+	private void deleteReference() {
+		MTable paymentReferenceDefinition = MTable.get(getContext(), "C_POSPaymentReference");
+		if(paymentReferenceDefinition != null) {
+			PO paymentReferenceToDelete = new Query(getContext(), "C_POSPaymentReference", 
+					"C_Order_ID = ? "
+					+ "AND TenderType = ? "
+					+ "AND C_PaymentMethod_ID = ?", getTransactionName())
+					.setClient_ID()
+					.setParameters(order.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo, getDefaultPaymentMethodAllocated().get_ValueAsInt("C_PaymentMethod_ID")).first();
+			if(paymentReferenceToDelete != null) {
+				paymentReferenceToDelete.deleteEx(true);
 			}
 		}
 	}

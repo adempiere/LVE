@@ -97,7 +97,6 @@ public class POSOrderIVAProcess extends AbstractWithholdingSetting {
 				"C_Order_ID = ? AND TenderType = ? "
 				+ "AND EXISTS(SELECT 1 FROM C_PaymentMethod pm "
 				+ "WHERE pm.C_PaymentMethod_ID = C_POSPaymentReference.C_PaymentMethod_ID "
-				+ "AND pm.IsWithholdingExempt = 'N' "
 				+ "AND pm.WH_Type_ID = ?)", getTransactionName())
 				.setParameters(order.getC_Order_ID(), MPayment.TENDERTYPE_CreditMemo, getSetting().getWH_Type_ID())
 				.getIDsAsList();
@@ -121,10 +120,10 @@ public class POSOrderIVAProcess extends AbstractWithholdingSetting {
 				if(invoiceId > 0) {
 					setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoiceId);
 				}
+				paymentReference.set_ValueOfColumn("IsPaid", true);
+				paymentReference.set_ValueOfColumn("Processed", true);
+				paymentReference.saveEx();
 				saveResult();
-				paymentReferenceDefinition.set_ValueOfColumn("IsPaid", true);
-				paymentReferenceDefinition.set_ValueOfColumn("Processed", true);
-				paymentReferenceDefinition.saveEx();
 			});
 		}
 		return null;
