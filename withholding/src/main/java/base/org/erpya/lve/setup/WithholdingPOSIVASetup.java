@@ -140,8 +140,8 @@ public class WithholdingPOSIVASetup implements ISetupDefinition {
 				.first();
 		if(payPaymentMethod == null
 				|| payPaymentMethod.get_ID() <= 0) {
-			payPaymentMethod.setAD_Org_ID(0);
 			payPaymentMethod = MTable.get(context, "C_PaymentMethod").getPO(0, getTrx_Name());
+			payPaymentMethod.setAD_Org_ID(0);
 			payPaymentMethod.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
 			payPaymentMethod.set_ValueOfColumn("Value", "Pago-IVA");
 			payPaymentMethod.set_ValueOfColumn("Name", "Pago de I.V.A.");
@@ -168,6 +168,7 @@ public class WithholdingPOSIVASetup implements ISetupDefinition {
 						.first();
 				if(allocatedPaymentMethod == null
 						|| allocatedPaymentMethod.get_ID() <= 0) {
+					allocatedPaymentMethod = MTable.get(getCtx(), "C_POSPaymentTypeAllocation").getPO(0, getTrx_Name());
 					allocatedPaymentMethod.setAD_Org_ID(pos.getAD_Org_ID());
 					allocatedPaymentMethod.set_ValueOfColumn("C_POS_ID", posId);
 					allocatedPaymentMethod.set_ValueOfColumn("C_PaymentMethod_ID", paymentMethodId);
