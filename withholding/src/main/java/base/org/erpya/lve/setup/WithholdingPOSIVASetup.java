@@ -210,8 +210,9 @@ public class WithholdingPOSIVASetup implements ISetupDefinition {
 		MWHSetting setting = new Query(getCtx(), I_WH_Setting.Table_Name, "EventType = 'E' "
 				+ "AND WH_Type_ID = ? "
 				+ "AND EventModelValidator = ? "
-				+ "AND WithholdingClassName = ?", getTrx_Name())
-				.setParameters(withholdingTypeId, eventType, className)
+				+ "AND WithholdingClassName = ? "
+				+ "AND AD_Table_ID = ?", getTrx_Name())
+				.setParameters(withholdingTypeId, eventType, className, tableId)
 				.first();
 		if(setting != null) {
 			return false;
