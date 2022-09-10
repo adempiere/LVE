@@ -23,7 +23,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.adempiere.exceptions.AdempiereException;
+import org.compiere.model.I_C_Order;
+import org.compiere.model.MDocType;
 import org.compiere.model.MSysConfig;
+import org.compiere.model.PO;
 import org.compiere.util.Util;
 
 /**
@@ -151,5 +154,31 @@ public class LVEUtil {
 		return Optional.ofNullable(value).orElse("")
 				.replaceAll("[^0-9JVEGjveg]", "")
 				.toUpperCase();
+	}
+	
+	/**
+	 * Set default values from document type
+	 * @param entity
+	 */
+	public static void setDefaultValuesFromDocumentType(PO entity) {
+		int columnIndex = entity.get_ColumnIndex(I_C_Order.COLUMNNAME_C_DocTypeTarget_ID);
+		if(columnIndex < 0) {
+			columnIndex = entity.get_ColumnIndex(I_C_Order.COLUMNNAME_C_DocType_ID);
+		}
+		//	Nothing
+		if(columnIndex < 0) {
+			return;
+		}
+		int documentTypeId = entity.get_ValueAsInt(columnIndex);
+		//	No has a Document Type selected
+		if(documentTypeId <= 0) {
+			return;
+		}
+		if(entity.is_new()
+				|| entity.is_ValueChanged(columnIndex)) {
+			MDocType documentType = MDocType.get(entity.getCtx(), documentTypeId);
+			entity.set_ValueOfColumn(COLUMNNAME_IsWithholdingTaxExempt, documentType.get_Value(COLUMNNAME_IsWithholdingTaxExempt));
+			//	Add here other columns from document type
+		}
 	}
 }

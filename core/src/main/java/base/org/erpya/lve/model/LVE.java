@@ -39,6 +39,7 @@ import org.compiere.model.MInvoiceLine;
 import org.compiere.model.MMovement;
 import org.compiere.model.MOrder;
 import org.compiere.model.MOrderLine;
+import org.compiere.model.MPayment;
 import org.compiere.model.MTax;
 import org.compiere.model.ModelValidationEngine;
 import org.compiere.model.ModelValidator;
@@ -92,6 +93,8 @@ public class LVE implements ModelValidator {
 		engine.addModelChange(MBPartner.Table_Name, this);
 		engine.addModelChange(MWHWithholding.Table_Name, this);
 		engine.addModelChange(MInvoiceLine.Table_Name, this);
+		engine.addModelChange(MOrder.Table_Name, this);
+		engine.addModelChange(MPayment.Table_Name, this);
 		
 		LVEImport importValidator = new LVEImport(); 
 		engine.addImportValidate(I_I_Invoice.Table_Name,importValidator);
@@ -400,7 +403,9 @@ public class LVE implements ModelValidator {
 							invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_WHThirdParty_ID, WHThirdParty_ID);
 					}
 				}
-			}if (po.get_TableName().equals(MInvoiceLine.Table_Name)) {
+				//	By Default
+				LVEUtil.setDefaultValuesFromDocumentType(invoice);
+			} if (po.get_TableName().equals(MInvoiceLine.Table_Name)) {
 				MInvoiceLine invoiceLine = (MInvoiceLine) po;
 				MInvoice invoice = invoiceLine.getParent();
 				if (invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID)!= 0
@@ -413,8 +418,7 @@ public class LVE implements ModelValidator {
 					invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID, invoiceLine.get_ValueAsInt(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID));
 					invoice.save();
 				}
-			}
-			else if(po.get_TableName().equals(MBPartner.Table_Name)) {
+			} else if(po.get_TableName().equals(MBPartner.Table_Name)) {
 				MBPartner businessPartner = (MBPartner) po;
 				if(type == TYPE_BEFORE_NEW
 						|| type == TYPE_BEFORE_CHANGE) {
@@ -445,6 +449,12 @@ public class LVE implements ModelValidator {
 					invoiceLine.set_ValueOfColumn("InvoiceToAllocate_ID", withholding.getSourceInvoice_ID());
 					invoiceLine.save();
 				}
+			} if (po.get_TableName().equals(MOrder.Table_Name)) {
+				//	By Default
+				LVEUtil.setDefaultValuesFromDocumentType(po);
+			} if (po.get_TableName().equals(MPayment.Table_Name)) {
+				//	By Default
+				LVEUtil.setDefaultValuesFromDocumentType(po);
 			}
 		} else if (type == TYPE_AFTER_CHANGE) {
 			// Set Is Paid for Auto Allocation Invoice Documents
