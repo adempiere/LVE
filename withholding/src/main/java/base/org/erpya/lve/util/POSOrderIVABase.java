@@ -173,13 +173,13 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 			}
 			//	Validate Exempt Document
 			if(order.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsWithholdingTaxExempt)) {
-				isValid = false;
-				addLog("@DocumentWithholdingTaxExempt@");
+				deleteReference();
+				return false;
 			}
 			//	Validate Exempt Business Partner
 			if(businessPartner.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsWithholdingTaxExempt)) {
-				isValid = false;
-				addLog("@BPartnerWithholdingTaxExempt@");
+				deleteReference();
+				return false;
 			}
 			//	Validate Withholding Definition
 			//MLVEWithholdingTax withholdingTaxDefinition = MLVEWithholdingTax.getFromClient(getContext(), order.getAD_Org_ID());
@@ -190,16 +190,16 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 			}
 			//	Validate Definition
 			if(withholdingRateId == 0) {
-				addLog("@" + LVEUtil.COLUMNNAME_WithholdingTaxRate_ID + "@ @NotFound@");
-				isValid = false;
+				deleteReference();
+				return false;
 			} else {
 				withholdingRate = MLVEList.get(getContext(), withholdingRateId).getListVersionAmount(order.getDateOrdered());
 				setWithholdingRate(withholdingRate);
 			}
 			//	Validate Tax
 			if(getWithholdingRate().equals(Env.ZERO)) {
-				addLog("@LVE_WithholdingTax_ID@ (@Rate@ @NotFound@)");
-				isValid = false;
+				deleteReference();
+				return false;
 			}
 			//	Validate Tribute Unit
 			
