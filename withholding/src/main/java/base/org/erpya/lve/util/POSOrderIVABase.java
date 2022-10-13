@@ -232,6 +232,9 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 		MTable posPaymentType = MTable.get(getContext(), "C_POSPaymentTypeAllocation");
 		if(posPaymentType != null) {
 			PO paymentTypeAllocation = getDefaultPaymentMethodAllocated();
+			if(paymentTypeAllocation == null) {
+				return null;
+			}
 			if(Util.isEmpty(paymentTypeAllocation.get_ValueAsString("Name"))) {
 				MCPaymentMethod paymentMethod = MCPaymentMethod.getById(getContext(), paymentTypeAllocation.get_ValueAsInt("C_PaymentMethod_ID"), getTransactionName());
 				if(!Util.isEmpty(paymentMethod.getDescription())) {
@@ -266,6 +269,9 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 			//	Add backward compatibility
 			MTable paymentReferenceDefinition = MTable.get(getContext(), "C_POSPaymentReference");
 			if(paymentReferenceDefinition != null) {
+				if(getDefaultPaymentMethodAllocated() == null) {
+					return;
+				}
 				PO paymentReferenceToCreate = new Query(getContext(), "C_POSPaymentReference", 
 						"C_Order_ID = ? "
 						+ "AND TenderType = ? "
@@ -319,6 +325,9 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 	private void deleteReference() {
 		MTable paymentReferenceDefinition = MTable.get(getContext(), "C_POSPaymentReference");
 		if(paymentReferenceDefinition != null) {
+			if(getDefaultPaymentMethodAllocated() == null) {
+				return;
+			}
 			PO paymentReferenceToDelete = new Query(getContext(), "C_POSPaymentReference", 
 					"C_Order_ID = ? "
 					+ "AND TenderType = ? "

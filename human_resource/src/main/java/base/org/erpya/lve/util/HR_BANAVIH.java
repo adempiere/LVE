@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -32,6 +33,7 @@ import java.util.stream.Collectors;
 
 import org.compiere.model.MBPartner;
 import org.compiere.model.MOrgInfo;
+import org.compiere.model.Query;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
@@ -153,7 +155,7 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 		if(currentProcessDetail == null)
 			return;
 		//	Process Business Partner
-		Map<Integer,String> bpInfo = processBPartner(currentProcessDetail.getC_BPartner_ID(), currentProcessDetail.get_TrxName());
+		Map<Integer,String> bpInfo = processBPartner(currentProcessDetail.getC_BPartner_ID(), currentProcessDetail.getDateAcct(), currentProcessDetail.get_TrxName());
 		//	Line
 		if(bpInfo == null)
 			return;
@@ -202,24 +204,26 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 	
 	/**
 	 * Process Business Partner
-	 * @author <a href="mailto:yamelsenih@gmail.com">Yamel Senih</a> 16/08/2014, 12:27:09
-	 * @param p_C_BPartner_ID
-	 * @param p_TrxName
+	 * @param businessPartnerId
+	 * @param dateAcct
+	 * @param transactionName
 	 * @return String []
 	 */
-	private Map<Integer,String>  processBPartner(int p_C_BPartner_ID, String p_TrxName) {
+	private Map<Integer,String>  processBPartner(int businessPartnerId, Timestamp dateAcct, String transactionName) {
 		Map<Integer,String> bpInfo = new HashMap<Integer, String>();
 
 		//	Get Business Partner
-		MBPartner bpartner = MBPartner.get(Env.getCtx(), p_C_BPartner_ID);
+		MBPartner bpartner = MBPartner.get(Env.getCtx(), businessPartnerId);
 		//	Get Name
 		String name = bpartner.getName();
 		String name2 = bpartner.getName2();
 		//	Valid Null
-		if(name.isEmpty())
+		if(Util.isEmpty(name)) {
 			name = "";
-		if(name2.isEmpty())
+		}
+		if(Util.isEmpty(name2)) {
 			name2 = "";
+		}
 		
 		List <String> nameList = Arrays.asList(name.split(" "));
 		//	Extract First Name 1
@@ -278,8 +282,7 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 			lastName2 = "";
 		
 		//	Get Active Employee
-		MHREmployee employee = MHREmployee.getActiveEmployee(Env.getCtx(), 
-				bpartner.getC_BPartner_ID(), p_TrxName);
+		MHREmployee employee = getByPartnerIdAndStartDate(bpartner.getC_BPartner_ID(), dateAcct, transactionName);
 		//	Valid Employee
 		if(employee == null)
 			return null;
@@ -304,6 +307,25 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 		bpInfo.put(EM_END_DATE,endDate);
 		//	Return
 		return bpInfo;
+	}
+	
+	/**
+	 * Get Employee by Partner Id and Date Start
+	 * @param ctx
+	 * @param partnerId
+	 * @param dateStart
+	 * @param trxName
+	 * @return
+	 */
+	private MHREmployee getByPartnerIdAndStartDate(int partnerId , Timestamp dateStart, String trxName) {
+		StringBuilder whereClause = new StringBuilder();
+		whereClause.append(MHREmployee.COLUMNNAME_C_BPartner_ID).append("=? AND ");
+		whereClause.append(MHREmployee.COLUMNNAME_StartDate).append(" <= ?");
+		return new Query(Env.getCtx(), MHREmployee.Table_Name , whereClause.toString(),trxName)
+				.setClient_ID()
+				.setParameters(partnerId , dateStart)
+				.setOrderBy(MHREmployee.COLUMNNAME_StartDate + " DESC, " + MHREmployee.COLUMNNAME_EndDate + " DESC")
+				.first();
 	}
 	
 	public String processValue(String value) {
