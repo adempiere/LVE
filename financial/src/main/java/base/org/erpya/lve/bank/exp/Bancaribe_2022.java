@@ -126,10 +126,13 @@ public class Bancaribe_2022 extends LVEPaymentExportList {
 								businessPartnerEmail = "";
 							}
 							//	String Account Type
-							String businessPartnerAccountType = "CTE";
-							if(businessPartnerAccount.getBankAccountType().equals(MBPBankAccount.BANKACCOUNTTYPE_Savings)) {
-								businessPartnerAccountType = "AHO";
-							}
+							AtomicReference<String> businessPartnerAccountType = new AtomicReference<String>("CTE");
+							Optional<String> maybeBusinessPartnerAccountType = Optional.ofNullable(businessPartnerAccount.getBankAccountType());
+							maybeBusinessPartnerAccountType.ifPresent(accountType -> {
+								if (accountType.equals(MBPBankAccount.BANKACCOUNTTYPE_Savings))
+									businessPartnerAccountType.set("AHO");
+							});
+							
 							//	Validate
 							if(Optional.ofNullable(businessPartnerAccountNo).isPresent()
 									&& Optional.ofNullable(businessPartnerName).isPresent()) {
@@ -147,7 +150,7 @@ public class Bancaribe_2022 extends LVEPaymentExportList {
 									.append(SEPARATOR)							//	Blank Space
 									.append(businessPartnerAccountNo)			//  Third Party Account Code
 									.append(SEPARATOR)							//	Blank Space
-									.append(businessPartnerAccountType)			//  Account Type Saving = AHO, Checking = CTE
+									.append(businessPartnerAccountType.get())			//  Account Type Saving = AHO, Checking = CTE
 									.append(SEPARATOR)							//	Blank Space
 									.append(currencyType)						//  Currency Type 0 = VES
 									.append(SEPARATOR)							//	Blank Space
