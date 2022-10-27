@@ -21,6 +21,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -85,6 +86,8 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 	private int 					lines 	= 0;
 	/** Name File								*/
 	private String 					fileName	= "Temp"; 
+	//	Number Format
+	private final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("000000000.00");
 	
 	
 	@Override
@@ -164,9 +167,7 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 		if(currentAmount == null)
 			currentAmount = Env.ZERO;
 		
-		String currentAmt = currentAmount.toString().replace(",", ".").replace(".", "");
-		if(currentAmt.length() > 11)
-			currentAmt = currentAmt.substring(0, 24);
+		String currentAmountAsString = DECIMAL_FORMAT.format(currentAmount);
 		
 		//	New Line
 		if(lines > 1)
@@ -190,7 +191,7 @@ public class HR_BANAVIH extends AbstractPayrollReportExport {
 			.append(bpInfo.get(BP_LAST_NAME_2))
 			.append(SEPARATOR)
 			//	Amount
-			.append(currentAmt)
+			.append(currentAmountAsString.replace(",", ".").replace(".", ""))
 			.append(SEPARATOR)
 			//	Employee Start Date
 			.append(bpInfo.get(EM_START_DATE))
