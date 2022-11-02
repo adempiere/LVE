@@ -89,7 +89,10 @@ public class BancaribePagoDetallado_2022 extends LVEPaymentExportList {
 							//	Process Account Name
 							String businessPartnerName = processValue(businessPartnerAccount.getA_Name());
 							if(Optional.ofNullable(businessPartnerName).isPresent()) {
-								businessPartnerName = rightPadding(businessPartnerName, 64, "", false);
+								businessPartnerName = businessPartnerName.trim();
+								if(businessPartnerName.length() > 64) {
+									businessPartnerName = businessPartnerName.substring(0, 64);
+								}
 							} else {
 								addError(Msg.parseTranslation(Env.getCtx(), "@A_Name@ @NotFound@: " + businessPartner.getValue() + " - " + businessPartner.getName()));
 							}
