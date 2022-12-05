@@ -116,6 +116,8 @@ public class LVEUtil {
 	public static final String ENABLE_MULTI_CLIENT = "ENABLE_MULTI_CLIENT";
 	/**	Commercial Activity License	*/
 	public static final String COLUMNNAME_LVE_CommercialActivityLicense = "LVE_CommercialActivityLicense";
+	/**	Default Statement Charge	*/
+	public static final String COLUMNNAME_LVE_DefaultStatementCharge_ID = "LVE_DefaultStatementCharge_ID";
 	/**
 	 * Process Business Partner Value
 	 * @param value

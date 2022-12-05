@@ -27,12 +27,14 @@ import java.util.List;
  */
 import org.compiere.impexp.BankStatementMatchInfo;
 import org.compiere.impexp.BankStatementMatcherInterface;
+import org.compiere.model.MBankAccount;
 import org.compiere.model.MBankStatementLine;
 import org.compiere.model.MPayment;
 import org.compiere.model.X_I_BankStatement;
 import org.compiere.util.DB;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
+import org.erpya.lve.util.LVEUtil;
 
 /**
  * Add matcher by reference with like
@@ -141,7 +143,13 @@ public class DirectDebitBatchByDay implements BankStatementMatcherInterface {
 			info.setC_Payment_ID(paymentId);
 			MPayment payment = new MPayment(ibs.getCtx(), paymentId, ibs.get_TrxName());
 			ibs.setTrxAmt(payment.getPayAmt(false));
-			ibs.setInterestAmt(ibs.getStmtAmt().subtract(payment.getPayAmt(false)));
+			MBankAccount bankAccount = MBankAccount.get(payment.getCtx(), payment.getC_BankAccount_ID());
+			if(bankAccount.get_ValueAsInt(LVEUtil.COLUMNNAME_LVE_DefaultStatementCharge_ID) > 0) {
+				ibs.setChargeAmt(ibs.getStmtAmt().subtract(payment.getPayAmt(false)));
+				ibs.setC_Charge_ID(bankAccount.get_ValueAsInt(LVEUtil.COLUMNNAME_LVE_DefaultStatementCharge_ID));
+			} else {
+				ibs.setInterestAmt(ibs.getStmtAmt().subtract(payment.getPayAmt(false)));
+			}
 		}
 		return info;
 	}
