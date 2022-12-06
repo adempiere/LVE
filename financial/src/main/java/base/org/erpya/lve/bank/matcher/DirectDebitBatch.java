@@ -83,15 +83,15 @@ public class DirectDebitBatch implements BankStatementMatcherInterface {
 		//	Client
 		params.add(ibs.getAD_Client_ID());
 		//	For reference
-		if(!Util.isEmpty(ibs.getReferenceNo())) {
-			where.append("? = UPPER(TRIM(p.CheckNo)) ");
-			where.append("OR ? = UPPER(TRIM(p.DocumentNo)) ");
-			where.append("OR UPPER(TRIM(p.CheckNo)) = ? ");
-			where.append("OR UPPER(TRIM(p.DocumentNo)) = ?");
-			params.add(ibs.getReferenceNo().trim().toUpperCase());
-			params.add(ibs.getReferenceNo().trim().toUpperCase());
-			params.add(ibs.getReferenceNo().trim().toUpperCase());
-			params.add(ibs.getReferenceNo().trim().toUpperCase());
+		if(!Util.isEmpty(ibs.getMemo())) {
+			where.append("? LIKE '%' || p.CheckNo || '%' ");
+			where.append("OR ? LIKE '%' || p.DocumentNo || '%' ");
+			where.append("OR p.CheckNo LIKE ? ");
+			where.append("OR p.DocumentNo LIKE ?");
+			params.add(ibs.getMemo().toUpperCase().replaceAll("[^a-zA-Z0-9- ]", "").trim());
+			params.add(ibs.getMemo().toUpperCase().replaceAll("[^a-zA-Z0-9- ]", "").trim());
+			params.add(ibs.getMemo().toUpperCase().replaceAll("[^a-zA-Z0-9- ]", "").trim());
+			params.add(ibs.getMemo().toUpperCase().replaceAll("[^a-zA-Z0-9- ]", "").trim());
 		}
 		//	Add
 		if(where.length() > 0) {
