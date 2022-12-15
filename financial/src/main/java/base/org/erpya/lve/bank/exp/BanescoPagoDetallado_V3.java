@@ -40,15 +40,15 @@ import org.compiere.util.Util;
 import org.erpya.lve.util.LVEUtil;
 
 /**
- * 	Implementation for Export Payment from Banesco bank
+ * 	Implementation for Export Payment from Banesco bank como pago detallado
  * 	@author Yamel Senih, ysenih@erpcya.com, ERPCyA http://www.erpcya.com
  *		<a href="https://github.com/adempiere/LVE/issues/1">
  * 		@see FR [ 1 ] Initial commit</a>
  */
-public class Banesco extends LVEPaymentExportList {
+public class BanescoPagoDetallado_V3 extends LVEPaymentExportList {
 
 	/** Logger								*/
-	private static CLogger	s_log = CLogger.getCLogger (Banesco.class);
+	private static CLogger	s_log = CLogger.getCLogger (BanescoPagoDetallado_V3.class);
 	/**	Header Format	*/
 	private final String HEADER_DATE_FORMAT = "yyyyMMddHHmmss";
 	/**	Header Short Format	*/
@@ -96,12 +96,14 @@ public class Banesco extends LVEPaymentExportList {
 			//	Process Organization Tax ID
 			String orgTaxId = processValue(orgInfo.getTaxID().replace("-", ""));
 			orgTaxId = rightPadding(orgTaxId, 17, " ").toUpperCase();
+			String orgTaxIdForLine = orgTaxId;
 			String clientName = client.getName();
 			if(orgInfo.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsDefinedAsClient)) {
 				clientName = MOrg.get(orgInfo.getCtx(), orgInfo.getAD_Org_ID()).getName();
 			}
 			clientName = processValue(clientName);
 			clientName = rightPadding(clientName, 35, " ", true);
+			String clientNameForLine = clientName;
 			MBank bank = MBank.get(bankAccount.getCtx(), bankAccount.getC_Bank_ID());
 			//	Format Date Header
 			SimpleDateFormat headerFormat = new SimpleDateFormat(HEADER_DATE_FORMAT);
@@ -148,7 +150,7 @@ public class Banesco extends LVEPaymentExportList {
 			//  Write Debt Note
 			header = new StringBuffer();
 			//	Set Value Type Register for Debt Note Register
-			registerType = "02";
+			String debitRegisterType = "02";
 			//	Fields of Debt Register
 			String debtReferenceNo = processValue(paySelection.getDocumentNo());
 			debtReferenceNo = debtReferenceNo.substring(0, debtReferenceNo.length() >= 8? 8: debtReferenceNo.length());
@@ -169,21 +171,9 @@ public class Banesco extends LVEPaymentExportList {
 			String bankAccountNo = processValue(bankAccount.getAccountNo());
 			bankAccountNo = bankAccountNo.replace(" ", "");
 			bankAccountNo = rightPadding(bankAccountNo, 34, " ", true);
+			String bankAccountNoForLine = bankAccountNo;
 			String bankCodeOrder = rightPadding("BANESCO", 11, " ");
 			String payDate = shortFormat.format(paySelection.getPayDate());
-			//	Debt Note
-			header.append(CRLF)											//	New Line
-				.append(registerType)									//  Type Register
-				.append(debtReferenceNo)								//	Reference Number
-				.append(orgTaxId)										//  Organization Tax ID
-				.append(clientName)										//  Client Name
-				.append(totalAmtAsString)								//  Total Amount
-				.append(iSOCode)										//  ISO Code Currency
-				.append(freeField)										//  Free Field
-				.append(bankAccountNo)									//  Bank Account Number
-				.append(bankCodeOrder)									//  Bank Order Code
-				.append(payDate);										//  Payment Date
-			writeLine(header.toString());
 			//  Write Credit Note
 			s_log.fine("Iterate Payments");
 			checks.stream()
@@ -280,8 +270,22 @@ public class Banesco extends LVEPaymentExportList {
 									&& bank.getSwiftCode().equals(bpBank.getSwiftCode())) {
 								paymentTerm = rightPadding("42", 3, " ");
 							}
-							//	Write Credit Register
+							//	Debt Note
 							StringBuffer line = new StringBuffer();
+							line.append(CRLF)											//	New Line
+								.append(debitRegisterType)								//  Type Register
+								.append(documentNo)										//	Reference Number
+								.append(orgTaxIdForLine)								//  Organization Tax ID
+								.append(clientNameForLine)								//  Client Name
+								.append(amountAsString)									//  Total Amount
+								.append(iSOCode)										//  ISO Code Currency
+								.append(freeField)										//  Free Field
+								.append(bankAccountNoForLine)							//  Bank Account Number
+								.append(bankCodeOrder)									//  Bank Order Code
+								.append(payDate);										//  Payment Date
+							writeLine(line.toString());
+							//	Write Credit Register
+							line = new StringBuffer();
 							line.append(CRLF)						//	New Line
 								.append(lineRegisterType)			//	Type Register	
 								.append(documentNo)					//	Document Number
@@ -313,7 +317,7 @@ public class Banesco extends LVEPaymentExportList {
 			//	Totals Register
 			//	Set Value Type Register for Totals Register
 			registerType = "06";
-			String countDebit = leftPadding("1", 15, "0");
+			String countDebit = leftPadding("" + getPaymentQty(), 15, "0");
 			String countCredit = leftPadding("" + getPaymentQty(), 15, "0");
 			//	Write Totals
 			StringBuffer footer = new StringBuffer();
