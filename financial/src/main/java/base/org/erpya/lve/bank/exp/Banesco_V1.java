@@ -45,10 +45,10 @@ import org.erpya.lve.util.LVEUtil;
  *		<a href="https://github.com/adempiere/LVE/issues/1">
  * 		@see FR [ 1 ] Initial commit</a>
  */
-public class Banesco extends LVEPaymentExportList {
+public class Banesco_V1 extends LVEPaymentExportList {
 
 	/** Logger								*/
-	private static CLogger	s_log = CLogger.getCLogger (Banesco.class);
+	private static CLogger	s_log = CLogger.getCLogger (Banesco_V1.class);
 	/**	Header Format	*/
 	private final String HEADER_DATE_FORMAT = "yyyyMMddHHmmss";
 	/**	Header Short Format	*/
@@ -153,6 +153,7 @@ public class Banesco extends LVEPaymentExportList {
 			String debtReferenceNo = processValue(paySelection.getDocumentNo());
 			debtReferenceNo = debtReferenceNo.substring(0, debtReferenceNo.length() >= 8? 8: debtReferenceNo.length());
 			debtReferenceNo = debtReferenceNo.replaceAll("\\D+","");
+			debtReferenceNo = leftPadding(debtReferenceNo, 8, "0");
 			debtReferenceNo = rightPadding(debtReferenceNo, 30, " ");
 			//	Payment Amount
 			String totalAmtAsString = String.format("%.2f", totalPaymentAmount).replace(".", "").replace(",", "");
@@ -262,9 +263,9 @@ public class Banesco extends LVEPaymentExportList {
 							String lineRegisterType = "03";
 							//	Process Document No
 							String documentNo = processValue(paySelectionCheck.getDocumentNo());
-							documentNo = documentNo.substring(0, documentNo.length() >= 8? 8: documentNo.length());
+							documentNo = documentNo.substring(0, documentNo.length() >= 30? 30: documentNo.length());
 							documentNo = documentNo.replaceAll("\\D+","");
-							documentNo = leftPadding(documentNo, 8, "0");
+							documentNo = leftPadding(documentNo, 30, "0");
 							documentNo = rightPadding(documentNo, 30, " ");
 							//	Payment Amount
 							String amountAsString = String.format("%.2f", paySelectionCheck.getPayAmt().abs()).replace(".", "").replace(",", "");
