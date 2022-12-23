@@ -133,7 +133,8 @@ public class BanescoPagoDetallado_V3 extends LVEPaymentExportList {
 			//	Can be used for identify payments
 			String descriptionCode = rightPadding("", 32, " ");
 			String paymentRequestCondition = rightPadding("9", 3, " ");
-			String paymentRequestNo = rightPadding(processValue(paySelection.getDocumentNo()), 35, " ", true);
+			String paymentRequestNo = leftPadding(processValue(paySelection.getDocumentNo()), 8, "0");
+			paymentRequestNo = rightPadding(paymentRequestNo, 35, " ", true);
 			String paymentRequestDate = headerFormat.format(paySelection.getPayDate());
 			//	Set Value Type Register for Control Register
 			registerType = "01";
