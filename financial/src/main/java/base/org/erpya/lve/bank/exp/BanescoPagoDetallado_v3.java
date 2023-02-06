@@ -45,10 +45,10 @@ import org.erpya.lve.util.LVEUtil;
  *		<a href="https://github.com/adempiere/LVE/issues/1">
  * 		@see FR [ 1 ] Initial commit</a>
  */
-public class BanescoPagoDetallado_V3 extends LVEPaymentExportList {
+public class BanescoPagoDetallado_v3 extends LVEPaymentExportList {
 
 	/** Logger								*/
-	private static CLogger	s_log = CLogger.getCLogger (BanescoPagoDetallado_V3.class);
+	private static CLogger	s_log = CLogger.getCLogger (BanescoPagoDetallado_v3.class);
 	/**	Header Format	*/
 	private final String HEADER_DATE_FORMAT = "yyyyMMddHHmmss";
 	/**	Header Short Format	*/
@@ -256,7 +256,7 @@ public class BanescoPagoDetallado_V3 extends LVEPaymentExportList {
 							String documentNo = processValue(paySelectionCheck.getDocumentNo());
 							documentNo = documentNo.substring(0, documentNo.length() >= 30? 30: documentNo.length());
 							documentNo = documentNo.replaceAll("\\D+","");
-							documentNo = leftPadding(documentNo, 30, "0");
+							documentNo = leftPadding(documentNo, 8, "0");
 							documentNo = rightPadding(documentNo, 30, " ");
 							//	Payment Amount
 							String amountAsString = String.format("%.2f", paySelectionCheck.getPayAmt().abs()).replace(".", "").replace(",", "");
