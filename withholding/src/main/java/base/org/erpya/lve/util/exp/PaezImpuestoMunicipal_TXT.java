@@ -25,7 +25,7 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;
 
-import org.compiere.model.I_C_Invoice;
+import org.adempiere.core.domains.models.I_C_Invoice;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MLocation;
@@ -105,7 +105,7 @@ public class PaezImpuestoMunicipal_TXT extends ExportFormatCSV {
 					.filter(printFormatItem -> printFormatItem.isPrinted())
 					.forEach(printFormatItem -> {
 						String columnName = Optional.ofNullable(printFormatItem.getColumnName()).orElse("");
-						Object valueOfItem = printData.getNode(new Integer(printFormatItem.getAD_Column_ID()));
+						Object valueOfItem = printData.getNode(Integer.valueOf(printFormatItem.getAD_Column_ID()));
 						String data = "";
 						if (valueOfItem == null) {
 							if(printFormatItem.getPrintFormatType().equals(MPrintFormatItem.PRINTFORMATTYPE_Text)) {

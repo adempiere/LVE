@@ -17,6 +17,7 @@ package org.erpya.lve.util;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -24,7 +25,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
-import org.compiere.model.I_C_Order;
+import org.adempiere.core.domains.models.I_C_Order;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MCharge;
 import org.compiere.model.MCurrency;
@@ -204,7 +205,7 @@ public class OrderISLR extends AbstractWithholdingSetting {
 							addBaseAmount(conceptSetting.getAmtBase());
 							if (conceptSetting.isValid())
 								addWithholdingAmount(conceptSetting.getAmtBase().multiply(rate,MathContext.DECIMAL128)
-															.setScale(curPrecision,BigDecimal.ROUND_HALF_UP)
+															.setScale(curPrecision, RoundingMode.HALF_UP)
 															.subtract(conceptSetting.getAmtSubtract()));
 							else
 								addWithholdingAmount(Env.ZERO);
@@ -312,11 +313,11 @@ public class OrderISLR extends AbstractWithholdingSetting {
 					}
 				}else {
 					if (bpartnerPersonType.equals(X_LVE_ListVersion.PERSONTYPE_ResidentNaturalPerson)) {
-						BigDecimal minValue = tributeUnitAmount.multiply(FACTOR,MathContext.DECIMAL128).setScale(curPrecision,BigDecimal.ROUND_HALF_UP);
+						BigDecimal minValue = tributeUnitAmount.multiply(FACTOR,MathContext.DECIMAL128).setScale(curPrecision,RoundingMode.HALF_UP);
 						subtractAmt = minValue.multiply(rateToApply.getAmount()
 												.divide(Env.ONEHUNDRED,MathContext.DECIMAL128)
 												,MathContext.DECIMAL128)
-												.setScale(curPrecision,BigDecimal.ROUND_HALF_UP);
+												.setScale(curPrecision,RoundingMode.HALF_UP);
 						if (whConceptSetting.getAmtBase().compareTo(minValue)>=0) {
 							whConceptSetting.setGenerateDocument(true);
 						}else {
@@ -324,7 +325,7 @@ public class OrderISLR extends AbstractWithholdingSetting {
 								subtractAmt = minValue.multiply(rateToApply.getAmount()
 																			.divide(Env.ONEHUNDRED,MathContext.DECIMAL128)
 																			,MathContext.DECIMAL128)
-																			.setScale(curPrecision,BigDecimal.ROUND_HALF_UP);
+																			.setScale(curPrecision,RoundingMode.HALF_UP);
 								whConceptSetting.setGenerateDocument(true);
 								whConceptSetting.setValid(false);
 							}

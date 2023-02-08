@@ -18,6 +18,7 @@
 package org.erpya.lve.util;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Optional;
 
 import org.adempiere.exceptions.AdempiereException;
@@ -63,8 +64,8 @@ public class OrganizationRulesUtil {
 								order.getC_Currency_ID(), invoice.getC_Currency_ID(), conversionTypeId, invoice.getDateAcct(), invoice.get_TrxName()));
 					}
 					MCurrency currencyTo = MCurrency.get (invoice.getCtx(), invoice.getC_Currency_ID());
-					BigDecimal invoicePriceList = orderPriceList.multiply(conversionRate).setScale(currencyTo.getStdPrecision(), BigDecimal.ROUND_HALF_UP);
-					BigDecimal invoicePriceActual = orderPriceActual.multiply(conversionRate).setScale(currencyTo.getStdPrecision(), BigDecimal.ROUND_HALF_UP);
+					BigDecimal invoicePriceList = orderPriceList.multiply(conversionRate).setScale(currencyTo.getStdPrecision(), RoundingMode.HALF_UP);
+					BigDecimal invoicePriceActual = orderPriceActual.multiply(conversionRate).setScale(currencyTo.getStdPrecision(), RoundingMode.HALF_UP);
 					//	Set Price
 					invoiceLine.setPriceList(invoicePriceList);
 					invoiceLine.setPrice(invoicePriceActual);

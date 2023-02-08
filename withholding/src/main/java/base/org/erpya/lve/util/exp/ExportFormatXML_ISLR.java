@@ -30,7 +30,7 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import org.compiere.model.I_C_Invoice;
+import org.adempiere.core.domains.models.I_C_Invoice;
 import org.compiere.model.MColumn;
 import org.compiere.print.MPrintFormat;
 import org.compiere.print.MPrintFormatItem;

@@ -24,12 +24,12 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.adempiere.exceptions.AdempiereException;
-import org.compiere.model.I_C_BPartner;
-import org.compiere.model.I_C_Invoice;
-import org.compiere.model.I_C_Order;
-import org.compiere.model.I_I_BPartner;
-import org.compiere.model.I_I_Invoice;
-import org.compiere.model.I_M_InOut;
+import org.adempiere.core.domains.models.I_C_BPartner;
+import org.adempiere.core.domains.models.I_C_Invoice;
+import org.adempiere.core.domains.models.I_C_Order;
+import org.adempiere.core.domains.models.I_I_BPartner;
+import org.adempiere.core.domains.models.I_I_Invoice;
+import org.adempiere.core.domains.models.I_M_InOut;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MClient;
 import org.compiere.model.MDocType;

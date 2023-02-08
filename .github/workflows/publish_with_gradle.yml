@@ -21,25 +21,11 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
 
-      - name: Set up JDK 8
+      - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt-hotspot'
-          java-version: 8
-
-      - name: get adempiere source
-        run: |
-          download_repo="https://github.com/erpcya/adempiere/releases/download/3.9.3-rs-4.3/Adempiere_393LTS.tar.gz"
-          wget $download_repo -c -O Adempiere.tar.gz
-      
-      - name: uncompress file
-        run: tar -xzf Adempiere.tar.gz
-      - name: create dependences folder
-        run: mkdir dependences
-      - name: move dependences
-        run: mv Adempiere/lib/*.jar dependences/
-      - name: move packages
-        run: mv Adempiere/packages/*/lib/*.jar dependences/
+          java-version: 11
 
       - name: Publish with Gradle
         run: gradle publish

@@ -35,8 +35,8 @@ import org.compiere.util.DB;
 import org.compiere.util.Env;
 import org.compiere.util.PaymentExportList;
 import org.compiere.util.Util;
-import org.eevolution.model.MHRMovement;
-import org.eevolution.model.MHRProcess;
+import org.eevolution.hr.model.MHRMovement;
+import org.eevolution.hr.model.MHRProcess;
 
 /**
  * This class is used like a parent class for make helper method used on 

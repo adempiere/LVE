@@ -17,8 +17,8 @@ package org.erpya.lve.util;
 
 import java.util.Arrays;
 
-import org.compiere.model.I_C_Invoice;
-import org.compiere.model.I_C_Order;
+import org.adempiere.core.domains.models.I_C_Invoice;
+import org.adempiere.core.domains.models.I_C_Order;
 import org.compiere.model.MInvoice;
 import org.compiere.model.Query;
 import org.compiere.util.Util;

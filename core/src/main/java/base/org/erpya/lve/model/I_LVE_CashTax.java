@@ -76,7 +76,7 @@ public interface I_LVE_CashTax
 	  */
 	public int getC_Cash_ID();
 
-	public org.compiere.model.I_C_Cash getC_Cash() throws RuntimeException;
+	public org.adempiere.core.domains.models.I_C_Cash getC_Cash() throws RuntimeException;
 
     /** Column name Created */
     public static final String COLUMNNAME_Created = "Created";
@@ -107,7 +107,7 @@ public interface I_LVE_CashTax
 	  */
 	public int getC_Tax_ID();
 
-	public org.compiere.model.I_C_Tax getC_Tax() throws RuntimeException;
+	public org.adempiere.core.domains.models.I_C_Tax getC_Tax() throws RuntimeException;
 
     /** Column name IsActive */
     public static final String COLUMNNAME_IsActive = "IsActive";

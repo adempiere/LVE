@@ -202,7 +202,7 @@ public class Provincial_MT940_Transaction extends MT940BankTransaction {
 			if(reference.matches("[+-]?\\d*(\\.\\d+)?")) {
 				Long longReference = null;
 				try {
-					longReference = new Long(reference);
+					longReference = Long.valueOf(reference);
 				} catch (Exception e) {
 					//	Nothing
 				}

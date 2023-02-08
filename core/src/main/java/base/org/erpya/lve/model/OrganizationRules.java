@@ -17,8 +17,8 @@ package org.erpya.lve.model;
 import java.util.Arrays;
 
 import org.adempiere.exceptions.AdempiereException;
-import org.compiere.model.I_C_Invoice;
-import org.compiere.model.I_C_InvoiceLine;
+import org.adempiere.core.domains.models.I_C_Invoice;
+import org.adempiere.core.domains.models.I_C_InvoiceLine;
 import org.compiere.model.MClient;
 import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
