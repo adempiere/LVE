@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Add WhereClause to Smart Browse Generate Debits" ReleaseNo="3.9.4" SeqNo="81001060">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="53224" Action="U" Record_ID="50274" Table="AD_Browse">
+        <Data AD_Column_ID="58000" Column="WhereClause" isOldNull="true">EXISTS (SELECT 1 FROM LVE_AutoDebitNoteSetting adns WHERE adns.IsActive = 'Y' AND adns.C_DocType_ID = iwop.C_DocType_ID)
+AND 
+NOT EXISTS (SELECT 1 FROM C_Invoice adn WHERE adn.DocStatus NOT IN ('VO', 'RE') AND adn.LVE_AutoDebitInvoice_ID = iwop.C_Invoice_ID)</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
