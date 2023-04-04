@@ -463,11 +463,6 @@
         <Data AD_Column_ID="181" Column="SeqNo" oldValue="650">660</Data>
       </PO>
     </Step>
-    <Step SeqNo="620" StepType="AD">
-      <PO AD_Table_ID="107" Action="U" Record_ID="85506" Table="AD_Field">
-        <Data AD_Column_ID="181" Column="SeqNo" oldValue="660">670</Data>
-      </PO>
-    </Step>
     <Step SeqNo="630" StepType="AD">
       <PO AD_Table_ID="107" Action="U" Record_ID="4362" Table="AD_Field">
         <Data AD_Column_ID="181" Column="SeqNo" oldValue="660">680</Data>
