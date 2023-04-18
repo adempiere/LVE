@@ -13,6 +13,8 @@ allprojects {
 
 sourceCompatibility = 1.11
 def baseVersion = '3.9.4'
+def baseGroupId = 'io.github.adempiere'
+def customGroupId = System.getenv("ADEMPIERE_LIBRARY_GROUP")
 
 dependencies {
 	api fileTree(
@@ -22,11 +24,11 @@ dependencies {
         ]
     )
     //	ADempiere Core
-	api "io.github.adempiere:base:${baseVersion}"
-	api "io.github.adempiere:human-resource-and-payroll:${baseVersion}"
-	api "io.github.adempiere:store:${baseVersion}"
-	api "io.github.adempiere:point-of-sales:${baseVersion}"
-	api 'io.github.adempiere:withholding-engine:adempiere-3.9.4-1.2.9'
+	api "${baseGroupId}:base:${baseVersion}"
+	api "${baseGroupId}:human-resource-and-payroll:${baseVersion}"
+	api "${baseGroupId}:store:${baseVersion}"
+	api "${baseGroupId}:point-of-sales:${baseVersion}"
+	api '${baseGroupId}:withholding-engine:adempiere-3.9.4-1.2.9'
 	// https://search.maven.org/artifact/javax.mail/javax.mail-api/1.6.2/jar
 	api 'javax.mail:javax.mail-api:1.6.2'
 }
@@ -67,7 +69,7 @@ publishing {
     }
     publications {
         mavenJava(MavenPublication) {
-        	groupId 'io.github.adempiere'
+        	groupId customGroupId
             artifactId 'location-venezuela'
             version
            	from components.java
