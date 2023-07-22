@@ -18,6 +18,7 @@
 package org.erpya.lve.util;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Optional;
 
 import org.adempiere.exceptions.AdempiereException;
@@ -54,6 +55,7 @@ public class OrganizationRulesUtil {
 					}
 					BigDecimal orderPriceList = Optional.ofNullable(orderLine.getPriceList()).orElse(Env.ZERO);
 					BigDecimal orderPriceActual = Optional.ofNullable(orderLine.getPriceActual()).orElse(Env.ZERO);
+					BigDecimal orderPriceEntered = Optional.ofNullable(orderLine.getPriceEntered()).orElse(Env.ZERO);
 					BigDecimal conversionRate = Optional.ofNullable(MConversionRate.getRate (order.getC_Currency_ID(),
 		                    invoice.getC_Currency_ID(), invoice.getDateAcct(), conversionTypeId, invoice.getAD_Client_ID(),
 		                    invoice.getAD_Org_ID()))
@@ -63,11 +65,13 @@ public class OrganizationRulesUtil {
 								order.getC_Currency_ID(), invoice.getC_Currency_ID(), conversionTypeId, invoice.getDateAcct(), invoice.get_TrxName()));
 					}
 					MCurrency currencyTo = MCurrency.get (invoice.getCtx(), invoice.getC_Currency_ID());
-					BigDecimal invoicePriceList = orderPriceList.multiply(conversionRate).setScale(currencyTo.getStdPrecision(), BigDecimal.ROUND_HALF_UP);
-					BigDecimal invoicePriceActual = orderPriceActual.multiply(conversionRate).setScale(currencyTo.getStdPrecision(), BigDecimal.ROUND_HALF_UP);
+					BigDecimal invoicePriceList = orderPriceList.multiply(conversionRate).setScale(currencyTo.getStdPrecision(), RoundingMode.HALF_UP);
+					BigDecimal invoicePriceActual = orderPriceActual.multiply(conversionRate).setScale(currencyTo.getStdPrecision(), RoundingMode.HALF_UP);
+					BigDecimal invoicePriceEntered = orderPriceEntered.multiply(conversionRate).setScale(currencyTo.getStdPrecision(), RoundingMode.HALF_UP);
 					//	Set Price
 					invoiceLine.setPriceList(invoicePriceList);
-					invoiceLine.setPrice(invoicePriceActual);
+					invoiceLine.setPriceActual(invoicePriceActual);
+					invoiceLine.setPriceEntered(invoicePriceEntered);
 					invoiceLine.setLineNetAmt();
 					invoiceLine.setTaxAmt();
 				}
