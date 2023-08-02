@@ -12,8 +12,8 @@ allprojects {
 }
 
 sourceCompatibility = 1.11
-def baseVersion = '3.9.4'
-def baseGroupId = 'io.github.adempiere'
+def baseVersion = 'erpya-3.9.4-1.0.0'
+def baseGroupId = 'com.erpya'
 def customGroupId = System.getenv("ADEMPIERE_LIBRARY_GROUP")
 
 dependencies {
@@ -28,7 +28,7 @@ dependencies {
 	api "${baseGroupId}:human-resource-and-payroll:${baseVersion}"
 	api "${baseGroupId}:store:${baseVersion}"
 	api "${baseGroupId}:point-of-sales:${baseVersion}"
-	api '${baseGroupId}:withholding-engine:adempiere-3.9.4-1.2.9'
+	api "${baseGroupId}:withholding-engine:erpya-3.9.4-1.0.1"
 	// https://search.maven.org/artifact/javax.mail/javax.mail-api/1.6.2/jar
 	api 'javax.mail:javax.mail-api:1.6.2'
 }
