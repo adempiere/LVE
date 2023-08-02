@@ -50,8 +50,8 @@ import org.compiere.util.Env;
 import org.compiere.util.Util;
 import org.erpya.lve.util.AllocationManager;
 import org.erpya.lve.util.LVEUtil;
-import org.erpya.lve.util.DocumentTypeSequence;
 import org.spin.model.MWHWithholding;
+import org.erpya.lve.util.DocumentTypeSequence;
 
 /**
  * 	Add Default Model Validator for Location Venezuela
