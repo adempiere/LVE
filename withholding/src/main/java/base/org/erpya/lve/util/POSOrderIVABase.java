@@ -306,6 +306,7 @@ public class POSOrderIVABase extends AbstractWithholdingSetting {
 					paymentReferenceToCreate.set_ValueOfColumn("TenderType", MPayment.TENDERTYPE_CreditMemo);
 					paymentReferenceToCreate.set_ValueOfColumn("Description", Msg.parseTranslation(getContext(), getProcessDescription()));
 					paymentReferenceToCreate.set_ValueOfColumn("PayDate", order.getDateOrdered());
+					paymentReferenceToCreate.setAD_Org_ID(order.getAD_Org_ID());
 					paymentReferenceToCreate.saveEx();
 				}
 			}
