@@ -117,6 +117,7 @@ public class POSOrderIVAProcess extends AbstractWithholdingSetting {
 				addDescription(paymentReference.get_ValueAsString("Description"));
 				setReturnValue(MWHWithholding.COLUMNNAME_IsManual, true);
 				setReturnValue(I_WH_Withholding.COLUMNNAME_DateAcct, paymentReference.get_Value("PayDate"));
+				setReturnValue(I_WH_Withholding.COLUMNNAME_AD_Org_ID, paymentReference.getAD_Org_ID());
 				if(invoiceId > 0) {
 					setReturnValue(I_WH_Withholding.COLUMNNAME_SourceInvoice_ID, invoiceId);
 				}
