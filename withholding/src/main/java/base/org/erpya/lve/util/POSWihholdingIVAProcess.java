@@ -84,8 +84,12 @@ public class POSWihholdingIVAProcess extends AbstractWithholdingSetting {
 			int documentTypeId = withholding.getWHDocType();
 			if(documentTypeId > 0) {
 				withholdingDocument.setC_DocTypeTarget_ID(documentTypeId);
-				withholdingDocument.saveEx();
 			}
+			//	Set invoice to allocate for credit memo
+			if(withholding.getSourceInvoice_ID() > 0) {
+				withholdingDocument.set_ValueOfColumn(LVEUtil.COLUMNNAME_InvoiceToAllocate_ID, withholding.getSourceInvoice_ID());
+			}
+			withholdingDocument.saveEx();
 			MWHDefinition whDefinition = (MWHDefinition) withholding.getWH_Definition();
 			MWHSetting whSetting = (MWHSetting) withholding.getWH_Setting();
 			Arrays.asList(withholdingDocument.getLines(true)).stream().findFirst().ifPresent(withholdingDocumentLine -> {
