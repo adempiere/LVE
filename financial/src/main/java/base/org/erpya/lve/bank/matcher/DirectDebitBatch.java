@@ -30,7 +30,7 @@ import org.compiere.impexp.BankStatementMatcherInterface;
 import org.compiere.model.MBankAccount;
 import org.compiere.model.MBankStatementLine;
 import org.compiere.model.MPayment;
-import org.compiere.model.X_I_BankStatement;
+import org.adempiere.core.domains.models.X_I_BankStatement;
 import org.compiere.util.DB;
 import org.compiere.util.Env;
 import org.compiere.util.Util;

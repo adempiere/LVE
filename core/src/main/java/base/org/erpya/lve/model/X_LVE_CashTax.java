@@ -77,9 +77,9 @@ public class X_LVE_CashTax extends PO implements I_LVE_CashTax, I_Persistent
       return sb.toString();
     }
 
-	public org.compiere.model.I_C_Cash getC_Cash() throws RuntimeException
+	public org.adempiere.core.domains.models.I_C_Cash getC_Cash() throws RuntimeException
     {
-		return (org.compiere.model.I_C_Cash)MTable.get(getCtx(), org.compiere.model.I_C_Cash.Table_Name)
+		return (org.adempiere.core.domains.models.I_C_Cash)MTable.get(getCtx(), org.adempiere.core.domains.models.I_C_Cash.Table_Name)
 			.getPO(getC_Cash_ID(), get_TrxName());	}
 
 	/** Set Cash Journal.
@@ -105,9 +105,9 @@ public class X_LVE_CashTax extends PO implements I_LVE_CashTax, I_Persistent
 		return ii.intValue();
 	}
 
-	public org.compiere.model.I_C_Tax getC_Tax() throws RuntimeException
+	public org.adempiere.core.domains.models.I_C_Tax getC_Tax() throws RuntimeException
     {
-		return (org.compiere.model.I_C_Tax)MTable.get(getCtx(), org.compiere.model.I_C_Tax.Table_Name)
+		return (org.adempiere.core.domains.models.I_C_Tax)MTable.get(getCtx(), org.adempiere.core.domains.models.I_C_Tax.Table_Name)
 			.getPO(getC_Tax_ID(), get_TrxName());	}
 
 	/** Set Tax.

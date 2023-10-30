@@ -17,9 +17,10 @@ package org.erpya.lve.util;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.Optional;
 
-import org.compiere.model.I_C_Order;
+import org.adempiere.core.domains.models.I_C_Order;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MCurrency;
 import org.compiere.model.MDocType;
@@ -165,7 +166,7 @@ public class OrderIM extends AbstractWithholdingSetting {
 				rate = getWithholdingRate(true);
 				addBaseAmount(baseAmount);
 				addWithholdingAmount(baseAmount.multiply(rate,MathContext.DECIMAL128)
-												.setScale(curPrecision,BigDecimal.ROUND_HALF_UP));
+												.setScale(curPrecision, RoundingMode.HALF_UP));
 				addDescription(activityToApply.getName());
 				setReturnValue(MWHWithholding.COLUMNNAME_IsManual, isManual);
 				

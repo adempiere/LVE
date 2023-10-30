@@ -15,7 +15,7 @@
  ************************************************************************************/
 package org.erpya.lve.util;
 
-import org.compiere.model.I_C_Order;
+import org.adempiere.core.domains.models.I_C_Order;
 import org.spin.model.MWHSetting;
 
 /**

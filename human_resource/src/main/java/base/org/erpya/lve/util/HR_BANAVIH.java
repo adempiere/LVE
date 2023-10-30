@@ -38,9 +38,9 @@ import org.compiere.model.Query;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
-import org.eevolution.model.MHREmployee;
-import org.spin.model.X_RV_HR_ProcessDetail;
-import org.spin.util.AbstractPayrollReportExport;
+import org.eevolution.hr.model.MHREmployee;
+import org.adempiere.core.domains.models.X_RV_HR_ProcessDetail;
+import org.spin.hr.util.AbstractPayrollReportExport;
 
 /**
  * @author <a href="mailto:yamelsenih@gmail.com">Yamel Senih</a>

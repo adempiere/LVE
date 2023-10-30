@@ -97,7 +97,7 @@ public class ExportFormatTXT_IVA extends ExportFormatCSV {
 					.stream()
 					.filter(printFormatItem -> printFormatItem.isPrinted())
 					.forEach(printFormatItem -> {
-						Object valueOfItem = printData.getNode(new Integer(printFormatItem.getAD_Column_ID()));
+						Object valueOfItem = printData.getNode(Integer.valueOf(printFormatItem.getAD_Column_ID()));
 						String data = "";
 						if (valueOfItem == null) {
 							if(printFormatItem.getPrintFormatType().equals(MPrintFormatItem.PRINTFORMATTYPE_Text)) {

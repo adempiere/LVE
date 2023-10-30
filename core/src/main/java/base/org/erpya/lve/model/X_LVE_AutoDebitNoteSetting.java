@@ -19,7 +19,11 @@ package org.erpya.lve.model;
 
 import java.sql.ResultSet;
 import java.util.Properties;
-import org.compiere.model.*;
+
+import org.compiere.model.I_Persistent;
+import org.compiere.model.MTable;
+import org.compiere.model.PO;
+import org.compiere.model.POInfo;
 
 /** Generated Model for LVE_AutoDebitNoteSetting
  *  @author Adempiere (generated) 
@@ -74,9 +78,9 @@ public class X_LVE_AutoDebitNoteSetting extends PO implements I_LVE_AutoDebitNot
       return sb.toString();
     }
 
-	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
+	public org.adempiere.core.domains.models.I_C_DocType getC_DocType() throws RuntimeException
     {
-		return (org.compiere.model.I_C_DocType)MTable.get(getCtx(), org.compiere.model.I_C_DocType.Table_Name)
+		return (org.adempiere.core.domains.models.I_C_DocType)MTable.get(getCtx(), org.adempiere.core.domains.models.I_C_DocType.Table_Name)
 			.getPO(getC_DocType_ID(), get_TrxName());	}
 
 	/** Set Document Type.
@@ -102,9 +106,9 @@ public class X_LVE_AutoDebitNoteSetting extends PO implements I_LVE_AutoDebitNot
 		return ii.intValue();
 	}
 
-	public org.compiere.model.I_C_Charge getLVE_AllocationCharge() throws RuntimeException
+	public org.adempiere.core.domains.models.I_C_Charge getLVE_AllocationCharge() throws RuntimeException
     {
-		return (org.compiere.model.I_C_Charge)MTable.get(getCtx(), org.compiere.model.I_C_Charge.Table_Name)
+		return (org.adempiere.core.domains.models.I_C_Charge)MTable.get(getCtx(), org.adempiere.core.domains.models.I_C_Charge.Table_Name)
 			.getPO(getLVE_AllocationCharge_ID(), get_TrxName());	}
 
 	/** Set Allocation Charge.
@@ -127,9 +131,9 @@ public class X_LVE_AutoDebitNoteSetting extends PO implements I_LVE_AutoDebitNot
 		return ii.intValue();
 	}
 
-	public org.compiere.model.I_C_DocType getLVE_AllocationDocType() throws RuntimeException
+	public org.adempiere.core.domains.models.I_C_DocType getLVE_AllocationDocType() throws RuntimeException
     {
-		return (org.compiere.model.I_C_DocType)MTable.get(getCtx(), org.compiere.model.I_C_DocType.Table_Name)
+		return (org.adempiere.core.domains.models.I_C_DocType)MTable.get(getCtx(), org.adempiere.core.domains.models.I_C_DocType.Table_Name)
 			.getPO(getLVE_AllocationDocType_ID(), get_TrxName());	}
 
 	/** Set Allocation Document Type.
@@ -172,9 +176,9 @@ public class X_LVE_AutoDebitNoteSetting extends PO implements I_LVE_AutoDebitNot
 		return ii.intValue();
 	}
 
-	public org.compiere.model.I_C_Charge getLVE_DebitNoteCharge() throws RuntimeException
+	public org.adempiere.core.domains.models.I_C_Charge getLVE_DebitNoteCharge() throws RuntimeException
     {
-		return (org.compiere.model.I_C_Charge)MTable.get(getCtx(), org.compiere.model.I_C_Charge.Table_Name)
+		return (org.adempiere.core.domains.models.I_C_Charge)MTable.get(getCtx(), org.adempiere.core.domains.models.I_C_Charge.Table_Name)
 			.getPO(getLVE_DebitNoteCharge_ID(), get_TrxName());	}
 
 	/** Set Debit Note Charge.
@@ -197,9 +201,9 @@ public class X_LVE_AutoDebitNoteSetting extends PO implements I_LVE_AutoDebitNot
 		return ii.intValue();
 	}
 
-	public org.compiere.model.I_C_DocType getLVE_DebitNoteDocType() throws RuntimeException
+	public org.adempiere.core.domains.models.I_C_DocType getLVE_DebitNoteDocType() throws RuntimeException
     {
-		return (org.compiere.model.I_C_DocType)MTable.get(getCtx(), org.compiere.model.I_C_DocType.Table_Name)
+		return (org.adempiere.core.domains.models.I_C_DocType)MTable.get(getCtx(), org.adempiere.core.domains.models.I_C_DocType.Table_Name)
 			.getPO(getLVE_DebitNoteDocType_ID(), get_TrxName());	}
 
 	/** Set Debit Note Document Type.
@@ -243,9 +247,9 @@ public class X_LVE_AutoDebitNoteSetting extends PO implements I_LVE_AutoDebitNot
 		return false;
 	}
 
-	public org.compiere.model.I_M_PriceList getM_PriceList() throws RuntimeException
+	public org.adempiere.core.domains.models.I_M_PriceList getM_PriceList() throws RuntimeException
     {
-		return (org.compiere.model.I_M_PriceList)MTable.get(getCtx(), org.compiere.model.I_M_PriceList.Table_Name)
+		return (org.adempiere.core.domains.models.I_M_PriceList)MTable.get(getCtx(), org.adempiere.core.domains.models.I_M_PriceList.Table_Name)
 			.getPO(getM_PriceList_ID(), get_TrxName());	}
 
 	/** Set Price List.

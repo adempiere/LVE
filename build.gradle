@@ -2,26 +2,38 @@ apply plugin: 'java-library'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
     mavenLocal()
     mavenCentral()
 }
 
-if (JavaVersion.current().isJava8Compatible()) {
-    allprojects {
-        tasks.withType(Javadoc) {
-            options.addStringOption('Xdoclint:none', '-quiet')
-        }
-    }
+allprojects {
+    tasks.withType(Javadoc).all { enabled = false }
 }
 
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
+
+def baseVersion = '3.9.4'
+def baseGroupId = 'io.github.adempiere'
+def customGroupId = System.getenv("ADEMPIERE_LIBRARY_GROUP")
+
 dependencies {
-	api 'io.github.adempiere:withholding-engine:1.2.9'
-	compileOnly fileTree(dir: 'dependences', include: ['*.jar'])
-	compileOnly fileTree(dir: 'lib', include: ['*.jar'])
+	implementation fileTree(
+        dir: 'lib',
+        include: [
+            '*.jar'
+        ]
+    )
+    //	ADempiere Core
+	implementation "${baseGroupId}:human-resource-and-payroll:${baseVersion}"
+	implementation "${baseGroupId}:store:${baseVersion}"
+	// https://search.maven.org/artifact/javax.mail/javax.mail-api/1.6.2/jar
+	implementation 'javax.mail:javax.mail-api:1.6.2'
+	// http://xml.apache.org/commons/#external
+	implementation 'xml-apis:xml-apis:2.0.2'
+	implementation "${baseGroupId}:withholding-engine:adempiere-3.9.4-1.3.2"
 }
 
 sourceSets {

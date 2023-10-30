@@ -30,7 +30,7 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import org.compiere.model.I_C_Invoice;
+import org.adempiere.core.domains.models.I_C_Invoice;
 import org.compiere.model.MColumn;
 import org.compiere.print.MPrintFormat;
 import org.compiere.print.MPrintFormatItem;
@@ -142,7 +142,7 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 							&& orgPrintFormatItemId == 0) {
 						orgPrintFormatItemId = item.getAD_PrintFormatItem_ID();
 						orgPrintName = item.getPrintName();
-						Object orgValue = printData.getNode(new Integer(item.getAD_Column_ID()));
+						Object orgValue = printData.getNode(Integer.valueOf(item.getAD_Column_ID()));
 						if(orgValue != null
 								&& orgValue instanceof PrintDataElement) {
 							PrintDataElement orgDataElement = (PrintDataElement) orgValue;
@@ -152,7 +152,7 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 							&& periodPrintFormatItemId == 0) {
 						periodPrintFormatItemId = item.getAD_PrintFormatItem_ID();
 						periodPrintName = item.getPrintName();
-						Object periodValue = printData.getNode(new Integer(item.getAD_Column_ID()));
+						Object periodValue = printData.getNode(Integer.valueOf(item.getAD_Column_ID()));
 						if(periodValue != null
 								&& periodValue instanceof PrintDataElement) {
 							PrintDataElement periodDataElement = (PrintDataElement) periodValue;
@@ -190,7 +190,7 @@ public class ExportFormatXML_ISLR extends AbstractExportFormat {
 						&& printFormatItem.getAD_PrintFormatItem_ID() != orgPrintId 
 						&& printFormatItem.getAD_PrintFormatItem_ID() != periodPrintId)
 				.forEach(printFormatItem -> {
-					Object valueOfItem = printData.getNode(new Integer(printFormatItem.getAD_Column_ID()));
+					Object valueOfItem = printData.getNode(Integer.valueOf(printFormatItem.getAD_Column_ID()));
 					String data = "";
 					if (valueOfItem == null) {
 						if(printFormatItem.getPrintFormatType().equals(MPrintFormatItem.PRINTFORMATTYPE_Text)) {

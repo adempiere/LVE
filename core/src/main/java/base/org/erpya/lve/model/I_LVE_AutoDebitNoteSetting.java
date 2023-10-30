@@ -18,7 +18,7 @@ package org.erpya.lve.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import org.compiere.model.*;
+import org.compiere.model.MTable;
 import org.compiere.util.KeyNamePair;
 
 /** Generated Interface for LVE_AutoDebitNoteSetting
@@ -76,7 +76,7 @@ public interface I_LVE_AutoDebitNoteSetting
 	  */
 	public int getC_DocType_ID();
 
-	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException;
+	public org.adempiere.core.domains.models.I_C_DocType getC_DocType() throws RuntimeException;
 
     /** Column name Created */
     public static final String COLUMNNAME_Created = "Created";
@@ -116,7 +116,7 @@ public interface I_LVE_AutoDebitNoteSetting
 	/** Get Allocation Charge	  */
 	public int getLVE_AllocationCharge_ID();
 
-	public org.compiere.model.I_C_Charge getLVE_AllocationCharge() throws RuntimeException;
+	public org.adempiere.core.domains.models.I_C_Charge getLVE_AllocationCharge() throws RuntimeException;
 
     /** Column name LVE_AllocationDocType_ID */
     public static final String COLUMNNAME_LVE_AllocationDocType_ID = "LVE_AllocationDocType_ID";
@@ -127,7 +127,7 @@ public interface I_LVE_AutoDebitNoteSetting
 	/** Get Allocation Document Type	  */
 	public int getLVE_AllocationDocType_ID();
 
-	public org.compiere.model.I_C_DocType getLVE_AllocationDocType() throws RuntimeException;
+	public org.adempiere.core.domains.models.I_C_DocType getLVE_AllocationDocType() throws RuntimeException;
 
     /** Column name LVE_AutoDebitNoteSetting_ID */
     public static final String COLUMNNAME_LVE_AutoDebitNoteSetting_ID = "LVE_AutoDebitNoteSetting_ID";
@@ -147,7 +147,7 @@ public interface I_LVE_AutoDebitNoteSetting
 	/** Get Debit Note Charge	  */
 	public int getLVE_DebitNoteCharge_ID();
 
-	public org.compiere.model.I_C_Charge getLVE_DebitNoteCharge() throws RuntimeException;
+	public org.adempiere.core.domains.models.I_C_Charge getLVE_DebitNoteCharge() throws RuntimeException;
 
     /** Column name LVE_DebitNoteDocType_ID */
     public static final String COLUMNNAME_LVE_DebitNoteDocType_ID = "LVE_DebitNoteDocType_ID";
@@ -158,7 +158,7 @@ public interface I_LVE_AutoDebitNoteSetting
 	/** Get Debit Note Document Type	  */
 	public int getLVE_DebitNoteDocType_ID();
 
-	public org.compiere.model.I_C_DocType getLVE_DebitNoteDocType() throws RuntimeException;
+	public org.adempiere.core.domains.models.I_C_DocType getLVE_DebitNoteDocType() throws RuntimeException;
 
     /** Column name LVE_IsCopyLinesFromInvoice */
     public static final String COLUMNNAME_LVE_IsCopyLinesFromInvoice = "LVE_IsCopyLinesFromInvoice";
@@ -182,7 +182,7 @@ public interface I_LVE_AutoDebitNoteSetting
 	  */
 	public int getM_PriceList_ID();
 
-	public org.compiere.model.I_M_PriceList getM_PriceList() throws RuntimeException;
+	public org.adempiere.core.domains.models.I_M_PriceList getM_PriceList() throws RuntimeException;
 
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";

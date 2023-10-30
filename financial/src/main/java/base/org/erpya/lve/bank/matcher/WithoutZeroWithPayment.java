@@ -28,7 +28,7 @@ import java.util.List;
 import org.compiere.impexp.BankStatementMatchInfo;
 import org.compiere.impexp.BankStatementMatcherInterface;
 import org.compiere.model.MBankStatementLine;
-import org.compiere.model.X_I_BankStatement;
+import org.adempiere.core.domains.models.X_I_BankStatement;
 import org.compiere.util.DB;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
@@ -153,7 +153,7 @@ public class WithoutZeroWithPayment implements BankStatementMatcherInterface {
 			if(reference.matches("[+-]?\\d*(\\.\\d+)?")) {
 				Long longReference = null;
 				try {
-					longReference = new Long(reference);
+					longReference = Long.valueOf(reference);
 				} catch (Exception e) {
 					//	Nothing
 				}

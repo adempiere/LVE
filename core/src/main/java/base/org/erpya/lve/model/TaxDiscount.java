@@ -16,12 +16,13 @@
 package org.erpya.lve.model;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.compiere.model.I_C_Invoice;
-import org.compiere.model.I_C_Order;
+import org.adempiere.core.domains.models.I_C_Invoice;
+import org.adempiere.core.domains.models.I_C_Order;
 import org.compiere.model.MClient;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceLine;
@@ -377,8 +378,8 @@ public class TaxDiscount implements ModelValidator {
 				continue;
 			}
 			//	For rate
-			if(!tax.getRate().setScale(2, BigDecimal.ROUND_HALF_UP)
-					.equals(taxToApply.setScale(2, BigDecimal.ROUND_HALF_UP))) {
+			if(!tax.getRate().setScale(2, RoundingMode.HALF_UP)
+					.equals(taxToApply.setScale(2, RoundingMode.HALF_UP))) {
 				continue;
 			}
 			//	Get it

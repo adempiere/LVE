@@ -51,7 +51,7 @@ public class MLVEListType extends X_LVE_ListType {
 		if (listId <= 0) {
 			return null;
 		}
-		Integer key = new Integer (listId);
+		Integer key = Integer.valueOf(listId);
 		MLVEListType retValue = (MLVEListType) cache.get (key);
 		if (retValue != null) {
 			return retValue;

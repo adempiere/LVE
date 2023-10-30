@@ -19,7 +19,7 @@ package org.erpya.lve.process;
 
 import org.compiere.model.MInvoice;
 import org.compiere.process.ProcessInfo;
-import org.eevolution.service.dsl.ProcessBuilder;
+import org.eevolution.services.dsl.ProcessBuilder;
 import org.spin.process.WithholdingGenerate;
 
 /** Generated Process for (Withholding Process for AR Invoice / AR Credit Memo)
