@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Change Report Path for Payroll" ReleaseNo="3.9.4" SeqNo="81001080">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="284" Action="U" Record_ID="1000005" Table="AD_Process">
+        <Data AD_Column_ID="50182" Column="JasperReport" oldValue="attachment:inf_HR_PaymentReceipt_Letter_Continuous.jasper">http://viewer.report/LVE/inf_HR_PaymentReceipt_Letter_Continuous.jasper</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
