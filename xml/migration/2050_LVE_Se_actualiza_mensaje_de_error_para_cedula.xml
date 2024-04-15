@@ -4,7 +4,7 @@
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="109" Action="U" Record_ID="53709" Table="AD_Message">
         <Data AD_Column_ID="198" Column="MsgText" oldValue="Invalid Business Partner Value Format&#10;You should use the format [V, J, G, E][00000000]&#10;Example: V20000000 / J400000000">Invalid Business Partner Value Format
-You should use the format [V, J, G, E, X (External unkow)][00000000]
+You should use the format [V, J, G, E, X (External unknown business partner)][00000000]
 Example: V20000000 / J400000000</Data>
       </PO>
     </Step>
