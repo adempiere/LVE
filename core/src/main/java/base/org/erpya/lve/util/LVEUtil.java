@@ -140,7 +140,7 @@ public class LVEUtil {
 			if(value.length() < 6 || value.length() > 11) {
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
-			Matcher matcher = Pattern.compile("[^0-9JVEGjveg]", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value);
+			Matcher matcher = Pattern.compile("[^0-9JVEGXjvegx]", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value);
 			if(matcher.find()) {
 				//	Error
 				throw new AdempiereException("@LVEInvalidBPValue@");
@@ -158,7 +158,7 @@ public class LVEUtil {
 		}
 		//	Default
 		return Optional.ofNullable(value).orElse("")
-				.replaceAll("[^0-9JVEGjveg]", "")
+				.replaceAll("[^0-9JVEGXjvegx]", "")
 				.toUpperCase();
 	}
 	

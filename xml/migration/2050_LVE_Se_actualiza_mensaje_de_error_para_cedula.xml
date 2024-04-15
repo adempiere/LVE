@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="LVE Se actualiza mensaje de error para cedula" ReleaseNo="3.9.5" SeqNo="81001090">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="109" Action="U" Record_ID="53709" Table="AD_Message">
+        <Data AD_Column_ID="198" Column="MsgText" oldValue="Invalid Business Partner Value Format&#10;You should use the format [V, J, G, E][00000000]&#10;Example: V20000000 / J400000000">Invalid Business Partner Value Format
+You should use the format [V, J, G, E, X (External unkow)][00000000]
+Example: V20000000 / J400000000</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="119" Action="U" Record_ID="0" Table="AD_Message_Trl">
+        <Data AD_Column_ID="342" Column="MsgText" oldValue="Formato de C.I./R.I.F No Válido&#10;Debería usarl el formato [V, J, G, E][00000000]&#10;Ejemplo: V20000000 / J400000000">Formato de C.I./R.I.F No Válido
+Debería usarl el formato [V, J, G, E, X (Para Extranjeros sin Documento)][00000000]
+Ejemplo: V20000000 / J400000000</Data>
+        <Data AD_Column_ID="6767" Column="AD_Message_ID" oldValue="53709">53709</Data>
+        <Data AD_Column_ID="341" Column="AD_Language" oldValue="es_MX">es_MX</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>

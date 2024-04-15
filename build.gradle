@@ -50,7 +50,7 @@ java {
 }
 
 def entityType = 'LVE'
-version = System.getenv("ADEMPIERE_LIBRARY_VERSION")
+version = System.getenv("ADEMPIERE_LIBRARY_VERSION") ?: "local-1.0.0"
 
 jar {
     manifest {
