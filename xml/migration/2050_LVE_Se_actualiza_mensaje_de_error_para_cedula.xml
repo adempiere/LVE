@@ -11,7 +11,7 @@ Example: V20000000 / J400000000</Data>
     <Step SeqNo="20" StepType="AD">
       <PO AD_Table_ID="119" Action="U" Record_ID="0" Table="AD_Message_Trl">
         <Data AD_Column_ID="342" Column="MsgText" oldValue="Formato de C.I./R.I.F No Válido&#10;Debería usarl el formato [V, J, G, E][00000000]&#10;Ejemplo: V20000000 / J400000000">Formato de C.I./R.I.F No Válido
-Debería usarl el formato [V, J, G, E, X (Para Extranjeros sin Documento)][00000000]
+Debería usar el formato [V, J, G, E, X (Para Extranjeros sin Documento)][00000000]
 Ejemplo: V20000000 / J400000000</Data>
         <Data AD_Column_ID="6767" Column="AD_Message_ID" oldValue="53709">53709</Data>
         <Data AD_Column_ID="341" Column="AD_Language" oldValue="es_MX">es_MX</Data>
