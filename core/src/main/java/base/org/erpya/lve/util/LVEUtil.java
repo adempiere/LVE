@@ -146,7 +146,7 @@ public class LVEUtil {
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
 			//	Validate segments
-			Matcher matcherforKey = Pattern.compile("^[JVEGjveg]+$", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value.substring(0,  1));
+			Matcher matcherforKey = Pattern.compile("^[JVEGXjvegx]+$", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value.substring(0,  1));
 			if(!matcherforKey.find()) {
 				//	Error
 				throw new AdempiereException("@LVEInvalidBPValue@");
