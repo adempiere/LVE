@@ -165,7 +165,7 @@ public class AraureImpuestoMunicipal_TXT extends ExportFormatCSV {
 														String businessPartnerCode = null;
 														if(organizationInfo.get_ValueAsInt("WH_BPartner_ID") > 0) {
 															MBPartner businessPartner = new MBPartner(getCtx(), organizationInfo.get_ValueAsInt("WH_BPartner_ID"), transactionName);
-															businessPartnerCode = businessPartner.get_ValueAsString(LVEUtil.COLUMNNAME_LVE_CommercialActivityLicense);
+															businessPartnerCode = businessPartner.get_ValueAsString(LVEUtil.LVE_CommercialActivityLicense);
 														}
 														data = String.format("%1$" + 5 + "s", Optional.ofNullable(businessPartnerCode).orElse("")).replace(" ", "0");
 													}
@@ -173,7 +173,7 @@ public class AraureImpuestoMunicipal_TXT extends ExportFormatCSV {
 													MInvoice invoice = getInvoice(value, transactionName);
 													if(invoice != null) {
 														MBPartner businessPartner = new MBPartner(getCtx(), invoice.getC_BPartner_ID(), transactionName);
-														String businessPartnerCode = Optional.ofNullable(businessPartner.get_ValueAsString(LVEUtil.COLUMNNAME_LVE_CommercialActivityLicense)).orElse("");
+														String businessPartnerCode = Optional.ofNullable(businessPartner.get_ValueAsString(LVEUtil.LVE_CommercialActivityLicense)).orElse("");
 														data = String.format("%1$" + 5 + "s", businessPartnerCode).replace(" ", "0");
 													}
 												} else if(printFormatItem.getName().equals("NombreProveedor")) {

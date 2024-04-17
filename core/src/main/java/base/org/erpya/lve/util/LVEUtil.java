@@ -115,13 +115,15 @@ public class LVEUtil {
 	/**	Validate Value for Multi Client	*/
 	public static final String ENABLE_MULTI_CLIENT = "ENABLE_MULTI_CLIENT";
 	/**	Commercial Activity License	*/
-	public static final String COLUMNNAME_LVE_CommercialActivityLicense = "LVE_CommercialActivityLicense";
+	public static final String LVE_CommercialActivityLicense = "LVE_CommercialActivityLicense";
 	/**	Default Statement Charge	*/
 	public static final String COLUMNNAME_LVE_DefaultStatementCharge_ID = "LVE_DefaultStatementCharge_ID";
 	/**	Automatic Debt Note Invoice Referenced	*/
 	public static final String COLUMNNAME_LVE_AutoDebitInvoice_ID = "LVE_AutoDebitInvoice_ID";
 	/**	Automatic Debt Note Invoice Referenced	*/
 	public static final String COLUMNNAME_LVE_AllowOverPayInvoice = "LVE_AllowOverPayInvoice";
+	/**	Allows overwrite document	*/
+	public static final String LVE_AllowOverdraftReference = "LVE_AllowOverdraftReference";
 	/**
 	 * Process Business Partner Value
 	 * @param value
