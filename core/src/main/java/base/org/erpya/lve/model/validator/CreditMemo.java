@@ -86,7 +86,7 @@ public class CreditMemo implements ModelValidator {
 				if(creditMemo.isSOTrx()
 						&& creditMemo.isCreditMemo()
 						&& !creditMemo.isReversal()
-						&& creditMemo.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsFiscalDocument)
+						&& documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsFiscalDocument)
 						&& !documentType.get_ValueAsBoolean(LVEUtil.LVE_AllowOverdraftReference)) {
 					Map<Integer, BigDecimal> documentsToAllocate = new HashMap<>();
 					Arrays.asList(creditMemo.getLines())
