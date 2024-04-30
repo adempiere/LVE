@@ -142,19 +142,19 @@ public class LVEUtil {
 			if(value.length() < 6 || value.length() > 11) {
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
-			Matcher matcher = Pattern.compile("[^0-9JVEGXjvegx]", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value);
+			//	Validate if don't have numbers and allowed characters
+			Matcher matcher = Pattern.compile("[^0-9JVEGX]", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value);
 			if(matcher.find()) {
-				//	Error
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
-			//	Validate segments
-			Matcher matcherforKey = Pattern.compile("^[JVEGXjvegx]+$", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value.substring(0,  1));
+			//	Validate the first character allowed
+			Matcher matcherforKey = Pattern.compile("^[JVEGX]+$", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value.substring(0,  1));
 			if(!matcherforKey.find()) {
-				//	Error
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
-			if(!value.substring(1,  value.length() -1).matches("[+-]?\\d*(\\.\\d+)?")) {
-				//	Error
+			//	Validate that the rest of string have only numbers
+			Matcher matcherForNumbers = Pattern.compile("[^0-9]", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value.substring(1,  value.length()));
+			if(matcherForNumbers.find()) {
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
 		}
