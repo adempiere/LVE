@@ -424,14 +424,21 @@ public class LVE implements ModelValidator {
 					//	Validate without values
 					if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
 						String value = LVEUtil.processBusinessPartnerValue(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getValue());
-						String taxId = LVEUtil.processBusinessPartnerValue(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getTaxID());
+						String taxId = LVEUtil.getValidTaxId(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getTaxID());
+						if(value.charAt(0) != taxId.charAt(0)) {
+							throw new AdempiereException("@" + LVEUtil.MESSAGE_LVE_ValueTaxIdMismatch + "@");
+						}
 						businessPartner.setValue(value);
 						//	For Tax ID
 						if(Util.isEmpty(taxId)) {
 							businessPartner.setTaxID(value);
 						}
 					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_TaxID)) {
-						String taxId = LVEUtil.processBusinessPartnerValue(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getTaxID());
+						String value = LVEUtil.processBusinessPartnerValue(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getValue());
+						String taxId = LVEUtil.getValidTaxId(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getTaxID());
+						if(value.charAt(0) != taxId.charAt(0)) {
+							throw new AdempiereException("@" + LVEUtil.MESSAGE_LVE_ValueTaxIdMismatch + "@");
+						}
 						businessPartner.setTaxID(taxId);
 					} 
 					if(type == TYPE_BEFORE_NEW) {

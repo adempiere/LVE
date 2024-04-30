@@ -124,6 +124,8 @@ public class LVEUtil {
 	public static final String COLUMNNAME_LVE_AllowOverPayInvoice = "LVE_AllowOverPayInvoice";
 	/**	Allows overwrite document	*/
 	public static final String LVE_AllowOverdraftReference = "LVE_AllowOverdraftReference";
+	/**	Value and Tax ID Mismatch	*/
+	public static final String MESSAGE_LVE_ValueTaxIdMismatch = "LVE.ValueTaxIdMismatch";
 	/**
 	 * Process Business Partner Value
 	 * @param value
@@ -162,6 +164,21 @@ public class LVEUtil {
 		return Optional.ofNullable(value).orElse("")
 				.replaceAll("[^0-9JVEGXjvegx]", "")
 				.toUpperCase();
+	}
+	
+	/**
+	 * Get Valid Tax ID
+	 * @param context
+	 * @param clientId
+	 * @param organizationId
+	 * @param value
+	 * @return
+	 */
+	public static String getValidTaxId(Properties context, int clientId, int organizationId, String value) {
+		String taxId = processBusinessPartnerValue(context, clientId, organizationId, value);
+		String taxIdOnlyNumbers = taxId.replaceAll("\\D+","");
+		taxIdOnlyNumbers = String.format("%1$" + 9 + "s", taxIdOnlyNumbers).replace(" ", "0");
+		return taxId.substring(0, 1) + taxIdOnlyNumbers;
 	}
 	
 	/**
