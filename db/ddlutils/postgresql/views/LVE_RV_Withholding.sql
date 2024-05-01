@@ -187,8 +187,7 @@ FROM (
 		prl.PrintName::Varchar(255) AS ControlNo,
 		(date_trunc('month', pr.DateAcct) + interval '1 month - 1 day')::date AS DateInvoiced,
 		0::NUMERIC(10, 0) Line ,
-		CASE WHEN pr.DocStatus IN ('VO','RE') THEN '3-anu' 
-				 ELSE '1-reg' END "type",
+		'1-reg' AS "type",
 		0::NUMERIC(10, 0) AS GrandTotal,
 		0::NUMERIC(10, 0) AS TotalLines,
 		0::NUMERIC(10, 0) AS TaxAmt,
@@ -217,11 +216,12 @@ FROM (
 		NULL::Varchar(2) AS FiscalDocumentType,
 		0::NUMERIC(10, 0) AS TaxBaseAmt,
 		NULL::Varchar(255) AS Concept_Name,
-		0::NUMERIC(10, 0) AS CurrencyRate,
+		1::NUMERIC(10, 0) AS CurrencyRate,
 		pr.C_ConversionType_ID,
 		pr.C_Currency_ID,
-		0::NUMERIC(10, 0) AS PricePrecision
+		cu.StdPrecision AS PricePrecision
 	FROM HR_Process pr
+	INNER JOIN C_Currency cu ON(cu.C_Currency_ID = pr.C_Currency_ID)
 	INNER JOIN HR_Movement m ON(m.HR_Process_ID = pr.HR_Process_ID)
 	INNER JOIN HR_ProcessReportLine prl ON(prl.HR_Concept_ID = m.HR_Concept_ID)
 	INNER JOIN HR_Concept c ON(c.HR_Concept_ID = m.HR_Concept_ID)
@@ -229,8 +229,8 @@ FROM (
 	INNER JOIN C_BPartner bp ON(bp.C_BPartner_ID = m.C_BPartner_ID)
 	INNER JOIN AD_OrgInfo o ON(o.AD_Org_ID = pr.AD_Org_ID)
 	WHERE wt.WH_Type_ID IS NOT NULL
-	AND m.Amount <> 0
-	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, prl.PrintName, (date_trunc('month', pr.DateAcct) + interval '1 month - 1 day'), bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.DocStatus, pr.C_ConversionType_ID, pr.C_Currency_ID
+	AND pr.DocStatus IN('CO', 'CL')
+	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, prl.PrintName, (date_trunc('month', pr.DateAcct) + interval '1 month - 1 day'), bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.C_ConversionType_ID, pr.C_Currency_ID, cu.StdPrecision
 	HAVING SUM(CASE WHEN c.Type <> 'R' THEN m.Amount ELSE 0 END) > 0 AND MAX(CASE WHEN c.Type = 'R' THEN m.Amount ELSE 0 END) > 0
 ) AS w
 ;
