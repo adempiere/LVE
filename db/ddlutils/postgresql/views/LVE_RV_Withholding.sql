@@ -202,9 +202,9 @@ FROM (
 		NULL::Varchar(2000) AS DocumentNote,
 		NULL::Varchar(60) AS PrintName,
 		0::NUMERIC(10, 0) AS ExemptAmt,
-		'Y'::character(1) AS IsDeclared,
+		'N'::character(1) AS IsDeclared,
 		bp.TaxID,
-		o.Value::Varchar(20) AS OrgValue,
+		o.TaxID::Varchar(20) AS OrgValue,
 		NULL AS DocumentType,
 		prl.PrintName AS Concept_Value,
 		NULL::Varchar(30) AS WHDocumentNo,
@@ -227,9 +227,9 @@ FROM (
 	INNER JOIN HR_Concept c ON(c.HR_Concept_ID = m.HR_Concept_ID)
 	INNER JOIN WH_Type wt ON(wt.HR_ProcessReport_ID = prl.HR_ProcessReport_ID)
 	INNER JOIN C_BPartner bp ON(bp.C_BPartner_ID = m.C_BPartner_ID)
-	INNER JOIN AD_Org o ON(o.AD_Org_ID = pr.AD_Org_ID)
+	INNER JOIN AD_OrgInfo o ON(o.AD_Org_ID = pr.AD_Org_ID)
 	WHERE wt.WH_Type_ID IS NOT NULL
-	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, prl.PrintName, (date_trunc('month', pr.DateAcct) + interval '1 month - 1 day'), bp.PersonType, bp.TaxID, o.Value, wt.WH_Type_ID, pr.DocStatus, pr.C_ConversionType_ID, pr.C_Currency_ID
+	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, prl.PrintName, (date_trunc('month', pr.DateAcct) + interval '1 month - 1 day'), bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.DocStatus, pr.C_ConversionType_ID, pr.C_Currency_ID
 ) AS w
 
 ;
