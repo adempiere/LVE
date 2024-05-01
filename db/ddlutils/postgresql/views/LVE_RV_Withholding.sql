@@ -127,4 +127,109 @@ FROM (
 	LEFT JOIN M_PriceList pl ON (whDoc.M_PriceList_ID = pl.M_PriceList_ID)
 	WHERE 
 	wh.DocStatus IN ('CO','CL')) AS w 
+UNION ALL
+SELECT 
+w.AD_Client_ID,
+	w.AD_Org_ID,
+	w.C_Invoice_ID,
+	w.C_InvoiceLine_ID,
+	ROUND(w.A_Base_Amount * w.CurrencyRate,w.PricePrecision) A_Base_Amount,
+	w.WithholdingAmt,
+	w.WithholdingRate,
+	ROUND(w.Subtrahend * w.CurrencyRate,w.PricePrecision) Subtrahend,
+	w.DocumentNo,
+	w.ControlNo,
+	w.DateInvoiced,
+	w.Line ,
+	w.type,
+	ROUND(w.GrandTotal * w.CurrencyRate,w.PricePrecision) GrandTotal,
+	ROUND(w.TotalLines * w.CurrencyRate,w.PricePrecision) TotalLines,
+	ROUND(w.TaxAmt * w.CurrencyRate,w.PricePrecision) TaxAmt,
+	w.InvoiceNo,
+	w.CreditDocumentNo, 
+	w.DebitDocumentNo,
+	w.AffectedDocumentNo,
+	w.DateAcct,
+	w.Description,
+	w.PersonType,
+	w.DocumentNote,
+	w.PrintName,
+	ROUND(w.ExemptAmt * w.CurrencyRate,w.PricePrecision) ExemptAmt,
+	w.IsDeclared,
+	w.TaxID,
+	w.OrgValue,
+	w.DocumentType,
+	w.Concept_Value,
+	w.WHDocumentNo,
+	w.Rate,
+	w.WH_Definition_ID,
+	w.WH_Setting_ID,
+	w.WH_Type_ID,
+	w.WithholdingDeclaration_ID,
+	w.IsManual,
+	w.FiscalDocumentType,
+	ROUND(w.TaxBaseAmt * w.CurrencyRate,w.PricePrecision) TaxBaseAmt,
+	w.Concept_Name,
+	w.CurrencyRate,
+	w.C_ConversionType_ID,
+	w.C_Currency_ID,
+	w.PricePrecision
+FROM (
+	SELECT pr.AD_Client_ID,
+		pr.AD_Org_ID,
+		NULL::NUMERIC(10, 0) AS C_Invoice_ID,
+		NULL::NUMERIC(10, 0) AS C_InvoiceLine_ID,
+		SUM(CASE WHEN c.Type <> 'R' THEN m.Amount ELSE 0 END) A_Base_Amount,
+		0::NUMERIC(10, 0) AS WithholdingAmt,
+		MAX(CASE WHEN c.Type = 'R' THEN m.Amount ELSE 0 END) AS WithholdingRate,
+		0::NUMERIC(10, 0) Subtrahend,
+		prl.PrintName::Varchar(30) AS DocumentNo,
+		prl.PrintName::Varchar(255) AS ControlNo,
+		(date_trunc('month', pr.DateAcct) + interval '1 month - 1 day')::date AS DateInvoiced,
+		0::NUMERIC(10, 0) Line ,
+		CASE WHEN pr.DocStatus IN ('VO','RE') THEN '3-anu' 
+				 ELSE '1-reg' END "type",
+		0::NUMERIC(10, 0) AS GrandTotal,
+		0::NUMERIC(10, 0) AS TotalLines,
+		0::NUMERIC(10, 0) AS TaxAmt,
+		prl.PrintName::Varchar(30) AS InvoiceNo,
+		prl.PrintName::Varchar(30) AS CreditDocumentNo, 
+		prl.PrintName::Varchar(30) AS DebitDocumentNo,
+		prl.PrintName::Varchar(30) AS AffectedDocumentNo,
+		(date_trunc('month', pr.DateAcct) + interval '1 month - 1 day')::date AS DateAcct,
+		NULL::Varchar(255) AS Description,
+		bp.PersonType,
+		NULL::Varchar(2000) AS DocumentNote,
+		NULL::Varchar(60) AS PrintName,
+		0::NUMERIC(10, 0) AS ExemptAmt,
+		'Y'::character(1) AS IsDeclared,
+		bp.TaxID,
+		o.Value::Varchar(20) AS OrgValue,
+		NULL AS DocumentType,
+		prl.PrintName AS Concept_Value,
+		NULL::Varchar(30) AS WHDocumentNo,
+		MAX(CASE WHEN c.Type = 'R' THEN m.Amount ELSE 0 END) AS Rate,
+		NULL::NUMERIC(10, 0) AS WH_Definition_ID,
+		NULL::NUMERIC(10, 0) AS WH_Setting_ID,
+		wt.WH_Type_ID,
+		NULL::NUMERIC(10, 0) AS WithholdingDeclaration_ID,
+		'N'::character(1) IsManual,
+		NULL::Varchar(2) AS FiscalDocumentType,
+		0::NUMERIC(10, 0) AS TaxBaseAmt,
+		NULL::Varchar(255) AS Concept_Name,
+		0::NUMERIC(10, 0) AS CurrencyRate,
+		pr.C_ConversionType_ID,
+		pr.C_Currency_ID,
+		0::NUMERIC(10, 0) AS PricePrecision
+	FROM HR_Process pr
+	INNER JOIN HR_Movement m ON(m.HR_Process_ID = pr.HR_Process_ID)
+	INNER JOIN HR_ProcessReportLine prl ON(prl.HR_Concept_ID = m.HR_Concept_ID)
+	INNER JOIN HR_Concept c ON(c.HR_Concept_ID = m.HR_Concept_ID)
+	INNER JOIN WH_Type wt ON(wt.HR_ProcessReport_ID = prl.HR_ProcessReport_ID)
+	INNER JOIN C_BPartner bp ON(bp.C_BPartner_ID = m.C_BPartner_ID)
+	INNER JOIN AD_Org o ON(o.AD_Org_ID = pr.AD_Org_ID)
+	WHERE wt.WH_Type_ID IS NOT NULL
+	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, prl.PrintName, (date_trunc('month', pr.DateAcct) + interval '1 month - 1 day'), bp.PersonType, bp.TaxID, o.Value, wt.WH_Type_ID, pr.DocStatus, pr.C_ConversionType_ID, pr.C_Currency_ID
+) AS w
+
 ;
