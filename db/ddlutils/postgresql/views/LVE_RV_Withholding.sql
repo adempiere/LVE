@@ -231,5 +231,6 @@ FROM (
 	WHERE wt.WH_Type_ID IS NOT NULL
 	AND m.Amount <> 0
 	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, prl.PrintName, (date_trunc('month', pr.DateAcct) + interval '1 month - 1 day'), bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.DocStatus, pr.C_ConversionType_ID, pr.C_Currency_ID
+	HAVING SUM(CASE WHEN c.Type <> 'R' THEN m.Amount ELSE 0 END) > 0 AND MAX(CASE WHEN c.Type = 'R' THEN m.Amount ELSE 0 END) > 0
 ) AS w
 ;
