@@ -187,20 +187,20 @@ FROM (
 		0::NUMERIC(10, 0) AS WithholdingAmt,
 		MAX(CASE WHEN c.Type = 'R' THEN m.Amount ELSE 0 END) AS WithholdingRate,
 		0::NUMERIC(10, 0) Subtrahend,
-		prl.PrintName::Varchar(30) AS DocumentNo,
-		prl.PrintName::Varchar(255) AS ControlNo,
-		(date_trunc('month', pr.DateAcct) + interval '1 month - 1 day')::date AS DateInvoiced,
+		pr.DocumentNo::Varchar(30) AS DocumentNo,
+		pr.DocumentNo::Varchar(255) AS ControlNo,
+		pr.DateAcct::date AS DateInvoiced,
 		0::NUMERIC(10, 0) Line ,
 		'1-reg' AS "type",
 		0::NUMERIC(10, 0) AS GrandTotal,
 		0::NUMERIC(10, 0) AS TotalLines,
 		0::NUMERIC(10, 0) AS TaxAmt,
-		prl.PrintName::Varchar(30) AS InvoiceNo,
-		prl.PrintName::Varchar(30) AS CreditDocumentNo, 
-		prl.PrintName::Varchar(30) AS DebitDocumentNo,
-		prl.PrintName::Varchar(30) AS AffectedDocumentNo,
-		(date_trunc('month', pr.DateAcct) + interval '1 month - 1 day')::date AS DateAcct,
-		NULL::Varchar(255) AS Description,
+		pr.DocumentNo::Varchar(30) AS InvoiceNo,
+		NULL::Varchar(30) AS CreditDocumentNo, 
+		NULL::Varchar(30) AS DebitDocumentNo,
+		NULL::Varchar(30) AS AffectedDocumentNo,
+		pr.DateAcct,
+		pr.Name::Varchar(255) AS Description,
 		bp.PersonType,
 		NULL::Varchar(2000) AS DocumentNote,
 		NULL::Varchar(60) AS PrintName,
@@ -234,7 +234,7 @@ FROM (
 	INNER JOIN AD_OrgInfo o ON(o.AD_Org_ID = pr.AD_Org_ID)
 	WHERE wt.WH_Type_ID IS NOT NULL
 	AND pr.DocStatus IN('CO', 'CL')
-	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, prl.PrintName, (date_trunc('month', pr.DateAcct) + interval '1 month - 1 day'), bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.C_ConversionType_ID, pr.C_Currency_ID, cu.StdPrecision
+	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, pr.DocumentNo, pr.DateAcct, pr.Name, prl.PrintName, bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.C_ConversionType_ID, pr.C_Currency_ID, cu.StdPrecision
 	HAVING SUM(CASE WHEN c.Type &lt;&gt; 'R' THEN m.Amount ELSE 0 END) &gt; 0
 ) AS w
 ;</SQLStatement>
