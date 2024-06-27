@@ -106,6 +106,14 @@ public class LVEUtil {
 	public static final String COLUMNNAME_SICACode = "SICACode";
 	/**BANAVIH Code */
 	public static final String COLUMNNAME_BANAVIHCode = "BANAVIHCode";
+	/**LVE Cesta Ticket Code */
+	public static final String LVE_CestaTicketCode = "LVE_CestaTicketCode";
+	/**LVE Cesta Ticket Product Code */
+	public static final String LVE_CT_ProductCode = "LVE_CT_ProductCode";
+	/**LVE Cesta Ticket Product Category Code */
+	public static final String LVE_CT_ProductCategoryCode = "LVE_CT_ProductCategoryCode";
+	/**LVE Cesta Ticket Delivery Point */
+	public static final String LVE_CT_DeliveryPoint = "LVE_CT_DeliveryPoint";
 	/**Recalculate Price on Invoice	*/
 	public static final String COLUMNNAME_IsReCalculatePriceOnInvoice = "IsReCalculatePriceOnInvoice";
 	/**Withholding Business Partner for Organization*/
