@@ -15,19 +15,18 @@
  ************************************************************************************/
 package org.erpya.lve.bank.imp;
 
+import org.spin.util.impexp.BankStatementHandler;
+import org.spin.util.impexp.BankTransactionAbstract;
+
 /**
- * Custom format for Tesoro Bank Transaction
- * Tab Separed Value
+ * File of Tesoro Bank support Semicolon separed value
  * @author Yamel Senih, ysenih@erpya.com , http://www.erpya.com
  * <li> FR [ 1701 ] Add support to MT940 format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public class Tesoro_Tsv extends Tesoro_v2 {
-	/**	Start Column Index	*/
-	private static final String SEPARATOR = "\t";
-	
+public final class Tesoro_Loader_Psv extends BankStatementHandler {
 	@Override
-	public String getSeparator() {
-		return SEPARATOR;
+	protected BankTransactionAbstract getBankTransactionInstance() {
+		return new Tesoro_Psv();
 	}
 }

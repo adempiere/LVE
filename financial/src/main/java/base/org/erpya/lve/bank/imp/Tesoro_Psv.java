@@ -17,14 +17,14 @@ package org.erpya.lve.bank.imp;
 
 /**
  * Custom format for Tesoro Bank Transaction
- * Tab Separed Value
+ * Pipe Separed Value
  * @author Yamel Senih, ysenih@erpya.com , http://www.erpya.com
  * <li> FR [ 1701 ] Add support to MT940 format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public class Tesoro_Tsv extends Tesoro_v2 {
+public class Tesoro_Psv extends Tesoro_v2 {
 	/**	Start Column Index	*/
-	private static final String SEPARATOR = "\t";
+	private static final String SEPARATOR = "\\|";
 	
 	@Override
 	public String getSeparator() {
