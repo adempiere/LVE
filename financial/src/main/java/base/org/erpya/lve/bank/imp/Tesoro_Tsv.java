@@ -43,7 +43,7 @@ public class Tesoro_Tsv extends BankTransactionAbstract {
 	/**	Amount	*/
 	private static final String LINE_TRANSACTION_Amount = "Amount";
 	/**	Start Column Index	*/
-	private static final String SEPARATOR = "\\|";
+	private static final String SEPARATOR = "\t";
 	/**	Is a transaction	*/
 	private boolean isTransaction = false;
 	/**	Maximum  columns	*/
