@@ -29,7 +29,7 @@ import org.spin.util.impexp.BankTransactionAbstract;
  * <li> FR [ 1701 ] Add support to MT940 format
  * @see https://github.com/adempiere/adempiere/issues/1701
  */
-public abstract class Tesoro_v2 extends BankTransactionAbstract {
+public class Venezuela_v1 extends BankTransactionAbstract {
 	/**	Value Date [dddMMyyyy]	*/
 	private static final String LINE_TRANSACTION_Date = "TrxDate";
 	/**	Transaction type Transaction type (description)	*/ 
@@ -42,36 +42,36 @@ public abstract class Tesoro_v2 extends BankTransactionAbstract {
 	private static final String LINE_TRANSACTION_ReferenceNo = "ReferenceNo";
 	/**	Amount	*/
 	private static final String LINE_TRANSACTION_Amount = "Amount";
+	/**	Start Column Index	*/
+	private static final String SEPARATOR = "[ ]{3,}";
 	/**	Is a transaction	*/
 	private boolean isTransaction = false;
 	/**	Maximum  columns	*/
 	private final int COLUMN_SIZE = 7;
 	/**	Date Column	*/
-	private final int COLUMN_DATE = 1;
+	private final int COLUMN_DATE = 2;
 	/**	Reference Column	*/
-	private final int COLUMN_REFERENCE = 2;
+	private final int COLUMN_REFERENCE = 0;
 	/**	Type Column	*/
 	private final int COLUMN_TYPE = 3;
 	/**	Concept Column	*/
-	private final int COLUMN_CONCEPT = 4;
+	private final int COLUMN_CONCEPT = 1;
 	/**	Debit Column	*/
-	private final int COLUMN_DEBIT = 5;
+	private final int COLUMN_DEBIT = 4;
 	/**	Credit Column	*/
-	private final int COLUMN_CREDIT = 6;
+	private final int COLUMN_CREDIT = 5;
 	
-	public abstract String getSeparator();
+	/**	Beginning Balance	*/
+	private final String BEGINNING_BALANCE_ROW = "SI";
+	/**	Header Row	*/
+	private final String HEADER_ROW = "Mov";
 	
 	private boolean isValidLine(String[] columns) {
 		if(columns == null
 				|| columns.length != COLUMN_SIZE) {
 			return false;
 		}
-		try {
-			Integer.parseInt(columns[0]);
-		} catch (Exception e) {
-			return false;
-		}
-		return true;
+		return !(columns[COLUMN_TYPE].trim().equals(BEGINNING_BALANCE_ROW) || columns[COLUMN_TYPE].trim().equals(HEADER_ROW));
 	}
 	
 	/**
@@ -89,26 +89,26 @@ public abstract class Tesoro_v2 extends BankTransactionAbstract {
 		}
 		//	Replace bad characters
 		line = line.replaceAll("\"", "");
-		String[] columns = line.split(getSeparator());
+		String[] columns = line.split(SEPARATOR);
 		if(!isValidLine(columns)) {
 			isTransaction = false;
 			return;
 		}
 		//	
-		addValue(LINE_TRANSACTION_Date, getDate("dd/MM/yy", columns[COLUMN_DATE]));
+		addValue(LINE_TRANSACTION_Date, getDate("dd/MM/yy", columns[COLUMN_DATE].trim()));
 		String transactionType = columns[COLUMN_TYPE].replaceAll(",", "").trim();
 		addValue(LINE_TRANSACTION_Type, transactionType);
 		addValue(LINE_TRANSACTION_ReferenceNo, getNumber('.', "#,###,###,###,###,###.##", columns[COLUMN_REFERENCE].replaceAll(",", "").trim()));
 		addValue(LINE_TRANSACTION_Memo, columns[COLUMN_CONCEPT].replaceAll(",", "").trim());
 		BigDecimal debit = getNumber('.', "#,###,###,###,###,###.##", columns[COLUMN_DEBIT].trim());
 		if(debit != null
-				&& debit.compareTo(Env.ZERO) > 0) {
-			addValue(LINE_TRANSACTION_Amount, debit.negate());
+				&& debit.compareTo(Env.ZERO) != 0) {
+			addValue(LINE_TRANSACTION_Amount, debit);
 			addValue(LINE_TRANSACTION_Type, transactionType);
 		}
 		BigDecimal credit = getNumber('.', "#,###,###,###,###,###.##", columns[COLUMN_CREDIT].trim());
 		if(credit != null
-				&& credit.compareTo(Env.ZERO) > 0) {
+				&& credit.compareTo(Env.ZERO) != 0) {
 			addValue(LINE_TRANSACTION_Amount, credit);
 			addValue(LINE_TRANSACTION_Type, transactionType);
 		}
