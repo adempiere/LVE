@@ -18,6 +18,7 @@
 package org.erpya.lve.util;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.Optional;
 
@@ -28,6 +29,7 @@ import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceLine;
 import org.compiere.model.MOrder;
 import org.compiere.model.MOrderLine;
+import org.compiere.model.MUOMConversion;
 import org.compiere.util.Env;
 
 /**
@@ -37,12 +39,22 @@ import org.compiere.util.Env;
 public class OrganizationRulesUtil {
 	
 	/**
-	 * Recaulculate Invoice Line from Order
+	 * Recalculate Invoice Line from Order
 	 * @param invoice
 	 * @param invoiceLine
 	 * @return
 	 */
 	public static final void recalculateInvoiceLineRate(MInvoice invoice, MInvoiceLine invoiceLine) {
+		recalculateInvoiceLineRate(invoice, invoiceLine, false);
+	}
+	
+	/**
+	 * Recalculate Invoice Line from Order 
+	 * @param invoice
+	 * @param invoiceLine
+	 * @param maintainPriceDiscount
+	 */
+	public static final void recalculateInvoiceLineRate(MInvoice invoice, MInvoiceLine invoiceLine, boolean maintainPriceDiscount) {
 		if(invoiceLine.getC_OrderLine_ID() > 0) {
 			if(!invoiceLine.isProcessed()) {
 				MOrderLine orderLine = (MOrderLine) invoiceLine.getC_OrderLine();
@@ -68,10 +80,30 @@ public class OrganizationRulesUtil {
 					BigDecimal invoicePriceList = orderPriceList.multiply(conversionRate).setScale(currencyTo.getStdPrecision(), RoundingMode.HALF_UP);
 					BigDecimal invoicePriceActual = orderPriceActual.multiply(conversionRate).setScale(currencyTo.getStdPrecision(), RoundingMode.HALF_UP);
 					BigDecimal invoicePriceEntered = orderPriceEntered.multiply(conversionRate).setScale(currencyTo.getStdPrecision(), RoundingMode.HALF_UP);
-					//	Set Price
-					invoiceLine.setPriceList(invoicePriceList);
-					invoiceLine.setPriceActual(invoicePriceActual);
-					invoiceLine.setPriceEntered(invoicePriceEntered);
+					
+					if (maintainPriceDiscount
+							&& orderLine.getDiscount().compareTo(Env.ZERO) !=0
+								&& orderLine.getM_Product_ID() > 0) {
+						//Set Price
+						BigDecimal discount = invoicePriceList.multiply(orderLine.getDiscount().divide(Env.ONEHUNDRED, MathContext.DECIMAL128), MathContext.DECIMAL128);
+						BigDecimal priceWithDiscount = invoicePriceList.subtract(discount);
+						invoiceLine.setPriceList(invoicePriceList);
+							
+						if (invoiceLine.getQtyEntered().compareTo(invoiceLine.getQtyInvoiced()) == 0)
+							invoiceLine.setPrice(priceWithDiscount);
+						else {
+							invoiceLine.setPriceActual(priceWithDiscount);
+							BigDecimal priceEntered = MUOMConversion.convertProductFrom (invoiceLine.getCtx(), invoiceLine.getM_Product_ID(), 
+									invoiceLine.getC_UOM_ID(), invoiceLine.getPriceActual());
+							invoiceLine.setPriceEntered(priceEntered);
+						}
+					}else {
+						//Set Price
+						invoiceLine.setPriceList(invoicePriceList);
+						invoiceLine.setPriceActual(invoicePriceActual);
+						invoiceLine.setPriceEntered(invoicePriceEntered);
+					}
+
 					invoiceLine.setLineNetAmt();
 					invoiceLine.setTaxAmt();
 				}

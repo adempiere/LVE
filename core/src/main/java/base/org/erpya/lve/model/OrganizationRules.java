@@ -85,7 +85,7 @@ public class OrganizationRules implements ModelValidator {
 					if(!invoice.isReversal()
 							&& documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsInvoicedWithOrgCurrency)
 							&& invoiceCurrencyId > 0) {
-						OrganizationRulesUtil.recalculateInvoiceLineRate(invoice, invoiceLine);
+						OrganizationRulesUtil.recalculateInvoiceLineRate(invoice, invoiceLine, true);
 					}
 				}
 			} else if(entity.get_TableName().equals(I_C_Invoice.Table_Name)) {
@@ -109,7 +109,7 @@ public class OrganizationRules implements ModelValidator {
 						invoice.setC_Currency_ID(newCurrency.getC_Currency_ID());
 						//	Recalculate Lines
 						Arrays.asList(invoice.getLines(true)).forEach(invoiceLine -> {
-							OrganizationRulesUtil.recalculateInvoiceLineRate(invoice, invoiceLine);
+							OrganizationRulesUtil.recalculateInvoiceLineRate(invoice, invoiceLine, true);
 							invoiceLine.saveEx();
 						});
 					}
