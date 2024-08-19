@@ -401,8 +401,13 @@ class WHConceptSetting{
 	 * @param amtBase
 	 */
 	public WHConceptSetting(MInvoice invoice,BigDecimal amtBase) {
+		MOrgInfo info = MOrgInfo.get(invoice.getCtx(), invoice.getAD_Org_ID(), null);
+		int currencyId = info.get_ValueAsInt(LVEUtil.COLUMNNAME_LVE_FiscalCurrency_ID);
+		if(currencyId <= 0) {
+			currencyId = MClient.get(invoice.getCtx()).getC_Currency_ID();
+		}
 		currencyRate = MConversionRate.getRate(invoice.getC_Currency_ID(), 
-												MClient.get(invoice.getCtx()).getC_Currency_ID(), 
+												currencyId, 
 												invoice.getDateAcct(), 
 												invoice.getC_ConversionType_ID(), 
 												invoice.getAD_Client_ID(), 

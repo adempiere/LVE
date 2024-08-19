@@ -17,6 +17,7 @@ package org.erpya.lve.model;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.Properties;
 
 import org.adempiere.core.domains.models.I_C_Payment;
 import org.compiere.model.MBPartner;
@@ -24,6 +25,7 @@ import org.compiere.model.MBank;
 import org.compiere.model.MBankAccount;
 import org.compiere.model.MClient;
 import org.compiere.model.MClientInfo;
+import org.compiere.model.MOrgInfo;
 import org.compiere.model.MPayment;
 import org.compiere.model.ModelValidationEngine;
 import org.compiere.model.ModelValidator;
@@ -33,6 +35,7 @@ import org.compiere.util.DB;
 import org.compiere.util.Env;
 import org.compiere.util.Msg;
 import org.compiere.util.Util;
+import org.erpya.lve.util.LVEUtil;
 
 /**
  * 	Class added from standard values
@@ -95,6 +98,15 @@ public class FinancialBigTransactionTax implements ModelValidator {
 		return null;
 	}
 	
+	private int getDefaultcurrencyId(Properties context, int organizationId) {
+		MOrgInfo info = MOrgInfo.get(context, organizationId, null);
+		int currencyId = info.get_ValueAsInt(LVEUtil.COLUMNNAME_LVE_FiscalCurrency_ID);
+		if(currencyId <= 0) {
+			currencyId = MClient.get(context).getC_Currency_ID();
+		}
+		return currencyId;
+	}
+	
 	/**
 	 * Process source payment
 	 * @param sourcePayment
@@ -120,7 +132,7 @@ public class FinancialBigTransactionTax implements ModelValidator {
 				return null;
 			}
 			//	Validate currency
-			int defaultCurrencyId = MClient.get(sourcePayment.getCtx()).getC_Currency_ID();
+			int defaultCurrencyId = getDefaultcurrencyId(sourcePayment.getCtx(), sourcePayment.getAD_Org_ID());
 			MBankAccount bankAccount = MBankAccount.get(sourcePayment.getCtx(), sourcePayment.getC_BankAccount_ID());
 			if(bankAccount == null) {
 				return null;
