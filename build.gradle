@@ -100,9 +100,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection = 'scm:git:git://github.com/adempiere/adempiere-s3-connector.git'
-                    developerConnection = 'scm:git:ssh://github.com/adempiere/adempiere-s3-connector.git'
-                    url = 'http://github.com/adempiere/adempiere-s3-connector'
+                    connection = 'scm:git:git://github.com/adempiere/lve.git'
+                    developerConnection = 'scm:git:ssh://github.com/adempiere/lve.git'
+                    url = 'http://github.com/adempiere/lve'
                 }
             }
 		}
