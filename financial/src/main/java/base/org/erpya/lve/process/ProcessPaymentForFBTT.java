@@ -24,6 +24,7 @@ import org.compiere.model.MBankAccount;
 import org.compiere.model.MClient;
 import org.compiere.model.MClientInfo;
 import org.compiere.model.MDocType;
+import org.compiere.model.MOrgInfo;
 import org.compiere.model.MPayment;
 import org.compiere.model.MSequence;
 import org.compiere.model.PO;
@@ -33,6 +34,7 @@ import org.compiere.util.Msg;
 import org.erpya.lve.model.I_LVE_List;
 import org.erpya.lve.model.I_LVE_ListLine;
 import org.erpya.lve.model.MLVEList;
+import org.erpya.lve.util.LVEUtil;
 
 /**
  * 	Process for generate FBTT from unprocessed payments
@@ -50,6 +52,15 @@ public class ProcessPaymentForFBTT extends ProcessPaymentForFBTTAbstract {
 		super.prepare();
 	}
 
+	private int getDefaultcurrencyId(int organizationId) {
+		MOrgInfo info = MOrgInfo.get(getCtx(), organizationId, null);
+		int currencyId = info.get_ValueAsInt(LVEUtil.COLUMNNAME_LVE_FiscalCurrency_ID);
+		if(currencyId <= 0) {
+			currencyId = MClient.get(getCtx()).getC_Currency_ID();
+		}
+		return currencyId;
+	}
+	
 	@Override
 	protected String doIt()  {
 		//	Iterate
@@ -58,7 +69,6 @@ public class ProcessPaymentForFBTT extends ProcessPaymentForFBTTAbstract {
 		BigDecimal sourcePayAmt = Env.ZERO;
 		MPayment fbttPayment = new MPayment(getCtx(), 0, get_TrxName());
 		//	Validate currency
-		int defaultCurrencyId = MClient.get(getCtx()).getC_Currency_ID();
 		for(int key : getSelectionKeys()) {
 			MPayment sourcePayment = new MPayment(getCtx(), key, get_TrxName());
 			//	Validate FBTT reversed
@@ -82,6 +92,7 @@ public class ProcessPaymentForFBTT extends ProcessPaymentForFBTTAbstract {
 			//	Validate Account
 			bankAccountId = sourcePayment.getC_BankAccount_ID();
 			MBankAccount bankAccount = MBankAccount.get(getCtx(), bankAccountId);
+			int defaultCurrencyId = getDefaultcurrencyId(sourcePayment.getAD_Org_ID());
 			//	Verify currency
 			if(bankAccount.getC_Currency_ID() != defaultCurrencyId) {
 				continue;

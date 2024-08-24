@@ -1,7 +1,12 @@
-apply plugin: 'java-library'
-apply plugin: 'maven-publish'
-apply plugin: 'signing'
+plugins {
+	id 'java-library'
+	id 'maven-publish'
+	id 'signing'
+}
 
+sourceCompatibility = 1.11
+def baseVersion = '3.9.4'
+def baseGroupId = 'io.github.adempiere'
 
 repositories {
     mavenLocal()
@@ -15,26 +20,22 @@ allprojects {
 sourceCompatibility = 1.11
 targetCompatibility = 1.11
 
-def baseVersion = '3.9.4'
-def baseGroupId = 'io.github.adempiere'
-def customGroupId = System.getenv("ADEMPIERE_LIBRARY_GROUP")
-
 dependencies {
-	implementation fileTree(
+   api fileTree(
         dir: 'lib',
         include: [
             '*.jar'
         ]
     )
     //	ADempiere Core
-	implementation "${baseGroupId}:human-resource-and-payroll:${baseVersion}"
-	implementation "${baseGroupId}:store:${baseVersion}"
+    api "${baseGroupId}:human-resource-and-payroll:${baseVersion}"
+	api "${baseGroupId}:store:${baseVersion}"
 	// https://search.maven.org/artifact/javax.mail/javax.mail-api/1.6.2/jar
-	implementation 'javax.mail:javax.mail-api:1.6.2'
+	api 'javax.mail:javax.mail-api:1.6.2'
 	// http://xml.apache.org/commons/#external
-	implementation 'xml-apis:xml-apis:2.0.2'
-	implementation "${baseGroupId}:withholding-engine:adempiere-3.9.4-1.3.2"
-	implementation 'io.vavr:vavr:0.10.4'
+	api 'xml-apis:xml-apis:2.0.2'
+	api "${baseGroupId}:withholding-engine:adempiere-3.9.4-1.3.2"
+	api 'io.vavr:vavr:0.10.4'
 }
 
 sourceSets {
@@ -50,8 +51,10 @@ java {
     withSourcesJar()
 }
 
+
 def entityType = 'LVE'
-version = System.getenv("ADEMPIERE_LIBRARY_VERSION") ?: "local-1.0.0"
+group = "io.github.adempiere"
+version = findProperty("deployVersion") ?: "local-1.0.0"
 
 jar {
     manifest {
@@ -63,19 +66,21 @@ jar {
 
 publishing {
     repositories {
+		mavenLocal()
+
         maven {
-            url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            url = findProperty("deployPublishUrl") ?: System.properties['deploy.publish_url']
             credentials {
-                username = findProperty("sonatypeUsername")
-                password = findProperty("sonatypePassword")
+                username = findProperty("deployUsername") ?: System.properties['deploy.user']
+                password = findProperty("deployPassword") ?: System.properties['deploy.token']
             }
         }
     }
     publications {
         mavenJava(MavenPublication) {
-        	groupId 'io.github.adempiere'
-            artifactId 'location-venezuela'
-            version
+			groupId = group
+			artifactId = 'location-venezuela'
+			version = version
            	from components.java
            	pom {
                 name = 'ADempiere Venezuela Location'
@@ -95,18 +100,35 @@ publishing {
                     }
                 }
                 scm {
-                    connection = 'scm:git:git://github.com/adempiere/LVE.git'
-                    developerConnection = 'scm:git:ssh://github.com/adempiere/LVE.git'
-                    url = 'http://github.com/adempiere/LVE'
+                    connection = 'scm:git:git://github.com/adempiere/lve.git'
+                    developerConnection = 'scm:git:ssh://github.com/adempiere/lve.git'
+                    url = 'http://github.com/adempiere/lve'
                 }
             }
 		}
 	}
 }
 
+
+task cleanBuildPublishLocal(type: GradleBuild) {
+	tasks = ['clean', 'build', 'publishToMavenLocal']
+}
+
+
 signing {
-	def signingKey = findProperty("signingKey")
-    def signingPassword = findProperty("signingPassword")
+	def isReleaseVersion = !version.toString().startsWith("local") && !version.toString().endsWith("-SNAPSHOT")
+
+	sign configurations.archives
+
+	setRequired {
+		// signing is required if this is a release version and the artifacts are to be published
+		// do not use hasTask() as this require realization of the tasks that maybe are not necessary
+		(isReleaseVersion || version.toString().equals("build")) && gradle.taskGraph.allTasks.any {
+			it.equals(PublishToMavenRepository)
+		}
+	}
+	def signingKey = findProperty("deploySigningKey")
+    def signingPassword = findProperty("deploySigningPassword")
     useInMemoryPgpKeys(signingKey, signingPassword)
     sign publishing.publications.mavenJava
 }
