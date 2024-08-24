@@ -44,7 +44,8 @@ SELECT
 	w.CurrencyRate,
 	w.C_ConversionType_ID,
 	w.C_Currency_ID,
-	w.PricePrecision
+	w.PricePrecision,
+	ROUND(w.TaxLineTotal * w.CurrencyRate,w.PricePrecision) TaxLineTotal
 FROM (
 	SELECT 
 		whDoc.AD_Client_ID,
@@ -94,7 +95,8 @@ FROM (
 		origDoc.C_Currency_ID Doc_C_Currency_ID,
 		whDoc.C_Currency_ID WH_C_Currency_ID, 
 		wh.C_ConversionType_ID,
-		wh.C_Currency_ID
+		wh.C_Currency_ID,
+		it.TaxLineTotal
 	FROM C_Invoice whDoc
 	INNER JOIN C_InvoiceLine whDocLine ON (whDoc.C_Invoice_ID = whDocLine.C_Invoice_ID)
 	INNER JOIN C_BPartner bp ON (whDoc.C_BPartner_ID = bp.C_BPartner_ID)
@@ -112,6 +114,7 @@ FROM (
 	LEFT JOIN (SELECT it.C_Invoice_ID,
 						SUM(it.TaxAmt) TaxAmt, 
 						SUM(CASE WHEN it.TaxAmt != 0 THEN it.TaxBaseAmt ELSE 0 END) TaxBaseAmt, 
+						SUM(CASE WHEN it.TaxAmt != 0 THEN it.TaxBaseAmt + it.TaxAmt ELSE 0 END) TaxLineTotal,
 						t.Rate,
 			   			t.C_Tax_ID
 			   FROM C_InvoiceTax it 
@@ -173,7 +176,8 @@ w.AD_Client_ID,
 	w.CurrencyRate,
 	w.C_ConversionType_ID,
 	w.C_Currency_ID,
-	w.PricePrecision
+	w.PricePrecision,
+	ROUND(w.TaxLineTotal * w.CurrencyRate,w.PricePrecision) TaxLineTotal
 FROM (
 	SELECT pr.AD_Client_ID,
 		pr.AD_Org_ID,
@@ -219,7 +223,8 @@ FROM (
 		1::NUMERIC(10, 0) AS CurrencyRate,
 		pr.C_ConversionType_ID,
 		pr.C_Currency_ID,
-		cu.StdPrecision AS PricePrecision
+		cu.StdPrecision AS PricePrecision,
+		0::NUMERIC(10, 0) AS TaxLineTotal
 	FROM HR_Process pr
 	INNER JOIN C_Currency cu ON(cu.C_Currency_ID = pr.C_Currency_ID)
 	INNER JOIN HR_Movement m ON(m.HR_Process_ID = pr.HR_Process_ID)
