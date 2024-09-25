@@ -54,8 +54,7 @@ public abstract class Bancaribe_v1 extends BankTransactionAbstract {
 	private final int COLUMN_TYPE = 3;
 	/**	Debit Column	*/
 	private final int COLUMN_DEBIT = 4;
-	/**	Credit Column	*/
-	private final int COLUMN_CREDIT = 5;
+	private static final String TRANSACTION_TYPE_DEBIT = "D";
 	
 	public abstract String getSeparator();
 	
@@ -93,16 +92,14 @@ public abstract class Bancaribe_v1 extends BankTransactionAbstract {
 		addValue(LINE_TRANSACTION_Memo, columns[COLUMN_CONCEPT].replaceAll(",", "").trim());
 		String transactionType = columns[COLUMN_TYPE].replaceAll(",", "").trim();
 		addValue(LINE_TRANSACTION_Type, transactionType);
-		BigDecimal debit = getNumber('.', "#,###,###,###,###,###.##", columns[COLUMN_DEBIT].trim());
-		if(debit != null
-				&& debit.compareTo(Env.ZERO) > 0) {
-			addValue(LINE_TRANSACTION_Amount, debit.negate());
-			addValue(LINE_TRANSACTION_Type, transactionType);
-		}
-		BigDecimal credit = getNumber('.', "#,###,###,###,###,###.##", columns[COLUMN_CREDIT].trim());
-		if(credit != null
-				&& credit.compareTo(Env.ZERO) > 0) {
-			addValue(LINE_TRANSACTION_Amount, credit);
+		BigDecimal amount = getNumber('.', "#,###,###,###,###,###.##", columns[COLUMN_DEBIT].trim());
+		if(amount != null
+				&& amount.compareTo(Env.ZERO) > 0) {
+			if(!Util.isEmpty(transactionType)
+					&& transactionType.equals(TRANSACTION_TYPE_DEBIT)) {
+				amount = amount.negate();
+			}
+			addValue(LINE_TRANSACTION_Amount, amount);
 			addValue(LINE_TRANSACTION_Type, transactionType);
 		}
 		//	fine
