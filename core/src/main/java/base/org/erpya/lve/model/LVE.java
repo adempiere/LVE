@@ -30,6 +30,7 @@ import org.adempiere.core.domains.models.I_C_Order;
 import org.adempiere.core.domains.models.I_I_BPartner;
 import org.adempiere.core.domains.models.I_I_Invoice;
 import org.adempiere.core.domains.models.I_M_InOut;
+import org.compiere.model.MAllocationHdr;
 import org.compiere.model.MBPartner;
 import org.compiere.model.MClient;
 import org.compiere.model.MDocType;
@@ -45,6 +46,7 @@ import org.compiere.model.ModelValidationEngine;
 import org.compiere.model.ModelValidator;
 import org.compiere.model.PO;
 import org.compiere.model.Query;
+import org.compiere.process.DocumentEngine;
 import org.compiere.util.CLogger;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
@@ -73,6 +75,9 @@ public class LVE implements ModelValidator {
 			.getCLogger(LVE.class);
 	/** Client */
 	private int clientId = -1;
+	
+	/**Allocations to Re-Post*/
+	private Map<Integer, AllocationManager> allocationToRepost = new HashMap<Integer, AllocationManager>(); 
 
 	@Override
 	public void initialize(ModelValidationEngine engine, MClient client) {
@@ -263,6 +268,7 @@ public class LVE implements ModelValidator {
 							});
 						//	Create Allocation
 						allocationManager.createAllocation();
+						allocationToRepost.put(invoice.get_ID(), allocationManager);
 					}
 					//	Save
 					invoice.saveEx();
@@ -372,6 +378,24 @@ public class LVE implements ModelValidator {
 						throw new AdempiereException("@CreateShipment.OrderNotCompleted@: " + Env.NL + message);
 					}
 				}
+			}
+		} else if(timing == TIMING_AFTER_POST)	{
+			if (po.get_TableName().equals(MInvoice.Table_Name)) {
+				Optional.ofNullable(allocationToRepost.get(po.get_ID()))
+						.ifPresent(allocationManager ->{
+							Optional.ofNullable(allocationManager.getAllocationGenerated())
+									.ifPresent(allocation -> {
+										if (allocation.getDocStatus().equals(MAllocationHdr.STATUS_Completed) 
+												&& !allocation.isPosted()) {
+											String ignoreError = DocumentEngine.postImmediate(allocation.getCtx(), 
+													allocation.getAD_Client_ID(), MAllocationHdr.Table_ID, 
+													allocation.getC_AllocationHdr_ID(), true, 
+													po.get_TrxName());
+											if(ignoreError != null)
+												log.warning(ignoreError);
+										}
+									});
+						});
 			}
 		}
 		//

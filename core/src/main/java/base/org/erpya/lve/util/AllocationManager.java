@@ -57,6 +57,9 @@ public class AllocationManager {
 	/**	Transaction Name	*/
 	private String transactionName;
 	
+	/**Allocation Generated*/
+	private MAllocationHdr allocationGenerated;
+	
 	/**
 	 * Get Context
 	 * @return
@@ -236,6 +239,7 @@ public class AllocationManager {
 			throw new AdempiereException("@ProcessFailed@: " + allocation.getProcessMsg()); //@Trifon
 		}
 		allocation.saveEx();
+		setAllocationGenerated(allocation);
 	}
 	
 	/**
@@ -257,6 +261,22 @@ public class AllocationManager {
 		});
 		
 		return openAmt.get();
+	}
+	
+	/**
+	 * Set Allocation Generated
+	 * @param allocationGenerated
+	 */
+	public void setAllocationGenerated(MAllocationHdr allocationGenerated) {
+		this.allocationGenerated = allocationGenerated;
+	}
+	
+	/**
+	 * Get Allocation Generated
+	 * @return
+	 */
+	public MAllocationHdr getAllocationGenerated() {
+		return allocationGenerated;
 	}
 
 	/**
