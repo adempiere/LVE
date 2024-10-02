@@ -237,7 +237,7 @@ public class LVE implements ModelValidator {
 					//	Set Control No
 					if(!documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsSetControlNoOnPrint)
 							&& Util.isEmpty(invoice.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo))) {
-						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType);
+						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType, invoice.get_TrxName());
 						invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_ControlNo, sequence.getControlNo());
 					}
 					//Set Document Number for Withholding
@@ -284,7 +284,7 @@ public class LVE implements ModelValidator {
 					//	Set Control No
 					if(!documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsSetControlNoOnPrint)
 							&& Util.isEmpty(shipment.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo))) {
-						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType);
+						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType, shipment.get_TrxName());
 						shipment.set_ValueOfColumn(LVEUtil.COLUMNNAME_ControlNo, sequence.getControlNo());
 					}
 				}
@@ -301,7 +301,7 @@ public class LVE implements ModelValidator {
 					//	Set Control No
 					if(!documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsSetControlNoOnPrint)
 							&& Util.isEmpty(movement.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo))) {
-						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType);
+						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType, movement.get_TrxName());
 						movement.set_ValueOfColumn(LVEUtil.COLUMNNAME_ControlNo, sequence.getControlNo());
 					}
 				}

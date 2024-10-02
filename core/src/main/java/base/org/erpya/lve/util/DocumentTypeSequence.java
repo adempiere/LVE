@@ -29,12 +29,14 @@ import org.compiere.util.Env;
  */
 public class DocumentTypeSequence {
 
+	private String trxName = null;
 	/**
 	 * From documentType
 	 * @param documentType
 	 */
-	public DocumentTypeSequence(MDocType documentType) {
+	public DocumentTypeSequence(MDocType documentType, String trxName) {
 		this.documentType = documentType;
+		setTrxName(trxName);
 	}
 	
 	/**	Document Type	*/
@@ -48,7 +50,7 @@ public class DocumentTypeSequence {
 		int sequenceId = documentType.get_ValueAsInt(LVEUtil.COLUMNNAME_ControlNoSequence_ID);
 		//	Load Sequence
 		if(sequenceId != 0) {
-			MSequence seqControlNo = new MSequence(Env.getCtx(), sequenceId, documentType.get_TrxName());
+			MSequence seqControlNo = new MSequence(Env.getCtx(), sequenceId, getTrxName());
 			String prefix = seqControlNo.getPrefix();
 			String suffix = seqControlNo.getSuffix();
 			String decimalPattern = seqControlNo.getDecimalPattern();
@@ -75,5 +77,21 @@ public class DocumentTypeSequence {
 		}
 		//	Nothing
 		return null;
+	}
+	
+	/**
+	 * Get Transaction Name
+	 * @return
+	 */
+	public String getTrxName() {
+		return trxName;
+	}
+	
+	/**
+	 * Set Transaction Name
+	 * @param trxName
+	 */
+	public void setTrxName(String trxName) {
+		this.trxName = trxName;
 	}
 }
