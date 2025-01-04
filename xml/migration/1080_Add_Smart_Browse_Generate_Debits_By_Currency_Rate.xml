@@ -819,11 +819,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="84463" Column="UUID">d0b3d6eb-65d4-4bdd-bcbc-192a47f3c2eb</Data>
       </PO>
     </Step>
-    <Step SeqNo="420" StepType="AD">
-      <PO AD_Table_ID="53224" Action="U" Record_ID="50231" Table="AD_Browse">
-        <Data AD_Column_ID="57995" Column="EntityType" oldValue="DMS">C</Data>
-      </PO>
-    </Step>
     <Step SeqNo="430" StepType="AD">
       <PO AD_Table_ID="53229" Action="U" Record_ID="50221" Table="AD_View_Trl">
         <Data AD_Column_ID="58064" Column="Name" oldValue="Invoices With Overpayment">Facturas con Sobre Pago</Data>
@@ -2539,13 +2534,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="6160" Column="AD_Tree_ID">10</Data>
       </PO>
     </Step>
-    <Step SeqNo="1320" StepType="AD">
-      <PO AD_Table_ID="452" Action="U" Record_ID="54683" Table="AD_TreeNodeMM">
-        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54683">54683</Data>
-        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="0">1</Data>
-        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
-      </PO>
-    </Step>
     <Step SeqNo="1330" StepType="AD">
       <PO AD_Table_ID="452" Action="U" Record_ID="153" Table="AD_TreeNodeMM">
         <Data AD_Column_ID="6161" Column="Node_ID" oldValue="153">153</Data>
@@ -2637,13 +2625,6 @@ If the document type of your document has no automatic document sequence defined
         <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
       </PO>
     </Step>
-    <Step SeqNo="1460" StepType="AD">
-      <PO AD_Table_ID="452" Action="U" Record_ID="54724" Table="AD_TreeNodeMM">
-        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54724">54724</Data>
-        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="14">15</Data>
-        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
-      </PO>
-    </Step>
     <Step SeqNo="1470" StepType="AD">
       <PO AD_Table_ID="452" Action="U" Record_ID="54335" Table="AD_TreeNodeMM">
         <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54335">54335</Data>
@@ -2690,27 +2671,6 @@ If the document type of your document has no automatic document sequence defined
       <PO AD_Table_ID="452" Action="U" Record_ID="54269" Table="AD_TreeNodeMM">
         <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54269">54269</Data>
         <Data AD_Column_ID="6157" Column="SeqNo" oldValue="23">1005</Data>
-        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
-      </PO>
-    </Step>
-    <Step SeqNo="1540" StepType="AD">
-      <PO AD_Table_ID="452" Action="U" Record_ID="54764" Table="AD_TreeNodeMM">
-        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54764">54764</Data>
-        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="999">1006</Data>
-        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
-      </PO>
-    </Step>
-    <Step SeqNo="1550" StepType="AD">
-      <PO AD_Table_ID="452" Action="U" Record_ID="54608" Table="AD_TreeNodeMM">
-        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54608">54608</Data>
-        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="1010">1011</Data>
-        <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
-      </PO>
-    </Step>
-    <Step SeqNo="1560" StepType="AD">
-      <PO AD_Table_ID="452" Action="U" Record_ID="54624" Table="AD_TreeNodeMM">
-        <Data AD_Column_ID="6161" Column="Node_ID" oldValue="54624">54624</Data>
-        <Data AD_Column_ID="6157" Column="SeqNo" oldValue="1011">1012</Data>
         <Data AD_Column_ID="6160" Column="AD_Tree_ID" oldValue="10">10</Data>
       </PO>
     </Step>
