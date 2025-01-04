@@ -508,21 +508,6 @@
         <Data AD_Column_ID="181" Column="SeqNo" oldValue="730">760</Data>
       </PO>
     </Step>
-    <Step SeqNo="720" StepType="AD">
-      <PO AD_Table_ID="107" Action="U" Record_ID="100174" Table="AD_Field">
-        <Data AD_Column_ID="181" Column="SeqNo" oldValue="750">770</Data>
-      </PO>
-    </Step>
-    <Step SeqNo="730" StepType="AD">
-      <PO AD_Table_ID="107" Action="U" Record_ID="101819" Table="AD_Field">
-        <Data AD_Column_ID="181" Column="SeqNo" oldValue="770">780</Data>
-      </PO>
-    </Step>
-    <Step SeqNo="740" StepType="AD">
-      <PO AD_Table_ID="107" Action="U" Record_ID="101817" Table="AD_Field">
-        <Data AD_Column_ID="181" Column="SeqNo" oldValue="780">790</Data>
-      </PO>
-    </Step>
     <Step SeqNo="750" StepType="AD">
       <PO AD_Table_ID="107" Action="U" Record_ID="102105" Table="AD_Field">
         <Data AD_Column_ID="181" Column="SeqNo" oldValue="790">800</Data>
