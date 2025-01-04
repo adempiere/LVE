@@ -508,36 +508,6 @@
         <Data AD_Column_ID="181" Column="SeqNo" oldValue="730">760</Data>
       </PO>
     </Step>
-    <Step SeqNo="720" StepType="AD">
-      <PO AD_Table_ID="107" Action="U" Record_ID="100174" Table="AD_Field">
-        <Data AD_Column_ID="181" Column="SeqNo" oldValue="750">770</Data>
-      </PO>
-    </Step>
-    <Step SeqNo="730" StepType="AD">
-      <PO AD_Table_ID="107" Action="U" Record_ID="101819" Table="AD_Field">
-        <Data AD_Column_ID="181" Column="SeqNo" oldValue="770">780</Data>
-      </PO>
-    </Step>
-    <Step SeqNo="740" StepType="AD">
-      <PO AD_Table_ID="107" Action="U" Record_ID="101817" Table="AD_Field">
-        <Data AD_Column_ID="181" Column="SeqNo" oldValue="780">790</Data>
-      </PO>
-    </Step>
-    <Step SeqNo="750" StepType="AD">
-      <PO AD_Table_ID="107" Action="U" Record_ID="102105" Table="AD_Field">
-        <Data AD_Column_ID="181" Column="SeqNo" oldValue="790">800</Data>
-      </PO>
-    </Step>
-    <Step SeqNo="760" StepType="AD">
-      <PO AD_Table_ID="107" Action="U" Record_ID="102110" Table="AD_Field">
-        <Data AD_Column_ID="181" Column="SeqNo" oldValue="800">810</Data>
-      </PO>
-    </Step>
-    <Step SeqNo="770" StepType="AD">
-      <PO AD_Table_ID="107" Action="U" Record_ID="102247" Table="AD_Field">
-        <Data AD_Column_ID="181" Column="SeqNo" oldValue="810">820</Data>
-      </PO>
-    </Step>
     <Step SeqNo="780" StepType="AD">
       <PO AD_Table_ID="107" Action="U" Record_ID="102358" Table="AD_Field">
         <Data AD_Column_ID="181" Column="SeqNo" oldValue="820">830</Data>
@@ -948,11 +918,6 @@
     <Step SeqNo="1450" StepType="AD">
       <PO AD_Table_ID="107" Action="U" Record_ID="84190" Table="AD_Field">
         <Data AD_Column_ID="181" Column="SeqNo" oldValue="700">720</Data>
-      </PO>
-    </Step>
-    <Step SeqNo="1460" StepType="AD">
-      <PO AD_Table_ID="107" Action="U" Record_ID="100173" Table="AD_Field">
-        <Data AD_Column_ID="181" Column="SeqNo" oldValue="710">730</Data>
       </PO>
     </Step>
     <Step SeqNo="1470" StepType="AD">
