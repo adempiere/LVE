@@ -46,7 +46,8 @@ SELECT
 	w.C_Currency_ID,
 	w.PricePrecision,
 	ROUND(w.TaxLineTotal * w.CurrencyRate,w.PricePrecision) TaxLineTotal,
-	w.DateDoc
+	w.DateDoc,
+	w.Parent_Org_ID
 FROM (
 	SELECT 
 		whDoc.AD_Client_ID,
@@ -98,10 +99,12 @@ FROM (
 		wh.C_ConversionType_ID,
 		wh.C_Currency_ID,
 		it.TaxLineTotal,
-		whDoc.DateAcct DateDoc
+		whDoc.DateAcct DateDoc,
+		o.Parent_Org_ID
 	FROM C_Invoice whDoc
 	INNER JOIN C_InvoiceLine whDocLine ON (whDoc.C_Invoice_ID = whDocLine.C_Invoice_ID)
 	INNER JOIN C_BPartner bp ON (whDoc.C_BPartner_ID = bp.C_BPartner_ID)
+	INNER JOIN AD_Org  o ON (whDoc.AD_Org_ID = o.AD_Org_ID)
 	INNER JOIN AD_OrgInfo oi ON (whDoc.AD_Org_ID = oi.AD_Org_ID)
 	INNER JOIN WH_Withholding wh ON (wh.C_Invoice_ID = whDoc.C_Invoice_ID AND wh.C_InvoiceLine_ID = whDocLine.C_InvoiceLine_ID)
 	INNER JOIN WH_Setting whs ON (wh.WH_Setting_ID = whs.WH_Setting_ID)
@@ -180,7 +183,8 @@ w.AD_Client_ID,
 	w.C_Currency_ID,
 	w.PricePrecision,
 	ROUND(w.TaxLineTotal * w.CurrencyRate,w.PricePrecision) TaxLineTotal,
-	w.DateAcct DateDoc
+	w.DateAcct DateDoc,
+	w.Parent_Org_ID
 FROM (
 	SELECT pr.AD_Client_ID,
 		pr.AD_Org_ID,
@@ -228,7 +232,8 @@ FROM (
 		pr.C_Currency_ID,
 		cu.StdPrecision AS PricePrecision,
 		0::NUMERIC(10, 0) AS TaxLineTotal,
-		pr.DateAcct DateDoc
+		pr.DateAcct DateDoc,
+		org.Parent_Org_ID
 	FROM HR_Process pr
 	INNER JOIN C_Currency cu ON(cu.C_Currency_ID = pr.C_Currency_ID)
 	INNER JOIN HR_Movement m ON(m.HR_Process_ID = pr.HR_Process_ID)
@@ -236,10 +241,11 @@ FROM (
 	INNER JOIN HR_Concept c ON(c.HR_Concept_ID = m.HR_Concept_ID)
 	INNER JOIN WH_Type wt ON(wt.HR_ProcessReport_ID = prl.HR_ProcessReport_ID)
 	INNER JOIN C_BPartner bp ON(bp.C_BPartner_ID = m.C_BPartner_ID)
+	INNER JOIN AD_Org org ON (org.AD_Org_ID = pr.AD_Org_ID)
 	INNER JOIN AD_OrgInfo o ON(o.AD_Org_ID = pr.AD_Org_ID)
 	WHERE wt.WH_Type_ID IS NOT NULL
 	AND pr.DocStatus IN('CO', 'CL')
-	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, pr.DocumentNo, pr.DateAcct, pr.Name, prl.PrintName, bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.C_ConversionType_ID, pr.C_Currency_ID, cu.StdPrecision
+	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, pr.DocumentNo, pr.DateAcct, pr.Name, prl.PrintName, bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.C_ConversionType_ID, pr.C_Currency_ID, cu.StdPrecision, org.Parent_Org_ID
 	HAVING SUM(CASE WHEN c.Type <> 'R' THEN m.Amount ELSE 0 END) > 0
 ) AS w
 ;

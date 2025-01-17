@@ -50,7 +50,8 @@ SELECT
 	ROUND(wh.TaxAmt     * wh.CurrencyRate,wh.PricePrecision) TaxAmt,
 	wh.CurrencyRate,
 	wh.PricePrecision,
-	wh.DateAcct
+	wh.DateAcct,
+	wh.Parent_Org_ID
 FROM
 (
 	SELECT  wh.AD_Client_ID,
@@ -103,7 +104,8 @@ FROM
 			COALESCE(ot.TaxAmt, it.TaxAmt) TaxAmt,
 			COALESCE(CurrencyRate(COALESCE(i.C_Currency_ID, o.C_Currency_ID), COALESCE(iw.C_Currency_ID,ash.C_Currency_ID), COALESCE(i.DateAcct, o.DateAcct), COALESCE(i.C_ConversionType_ID, o.C_ConversionType_ID), COALESCE(i.AD_Client_ID, o.AD_Client_ID), COALESCE(i.AD_Org_ID, o.AD_Org_ID)),1) CurrencyRate,
 			pl.PricePrecision,
-			COALESCE(o.DateAcct, i.DateAcct) DateAcct
+			COALESCE(o.DateAcct, i.DateAcct) DateAcct,
+			org.Parent_Org_ID
 	FROM 
 	WH_Withholding wh
 	INNER JOIN AD_ClientInfo ci ON (wh.AD_Client_ID = ci.AD_Client_ID)
@@ -116,4 +118,5 @@ FROM
 	LEFT JOIN C_Invoice iw ON (iw.C_Invoice_ID = wh.C_Invoice_ID AND iw.DocStatus NOT IN ('VO','RE'))
 	LEFT JOIN C_InvoiceLine ilw ON (ilw.C_InvoiceLine_ID = wh.C_InvoiceLine_ID)
 	LEFT JOIN M_PriceList pl ON (pl.M_PriceList_ID = COALESCE(i.M_PriceList_ID,o.M_PriceList_ID))
+	LEFT JOIN AD_Org org ON (org.AD_Org_ID = COALESCE(i.AD_Org_ID, o.AD_Org_ID))
 ) AS wh;

@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Add Parent Organization on Withholding Reports" ReleaseNo="1.0" SeqNo="81001190">
+    <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
+      <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_Withholding AS 
+SELECT 
+	w.AD_Client_ID,
+	w.AD_Org_ID,
+	w.C_Invoice_ID,
+	w.C_InvoiceLine_ID,
+	ROUND(w.A_Base_Amount * w.CurrencyRate,w.PricePrecision) A_Base_Amount,
+	w.WithholdingAmt,
+	w.WithholdingRate,
+	ROUND(w.Subtrahend * w.CurrencyRate,w.PricePrecision) Subtrahend,
+	w.DocumentNo,
+	w.ControlNo,
+	w.DateInvoiced,
+	w.Line ,
+	w.type,
+	ROUND(w.GrandTotal * w.CurrencyRate,w.PricePrecision) GrandTotal,
+	ROUND(w.TotalLines * w.CurrencyRate,w.PricePrecision) TotalLines,
+	ROUND(w.TaxAmt * w.CurrencyRate,w.PricePrecision) TaxAmt,
+	w.InvoiceNo,
+	w.CreditDocumentNo, 
+	w.DebitDocumentNo,
+	w.AffectedDocumentNo,
+	w.DateAcct,
+	w.Description,
+	w.PersonType,
+	w.DocumentNote,
+	w.PrintName,
+	ROUND(w.ExemptAmt * w.CurrencyRate,w.PricePrecision) ExemptAmt,
+	w.IsDeclared,
+	w.TaxID,
+	w.OrgValue,
+	w.DocumentType,
+	w.Concept_Value,
+	w.WHDocumentNo,
+	w.Rate,
+	w.WH_Definition_ID,
+	w.WH_Setting_ID,
+	w.WH_Type_ID,
+	w.WithholdingDeclaration_ID,
+	w.IsManual,
+	w.FiscalDocumentType,
+	ROUND(w.TaxBaseAmt * w.CurrencyRate,w.PricePrecision) TaxBaseAmt,
+	w.Concept_Name,
+	w.CurrencyRate,
+	w.C_ConversionType_ID,
+	w.C_Currency_ID,
+	w.PricePrecision,
+	ROUND(w.TaxLineTotal * w.CurrencyRate,w.PricePrecision) TaxLineTotal,
+	w.DateDoc,
+	w.Parent_Org_ID
+FROM (
+	SELECT 
+		whDoc.AD_Client_ID,
+		whDoc.AD_Org_ID,
+		whDoc.C_Invoice_ID,
+		whDocLine.C_InvoiceLine_ID,
+		wh.A_Base_Amount,
+		whDocLine.LineNetAmt WithholdingAmt,
+		wh.WithholdingRate,
+		wh.Subtrahend,
+		origDoc.DocumentNo,
+		origDoc.ControlNo,
+		origDoc.DateInvoiced,
+		whDocLine.Line ,
+		CASE WHEN whDoc.DocStatus IN ('VO','RE') THEN '3-anu' 
+			 ELSE '1-reg' END  "type",
+		origDoc.GrandTotal,
+		origDoc.TotalLines,
+		it.TaxAmt,
+		CASE WHEN dtOrigDoc.FiscalDocumentType='01' THEN origDoc.DocumentNo ELSE null::varchar END InvoiceNo,
+		CASE WHEN dtOrigDoc.FiscalDocumentType='03' THEN origDoc.DocumentNo ELSE null::varchar END CreditDocumentNo, 
+		CASE WHEN dtOrigDoc.FiscalDocumentType='02' THEN origDoc.DocumentNo ELSE null::varchar END DebitDocumentNo,
+		COALESCE(affectedHdrDoc.DocumentNo,affectedLineDoc.DocumentNo) AffectedDocumentNo,
+		origDoc.DateAcct,
+		whc.Description,
+		whc.PersonType,
+		dtWhDoc.DocumentNote,
+		dtWhDoc.PrintName,
+		COALESCE(et.ExemptAmt,0) ExemptAmt,
+		COALESCE(whDec.IsDeclared, 'N') IsDeclared,
+		bp.TaxID,
+		oi.TaxID OrgValue,
+		CASE WHEN whDoc.IsSOTrx = 'N' THEN 'C' ELSE 'V' END DocumentType,
+		whc.Value Concept_Value,
+		whDoc.DocumentNo WHDocumentNo,
+		it.Rate,
+		wh.WH_Definition_ID,
+		whs.WH_Setting_ID,
+		whs.WH_Type_ID,
+		wh.WithholdingDeclaration_ID,
+		wh.IsManual,
+		dtOrigDoc.FiscalDocumentType,
+		it.TaxBaseAmt,
+		whconcept.Name Concept_Name,
+		CurrencyRate(origDoc.C_Currency_ID, whDoc.C_Currency_ID, wh.DateAcct, wh.C_ConversionType_ID, origDoc.AD_Client_ID, origDoc.AD_Org_ID) CurrencyRate,
+		pl.PricePrecision,
+		origDoc.C_Currency_ID Doc_C_Currency_ID,
+		whDoc.C_Currency_ID WH_C_Currency_ID, 
+		wh.C_ConversionType_ID,
+		wh.C_Currency_ID,
+		it.TaxLineTotal,
+		whDoc.DateAcct DateDoc,
+		o.Parent_Org_ID
+	FROM C_Invoice whDoc
+	INNER JOIN C_InvoiceLine whDocLine ON (whDoc.C_Invoice_ID = whDocLine.C_Invoice_ID)
+	INNER JOIN C_BPartner bp ON (whDoc.C_BPartner_ID = bp.C_BPartner_ID)
+	INNER JOIN AD_Org  o ON (whDoc.AD_Org_ID = o.AD_Org_ID)
+	INNER JOIN AD_OrgInfo oi ON (whDoc.AD_Org_ID = oi.AD_Org_ID)
+	INNER JOIN WH_Withholding wh ON (wh.C_Invoice_ID = whDoc.C_Invoice_ID AND wh.C_InvoiceLine_ID = whDocLine.C_InvoiceLine_ID)
+	INNER JOIN WH_Setting whs ON (wh.WH_Setting_ID = whs.WH_Setting_ID)
+	INNER JOIN C_Invoice origDoc ON (origDoc.C_Invoice_ID = wh.SourceInvoice_ID)
+	INNER JOIN C_DocType dtOrigDoc ON (dtOrigDoc.C_DocType_ID = origDoc.C_DocTypeTarget_ID)
+	INNER JOIN C_DocType dtWhDoc ON (dtWhDoc.C_DocType_ID = whDoc.C_DocTypeTarget_ID)
+	LEFT JOIN C_Invoice affectedHdrDoc ON (affectedHdrDoc.C_Invoice_ID = origDoc.InvoiceToAllocate_ID)
+	LEFT JOIN (SELECT DISTINCT i.DocumentNo,il.C_Invoice_ID 
+			   FROM C_Invoice i
+			   INNER JOIN C_InvoiceLine il ON (i.C_Invoice_ID = il.InvoiceToAllocate_ID)
+			  )affectedLineDoc ON (affectedLineDoc.C_Invoice_ID = origDoc.C_Invoice_ID)
+	LEFT JOIN (SELECT it.C_Invoice_ID,
+						SUM(it.TaxAmt) TaxAmt, 
+						SUM(CASE WHEN it.TaxAmt != 0 THEN it.TaxBaseAmt ELSE 0 END) TaxBaseAmt, 
+						SUM(CASE WHEN it.TaxAmt != 0 THEN it.TaxBaseAmt + it.TaxAmt ELSE 0 END) TaxLineTotal,
+						t.Rate,
+			   			t.C_Tax_ID
+			   FROM C_InvoiceTax it 
+			   LEFT JOIN C_Tax t ON (it.C_Tax_ID = t.C_Tax_ID)
+			   GROUP BY it.C_Invoice_ID, t.Rate, t.C_Tax_ID) it ON (it.C_Invoice_ID = origDoc.C_Invoice_ID AND wh.C_Tax_ID = it.C_Tax_ID)
+	LEFT JOIN (SELECT it.C_Invoice_ID,
+						SUM(CASE WHEN it.TaxAmt = 0 THEN it.TaxBaseAmt ELSE 0 END) ExemptAmt
+			   FROM C_InvoiceTax it 
+			   GROUP BY it.C_Invoice_ID) et ON (et.C_Invoice_ID = origDoc.C_Invoice_ID)
+	LEFT JOIN LVE_ListVersion whc ON (whc.LVE_ListVersion_ID = wh.WithholdingRentalRate_ID)
+	LEFT JOIN LVE_List whconcept ON ((whc.LVE_List_ID = whconcept.LVE_List_ID))
+	LEFT JOIN (SELECT C_Invoice_ID,'Y'::VARCHAR IsDeclared FROM C_Invoice i WHERE DocStatus IN ('CO','CL')) whDec ON (whDec.C_Invoice_ID = wh.WithholdingDeclaration_ID)
+	LEFT JOIN M_PriceList pl ON (whDoc.M_PriceList_ID = pl.M_PriceList_ID)
+	WHERE 
+	wh.DocStatus IN ('CO','CL')) AS w 
+UNION ALL
+SELECT 
+w.AD_Client_ID,
+	w.AD_Org_ID,
+	w.C_Invoice_ID,
+	w.C_InvoiceLine_ID,
+	ROUND(w.A_Base_Amount * w.CurrencyRate,w.PricePrecision) A_Base_Amount,
+	w.WithholdingAmt,
+	w.WithholdingRate,
+	ROUND(w.Subtrahend * w.CurrencyRate,w.PricePrecision) Subtrahend,
+	w.DocumentNo,
+	w.ControlNo,
+	w.DateInvoiced,
+	w.Line ,
+	w.type,
+	ROUND(w.GrandTotal * w.CurrencyRate,w.PricePrecision) GrandTotal,
+	ROUND(w.TotalLines * w.CurrencyRate,w.PricePrecision) TotalLines,
+	ROUND(w.TaxAmt * w.CurrencyRate,w.PricePrecision) TaxAmt,
+	w.InvoiceNo,
+	w.CreditDocumentNo, 
+	w.DebitDocumentNo,
+	w.AffectedDocumentNo,
+	w.DateAcct,
+	w.Description,
+	w.PersonType,
+	w.DocumentNote,
+	w.PrintName,
+	ROUND(w.ExemptAmt * w.CurrencyRate,w.PricePrecision) ExemptAmt,
+	w.IsDeclared,
+	w.TaxID,
+	w.OrgValue,
+	w.DocumentType,
+	w.Concept_Value,
+	w.WHDocumentNo,
+	w.Rate,
+	w.WH_Definition_ID,
+	w.WH_Setting_ID,
+	w.WH_Type_ID,
+	w.WithholdingDeclaration_ID,
+	w.IsManual,
+	w.FiscalDocumentType,
+	ROUND(w.TaxBaseAmt * w.CurrencyRate,w.PricePrecision) TaxBaseAmt,
+	w.Concept_Name,
+	w.CurrencyRate,
+	w.C_ConversionType_ID,
+	w.C_Currency_ID,
+	w.PricePrecision,
+	ROUND(w.TaxLineTotal * w.CurrencyRate,w.PricePrecision) TaxLineTotal,
+	w.DateAcct DateDoc,
+	w.Parent_Org_ID
+FROM (
+	SELECT pr.AD_Client_ID,
+		pr.AD_Org_ID,
+		NULL::NUMERIC(10, 0) AS C_Invoice_ID,
+		NULL::NUMERIC(10, 0) AS C_InvoiceLine_ID,
+		SUM(CASE WHEN c.Type &lt;&gt; 'R' THEN m.Amount ELSE 0 END) A_Base_Amount,
+		0::NUMERIC(10, 0) AS WithholdingAmt,
+		MAX(CASE WHEN c.Type = 'R' THEN m.Amount ELSE 0 END) AS WithholdingRate,
+		0::NUMERIC(10, 0) Subtrahend,
+		NULLIF(regexp_replace(pr.DocumentNo, '\D','','g'), '')::Varchar(30) AS DocumentNo,
+		NULLIF(regexp_replace(pr.DocumentNo, '\D','','g'), '')::Varchar(255) AS ControlNo,
+		pr.DateAcct::date AS DateInvoiced,
+		0::NUMERIC(10, 0) Line ,
+		'1-reg' AS "type",
+		0::NUMERIC(10, 0) AS GrandTotal,
+		0::NUMERIC(10, 0) AS TotalLines,
+		0::NUMERIC(10, 0) AS TaxAmt,
+		NULLIF(regexp_replace(pr.DocumentNo, '\D','','g'), '')::Varchar(30) AS InvoiceNo,
+		NULL::Varchar(30) AS CreditDocumentNo, 
+		NULL::Varchar(30) AS DebitDocumentNo,
+		NULL::Varchar(30) AS AffectedDocumentNo,
+		pr.DateAcct,
+		pr.Name::Varchar(255) AS Description,
+		bp.PersonType,
+		NULL::Varchar(2000) AS DocumentNote,
+		NULL::Varchar(60) AS PrintName,
+		0::NUMERIC(10, 0) AS ExemptAmt,
+		'N'::character(1) AS IsDeclared,
+		bp.TaxID,
+		o.TaxID::Varchar(20) AS OrgValue,
+		NULL AS DocumentType,
+		prl.PrintName AS Concept_Value,
+		NULL::Varchar(30) AS WHDocumentNo,
+		MAX(CASE WHEN c.Type = 'R' THEN m.Amount ELSE 0 END) AS Rate,
+		NULL::NUMERIC(10, 0) AS WH_Definition_ID,
+		NULL::NUMERIC(10, 0) AS WH_Setting_ID,
+		wt.WH_Type_ID,
+		NULL::NUMERIC(10, 0) AS WithholdingDeclaration_ID,
+		'N'::character(1) IsManual,
+		NULL::Varchar(2) AS FiscalDocumentType,
+		0::NUMERIC(10, 0) AS TaxBaseAmt,
+		NULL::Varchar(255) AS Concept_Name,
+		1::NUMERIC(10, 0) AS CurrencyRate,
+		pr.C_ConversionType_ID,
+		pr.C_Currency_ID,
+		cu.StdPrecision AS PricePrecision,
+		0::NUMERIC(10, 0) AS TaxLineTotal,
+		pr.DateAcct DateDoc,
+		org.Parent_Org_ID
+	FROM HR_Process pr
+	INNER JOIN C_Currency cu ON(cu.C_Currency_ID = pr.C_Currency_ID)
+	INNER JOIN HR_Movement m ON(m.HR_Process_ID = pr.HR_Process_ID)
+	INNER JOIN HR_ProcessReportLine prl ON(prl.HR_Concept_ID = m.HR_Concept_ID)
+	INNER JOIN HR_Concept c ON(c.HR_Concept_ID = m.HR_Concept_ID)
+	INNER JOIN WH_Type wt ON(wt.HR_ProcessReport_ID = prl.HR_ProcessReport_ID)
+	INNER JOIN C_BPartner bp ON(bp.C_BPartner_ID = m.C_BPartner_ID)
+	INNER JOIN AD_Org org ON (org.AD_Org_ID = pr.AD_Org_ID)
+	INNER JOIN AD_OrgInfo o ON(o.AD_Org_ID = pr.AD_Org_ID)
+	WHERE wt.WH_Type_ID IS NOT NULL
+	AND pr.DocStatus IN('CO', 'CL')
+	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, pr.DocumentNo, pr.DateAcct, pr.Name, prl.PrintName, bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.C_ConversionType_ID, pr.C_Currency_ID, cu.StdPrecision, org.Parent_Org_ID
+	HAVING SUM(CASE WHEN c.Type &lt;&gt; 'R' THEN m.Amount ELSE 0 END) &gt; 0
+) AS w
+;</SQLStatement>
+      <RollbackStatement>CREATE OR REPLACE VIEW LVE_RV_Withholding AS 
+SELECT 
+	w.AD_Client_ID,
+	w.AD_Org_ID,
+	w.C_Invoice_ID,
+	w.C_InvoiceLine_ID,
+	ROUND(w.A_Base_Amount * w.CurrencyRate,w.PricePrecision) A_Base_Amount,
+	w.WithholdingAmt,
+	w.WithholdingRate,
+	ROUND(w.Subtrahend * w.CurrencyRate,w.PricePrecision) Subtrahend,
+	w.DocumentNo,
+	w.ControlNo,
+	w.DateInvoiced,
+	w.Line ,
+	w.type,
+	ROUND(w.GrandTotal * w.CurrencyRate,w.PricePrecision) GrandTotal,
+	ROUND(w.TotalLines * w.CurrencyRate,w.PricePrecision) TotalLines,
+	ROUND(w.TaxAmt * w.CurrencyRate,w.PricePrecision) TaxAmt,
+	w.InvoiceNo,
+	w.CreditDocumentNo, 
+	w.DebitDocumentNo,
+	w.AffectedDocumentNo,
+	w.DateAcct,
+	w.Description,
+	w.PersonType,
+	w.DocumentNote,
+	w.PrintName,
+	ROUND(w.ExemptAmt * w.CurrencyRate,w.PricePrecision) ExemptAmt,
+	w.IsDeclared,
+	w.TaxID,
+	w.OrgValue,
+	w.DocumentType,
+	w.Concept_Value,
+	w.WHDocumentNo,
+	w.Rate,
+	w.WH_Definition_ID,
+	w.WH_Setting_ID,
+	w.WH_Type_ID,
+	w.WithholdingDeclaration_ID,
+	w.IsManual,
+	w.FiscalDocumentType,
+	ROUND(w.TaxBaseAmt * w.CurrencyRate,w.PricePrecision) TaxBaseAmt,
+	w.Concept_Name,
+	w.CurrencyRate,
+	w.C_ConversionType_ID,
+	w.C_Currency_ID,
+	w.PricePrecision,
+	ROUND(w.TaxLineTotal * w.CurrencyRate,w.PricePrecision) TaxLineTotal,
+	w.DateDoc
+FROM (
+	SELECT 
+		whDoc.AD_Client_ID,
+		whDoc.AD_Org_ID,
+		whDoc.C_Invoice_ID,
+		whDocLine.C_InvoiceLine_ID,
+		wh.A_Base_Amount,
+		whDocLine.LineNetAmt WithholdingAmt,
+		wh.WithholdingRate,
+		wh.Subtrahend,
+		origDoc.DocumentNo,
+		origDoc.ControlNo,
+		origDoc.DateInvoiced,
+		whDocLine.Line ,
+		CASE WHEN whDoc.DocStatus IN ('VO','RE') THEN '3-anu' 
+			 ELSE '1-reg' END  "type",
+		origDoc.GrandTotal,
+		origDoc.TotalLines,
+		it.TaxAmt,
+		CASE WHEN dtOrigDoc.FiscalDocumentType='01' THEN origDoc.DocumentNo ELSE null::varchar END InvoiceNo,
+		CASE WHEN dtOrigDoc.FiscalDocumentType='03' THEN origDoc.DocumentNo ELSE null::varchar END CreditDocumentNo, 
+		CASE WHEN dtOrigDoc.FiscalDocumentType='02' THEN origDoc.DocumentNo ELSE null::varchar END DebitDocumentNo,
+		COALESCE(affectedHdrDoc.DocumentNo,affectedLineDoc.DocumentNo) AffectedDocumentNo,
+		origDoc.DateAcct,
+		whc.Description,
+		whc.PersonType,
+		dtWhDoc.DocumentNote,
+		dtWhDoc.PrintName,
+		COALESCE(et.ExemptAmt,0) ExemptAmt,
+		COALESCE(whDec.IsDeclared, 'N') IsDeclared,
+		bp.TaxID,
+		oi.TaxID OrgValue,
+		CASE WHEN whDoc.IsSOTrx = 'N' THEN 'C' ELSE 'V' END DocumentType,
+		whc.Value Concept_Value,
+		whDoc.DocumentNo WHDocumentNo,
+		it.Rate,
+		wh.WH_Definition_ID,
+		whs.WH_Setting_ID,
+		whs.WH_Type_ID,
+		wh.WithholdingDeclaration_ID,
+		wh.IsManual,
+		dtOrigDoc.FiscalDocumentType,
+		it.TaxBaseAmt,
+		whconcept.Name Concept_Name,
+		CurrencyRate(origDoc.C_Currency_ID, whDoc.C_Currency_ID, wh.DateAcct, wh.C_ConversionType_ID, origDoc.AD_Client_ID, origDoc.AD_Org_ID) CurrencyRate,
+		pl.PricePrecision,
+		origDoc.C_Currency_ID Doc_C_Currency_ID,
+		whDoc.C_Currency_ID WH_C_Currency_ID, 
+		wh.C_ConversionType_ID,
+		wh.C_Currency_ID,
+		it.TaxLineTotal,
+		whDoc.DateAcct DateDoc
+	FROM C_Invoice whDoc
+	INNER JOIN C_InvoiceLine whDocLine ON (whDoc.C_Invoice_ID = whDocLine.C_Invoice_ID)
+	INNER JOIN C_BPartner bp ON (whDoc.C_BPartner_ID = bp.C_BPartner_ID)
+	INNER JOIN AD_OrgInfo oi ON (whDoc.AD_Org_ID = oi.AD_Org_ID)
+	INNER JOIN WH_Withholding wh ON (wh.C_Invoice_ID = whDoc.C_Invoice_ID AND wh.C_InvoiceLine_ID = whDocLine.C_InvoiceLine_ID)
+	INNER JOIN WH_Setting whs ON (wh.WH_Setting_ID = whs.WH_Setting_ID)
+	INNER JOIN C_Invoice origDoc ON (origDoc.C_Invoice_ID = wh.SourceInvoice_ID)
+	INNER JOIN C_DocType dtOrigDoc ON (dtOrigDoc.C_DocType_ID = origDoc.C_DocTypeTarget_ID)
+	INNER JOIN C_DocType dtWhDoc ON (dtWhDoc.C_DocType_ID = whDoc.C_DocTypeTarget_ID)
+	LEFT JOIN C_Invoice affectedHdrDoc ON (affectedHdrDoc.C_Invoice_ID = origDoc.InvoiceToAllocate_ID)
+	LEFT JOIN (SELECT DISTINCT i.DocumentNo,il.C_Invoice_ID 
+			   FROM C_Invoice i
+			   INNER JOIN C_InvoiceLine il ON (i.C_Invoice_ID = il.InvoiceToAllocate_ID)
+			  )affectedLineDoc ON (affectedLineDoc.C_Invoice_ID = origDoc.C_Invoice_ID)
+	LEFT JOIN (SELECT it.C_Invoice_ID,
+						SUM(it.TaxAmt) TaxAmt, 
+						SUM(CASE WHEN it.TaxAmt != 0 THEN it.TaxBaseAmt ELSE 0 END) TaxBaseAmt, 
+						SUM(CASE WHEN it.TaxAmt != 0 THEN it.TaxBaseAmt + it.TaxAmt ELSE 0 END) TaxLineTotal,
+						t.Rate,
+			   			t.C_Tax_ID
+			   FROM C_InvoiceTax it 
+			   LEFT JOIN C_Tax t ON (it.C_Tax_ID = t.C_Tax_ID)
+			   GROUP BY it.C_Invoice_ID, t.Rate, t.C_Tax_ID) it ON (it.C_Invoice_ID = origDoc.C_Invoice_ID AND wh.C_Tax_ID = it.C_Tax_ID)
+	LEFT JOIN (SELECT it.C_Invoice_ID,
+						SUM(CASE WHEN it.TaxAmt = 0 THEN it.TaxBaseAmt ELSE 0 END) ExemptAmt
+			   FROM C_InvoiceTax it 
+			   GROUP BY it.C_Invoice_ID) et ON (et.C_Invoice_ID = origDoc.C_Invoice_ID)
+	LEFT JOIN LVE_ListVersion whc ON (whc.LVE_ListVersion_ID = wh.WithholdingRentalRate_ID)
+	LEFT JOIN LVE_List whconcept ON ((whc.LVE_List_ID = whconcept.LVE_List_ID))
+	LEFT JOIN (SELECT C_Invoice_ID,'Y'::VARCHAR IsDeclared FROM C_Invoice i WHERE DocStatus IN ('CO','CL')) whDec ON (whDec.C_Invoice_ID = wh.WithholdingDeclaration_ID)
+	LEFT JOIN M_PriceList pl ON (whDoc.M_PriceList_ID = pl.M_PriceList_ID)
+	WHERE 
+	wh.DocStatus IN ('CO','CL')) AS w 
+UNION ALL
+SELECT 
+w.AD_Client_ID,
+	w.AD_Org_ID,
+	w.C_Invoice_ID,
+	w.C_InvoiceLine_ID,
+	ROUND(w.A_Base_Amount * w.CurrencyRate,w.PricePrecision) A_Base_Amount,
+	w.WithholdingAmt,
+	w.WithholdingRate,
+	ROUND(w.Subtrahend * w.CurrencyRate,w.PricePrecision) Subtrahend,
+	w.DocumentNo,
+	w.ControlNo,
+	w.DateInvoiced,
+	w.Line ,
+	w.type,
+	ROUND(w.GrandTotal * w.CurrencyRate,w.PricePrecision) GrandTotal,
+	ROUND(w.TotalLines * w.CurrencyRate,w.PricePrecision) TotalLines,
+	ROUND(w.TaxAmt * w.CurrencyRate,w.PricePrecision) TaxAmt,
+	w.InvoiceNo,
+	w.CreditDocumentNo, 
+	w.DebitDocumentNo,
+	w.AffectedDocumentNo,
+	w.DateAcct,
+	w.Description,
+	w.PersonType,
+	w.DocumentNote,
+	w.PrintName,
+	ROUND(w.ExemptAmt * w.CurrencyRate,w.PricePrecision) ExemptAmt,
+	w.IsDeclared,
+	w.TaxID,
+	w.OrgValue,
+	w.DocumentType,
+	w.Concept_Value,
+	w.WHDocumentNo,
+	w.Rate,
+	w.WH_Definition_ID,
+	w.WH_Setting_ID,
+	w.WH_Type_ID,
+	w.WithholdingDeclaration_ID,
+	w.IsManual,
+	w.FiscalDocumentType,
+	ROUND(w.TaxBaseAmt * w.CurrencyRate,w.PricePrecision) TaxBaseAmt,
+	w.Concept_Name,
+	w.CurrencyRate,
+	w.C_ConversionType_ID,
+	w.C_Currency_ID,
+	w.PricePrecision,
+	ROUND(w.TaxLineTotal * w.CurrencyRate,w.PricePrecision) TaxLineTotal,
+	w.DateAcct DateDoc
+FROM (
+	SELECT pr.AD_Client_ID,
+		pr.AD_Org_ID,
+		NULL::NUMERIC(10, 0) AS C_Invoice_ID,
+		NULL::NUMERIC(10, 0) AS C_InvoiceLine_ID,
+		SUM(CASE WHEN c.Type &lt;&gt; 'R' THEN m.Amount ELSE 0 END) A_Base_Amount,
+		0::NUMERIC(10, 0) AS WithholdingAmt,
+		MAX(CASE WHEN c.Type = 'R' THEN m.Amount ELSE 0 END) AS WithholdingRate,
+		0::NUMERIC(10, 0) Subtrahend,
+		NULLIF(regexp_replace(pr.DocumentNo, '\D','','g'), '')::Varchar(30) AS DocumentNo,
+		NULLIF(regexp_replace(pr.DocumentNo, '\D','','g'), '')::Varchar(255) AS ControlNo,
+		pr.DateAcct::date AS DateInvoiced,
+		0::NUMERIC(10, 0) Line ,
+		'1-reg' AS "type",
+		0::NUMERIC(10, 0) AS GrandTotal,
+		0::NUMERIC(10, 0) AS TotalLines,
+		0::NUMERIC(10, 0) AS TaxAmt,
+		NULLIF(regexp_replace(pr.DocumentNo, '\D','','g'), '')::Varchar(30) AS InvoiceNo,
+		NULL::Varchar(30) AS CreditDocumentNo, 
+		NULL::Varchar(30) AS DebitDocumentNo,
+		NULL::Varchar(30) AS AffectedDocumentNo,
+		pr.DateAcct,
+		pr.Name::Varchar(255) AS Description,
+		bp.PersonType,
+		NULL::Varchar(2000) AS DocumentNote,
+		NULL::Varchar(60) AS PrintName,
+		0::NUMERIC(10, 0) AS ExemptAmt,
+		'N'::character(1) AS IsDeclared,
+		bp.TaxID,
+		o.TaxID::Varchar(20) AS OrgValue,
+		NULL AS DocumentType,
+		prl.PrintName AS Concept_Value,
+		NULL::Varchar(30) AS WHDocumentNo,
+		MAX(CASE WHEN c.Type = 'R' THEN m.Amount ELSE 0 END) AS Rate,
+		NULL::NUMERIC(10, 0) AS WH_Definition_ID,
+		NULL::NUMERIC(10, 0) AS WH_Setting_ID,
+		wt.WH_Type_ID,
+		NULL::NUMERIC(10, 0) AS WithholdingDeclaration_ID,
+		'N'::character(1) IsManual,
+		NULL::Varchar(2) AS FiscalDocumentType,
+		0::NUMERIC(10, 0) AS TaxBaseAmt,
+		NULL::Varchar(255) AS Concept_Name,
+		1::NUMERIC(10, 0) AS CurrencyRate,
+		pr.C_ConversionType_ID,
+		pr.C_Currency_ID,
+		cu.StdPrecision AS PricePrecision,
+		0::NUMERIC(10, 0) AS TaxLineTotal,
+		pr.DateAcct DateDoc
+	FROM HR_Process pr
+	INNER JOIN C_Currency cu ON(cu.C_Currency_ID = pr.C_Currency_ID)
+	INNER JOIN HR_Movement m ON(m.HR_Process_ID = pr.HR_Process_ID)
+	INNER JOIN HR_ProcessReportLine prl ON(prl.HR_Concept_ID = m.HR_Concept_ID)
+	INNER JOIN HR_Concept c ON(c.HR_Concept_ID = m.HR_Concept_ID)
+	INNER JOIN WH_Type wt ON(wt.HR_ProcessReport_ID = prl.HR_ProcessReport_ID)
+	INNER JOIN C_BPartner bp ON(bp.C_BPartner_ID = m.C_BPartner_ID)
+	INNER JOIN AD_OrgInfo o ON(o.AD_Org_ID = pr.AD_Org_ID)
+	WHERE wt.WH_Type_ID IS NOT NULL
+	AND pr.DocStatus IN('CO', 'CL')
+	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, pr.DocumentNo, pr.DateAcct, pr.Name, prl.PrintName, bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.C_ConversionType_ID, pr.C_Currency_ID, cu.StdPrecision
+	HAVING SUM(CASE WHEN c.Type &lt;&gt; 'R' THEN m.Amount ELSE 0 END) &gt; 0
+) AS w
+;</RollbackStatement>
+    </Step>
+    <Step DBType="ALL" Parse="Y" SeqNo="20" StepType="SQL">
+      <SQLStatement>CREATE OR REPLACE VIEW LVE_RV_WithholdingGenerated AS 
+SELECT
+	wh.AD_Client_ID,
+	wh.AD_Org_ID,
+	ROUND(wh.A_Base_Amount * wh.CurrencyRate,wh.PricePrecision) A_Base_Amount,
+	wh.C_DocType_ID,
+	wh.C_InvoiceLine_ID,
+	wh.C_Invoice_ID,
+	wh.Created,
+	wh.CreatedBy,
+	wh.DateDoc,
+	wh.Description,
+	wh.DocAction,
+	wh.DocStatus,
+	wh.WHDocumentNo,
+	wh.IsActive,
+	wh.IsApproved,
+	wh.IsDeclared,
+	wh.Processed,
+	wh.Processing,
+	wh.SourceInvoiceLine_ID,
+	wh.SourceInvoice_ID,
+	wh.UUID,
+	wh.Updated,
+	wh.UpdatedBy,
+	wh.WH_Withholding_ID,
+	wh.WH_Definition_ID,
+	ROUND(wh.WithholdingAmt * wh.CurrencyRate,wh.PricePrecision) WithholdingAmt,
+	wh.WH_Setting_ID,
+	wh.WithholdingRate,
+	wh.WithholdingDeclaration_ID,
+	wh.C_BPartner_ID,
+	wh.IsSimulation,
+	wh.SourceOrder_ID,
+	wh.SourceOrderLine_ID,
+	wh.IsManual,
+	wh.C_Tax_ID,
+	wh.WithholdingRentalRate_ID,
+	wh.WithholdingVariableRate_ID,
+	ROUND(wh.Subtrahend * wh.CurrencyRate,wh.PricePrecision) Subtrahend,
+	wh.IsCumulativeWithholding,
+	wh.WHThirdParty_ID,
+	wh.IsGenerated,
+	wh.TaxIndicator,
+	wh.DocumentNo,
+	ROUND(wh.GrandTotal * wh.CurrencyRate,wh.PricePrecision) GrandTotal,
+	ROUND(wh.TotalLines * wh.CurrencyRate,wh.PricePrecision) TotalLines,
+	wh.C_DocTypeTarget_ID,
+	ROUND(wh.TaxBaseAmt * wh.CurrencyRate,wh.PricePrecision) TaxBaseAmt,
+	ROUND(wh.TaxAmt     * wh.CurrencyRate,wh.PricePrecision) TaxAmt,
+	wh.CurrencyRate,
+	wh.PricePrecision,
+	wh.DateAcct,
+	wh.Parent_Org_ID
+FROM
+(
+	SELECT  wh.AD_Client_ID,
+			wh.AD_Org_ID,
+			wh.A_Base_Amount,
+			wh.C_DocType_ID,
+			wh.C_InvoiceLine_ID,
+			wh.C_Invoice_ID,
+			wh.Created,
+			wh.CreatedBy,
+			COALESCE(iw.DateAcct,wh.DateDoc) DateDoc,
+			wh.Description,
+			wh.DocAction,
+			wh.DocStatus,
+			COALESCE(iw.DocumentNo,wh.DocumentNo) WHDocumentNo,
+			wh.IsActive,
+			wh.IsApproved,
+			wh.IsDeclared,
+			wh.Processed,
+			wh.Processing,
+			wh.SourceInvoiceLine_ID,
+			wh.SourceInvoice_ID,
+			wh.UUID,
+			wh.Updated,
+			wh.UpdatedBy,
+			wh.WH_Withholding_ID,
+			wh.WH_Definition_ID,
+			COALESCE(ilw.LineNetAmt,wh.WithholdingAmt) WithholdingAmt,
+			wh.WH_Setting_ID,
+			wh.WithholdingRate,
+			wh.WithholdingDeclaration_ID,
+			wh.C_BPartner_ID,
+			wh.IsSimulation,
+			wh.SourceOrder_ID,
+			wh.SourceOrderLine_ID,
+			wh.IsManual,
+			wh.C_Tax_ID,
+			wh.WithholdingRentalRate_ID,
+			wh.WithholdingVariableRate_ID,
+			wh.Subtrahend,
+			wh.IsCumulativeWithholding,
+			wh.WHThirdParty_ID,
+			CASE WHEN iw.C_Invoice_ID IS NULL THEN 'N' ELSE 'Y' END IsGenerated,
+			t.TaxIndicator,
+			COALESCE(o.DocumentNo, i.DocumentNo) DocumentNo,
+			COALESCE(o.GrandTotal, i.GrandTotal) GrandTotal,
+			COALESCE(o.TotalLines, i.TotalLines) TotalLines,
+			COALESCE(o.C_DocTypeTarget_ID, i.C_DocTypeTarget_ID) C_DocTypeTarget_ID,
+			COALESCE(ot.TaxBaseAmt, it.TaxBaseAmt) TaxBaseAmt,
+			COALESCE(ot.TaxAmt, it.TaxAmt) TaxAmt,
+			COALESCE(CurrencyRate(COALESCE(i.C_Currency_ID, o.C_Currency_ID), COALESCE(iw.C_Currency_ID,ash.C_Currency_ID), COALESCE(i.DateAcct, o.DateAcct), COALESCE(i.C_ConversionType_ID, o.C_ConversionType_ID), COALESCE(i.AD_Client_ID, o.AD_Client_ID), COALESCE(i.AD_Org_ID, o.AD_Org_ID)),1) CurrencyRate,
+			pl.PricePrecision,
+			COALESCE(o.DateAcct, i.DateAcct) DateAcct,
+			org.Parent_Org_ID
+	FROM 
+	WH_Withholding wh
+	INNER JOIN AD_ClientInfo ci ON (wh.AD_Client_ID = ci.AD_Client_ID)
+	INNER JOIN C_AcctSchema ash ON (ash.C_AcctSchema_ID = ci.C_AcctSchema1_ID)
+	LEFT JOIN C_Tax t ON (wh.C_Tax_ID = t.C_Tax_ID)
+	LEFT JOIN C_Order o ON (o.C_Order_ID = wh.SourceOrder_ID)
+	LEFT JOIN C_OrderTax ot ON (o.C_Order_ID = ot.C_Order_ID AND ot.C_Tax_ID = wh.C_Tax_ID)  
+	LEFT JOIN C_Invoice i ON (i.C_Invoice_ID = wh.SourceInvoice_ID)
+	LEFT JOIN C_InvoiceTax it ON (i.C_Invoice_ID = it.C_Invoice_ID AND it.C_Tax_ID = wh.C_Tax_ID)
+	LEFT JOIN C_Invoice iw ON (iw.C_Invoice_ID = wh.C_Invoice_ID AND iw.DocStatus NOT IN ('VO','RE'))
+	LEFT JOIN C_InvoiceLine ilw ON (ilw.C_InvoiceLine_ID = wh.C_InvoiceLine_ID)
+	LEFT JOIN M_PriceList pl ON (pl.M_PriceList_ID = COALESCE(i.M_PriceList_ID,o.M_PriceList_ID))
+	LEFT JOIN AD_Org org ON (org.AD_Org_ID = COALESCE(i.AD_Org_ID, o.AD_Org_ID))
+) AS wh;</SQLStatement>
+      <RollbackStatement>CREATE OR REPLACE VIEW LVE_RV_WithholdingGenerated AS 
+SELECT
+	wh.AD_Client_ID,
+	wh.AD_Org_ID,
+	ROUND(wh.A_Base_Amount * wh.CurrencyRate,wh.PricePrecision) A_Base_Amount,
+	wh.C_DocType_ID,
+	wh.C_InvoiceLine_ID,
+	wh.C_Invoice_ID,
+	wh.Created,
+	wh.CreatedBy,
+	wh.DateDoc,
+	wh.Description,
+	wh.DocAction,
+	wh.DocStatus,
+	wh.WHDocumentNo,
+	wh.IsActive,
+	wh.IsApproved,
+	wh.IsDeclared,
+	wh.Processed,
+	wh.Processing,
+	wh.SourceInvoiceLine_ID,
+	wh.SourceInvoice_ID,
+	wh.UUID,
+	wh.Updated,
+	wh.UpdatedBy,
+	wh.WH_Withholding_ID,
+	wh.WH_Definition_ID,
+	ROUND(wh.WithholdingAmt * wh.CurrencyRate,wh.PricePrecision) WithholdingAmt,
+	wh.WH_Setting_ID,
+	wh.WithholdingRate,
+	wh.WithholdingDeclaration_ID,
+	wh.C_BPartner_ID,
+	wh.IsSimulation,
+	wh.SourceOrder_ID,
+	wh.SourceOrderLine_ID,
+	wh.IsManual,
+	wh.C_Tax_ID,
+	wh.WithholdingRentalRate_ID,
+	wh.WithholdingVariableRate_ID,
+	ROUND(wh.Subtrahend * wh.CurrencyRate,wh.PricePrecision) Subtrahend,
+	wh.IsCumulativeWithholding,
+	wh.WHThirdParty_ID,
+	wh.IsGenerated,
+	wh.TaxIndicator,
+	wh.DocumentNo,
+	ROUND(wh.GrandTotal * wh.CurrencyRate,wh.PricePrecision) GrandTotal,
+	ROUND(wh.TotalLines * wh.CurrencyRate,wh.PricePrecision) TotalLines,
+	wh.C_DocTypeTarget_ID,
+	ROUND(wh.TaxBaseAmt * wh.CurrencyRate,wh.PricePrecision) TaxBaseAmt,
+	ROUND(wh.TaxAmt     * wh.CurrencyRate,wh.PricePrecision) TaxAmt,
+	wh.CurrencyRate,
+	wh.PricePrecision,
+	wh.DateAcct
+FROM
+(
+	SELECT  wh.AD_Client_ID,
+			wh.AD_Org_ID,
+			wh.A_Base_Amount,
+			wh.C_DocType_ID,
+			wh.C_InvoiceLine_ID,
+			wh.C_Invoice_ID,
+			wh.Created,
+			wh.CreatedBy,
+			COALESCE(iw.DateAcct,wh.DateDoc) DateDoc,
+			wh.Description,
+			wh.DocAction,
+			wh.DocStatus,
+			COALESCE(iw.DocumentNo,wh.DocumentNo) WHDocumentNo,
+			wh.IsActive,
+			wh.IsApproved,
+			wh.IsDeclared,
+			wh.Processed,
+			wh.Processing,
+			wh.SourceInvoiceLine_ID,
+			wh.SourceInvoice_ID,
+			wh.UUID,
+			wh.Updated,
+			wh.UpdatedBy,
+			wh.WH_Withholding_ID,
+			wh.WH_Definition_ID,
+			COALESCE(ilw.LineNetAmt,wh.WithholdingAmt) WithholdingAmt,
+			wh.WH_Setting_ID,
+			wh.WithholdingRate,
+			wh.WithholdingDeclaration_ID,
+			wh.C_BPartner_ID,
+			wh.IsSimulation,
+			wh.SourceOrder_ID,
+			wh.SourceOrderLine_ID,
+			wh.IsManual,
+			wh.C_Tax_ID,
+			wh.WithholdingRentalRate_ID,
+			wh.WithholdingVariableRate_ID,
+			wh.Subtrahend,
+			wh.IsCumulativeWithholding,
+			wh.WHThirdParty_ID,
+			CASE WHEN iw.C_Invoice_ID IS NULL THEN 'N' ELSE 'Y' END IsGenerated,
+			t.TaxIndicator,
+			COALESCE(o.DocumentNo, i.DocumentNo) DocumentNo,
+			COALESCE(o.GrandTotal, i.GrandTotal) GrandTotal,
+			COALESCE(o.TotalLines, i.TotalLines) TotalLines,
+			COALESCE(o.C_DocTypeTarget_ID, i.C_DocTypeTarget_ID) C_DocTypeTarget_ID,
+			COALESCE(ot.TaxBaseAmt, it.TaxBaseAmt) TaxBaseAmt,
+			COALESCE(ot.TaxAmt, it.TaxAmt) TaxAmt,
+			COALESCE(CurrencyRate(COALESCE(i.C_Currency_ID, o.C_Currency_ID), COALESCE(iw.C_Currency_ID,ash.C_Currency_ID), COALESCE(i.DateAcct, o.DateAcct), COALESCE(i.C_ConversionType_ID, o.C_ConversionType_ID), COALESCE(i.AD_Client_ID, o.AD_Client_ID), COALESCE(i.AD_Org_ID, o.AD_Org_ID)),1) CurrencyRate,
+			pl.PricePrecision,
+			COALESCE(o.DateAcct, i.DateAcct) DateAcct
+	FROM 
+	WH_Withholding wh
+	INNER JOIN AD_ClientInfo ci ON (wh.AD_Client_ID = ci.AD_Client_ID)
+	INNER JOIN C_AcctSchema ash ON (ash.C_AcctSchema_ID = ci.C_AcctSchema1_ID)
+	LEFT JOIN C_Tax t ON (wh.C_Tax_ID = t.C_Tax_ID)
+	LEFT JOIN C_Order o ON (o.C_Order_ID = wh.SourceOrder_ID)
+	LEFT JOIN C_OrderTax ot ON (o.C_Order_ID = ot.C_Order_ID AND ot.C_Tax_ID = wh.C_Tax_ID)  
+	LEFT JOIN C_Invoice i ON (i.C_Invoice_ID = wh.SourceInvoice_ID)
+	LEFT JOIN C_InvoiceTax it ON (i.C_Invoice_ID = it.C_Invoice_ID AND it.C_Tax_ID = wh.C_Tax_ID)
+	LEFT JOIN C_Invoice iw ON (iw.C_Invoice_ID = wh.C_Invoice_ID AND iw.DocStatus NOT IN ('VO','RE'))
+	LEFT JOIN C_InvoiceLine ilw ON (ilw.C_InvoiceLine_ID = wh.C_InvoiceLine_ID)
+	LEFT JOIN M_PriceList pl ON (pl.M_PriceList_ID = COALESCE(i.M_PriceList_ID,o.M_PriceList_ID))
+) AS wh;</RollbackStatement>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="102082" Table="AD_Column">
+        <Data AD_Column_ID="111" Column="Name">Parent Organization</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="112" Column="Description">Parent (superior) Organization </Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2025-01-17 11:17:50.138</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2025-01-17 11:17:50.138</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">102082</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase">N</Data>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">Parent_Org_ID</Data>
+        <Data AD_Column_ID="113" Column="Help">Parent Organization - the next level in the organizational hierarchy.</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">true</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo">0</Data>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54669</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">2306</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID">276</Data>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">22</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">18</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">39088cbf-e6be-472b-ace4-2a790f8efa31</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="92541" Column="RequiresSync">true</Data>
+        <Data AD_Column_ID="92542" Column="NameOldValue" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="102082" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2025-01-17 11:17:51.648</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2025-01-17 11:17:51.648</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">102082</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Parent Organization</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">f0bc17d1-7962-49c7-9563-eb6d97394bce</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="285" Action="I" Record_ID="59353" Table="AD_Process_Para">
+        <Data AD_Column_ID="2820" Column="Updated">2025-01-17 11:19:57.753</Data>
+        <Data AD_Column_ID="2822" Column="Name">Parent Organization</Data>
+        <Data AD_Column_ID="2817" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2830" Column="IsRange">false</Data>
+        <Data AD_Column_ID="2818" Column="Created">2025-01-17 11:19:57.753</Data>
+        <Data AD_Column_ID="3738" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName">Parent_Org_ID</Data>
+        <Data AD_Column_ID="2823" Column="Description">Parent (superior) Organization </Data>
+        <Data AD_Column_ID="2824" Column="Help">Parent Organization - the next level in the organizational hierarchy.</Data>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true"/>
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">59353</Data>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">22</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54302</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">18</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo">110</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID">130</Data>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">2306</Data>
+        <Data AD_Column_ID="84385" Column="UUID">224addc6-f6aa-4f15-b236-da2e75f406fa</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="60" StepType="AD">
+      <PO AD_Table_ID="286" Action="I" Record_ID="59353" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created">2025-01-17 11:19:58.916</Data>
+        <Data AD_Column_ID="2835" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2838" Column="Updated">2025-01-17 11:19:58.916</Data>
+        <Data AD_Column_ID="2840" Column="Name">Parent Organization</Data>
+        <Data AD_Column_ID="2842" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2841" Column="Description">Parent (superior) Organization </Data>
+        <Data AD_Column_ID="3743" Column="Help">Parent Organization - the next level in the organizational hierarchy.</Data>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">59353</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2837" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84386" Column="UUID">ef15a833-a896-49ea-9a8d-498a662bd01b</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="70" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="59353" Table="AD_Process_Para">
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID" oldValue="130">113</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="80" StepType="AD">
+      <PO AD_Table_ID="101" Action="I" Record_ID="102083" Table="AD_Column">
+        <Data AD_Column_ID="112" Column="Description">Parent (superior) Organization </Data>
+        <Data AD_Column_ID="548" Column="IsActive">true</Data>
+        <Data AD_Column_ID="90939" Column="AD_Image_ID" isNewNull="true"/>
+        <Data AD_Column_ID="549" Column="Created">2025-01-17 11:21:37.545</Data>
+        <Data AD_Column_ID="3388" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="551" Column="Updated">2025-01-17 11:21:37.545</Data>
+        <Data AD_Column_ID="3389" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="109" Column="AD_Column_ID">102083</Data>
+        <Data AD_Column_ID="126" Column="IsIdentifier">false</Data>
+        <Data AD_Column_ID="111" Column="Name">Parent Organization</Data>
+        <Data AD_Column_ID="124" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="125" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="117" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="1179" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="120" Column="IsParent">false</Data>
+        <Data AD_Column_ID="6244" Column="IsSelectionColumn">false</Data>
+        <Data AD_Column_ID="6483" Column="IsSyncDatabase">N</Data>
+        <Data AD_Column_ID="119" Column="IsKey">false</Data>
+        <Data AD_Column_ID="6245" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="56352" Column="FormatPattern" isNewNull="true"/>
+        <Data AD_Column_ID="50218" Column="MandatoryLogic" isNewNull="true"/>
+        <Data AD_Column_ID="110" Column="Version">0</Data>
+        <Data AD_Column_ID="13448" Column="ColumnSQL" isNewNull="true"/>
+        <Data AD_Column_ID="116" Column="ColumnName">Parent_Org_ID</Data>
+        <Data AD_Column_ID="113" Column="Help">Parent Organization - the next level in the organizational hierarchy.</Data>
+        <Data AD_Column_ID="3360" Column="IsUpdateable">true</Data>
+        <Data AD_Column_ID="1692" Column="Callout" isNewNull="true"/>
+        <Data AD_Column_ID="11617" Column="IsAlwaysUpdateable">false</Data>
+        <Data AD_Column_ID="128" Column="IsEncrypted">N</Data>
+        <Data AD_Column_ID="54358" Column="InfoFactoryClass" isNewNull="true"/>
+        <Data AD_Column_ID="56187" Column="IsAllowLogging">true</Data>
+        <Data AD_Column_ID="56149" Column="IsAutocomplete">false</Data>
+        <Data AD_Column_ID="68024" Column="IsRange">false</Data>
+        <Data AD_Column_ID="62199" Column="IsAllowCopy">true</Data>
+        <Data AD_Column_ID="127" Column="SeqNo">0</Data>
+        <Data AD_Column_ID="6482" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="359" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="360" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="59702" Column="AD_Chart_ID" isNewNull="true"/>
+        <Data AD_Column_ID="114" Column="AD_Table_ID">54763</Data>
+        <Data AD_Column_ID="550" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2608" Column="AD_Element_ID">2306</Data>
+        <Data AD_Column_ID="227" Column="AD_Reference_Value_ID">130</Data>
+        <Data AD_Column_ID="115" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="118" Column="FieldLength">22</Data>
+        <Data AD_Column_ID="226" Column="AD_Reference_ID">18</Data>
+        <Data AD_Column_ID="552" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84306" Column="UUID">6c7ba4ae-c616-478f-9d4c-a486498de35c</Data>
+        <Data AD_Column_ID="3369" Column="AD_Process_ID" isNewNull="true"/>
+        <Data AD_Column_ID="92541" Column="RequiresSync">true</Data>
+        <Data AD_Column_ID="92542" Column="NameOldValue" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="90" StepType="AD">
+      <PO AD_Table_ID="752" Action="I" Record_ID="102083" Table="AD_Column_Trl">
+        <Data AD_Column_ID="12960" Column="Created">2025-01-17 11:21:39.134</Data>
+        <Data AD_Column_ID="12959" Column="IsActive">true</Data>
+        <Data AD_Column_ID="12952" Column="Updated">2025-01-17 11:21:39.134</Data>
+        <Data AD_Column_ID="12955" Column="AD_Column_ID">102083</Data>
+        <Data AD_Column_ID="12954" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="12957" Column="Name">Parent Organization</Data>
+        <Data AD_Column_ID="12961" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="12951" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="12958" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="12956" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="12953" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="84310" Column="UUID">32aa778f-4333-42aa-b188-5c85fcc03fb8</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="100" StepType="AD">
+      <PO AD_Table_ID="285" Action="I" Record_ID="59354" Table="AD_Process_Para">
+        <Data AD_Column_ID="3740" Column="VFormat" isNewNull="true"/>
+        <Data AD_Column_ID="2820" Column="Updated">2025-01-17 11:22:09.347</Data>
+        <Data AD_Column_ID="2822" Column="Name">Parent Organization</Data>
+        <Data AD_Column_ID="2817" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2830" Column="IsRange">false</Data>
+        <Data AD_Column_ID="2818" Column="Created">2025-01-17 11:22:09.347</Data>
+        <Data AD_Column_ID="3738" Column="IsMandatory">false</Data>
+        <Data AD_Column_ID="3742" Column="ValueMax" isNewNull="true"/>
+        <Data AD_Column_ID="4017" Column="ColumnName">Parent_Org_ID</Data>
+        <Data AD_Column_ID="2823" Column="Description">Parent (superior) Organization </Data>
+        <Data AD_Column_ID="2824" Column="Help">Parent Organization - the next level in the organizational hierarchy.</Data>
+        <Data AD_Column_ID="56299" Column="ReadOnlyLogic" isNewNull="true"/>
+        <Data AD_Column_ID="5819" Column="IsCentrallyMaintained">true</Data>
+        <Data AD_Column_ID="5593" Column="DefaultValue2" isNewNull="true"/>
+        <Data AD_Column_ID="3741" Column="ValueMin" isNewNull="true"/>
+        <Data AD_Column_ID="3739" Column="DefaultValue" isNewNull="true"/>
+        <Data AD_Column_ID="56300" Column="DisplayLogic" isNewNull="true"/>
+        <Data AD_Column_ID="81287" Column="IsInfoOnly">false</Data>
+        <Data AD_Column_ID="2814" Column="AD_Process_Para_ID">59354</Data>
+        <Data AD_Column_ID="2815" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2816" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="7728" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="3737" Column="FieldLength">22</Data>
+        <Data AD_Column_ID="2825" Column="AD_Process_ID">54444</Data>
+        <Data AD_Column_ID="2819" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2827" Column="AD_Reference_ID">18</Data>
+        <Data AD_Column_ID="3736" Column="AD_Val_Rule_ID" isNewNull="true"/>
+        <Data AD_Column_ID="2826" Column="SeqNo">210</Data>
+        <Data AD_Column_ID="2821" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="2828" Column="AD_Reference_Value_ID">113</Data>
+        <Data AD_Column_ID="7729" Column="AD_Element_ID">2306</Data>
+        <Data AD_Column_ID="84385" Column="UUID">a7284c88-dc2c-4617-9d67-fa2ebb02f4ac</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="110" StepType="AD">
+      <PO AD_Table_ID="286" Action="I" Record_ID="59354" Table="AD_Process_Para_Trl">
+        <Data AD_Column_ID="2836" Column="Created">2025-01-17 11:22:10.418</Data>
+        <Data AD_Column_ID="2835" Column="IsActive">true</Data>
+        <Data AD_Column_ID="2838" Column="Updated">2025-01-17 11:22:10.418</Data>
+        <Data AD_Column_ID="2840" Column="Name">Parent Organization</Data>
+        <Data AD_Column_ID="2842" Column="IsTranslated">false</Data>
+        <Data AD_Column_ID="2841" Column="Description">Parent (superior) Organization </Data>
+        <Data AD_Column_ID="3743" Column="Help">Parent Organization - the next level in the organizational hierarchy.</Data>
+        <Data AD_Column_ID="2831" Column="AD_Process_Para_ID">59354</Data>
+        <Data AD_Column_ID="2833" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="2834" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="2837" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="2832" Column="AD_Language">es_MX</Data>
+        <Data AD_Column_ID="2839" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="84386" Column="UUID">f4fdda77-4578-473a-92ec-bbfa8b63db8b</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="120" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="59353" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="110">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="130" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57132" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="10">20</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="140" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57133" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="20">30</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="150" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57134" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="30">40</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="160" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="59215" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="40">50</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="170" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57139" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="50">60</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="180" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57138" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="60">70</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="190" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57140" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="70">80</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="200" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57135" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="80">90</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="210" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57136" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="90">100</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="220" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57137" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="100">110</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="230" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="59354" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="210">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="240" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57815" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="10">20</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="250" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57830" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="20">30</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="260" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57826" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="30">40</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="270" StepType="AD">
+      <PO AD_Table_ID="285" Action="U" Record_ID="57832" Table="AD_Process_Para">
+        <Data AD_Column_ID="2826" Column="SeqNo" oldValue="40">50</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>

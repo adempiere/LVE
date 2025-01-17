@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Migrations>
-  <Migration EntityType="D" Name="Se agrega fecha contable de Retencion Generada" ReleaseNo="1.0" SeqNo="81001170">
+  <Migration EntityType="LVE" Name="Se agrega fecha contable de Retencion Generada" ReleaseNo="1.0" SeqNo="81001170">
     <Comments>"</Comments>
     <Step SeqNo="10" StepType="AD">
       <PO AD_Table_ID="285" Action="I" Record_ID="59215" Table="AD_Process_Para">
