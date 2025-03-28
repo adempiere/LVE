@@ -19,15 +19,30 @@ package org.erpya.lve.util;
 
 import java.util.Optional;
 import java.util.Properties;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.adempiere.exceptions.AdempiereException;
 import org.adempiere.core.domains.models.I_C_Order;
+import org.compiere.model.MBPartner;
 import org.compiere.model.MDocType;
+import org.compiere.model.MInOut;
+import org.compiere.model.MInvoice;
+import org.compiere.model.MLocator;
+import org.compiere.model.MOrder;
+import org.compiere.model.MOrderLine;
+import org.compiere.model.MPInstance;
+import org.compiere.model.MProduct;
 import org.compiere.model.MSysConfig;
+import org.compiere.model.MWarehouse;
 import org.compiere.model.PO;
+import org.compiere.print.MPrintFormat;
+import org.compiere.print.ReportEngine;
 import org.compiere.util.Util;
+import org.eevolution.distribution.model.MDDOrder;
+import org.eevolution.services.dsl.ProcessBuilder;
 
 /**
  * Added for hamdle custom columns for ADempiere core
@@ -134,6 +149,14 @@ public class LVEUtil {
 	public static final String LVE_AllowOverdraftReference = "LVE_AllowOverdraftReference";
 	/**	Value and Tax ID Mismatch	*/
 	public static final String MESSAGE_LVE_ValueTaxIdMismatch = "LVE.ValueTaxIdMismatch";
+	/**	Document Type for Shipment Note ColumnName*/
+	public static final String COLUMNNAME_LVE_DocTypeForShipmentNote_ID = "LVE_DocTypeForShipmentNote_ID";
+	/**	Is Shipment Note ColumnName*/
+	public static final String COLUMNNAME_LVE_IsShipmentNote = "LVE_IsShipmentNote";
+	/**	Order Shipment Note ColumnName*/
+	public static final String COLUMNNAME_LVE_DD_OrderRef_ID = "LVE_DD_OrderRef_ID";
+	
+	
 	/**
 	 * Process Business Partner Value
 	 * @param value
@@ -213,5 +236,137 @@ public class LVEUtil {
 			entity.set_ValueOfColumn(COLUMNNAME_IsWithholdingTaxExempt, documentType.get_Value(COLUMNNAME_IsWithholdingTaxExempt));
 			//	Add here other columns from document type
 		}
+	}
+	
+	/**
+	 * Create Sales Order (Shipment Guide From Distribution Order)
+	 * @param ddOrder
+	 */
+	public static String createSalesOrderFromDistributionOrder(MDDOrder ddOrder) {
+		MWarehouse warehouse = getDistributionOrderWarehouseDestinationIdentifier(ddOrder);
+		String returnValue = "";
+		if (warehouse !=null &&
+				warehouse.get_ID() > 0) {
+			MOrder salesOrder  = new MOrder(ddOrder.getCtx(), 0, ddOrder.get_TrxName());
+			MBPartner bPartner = MBPartner.get(ddOrder.getCtx(), ddOrder.getC_BPartner_ID());
+			MDocType ddOrderDocumentType = MDocType.get(ddOrder.getCtx(), ddOrder.getC_DocType_ID());
+			if (ddOrderDocumentType.get_ValueAsInt(COLUMNNAME_LVE_DocTypeForShipmentNote_ID) == 0)
+				throw new AdempiereException("@C_DocType_ID@ ".concat(ddOrderDocumentType.getName()).concat("-> @LVE_DocTypeForShipmentNote_ID@ @NotValid@"));
+			
+			MDocType salesOrderDocumentType =  MDocType.get(ddOrder.getCtx(), ddOrderDocumentType.get_ValueAsInt(COLUMNNAME_LVE_DocTypeForShipmentNote_ID));
+			MOrder.copyValues(ddOrder, salesOrder, true);
+			salesOrder.setIsSOTrx(true);
+			salesOrder.setAD_Org_ID(warehouse.getAD_Org_ID());
+			salesOrder.setPOReference(ddOrder.getPOReference());
+			salesOrder.setC_DocTypeTarget_ID(salesOrderDocumentType.getC_DocType_ID());
+			salesOrder.setC_DocType_ID(salesOrderDocumentType.getC_DocType_ID());
+			salesOrder.setBPartner(bPartner);
+			salesOrder.setM_Warehouse_ID(warehouse.get_ID());
+			salesOrder.set_ValueOfColumn(COLUMNNAME_LVE_DD_OrderRef_ID, ddOrder.get_ID());
+			salesOrder.saveEx();
+			
+			ddOrder.getLines()
+				   .forEach(ddOrderLine -> {
+					   MOrderLine salesOrderLine = new MOrderLine(salesOrder);
+					   MProduct product = MProduct.get(ddOrderLine.getCtx(), ddOrderLine.getM_Product_ID());
+					   MOrderLine.copyValues(ddOrderLine, salesOrderLine, true);
+					   salesOrderLine.setAD_Org_ID(warehouse.getAD_Org_ID());
+					   salesOrderLine.setProduct(product);
+					   salesOrderLine.setQty(ddOrderLine.getQtyEntered());
+					   salesOrderLine.setPrice();
+					   salesOrderLine.saveEx();
+				   });
+			salesOrder.setDocAction(MOrder.DOCACTION_Complete);
+			salesOrder.saveEx();
+			salesOrder.processIt(MOrder.DOCACTION_Complete);
+			salesOrder.saveEx();
+			returnValue = salesOrder.getDocumentNo();
+		}
+		return returnValue;
+	}
+	
+	/**
+	 * Get Destination Warehouse Identifier
+	 * @param ddOrder
+	 * @return
+	 */
+	private static MWarehouse getDistributionOrderWarehouseDestinationIdentifier(MDDOrder ddOrder) {
+		AtomicReference<MWarehouse> warehouse = new AtomicReference<MWarehouse>(null);
+		AtomicReference<String> warehouseName = new AtomicReference<String>("");
+		ddOrder.getLines()
+			   .forEach(ddOrderLine -> {
+				   if (warehouse.get() == null) {
+					   MLocator currentLocator = MLocator.get(ddOrderLine.getCtx(), ddOrderLine.getM_LocatorTo_ID());
+					   warehouse.set(MWarehouse.get(ddOrderLine.getCtx(), currentLocator.getM_Warehouse_ID()));
+					   warehouseName.set(warehouse.get().getName());
+				   }
+				   MLocator currentLocator = MLocator.get(ddOrderLine.getCtx(), ddOrderLine.getM_LocatorTo_ID());
+				   if (warehouse.get() != null 
+						   && warehouse.get().get_ID() != currentLocator.getM_Warehouse_ID()) {
+					   throw new AdempiereException("@M_Warehouse_ID@ ".concat(warehouseName.get()).concat(" != ").concat(currentLocator.getWarehouseName()));
+				   }
+			   });
+		
+		return warehouse.get();
+	}
+	
+	/**
+	 * Set Document as not printed
+	 * @param maybeDocument
+	 */
+	public static void authorizePrinting(PO maybeDocument) {
+		Optional.ofNullable(maybeDocument)
+				.ifPresent(document -> {
+					if (document.get_ColumnIndex(MInvoice.COLUMNNAME_IsPrinted) > 0) {
+						document.set_ValueOfColumn(MInvoice.COLUMNNAME_IsPrinted, false);
+						document.saveEx();
+					}
+				});
+	}
+	
+	/**
+	 * Set Document as not printed
+	 * @param maybeDocument
+	 */
+	public static void printDocument(PO maybeDocument) {
+		Optional.ofNullable(maybeDocument)
+				.ifPresent(document -> {
+					ReportEngine reportEngine = null;
+					AtomicInteger reportType = new AtomicInteger(0);
+					if (document.get_ColumnIndex(MInvoice.COLUMNNAME_IsPrinted) > 0) {
+						if (document.get_Table_ID() == MOrder.Table_ID) {
+							reportEngine = ReportEngine.get (document.getCtx(), ReportEngine.ORDER, document.get_ID(), document.get_TrxName());
+							reportType.set(ReportEngine.ORDER);
+						} else if (document.get_Table_ID() == MInvoice.Table_ID) {
+							reportEngine = ReportEngine.get (document.getCtx(), ReportEngine.INVOICE, document.get_ID(), document.get_TrxName());
+							reportType.set(ReportEngine.INVOICE);
+						} else if (document.get_Table_ID() == MInOut.Table_ID) {
+							reportEngine = ReportEngine.get (document.getCtx(), ReportEngine.SHIPMENT, document.get_ID(), document.get_TrxName());
+							reportType.set(ReportEngine.SHIPMENT);
+						}else if (document.get_Table_ID() == MInOut.Table_ID) {
+							reportEngine = ReportEngine.get (document.getCtx(), ReportEngine.MOVEMENT, document.get_ID(), document.get_TrxName());
+							reportType.set(ReportEngine.MOVEMENT);
+						}
+					}
+					
+					Optional.ofNullable(reportEngine)
+							.ifPresent(reportEngineInstance -> {
+								MPrintFormat printFormat= reportEngineInstance.getPrintFormat();
+								if (printFormat.getJasperProcess_ID() > 0) {
+									ProcessBuilder
+										.create(document.getCtx())
+										.process(printFormat.getJasperProcess_ID())
+										.withRecordId(document.get_Table_ID(), document.get_ID())
+										.withParameter(MPInstance.COLUMNNAME_Record_ID.toUpperCase(),document.get_ID())
+										.withPrintPreview()
+										.execute(document.get_TrxName());	
+								}else
+									reportEngineInstance.print();
+								
+								ReportEngine.printConfirm(reportType.get(), document.get_ID(), document.get_TrxName());
+							});
+					
+					
+				});
 	}
 }

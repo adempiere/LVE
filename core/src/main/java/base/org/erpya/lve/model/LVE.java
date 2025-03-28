@@ -227,6 +227,15 @@ public class LVE implements ModelValidator {
 					invoice.setIsPaid(false);
 					invoice.save();
 				}
+				MDocType documentType = MDocType.get(order.getCtx(), order.getC_DocTypeTarget_ID());
+				order.set_ValueOfColumn(LVEUtil.COLUMNNAME_IsFiscalDocument,
+						documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsFiscalDocument));
+				//	Set Control No
+				if(!documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsSetControlNoOnPrint)
+						&& Util.isEmpty(order.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo))) {
+					DocumentTypeSequence sequence = new DocumentTypeSequence(documentType, order.get_TrxName());
+					order.set_ValueOfColumn(LVEUtil.COLUMNNAME_ControlNo, sequence.getControlNo());
+				}
 			}
 			if (po.get_TableName().equals(MInvoice.Table_Name)) {
 				MInvoice invoice = (MInvoice) po;
