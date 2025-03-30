@@ -17,6 +17,7 @@
  *****************************************************************************/
 package org.erpya.lve.util;
 
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -40,6 +41,7 @@ import org.compiere.model.MWarehouse;
 import org.compiere.model.PO;
 import org.compiere.print.MPrintFormat;
 import org.compiere.print.ReportEngine;
+import org.compiere.util.Env;
 import org.compiere.util.Util;
 import org.eevolution.distribution.model.MDDOrder;
 import org.eevolution.services.dsl.ProcessBuilder;
@@ -155,6 +157,10 @@ public class LVEUtil {
 	public static final String COLUMNNAME_LVE_IsShipmentNote = "LVE_IsShipmentNote";
 	/**	Order Shipment Note ColumnName*/
 	public static final String COLUMNNAME_LVE_DD_OrderRef_ID = "LVE_DD_OrderRef_ID";
+	/**	System Configuration Variable for Validate Invoice Line with Negative Prices*/
+	public static final String SYSCONFIG_LVE_ValidateInvoiceNegative = "LVE_VALIDATE_INVOICE_NEGATIVE";
+	/**	End Control Number ColumnName*/
+	public static final String COLUMNNAME_LVE_SequenceEndNo = "LVE_SequenceEndNo";
 	
 	
 	/**
@@ -361,12 +367,35 @@ public class LVEUtil {
 										.withPrintPreview()
 										.execute(document.get_TrxName());	
 								}else
-									reportEngineInstance.print();
+									throw new AdempiereException("@AD_PrintFormat_ID@ ".concat(printFormat.getName()).concat("@NotFound@ @JasperProcess_ID@"));
 								
-								ReportEngine.printConfirm(reportType.get(), document.get_ID(), document.get_TrxName());
+								if (document.get_ColumnIndex(MInvoice.COLUMNNAME_Processed) > 0
+										&& document.get_ValueAsBoolean(MInvoice.COLUMNNAME_Processed))
+									ReportEngine.printConfirm(reportType.get(), document.get_ID(), document.get_TrxName());
 							});
 					
 					
 				});
 	}
+
+	/**
+	 * Method for Validate Invoice Line with Negative Price
+	 * @param invoice
+	 */
+	public static void validatePrice(MInvoice invoice) {
+		boolean validateInvoiceNegativePrice = MSysConfig.getBooleanValue(SYSCONFIG_LVE_ValidateInvoiceNegative, false, invoice.getAD_Client_ID(), invoice.getAD_Org_ID());
+		if (validateInvoiceNegativePrice) {
+			Optional.ofNullable(invoice)
+					.ifPresent(invoiceInstance -> {
+						if (invoiceInstance.getReversal_ID() == 0 ) {
+							Arrays.asList(invoiceInstance.getLines())
+								  .forEach(invoiceLine -> {
+									 if (invoiceLine.getPriceEntered().compareTo(Env.ZERO) < 0)
+										throw new AdempiereException("@C_InvoiceLine_ID@ -> ".concat(String.valueOf(invoiceLine.getLine())).concat(" @PriceEntered@ < 0")); 
+								  });
+						}
+					});
+		}
+	}
+		
 }

@@ -17,6 +17,7 @@ package org.erpya.lve.util;
 
 import java.text.DecimalFormat;
 
+import org.adempiere.exceptions.AdempiereException;
 import org.compiere.model.MDocType;
 import org.compiere.model.MSequence;
 import org.compiere.util.Env;
@@ -55,25 +56,27 @@ public class DocumentTypeSequence {
 			String suffix = seqControlNo.getSuffix();
 			String decimalPattern = seqControlNo.getDecimalPattern();
 			int next = seqControlNo.getNextID();
-			//	
-			StringBuffer doc = new StringBuffer();
-			if (decimalPattern != null && decimalPattern.length() > 0) {
-				doc.append(new DecimalFormat(decimalPattern).format(next));
-			} else {
-				doc.append(next);
+			if (validate(seqControlNo, next)) {
+				//	
+				StringBuffer doc = new StringBuffer();
+				if (decimalPattern != null && decimalPattern.length() > 0) {
+					doc.append(new DecimalFormat(decimalPattern).format(next));
+				} else {
+					doc.append(next);
+				}
+				//	Set
+				if(prefix == null 
+						|| prefix.length() == 0)
+					prefix = "";
+	
+				if(suffix == null 
+						|| suffix.length() == 0)
+					suffix = "";
+				//	Save
+				seqControlNo.saveEx();
+				//	Return valid sequence
+				return prefix + doc + suffix;
 			}
-			//	Set
-			if(prefix == null 
-					|| prefix.length() == 0)
-				prefix = "";
-
-			if(suffix == null 
-					|| suffix.length() == 0)
-				suffix = "";
-			//	Save
-			seqControlNo.saveEx();
-			//	Return valid sequence
-			return prefix + doc + suffix;
 		}
 		//	Nothing
 		return null;
@@ -93,5 +96,23 @@ public class DocumentTypeSequence {
 	 */
 	public void setTrxName(String trxName) {
 		this.trxName = trxName;
+	}
+	
+	/**
+	 * Validate Control Number Sequence 
+	 * @param sequence
+	 * @param nextId
+	 * @return
+	 */
+	private boolean validate(MSequence sequence, int nextId) {
+		boolean valid = false;
+		if (sequence != null) {
+			int endNumber = sequence.get_ValueAsInt(LVEUtil.COLUMNNAME_LVE_SequenceEndNo);
+			if (endNumber <= nextId) 
+				valid = true;
+			else
+				throw new AdempiereException("@AD_Sequence_ID@ -> @ControlNo@ @LVE_SequenceEndNo@ (" + endNumber + ")> @CurrentNext@ (" + nextId + ")");
+		}
+		return valid;
 	}
 }

@@ -243,12 +243,18 @@ public class LVE implements ModelValidator {
 					MDocType documentType = MDocType.get(invoice.getCtx(), invoice.getC_DocTypeTarget_ID());
 					invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_IsFiscalDocument,
 							documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsFiscalDocument));
+					
+					//Validate Invoice Negative Prices
+					if (invoice.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsFiscalDocument))
+						LVEUtil.validatePrice(invoice);
+
 					//	Set Control No
 					if(!documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsSetControlNoOnPrint)
 							&& Util.isEmpty(invoice.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo))) {
 						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType, invoice.get_TrxName());
 						invoice.set_ValueOfColumn(LVEUtil.COLUMNNAME_ControlNo, sequence.getControlNo());
 					}
+					
 					//Set Document Number for Withholding
 					if (new Query(invoice.getCtx(), MWHWithholding.Table_Name, "C_Invoice_ID = ? AND IsManual = 'N'", invoice.get_TrxName()).setParameters(invoice.getC_Invoice_ID()).match()) {
 						//	Get Document No
@@ -262,6 +268,7 @@ public class LVE implements ModelValidator {
 						//	Set New Document No
 						invoice.setDocumentNo(prefix + String.format("%1$" + 8 + "s", docNo).replace(" ", "0"));
 					}
+					
 					//	Create Allocation
 					if(documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsAllocateInvoice)) {
 						AllocationManager allocationManager = new AllocationManager(invoice);
@@ -279,6 +286,7 @@ public class LVE implements ModelValidator {
 						allocationManager.createAllocation();
 						allocationToRepost.put(invoice.get_ID(), allocationManager);
 					}
+					
 					//	Save
 					invoice.saveEx();
 				}
