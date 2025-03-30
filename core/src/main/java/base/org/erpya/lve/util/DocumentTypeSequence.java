@@ -108,7 +108,7 @@ public class DocumentTypeSequence {
 		boolean valid = false;
 		if (sequence != null) {
 			int endNumber = sequence.get_ValueAsInt(LVEUtil.COLUMNNAME_LVE_SequenceEndNo);
-			if (endNumber <= nextId) 
+			if (nextId <= endNumber) 
 				valid = true;
 			else
 				throw new AdempiereException("@AD_Sequence_ID@ -> @ControlNo@ @LVE_SequenceEndNo@ (" + endNumber + ")> @CurrentNext@ (" + nextId + ")");

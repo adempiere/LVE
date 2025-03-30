@@ -10,7 +10,7 @@
         <Data AD_Column_ID="50187" Column="AD_SysConfig_ID">50168</Data>
         <Data AD_Column_ID="50194" Column="IsActive">true</Data>
         <Data AD_Column_ID="50192" Column="CreatedBy">100</Data>
-        <Data AD_Column_ID="53271" Column="ConfigurationLevel">S</Data>
+        <Data AD_Column_ID="53271" Column="ConfigurationLevel">O</Data>
         <Data AD_Column_ID="50196" Column="Value">N</Data>
         <Data AD_Column_ID="50195" Column="Name">LVE_VALIDATE_INVOICE_NEGATIVE</Data>
         <Data AD_Column_ID="50193" Column="UpdatedBy">100</Data>
