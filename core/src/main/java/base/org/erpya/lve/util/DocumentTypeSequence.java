@@ -19,8 +19,11 @@ import java.text.DecimalFormat;
 
 import org.adempiere.exceptions.AdempiereException;
 import org.compiere.model.MDocType;
+import org.compiere.model.MNote;
 import org.compiere.model.MSequence;
+import org.compiere.model.MSysConfig;
 import org.compiere.util.Env;
+import org.compiere.util.Msg;
 
 /**
  * 	Class added for handle control number for sequence
@@ -108,11 +111,37 @@ public class DocumentTypeSequence {
 		boolean valid = false;
 		if (sequence != null) {
 			int endNumber = sequence.get_ValueAsInt(LVEUtil.COLUMNNAME_LVE_SequenceEndNo);
-			if (nextId <= endNumber) 
+			if (nextId <= endNumber) {
 				valid = true;
+				checkControlNumberUsedLevel(sequence, nextId, endNumber);
+			}
 			else
 				throw new AdempiereException("@AD_Sequence_ID@ -> @ControlNo@ @LVE_SequenceEndNo@ (" + endNumber + ")> @CurrentNext@ (" + nextId + ")");
 		}
 		return valid;
 	}
+	
+	/**
+	 * Create System Note
+	 * @param sequence
+	 * @param nextId
+	 * @param endNumber
+	 */
+	private void checkControlNumberUsedLevel(MSequence sequence, int nextId, int endNumber) {
+		int controlNumberAvailable = endNumber - nextId;
+		int levelControlNumberWarning = MSysConfig.getIntValue(LVEUtil.SYSCONFIG_LVE_WarningControlNumberAvailable, 20, sequence.getAD_Client_ID(), sequence.getAD_Org_ID());
+		if (levelControlNumberWarning > controlNumberAvailable) {
+			MNote note = new MNote (sequence.getCtx(), LVEUtil.MESSAGE_LVE_WarningControlNumber , Env.getAD_User_ID(sequence.getCtx()), sequence.getAD_Client_ID(), sequence.getAD_Org_ID(), sequence.get_TrxName());
+				note.setRecord(sequence.get_Table_ID(), sequence.get_ID());
+				note.setReference(sequence.getName());
+				String textValue = sequence.getName().concat(": ")
+								   .concat(Env.NL)
+								   .concat("@CurrentNext@ : ").concat(String.valueOf(nextId))
+								   .concat(Env.NL)
+								   .concat("@LVE_SequenceEndNo@ : ").concat(String.valueOf(endNumber));
+				note.setTextMsg(Msg.parseTranslation(sequence.getCtx(), textValue));
+				note.saveEx();
+		}
+	}
+	
 }

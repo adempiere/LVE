@@ -22,6 +22,7 @@ import java.util.Optional;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,12 +40,16 @@ import org.compiere.model.MProduct;
 import org.compiere.model.MSysConfig;
 import org.compiere.model.MWarehouse;
 import org.compiere.model.PO;
+import org.compiere.model.Query;
 import org.compiere.print.MPrintFormat;
 import org.compiere.print.ReportEngine;
+import org.compiere.util.CLogger;
+import org.compiere.util.DB;
 import org.compiere.util.Env;
 import org.compiere.util.Util;
 import org.eevolution.distribution.model.MDDOrder;
 import org.eevolution.services.dsl.ProcessBuilder;
+import org.erpya.lve.model.LVE;
 
 /**
  * Added for hamdle custom columns for ADempiere core
@@ -159,9 +164,14 @@ public class LVEUtil {
 	public static final String COLUMNNAME_LVE_DD_OrderRef_ID = "LVE_DD_OrderRef_ID";
 	/**	System Configuration Variable for Validate Invoice Line with Negative Prices*/
 	public static final String SYSCONFIG_LVE_ValidateInvoiceNegative = "LVE_VALIDATE_INVOICE_NEGATIVE";
+	/**	System Configuration Variable for Validate Warning low Control Number*/
+	public static final String SYSCONFIG_LVE_WarningControlNumberAvailable = "LVE_WARNING_CONTROL_NUMBER_AVAILABLE";
+	/**	System Message for Validate Warning low Control Number*/
+	public static final String MESSAGE_LVE_WarningControlNumber= "LVE_WARNING_CONTROL_NUMBER";
 	/**	End Control Number ColumnName*/
 	public static final String COLUMNNAME_LVE_SequenceEndNo = "LVE_SequenceEndNo";
-	
+	/** Logger */
+	private static CLogger log = CLogger.getCLogger(LVEUtil.class);
 	
 	/**
 	 * Process Business Partner Value
@@ -249,6 +259,13 @@ public class LVEUtil {
 	 * @param ddOrder
 	 */
 	public static String createSalesOrderFromDistributionOrder(MDDOrder ddOrder) {
+		MOrder currentSalesOrderGenerated = new Query(ddOrder.getCtx(), MOrder.Table_Name, "DocStatus IN('CO', 'CL') AND LVE_DD_OrderRef_ID=?", ddOrder.get_TrxName())
+												.setParameters(ddOrder.get_ID())
+												.first();
+		Optional.ofNullable(currentSalesOrderGenerated)
+				.ifPresent(SalesOrderGenerated ->{
+					throw new AdempiereException("@LVE_SHIPMENT_NOTE_GENERATED_WARNING@ ".concat(SalesOrderGenerated.getDocumentNo()));
+				});
 		MWarehouse warehouse = getDistributionOrderWarehouseDestinationIdentifier(ddOrder);
 		String returnValue = "";
 		if (warehouse !=null &&
@@ -324,8 +341,7 @@ public class LVEUtil {
 		Optional.ofNullable(maybeDocument)
 				.ifPresent(document -> {
 					if (document.get_ColumnIndex(MInvoice.COLUMNNAME_IsPrinted) > 0) {
-						document.set_ValueOfColumn(MInvoice.COLUMNNAME_IsPrinted, false);
-						document.saveEx();
+						updateDocumentPrintedStatus(document, false);
 					}
 				});
 	}
@@ -370,8 +386,8 @@ public class LVEUtil {
 									throw new AdempiereException("@AD_PrintFormat_ID@ ".concat(printFormat.getName()).concat("@NotFound@ @JasperProcess_ID@"));
 								
 								if (document.get_ColumnIndex(MInvoice.COLUMNNAME_Processed) > 0
-										&& document.get_ValueAsBoolean(MInvoice.COLUMNNAME_Processed))
-									ReportEngine.printConfirm(reportType.get(), document.get_ID(), document.get_TrxName());
+										&& document.get_ValueAsBoolean(MInvoice.COLUMNNAME_Processed)) 
+									updateDocumentPrintedStatus(document, true);
 							});
 					
 					
@@ -397,5 +413,23 @@ public class LVEUtil {
 					});
 		}
 	}
-		
+	
+	/**
+	 * Set Document Printed Status
+	 * @param document
+	 * @param printed
+	 */
+	public static void updateDocumentPrintedStatus (PO document, boolean printed)
+	{
+		StringBuffer sql = new StringBuffer();
+		String keyColumn = (document.get_KeyColumns().length > 0 ? document.get_KeyColumns()[0] :"");
+		if (!keyColumn.isEmpty()) {
+			sql.append("UPDATE ").append(document.get_TableName())
+				.append(" SET DatePrinted=SysDate, IsPrinted='" + (printed ? "Y" : "N") + "' WHERE ")
+				.append(keyColumn).append("=").append(document.get_ID());
+			int no = DB.executeUpdate(sql.toString(), document.get_TrxName());
+			if (no != 1)
+				log.log(Level.SEVERE, "Updated records=" + no + " - should be just one");
+		}
+	}	//	printConfirm
 }
