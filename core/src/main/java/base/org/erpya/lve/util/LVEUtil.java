@@ -33,6 +33,7 @@ import org.compiere.model.MDocType;
 import org.compiere.model.MInOut;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MLocator;
+import org.compiere.model.MMovement;
 import org.compiere.model.MOrder;
 import org.compiere.model.MOrderLine;
 import org.compiere.model.MPInstance;
@@ -365,7 +366,7 @@ public class LVEUtil {
 						} else if (document.get_Table_ID() == MInOut.Table_ID) {
 							reportEngine = ReportEngine.get (document.getCtx(), ReportEngine.SHIPMENT, document.get_ID(), document.get_TrxName());
 							reportType.set(ReportEngine.SHIPMENT);
-						}else if (document.get_Table_ID() == MInOut.Table_ID) {
+						}else if (document.get_Table_ID() == MMovement.Table_ID) {
 							reportEngine = ReportEngine.get (document.getCtx(), ReportEngine.MOVEMENT, document.get_ID(), document.get_TrxName());
 							reportType.set(ReportEngine.MOVEMENT);
 						}
