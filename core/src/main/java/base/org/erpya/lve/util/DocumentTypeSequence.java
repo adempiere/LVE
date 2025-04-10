@@ -16,12 +16,17 @@
 package org.erpya.lve.util;
 
 import java.text.DecimalFormat;
+import java.util.Optional;
 
 import org.adempiere.exceptions.AdempiereException;
 import org.compiere.model.MDocType;
+import org.compiere.model.MInvoice;
+import org.compiere.model.MMovement;
 import org.compiere.model.MNote;
+import org.compiere.model.MOrder;
 import org.compiere.model.MSequence;
 import org.compiere.model.MSysConfig;
+import org.compiere.model.Query;
 import org.compiere.util.Env;
 import org.compiere.util.Msg;
 
@@ -78,7 +83,9 @@ public class DocumentTypeSequence {
 				//	Save
 				seqControlNo.saveEx();
 				//	Return valid sequence
-				return prefix + doc + suffix;
+				String validSequence = prefix + doc + suffix;
+				validateControlNo(validSequence, seqControlNo);
+				return validSequence;
 			}
 		}
 		//	Nothing
@@ -144,4 +151,85 @@ public class DocumentTypeSequence {
 		}
 	}
 	
+	/***
+	 * Validate Control Number for Duplicate
+	 * @param controlNumber
+	 * @param documentTypeId
+	 * @param sequence
+	 */
+	public static void validateControlNo(String controlNumber, MSequence sequence ) {
+		
+		String whereClause = "";
+		boolean controlNumberValidateOnInvoice = MSysConfig.getBooleanValue(LVEUtil.SYSCONFIG_LVE_ValidateControlNumberOnInvoice, true, sequence.getAD_Client_ID(), sequence.getAD_Org_ID());
+		
+		// Validate Invoice Duplicate Control Number with the same Document Control Number Sequence Definition
+		if (controlNumberValidateOnInvoice) {
+			whereClause =  " IsFiscalDocument = 'Y' AND "
+								+ " IsSOTrx = 'Y' AND "
+								+ " ControlNo = ? AND "
+								+ " DocStatus IN ('CO', 'CL') AND "
+								+ " EXISTS(SELECT 1 "
+										+ "	FROM C_DocType dt "
+										+ "	INNER JOIN C_DocType dt_control ON (dt.ControlNoSequence_ID = dt_control.ControlNoSequence_ID) "
+										+ "	WHERE dt_control.C_DocType_ID = C_Invoice.C_DocTypeTarget_ID)";
+			Optional<MInvoice> maybeInvoice = Optional.ofNullable(new Query(sequence.getCtx(), MInvoice.Table_Name, whereClause , sequence.get_TrxName())
+																.setParameters(controlNumber)
+																.setClient_ID()
+																.setOnlyActiveRecords(true)
+																.first());
+										
+			maybeInvoice.ifPresent(invoice -> {
+				if (invoice.get_ID() > 0) 
+					throw new AdempiereException("@AlreadyExists@ @ControlNo@ ".concat(invoice.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo)).concat(" -> @C_Invoice_ID@ ").concat(invoice.getDocumentNo()));
+			});
+		}
+		
+		boolean controlNumberValidateOnSalesOrder = MSysConfig.getBooleanValue(LVEUtil.SYSCONFIG_LVE_ValidateControlNumberOnSalesOrder, true, sequence.getAD_Client_ID(), sequence.getAD_Org_ID());
+		
+		// Validate Order Duplicate Control Number with the same Document Control Number Sequence Definition
+		if (controlNumberValidateOnSalesOrder) {
+			whereClause =  " IsFiscalDocument = 'Y' AND "
+							+ " IsSOTrx = 'Y' AND "
+							+ " ControlNo = ? AND "
+							+ " DocStatus IN ('CO', 'CL') AND "
+							+ " EXISTS(SELECT 1 "
+									+ "	FROM C_DocType dt "
+									+ "	INNER JOIN C_DocType dt_control ON (dt.ControlNoSequence_ID = dt_control.ControlNoSequence_ID) "
+									+ "	WHERE dt_control.C_DocType_ID = C_Order.C_DocTypeTarget_ID)";
+			Optional<MOrder> maybeOrder = Optional.ofNullable(new Query(sequence.getCtx(), MOrder.Table_Name, whereClause , sequence.get_TrxName())
+																.setParameters(controlNumber)
+																.setClient_ID()
+																.setOnlyActiveRecords(true)
+																.first());
+										
+			maybeOrder.ifPresent(order -> {
+				if (order.get_ID() > 0) 
+					throw new AdempiereException("@AlreadyExists@ @ControlNo@ ".concat(order.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo)).concat(" -> @C_Order_ID@ ").concat(order.getDocumentNo()));
+			});
+		}
+		
+		boolean controlNumberValidateOnInventoryMovement = MSysConfig.getBooleanValue(LVEUtil.SYSCONFIG_LVE_ValidateControlNumberOnInventoryMovement, true, sequence.getAD_Client_ID(), sequence.getAD_Org_ID());
+
+		// Validate Inventory Movement Duplicate Control Number with the same Document Control Number Sequence Definition
+		if (controlNumberValidateOnInventoryMovement) {
+			whereClause =  " IsFiscalDocument = 'Y' AND "
+							+ " ControlNo = ? AND "
+							+ " DocStatus IN ('CO', 'CL') AND "
+							+ " EXISTS(SELECT 1 "
+									+ "	FROM C_DocType dt "
+									+ "	INNER JOIN C_DocType dt_control ON (dt.ControlNoSequence_ID = dt_control.ControlNoSequence_ID) "
+									+ "	WHERE dt_control.C_DocType_ID = M_Movement.C_DocType_ID)";
+			Optional<MMovement> maybeMovement = Optional.ofNullable(new Query(sequence.getCtx(), MMovement.Table_Name, whereClause , sequence.get_TrxName())
+																.setParameters(controlNumber)
+																.setClient_ID()
+																.setOnlyActiveRecords(true)
+																.first());
+										
+			maybeMovement.ifPresent(movement -> {
+				if (movement.get_ID() > 0) 
+					throw new AdempiereException("@AlreadyExists@ @ControlNo@ ".concat(movement.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo)).concat(" -> @M_Movement_ID@ ").concat(movement.getDocumentNo()));
+			});
+		}
+
+	}
 }

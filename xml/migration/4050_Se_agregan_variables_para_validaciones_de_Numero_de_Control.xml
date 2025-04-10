@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Se agregan variables para validaciones de Numero de Control" ReleaseNo="1.0" SeqNo="81001290">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="50009" Action="I" Record_ID="50170" Table="AD_SysConfig">
+        <Data AD_Column_ID="50188" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="50189" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="50190" Column="Created">2025-04-10 09:00:39.753</Data>
+        <Data AD_Column_ID="50191" Column="Updated">2025-04-10 09:00:39.753</Data>
+        <Data AD_Column_ID="50187" Column="AD_SysConfig_ID">50170</Data>
+        <Data AD_Column_ID="50194" Column="IsActive">true</Data>
+        <Data AD_Column_ID="50192" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="53271" Column="ConfigurationLevel">O</Data>
+        <Data AD_Column_ID="50196" Column="Value">N</Data>
+        <Data AD_Column_ID="50195" Column="Name">LVE_VALIDATE_CONTROL_NUMBER_ON_INVOICE</Data>
+        <Data AD_Column_ID="50193" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="50197" Column="Description">Activate Validation for Duplicate Control Number on Invoice</Data>
+        <Data AD_Column_ID="53270" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="84421" Column="UUID">6714a16f-94b5-4939-afd3-52751a823338</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="50009" Action="I" Record_ID="50171" Table="AD_SysConfig">
+        <Data AD_Column_ID="50188" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="50189" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="50190" Column="Created">2025-04-10 09:16:29.051</Data>
+        <Data AD_Column_ID="50191" Column="Updated">2025-04-10 09:16:29.051</Data>
+        <Data AD_Column_ID="50187" Column="AD_SysConfig_ID">50171</Data>
+        <Data AD_Column_ID="50194" Column="IsActive">true</Data>
+        <Data AD_Column_ID="50192" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="53271" Column="ConfigurationLevel">O</Data>
+        <Data AD_Column_ID="50196" Column="Value">N</Data>
+        <Data AD_Column_ID="50195" Column="Name">LVE_VALIDATE_CONTROL_NUMBER_ON_SALES_ORDER</Data>
+        <Data AD_Column_ID="50193" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="50197" Column="Description">Activate Validation for Duplicate Control Number on Fiscal Sales Order</Data>
+        <Data AD_Column_ID="53270" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="84421" Column="UUID">598b3d99-7624-496e-9e0c-583975acd209</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="50009" Action="I" Record_ID="50172" Table="AD_SysConfig">
+        <Data AD_Column_ID="50188" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="50189" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="50190" Column="Created">2025-04-10 09:16:51.627</Data>
+        <Data AD_Column_ID="50191" Column="Updated">2025-04-10 09:16:51.627</Data>
+        <Data AD_Column_ID="50187" Column="AD_SysConfig_ID">50172</Data>
+        <Data AD_Column_ID="50194" Column="IsActive">true</Data>
+        <Data AD_Column_ID="50192" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="53271" Column="ConfigurationLevel">O</Data>
+        <Data AD_Column_ID="50196" Column="Value">N</Data>
+        <Data AD_Column_ID="50195" Column="Name">LVE_VALIDATE_CONTROL_NUMBER_ON_INVENTORY_MOVEMENT</Data>
+        <Data AD_Column_ID="50193" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="50197" Column="Description">Activate Validation for Duplicate Control Number on Fiscal Inventory Movement</Data>
+        <Data AD_Column_ID="53270" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="84421" Column="UUID">94532f42-3710-4b29-b6b7-96cb552cb648</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>

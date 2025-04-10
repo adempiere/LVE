@@ -167,6 +167,12 @@ public class LVEUtil {
 	public static final String SYSCONFIG_LVE_ValidateInvoiceNegative = "LVE_VALIDATE_INVOICE_NEGATIVE";
 	/**	System Configuration Variable for Validate Warning low Control Number*/
 	public static final String SYSCONFIG_LVE_WarningControlNumberAvailable = "LVE_WARNING_CONTROL_NUMBER_AVAILABLE";
+	/**	System Configuration Variable for Validate Control Number On Invoice*/
+	public static final String SYSCONFIG_LVE_ValidateControlNumberOnInvoice = "LVE_VALIDATE_CONTROL_NUMBER_ON_INVOICE";
+	/**	System Configuration Variable for Validate Control Number On Sales Order*/
+	public static final String SYSCONFIG_LVE_ValidateControlNumberOnSalesOrder = "LVE_VALIDATE_CONTROL_NUMBER_ON_SALES_ORDER";
+	/**	System Configuration Variable for Validate Control Number On Inventory Movement*/
+	public static final String SYSCONFIG_LVE_ValidateControlNumberOnInventoryMovement = "LVE_VALIDATE_CONTROL_NUMBER_ON_INVENTORY_MOVEMENT";
 	/**	System Message for Validate Warning low Control Number*/
 	public static final String MESSAGE_LVE_WarningControlNumber= "LVE_WARNING_CONTROL_NUMBER";
 	/**	End Control Number ColumnName*/
@@ -382,7 +388,7 @@ public class LVEUtil {
 										.withRecordId(document.get_Table_ID(), document.get_ID())
 										.withParameter(MPInstance.COLUMNNAME_Record_ID.toUpperCase(),document.get_ID())
 										.withPrintPreview()
-										.execute(document.get_TrxName());	
+										.execute(document.get_TrxName());
 								}else
 									throw new AdempiereException("@AD_PrintFormat_ID@ ".concat(printFormat.getName()).concat("@NotFound@ @JasperProcess_ID@"));
 								
@@ -396,7 +402,7 @@ public class LVEUtil {
 	}
 
 	/**
-	 * Method for Validate Invoice Line with Negative Price
+	 * Method for Validate Invoice Line with Negative or ZERO Price
 	 * @param invoice
 	 */
 	public static void validatePrice(MInvoice invoice) {
@@ -404,11 +410,13 @@ public class LVEUtil {
 		if (validateInvoiceNegativePrice) {
 			Optional.ofNullable(invoice)
 					.ifPresent(invoiceInstance -> {
-						if (invoiceInstance.getReversal_ID() == 0 ) {
+						if (invoiceInstance.getReversal_ID() == 0
+								&& invoiceInstance.isSOTrx()
+									&& invoiceInstance.get_ValueAsBoolean(COLUMNNAME_IsFiscalDocument)) {
 							Arrays.asList(invoiceInstance.getLines())
 								  .forEach(invoiceLine -> {
-									 if (invoiceLine.getPriceEntered().compareTo(Env.ZERO) < 0)
-										throw new AdempiereException("@C_InvoiceLine_ID@ -> ".concat(String.valueOf(invoiceLine.getLine())).concat(" @PriceEntered@ < 0")); 
+									 if (invoiceLine.getPriceEntered().compareTo(Env.ZERO) <= 0)
+										throw new AdempiereException("@C_InvoiceLine_ID@ -> ".concat(String.valueOf(invoiceLine.getLine())).concat(" @PriceEntered@ <= 0")); 
 								  });
 						}
 					});
