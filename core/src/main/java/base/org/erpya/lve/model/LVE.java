@@ -114,6 +114,7 @@ public class LVE implements ModelValidator {
 	@Override
 	public String login(int AD_Org_ID, int AD_Role_ID, int AD_User_ID) {
 		log.info("AD_User_ID=" + AD_User_ID);
+		LVEUtil.validatePendingShipmentOrder(AD_Org_ID);
 		return null;
 	}
 

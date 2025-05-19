@@ -20,6 +20,7 @@ package org.erpya.lve.util;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.Properties;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.logging.Level;
@@ -34,6 +35,7 @@ import org.compiere.model.MInOut;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MLocator;
 import org.compiere.model.MMovement;
+import org.compiere.model.MNote;
 import org.compiere.model.MOrder;
 import org.compiere.model.MOrderLine;
 import org.compiere.model.MPInstance;
@@ -47,6 +49,7 @@ import org.compiere.print.ReportEngine;
 import org.compiere.util.CLogger;
 import org.compiere.util.DB;
 import org.compiere.util.Env;
+import org.compiere.util.Msg;
 import org.compiere.util.Util;
 import org.eevolution.distribution.model.MDDOrder;
 import org.eevolution.services.dsl.ProcessBuilder;
@@ -175,6 +178,8 @@ public class LVEUtil {
 	public static final String SYSCONFIG_LVE_ValidateControlNumberOnInventoryMovement = "LVE_VALIDATE_CONTROL_NUMBER_ON_INVENTORY_MOVEMENT";
 	/**	System Message for Validate Warning low Control Number*/
 	public static final String MESSAGE_LVE_WarningControlNumber= "LVE_WARNING_CONTROL_NUMBER";
+	/**	System Message for Validate Warning Shipment Note not Invoice*/
+	public static final String MESSAGE_LVE_Warning_Shipment_Note_Not_Invoice= "LVE_WARNING_SHIPMENT_NOTE_NOT_INVOICE";
 	/**	End Control Number ColumnName*/
 	public static final String COLUMNNAME_LVE_SequenceEndNo = "LVE_SequenceEndNo";
 	/** Logger */
@@ -441,4 +446,24 @@ public class LVEUtil {
 				log.log(Level.SEVERE, "Updated records=" + no + " - should be just one");
 		}
 	}	//	printConfirm
+	
+	/**
+	 * Validate Pending Shipment Orders
+	 * @param orgId
+	 */
+	public static void validatePendingShipmentOrder(int orgId) {
+		boolean shipmentOrderPendings = false;
+        String whereClause = "DocStatus = 'CO' "
+        					+ "AND AD_Org_ID = ? "
+        					+ "AND EXISTS(SELECT 1 FROM C_DocType dt WHERE dt.LVE_IsShipmentNote = 'Y' AND dt.C_DocType_ID = C_Order.C_DocTypeTarget_ID)  "
+        					+ "AND EXISTS(SELECT 1 FROM C_OrderLine ol WHERE (ol.QtyOrdered - ol.QtyInvoiced) <> 0 AND ol.C_Order_ID = C_Order.C_Order_ID) "
+        					+ "AND EXISTS(SELECT 1 FROM C_Period p INNER JOIN C_PeriodControl pc ON (p.C_Period_ID = pc.C_Period_ID) WHERE pc.PeriodStatus = 'C' AND C_Order.DateOrdered BETWEEN p.StartDate AND p.EndDate)";
+        shipmentOrderPendings= new Query(Env.getCtx(), MOrder.Table_Name, whereClause, null)
+						        	.setParameters(orgId)
+						        	.match();
+        if(shipmentOrderPendings)
+        	Env.setContext(Env.getCtx(), "#LVE_GlobalAdvertisement", Msg.parseTranslation(Env.getCtx(), "@".concat(MESSAGE_LVE_Warning_Shipment_Note_Not_Invoice).concat("@")));
+        else 
+        	Env.setContext(Env.getCtx(), "#LVE_GlobalAdvertisement", "");
+	}
 }
