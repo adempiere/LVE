@@ -20,7 +20,6 @@ package org.erpya.lve.util;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.Properties;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.logging.Level;
@@ -35,7 +34,6 @@ import org.compiere.model.MInOut;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MLocator;
 import org.compiere.model.MMovement;
-import org.compiere.model.MNote;
 import org.compiere.model.MOrder;
 import org.compiere.model.MOrderLine;
 import org.compiere.model.MPInstance;
@@ -53,7 +51,6 @@ import org.compiere.util.Msg;
 import org.compiere.util.Util;
 import org.eevolution.distribution.model.MDDOrder;
 import org.eevolution.services.dsl.ProcessBuilder;
-import org.erpya.lve.model.LVE;
 
 /**
  * Added for hamdle custom columns for ADempiere core
@@ -367,20 +364,36 @@ public class LVEUtil {
 				.ifPresent(document -> {
 					ReportEngine reportEngine = null;
 					AtomicInteger reportType = new AtomicInteger(0);
+					MDocType documentType = null;
 					if (document.get_ColumnIndex(MInvoice.COLUMNNAME_IsPrinted) > 0) {
 						if (document.get_Table_ID() == MOrder.Table_ID) {
 							reportEngine = ReportEngine.get (document.getCtx(), ReportEngine.ORDER, document.get_ID(), document.get_TrxName());
 							reportType.set(ReportEngine.ORDER);
+							documentType = MDocType.get(document.getCtx(), document.get_ValueAsInt(MOrder.COLUMNNAME_C_DocTypeTarget_ID));
 						} else if (document.get_Table_ID() == MInvoice.Table_ID) {
 							reportEngine = ReportEngine.get (document.getCtx(), ReportEngine.INVOICE, document.get_ID(), document.get_TrxName());
 							reportType.set(ReportEngine.INVOICE);
+							documentType = MDocType.get(document.getCtx(), document.get_ValueAsInt(MInvoice.COLUMNNAME_C_DocTypeTarget_ID));
 						} else if (document.get_Table_ID() == MInOut.Table_ID) {
 							reportEngine = ReportEngine.get (document.getCtx(), ReportEngine.SHIPMENT, document.get_ID(), document.get_TrxName());
 							reportType.set(ReportEngine.SHIPMENT);
+							documentType = MDocType.get(document.getCtx(), document.get_ValueAsInt(MInOut.COLUMNNAME_C_DocType_ID));
 						}else if (document.get_Table_ID() == MMovement.Table_ID) {
 							reportEngine = ReportEngine.get (document.getCtx(), ReportEngine.MOVEMENT, document.get_ID(), document.get_TrxName());
 							reportType.set(ReportEngine.MOVEMENT);
+							documentType = MDocType.get(document.getCtx(), document.get_ValueAsInt(MMovement.COLUMNNAME_C_DocType_ID));
 						}
+					}
+					
+					//	Set Control No
+					if(documentType!=null 
+							&& !documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsSetControlNoOnPrint)
+								&& Util.isEmpty(document.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo))
+									&& document.get_ColumnIndex(MInvoice.COLUMNNAME_Processed) > 0
+										&& document.get_ValueAsBoolean(MInvoice.COLUMNNAME_Processed)) {
+						DocumentTypeSequence sequence = new DocumentTypeSequence(documentType, document.get_TrxName());
+						document.set_ValueOfColumn(LVEUtil.COLUMNNAME_ControlNo, sequence.getControlNo());
+						document.saveEx();
 					}
 					
 					Optional.ofNullable(reportEngine)
