@@ -387,7 +387,7 @@ public class LVEUtil {
 					
 					//	Set Control No
 					if(documentType!=null 
-							&& !documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsSetControlNoOnPrint)
+							&& documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsSetControlNoOnPrint)
 								&& Util.isEmpty(document.get_ValueAsString(LVEUtil.COLUMNNAME_ControlNo))
 									&& document.get_ColumnIndex(MInvoice.COLUMNNAME_Processed) > 0
 										&& document.get_ValueAsBoolean(MInvoice.COLUMNNAME_Processed)) {

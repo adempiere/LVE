@@ -18,7 +18,8 @@
 
 package org.erpya.lve.process;
 
-import org.adempiere.model.GenericPO;
+import org.compiere.model.MTable;
+import org.compiere.model.PO;
 import org.erpya.lve.util.LVEUtil;
 
 /** Generated Process for (Print Fiscal Document)
@@ -37,7 +38,8 @@ public class PrintFiscalDocument extends PrintFiscalDocumentAbstract
 	protected String doIt() throws Exception
 	{
 		if (getRecord_ID() > 0) {
-			GenericPO document = new GenericPO(getTableName(), getCtx(), getRecord_ID(), get_TrxName());
+			MTable table = MTable.get(getCtx(), getTable_ID());
+			PO document = table.getPO(getRecord_ID(), get_TrxName());
 			LVEUtil.printDocument(document);
 		}
 		return "";
