@@ -47,7 +47,8 @@ SELECT
 	w.PricePrecision,
 	ROUND(w.TaxLineTotal * w.CurrencyRate,w.PricePrecision) TaxLineTotal,
 	w.DateDoc,
-	w.Parent_Org_ID
+	w.Parent_Org_ID,
+	w.Multiplier
 FROM (
 	SELECT 
 		whDoc.AD_Client_ID,
@@ -100,7 +101,9 @@ FROM (
 		wh.C_Currency_ID,
 		it.TaxLineTotal,
 		whDoc.DateAcct DateDoc,
-		o.Parent_Org_ID
+		o.Parent_Org_ID,
+		CASE WHEN dtOrigDoc.DocBaseType IN ('APC', 'ARC') THEN -1
+			 ELSE 1 END AS Multiplier
 	FROM C_Invoice whDoc
 	INNER JOIN C_InvoiceLine whDocLine ON (whDoc.C_Invoice_ID = whDocLine.C_Invoice_ID)
 	INNER JOIN C_BPartner bp ON (whDoc.C_BPartner_ID = bp.C_BPartner_ID)
@@ -184,7 +187,8 @@ w.AD_Client_ID,
 	w.PricePrecision,
 	ROUND(w.TaxLineTotal * w.CurrencyRate,w.PricePrecision) TaxLineTotal,
 	w.DateAcct DateDoc,
-	w.Parent_Org_ID
+	w.Parent_Org_ID,
+	1 AS Multiplier
 FROM (
 	SELECT pr.AD_Client_ID,
 		pr.AD_Org_ID,
@@ -247,5 +251,4 @@ FROM (
 	AND pr.DocStatus IN('CO', 'CL')
 	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, pr.DocumentNo, pr.DateAcct, pr.Name, prl.PrintName, bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.C_ConversionType_ID, pr.C_Currency_ID, cu.StdPrecision, org.Parent_Org_ID
 	HAVING SUM(CASE WHEN c.Type <> 'R' THEN m.Amount ELSE 0 END) > 0
-) AS w
-;
+) AS w;
