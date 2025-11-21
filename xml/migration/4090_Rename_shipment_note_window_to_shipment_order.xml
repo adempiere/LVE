@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Rename shipment note window to shipment order" ReleaseNo="3.9.4" SeqNo="81001330">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="132" Action="U" Record_ID="0" Table="AD_Window_Trl">
+        <Data AD_Column_ID="307" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="306" Column="AD_Window_ID" oldValue="53822">53822</Data>
+        <Data AD_Column_ID="308" Column="Description" oldValue="Nota de Entrega">Orden De Entrega</Data>
+        <Data AD_Column_ID="309" Column="Help" oldValue="Nota de Entrega">Orden De Entrega</Data>
+        <Data AD_Column_ID="310" Column="Name" oldValue="Nota de Entrega">Orden De Entrega</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
