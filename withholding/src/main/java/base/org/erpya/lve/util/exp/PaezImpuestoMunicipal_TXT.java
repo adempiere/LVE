@@ -204,6 +204,11 @@ public class PaezImpuestoMunicipal_TXT extends ExportFormatCSV {
 						}
 						createCSVvalue (buffer, data);
 				});
+				// Add column "fortnight" at the end of each row
+				String invoiceIdForFortnight = printData.getNode(I_C_Invoice.COLUMNNAME_C_Invoice_ID).toString();
+				String fortnightValue = getFortnightValue(invoiceIdForFortnight);
+				buffer.append('\t');
+				createCSVvalue(buffer, fortnightValue);
 				//	Validate first line
 				if(firstLine) {
 					firstLine = false;
@@ -239,6 +244,34 @@ public class PaezImpuestoMunicipal_TXT extends ExportFormatCSV {
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * Gets the fortnight value based on the provided SQL logic
+	 * @param invoiceId
+	 * @return "1" if the day of DateAcct <= 15, "2" if greater
+	 */
+	private String getFortnightValue(String invoiceId) {
+	    if(Util.isEmpty(invoiceId)) {
+	        return "0";
+	    }
+	    String sql = "SELECT CASE WHEN EXTRACT(DAY FROM DateAcct) <= 15 THEN 1 ELSE 2 END AS fortnight FROM LVE_RV_Withholding WHERE c_invoice_id = ?";
+	    java.sql.PreparedStatement pstmt = null;
+	    java.sql.ResultSet rs = null;
+	    try {
+	        pstmt = org.compiere.util.DB.prepareStatement(sql, null);
+	        pstmt.setInt(1, Integer.parseInt(invoiceId));
+	        rs = pstmt.executeQuery();
+	        if(rs.next()) {
+	            return rs.getString("fortnight");
+	        }
+	    } catch(Exception e) {
+	        log.log(Level.SEVERE, "Error getting fortnight", e);
+	    } finally {
+	        try { if(rs != null) rs.close(); } catch(Exception e) {}
+	        try { if(pstmt != null) pstmt.close(); } catch(Exception e) {}
+	    }
+	    return "0";
 	}
 
 	/**
