@@ -18,6 +18,7 @@
 
 package org.erpya.lve.process;
 
+import java.sql.Timestamp;
 import java.util.logging.Level;
 
 import org.compiere.model.MInvoice;
@@ -51,7 +52,21 @@ public class CancelInvoice extends CancelInvoiceAbstract
         if (!MInvoice.DOCSTATUS_Completed.equals(invoiceFrom.getDocStatus())) {
             throw new Exception("@SQLErrorReferenced@ " + " @C_Invoice_ID@: " + invoiceFrom.getDocumentNo() + ("@NoCompleted@") );
         }
+        
+        // Validate if invoice has payments allocated
+        boolean hasPayment = new Query(
+                getCtx(),
+                "C_AllocationLine",
+                "C_Invoice_ID = ?",
+                get_TrxName()
+            )
+            .setParameters(invoiceFrom.getC_Invoice_ID())
+            .match();
 
+        if (hasPayment) {
+        	throw new Exception("@SQLErrorReferenced@ " + "@Payment@ @IsAllocated@");
+        }
+        
 		String whereClause = "InvoiceToAllocate_ID = ? AND DocStatus = 'CO'";
 
 		MInvoice existingCancelled = new Query(getCtx(), MInvoice.Table_Name, whereClause, get_TrxName())
@@ -103,6 +118,7 @@ public class CancelInvoice extends CancelInvoiceAbstract
         invoiceTo.setPosted(false);
         invoiceTo.setDocStatus(MInvoice.STATUS_Drafted);
         invoiceTo.setDocAction(MInvoice.DOCACTION_Complete);
+        invoiceTo.setDateAcct(new Timestamp(System.currentTimeMillis()));
 
         if (getDocTypeId() > 0) {
             invoiceTo.setC_DocTypeTarget_ID(getDocTypeId());
