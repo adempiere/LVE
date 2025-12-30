@@ -20,10 +20,12 @@ package org.erpya.lve.process;
 
 import java.util.logging.Level;
 
+import org.adempiere.exceptions.AdempiereException;
 import org.compiere.model.MInvoice;
 import org.compiere.model.MInvoiceLine;
 import org.compiere.model.PO;
 import org.compiere.model.Query;
+import org.compiere.util.Env;
 import org.erpya.lve.util.LVEUtil;
 
 /** Generated Process for (Cancel Invoice)
@@ -45,13 +47,27 @@ public class CancelInvoice extends CancelInvoiceAbstract
         MInvoice invoiceFrom = new MInvoice(getCtx(), getSourceInvoiceId(), get_TrxName());
         
         if (invoiceFrom.get_ID() == 0) {
-            throw new Exception("@SourceInvoice_ID@ @NotFound@");
+            throw new AdempiereException("@SourceInvoice_ID@ @NotFound@");
         }
         
         if (!MInvoice.DOCSTATUS_Completed.equals(invoiceFrom.getDocStatus())) {
-            throw new Exception("@SQLErrorReferenced@ " + " @C_Invoice_ID@: " + invoiceFrom.getDocumentNo() + ("@NoCompleted@") );
+            throw new AdempiereException("@SQLErrorReferenced@ " + " @C_Invoice_ID@: " + invoiceFrom.getDocumentNo() + ("@NoCompleted@") );
         }
+        
+        // Validate if invoice has payments allocated
+        boolean hasPayment = new Query(
+                getCtx(),
+                "C_AllocationLine",
+                "C_Invoice_ID = ?",
+                get_TrxName()
+            )
+            .setParameters(invoiceFrom.getC_Invoice_ID())
+            .match();
 
+        if (hasPayment) {
+        	throw new AdempiereException("@SQLErrorReferenced@ " + "@C_Payment_ID@ @IsAllocated@");
+        }
+        
 		String whereClause = "InvoiceToAllocate_ID = ? AND DocStatus = 'CO'";
 
 		MInvoice existingCancelled = new Query(getCtx(), MInvoice.Table_Name, whereClause, get_TrxName())
@@ -59,7 +75,7 @@ public class CancelInvoice extends CancelInvoiceAbstract
 			    .first();
 
 		if (existingCancelled != null) {
-			throw new Exception("@SQLErrorReferenced@ " 
+			throw new AdempiereException("@SQLErrorReferenced@ " 
 					+ " @C_Invoice_ID@: " + existingCancelled.getDocumentNo());
 		}
 
@@ -103,6 +119,8 @@ public class CancelInvoice extends CancelInvoiceAbstract
         invoiceTo.setPosted(false);
         invoiceTo.setDocStatus(MInvoice.STATUS_Drafted);
         invoiceTo.setDocAction(MInvoice.DOCACTION_Complete);
+        invoiceTo.setDateAcct(Env.getContextAsDate(getCtx(), "#Date"));
+        invoiceTo.setDateInvoiced(Env.getContextAsDate(getCtx(), "#Date"));
 
         if (getDocTypeId() > 0) {
             invoiceTo.setC_DocTypeTarget_ID(getDocTypeId());
