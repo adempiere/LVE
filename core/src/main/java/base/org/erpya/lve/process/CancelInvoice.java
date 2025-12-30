@@ -120,6 +120,7 @@ public class CancelInvoice extends CancelInvoiceAbstract
         invoiceTo.setDocStatus(MInvoice.STATUS_Drafted);
         invoiceTo.setDocAction(MInvoice.DOCACTION_Complete);
         invoiceTo.setDateAcct(Env.getContextAsDate(getCtx(), "#Date"));
+        invoiceTo.setDateInvoiced(Env.getContextAsDate(getCtx(), "#Date"));
 
         if (getDocTypeId() > 0) {
             invoiceTo.setC_DocTypeTarget_ID(getDocTypeId());
