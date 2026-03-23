@@ -172,9 +172,12 @@ public class CancelInvoice extends CancelInvoiceAbstract
             if (linesFrom != null && i < linesFrom.length) {
                 MInvoiceLine lineFrom = linesFrom[i];
                 lineTo.set_ValueOfColumn("InvoiceLineToAllocate_ID", lineFrom.getC_InvoiceLine_ID());
+                if (lineFrom.getC_OrderLine_ID() > 0)
+                    lineTo.setC_OrderLine_ID(lineFrom.getC_OrderLine_ID());
             }
             
             lineTo.set_ValueOfColumn("InvoiceToAllocate_ID", invoiceFrom.getC_Invoice_ID());
+
             
             // Save line
             if (!lineTo.save(get_TrxName())) {
