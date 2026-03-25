@@ -218,7 +218,7 @@ public class LVEUtil {
 		}
 		//	Default
 		return Optional.ofNullable(value).orElse("")
-				.replaceAll("[^0-9JVEGXjvegxc]", "")
+				.replaceAll("[^0-9JVEGXCjvegxc]", "")
 				.toUpperCase();
 	}
 	
