@@ -198,9 +198,14 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 	 * Set concepts from invoice document
 	 */
 	private void setActivity() {
-		if (businessPartner!=null) {
-			if (businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_BusinessActivity_ID)!=0)
-				activityToApply = new MLVEList(getContext(), businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_BusinessActivity_ID), businessPartner.get_TrxName());
+		if (invoice != null) {
+			if (invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_BusinessActivity_ID)!=0)
+				activityToApply = new MLVEList(getContext(), invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_BusinessActivity_ID), invoice.get_TrxName());
+			if (businessPartner!=null 
+					&& activityToApply == null) {
+				if (businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_BusinessActivity_ID)!=0)
+					activityToApply = new MLVEList(getContext(), businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_BusinessActivity_ID), businessPartner.get_TrxName());
+			}
 		}
 	}
 	
@@ -208,11 +213,15 @@ public class APInvoiceIM extends AbstractWithholdingSetting {
 	 * Set Rates
 	 */
 	private void setRate() {
-		if (businessPartner!=null) {
-			if (businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingMunicipalRate_ID)!=0)
-				rateToApply = new MLVEListVersion(getContext(), businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingMunicipalRate_ID), businessPartner.get_TrxName());
+		if (invoice != null) {
+			if (invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingMunicipalRate_ID)!=0)
+				rateToApply = new MLVEListVersion(getContext(), invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingMunicipalRate_ID), invoice.get_TrxName());
+			if (businessPartner!=null
+					&& rateToApply == null) {
+				if (businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingMunicipalRate_ID)!=0)
+					rateToApply = new MLVEListVersion(getContext(), businessPartner.get_ValueAsInt(LVEUtil.COLUMNNAME_WithholdingMunicipalRate_ID), businessPartner.get_TrxName());
+			}
 		}
-		
 	}
 	
 	/**

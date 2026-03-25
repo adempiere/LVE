@@ -201,12 +201,12 @@ public class LVEUtil {
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
 			//	Validate if don't have numbers and allowed characters
-			Matcher matcher = Pattern.compile("[^0-9JVEGX]", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value);
+			Matcher matcher = Pattern.compile("[^0-9JVEGXC]", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value);
 			if(matcher.find()) {
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
 			//	Validate the first character allowed
-			Matcher matcherforKey = Pattern.compile("^[JVEGX]+$", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value.substring(0,  1));
+			Matcher matcherforKey = Pattern.compile("^[JVEGXC]+$", Pattern.CASE_INSENSITIVE | Pattern.DOTALL).matcher(value.substring(0,  1));
 			if(!matcherforKey.find()) {
 				throw new AdempiereException("@LVEInvalidBPValue@");
 			}
@@ -218,7 +218,7 @@ public class LVEUtil {
 		}
 		//	Default
 		return Optional.ofNullable(value).orElse("")
-				.replaceAll("[^0-9JVEGXjvegx]", "")
+				.replaceAll("[^0-9JVEGXjvegxc]", "")
 				.toUpperCase();
 	}
 	
