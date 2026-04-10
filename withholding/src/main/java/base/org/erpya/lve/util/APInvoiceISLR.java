@@ -227,6 +227,7 @@ public class APInvoiceISLR extends AbstractWithholdingSetting {
 							setReturnValue(LVEUtil.COLUMNNAME_IsCumulativeWithholding, conceptSetting.isCumulative());
 							setReturnValue(LVEUtil.COLUMNNAME_IsSimulation, !conceptSetting.isValid());
 							setReturnValue(MWHWithholding.COLUMNNAME_IsManual, isManual);
+							setReturnValue(I_WH_Withholding.COLUMNNAME_AD_Org_ID, invoice.getAD_Org_ID());
 							
 							int WHThirdParty_ID = invoice.get_ValueAsInt(LVEUtil.COLUMNNAME_WHThirdParty_ID);
 							if (WHThirdParty_ID != 0)
