@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="Validacion para prevenir reverso de facturas fiscales" ReleaseNo="3.9.4" SeqNo="81001380">
+    <Comments>para</Comments>
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="54786" Action="I" Record_ID="50139" Table="AD_SetupDefinition">
+        <Data AD_Column_ID="97364" Column="AD_Client_ID">0</Data>
+        <Data AD_Column_ID="97365" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="97366" Column="AD_SetupDefinition_ID">50139</Data>
+        <Data AD_Column_ID="97367" Column="Classname">org.erpya.lve.setup.FiscalSalesInvoiceValidation</Data>
+        <Data AD_Column_ID="97368" Column="Created">2026-04-13 11:42:07.376</Data>
+        <Data AD_Column_ID="97369" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="97370" Column="Description">Este setup impide anular o revertir facturas de venta fiscales, asegurando la integridad de la información y forzando el uso de notas de crédito para correcciones.</Data>
+        <Data AD_Column_ID="97371" Column="EntityType">LVE</Data>
+        <Data AD_Column_ID="97372" Column="Help" isNewNull="true"/>
+        <Data AD_Column_ID="97373" Column="IsActive">true</Data>
+        <Data AD_Column_ID="97374" Column="Name">Prevenir Anulación/Reverso de Facturas de Venta Fiscales</Data>
+        <Data AD_Column_ID="97375" Column="Updated">2026-04-13 11:42:07.376</Data>
+        <Data AD_Column_ID="97376" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="97377" Column="UUID">1a603085-86c4-4947-8dce-4eb1b5bf0c7c</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
