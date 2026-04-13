@@ -81,7 +81,7 @@ public class FiscalSalesInvoice implements ModelValidator {
 						&& MInvoice.DOCSTATUS_Completed.equals(invoice.getDocStatus())
 						&& documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsFiscalDocument)) {
 
-					throw new AdempiereException("Cannot void or reverse a completed fiscal sales document");
+					throw new AdempiereException("@ActionNotAllowed@ - @IsFiscalDocument@ @Completed@: " + invoice.getDocumentNo());
 				}
 			}
 		}
