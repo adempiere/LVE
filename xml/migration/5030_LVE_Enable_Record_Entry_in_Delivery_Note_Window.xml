@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="LVE_Enable record entry in the Delivery Note" ReleaseNo="3.9.4" SeqNo="81001370">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="106" Action="U" Record_ID="55264" Table="AD_Tab">
+        <Data AD_Column_ID="13994" Column="IsInsertRecord" oldValue="false">true</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
