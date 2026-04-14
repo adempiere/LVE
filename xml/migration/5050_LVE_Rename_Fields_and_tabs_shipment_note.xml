@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="LVE" Name="LVE_Rename_Fields_antabs_shipment_note" ReleaseNo="" SeqNo="81001390">
+    <Step SeqNo="10" StepType="AD">
+      <PO AD_Table_ID="132" Action="U" Record_ID="0" Table="AD_Window_Trl">
+        <Data AD_Column_ID="307" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="306" Column="AD_Window_ID" oldValue="53822">53822</Data>
+        <Data AD_Column_ID="308" Column="Description" oldValue="Orden De Entrega">Nota de Entrega</Data>
+        <Data AD_Column_ID="309" Column="Help" oldValue="Orden De Entrega">Nota de Entrega</Data>
+        <Data AD_Column_ID="310" Column="Name" oldValue="Orden De Entrega">Nota de Entrega</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="132" Action="U" Record_ID="0" Table="AD_Window_Trl">
+        <Data AD_Column_ID="307" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="306" Column="AD_Window_ID" oldValue="53822">53822</Data>
+        <Data AD_Column_ID="308" Column="Description" oldValue="Nota de Entrega">Orden De Entrega</Data>
+        <Data AD_Column_ID="310" Column="Name" oldValue="Nota de Entrega">Orden De Entrega</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="123" Action="U" Record_ID="0" Table="AD_Tab_Trl">
+        <Data AD_Column_ID="265" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="264" Column="AD_Tab_ID" oldValue="55264">55264</Data>
+        <Data AD_Column_ID="267" Column="Description" oldValue="Nota de Entrega">Orden De Entrega</Data>
+        <Data AD_Column_ID="268" Column="Help" oldValue="La pestaña del encabezamiento de la Nota de Entrega define los parámetros de una Nota de Entrega.">La pestaña del encabezamiento de la Orden de Entrega define los parámetros de una Orden de Entrega.</Data>
+        <Data AD_Column_ID="266" Column="Name" oldValue="Nota de Entrega">Orden De Entrega</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="123" Action="U" Record_ID="0" Table="AD_Tab_Trl">
+        <Data AD_Column_ID="265" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="264" Column="AD_Tab_ID" oldValue="55265">55265</Data>
+        <Data AD_Column_ID="267" Column="Description" oldValue="Linea de Nota de Entrega">Linea de Orden de Entrega</Data>
+        <Data AD_Column_ID="268" Column="Help" oldValue="Linea de Nota de Entrega">Linea de Orden de Entrega</Data>
+        <Data AD_Column_ID="266" Column="Name" oldValue="Linea de Nota de Entrega">Linea de Orden de Entrega</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="123" Action="U" Record_ID="0" Table="AD_Tab_Trl">
+        <Data AD_Column_ID="265" Column="AD_Language" oldValue="es_VE">es_VE</Data>
+        <Data AD_Column_ID="264" Column="AD_Tab_ID" oldValue="55266">55266</Data>
+        <Data AD_Column_ID="267" Column="Description" oldValue="Impuestos de Nota de Entrega">Impuestos de Orden de Entrega</Data>
+        <Data AD_Column_ID="268" Column="Help" oldValue="Impuestos de Nota de Entrega">Impuestos de Orden de Entrega</Data>
+        <Data AD_Column_ID="266" Column="Name" oldValue="Impuestos de Nota de Entrega">Impuestos de Orden de Entrega</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
