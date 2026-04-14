@@ -22,25 +22,31 @@ import org.compiere.model.MTable;
 import org.compiere.model.PO;
 import org.erpya.lve.util.LVEUtil;
 
-/** Generated Process for (Print Fiscal Document)
- *  @author ADempiere (generated) 
- *  @version Release 3.9.4
+/**
+ * Generated Process for (Print Fiscal Document)
+ * 
+ * @author ADempiere (generated)
+ * @version Release 3.9.4
  */
-public class PrintFiscalDocument extends PrintFiscalDocumentAbstract
-{
+public class PrintFiscalDocument extends PrintFiscalDocumentAbstract {
 	@Override
-	protected void prepare()
-	{
+	protected void prepare() {
 		super.prepare();
 	}
 
 	@Override
-	protected String doIt() throws Exception
-	{
+	protected String doIt() throws Exception {
 		if (getRecord_ID() > 0) {
 			MTable table = MTable.get(getCtx(), getTable_ID());
 			PO document = table.getPO(getRecord_ID(), get_TrxName());
 			LVEUtil.printDocument(document);
+
+			if (document.get_ColumnIndex("Processed") > 0 && document.get_ValueAsBoolean("Processed")) {
+				if (document.get_ColumnIndex("IsPrinted") > 0 && !document.get_ValueAsBoolean("IsPrinted")) {
+					document.set_ValueOfColumn("IsPrinted", true);
+					document.saveEx();
+				}
+			}
 		}
 		return "";
 	}
