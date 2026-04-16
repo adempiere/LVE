@@ -81,7 +81,7 @@ public class FiscalSalesInvoice implements ModelValidator {
 						&& MInvoice.DOCSTATUS_Completed.equals(invoice.getDocStatus())
 						&& documentType.get_ValueAsBoolean(LVEUtil.COLUMNNAME_IsFiscalDocument)) {
 
-					throw new AdempiereException("@ActionNotAllowed@ - @IsFiscalDocument@ @Completed@: " + invoice.getDocumentNo());
+					throw new AdempiereException("@ActionNotAllowedHere@ - @IsFiscalDocument@ @completed@: " + invoice.getDocumentNo());
 				}
 			}
 		}
