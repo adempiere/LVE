@@ -407,12 +407,14 @@ class WHConceptSetting{
 		if(currencyId <= 0) {
 			currencyId = MClient.get(invoice.getCtx()).getC_Currency_ID();
 		}
-		currencyRate = MConversionRate.getRate(invoice.getC_Currency_ID(), 
+		currencyRate = Optional.ofNullable(
+				MConversionRate.getRate(invoice.getC_Currency_ID(), 
 												currencyId, 
 												invoice.getDateAcct(), 
 												invoice.getC_ConversionType_ID(), 
 												invoice.getAD_Client_ID(), 
-												invoice.getAD_Org_ID());
+												invoice.getAD_Org_ID())
+			).orElse(Env.ONE);
 		setAmtBase(amtBase);
 	}
 	
