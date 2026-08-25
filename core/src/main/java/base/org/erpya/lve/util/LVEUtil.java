@@ -231,6 +231,9 @@ public class LVEUtil {
 	 */
 	public static String getValidTaxId(Properties context, int clientId, int organizationId, String value) {
 		String taxId = processBusinessPartnerValue(context, clientId, organizationId, value);
+		if (Util.isEmpty(taxId)) {
+			return taxId;
+		}
 		String taxIdOnlyNumbers = taxId.replaceAll("\\D+","");
 		taxIdOnlyNumbers = String.format("%1$" + 9 + "s", taxIdOnlyNumbers).replace(" ", "0");
 		return taxId.substring(0, 1) + taxIdOnlyNumbers;

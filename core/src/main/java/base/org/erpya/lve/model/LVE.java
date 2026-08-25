@@ -41,6 +41,7 @@ import org.compiere.model.MMovement;
 import org.compiere.model.MOrder;
 import org.compiere.model.MOrderLine;
 import org.compiere.model.MPayment;
+import org.compiere.model.MSysConfig;
 import org.compiere.model.MTax;
 import org.compiere.model.ModelValidationEngine;
 import org.compiere.model.ModelValidator;
@@ -467,7 +468,8 @@ public class LVE implements ModelValidator {
 					if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_Value)) {
 						String value = LVEUtil.processBusinessPartnerValue(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getValue());
 						String taxId = LVEUtil.getValidTaxId(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getTaxID());
-						if(value.charAt(0) != taxId.charAt(0)) {
+						if(MSysConfig.getBooleanValue(LVEUtil.ENABLE_CODE_TYPE_VALIDATION, false, businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID()) 
+								&& !Util.isEmpty(value) && !Util.isEmpty(taxId) && value.charAt(0) != taxId.charAt(0)) {
 							throw new AdempiereException("@" + LVEUtil.MESSAGE_LVE_ValueTaxIdMismatch + "@");
 						}
 						businessPartner.setValue(value);
@@ -478,7 +480,8 @@ public class LVE implements ModelValidator {
 					} else if(businessPartner.is_ValueChanged(I_C_BPartner.COLUMNNAME_TaxID)) {
 						String value = LVEUtil.processBusinessPartnerValue(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getValue());
 						String taxId = LVEUtil.getValidTaxId(businessPartner.getCtx(), businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID(), businessPartner.getTaxID());
-						if(value.charAt(0) != taxId.charAt(0)) {
+						if(MSysConfig.getBooleanValue(LVEUtil.ENABLE_CODE_TYPE_VALIDATION, false, businessPartner.getAD_Client_ID(), businessPartner.getAD_Org_ID()) 
+								&& !Util.isEmpty(value) && !Util.isEmpty(taxId) && value.charAt(0) != taxId.charAt(0)) {
 							throw new AdempiereException("@" + LVEUtil.MESSAGE_LVE_ValueTaxIdMismatch + "@");
 						}
 						businessPartner.setTaxID(taxId);
