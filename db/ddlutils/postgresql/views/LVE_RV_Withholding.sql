@@ -48,7 +48,8 @@ SELECT
 	ROUND(w.TaxLineTotal * w.CurrencyRate,w.PricePrecision) TaxLineTotal,
 	w.DateDoc,
 	w.Parent_Org_ID,
-	w.Multiplier
+	w.Multiplier,
+	w.C_BPartner_ID
 FROM (
 	SELECT 
 		whDoc.AD_Client_ID,
@@ -103,7 +104,8 @@ FROM (
 		whDoc.DateAcct DateDoc,
 		o.Parent_Org_ID,
 		CASE WHEN dtOrigDoc.DocBaseType IN ('APC', 'ARC') THEN -1
-			 ELSE 1 END AS Multiplier
+			 ELSE 1 END AS Multiplier,
+		whDoc.C_BPartner_ID
 	FROM C_Invoice whDoc
 	INNER JOIN C_InvoiceLine whDocLine ON (whDoc.C_Invoice_ID = whDocLine.C_Invoice_ID)
 	INNER JOIN C_BPartner bp ON (whDoc.C_BPartner_ID = bp.C_BPartner_ID)
@@ -188,7 +190,8 @@ w.AD_Client_ID,
 	ROUND(w.TaxLineTotal * w.CurrencyRate,w.PricePrecision) TaxLineTotal,
 	w.DateAcct DateDoc,
 	w.Parent_Org_ID,
-	1 AS Multiplier
+	1 AS Multiplier,
+	w.C_BPartner_ID
 FROM (
 	SELECT pr.AD_Client_ID,
 		pr.AD_Org_ID,
@@ -237,7 +240,8 @@ FROM (
 		cu.StdPrecision AS PricePrecision,
 		0::NUMERIC(10, 0) AS TaxLineTotal,
 		pr.DateAcct DateDoc,
-		org.Parent_Org_ID
+		org.Parent_Org_ID,
+		bp.C_BPartner_ID
 	FROM HR_Process pr
 	INNER JOIN C_Currency cu ON(cu.C_Currency_ID = pr.C_Currency_ID)
 	INNER JOIN HR_Movement m ON(m.HR_Process_ID = pr.HR_Process_ID)
@@ -249,6 +253,6 @@ FROM (
 	INNER JOIN AD_OrgInfo o ON(o.AD_Org_ID = pr.AD_Org_ID)
 	WHERE wt.WH_Type_ID IS NOT NULL
 	AND pr.DocStatus IN('CO', 'CL')
-	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, pr.DocumentNo, pr.DateAcct, pr.Name, prl.PrintName, bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.C_ConversionType_ID, pr.C_Currency_ID, cu.StdPrecision, org.Parent_Org_ID
+	GROUP BY pr.AD_Client_ID, pr.AD_Org_ID, pr.DocumentNo, pr.DateAcct, pr.Name, prl.PrintName, bp.PersonType, bp.TaxID, o.TaxID, wt.WH_Type_ID, pr.C_ConversionType_ID, pr.C_Currency_ID, cu.StdPrecision, org.Parent_Org_ID, bp.C_BPartner_ID
 	HAVING SUM(CASE WHEN c.Type <> 'R' THEN m.Amount ELSE 0 END) > 0
 ) AS w;
